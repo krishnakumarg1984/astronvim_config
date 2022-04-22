@@ -47,7 +47,18 @@ local config = {
   plugins = {
     -- Add plugins, the packer syntax without the "use"
     init = {
-      -- { "andweeb/presence.nvim" },
+      { "tyru/capture.vim", cmd = { "Capture" } },
+      { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
+      { "nkakouros-original/numbers.nvim" },
+      { "tpope/vim-unimpaired", keys = { "[", "]" } },
+      { "lervag/vimtex", ft = "tex" },
+      { "svban/YankAssassin.vim", event = { "CursorHold" } },
+      { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
+      { "p00f/clangd_extensions.nvim", ft = { "c", "cpp", "cuda" } },
+      { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
+      { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
+      -- { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
+      -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
