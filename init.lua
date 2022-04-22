@@ -30,10 +30,10 @@ local config = {
     comment = true,
     symbols_outline = true,
     indent_blankline = true,
-    dashboard = true,
+    dashboard = false,
     which_key = true,
     neoscroll = true,
-    ts_rainbow = true,
+    ts_rainbow = false,
     ts_autotag = true,
   },
 
@@ -123,7 +123,7 @@ local config = {
 
   -- Diagnostics configuration (for vim.diagnostics.config({}))
   diagnostics = {
-    virtual_text = true,
+    virtual_text = false,
     underline = true,
   },
 
