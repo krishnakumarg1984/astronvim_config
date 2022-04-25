@@ -77,6 +77,8 @@ local config = {
         config = function()
           require("numbers").setup({
             excluded_filetypes = {
+              'TelescopePrompt',
+              'TelescopeResults',
               'nerdtree',
               'unite',
             }
@@ -292,15 +294,8 @@ local config = {
     let g:did_load_ftplugin         = 1
     let g:skip_loading_mswin        = 1
 
-    let g:loaded_2html_plugin       = 1
-
-    " I manage plugins myself with Git
-    let g:loaded_getscript          = 1
-    let g:loaded_getscriptPlugin    = 1
-
     " I prefer filtering text with Unix tools
     let g:loaded_logiPat            = 1
-    let g:loaded_logipat            = 1
 
     " let g:loaded_man                = 1
     " let g:loaded_matchit            = 1
@@ -311,17 +306,7 @@ local config = {
 
     let g:loaded_shada_plugin       = 1
     let g:loaded_spellfile_plugin   = 1
-	  let g:loaded_remote_plugins     = 1
-    let g:loaded_tutor_mode_plugin  = 1
-    let g:loaded_vimball            = 1
-    let g:loaded_vimballPlugin      = 1
-
-    " Vim is the wrong tool for reading archives or compressed text
-    let g:loaded_gzip               = 1
-	  let g:loaded_tar                = 1
-    let g:loaded_tarPlugin          = 1
-    let g:loaded_zip                = 1
-    let g:loaded_zipPlugin          = 1
+    " let g:loaded_tutor_mode_plugin  = 1
 
     let g:loaded_netrw              = 1
     let g:loaded_netrwFileHandlers  = 1
@@ -430,7 +415,9 @@ local config = {
     " nnoremaps (((
 
     noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+    noremap <silent> <expr> <Down> (v:count == 0 ? 'gj' : 'j')
     noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+    noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 
     " )))
 
@@ -617,12 +604,6 @@ local config = {
 
     -- )))
 
-    -- cursorline settings (((
-
-    set.cursorlineopt = "number"
-
-    -- )))
-
     -- Scroll-related settings (scrolljump, sidescroll) (((
 
     set.scrolloff = 2 -- Minimal number of screen lines to keep above and below the cursor
@@ -651,7 +632,9 @@ local config = {
 
     set.clipboard = ""
     set.confirm = true -- Give me a prompt instead of just rejecting risky :write, :saveas
+    -- set.cursorlineopt = "number"
     set.guifont = "monospace:h17" -- the font used in graphical neovim applications
+    set.inccommand = "split"
     set.iskeyword:append { "-" }
     set.lazyredraw = true -- Don't redraw the screen during batch execution
     set.list = true
@@ -835,10 +818,121 @@ local config = {
 
     -- keybindings (lua-based) (((
 
-    local map = vim.keymap.set
+    -- keymapset("n", "<C-s>", ":w!<CR>")
 
-    -- map("n", "<C-s>", ":w!<CR>")
+    -- Declare local variables (options and shortened names) (((
 
+    local opts_noremapsilent = { noremap = true, silent = true }
+    local opts_remapsilent = { noremap = false, silent = true }
+    local term_opts = { noremap = true, silent = true }
+    local keymapset = vim.keymap.set
+
+    -- )))
+
+    -- Explanatory text on modes (((
+
+    --   visual_block_mode = "x",
+    --   terminal_mode = "t",
+    --   command_mode = "c",
+
+    -- )))
+
+    -- Disable some mappings (((
+
+    keymapset("n", "Q", "<Nop>", opts_noremapsilent) -- disables ex-mode
+    keymapset({ "n", "i" }, "<f1>", "<Nop>", opts_noremapsilent)
+    keymapset({ "n", "x" }, "s", "<Nop>", opts_remapsilent) -- Disable 's' as recommended by sandwich.vim help file
+
+    -- )))
+
+    keymapset({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual & to preserve substitution flags 
+
+    -- Norsetmal mode keymaps -- (((
+
+    -- keymapset("n", "<leader>e", ":Lexplore 20<cr>", opts_noremapsilent)
+    keymapset("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
+    keymapset("n", "J", "mzJ`zmz", opts_noremapsilent)
+    keymapset("n", "'", "`", opts_noremapsilent)
+    -- keymapset("n", "Y", "y$", opts_noremapsilent) -- default since nvim 0.6
+
+    -- Keymaps for navigating folds (((
+
+    -- keymapset("n", "zf", "zMzvzz", opts_noremapsilent)
+    -- keymapset("n", "zj", "zcjzOzz", opts_noremapsilent)
+    -- keymapset("n", "zk", "zckzOzz", opts_noremapsilent)
+    keymapset("n", "<Space>", "za", opts_noremapsilent)
+
+    -- )))
+
+    keymapset("n", "<C-]>", "g<C-]>", opts_noremapsilent) -- show options if tag has multiple matches
+
+    -- Resize with smart-splits and meta-key mapping (((
+
+    -- keymapset('n', '<A-h>', require('smart-splits').resize_left)
+    -- keymapset('n', '<A-j>', require('smart-splits').resize_down)
+    -- keymapset('n', '<A-k>', require('smart-splits').resize_up)
+    -- keymapset('n', '<A-l>', require('smart-splits').resize_right)
+    -- keymapset("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", { desc = "Move text up" })
+    -- keymapset("n", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", { desc = "Move text down" })
+
+
+    -- )))
+
+    vim.keymap.del("n", "}")
+    vim.keymap.del("n", "{")
+
+    -- )))
+
+    -- Insert mode keymaps -- (((
+
+    keymapset("i", "<c-c>", "<ESC>", opts_noremapsilent) -- CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+
+    -- )))
+
+    -- Visual -- (((
+
+    -- Stay in indent mode in visual mode (((
+
+    keymapset("v", "<", "<gv", opts_noremapsilent)
+    keymapset("v", ">", ">gv", opts_noremapsilent)
+
+    -- )))
+
+    keymapset("v", "y", "myy`ymy", opts_noremapsilent)
+    keymapset("v", "Y", "myY`ymy", opts_noremapsilent)
+
+    -- )))
+
+    -- Visual Block -- (((
+
+    -- Stay in indent mode in visual-block mode (((
+    keymapset("x", "<", "<gv", opts_noremapsilent)
+    keymapset("x", ">", ">gv", opts_noremapsilent)
+    -- )))
+
+    -- )))
+
+    -- Command -- (((
+
+    keymapset("c", "<c-n>", "<down>", opts_noremapsilent)
+    keymapset("c", "<c-p>", "<up>", opts_noremapsilent)
+
+    -- )))
+
+    -- Terminal -- (((
+    -- Better terminal navigation
+
+    keymapset("t", "<Esc>", "<C-\\><C-n>", term_opts)
+    -- keymapset("t", "<A-h>", "<C-\\><C-N><C-w>h", term_opts)
+    -- keymapset("t", "<A-j>", "<C-\\><C-N><C-w>j", term_opts)
+    -- keymapset("t", "<A-k>", "<C-\\><C-N><C-w>k", term_opts)
+    -- keymapset("t", "<A-l>", "<C-\\><C-N><C-w>l", term_opts)
+
+    -- )))
+
+    -- https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
+    -- nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
+    -- vim.cmd[[nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>]]
     -- )))
 
     end,
