@@ -847,7 +847,7 @@ local config = {
 
     keymapset({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual & to preserve substitution flags 
 
-    -- Norsetmal mode keymaps -- (((
+    -- Normal mode keymaps -- (((
 
     -- keymapset("n", "<leader>e", ":Lexplore 20<cr>", opts_noremapsilent)
     keymapset("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
@@ -868,18 +868,24 @@ local config = {
 
     -- Resize with smart-splits and meta-key mapping (((
 
-    -- keymapset('n', '<A-h>', require('smart-splits').resize_left)
-    -- keymapset('n', '<A-j>', require('smart-splits').resize_down)
-    -- keymapset('n', '<A-k>', require('smart-splits').resize_up)
-    -- keymapset('n', '<A-l>', require('smart-splits').resize_right)
-    -- keymapset("n", "<A-k>", "<Esc><cmd>m .-2<CR>==gi", { desc = "Move text up" })
-    -- keymapset("n", "<A-j>", "<Esc><cmd>m .+1<CR>==gi", { desc = "Move text down" })
-
+    keymapset('n', '<A-h>', require('smart-splits').resize_left)
+    keymapset('n', '<A-j>', require('smart-splits').resize_down)
+    keymapset('n', '<A-k>', require('smart-splits').resize_up)
+    keymapset('n', '<A-l>', require('smart-splits').resize_right)
 
     -- )))
 
     vim.keymap.del("n", "}")
     vim.keymap.del("n", "{")
+    vim.keymap.del("n", "<C-s>")
+    vim.keymap.del("n", "<C-q>")
+    vim.keymap.del("n", "<leader>w")
+    -- vim.keymap.del("n", "<leader>q")
+    -- vim.keymap.del("n", "<leader>h")
+    -- vim.keymap.del("x", "J")
+    -- vim.keymap.del("x", "K")
+    -- vim.keymap.del("x", "<A-j>")
+    -- vim.keymap.del("x", "<A-k>")
 
     -- )))
 
@@ -891,13 +897,6 @@ local config = {
 
     -- Visual -- (((
 
-    -- Stay in indent mode in visual mode (((
-
-    keymapset("v", "<", "<gv", opts_noremapsilent)
-    keymapset("v", ">", ">gv", opts_noremapsilent)
-
-    -- )))
-
     keymapset("v", "y", "myy`ymy", opts_noremapsilent)
     keymapset("v", "Y", "myY`ymy", opts_noremapsilent)
 
@@ -906,8 +905,10 @@ local config = {
     -- Visual Block -- (((
 
     -- Stay in indent mode in visual-block mode (((
+
     keymapset("x", "<", "<gv", opts_noremapsilent)
     keymapset("x", ">", ">gv", opts_noremapsilent)
+
     -- )))
 
     -- )))
@@ -919,20 +920,10 @@ local config = {
 
     -- )))
 
-    -- Terminal -- (((
-    -- Better terminal navigation
-
-    keymapset("t", "<Esc>", "<C-\\><C-n>", term_opts)
-    -- keymapset("t", "<A-h>", "<C-\\><C-N><C-w>h", term_opts)
-    -- keymapset("t", "<A-j>", "<C-\\><C-N><C-w>j", term_opts)
-    -- keymapset("t", "<A-k>", "<C-\\><C-N><C-w>k", term_opts)
-    -- keymapset("t", "<A-l>", "<C-\\><C-N><C-w>l", term_opts)
-
-    -- )))
-
     -- https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
     -- nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
     -- vim.cmd[[nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>]]
+
     -- )))
 
     end,
