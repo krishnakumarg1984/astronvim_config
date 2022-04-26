@@ -879,7 +879,7 @@ local config = {
     vim.keymap.del("n", "{")
     vim.keymap.del("n", "<C-s>")
     vim.keymap.del("n", "<C-q>")
-    vim.keymap.del("n", "<leader>w")
+    -- vim.keymap.del("n", "<leader>w")
     -- vim.keymap.del("n", "<leader>q")
     -- vim.keymap.del("n", "<leader>h")
     -- vim.keymap.del("x", "J")
