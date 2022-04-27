@@ -427,24 +427,6 @@ local config = {
     noremap <c-w>" <c-w>t<c-w>K     " change vertical to horizontal with -
     noremap <c-w>% <c-w>t<c-w>H    " change horizontal to vertical with %
 
-    " Remap 'gx' for opening the URL under cursor on macOS (((
-
-    " https://github.com/vim/vim/issues/4738
-    if has('macunix')
-      function! OpenURLUnderCursor()
-        let s:uri = expand('<cWORD>')
-        let s:uri = substitute(s:uri, '?', '\\?', '')
-        let s:uri = shellescape(s:uri, 1)
-        if s:uri != ''
-          silent exec "!open '".s:uri."'"
-          :redraw!
-        endif
-      endfunction
-      nnoremap gx :call OpenURLUnderCursor()<CR>
-    endif
-
-    " )))
-
     " Make jump-selections work better in visual block mode (((
 
     xnoremap <expr>  G   'G' . virtcol('.') . "\|"
