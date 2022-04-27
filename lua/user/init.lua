@@ -109,11 +109,36 @@ local config = {
 
   -- Modify which-key registration
   ["which-key"] = {
-    -- Add bindings to the normal mode <leader> mappings
-    register_n_leader = {
-      -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+    register_mappings = {
+      n = {
+        ["<leader>"] = {
+          g = {
+            g = {
+              function()
+                require("core.utils").toggle_term_cmd "gitui"
+              end,
+              "GitUI",
+            },
+          },
+          t = {
+            l = { nil },
+            g = {
+              function()
+                require("core.utils").toggle_term_cmd "gitui"
+              end,
+              "GitUI",
+            },
+          },
+        },
+      },
     },
   },
+  -- ["which-key"] = {
+  --   -- Add bindings to the normal mode <leader> mappings
+  --   register_n_leader = {
+  --     -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
+  --   },
+  -- },
 
   -- CMP Source Priorities
   -- modify here the priorities of default cmp sources
