@@ -357,8 +357,6 @@ local config = {
     let g:rust_fold               = 1
     let g:php_folding             = 1
 
-    let g:cursorhold_updatetime   = 100
-
     " )))
 
     " Diff-mode settings (((
@@ -415,11 +413,10 @@ local config = {
     set fileformats=unix,dos,mac " This gives the end-of-line (<EOL>) formats that will be tried when starting to edit a new buffer and when reading a file into an existing buffer:
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " Probably overridden by status-line plugins
 
-    " set colorcolumn=99999 " fixes indentline for now
-    set cpoptions-=a      " Stop the :read command from annoyingly setting the alternative buffer
+    set cpoptions-=a  " Stop the :read command from annoyingly setting the alternative buffer
     set isfname-={,}
     set isfname-==
-    " set path+=**          " Search current directory's whole tree
+    " set path+=**    " Search current directory's whole tree
 
     " )))
 
@@ -483,15 +480,6 @@ local config = {
 
     " Custom highlights (((
 
-    " highlight clear SignColumn     " SignColumn should match background,SignColumn is the column where |signs| are displayed
-    " highlight Comment cterm=italic gui=italic
-    " 
-    " highlight link HelpBar Normal
-    " highlight link HelpStar Normal
-    " 
-    " highlight OverLength ctermfg=0 ctermbg=3
-    " match OverLength /\%121v/
-
     match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Nobody wants to commit merge conflict markers, so let’s highlight these so we can’t miss them: https://vimways.org/2018/vim-and-git/
 
     " )))
@@ -520,14 +508,14 @@ local config = {
     local set = vim.opt
     -- NOTE: only my preferred settings that are not set by AstroNvim are set here
 
-    vim.g.python3_host_prog = 'python3'
+    vim.g.python3_host_prog = "python3"
     vim.g.ale_disable_lsp = 1
 
 
     -- Backup-related settings (((
 
     set.backupdir:remove { "." }
-    set.backupext = 'nvimbackup'
+    set.backupext = "nvimbackup"
 
     -- )))
 
@@ -562,14 +550,7 @@ local config = {
 
     -- Commented-out settings (((
 
-    -- set.conceallevel = 0,      -- so that `` is visible in markdown files
-    -- set.showmode = false,      -- we don't need to see things like -- INSERT -- anymore
-
-    -- set.Backup settings (((
     -- set.backup = false,       -- creates a backup file
-    -- set.writebackup = false,  -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-
-    -- )))
 
     -- )))
 
@@ -589,6 +570,8 @@ local config = {
 
     -- Basic indent settings (((
 
+    set.smartindent = false
+    set.autoindent = true
     set.copyindent = true -- Copy the previous indentation on autoindenting
     set.preserveindent = true
     -- set.smartindent = true  -- make indenting smarter again
@@ -605,11 +588,6 @@ local config = {
 
     -- )))
 
-    -- swapfile, updatecount and updatetime (((
-
-    set.updatecount = 100 -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
-
-    -- )))
 
     -- Scroll-related settings (scrolljump, sidescroll) (((
 
@@ -641,14 +619,17 @@ local config = {
     set.confirm = true -- Give me a prompt instead of just rejecting risky :write, :saveas
     -- set.cursorlineopt = "number"
     set.guifont = "monospace:h17" -- the font used in graphical neovim applications
+    set.history = 10000
     set.inccommand = "split"
     set.iskeyword:append { "-" }
     set.lazyredraw = true -- Don't redraw the screen during batch execution
     set.list = true
     -- set.numberwidth = 4 -- set number column width
     set.pumwidth = 35
+    set.spelllang = "en_gb"
     set.report = 0 -- Threshold for reporting number of lines changed.
     -- set.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds). set to 300 by AstroNvim
+    set.updatecount = 100 -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
     set.winaltkeys = "no"
     set.wildignorecase = true -- If supported, make wildmenu completions case-insensitive
 
@@ -825,34 +806,24 @@ local config = {
 
     -- keybindings (lua-based) (((
 
-    -- keymapset("n", "<C-s>", ":w!<CR>")
-
-    -- Declare local variables (options and shortened names) (((
+    -- Declare local variables for keymaps (options and shortened names) (((
 
     local opts_noremapsilent = { noremap = true, silent = true }
+    local opts_noremapverbose = { noremap = true, silent = false }
     local opts_remapsilent = { noremap = false, silent = true }
     local term_opts = { noremap = true, silent = true }
     local keymapset = vim.keymap.set
 
     -- )))
 
-    -- Explanatory text on modes (((
+    -- Disable some unnecessary/confusing default mappings (((
 
-    --   visual_block_mode = "x",
-    --   terminal_mode = "t",
-    --   command_mode = "c",
-
-    -- )))
-
-    -- Disable some mappings (((
-
-    keymapset("n", "Q", "<Nop>", opts_noremapsilent) -- disables ex-mode
     keymapset({ "n", "i" }, "<f1>", "<Nop>", opts_noremapsilent)
     keymapset({ "n", "x" }, "s", "<Nop>", opts_remapsilent) -- Disable 's' as recommended by sandwich.vim help file
 
     -- )))
 
-    keymapset({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual & to preserve substitution flags 
+    keymapset({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags 
 
     -- Normal mode keymaps -- (((
 
@@ -860,7 +831,6 @@ local config = {
     keymapset("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
     keymapset("n", "J", "mzJ`zmz", opts_noremapsilent)
     keymapset("n", "'", "`", opts_noremapsilent)
-    -- keymapset("n", "Y", "y$", opts_noremapsilent) -- default since nvim 0.6
 
     -- Keymaps for navigating folds (((
 
@@ -884,32 +854,33 @@ local config = {
 
     vim.keymap.del("n", "}")
     vim.keymap.del("n", "{")
-    vim.keymap.del("n", "<C-s>")
     vim.keymap.del("n", "<C-q>")
+    vim.keymap.del("n", "<C-s>")
     -- vim.keymap.del("n", "<leader>w")
     -- vim.keymap.del("n", "<leader>q")
     -- vim.keymap.del("n", "<leader>h")
-    -- vim.keymap.del("x", "J")
-    -- vim.keymap.del("x", "K")
-    -- vim.keymap.del("x", "<A-j>")
-    -- vim.keymap.del("x", "<A-k>")
+    vim.keymap.del("x", "J")
+    vim.keymap.del("x", "K")
+    vim.keymap.del("x", "<A-j>")
+    vim.keymap.del("x", "<A-k>")
+
 
     -- )))
 
     -- Insert mode keymaps -- (((
 
-    keymapset("i", "<c-c>", "<ESC>", opts_noremapsilent) -- CTRL-C doesn't trigger the InsertLeave autocmd . map to <ESC> instead.
+    keymapset("i", "<c-c>", "<ESC>", opts_noremapsilent) -- CTRL-C doesn't trigger the InsertLeave autocmd. Map to <ESC> instead.
 
     -- )))
 
-    -- Visual -- (((
+    -- Visual mode keymaps -- (((
 
     keymapset("v", "y", "myy`ymy", opts_noremapsilent)
     keymapset("v", "Y", "myY`ymy", opts_noremapsilent)
 
     -- )))
 
-    -- Visual Block -- (((
+    -- Visual block mode keymaps  -- (((
 
     -- Stay in indent mode in visual-block mode (((
 
@@ -920,10 +891,10 @@ local config = {
 
     -- )))
 
-    -- Command -- (((
+    -- Command-line mode keymaps -- (((
 
-    keymapset("c", "<c-n>", "<down>", opts_noremapsilent)
-    keymapset("c", "<c-p>", "<up>", opts_noremapsilent)
+    keymapset("c", "<c-n>", "<down>", opts_noremapverbose)
+    keymapset("c", "<c-p>", "<up>", opts_noremapverbose)
 
     -- )))
 
