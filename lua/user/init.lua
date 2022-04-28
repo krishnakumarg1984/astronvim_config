@@ -254,9 +254,13 @@ local config = {
 
   -- Modify which-key registration
   ["which-key"] = {
+    -- Add bindings
     register_mappings = {
+      -- first key is the mode, n == normal mode
       n = {
+        -- second key is the prefix, <leader> prefixes
         ["<leader>"] = {
+          -- which-key registration table for normal mode, leader prefix
           l = {
             w = {
               "<cmd>Telescope diagnostics<cr>",
@@ -364,7 +368,7 @@ local config = {
 
     -- override the lsp installer server-registration function
     -- server_registration = function(server, opts)
-    --   server:setup(opts)
+    --   require("lspconfig")[server.name].setup(opts)
     -- end
 
     -- Add overrides for LSP server settings, the keys are the name of the server
@@ -1070,6 +1074,7 @@ local config = {
     keymapset("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
     keymapset("n", "J", "mzJ`zmz", opts_noremapsilent)
     keymapset("n", "'", "`", opts_noremapsilent)
+    keymapset("n", "<C-]>", "g<C-]>", opts_noremapsilent) -- show options if tag has multiple matches
 
     -- Keymaps for navigating folds (((
 
@@ -1079,8 +1084,6 @@ local config = {
     keymapset("n", "<Space>", "za", opts_noremapsilent)
 
     -- )))
-
-    keymapset("n", "<C-]>", "g<C-]>", opts_noremapsilent) -- show options if tag has multiple matches
 
     -- Resize with smart-splits and meta-key mapping (((
 
