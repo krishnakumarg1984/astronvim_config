@@ -93,6 +93,16 @@ local config = {
         end,
       },
       {
+        "ethanholz/nvim-lastplace",
+        config = function()
+          require("nvim-lastplace").setup( {
+            lastplace_ignore_buftype = {"quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo"},
+            lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit","startify", "dashboard", "packer", "neogitstatus", "NvimTree", "neo-tree", "Trouble"},
+            lastplace_open_folds = true
+          } )
+        end,
+      },
+      {
         "nvim-treesitter/nvim-treesitter-refactor",
         after = "nvim-treesitter",
       },
@@ -867,6 +877,9 @@ local config = {
 
     augroup _general_settings
       autocmd!
+
+      " ft help autocommands (((
+
       autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
 
       " Press Enter to follow a help tag
@@ -875,11 +888,12 @@ local config = {
       " Press Backspace to go back to the location of the previous tag
       autocmd FileType help nnoremap <buffer><BS> <c-T>
 
-      autocmd FileType help setlocal number
-      autocmd FileType help setlocal relativenumber
-
       " https://stackoverflow.com/questions/1832085/how-to-jump-to-the-next-tag-in-vim-help-file
       autocmd FileType help nnoremap <buffer> <leader>Tn /\|.\zs\S\{-}\|/<cr>zz
+
+      autocmd FileType help setlocal number relativenumber
+
+      " )))
 
       " autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 400})
       autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup='Search', timeout=650 }
@@ -887,27 +901,12 @@ local config = {
       " autocmd BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
       " autocmd BufWinEnter *.txt set iskeyword+=- iskeyword+=: iskeyword+=.
 
-      autocmd BufWinEnter * :set formatoptions-=cro
+      autocmd BufWinEnter * set formatoptions-=cro
       autocmd FileType qf set nobuflisted
 
-      autocmd FileType mail,rst,text,yaml,toml,tex,txt setlocal spell
+      autocmd FileType asciidoc,changelog,context,gitcommit,mail,rtf,markdown,lsp_markdown,rst,tex,texinfo,text,txt setlocal spell
+      autocmd FileType gitcommit setlocal wrap textwidth=80
 
-    augroup end
-
-    " )))
-
-    " augroups for individual filetypes (((
-
-    augroup _git
-      autocmd!
-      autocmd FileType gitcommit setlocal wrap
-      autocmd FileType gitcommit setlocal spell
-    augroup end
-
-    augroup _markdown
-      autocmd!
-      autocmd FileType markdown setlocal wrap
-      autocmd FileType markdown setlocal spell
     augroup end
 
     " )))
@@ -916,18 +915,6 @@ local config = {
       autocmd!
       autocmd VimResized * tabdo wincmd =
     augroup end
-
-    " Autocommand to set commentstring for various buffer types (((
-
-    " augroup _setcommentstring
-    "   autocmd!
-    "   autocmd BufEnter,BufFilePost *.cpp,*.h setlocal commentstring=//\ %s
-
-    "   " https://github.com/tpope/vim-commentary/issues/85
-    "   autocmd FileType xdefaults setlocal commentstring=!\ %s
-    " augroup END
-
-    " )))
 
     " Autocommand to set ft to julia for files ending in .jl (((
 
@@ -962,14 +949,16 @@ local config = {
 
     " )))
 
-    " Autocommand for remembering cursor position (((
-
-    augroup vimrc-remember-cursor-position
-      autocmd!
-      autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
-    augroup END
-
-    " )))
+    " " Autocommand for remembering cursor position (((
+    "
+    " " :help restore-cursor
+    " augroup vimrc-remember-cursor-position
+    "   autocmd!
+    "   autocmd BufRead * autocmd FileType <buffer> ++once
+    "   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+    " augroup END
+    "
+    " " )))
 
     " Autocommand to stop insert when focus is lost (((
 
@@ -984,7 +973,6 @@ local config = {
 
     augroup LaTeXSettings
       autocmd!
-      " autocmd FileType tex setlocal scrollbind
       autocmd FileType tex setlocal foldcolumn=auto:7
       autocmd InsertEnter *.tex set conceallevel=0
       autocmd InsertLeave *.tex set conceallevel=2
@@ -996,7 +984,7 @@ local config = {
 
     -- )))
 
-    -- custom filetypes (lua-based) (((
+    -- adding custom filetypes (lua-based config from nvim 0.7+) (((
 
     -- vim.filetype.add {
     --   extension = {
