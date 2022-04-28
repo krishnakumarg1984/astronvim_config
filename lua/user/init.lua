@@ -92,8 +92,14 @@ local config = {
           require("hlslens").setup( { calm_down = true } )
         end,
       },
-      { "nvim-treesitter/nvim-treesitter-refactor" },
-      { "nvim-treesitter/nvim-treesitter-textobjects" },
+      {
+        "nvim-treesitter/nvim-treesitter-refactor",
+        after = "nvim-treesitter",
+      },
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+      },
     },
     -- All other entries override the setup() call for default plugins
     gitsigns = {
@@ -593,8 +599,6 @@ local config = {
 
     " )))
 
-    set virtualedit+=block " Allow movement beyond buffer text only in visual block mode
-
     " Settings for grepprg and grepformat (((
 
     if executable('rg')
@@ -606,13 +610,13 @@ local config = {
 
     " Other non-conditional settings/declarations (set xxxxxxx) (((
 
-    set fileformats=unix,dos,mac " This gives the end-of-line (<EOL>) formats that will be tried when starting to edit a new buffer and when reading a file into an existing buffer:
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " Probably overridden by status-line plugins
-
-    set cpoptions-=a  " Stop the :read command from annoyingly setting the alternative buffer
-    set isfname-={,}
-    set isfname-==
     " set path+=**    " Search current directory's whole tree
+    set cpoptions-=a  " Stop the :read command from annoyingly setting the alternative buffer
+    set fileformats=unix,dos,mac " This gives the end-of-line (<EOL>) formats that will be tried when starting to edit a new buffer and when reading a file into an existing buffer:
+    set isfname-==
+    set isfname-={,}
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " Probably overridden by status-line plugins
+    set virtualedit+=block " Allow movement beyond buffer text only in visual block mode
 
     " )))
 
@@ -692,11 +696,6 @@ local config = {
     set shortmess-=x  " Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions
 
     " )))
-
-    if executable('nvr')
-      let $VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
-      let $GIT_EDITOR = "nvr -cc split --remote-wait +'set bufhidden=wipe'"
-    endif
 
     set tags=~/.cache/tags
 
@@ -1028,6 +1027,32 @@ local config = {
 
     -- )))
 
+    -- Disable AstroNvim mappings that override important vim defaults (((
+
+    vim.keymap.set('n', "}", "}", { silent = true })
+    vim.keymap.del("n", "}")
+    vim.keymap.set('n', "{", "{", { silent = true })
+    vim.keymap.del("n", "{")
+    vim.keymap.set('n', "<C-q>", "<Nop>", { silent = true })
+    vim.keymap.del("n", "<C-q>")
+    vim.keymap.set('n', "<C-s>", "<Nop>", { silent = true })
+    vim.keymap.del("n", "<C-s>")
+    vim.keymap.set('n', "<leader>h", "<Nop>", { silent = true })
+    vim.keymap.set('n', "H", "H", { silent = true })
+    vim.keymap.del("n", "H")
+    vim.keymap.set('n', "L", "L", { silent = true })
+    vim.keymap.del("n", "L")
+    vim.keymap.set('x', "J", "J", { silent = true })
+    vim.keymap.del("x", "J")
+    vim.keymap.set('x', "K", "K", { silent = true })
+    vim.keymap.del("x", "K")
+    vim.keymap.set('x', "<A-j>", "<Nop>", { silent = true })
+    vim.keymap.del("x", "<A-j>")
+    vim.keymap.set('x', "<A-k>", "<Nop>", { silent = true })
+    vim.keymap.del("x", "<A-k>")
+
+    -- )))
+
     keymapset({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags
 
     -- Normal mode keymaps -- (((
@@ -1068,25 +1093,6 @@ local config = {
     end
 
     -- )))
-
-    vim.keymap.set('n', "}", "}", { silent = true })
-    vim.keymap.del("n", "}")
-    vim.keymap.set('n', "{", "{", { silent = true })
-    vim.keymap.del("n", "{")
-    vim.keymap.set('n', "<C-q>", "<Nop>", { silent = true })
-    vim.keymap.del("n", "<C-q>")
-    vim.keymap.set('n', "<C-s>", "<Nop>", { silent = true })
-    vim.keymap.del("n", "<C-s>")
-    vim.keymap.set('n', "<leader>h", "<Nop>", { silent = true })
-    vim.keymap.set('n', "J", "J", { silent = true })
-    vim.keymap.del("x", "J")
-    vim.keymap.set('n', "K", "K", { silent = true })
-    vim.keymap.del("x", "K")
-    vim.keymap.set('n', "<A-j>", "<Nop>", { silent = true })
-    vim.keymap.del("x", "<A-j>")
-    vim.keymap.set('n', "<A-k>", "<Nop>", { silent = true })
-    vim.keymap.del("x", "<A-k>")
-
 
     -- )))
 
