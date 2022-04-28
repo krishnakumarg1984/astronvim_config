@@ -427,8 +427,6 @@ local config = {
 
     -- options/settings (((
 
-    vim.g.mapleader = "\\"
-
     -- options (vimscript-based) (((
 
     vim.cmd([[
@@ -464,6 +462,7 @@ local config = {
     " )))
 
     " Custom 'Underline' command using user-defined function (((
+
     " https://vim.fandom.com/wiki/Underline_using_dashes_automatically
     function! s:Underline(chars) abort
       let chars = empty(a:chars) ? '-' : a:chars
@@ -472,6 +471,7 @@ local config = {
       put =strpart(uline, 0, nr_columns)
     endfunction
     command! -nargs=? Underline call s:Underline(<q-args>)
+
     " )))
 
     " Formatlistpat settings (((
@@ -510,9 +510,10 @@ local config = {
 
     let g:did_install_default_menus = 1
     let g:did_install_syntax_menu   = 1
-    let g:did_indent_on             = 1
+    " let g:did_indent_on             = 1    " raises an error: Vim(doautocmd):E216: No such group or event: filetypeindent FileType markdown
     let g:did_load_ftplugin         = 1
     let g:skip_loading_mswin        = 1
+    let g:loaded_remote_plugins     = 1
 
     " I prefer filtering text with Unix tools
     let g:loaded_logiPat            = 1
@@ -622,7 +623,7 @@ local config = {
     "     cnoremap <expr> <up>   pumvisible() ? "<C-p>" : "\<up>"
     "     cnoremap <expr> <down> pumvisible() ? "<C-n>" : "\<down>"
     " endif
-    " 
+    "
     " cnoremap <c-n> <down>
     " cnoremap <c-p> <up>
 
@@ -636,13 +637,18 @@ local config = {
     noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
     noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 
-    " )))
+    " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
+    " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
+    nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
+
 
     " replace the word under cursor
     nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
 
     noremap <c-w>" <c-w>t<c-w>K     " change vertical to horizontal with -
     noremap <c-w>% <c-w>t<c-w>H    " change horizontal to vertical with %
+
+    " )))
 
     " Make jump-selections work better in visual block mode (((
 
@@ -705,9 +711,10 @@ local config = {
     local set = vim.opt
     -- NOTE: only my preferred settings that are not set by AstroNvim are set here
 
+    vim.g.mapleader = "\\"
     vim.g.python3_host_prog = "python3"
-    vim.g.ale_disable_lsp = 1
-
+    -- vim.g.ale_disable_lsp = 1
+    vim.g.indent_blankline_show_first_indent_level = false
 
     -- Backup-related settings (((
 
@@ -785,7 +792,6 @@ local config = {
 
     -- )))
 
-
     -- Scroll-related settings (scrolljump, sidescroll) (((
 
     set.scrolloff = 2 -- Minimal number of screen lines to keep above and below the cursor
@@ -800,6 +806,7 @@ local config = {
     set.foldlevel = 2 -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
     set.foldlevelstart = 2
     set.foldcolumn = "auto:5"
+  -- set foldopen=all -- helps to avoid automatic closing of previously open folds when returning to a buffer
 
     -- )))
 
@@ -830,7 +837,6 @@ local config = {
     set.winaltkeys = "no"
     set.wildignorecase = true -- If supported, make wildmenu completions case-insensitive
     vim.wo.colorcolumn = ""
-    vim.g.indent_blankline_show_first_indent_level = false
 
     -- )))
 
@@ -849,7 +855,7 @@ local config = {
     })
 
     -- )))
-
+    --
     -- autocommands (vimscript-based) (((
 
     vim.cmd [[
@@ -858,7 +864,7 @@ local config = {
 
     augroup _general_settings
       autocmd!
-      autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR> 
+      autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
 
       " Press Enter to follow a help tag
       autocmd FileType help nnoremap <buffer><CR> <c-]>
@@ -905,7 +911,7 @@ local config = {
 
     augroup _auto_resize
       autocmd!
-      autocmd VimResized * tabdo wincmd = 
+      autocmd VimResized * tabdo wincmd =
     augroup end
 
     " Autocommand to set commentstring for various buffer types (((
@@ -986,7 +992,7 @@ local config = {
     ]]
 
     -- )))
-
+    --
     -- custom filetypes (lua-based) (((
 
     -- vim.filetype.add {
@@ -1002,7 +1008,7 @@ local config = {
     -- }
 
     -- )))
-
+    --
     -- keybindings (lua-based) (((
 
     -- Declare local variables for keymaps (options and shortened names) (((
@@ -1022,7 +1028,7 @@ local config = {
 
     -- )))
 
-    keymapset({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags 
+    keymapset({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags
 
     -- Normal mode keymaps -- (((
 
