@@ -92,10 +92,149 @@ local config = {
           require("hlslens").setup( { calm_down = true } )
         end,
       },
+      { "nvim-treesitter/nvim-treesitter-refactor" },
+      { "nvim-treesitter/nvim-treesitter-textobjects" },
     },
     -- All other entries override the setup() call for default plugins
+    gitsigns = {
+      signs = {
+        add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+        change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+        delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+        topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+        changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn", },
+      },
+      word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+    },
     treesitter = {
-      ensure_installed = { "lua" },
+      ensure_installed = {
+        "bash",
+        "bibtex",
+        "c",
+        "cmake",
+        -- "comment",
+        "cpp",
+        "cuda",
+        "dockerfile",
+        "dot",
+        "fortran",
+        "go",
+        "html",
+        "java",
+        -- "javascript",
+        "json",
+        "json5",
+        "jsonc",
+        "julia",
+        -- "latex",
+        "lua", -- problematic on remote servers?
+        "make",
+        "markdown",
+        "ninja",
+        "perl",
+        "python",
+        "r",
+        "regex",
+        -- "rst",
+        "ruby",
+        -- "rust",
+        "toml",
+        "verilog",
+        "vim",  -- problematic on remote servers?
+        "yaml",
+      },
+      highlight = {
+        use_languagetree = true,
+      },
+      context_commentstring = {
+        config = {
+          vim = '" %s',
+        },
+      },
+      indent = {
+        enable = true,
+      },
+      refactor = {
+        highlight_definitions = {
+          enable = true,
+          clear_on_cursor_move = true, -- Set to false if you have an `updatetime` of ~100.
+        },
+        -- highlight_current_scope = { enable = true },
+        smart_rename = {
+          enable = true,
+          keymaps = {
+            smart_rename = "grr",
+          },
+        },
+        navigation = {
+          enable = true,
+          keymaps = {
+            goto_definition = "gnd",
+            list_definitions = "gnD",
+            list_definitions_toc = "gO",
+            goto_next_usage = "<a-*>",
+            goto_previous_usage = "<a-#>",
+          },
+        },
+      },
+      textobjects = {
+        select = {
+          enable = true,
+
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
+
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
+          },
+        },
+        swap = {
+          enable = true,
+          swap_next = {
+            ["<leader>a"] = "@parameter.inner",
+          },
+          swap_previous = {
+            ["<leader>A"] = "@parameter.inner",
+          },
+        },
+        move = {
+          enable = true,
+          set_jumps = true, -- whether to set jumps in the jumplist
+          goto_next_start = {
+            ["]m"] = "@function.outer", -- "m" for method
+            ["]]"] = "@class.outer",
+          },
+          goto_next_end = {
+            ["]M"] = "@function.outer",
+            ["]["] = "@class.outer",
+          },
+          goto_previous_start = {
+            ["[m"] = "@function.outer",
+            ["[["] = "@class.outer",
+          },
+          goto_previous_end = {
+            ["[M"] = "@function.outer",
+            ["[]"] = "@class.outer",
+          },
+        },
+        lsp_interop = {
+          enable = true,
+          border = "none",
+          peek_definition_code = {
+            ["<leader>df"] = "@function.outer",
+            ["<leader>dF"] = "@class.outer",
+          },
+        },
+      },
+    },
+    whichkey = {
+      presets = {
+        operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      },
     },
     packer = {
       compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
@@ -107,33 +246,76 @@ local config = {
     vscode_snippet_paths = {},
   },
 
-  ["gitsigns"] = {
-    signs = {
-      add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-      change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-      delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-      topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-      changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn", },
-    },
-    word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
-  },
-
   -- Modify which-key registration
   ["which-key"] = {
     register_mappings = {
       n = {
         ["<leader>"] = {
+          l = {
+            w = {
+              "<cmd>Telescope diagnostics<cr>",
+              "Workspace Diagnostics",
+            },
+            j = {
+              "<cmd>lua vim.diagnostic.goto_next()<CR>",
+              "Next Diagnostic",
+            },
+            k = {
+              "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+              "Prev Diagnostic",
+            },
+            l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+            q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
+            y = {
+              "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+              "Workspace Symbols",
+            },
+          },
+          s = {
+            a = { "<cmd>Telescope autocommands<cr>", "Autocommands" },
+            -- b = { "nil", "Builtins" },
+            b = { "<cmd>Telescope builtin<cr>", "Builtins" },
+            B = { "<cmd>Telescope current_buffer_tags<cr>", "Tags in Current Buffer" },
+            C = { "<cmd>Telescope colorscheme<cr>", "Pick colorscheme" },
+            d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+            g = { "<cmd>Telescope grep_string<cr>", "Search String" },
+            H = { "<cmd>Telescope highlights<cr>", "Highlight Group" },
+            i = { "<cmd>Telescope symbols<cr>", "Icons (Unicode Emojis/Symbols)" },
+            j = { "<cmd>Telescope jumplist<cr>", "Jumplist" },
+            p = { "<cmd>Telescope projects<cr>", "Projects" },
+            q = { "<cmd>Telescope quickfix<cr>", "Quickfix" },
+            R = { "<cmd>Telescope resume<cr>", "Resume Last" },
+            s = { "<cmd>Telescope treesitter<cr>", "Outline Symbols (from treesitter)" },
+            t = { "<cmd>Telescope tags<cr>", "Tags in Project" },
+            T = { "<cmd>Telescope tagstack<cr>", "Tagstack" },
+            v = { "<cmd>Telescope vim_options<cr>", "Vim Options" },
+            y = { "<cmd>Telescope filetypes<cr>", "Choose filetype" },
+          },
+          w = { nil },
+          q = { nil },
+          h = { nil },
           g = {
-            g = {
+            B = {
+              "<cmd>Gitsigns stage_buffer<CR>",
+              "Stage Buffer",
+            },
+            C = { "<cmd>Telescope git_bcommits<cr>", "Checkout buffer commits" },
+            f = { "<cmd>Telescope git_files<cr>", "Repo files" },
+            g = { nil },
+            H = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+            o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+            s = { "<cmd>Telescope git_status<cr>", "Git Status" },
+            t = { "<cmd>Telescope git_stash<cr>", "Git Stash" },
+            U = {
               function()
                 require("core.utils").toggle_term_cmd "gitui"
               end,
               "GitUI",
             },
-            S = {
-              "<cmd>Gitsigns stage_buffer<CR>",
-              "Stage Buffer",
-            }
+            u = {
+              "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+              "Undo Stage Hunk",
+            },
           },
           t = {
             l = { nil },
@@ -149,13 +331,6 @@ local config = {
     },
   },
 
-  ["cmp"] = {
-      experimental = {
-        ghost_text = true,
-        native_menu = true,
-      },
-  },
-
   -- CMP Source Priorities
   -- modify here the priorities of default cmp sources
   -- higher value == higher priority
@@ -163,6 +338,10 @@ local config = {
   -- false == disabled
   -- true == 1000
   cmp = {
+    experimental = {
+      ghost_text = true,
+      native_menu = true,
+    },
     source_priority = {
       nvim_lsp = 1000,
       luasnip = 750,
@@ -514,6 +693,8 @@ local config = {
     endif
 
     set tags=~/.cache/tags
+
+    set foldexpr=nvim_treesitter#foldexpr()
 
     ]])
 
@@ -872,23 +1053,32 @@ local config = {
 
     -- Resize with smart-splits and meta-key mapping (((
 
-    keymapset('n', '<A-h>', require('smart-splits').resize_left)
-    keymapset('n', '<A-j>', require('smart-splits').resize_down)
-    keymapset('n', '<A-k>', require('smart-splits').resize_up)
-    keymapset('n', '<A-l>', require('smart-splits').resize_right)
+    local smart_splits_status_ok, smart_splits = pcall(require, "smart-splits")
+    if smart_splits_status_ok then
+      keymapset('n', '<A-h>', smart_splits.resize_left)
+      keymapset('n', '<A-j>', smart_splits.resize_down)
+      keymapset('n', '<A-k>', smart_splits.resize_up)
+      keymapset('n', '<A-l>', smart_splits.resize_right)
+    end
 
     -- )))
 
+    vim.keymap.set('n', "}", "}", { silent = true })
     vim.keymap.del("n", "}")
+    vim.keymap.set('n', "{", "{", { silent = true })
     vim.keymap.del("n", "{")
+    vim.keymap.set('n', "<C-q>", "<Nop>", { silent = true })
     vim.keymap.del("n", "<C-q>")
+    vim.keymap.set('n', "<C-s>", "<Nop>", { silent = true })
     vim.keymap.del("n", "<C-s>")
-    -- vim.keymap.del("n", "<leader>w")
-    -- vim.keymap.del("n", "<leader>q")
-    -- vim.keymap.del("n", "<leader>h")
+    vim.keymap.set('n', "<leader>h", "<Nop>", { silent = true })
+    vim.keymap.set('n', "J", "J", { silent = true })
     vim.keymap.del("x", "J")
+    vim.keymap.set('n', "K", "K", { silent = true })
     vim.keymap.del("x", "K")
+    vim.keymap.set('n', "<A-j>", "<Nop>", { silent = true })
     vim.keymap.del("x", "<A-j>")
+    vim.keymap.set('n', "<A-k>", "<Nop>", { silent = true })
     vim.keymap.del("x", "<A-k>")
 
 
