@@ -855,7 +855,7 @@ local config = {
     })
 
     -- )))
-    --
+
     -- autocommands (vimscript-based) (((
 
     vim.cmd [[
@@ -992,7 +992,7 @@ local config = {
     ]]
 
     -- )))
-    --
+
     -- custom filetypes (lua-based) (((
 
     -- vim.filetype.add {
@@ -1008,7 +1008,7 @@ local config = {
     -- }
 
     -- )))
-    --
+
     -- keybindings (lua-based) (((
 
     -- Declare local variables for keymaps (options and shortened names) (((
