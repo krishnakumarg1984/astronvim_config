@@ -107,6 +107,17 @@ local config = {
     vscode_snippet_paths = {},
   },
 
+  ["gitsigns"] = {
+    signs = {
+      add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+      change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+      delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+      topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+      changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn", },
+    },
+    word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+  },
+
   -- Modify which-key registration
   ["which-key"] = {
     register_mappings = {
@@ -119,6 +130,10 @@ local config = {
               end,
               "GitUI",
             },
+            S = {
+              "<cmd>Gitsigns stage_buffer<CR>",
+              "Stage Buffer",
+            }
           },
           t = {
             l = { nil },
@@ -133,12 +148,13 @@ local config = {
       },
     },
   },
-  -- ["which-key"] = {
-  --   -- Add bindings to the normal mode <leader> mappings
-  --   register_n_leader = {
-  --     -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
-  --   },
-  -- },
+
+  ["cmp"] = {
+      experimental = {
+        ghost_text = true,
+        native_menu = true,
+      },
+  },
 
   -- CMP Source Priorities
   -- modify here the priorities of default cmp sources
@@ -613,7 +629,7 @@ local config = {
 
     -- )))
 
-    -- All other settings (((
+    -- All other lua-based options (((
 
     set.clipboard = ""
     set.confirm = true -- Give me a prompt instead of just rejecting risky :write, :saveas
@@ -632,6 +648,8 @@ local config = {
     set.updatecount = 100 -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
     set.winaltkeys = "no"
     set.wildignorecase = true -- If supported, make wildmenu completions case-insensitive
+    vim.wo.colorcolumn = ""
+    vim.g.indent_blankline_show_first_indent_level = false
 
     -- )))
 
@@ -826,6 +844,15 @@ local config = {
     keymapset({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags 
 
     -- Normal mode keymaps -- (((
+
+    -- Gitsigns keymaps (((
+
+    keymapset("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
+    keymapset("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+    keymapset("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+    keymapset("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+
+    -- )))
 
     -- keymapset("n", "<leader>e", ":Lexplore 20<cr>", opts_noremapsilent)
     keymapset("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
