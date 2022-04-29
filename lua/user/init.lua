@@ -69,7 +69,10 @@ local config = {
       {
         "Shatur/neovim-cmake",
         ft = { "c", "cpp", "cmake", "fortran" },
-        requires = { "mfussenegger/nvim-dap" }
+        requires = { "mfussenegger/nvim-dap" },
+        config = function()
+          require("cmake").setup({})
+        end,
       },
       {
         "nkakouros-original/numbers.nvim",
@@ -110,6 +113,14 @@ local config = {
         "nvim-treesitter/nvim-treesitter-textobjects",
         after = "nvim-treesitter",
       },
+      {
+        "s1n7ax/nvim-window-picker",
+        tag = 'v1.*',
+        -- after = "neo-tree",
+        config = function()
+          require'window-picker'.setup()
+        end,
+      },
     },
     -- All other entries override the setup() call for default plugins
     gitsigns = {
@@ -122,6 +133,25 @@ local config = {
       },
       word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
     },
+    -- neo-tree = {
+    --   window = {
+    --     mappings = {
+    --       w = function (state)
+    --         local node = state.tree:get_node()
+    --         local success, picker = pcall(require, "window-picker")
+    --         if not success then
+    --           print("You'll need to install window-picker to use this command: https://github.com/s1n7ax/nvim-window-picker")
+    --           return
+    --         end
+    --         local picked_window_id = picker.pick_window()
+    --         if picked_window_id then
+    --           vim.api.nvim_set_current_win(picked_window_id)
+    --           vim.cmd("edit " .. vim.fn.fnameescape(node.path))
+    --         end
+    --       end
+    --     }
+    --   },
+    -- },
     treesitter = {
       ensure_installed = {
         "bash",
@@ -197,65 +227,65 @@ local config = {
         select = {
           enable = true,
 
-          -- Automatically jump forward to textobj, similar to targets.vim
-          lookahead = true,
+            -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = true,
 
-          keymaps = {
-            -- You can use the capture groups defined in textobjects.scm
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = "@class.inner",
+            keymaps = {
+              -- You can use the capture groups defined in textobjects.scm
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner",
+            },
           },
-        },
-        swap = {
-          enable = true,
-          swap_next = {
-            ["<leader>a"] = "@parameter.inner",
+          swap = {
+            enable = true,
+            swap_next = {
+              ["<leader>a"] = "@parameter.inner",
+            },
+            swap_previous = {
+              ["<leader>A"] = "@parameter.inner",
+            },
           },
-          swap_previous = {
-            ["<leader>A"] = "@parameter.inner",
+          move = {
+            enable = true,
+            set_jumps = true, -- whether to set jumps in the jumplist
+            goto_next_start = {
+              ["]m"] = "@function.outer", -- "m" for method
+              ["]]"] = "@class.outer",
+            },
+            goto_next_end = {
+              ["]M"] = "@function.outer",
+              ["]["] = "@class.outer",
+            },
+            goto_previous_start = {
+              ["[m"] = "@function.outer",
+              ["[["] = "@class.outer",
+            },
+            goto_previous_end = {
+              ["[M"] = "@function.outer",
+              ["[]"] = "@class.outer",
+            },
           },
-        },
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            ["]m"] = "@function.outer", -- "m" for method
-            ["]]"] = "@class.outer",
-          },
-          goto_next_end = {
-            ["]M"] = "@function.outer",
-            ["]["] = "@class.outer",
-          },
-          goto_previous_start = {
-            ["[m"] = "@function.outer",
-            ["[["] = "@class.outer",
-          },
-          goto_previous_end = {
-            ["[M"] = "@function.outer",
-            ["[]"] = "@class.outer",
-          },
-        },
-        lsp_interop = {
-          enable = true,
-          border = "none",
-          peek_definition_code = {
-            ["<leader>df"] = "@function.outer",
-            ["<leader>dF"] = "@class.outer",
+          lsp_interop = {
+            enable = true,
+            border = "none",
+            peek_definition_code = {
+              ["<leader>df"] = "@function.outer",
+              ["<leader>dF"] = "@class.outer",
+            },
           },
         },
       },
-    },
-    whichkey = {
-      presets = {
-        operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      whichkey = {
+        presets = {
+          operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+        },
+      },
+      packer = {
+        compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
       },
     },
-    packer = {
-      compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
-    },
-  },
 
   -- Add paths for including more VS Code style snippets in luasnip
   luasnip = {
@@ -1038,10 +1068,10 @@ local config = {
     vim.keymap.del("x", "J")
     vim.keymap.set('x', "K", "K", { silent = true })
     vim.keymap.del("x", "K")
-    vim.keymap.set('x', "<A-j>", "<Nop>", { silent = true })
-    vim.keymap.del("x", "<A-j>")
-    vim.keymap.set('x', "<A-k>", "<Nop>", { silent = true })
-    vim.keymap.del("x", "<A-k>")
+    -- vim.keymap.set('x', "<A-j>", "<Nop>", { silent = true })
+    -- vim.keymap.del("x", "<A-j>")
+    -- vim.keymap.set('x', "<A-k>", "<Nop>", { silent = true })
+    -- vim.keymap.del("x", "<A-k>")
 
     -- )))
 
