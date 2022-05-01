@@ -160,6 +160,10 @@ local config = {
       },
       word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
     },
+    lualine = function(config)
+      table.insert(config.sections.lualine_c, 1, "filename")
+      return config
+    end,
     treesitter = {
       ensure_installed = {
         "bash",
