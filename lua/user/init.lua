@@ -123,6 +123,33 @@ local config = {
       },
     },
     -- All other entries override the setup() call for default plugins
+    aerial = {
+      backends = { "treesitter", "lsp", "markdown" },
+      min_width = 20,
+      on_attach = function(bufnr)
+        -- Jump forwards/backwards with '{' and '}'
+        vim.keymap.set('n', "}", "}", { silent = true })
+        vim.keymap.del("n", "}")
+        vim.keymap.set("n", "<leader>{", "<cmd>AerialPrev<cr>", { buffer = bufnr, desc = "Jump backwards in Aerial" })
+        vim.keymap.set("n", "<leader>}", "<cmd>AerialNext<cr>", { buffer = bufnr, desc = "Jump forwards in Aerial" })
+        -- Jump up the tree with '[[' or ']]'
+        vim.keymap.set('n', "]]", "]]", { silent = true })
+        vim.keymap.del("n", "]]")
+        vim.keymap.set('n', "[[", "[[", { silent = true })
+        vim.keymap.del("n", "[[")
+        vim.keymap.set("n", "<leader>[", "<cmd>AerialPrevUp<cr>", { buffer = bufnr, desc = "Jump up and backwards in Aerial" })
+        vim.keymap.set("n", "<leader>]", "<cmd>AerialNextUp<cr>", { buffer = bufnr, desc = "Jump up and forwards in Aerial" })
+      end,
+      -- placement_editor_edge = true,
+      open_automatic = function(bufnr)
+        -- Enforce a minimum line count
+        return vim.api.nvim_buf_line_count(bufnr) > 26
+          -- Enforce a minimum symbol count
+          and require("aerial").num_symbols(bufnr) > 3
+          -- -- A useful way to keep aerial closed when closed manually
+          and not require("aerial").was_closed()
+      end,
+    },
     gitsigns = {
       signs = {
         add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -133,25 +160,6 @@ local config = {
       },
       word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
     },
-    -- neo-tree = {
-    --   window = {
-    --     mappings = {
-    --       w = function (state)
-    --         local node = state.tree:get_node()
-    --         local success, picker = pcall(require, "window-picker")
-    --         if not success then
-    --           print("You'll need to install window-picker to use this command: https://github.com/s1n7ax/nvim-window-picker")
-    --           return
-    --         end
-    --         local picked_window_id = picker.pick_window()
-    --         if picked_window_id then
-    --           vim.api.nvim_set_current_win(picked_window_id)
-    --           vim.cmd("edit " .. vim.fn.fnameescape(node.path))
-    --         end
-    --       end
-    --     }
-    --   },
-    -- },
     treesitter = {
       ensure_installed = {
         "bash",
