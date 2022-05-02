@@ -951,8 +951,6 @@ local config = {
 
     -- )))
 
-    -- )))
-
     -- Scroll-related settings (scrolljump, sidescroll) (((
 
     set.scrolloff = 2 -- Minimal number of screen lines to keep above and below the cursor
