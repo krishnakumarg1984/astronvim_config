@@ -56,7 +56,7 @@ local config = {
         -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
         { "tyru/capture.vim", cmd = { "Capture" } },
         { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
-        { "tpope/vim-unimpaired", keys = { "[", "]" } },
+        { "tpope/vim-unimpaired", keys = { "[", "]" } }, -- e (exchange),os (spell),ol (list),on (number), ow (wrap), ox (cursorline cursorcolumn), u (encode/decode urls), y (C-string style escaping), n (conflict marker jump), a (args), b (buffers), l (location), q (quickfix), t (tag)
         { "lervag/vimtex", ft = "tex" },
         { "svban/YankAssassin.vim" },
         { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
