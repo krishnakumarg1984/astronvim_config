@@ -943,18 +943,6 @@ local config = {
 
     -- )))
 
-    -- Indent settings (((
-
-    -- Basic indent settings (((
-
-    set.smartindent = false
-    set.autoindent = true
-    set.copyindent = true -- Copy the previous indentation on autoindenting
-    set.preserveindent = true
-    -- set.smartindent = true  -- make indenting smarter again
-
-    -- )))
-
     -- Indent wrapped lines (((
 
     set.wrap = true
