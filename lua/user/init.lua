@@ -23,27 +23,6 @@ local config = {
 
   --- )))
 
-  -- Disable default plugins (((
-
-  enabled = {
-    bufferline = true,
-    neo_tree = true,
-    lualine = true,
-    gitsigns = true,
-    colorizer = true,
-    toggle_term = true,
-    comment = true,
-    symbols_outline = false,
-    indent_blankline = true,
-    dashboard = false,
-    which_key = true,
-    neoscroll = true,
-    ts_rainbow = false,
-    ts_autotag = true,
-  },
-
-  -- )))
-
   -- Disable AstroNvim ui features (((
 
   ui = {
@@ -139,6 +118,9 @@ local config = {
       default_plugins["stevearc/aerial.nvim"].setup = nil
       -- load lualine after aerial
       default_plugins["nvim-lualine/lualine.nvim"].after = "aerial.nvim"
+
+      -- https://github.com/AstroNvim/AstroNvim/issues/406
+      default_plugins["p00f/nvim-ts-rainbow"] = nil
 
       return vim.tbl_deep_extend("force", default_plugins, my_plugins)
     end,
@@ -384,7 +366,6 @@ local config = {
   -- )))
 
   -- Modify which-key registration (((
-
   ["which-key"] = {
     -- Add bindings
     register_mappings = {
@@ -1027,15 +1008,37 @@ local config = {
 
     -- )))
 
-    -- autocommands (lua-based) (((
+    -- Autogroups & Autocommands (lua-based) (((
 
-    vim.api.nvim_create_augroup("packer_conf", {})
-    vim.api.nvim_create_autocmd("BufWritePost", {
-      desc = "Sync packer after modifying plugins.lua",
-      group = "packer_conf",
-      pattern = "plugins.lua",
-      command = "source <afile> | PackerSync",
+    -- Term mappings Autogroup (((
+
+    vim.api.nvim_del_augroup_by_name "TermMappings"
+    vim.api.nvim_create_augroup("TermMappings", {})
+    vim.api.nvim_create_autocmd("TermOpen", {
+      desc = "Set terminal keymaps",
+      group = "TermMappings",
+      callback = function()
+        vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], { desc = "Terminal normal mode" })
+        vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], { desc = "Terminal left window navigation" })
+        vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], { desc = "Terminal down window navigation" })
+        vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], { desc = "Terminal up window navigation" })
+        vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], { desc = "Terminal right window naviation" })
+      end,
     })
+    
+    -- )))
+
+    -- Automatically reload packer configs after saving (((
+
+    -- vim.api.nvim_create_augroup("packer_conf", {})
+    -- vim.api.nvim_create_autocmd("BufWritePost", {
+    --   desc = "Sync packer after modifying plugins.lua",
+    --   group = "packer_conf",
+    --   pattern = "plugins.lua",
+    --   command = "source <afile> | PackerSync",
+    -- })
+
+    -- )))
 
     -- )))
 
