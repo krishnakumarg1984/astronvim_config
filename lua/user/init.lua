@@ -535,6 +535,8 @@ local config = {
     -- options (vimscript-based) (((
 
     vim.cmd([[
+    let mapleader = "\\"
+
     set whichwrap+=<,>,[,],h,l
 
     " Linebreak settings (((
@@ -745,7 +747,7 @@ local config = {
     noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 
     " replace the word under cursor
-    " nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
+    nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
 
     " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
     " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
@@ -753,7 +755,7 @@ local config = {
 
     nmap cg* *Ncgn
 
-    noremap <c-w>" <c-w>t<c-w>K     " change vertical to horizontal with -
+    noremap <c-w>" <c-w>t<c-w>K    " change vertical to horizontal with -
     noremap <c-w>% <c-w>t<c-w>H    " change horizontal to vertical with %
 
     " )))
@@ -770,6 +772,7 @@ local config = {
 
     " https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
     " nnoremap <silent> \\C :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+    " nnoremap <leader><leader>c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
     " xnoremap <silent> \\C "sy:let @/=@s<CR>cgn
 
     " )))
@@ -814,7 +817,7 @@ local config = {
     local set = vim.opt
     -- NOTE: only my preferred settings that are not set by AstroNvim are set here
 
-    vim.g.mapleader = "\\"
+    -- vim.g.mapleader = "\\"  -- set in the vimscript section
     vim.g.python3_host_prog = "python3"
     -- vim.g.ale_disable_lsp = 1
     vim.g.indent_blankline_show_first_indent_level = false
@@ -1203,10 +1206,6 @@ local config = {
     keymapset("c", "<c-p>", "<up>", opts_noremapverbose)
 
     -- )))
-
-    -- https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
-    -- nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
-    -- vim.cmd[[nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>]]
 
     -- Plugin keymaps (((
 
