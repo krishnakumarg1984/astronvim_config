@@ -1,6 +1,15 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
 local config = {
+  header = {
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
+  },
 
   colorscheme = "default_theme",   -- Set colorscheme
 
