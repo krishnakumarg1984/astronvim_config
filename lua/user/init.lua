@@ -744,13 +744,14 @@ local config = {
     noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
     noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 
+    " replace the word under cursor
+    " nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
+
     " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
     " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
     nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
 
-
-    " replace the word under cursor
-    nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
+    nmap cg* *Ncgn
 
     noremap <c-w>" <c-w>t<c-w>K     " change vertical to horizontal with -
     noremap <c-w>% <c-w>t<c-w>H    " change horizontal to vertical with %
