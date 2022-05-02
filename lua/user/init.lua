@@ -981,6 +981,7 @@ local config = {
     set.clipboard = ""
     set.confirm = true -- Give me a prompt instead of just rejecting risky :write, :saveas
     -- set.cursorlineopt = "number"
+    set.foldmethod = "expr"
     set.guifont = "monospace:h17" -- the font used in graphical neovim applications
     set.history = 10000
     set.inccommand = "split"
