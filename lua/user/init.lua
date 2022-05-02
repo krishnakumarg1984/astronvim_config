@@ -993,7 +993,6 @@ local config = {
     set.spelllang = "en_gb"
     set.report = 0 -- Threshold for reporting number of lines changed.
     -- set.timeoutlen = 500 -- time to wait for a mapped sequence to complete (in milliseconds). set to 300 by AstroNvim
-    set.tagcase = "smart"
     set.updatecount = 100 -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
     set.winaltkeys = "no"
     set.wildignorecase = true -- If supported, make wildmenu completions case-insensitive
