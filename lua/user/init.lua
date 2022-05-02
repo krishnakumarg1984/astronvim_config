@@ -47,81 +47,94 @@ local config = {
 
   -- Configure plugins
   plugins = {
-    -- Add plugins, the packer syntax without the "use"
-    init = {
-      -- { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
-      -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
-      { "tyru/capture.vim", cmd = { "Capture" } },
-      { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
-      { "tpope/vim-unimpaired", keys = { "[", "]" } },
-      { "lervag/vimtex", ft = "tex" },
-      { "svban/YankAssassin.vim" },
-      { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
-      { "p00f/clangd_extensions.nvim", ft = { "c", "cpp", "cuda" } },
-      { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
-      { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
-      {
-        "echasnovski/mini.nvim",
-        config = function()
-          require("mini.surround").setup()
-        end,
-      },
-      {
-        "Shatur/neovim-cmake",
-        ft = { "c", "cpp", "cmake", "fortran" },
-        requires = { "mfussenegger/nvim-dap" },
-        config = function()
-          require("cmake").setup({})
-        end,
-      },
-      {
-        "nkakouros-original/numbers.nvim",
-        event = "InsertEnter",
-        config = function()
-          require("numbers").setup({
-            excluded_filetypes = {
-              'TelescopePrompt',
-              'TelescopeResults',
-              'nerdtree',
-              'unite',
-            }
-          })
-        end,
-      },
-      {
-        "kevinhwang91/nvim-hlslens",
-        keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
-        config = function()
-          require("hlslens").setup( { calm_down = true } )
-        end,
-      },
-      {
-        "ethanholz/nvim-lastplace",
-        config = function()
-          require("nvim-lastplace").setup( {
-            lastplace_ignore_buftype = {"quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo"},
-            lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit","startify", "dashboard", "packer", "neogitstatus", "NvimTree", "neo-tree", "Trouble"},
-            lastplace_open_folds = true
-          } )
-        end,
-      },
-      {
-        "nvim-treesitter/nvim-treesitter-refactor",
-        after = "nvim-treesitter",
-      },
-      {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        after = "nvim-treesitter",
-      },
-      {
-        "s1n7ax/nvim-window-picker",
-        tag = 'v1.*',
-        -- after = "neo-tree",
-        config = function()
-          require'window-picker'.setup()
-        end,
-      },
-    },
+    init = function(default_plugins)
+      local my_plugins = {
+        -- custom plugins go here
+        -- Add plugins, the packer syntax without the "use"
+        -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
+        -- { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
+        -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
+        { "tyru/capture.vim", cmd = { "Capture" } },
+        { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
+        { "tpope/vim-unimpaired", keys = { "[", "]" } },
+        { "lervag/vimtex", ft = "tex" },
+        { "svban/YankAssassin.vim" },
+        { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
+        { "p00f/clangd_extensions.nvim", ft = { "c", "cpp", "cuda" } },
+        { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
+        { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
+        {
+          "echasnovski/mini.nvim",
+          config = function()
+            require("mini.surround").setup()
+          end,
+        },
+        {
+          "Shatur/neovim-cmake",
+          ft = { "c", "cpp", "cmake", "fortran" },
+          requires = { "mfussenegger/nvim-dap" },
+          config = function()
+            require("cmake").setup({})
+          end,
+        },
+        {
+          "nkakouros-original/numbers.nvim",
+          event = "InsertEnter",
+          config = function()
+            require("numbers").setup({
+              excluded_filetypes = {
+                'TelescopePrompt',
+                'TelescopeResults',
+                'nerdtree',
+                'unite',
+              }
+            })
+          end,
+        },
+        {
+          "kevinhwang91/nvim-hlslens",
+          keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
+          config = function()
+            require("hlslens").setup( { calm_down = true } )
+          end,
+        },
+        {
+          "ethanholz/nvim-lastplace",
+          config = function()
+            require("nvim-lastplace").setup( {
+              lastplace_ignore_buftype = {"quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo"},
+              lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit","startify", "dashboard", "packer", "neogitstatus", "NvimTree", "neo-tree", "Trouble"},
+              lastplace_open_folds = true
+            } )
+          end,
+        },
+        {
+          "nvim-treesitter/nvim-treesitter-refactor",
+          after = "nvim-treesitter",
+        },
+        {
+          "nvim-treesitter/nvim-treesitter-textobjects",
+          after = "nvim-treesitter",
+        },
+        {
+          "s1n7ax/nvim-window-picker",
+          tag = 'v1.*',
+          -- after = "neo-tree",
+          config = function()
+            require'window-picker'.setup()
+          end,
+        },
+      }
+
+      -- disable aerial lazy load
+      default_plugins["stevearc/aerial.nvim"].opt = false
+      default_plugins["stevearc/aerial.nvim"].setup = nil
+      -- load lualine after aerial
+      default_plugins["nvim-lualine/lualine.nvim"].after = "aerial.nvim"
+
+      return vim.tbl_deep_extend("force", default_plugins, my_plugins)
+    end,
+
     -- All other entries override the setup() call for default plugins
     aerial = {
       backends = { "treesitter", "lsp", "markdown" },
@@ -162,6 +175,8 @@ local config = {
     },
     lualine = function(config)
       table.insert(config.sections.lualine_c, 1, "filename")
+      -- add aerial to beginning of lualine_x section
+      table.insert(config.sections.lualine_x, 1, "aerial")
       return config
     end,
     treesitter = {
@@ -239,70 +254,70 @@ local config = {
         select = {
           enable = true,
 
-            -- Automatically jump forward to textobj, similar to targets.vim
-            lookahead = true,
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
 
-            keymaps = {
-              -- You can use the capture groups defined in textobjects.scm
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = "@class.inner",
-            },
-          },
-          swap = {
-            enable = true,
-            swap_next = {
-              ["<leader>a"] = "@parameter.inner",
-            },
-            swap_previous = {
-              ["<leader>A"] = "@parameter.inner",
-            },
-          },
-          move = {
-            enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
-            goto_next_start = {
-              ["]m"] = "@function.outer", -- "m" for method
-              ["]]"] = "@class.outer",
-            },
-            goto_next_end = {
-              ["]M"] = "@function.outer",
-              ["]["] = "@class.outer",
-            },
-            goto_previous_start = {
-              ["[m"] = "@function.outer",
-              ["[["] = "@class.outer",
-            },
-            goto_previous_end = {
-              ["[M"] = "@function.outer",
-              ["[]"] = "@class.outer",
-            },
-          },
-          lsp_interop = {
-            enable = true,
-            border = "none",
-            peek_definition_code = {
-              ["<leader>df"] = "@function.outer",
-              ["<leader>dF"] = "@class.outer",
-            },
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
           },
         },
-      },
-      whichkey = {
-        presets = {
-          operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+        swap = {
+          enable = true,
+          swap_next = {
+            ["<leader>a"] = "@parameter.inner",
+          },
+          swap_previous = {
+            ["<leader>A"] = "@parameter.inner",
+          },
         },
-      },
-      packer = {
-        compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+        move = {
+          enable = true,
+          set_jumps = true, -- whether to set jumps in the jumplist
+          goto_next_start = {
+            ["]m"] = "@function.outer", -- "m" for method
+            ["]]"] = "@class.outer",
+          },
+          goto_next_end = {
+            ["]M"] = "@function.outer",
+            ["]["] = "@class.outer",
+          },
+          goto_previous_start = {
+            ["[m"] = "@function.outer",
+            ["[["] = "@class.outer",
+          },
+          goto_previous_end = {
+            ["[M"] = "@function.outer",
+            ["[]"] = "@class.outer",
+          },
+        },
+        lsp_interop = {
+          enable = true,
+          border = "none",
+          peek_definition_code = {
+            ["<leader>df"] = "@function.outer",
+            ["<leader>dF"] = "@class.outer",
+          },
+        },
       },
     },
-
-  -- Add paths for including more VS Code style snippets in luasnip
-  luasnip = {
-    vscode_snippet_paths = {},
+    whichkey = {
+      presets = {
+        operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      },
+    },
+    packer = {
+      compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+    },
   },
+
+  -- -- Add paths for including more VS Code style snippets in luasnip
+  -- luasnip = {
+  --   vscode_snippet_paths = {},
+  -- },
 
   -- Modify which-key registration
   ["which-key"] = {
