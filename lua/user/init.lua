@@ -2,10 +2,10 @@
 
 local config = {
 
-  -- Set colorscheme
-  colorscheme = "default_theme",
+  colorscheme = "default_theme",   -- Set colorscheme
 
-  -- Default theme configuration
+  -- Default theme configuration (((
+
   default_theme = {
     diagnostics_style = { italic = true },
     -- Modify the color table
@@ -21,7 +21,10 @@ local config = {
     end,
   },
 
-  -- Disable default plugins
+  --- )))
+
+  -- Disable default plugins (((
+
   enabled = {
     bufferline = true,
     neo_tree = true,
@@ -39,13 +42,18 @@ local config = {
     ts_autotag = true,
   },
 
-  -- Disable AstroNvim ui features
+  -- )))
+
+  -- Disable AstroNvim ui features (((
+
   ui = {
     nui_input = true,
     telescope_select = true,
   },
 
-  -- Configure plugins
+  -- )))
+
+  -- Configure plugins (((
   plugins = {
     init = function(default_plugins)
       local my_plugins = {
@@ -56,7 +64,7 @@ local config = {
         -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
         { "tyru/capture.vim", cmd = { "Capture" } },
         { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
-        { "tpope/vim-unimpaired", keys = { "[", "]" } }, -- e (exchange),os (spell),ol (list),on (number), ow (wrap), ox (cursorline cursorcolumn), u (encode/decode urls), y (C-string style escaping), n (conflict marker jump), a (args), b (buffers), l (location), q (quickfix), t (tag)
+        { "tpope/vim-unimpaired", keys = { "[", "]" } }, -- e (exchange), ob (background), oc (cursorline), od (diff), oh (hlsearch), oi (ignorecase), ol (list), on (number), or (relativenumber), os (spell), ot (colorcolumn), ou (cursorcolumn), ov (virtualedit), ow (wrap), ox (cursorline cursorcolumn), u (encode/decode urls), y (C-string style escaping), n (conflict marker), a (args), b (buffers), l (location), q (quickfix), t (tag), >p Paste after linewise, increasing indent, >P (Paste before linewise, increasing indent), <p (Paste after linewise, decreasing indent), <P (Paste before linewise, decreasing indent), =p (Paste after linewise, reindenting), =P (Paste before linewise, reindenting), x<motion> (xml encode/decode)
         { "lervag/vimtex", ft = "tex" },
         { "svban/YankAssassin.vim" },
         { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
@@ -314,12 +322,18 @@ local config = {
     },
   },
 
-  -- -- Add paths for including more VS Code style snippets in luasnip
+  -- )))
+
+  -- Add paths for including more VS Code style snippets in luasnip (((
+
   -- luasnip = {
   --   vscode_snippet_paths = {},
   -- },
 
-  -- Modify which-key registration
+  -- )))
+
+  -- Modify which-key registration (((
+
   ["which-key"] = {
     -- Add bindings
     register_mappings = {
@@ -408,7 +422,10 @@ local config = {
     },
   },
 
-  -- CMP Source Priorities
+  -- )))
+
+  -- CMP Source Priorities (((
+
   -- modify here the priorities of default cmp sources
   -- higher value == higher priority
   -- The value can also be set to a boolean for disabling default sources:
@@ -427,7 +444,10 @@ local config = {
     },
   },
 
-  -- Extend LSP configuration
+  -- )))
+
+  -- Extend LSP configuration (((
+
   lsp = {
     -- add to the server on_attach function
     -- on_attach = function(client, bufnr)
@@ -455,13 +475,19 @@ local config = {
     },
   },
 
-  -- Diagnostics configuration (for vim.diagnostics.config({}))
+  -- )))
+
+  -- Diagnostics configuration (for vim.diagnostics.config({})) (((
+
   diagnostics = {
     virtual_text = false,
     underline = true,
   },
 
-  -- null-ls configuration
+  -- )))
+
+  -- null-ls configuration (((
+
   ["null-ls"] = function()
     -- Formatting and linting
     -- https://github.com/jose-elias-alvarez/null-ls.nvim
@@ -499,7 +525,9 @@ local config = {
     }
   end,
 
-  -- This function is run last (good place to configure mappings and vim options)
+  -- )))
+
+  -- This 'polish' function is run last (good place to configure mappings and vim options) (((
   polish = function()
 
     -- options/settings (((
@@ -636,7 +664,7 @@ local config = {
 
     set diffopt+=vertical,foldcolumn:0,context:3,iwhiteall,hiddenoff
     " set diffopt+=internal,indent-heuristic,algorithm:histogram
-    set diffopt+=indent-heuristic,algorithm:patience
+    set diffopt+=indent-heuristic,algorithm:minimal
 
     " )))
 
@@ -1115,15 +1143,6 @@ local config = {
 
     -- Normal mode keymaps -- (((
 
-    -- Gitsigns keymaps (((
-
-    keymapset("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
-    keymapset("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
-    keymapset("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
-    keymapset("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
-
-    -- )))
-
     -- keymapset("n", "<leader>e", ":Lexplore 20<cr>", opts_noremapsilent)
     keymapset("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
     keymapset("n", "J", "mzJ`zmz", opts_noremapsilent)
@@ -1188,9 +1207,24 @@ local config = {
     -- nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
     -- vim.cmd[[nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>]]
 
+    -- Plugin keymaps (((
+
+    -- Gitsigns keymaps (((
+
+    keymapset("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
+    keymapset("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+    keymapset("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+    keymapset("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+
+    -- )))
+
+    -- )))
+
     -- )))
 
     end,
   }
+
+  -- )))
 
 return config
