@@ -705,6 +705,10 @@ local config = {
     " Replace :w with :up
     cnoreabbrev <expr> w getcmdtype() == ":" && getcmdline() == 'w' ? 'up' : 'w'
 
+    " https://stackoverflow.com/questions/3131393/remapping-help-in-vim-to-open-in-a-new-tab
+    cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
+    cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == 'help' ? 'tab help' : 'help'
+
     " nnoremaps (((
 
     noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
@@ -959,6 +963,11 @@ local config = {
       " autocmd BufWinEnter *.txt set iskeyword+=- iskeyword+=: iskeyword+=.
 
       autocmd BufWinEnter * set formatoptions-=cro
+
+      " https://stackoverflow.com/questions/4687009/opening-help-in-a-full-window
+      " autocmd FileType help :tabnew % | tabprevious | quit | tabnext
+      autocmd FileType help set buflisted
+
       autocmd FileType qf set nobuflisted
 
       autocmd FileType asciidoc,changelog,context,gitcommit,mail,rtf,markdown,lsp_markdown,rst,tex,texinfo,text,txt setlocal spell
