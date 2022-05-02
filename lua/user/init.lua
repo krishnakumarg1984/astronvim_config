@@ -171,6 +171,57 @@ local config = {
           and not require("aerial").was_closed()
       end,
     },
+    bufferline = {
+      custom_areas = {
+        right = function()
+          local result = {}
+          local seve = vim.diagnostic.severity
+          local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
+          local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
+          local info = #vim.diagnostic.get(0, {severity = seve.INFO})
+          local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
+
+          if error ~= 0 then
+            table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
+          end
+
+          if warning ~= 0 then
+            table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
+          end
+
+          if hint ~= 0 then
+            table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
+          end
+
+          if info ~= 0 then
+            table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
+          end
+          return result
+        end,
+      },
+      diagnostics = "nvim_lsp",
+      --- count is an integer representing total count of errors
+      --- level is a string "error" | "warning"
+      --- diagnostics_dict is a dictionary from error level ("error", "warning" or "info")to number of errors for each level.
+      --- this should return a string
+      --- Don't get too fancy as this function will be executed a lot
+      -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+      --   local icon = level:match("error") and " " or " "
+      --   return " " .. icon .. count
+      -- end
+      diagnostics_indicator = function(count, level, diagnostics_dict, context)
+        if context.buffer:current() then
+          return ''
+        end
+        local s = " "
+        for e, n in pairs(diagnostics_dict) do
+          local sym = e == "error" and " "
+          or (e == "warning" and " " or "" )
+          s = s .. n .. sym
+        end
+        return s
+      end,
+    },
     gitsigns = {
       signs = {
         add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -777,6 +828,32 @@ local config = {
 
     " )))
 
+    " Plugin keymaps (vimscript-based) (((
+
+    " Bufferline keymaps (vimscript-based) (((
+
+    " These commands will navigate through buffers in order regardless of which mode you are using
+    " e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+    nnoremap <silent>[b :BufferLineCycleNext<CR>
+    nnoremap <silent>]b :BufferLineCyclePrev<CR>
+    " nnoremap <silent><leader>Bd :BufferLineSortByDirectory<CR>
+    " nnoremap <silent><leader>Be :BufferLineSortByExtension<CR>
+    " nnoremap <silent><leader>Bp :BufferLinePick<CR>
+    " nnoremap <silent><leader>Bc :BufferLinePickClose<CR>
+    nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+    nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+    nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+    nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+    nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+    nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+    nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+    nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+    nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+
+    " )))
+
+    " )))
+
     " )))
 
     " Dictionary settings (((
@@ -911,7 +988,7 @@ local config = {
 
     set.foldlevel = 2 -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
     set.foldlevelstart = 2
-    set.foldcolumn = "auto:5"
+    set.foldcolumn = "auto:6"
   -- set foldopen=all -- helps to avoid automatic closing of previously open folds when returning to a buffer
 
     -- )))
