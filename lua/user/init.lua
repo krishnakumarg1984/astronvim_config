@@ -289,173 +289,173 @@ local config = {
       end,
       close_behavior = "close", -- aerial window will close when original file is no longer visible
     },
-    -- bufferline = {
-    --   -- diagnostics = "nvim_lsp",
-    --   --- count is an integer representing total count of errors
-    --   --- level is a string "error" | "warning"
-    --   --- diagnostics_dict is a dictionary from error level ("error", "warning" or "info")to number of errors for each level.
-    --   --- this should return a string
-    --   --- Don't get too fancy as this function will be executed a lot
-    --   -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
-    --   --   local icon = level:match("error") and " " or " "
-    --   --   return " " .. icon .. count
-    --   -- end
-    -- },
-      gitsigns = {
-        signs = {
-          add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-          change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-          delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-          topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-          changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn", },
-        },
-        word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+    bufferline = {
+      diagnostics = "nvim_lsp",
+      -- count is an integer representing total count of errors
+      -- level is a string "error" | "warning"
+      -- diagnostics_dict is a dictionary from error level ("error", "warning" or "info")to number of errors for each level.
+      -- this should return a string
+      -- Don't get too fancy as this function will be executed a lot
+      diagnostics_indicator = function(count, level, diagnostics_dict, context)
+        local icon = level:match("error") and " " or " "
+        return " " .. icon .. count
+      end
+    },
+    gitsigns = {
+      signs = {
+        add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+        change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+        delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+        topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+        changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn", },
       },
-      lualine = function(config)
-        table.insert(config.sections.lualine_c, 1, "filename")
-        -- add aerial to beginning of lualine_x section
-        table.insert(config.sections.lualine_x, 1, "aerial")
-        return config
-      end,
-      treesitter = {
-        ensure_installed = {
-          "bash",
-          "bibtex",
-          "c",
-          "cmake",
-          -- "comment",
-          "cpp",
-          "cuda",
-          "dockerfile",
-          "dot",
-          "fortran",
-          "go",
-          "html",
-          "java",
-          -- "javascript",
-          "json",
-          "json5",
-          "jsonc",
-          "julia",
-          -- "latex",
-          "lua", -- problematic on remote servers?
-          "make",
-          "markdown",
-          "ninja",
-          "perl",
-          "python",
-          "r",
-          "regex",
-          -- "rst",
-          "ruby",
-          -- "rust",
-          "toml",
-          "verilog",
-          "vim",  -- problematic on remote servers?
-          "yaml",
+      word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+    },
+    lualine = function(config)
+      table.insert(config.sections.lualine_c, 1, "filename")
+      -- add aerial to beginning of lualine_x section
+      table.insert(config.sections.lualine_x, 1, "aerial")
+      return config
+    end,
+    treesitter = {
+      ensure_installed = {
+        "bash",
+        "bibtex",
+        "c",
+        "cmake",
+        -- "comment",
+        "cpp",
+        "cuda",
+        "dockerfile",
+        "dot",
+        "fortran",
+        "go",
+        "html",
+        "java",
+        -- "javascript",
+        "json",
+        "json5",
+        "jsonc",
+        "julia",
+        -- "latex",
+        "lua", -- problematic on remote servers?
+        "make",
+        "markdown",
+        "ninja",
+        "perl",
+        "python",
+        "r",
+        "regex",
+        -- "rst",
+        "ruby",
+        -- "rust",
+        "toml",
+        "verilog",
+        "vim",  -- problematic on remote servers?
+        "yaml",
+      },
+      highlight = {
+        use_languagetree = true,
+      },
+      context_commentstring = {
+        config = {
+          vim = '" %s',
         },
-        highlight = {
-          use_languagetree = true,
-        },
-        context_commentstring = {
-          config = {
-            vim = '" %s',
-          },
-        },
-        indent = {
+      },
+      indent = {
+        enable = true,
+      },
+      refactor = {
+        highlight_definitions = {
           enable = true,
+          clear_on_cursor_move = true, -- Set to false if you have an `updatetime` of ~100.
         },
-        refactor = {
-          highlight_definitions = {
-            enable = true,
-            clear_on_cursor_move = true, -- Set to false if you have an `updatetime` of ~100.
-          },
-          -- highlight_current_scope = { enable = true },
-          smart_rename = {
-            enable = true,
-            keymaps = {
-              smart_rename = "grr",
-            },
-          },
-          navigation = {
-            enable = true,
-            keymaps = {
-              goto_definition = "gnd",
-              list_definitions = "gnD",
-              list_definitions_toc = "gO",
-              goto_next_usage = "<a-*>",
-              goto_previous_usage = "<a-#>",
-            },
+        -- highlight_current_scope = { enable = true },
+        smart_rename = {
+          enable = true,
+          keymaps = {
+            smart_rename = "grr",
           },
         },
-        textobjects = {
-          select = {
-            enable = true,
-
-            -- Automatically jump forward to textobj, similar to targets.vim
-            lookahead = true,
-
-            keymaps = {
-              -- You can use the capture groups defined in textobjects.scm
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = "@class.inner",
-            },
-          },
-          swap = {
-            enable = true,
-            swap_next = {
-              ["<leader>a"] = "@parameter.inner",
-            },
-            swap_previous = {
-              ["<leader>A"] = "@parameter.inner",
-            },
-          },
-          move = {
-            enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
-            goto_next_start = {
-              ["]m"] = "@function.outer", -- "m" for method
-              ["]]"] = "@class.outer",
-            },
-            goto_next_end = {
-              ["]M"] = "@function.outer",
-              ["]["] = "@class.outer",
-            },
-            goto_previous_start = {
-              ["[m"] = "@function.outer",
-              ["[["] = "@class.outer",
-            },
-            goto_previous_end = {
-              ["[M"] = "@function.outer",
-              ["[]"] = "@class.outer",
-            },
-          },
-          lsp_interop = {
-            enable = true,
-            border = "none",
-            peek_definition_code = {
-              ["<leader>df"] = "@function.outer",
-              ["<leader>dF"] = "@class.outer",
-            },
+        navigation = {
+          enable = true,
+          keymaps = {
+            goto_definition = "gnd",
+            list_definitions = "gnD",
+            list_definitions_toc = "gO",
+            goto_next_usage = "<a-*>",
+            goto_previous_usage = "<a-#>",
           },
         },
       },
-      ["nvim-lsp-installer"] = {
-        ensure_installed = { "sumneko_lua" },
-      },
-      -- which_key = {
-        --   presets = {
-          --     operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-          --   },
-          -- },
-          packer = {
-            compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+      textobjects = {
+        select = {
+          enable = true,
+
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
+
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
           },
         },
+        swap = {
+          enable = true,
+          swap_next = {
+            ["<leader>a"] = "@parameter.inner",
+          },
+          swap_previous = {
+            ["<leader>A"] = "@parameter.inner",
+          },
+        },
+        move = {
+          enable = true,
+          set_jumps = true, -- whether to set jumps in the jumplist
+          goto_next_start = {
+            ["]m"] = "@function.outer", -- "m" for method
+            ["]]"] = "@class.outer",
+          },
+          goto_next_end = {
+            ["]M"] = "@function.outer",
+            ["]["] = "@class.outer",
+          },
+          goto_previous_start = {
+            ["[m"] = "@function.outer",
+            ["[["] = "@class.outer",
+          },
+          goto_previous_end = {
+            ["[M"] = "@function.outer",
+            ["[]"] = "@class.outer",
+          },
+        },
+        lsp_interop = {
+          enable = true,
+          border = "none",
+          peek_definition_code = {
+            ["<leader>df"] = "@function.outer",
+            ["<leader>dF"] = "@class.outer",
+          },
+        },
+      },
+    },
+    ["nvim-lsp-installer"] = {
+      ensure_installed = { "sumneko_lua" },
+    },
+    -- which_key = {
+    --   presets = {
+    --     operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+    --   },
+    -- },
+    packer = {
+      compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+    },
+  },
 
-        -- )))
+  -- )))
 
   -- LuaSnip Options (((
 
