@@ -153,7 +153,7 @@ local config = {
         vim.keymap.set("n", "<leader>[", "<cmd>AerialPrevUp<cr>", { buffer = bufnr, desc = "Jump up and backwards in Aerial" })
         vim.keymap.set("n", "<leader>]", "<cmd>AerialNextUp<cr>", { buffer = bufnr, desc = "Jump up and forwards in Aerial" })
       end,
-      -- placement_editor_edge = true,
+      placement_editor_edge = true,
       open_automatic = function(bufnr)
         -- Enforce a minimum line count
         return vim.api.nvim_buf_line_count(bufnr) > 26
@@ -162,6 +162,7 @@ local config = {
           -- -- A useful way to keep aerial closed when closed manually
           and not require("aerial").was_closed()
       end,
+      close_behavior = "close", -- aerial window will close when original file is no longer visible
     },
     bufferline = {
       custom_areas = {
