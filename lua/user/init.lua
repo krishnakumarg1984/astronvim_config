@@ -174,7 +174,7 @@ local config = {
         -- Add plugins (packer syntax without the "use" keyword)
         -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
         -- { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
-        { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
+        -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
         { "tyru/capture.vim", cmd = { "Capture" } },
         { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
         { "Konfekt/vim-DetectSpellLang", ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" } },
@@ -678,8 +678,8 @@ local config = {
   vim.cmd([[
 
     let g:detectspelllang_langs = {
-    \ 'aspell'   : [ 'en_US', 'cs', 'cy', 'de_DE', 'es', 'fr', 'it' ],
-    \ 'hunspell' : [ 'en_US', 'cs_CS', 'cy_CY', 'de_DE', 'es_ES', 'fr_FR', 'it_IT' ],
+    \ 'aspell'   : [ 'en_GB', 'en_US', 'cs', 'cy', 'da', 'de_DE', 'el', 'es', 'fr', 'gd', 'hu', 'id', 'it', 'ms', 'nl', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl', 'sv', 'uk' ],
+    \ 'hunspell' : [ 'en_GB', 'en_US', 'cs_CS', 'cy_CY', 'da_DA', 'de_DE', 'el_GR', 'gd_GD', 'es_ES', 'fr_FR', 'hu_HU', 'id_ID', 'it_IT', 'ms_MS', 'nl_NL', 'pl_PL', 'pt_PT', 'ro_RO', 'ru_RU', 'sk_SK', 'sl_SL', 'sv_SV', 'uk_UK' ],
     \ }
     let g:python3_host_prog = "python3"
     let g:indent_blankline_show_first_indent_level = 0
