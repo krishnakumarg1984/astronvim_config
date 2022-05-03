@@ -22,113 +22,119 @@ local config = {
 
   -- NOTE: only my preferred settings that are not set by AstroNvim are set here
 
-  -- set vim options here (vim.<first_key>.<second_key> =  value)
-  options = {
-    -- vim.opt settings (((
+  -- -- set vim options here (vim.<first_key>.<second_key> =  value)
+  -- options = {
+  --   g = {
+  --   },
+  --
+  --   -- )))
+  -- },
 
-    opt = {
-      -- numberwidth = 4, -- set number column width
-      -- relativenumber = true, -- sets vim.opt.relativenumber
-      -- tagcase = "smart",
-      -- timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds). set to 300 by AstroNvim
-      -- Backup-related settings (((
+  options = function(defaults)
+    defaults.g.loaded_netrwPlugin = nil
+    defaults.g.mapleader = "\\" -- sets vim.g.mapleader
 
-      backupdir = vim.opt.backupdir - { "." },
-      backupext = "nvimbackup",
+    return vim.tbl_deep_extend("force", defaults, {
+      -- vim.opt settings (((
 
-      -- )))
-      -- fillchar settings (((
+      opt = {
+        -- Backup-related settings (((
 
-      -- https://vi.stackexchange.com/questions/21872/change-fold-sign-character
-      fillchars = {
-        foldclose = '▸',
-        foldopen = '▾',
-        foldsep = '│',
-        horiz = '━',
-        -- horiz = '━',
-        horizdown = '┳',
-        -- horizdown = '┳',
-        horizup   = '┻',
-        -- horizup = '┻',
-        vert = '┃',
-        -- vert = '┃',
-        verthoriz = '╋',
-        -- verthoriz = '╋',
-        vertleft  = '┫',
-        -- vertleft  = '┫',
-        vertright = '┣',
-        -- vertright = '┣',
+        backupdir = vim.opt.backupdir - { "." },
+        backupext = "nvimbackup",
+
+        -- )))
+        -- 'fillchar' settings (((
+
+        -- https://vi.stackexchange.com/questions/21872/change-fold-sign-character
+        fillchars = {
+          foldclose = '▸',
+          foldopen = '▾',
+          foldsep = '│',
+          horiz = '━',
+          -- horiz = '━',
+          horizdown = '┳',
+          -- horizdown = '┳',
+          horizup   = '┻',
+          -- horizup = '┻',
+          vert = '┃',
+          -- vert = '┃',
+          verthoriz = '╋',
+          -- verthoriz = '╋',
+          vertleft  = '┫',
+          -- vertleft  = '┫',
+          vertright = '┣',
+          -- vertright = '┣',
+        },
+
+        -- )))
+        -- Scroll-related settings (scrolljump, sidescroll) (((
+
+        scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
+        sidescrolloff = 8, -- The minimal number of screen columns to keep to the left and to the right of the cursor
+        -- scrolljump = 3,  -- How many lines to scroll at a time, make scrolling appears faster (i.e. when you move the cursor close to the vertical limits of display, how many more lines to reveal ?)
+        -- sidescroll = 3,  -- The minimal number of columns to scroll horizontally
+
+        -- )))
+        -- Indent wrapped lines (((
+
+        wrap = true,
+        linebreak = true, -- Wrap lines at convenient point (only affects the on-screen display, not actual content in file) -- Break lines at word boundaries
+        breakindent = true, -- Every wrapped line will continue visually indented (same amount of space as the beginning of that line), thus preserving horizontal blocks of text.
+
+        -- )))
+        -- Fold settings (((
+
+        foldlevel = 2, -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
+        foldlevelstart = 2,
+        foldcolumn = "auto:6",
+        -- foldopen=all, -- helps to avoid automatic closing of previously open folds when returning to a buffer
+
+        -- )))
+        -- Settings for showing matching parenthesis (((
+
+        showmatch = true,
+        matchtime = 3, -- Tenths of a second to show the matching paren, when 'showmatch' is set.  Note that this is not in milliseconds, like other options that set a time.
+
+        -- )))
+        -- All other lua-based options (((
+
+        clipboard = "",
+        confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
+        -- cursorlineopt = "number"
+        foldmethod = "expr",
+        guifont = "monospace:h17", -- the font used in graphical neovim applications
+        history = 10000,
+        -- inccommand = "split",
+        infercase = true, -- Ignore case on insert completion. When doing keyword completion in insert mode |ins-completion|, and 'ignorecase' is also on, the case of the match is adjusted depending on the typed text.
+        iskeyword = vim.opt.iskeyword + { "-" },
+        lazyredraw = true, -- Don't redraw the screen during batch execution
+        list = true,
+        listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
+        -- listchars = { tab = "▸", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
+        pumwidth = 35,
+        softtabstop = 2, -- how many spaces to insert with tab key
+        showbreak = "↪ ",
+        -- spelllang = "en_gb",
+        report = 0, -- Threshold for reporting number of lines changed.
+        updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
+        winaltkeys = "no",
+        wildignorecase = true, -- If supported, make wildmenu completions case-insensitive
+
+        -- )))
+        -- Commented-out settings (((
+
+        -- numberwidth = 4, -- set number column width
+        -- relativenumber = true, -- sets vim.opt.relativenumber
+        -- tagcase = "smart",
+        -- timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds). set to 300 by AstroNvim
+
+        -- )))
       },
 
       -- )))
-      -- Scroll-related settings (scrolljump, sidescroll) (((
-
-      scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
-      sidescrolloff = 8, -- The minimal number of screen columns to keep to the left and to the right of the cursor
-      -- scrolljump = 3,  -- How many lines to scroll at a time, make scrolling appears faster (i.e. when you move the cursor close to the vertical limits of display, how many more lines to reveal ?)
-      -- sidescroll = 3,  -- The minimal number of columns to scroll horizontally
-
-      -- )))
-      -- Indent wrapped lines (((
-
-      wrap = true,
-      linebreak = true, -- Wrap lines at convenient point (only affects the on-screen display, not actual content in file) -- Break lines at word boundaries
-      breakindent = true, -- Every wrapped line will continue visually indented (same amount of space as the beginning of that line), thus preserving horizontal blocks of text.
-
-      -- )))
-      -- Fold settings (((
-
-      foldlevel = 2, -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
-      foldlevelstart = 2,
-      foldcolumn = "auto:6",
-      -- foldopen=all, -- helps to avoid automatic closing of previously open folds when returning to a buffer
-
-      -- )))
-      -- Settings for showing matching parenthesis (((
-
-      showmatch = true,
-      matchtime = 3, -- Tenths of a second to show the matching paren, when 'showmatch' is set.  Note that this is not in milliseconds, like other options that set a time.
-
-      -- )))
-      -- All other lua-based options (((
-
-      clipboard = "",
-      confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
-      -- cursorlineopt = "number"
-      foldmethod = "expr",
-      guifont = "monospace:h17", -- the font used in graphical neovim applications
-      history = 10000,
-      -- inccommand = "split",
-      infercase = true, -- Ignore case on insert completion. When doing keyword completion in insert mode |ins-completion|, and 'ignorecase' is also on, the case of the match is adjusted depending on the typed text.
-      iskeyword = vim.opt.iskeyword + { "-" },
-      lazyredraw = true, -- Don't redraw the screen during batch execution
-      list = true,
-      listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
-      -- listchars = { tab = "▸", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
-      pumwidth = 35,
-      softtabstop = 2, -- how many spaces to insert with tab key
-      showbreak = "↪ ",
-      -- spelllang = "en_gb",
-      report = 0, -- Threshold for reporting number of lines changed.
-      updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
-      winaltkeys = "no",
-      wildignorecase = true, -- If supported, make wildmenu completions case-insensitive
-
-      -- )))
-    },
-
-    -- )))
-    -- vim.g settings (((
-
-    g = {
-      mapleader = "\\", -- sets vim.g.mapleader
-      python3_host_prog = "python3",
-      indent_blankline_show_first_indent_level = false,
-      -- loaded_netrwPlugin = true,
-    },
-
-    -- )))
-  },
+    })
+  end,
 
   -- )))
 
@@ -168,7 +174,7 @@ local config = {
         -- Add plugins (packer syntax without the "use" keyword)
         -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
         -- { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
-        -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
+        { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
         { "tyru/capture.vim", cmd = { "Capture" } },
         { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
         { "Konfekt/vim-DetectSpellLang", ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" } },
@@ -282,57 +288,18 @@ local config = {
       end,
       close_behavior = "close", -- aerial window will close when original file is no longer visible
     },
-    bufferline = {
-      custom_areas = {
-        right = function()
-          local result = {}
-          local seve = vim.diagnostic.severity
-          local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
-          local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
-          local info = #vim.diagnostic.get(0, {severity = seve.INFO})
-          local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
-
-          if error ~= 0 then
-            table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
-          end
-
-          if warning ~= 0 then
-            table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
-          end
-
-          if hint ~= 0 then
-            table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
-          end
-
-          if info ~= 0 then
-            table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
-          end
-          return result
-        end,
-      },
-      diagnostics = "nvim_lsp",
-      --- count is an integer representing total count of errors
-      --- level is a string "error" | "warning"
-      --- diagnostics_dict is a dictionary from error level ("error", "warning" or "info")to number of errors for each level.
-      --- this should return a string
-      --- Don't get too fancy as this function will be executed a lot
-      -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
-        --   local icon = level:match("error") and " " or " "
-        --   return " " .. icon .. count
-        -- end
-        diagnostics_indicator = function(count, level, diagnostics_dict, context)
-          if context.buffer:current() then
-            return ''
-          end
-          local s = " "
-          for e, n in pairs(diagnostics_dict) do
-            local sym = e == "error" and " "
-            or (e == "warning" and " " or "" )
-            s = s .. n .. sym
-          end
-          return s
-        end,
-      },
+    -- bufferline = {
+    --   -- diagnostics = "nvim_lsp",
+    --   --- count is an integer representing total count of errors
+    --   --- level is a string "error" | "warning"
+    --   --- diagnostics_dict is a dictionary from error level ("error", "warning" or "info")to number of errors for each level.
+    --   --- this should return a string
+    --   --- Don't get too fancy as this function will be executed a lot
+    --   -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+    --   --   local icon = level:match("error") and " " or " "
+    --   --   return " " .. icon .. count
+    --   -- end
+    -- },
       gitsigns = {
         signs = {
           add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -711,9 +678,11 @@ local config = {
   vim.cmd([[
 
     let g:detectspelllang_langs = {
-    \ 'aspell'   : [ 'en_US', 'de_DE', 'es', 'fr', 'it' ],
-    \ 'hunspell' : [ 'en_US', 'de_DE', 'es_ES', 'fr_FR', 'it_IT' ],
+    \ 'aspell'   : [ 'en_US', 'cs', 'cy', 'de_DE', 'es', 'fr', 'it' ],
+    \ 'hunspell' : [ 'en_US', 'cs_CS', 'cy_CY', 'de_DE', 'es_ES', 'fr_FR', 'it_IT' ],
     \ }
+    let g:python3_host_prog = "python3"
+    let g:indent_blankline_show_first_indent_level = 0
 
   " let mapleader = "\\"
 
@@ -803,10 +772,10 @@ local config = {
   " let g:loaded_remote_plugins     = 1
 
   " " I prefer filtering text with Unix tools
-  " let g:loaded_logiPat            = 1
+  let g:loaded_logiPat            = 1
 
   " let g:loaded_man                = 1
-  let g:loaded_matchit            = 1
+  " let g:loaded_matchit            = 1
   let g:loaded_matchparen         = 1
 
   " I don't use Vim servers
@@ -817,8 +786,8 @@ local config = {
   " let g:loaded_tutor_mode_plugin  = 1
 
   " let g:loaded_netrw              = 1
-  let g:loaded_netrwFileHandlers  = 1
-  let g:loaded_netrwSettings      = 1
+  " let g:loaded_netrwFileHandlers  = 1
+  " let g:loaded_netrwSettings      = 1
   " let g:loaded_netrwPlugin        = 1
   let g:netrw_nogx                = 1
 
