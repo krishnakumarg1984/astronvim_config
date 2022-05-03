@@ -1006,7 +1006,7 @@ local config = {
       vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], { desc = "Terminal right window naviation" })
     end,
   })
- 
+
   -- )))
 
   -- Automatically reload packer configs after saving (((
@@ -1166,7 +1166,6 @@ local config = {
   local opts_noremapsilent = { noremap = true, silent = true }
   local opts_noremapverbose = { noremap = true, silent = false }
   local opts_remapsilent = { noremap = false, silent = true }
-  local term_opts = { noremap = true, silent = true }
   local keymapset = vim.keymap.set
 
   -- )))
