@@ -1095,8 +1095,8 @@ local config = {
     " https://stackoverflow.com/questions/1832085/how-to-jump-to-the-next-tag-in-vim-help-file
     autocmd FileType help nnoremap <buffer> <leader>Tn /\|.\zs\S\{-}\|/<cr>zz
 
-    autocmd FileType help setlocal number relativenumber nolist
-    " autocmd FileType help setlocal nolist
+    autocmd FileType help setlocal number relativenumber
+    autocmd FileType gitcommit,help setlocal nolist
 
     " )))
 
