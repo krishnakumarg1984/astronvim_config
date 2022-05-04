@@ -257,6 +257,7 @@ local config = {
 
       -- https://github.com/AstroNvim/AstroNvim/issues/406
       default_plugins["p00f/nvim-ts-rainbow"] = nil
+      default_plugins["max397574/better-escape.nvim"] = nil
 
       return vim.tbl_deep_extend("force", default_plugins, my_plugins)
     end,
