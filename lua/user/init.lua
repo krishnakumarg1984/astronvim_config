@@ -483,96 +483,95 @@ local config = {
 
   -- )))
 
-  -- -- Modify which-key registration (((
-  -- ["which-key"] = {
-  --   -- Add bindings
-  --   register_mappings = {
-  --     -- first key is the mode, n == normal mode
-  --     n = {
-  --       -- second key is the prefix, <leader> prefixes
-  --       ["<leader>"] = {
-  --         -- which-key registration table for normal mode, leader prefix
-  --         l = {
-  --           w = {
-  --             "<cmd>Telescope diagnostics<cr>",
-  --             "Workspace Diagnostics",
-  --           },
-  --           j = {
-  --             "<cmd>lua vim.diagnostic.goto_next()<CR>",
-  --             "Next Diagnostic",
-  --           },
-  --           k = {
-  --             "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-  --             "Prev Diagnostic",
-  --           },
-  --           l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-  --           q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
-  --           y = {
-  --             "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-  --             "Workspace Symbols",
-  --           },
-  --         },
-  --         s = {
-  --           a = { "<cmd>Telescope autocommands<cr>", "Autocommands" },
-  --           -- b = { "nil", "Builtins" },
-  --           b = { "<cmd>Telescope builtin<cr>", "Builtins" },
-  --           B = { "<cmd>Telescope current_buffer_tags<cr>", "Tags in Current Buffer" },
-  --           C = { "<cmd>Telescope colorscheme<cr>", "Pick colorscheme" },
-  --           d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
-  --           g = { "<cmd>Telescope grep_string<cr>", "Search String" },
-  --           H = { "<cmd>Telescope highlights<cr>", "Highlight Group" },
-  --           i = { "<cmd>Telescope symbols<cr>", "Icons (Unicode Emojis/Symbols)" },
-  --           j = { "<cmd>Telescope jumplist<cr>", "Jumplist" },
-  --           p = { "<cmd>Telescope projects<cr>", "Projects" },
-  --           q = { "<cmd>Telescope quickfix<cr>", "Quickfix" },
-  --           R = { "<cmd>Telescope resume<cr>", "Resume Last" },
-  --           s = { "<cmd>Telescope treesitter<cr>", "Outline Symbols (from treesitter)" },
-  --           t = { "<cmd>Telescope tags<cr>", "Tags in Project" },
-  --           T = { "<cmd>Telescope tagstack<cr>", "Tagstack" },
-  --           v = { "<cmd>Telescope vim_options<cr>", "Vim Options" },
-  --           y = { "<cmd>Telescope filetypes<cr>", "Choose filetype" },
-  --         },
-  --         w = { nil },
-  --         q = { nil },
-  --         h = { nil },
-  --         g = {
-  --           B = {
-  --             "<cmd>Gitsigns stage_buffer<CR>",
-  --             "Stage Buffer",
-  --           },
-  --           C = { "<cmd>Telescope git_bcommits<cr>", "Checkout buffer commits" },
-  --           f = { "<cmd>Telescope git_files<cr>", "Repo files" },
-  --           g = { nil },
-  --           H = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-  --           o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-  --           s = { "<cmd>Telescope git_status<cr>", "Git Status" },
-  --           t = { "<cmd>Telescope git_stash<cr>", "Git Stash" },
-  --           U = {
-  --             function()
-  --               require("core.utils").toggle_term_cmd "gitui"
-  --             end,
-  --             "GitUI",
-  --           },
-  --           u = {
-  --             "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-  --             "Undo Stage Hunk",
-  --           },
-  --         },
-  --         t = {
-  --           l = { nil },
-  --           g = {
-  --             function()
-  --               require("core.utils").toggle_term_cmd "gitui"
-  --             end,
-  --             "GitUI",
-  --           },
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
-  --
-  -- -- )))
+  -- Modify which-key registration (((
+
+  ["which-key"] = {
+    -- Add bindings
+    register_mappings = {
+      -- first key is the mode, n == normal mode
+      n = {
+        -- second key is the prefix, <leader> prefixes
+        ["<leader>"] = {
+          -- which-key registration table for normal mode, leader prefix
+          g = {
+            B = {
+              "<cmd>Gitsigns stage_buffer<CR>",
+              "Stage Buffer",
+            },
+            C = { "<cmd>Telescope git_bcommits<cr>", "Checkout buffer commits" },
+            f = { "<cmd>Telescope git_files<cr>", "Open file in repo" },
+            g = { nil },
+            h = { "<cmd>Gitsigns stage_hunk<cr>", "Stage Hunk" },
+            H = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
+            -- o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+            s = { "<cmd>Telescope git_status<cr>", "Status" },
+            t = { "<cmd>Telescope git_stash<cr>", "Stash all changes" },
+            U = {
+              function()
+                require("core.utils").toggle_term_cmd "gitui"
+              end,
+              "GitUI",
+            },
+          },
+          h = { nil },
+          l = {
+            j = {
+              "<cmd>lua vim.diagnostic.goto_next()<CR>",
+              "Next Diagnostic",
+            },
+            k = {
+              "<cmd>lua vim.diagnostic.goto_prev()<cr>",
+              "Prev Diagnostic",
+            },
+            l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
+            q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
+            w = {
+              "<cmd>Telescope diagnostics<cr>",
+              "Workspace Diagnostics",
+            },
+            y = {
+              "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
+              "Workspace Symbols",
+            },
+          },
+          q = { nil },
+          s = {
+            name =  "Search/Set",
+            a = { "<cmd>Telescope autocommands<cr>", "Autocommands" },
+            -- b = { "nil", "Builtins" },
+            b = { "<cmd>Telescope builtin<cr>", "Builtins" },
+            B = { "<cmd>Telescope current_buffer_tags<cr>", "Tags in Current Buffer" },
+            C = { "<cmd>Telescope colorscheme<cr>", "Pick colorscheme" },
+            d = { "<cmd>Telescope diagnostics<cr>", "Diagnostics" },
+            g = { "<cmd>Telescope grep_string<cr>", "Search String" },
+            H = { "<cmd>Telescope highlights<cr>", "Highlight Group" },
+            i = { "<cmd>Telescope symbols<cr>", "Icons (Unicode Emojis/Symbols)" },
+            j = { "<cmd>Telescope jumplist<cr>", "Jumplist" },
+            p = { "<cmd>Telescope projects<cr>", "Projects" },
+            q = { "<cmd>Telescope quickfix<cr>", "Quickfix" },
+            R = { "<cmd>Telescope resume<cr>", "Resume Last" },
+            s = { "<cmd>Telescope treesitter<cr>", "Outline Symbols (from treesitter)" },
+            t = { "<cmd>Telescope tags<cr>", "Tags in Project" },
+            T = { "<cmd>Telescope tagstack<cr>", "Tagstack" },
+            v = { "<cmd>Telescope vim_options<cr>", "Vim Options" },
+            y = { "<cmd>Telescope filetypes<cr>", "Choose filetype" },
+          },
+          t = {
+            l = { nil },
+            g = {
+              function()
+                require("core.utils").toggle_term_cmd "gitui"
+              end,
+              "GitUI",
+            },
+          },
+          w = { nil },
+        },
+      },
+    },
+  },
+
+  -- )))
 
   -- cmp source priorities (((
 
