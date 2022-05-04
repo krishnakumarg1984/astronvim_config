@@ -18,9 +18,9 @@ local config = {
 
   colorscheme = "default_theme",  -- set colorscheme
 
-  -- set vim options in this lua function (((
+  -- Set vim options in this lua function (((
 
-  -- NOTE: only my preferred settings that are not set by AstroNvim are set here
+  -- NOTE: Only my preferred settings that are not set by AstroNvim are set here
   options = function(defaults)
     defaults.g.loaded_netrwPlugin = nil
     defaults.g.mapleader = "\\" -- sets vim.g.mapleader
@@ -704,326 +704,327 @@ local config = {
 
   polish = function()
     vim.api.nvim_set_hl(0, 'WinSeparator', { fg = 'black', bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
+
     vim.wo.colorcolumn = ""
 
-  -- Vimscript-based options (((
+    -- Vimscript-based options (((
 
-  vim.cmd([[
+    vim.cmd([[
 
-    let g:detectspelllang_langs = {
-    \ 'aspell'   : [ 'en_GB', 'en_US', 'cs', 'cy', 'da', 'de_DE', 'el', 'es', 'fr', 'gd', 'hu', 'id', 'it', 'ms', 'nl', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl', 'sv' ],
-    \ 'hunspell' : [ 'en_GB', 'en_US', 'cs_CS', 'cy_CY', 'da_DA', 'de_DE', 'el_GR', 'gd_GD', 'es_ES', 'fr_FR', 'hu_HU', 'id_ID', 'it_IT', 'ms_MS', 'nl_NL', 'pl_PL', 'pt_PT', 'ro_RO', 'ru_RU', 'sk_SK', 'sl_SL', 'sv_SV' ],
-    \ }
-    let g:python3_host_prog = "python3"
-    let g:indent_blankline_show_first_indent_level = 0
+      let g:detectspelllang_langs = {
+      \ 'aspell'   : [ 'en_GB', 'en_US', 'cs', 'cy', 'da', 'de_DE', 'el', 'es', 'fr', 'gd', 'hu', 'id', 'it', 'ms', 'nl', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl', 'sv' ],
+      \ 'hunspell' : [ 'en_GB', 'en_US', 'cs_CS', 'cy_CY', 'da_DA', 'de_DE', 'el_GR', 'gd_GD', 'es_ES', 'fr_FR', 'hu_HU', 'id_ID', 'it_IT', 'ms_MS', 'nl_NL', 'pl_PL', 'pt_PT', 'ro_RO', 'ru_RU', 'sk_SK', 'sl_SL', 'sv_SV' ],
+      \ }
+      let g:python3_host_prog = "python3"
+      let g:indent_blankline_show_first_indent_level = 0
 
-  " let mapleader = "\\"
+    " let mapleader = "\\"
 
-  set whichwrap+=<,>,[,],h,l
+    set whichwrap+=<,>,[,],h,l
 
-  " Linebreak settings (((
+    " Linebreak settings (((
 
-  " let &showbreak='→ '
-  " let &showbreak='… '
-  " let &showbreak='↪ '
-  set breakat=\ \ ;:,!? " which characters might cause a line break if 'linebreak' is on.
-  set breakindentopt=shift:2,sbr
+    " let &showbreak='→ '
+    " let &showbreak='… '
+    " let &showbreak='↪ '
+    set breakat=\ \ ;:,!? " which characters might cause a line break if 'linebreak' is on.
+    set breakindentopt=shift:2,sbr
 
-  " )))
+    " )))
 
-  " formatoptions (((
+    " formatoptions (((
 
-  " set formatoptions-=cro " TODO: this doesn't seem to work
-  set formatoptions-=t " Disable 'auto-wrap text using textwidth'
-  set formatoptions+=n " When formatting text, recognize numbered lists. This actually uses the 'formatlistpat' option, thus any kind of list can be used. Helps to avoid joining distinct items as if they were a single paragraph.
+    " set formatoptions-=cro " TODO: this doesn't seem to work
+    set formatoptions-=t " Disable 'auto-wrap text using textwidth'
+    set formatoptions+=n " When formatting text, recognize numbered lists. This actually uses the 'formatlistpat' option, thus any kind of list can be used. Helps to avoid joining distinct items as if they were a single paragraph.
 
-  " )))
+    " )))
 
-  " Wildignore and low-priority suffixes/filetype-extensions (((
+    " Wildignore and low-priority suffixes/filetype-extensions (((
 
-  " Ignore the following type of files when tab completing. " There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
-  set wildignore+=*.4ct,*.4tc,*.7z,*.a,*.acn,*.acr,*.alg,*.auxlock,*.backup,*.bcf,*.beam,*.bin,*.blg,*.bmp,*.brf,*.cb,*.cb2,*.class,*.cpt,*.cut,*.dats,*.db,*.dll,*.dmg,*.docx,*.dpth,*.DS_Store,*.dx64fsl,*.el,*.end,*.ent,*.eps,*.exe,*.fasl,*.fdb_latexmk,*.fff,*.fls,*.flv,*.fmt,*.fot,*.gaux,*.gem,*.gif,*.git,*.glg,*.glo,*.gls,*.glsdefs,*.glstex,*.gtex,*.hg,*.hst,*.idv,*.idx,*.ilg,*.img,*.ind,*.ini,*.ist,*.jpeg,*.JPG,*.la,*.lb,*.lg,*.listing,*.lnk,*.loa,*.load,*.loe,*.lof,*.lol,*.lot,*.lox,*.ltjruby,*.luac,*.lx64fsl,*.maf,*.manifest,*.mf,*.mkv,*.mlf,*.mlt,*.mo,*.mod,*.mp,*.mp4,*.mw,*.nav,*.nlg,*.nlo,*.nls,*.o,*.obj,*.orig,*.pax,*.pdf,*.pdfpc,*.pdfsync,*.png,*.pre,*.ps,*.psd,*.pyc,*.pyg,*.pyo,*.pytxcode,*.rar,*.rbc,*.rbo,*.run.xml,*.save,*.snm,*.so,*.soc,*.sout,*.spl,*.sqlite,*.sta,*.svg,*.svn,*.sw?,*.swp,*.sympy,*.synctex,*.synctex.gz,*.tar,*.tar.bz2,*.tar.gz,*.tar.xz,*.tdo,*.texpadtmp,*.tfm,*.thm,*.tiff,*.toc,*.trc,*.ttt,*.upa,*.upb,*.ver,*.vrb,*.wrt,*.xcp,*.xdv,*.xdy,*.xlsx,*.xmpi,*.xpm,*.xref,*.xyc,*.xz,*.zip,*/.bundle/*,*/.cls,*/.fdb*/,*/.git/*,*/.glo,*/.ist,*/.sass-cache/*,*/.svn/*,*/.toc,*/.vim$,*/__pycache__/*,*/builds/*,*/dist*/*,*/node_modules/*,*/target/*,*/tmp/*,*/vendor/cache/*,*/vendor/gems/*,*/venv/*,*\\tmp\\*,*~,./tags,._*,.git/,.git/*,.idea/,\~$,_site,bower_components/*,CVS,CVS/*,media/*,migrations,tags,types_*taghl,vendor/cache/**,vendor/rails/**,
+    " Ignore the following type of files when tab completing. " There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
+    set wildignore+=*.4ct,*.4tc,*.7z,*.a,*.acn,*.acr,*.alg,*.auxlock,*.backup,*.bcf,*.beam,*.bin,*.blg,*.bmp,*.brf,*.cb,*.cb2,*.class,*.cpt,*.cut,*.dats,*.db,*.dll,*.dmg,*.docx,*.dpth,*.DS_Store,*.dx64fsl,*.el,*.end,*.ent,*.eps,*.exe,*.fasl,*.fdb_latexmk,*.fff,*.fls,*.flv,*.fmt,*.fot,*.gaux,*.gem,*.gif,*.git,*.glg,*.glo,*.gls,*.glsdefs,*.glstex,*.gtex,*.hg,*.hst,*.idv,*.idx,*.ilg,*.img,*.ind,*.ini,*.ist,*.jpeg,*.JPG,*.la,*.lb,*.lg,*.listing,*.lnk,*.loa,*.load,*.loe,*.lof,*.lol,*.lot,*.lox,*.ltjruby,*.luac,*.lx64fsl,*.maf,*.manifest,*.mf,*.mkv,*.mlf,*.mlt,*.mo,*.mod,*.mp,*.mp4,*.mw,*.nav,*.nlg,*.nlo,*.nls,*.o,*.obj,*.orig,*.pax,*.pdf,*.pdfpc,*.pdfsync,*.png,*.pre,*.ps,*.psd,*.pyc,*.pyg,*.pyo,*.pytxcode,*.rar,*.rbc,*.rbo,*.run.xml,*.save,*.snm,*.so,*.soc,*.sout,*.spl,*.sqlite,*.sta,*.svg,*.svn,*.sw?,*.swp,*.sympy,*.synctex,*.synctex.gz,*.tar,*.tar.bz2,*.tar.gz,*.tar.xz,*.tdo,*.texpadtmp,*.tfm,*.thm,*.tiff,*.toc,*.trc,*.ttt,*.upa,*.upb,*.ver,*.vrb,*.wrt,*.xcp,*.xdv,*.xdy,*.xlsx,*.xmpi,*.xpm,*.xref,*.xyc,*.xz,*.zip,*/.bundle/*,*/.cls,*/.fdb*/,*/.git/*,*/.glo,*/.ist,*/.sass-cache/*,*/.svn/*,*/.toc,*/.vim$,*/__pycache__/*,*/builds/*,*/dist*/*,*/node_modules/*,*/target/*,*/tmp/*,*/vendor/cache/*,*/vendor/gems/*,*/venv/*,*\\tmp\\*,*~,./tags,._*,.git/,.git/*,.idea/,\~$,_site,bower_components/*,CVS,CVS/*,media/*,migrations,tags,types_*taghl,vendor/cache/**,vendor/rails/**,
 
 
-  " This gives files lower priority, instead of outright ignoring them
-  set suffixes+=*.info,*.aux,*.log,*/.log,*.dvi,*.bbl,*.out,*/.out,*.old,*.bak
+    " This gives files lower priority, instead of outright ignoring them
+    set suffixes+=*.info,*.aux,*.log,*/.log,*.dvi,*.bbl,*.out,*/.out,*.old,*.bak
 
-  " )))
+    " )))
 
-  " Custom 'Underline' command using user-defined function (((
+    " Custom 'Underline' command using user-defined function (((
 
-  " https://vim.fandom.com/wiki/Underline_using_dashes_automatically
-  function! s:Underline(chars) abort
-    let chars = empty(a:chars) ? '-' : a:chars
-    let nr_columns = virtcol('$') - 1
-    let uline = repeat(chars, (nr_columns / len(chars)) + 1)
-    put =strpart(uline, 0, nr_columns)
-  endfunction
-  command! -nargs=? Underline call s:Underline(<q-args>)
+    " https://vim.fandom.com/wiki/Underline_using_dashes_automatically
+    function! s:Underline(chars) abort
+      let chars = empty(a:chars) ? '-' : a:chars
+      let nr_columns = virtcol('$') - 1
+      let uline = repeat(chars, (nr_columns / len(chars)) + 1)
+      put =strpart(uline, 0, nr_columns)
+    endfunction
+    command! -nargs=? Underline call s:Underline(<q-args>)
 
-  " )))
+    " )))
 
-  " Formatlistpat settings (((
+    " Formatlistpat settings (((
 
-  " A pattern that is used to recognize a list header.  This is used for the "n" flag in 'formatoptions'. The pattern must match exactly the text that will be the indent for the line below it.  You can use |/\ze| to mark the end of the match while still checking more characters.  There must be a character following the pattern, when it matches the whole line it is handled like there is no match. The default recognizes a number, followed by an optional punctuation character and white space.
+    " A pattern that is used to recognize a list header.  This is used for the "n" flag in 'formatoptions'. The pattern must match exactly the text that will be the indent for the line below it.  You can use |/\ze| to mark the end of the match while still checking more characters.  There must be a character following the pattern, when it matches the whole line it is handled like there is no match. The default recognizes a number, followed by an optional punctuation character and white space.
 
-  set formatlistpat=^\\s*                " Optional leading whitespace
-  set formatlistpat+=[                   " Start character class
-  set formatlistpat+=\\[({]\\?           " |  Optionally match opening punctuation
-  set formatlistpat+=\\(                 " |  Start group
-  set formatlistpat+=[0-9]\\+            " |  |  Numbers
-  set formatlistpat+=\\\|                " |  |  or
-  set formatlistpat+=[a-zA-Z]\\+         " |  |  Letters
-  set formatlistpat+=\\)                 " |  End group
-  set formatlistpat+=[\\]:.)}            " |  Closing punctuation
-  set formatlistpat+=]                   " End character class
-  set formatlistpat+=\\s\\+              " One or more spaces
-  set formatlistpat+=\\\|                " or
-  set formatlistpat+=^\\s*[-–+o*•]\\s\\+ " Bullet points
+    set formatlistpat=^\\s*                " Optional leading whitespace
+    set formatlistpat+=[                   " Start character class
+    set formatlistpat+=\\[({]\\?           " |  Optionally match opening punctuation
+    set formatlistpat+=\\(                 " |  Start group
+    set formatlistpat+=[0-9]\\+            " |  |  Numbers
+    set formatlistpat+=\\\|                " |  |  or
+    set formatlistpat+=[a-zA-Z]\\+         " |  |  Letters
+    set formatlistpat+=\\)                 " |  End group
+    set formatlistpat+=[\\]:.)}            " |  Closing punctuation
+    set formatlistpat+=]                   " End character class
+    set formatlistpat+=\\s\\+              " One or more spaces
+    set formatlistpat+=\\\|                " or
+    set formatlistpat+=^\\s*[-–+o*•]\\s\\+ " Bullet points
 
-  " )))
+    " )))
 
-  " Global g:tex_ settings (((
+    " Global g:tex_ settings (((
 
-  " https://damrah.netlify.app/post/note-taking-with-latex-part-1/
-  " let g:tex_no_error=1   " The <tex.vim> supports lexical error checking of various sorts.  Thus, although the error checking is ofttimes very useful, it can indicate errors where none actually are.  If this proves to be a problem for you, you may put in your vimrc the following statement: > let g:tex_no_error=1 and all error checking by <syntax/tex.vim> will be suppressed.
-  let g:tex_comment_nospell= 1
-  let g:tex_conceal='abdmgs'
-  let g:tex_flavor = 'latex'
-  let g:tex_fold_enabled=1
-  let g:tex_isk='48-57,a-z,A-Z,192-255,:,_'
+    " https://damrah.netlify.app/post/note-taking-with-latex-part-1/
+    " let g:tex_no_error=1   " The <tex.vim> supports lexical error checking of various sorts.  Thus, although the error checking is ofttimes very useful, it can indicate errors where none actually are.  If this proves to be a problem for you, you may put in your vimrc the following statement: > let g:tex_no_error=1 and all error checking by <syntax/tex.vim> will be suppressed.
+    let g:tex_comment_nospell= 1
+    let g:tex_conceal='abdmgs'
+    let g:tex_flavor = 'latex'
+    let g:tex_fold_enabled=1
+    let g:tex_isk='48-57,a-z,A-Z,192-255,:,_'
 
-  " )))
+    " )))
 
-  " Disable unnecessary internal plugins (((
+    " Disable unnecessary internal plugins (((
 
-  let g:did_install_default_menus = 1
-	:let did_install_default_menus  = 1
-  let g:did_install_syntax_menu   = 1
-	:let did_install_syntax_menu    = 1
-  " let g:did_indent_on             = 1    " raises an error: Vim(doautocmd):E216: No such group or event: filetypeindent FileType markdown
-  let g:did_load_ftplugin         = 1
-  let g:skip_loading_mswin        = 1
+    let g:did_install_default_menus = 1
+	  :let did_install_default_menus  = 1
+    let g:did_install_syntax_menu   = 1
+	  :let did_install_syntax_menu    = 1
+    " let g:did_indent_on             = 1    " raises an error: Vim(doautocmd):E216: No such group or event: filetypeindent FileType markdown
+    let g:did_load_ftplugin         = 1
+    let g:skip_loading_mswin        = 1
 
-  " " I prefer filtering text with Unix tools
-  let g:loaded_logiPat            = 1
+    " " I prefer filtering text with Unix tools
+    let g:loaded_logiPat            = 1
 
-  " let g:loaded_man      = 1
-  " let g:loaded_matchit  = 1
-  let g:loaded_matchparen = 1
-	:let loaded_matchparen  = 1
+    " let g:loaded_man      = 1
+    " let g:loaded_matchit  = 1
+    let g:loaded_matchparen = 1
+	  :let loaded_matchparen  = 1
 
-  " I don't use Vim servers
-  " let g:loaded_rrhelper = 1   " doesn't exist in neovim
-
-  let g:loaded_shada_plugin       = 1
-  let g:loaded_spellfile_plugin   = 1
-  " let g:loaded_tutor_mode_plugin  = 1
-
-  " let g:loaded_netrw              = 1
-  let g:netrw_nogx                = 1
+    " I don't use Vim servers
+    " let g:loaded_rrhelper = 1   " doesn't exist in neovim
+
+    let g:loaded_shada_plugin       = 1
+    let g:loaded_spellfile_plugin   = 1
+    " let g:loaded_tutor_mode_plugin  = 1
+
+    " let g:loaded_netrw              = 1
+    let g:netrw_nogx                = 1
 
-    let g:loaded_ruby_provider = 0  " To disable Ruby support
-    :let g:loaded_perl_provider = 0 " To disable perl support
-    :let g:loaded_node_provider = 0 " To disable Node.js support
+      let g:loaded_ruby_provider = 0  " To disable Ruby support
+      :let g:loaded_perl_provider = 0 " To disable perl support
+      :let g:loaded_node_provider = 0 " To disable Node.js support
 
-  " )))
+    " )))
 
-  " Folding-related global(g:) variables for various languages (((
+    " Folding-related global(g:) variables for various languages (((
 
-  let g:markdown_folding        = 1
-  let g:markdown_enable_folding = 1
-  let g:tex_fold_enabled        = 1
-  let g:vimsyn_folding          = 'af'
-  let g:xml_syntax_folding      = 1
-  let g:javaScript_fold         = 1
-  let g:sh_fold_enabled         = 7
-  let g:ruby_fold               = 1
-  let g:perl_fold               = 1
-  let g:perl_fold_blocks        = 1
-  let g:r_syntax_folding        = 1
-  let g:rust_fold               = 1
-  let g:php_folding             = 1
+    let g:markdown_folding        = 1
+    let g:markdown_enable_folding = 1
+    let g:tex_fold_enabled        = 1
+    let g:vimsyn_folding          = 'af'
+    let g:xml_syntax_folding      = 1
+    let g:javaScript_fold         = 1
+    let g:sh_fold_enabled         = 7
+    let g:ruby_fold               = 1
+    let g:perl_fold               = 1
+    let g:perl_fold_blocks        = 1
+    let g:r_syntax_folding        = 1
+    let g:rust_fold               = 1
+    let g:php_folding             = 1
 
-  " )))
+    " )))
 
-  " Diff-mode settings (((
+    " Diff-mode settings (((
 
-  set diffopt+=vertical,foldcolumn:0,context:3,iwhiteall,hiddenoff
-  " set diffopt+=internal,indent-heuristic,algorithm:histogram
-  set diffopt+=indent-heuristic,algorithm:minimal
+    set diffopt+=vertical,foldcolumn:0,context:3,iwhiteall,hiddenoff
+    " set diffopt+=internal,indent-heuristic,algorithm:histogram
+    set diffopt+=indent-heuristic,algorithm:minimal
 
-  " )))
+    " )))
 
-  " " Settings for 'listchars' which define extra list display characters (((
-  "
-  " set listchars=
-  " " set listchars+=tab:▸\     " Tab characters, preserve width
-  " set listchars+=tab:→\     " Tab characters, preserve width
-  " set listchars+=trail:·    " Trailing spaces
-  " set listchars+=extends:>  " Unwrapped text to screen right
-  " set listchars+=precedes:< " Unwrapped text to screen left
-  " set listchars+=nbsp:␣
-  "
-  " " )))
+    " " Settings for 'listchars' which define extra list display characters (((
+    "
+    " set listchars=
+    " " set listchars+=tab:▸\     " Tab characters, preserve width
+    " set listchars+=tab:→\     " Tab characters, preserve width
+    " set listchars+=trail:·    " Trailing spaces
+    " set listchars+=extends:>  " Unwrapped text to screen right
+    " set listchars+=precedes:< " Unwrapped text to screen left
+    " set listchars+=nbsp:␣
+    "
+    " " )))
 
-  " Title (GUI/terminal) settings (((
+    " Title (GUI/terminal) settings (((
 
-  set title
-  set titleold="Terminal"
+    set title
+    set titleold="Terminal"
 
-  " https://github.com/factorylabs/vimfiles/blob/ad1f9ffcd8c1e620a75a28822aaefc2097640b0d/home/.vimrc#L309
-  " Set the title bar to something meaningful
+    " https://github.com/factorylabs/vimfiles/blob/ad1f9ffcd8c1e620a75a28822aaefc2097640b0d/home/.vimrc#L309
+    " Set the title bar to something meaningful
 
-  " set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')} " working directory
-  " set titlestring=%f%(\ [%M]%)
-  " set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
+    " set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')} " working directory
+    " set titlestring=%f%(\ [%M]%)
+    " set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
 
-  set titlestring=
-  set titlestring+=%f\                " file name
-  set titlestring+=%h%m%r%w           " flags
-  set titlestring+=\ -\ %{v:progname} " program name
+    set titlestring=
+    set titlestring+=%f\                " file name
+    set titlestring+=%h%m%r%w           " flags
+    set titlestring+=\ -\ %{v:progname} " program name
 
-  " )))
+    " )))
 
-  " Settings for grepprg and grepformat (((
+    " Settings for grepprg and grepformat (((
 
-  if executable('rg')
-    set grepprg=rg\ -H\ --no-heading\ --vimgrep
-    set grepformat^=%f:%l:%c:%m
-  endif
+    if executable('rg')
+      set grepprg=rg\ -H\ --no-heading\ --vimgrep
+      set grepformat^=%f:%l:%c:%m
+    endif
 
-  " )))
+    " )))
 
-  " Other non-conditional settings/declarations (set xxxxxxx) (((
+    " Other non-conditional settings/declarations (set xxxxxxx) (((
 
-  " set path+=**    " Search current directory's whole tree
-  set cpoptions-=a  " Stop the :read command from annoyingly setting the alternative buffer
-  set fileformats=unix,dos,mac " This gives the end-of-line (<EOL>) formats that will be tried when starting to edit a new buffer and when reading a file into an existing buffer:
-  set isfname-==
-  set isfname-={,}
-  set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " Probably overridden by status-line plugins
-  set virtualedit+=block " Allow movement beyond buffer text only in visual block mode
+    " set path+=**    " Search current directory's whole tree
+    set cpoptions-=a  " Stop the :read command from annoyingly setting the alternative buffer
+    set fileformats=unix,dos,mac " This gives the end-of-line (<EOL>) formats that will be tried when starting to edit a new buffer and when reading a file into an existing buffer:
+    set isfname-==
+    set isfname-={,}
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " Probably overridden by status-line plugins
+    set virtualedit+=block " Allow movement beyond buffer text only in visual block mode
 
-  " )))
+    " )))
 
-  " Mappings (((
+    " Mappings (((
 
-  " https://github.com/neovim/neovim/issues/9953
-  " if &wildoptions == 'pum'
-  "     cnoremap <expr> <up>   pumvisible() ? "<C-p>" : "\<up>"
-  "     cnoremap <expr> <down> pumvisible() ? "<C-n>" : "\<down>"
-  " endif
-  "
-  " cnoremap <c-n> <down>
-  " cnoremap <c-p> <up>
+    " https://github.com/neovim/neovim/issues/9953
+    " if &wildoptions == 'pum'
+    "     cnoremap <expr> <up>   pumvisible() ? "<C-p>" : "\<up>"
+    "     cnoremap <expr> <down> pumvisible() ? "<C-n>" : "\<down>"
+    " endif
+    "
+    " cnoremap <c-n> <down>
+    " cnoremap <c-p> <up>
 
-  " Replace :w with :up
-  cnoreabbrev <expr> w getcmdtype() == ":" && getcmdline() == 'w' ? 'up' : 'w'
+    " Replace :w with :up
+    cnoreabbrev <expr> w getcmdtype() == ":" && getcmdline() == 'w' ? 'up' : 'w'
 
-  " https://stackoverflow.com/questions/3131393/remapping-help-in-vim-to-open-in-a-new-tab
-  cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
-  cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == 'help' ? 'tab help' : 'help'
-  cnoreabbrev <expr> helpgrep getcmdtype() == ":" && getcmdline() == 'helpgrep' ? 'tab helpgrep' : 'helpgrep'
+    " https://stackoverflow.com/questions/3131393/remapping-help-in-vim-to-open-in-a-new-tab
+    cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
+    cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == 'help' ? 'tab help' : 'help'
+    cnoreabbrev <expr> helpgrep getcmdtype() == ":" && getcmdline() == 'helpgrep' ? 'tab helpgrep' : 'helpgrep'
 
-  " nnoremaps (((
+    " nnoremaps (((
 
-  noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-  noremap <silent> <expr> <Down> (v:count == 0 ? 'gj' : 'j')
-  noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-  noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
+    noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+    noremap <silent> <expr> <Down> (v:count == 0 ? 'gj' : 'j')
+    noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+    noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 
-  " replace the word under cursor
-  nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
+    " replace the word under cursor
+    nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
 
-  " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
-  " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
-  nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
+    " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
+    " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
+    nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
 
-  nmap cg* *Ncgn
+    nmap cg* *Ncgn
 
-  noremap <c-w>" <c-w>t<c-w>K    " change vertical to horizontal with -
-  noremap <c-w>% <c-w>t<c-w>H    " change horizontal to vertical with %
+    noremap <c-w>" <c-w>t<c-w>K    " change vertical to horizontal with -
+    noremap <c-w>% <c-w>t<c-w>H    " change horizontal to vertical with %
 
-  " )))
+    " )))
 
-  " Make jump-selections work better in visual block mode (((
+    " Make jump-selections work better in visual block mode (((
 
-  xnoremap <expr>  G   'G' . virtcol('.') . "\|"
-  xnoremap <expr>  }   '}' . virtcol('.') . "\|"
-  xnoremap <expr>  {   '{' . virtcol('.') . "\|"
+    xnoremap <expr>  G   'G' . virtcol('.') . "\|"
+    xnoremap <expr>  }   '}' . virtcol('.') . "\|"
+    xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 
-  " )))
+    " )))
 
-  " Substitute word under cursor and dot repeat (((
+    " Substitute word under cursor and dot repeat (((
 
-  " https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
-  " nnoremap <silent> \\C :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-  " nnoremap <leader><leader>c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
-  " xnoremap <silent> \\C "sy:let @/=@s<CR>cgn
+    " https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
+    " nnoremap <silent> \\C :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+    " nnoremap <leader><leader>c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+    " xnoremap <silent> \\C "sy:let @/=@s<CR>cgn
 
-  " )))
+    " )))
 
-  " Plugin keymaps (vimscript-based) (((
+    " Plugin keymaps (vimscript-based) (((
 
-  " Bufferline keymaps (vimscript-based) (((
+    " Bufferline keymaps (vimscript-based) (((
 
-  " These commands will navigate through buffers in order regardless of which mode you are using
-  " e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
-  nnoremap <silent>[b :BufferLineCyclePrev<CR>
-  nnoremap <silent>]b :BufferLineCycleNext<CR>
-  " nnoremap <silent><leader>Bd :BufferLineSortByDirectory<CR>
-  " nnoremap <silent><leader>Be :BufferLineSortByExtension<CR>
-  " nnoremap <silent><leader>Bp :BufferLinePick<CR>
-  " nnoremap <silent><leader>Bc :BufferLinePickClose<CR>
-  nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
-  nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
-  nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
-  nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
-  nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
-  nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
-  nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
-  nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
-  nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+    " These commands will navigate through buffers in order regardless of which mode you are using
+    " e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+    nnoremap <silent>[b :BufferLineCyclePrev<CR>
+    nnoremap <silent>]b :BufferLineCycleNext<CR>
+    " nnoremap <silent><leader>Bd :BufferLineSortByDirectory<CR>
+    " nnoremap <silent><leader>Be :BufferLineSortByExtension<CR>
+    " nnoremap <silent><leader>Bp :BufferLinePick<CR>
+    " nnoremap <silent><leader>Bc :BufferLinePickClose<CR>
+    nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+    nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+    nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+    nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+    nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+    nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+    nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+    nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+    nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
 
-  " )))
+    " )))
 
-  " )))
+    " )))
 
-  " )))
+    " )))
 
-  " Dictionary settings (((
+    " Dictionary settings (((
 
-  if has('unix')
-    silent! set dictionary+=/usr/share/dict/words
-    silent! set dictionary+=/usr/share/dict/american-english
-    silent! set dictionary+=/usr/share/dict/british-english
-    silent! set dictionary+=/usr/share/dict/cracklib-small
-  endif
+    if has('unix')
+      silent! set dictionary+=/usr/share/dict/words
+      silent! set dictionary+=/usr/share/dict/american-english
+      silent! set dictionary+=/usr/share/dict/british-english
+      silent! set dictionary+=/usr/share/dict/cracklib-small
+    endif
 
-  " )))
+    " )))
 
-  " Custom highlights (((
+    " Custom highlights (((
 
-  match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Nobody wants to commit merge conflict markers, so let’s highlight these so we can’t miss them: https://vimways.org/2018/vim-and-git/
+    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Nobody wants to commit merge conflict markers, so let’s highlight these so we can’t miss them: https://vimways.org/2018/vim-and-git/
 
-  " )))
+    " )))
 
-  " shortmess settings (((
+    " shortmess settings (((
 
-  set shortmess+=I  " Don't give the intro message when starting Vim |:intro|.
-  set shortmess+=c  " Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc.
-  set shortmess-=x  " Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions
+    set shortmess+=I  " Don't give the intro message when starting Vim |:intro|.
+    set shortmess+=c  " Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc.
+    set shortmess-=x  " Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions
 
-  " )))
+    " )))
 
-  set tags=~/.cache/tags
+    set tags=~/.cache/tags
 
-  set foldexpr=nvim_treesitter#foldexpr()
+    set foldexpr=nvim_treesitter#foldexpr()
 
-  ]])
+    ]])
 
-  -- )))
+    -- )))
 
     -- Autogroups & Autocommands (lua-based) (((
 
