@@ -801,7 +801,6 @@ local config = {
   " let g:did_indent_on             = 1    " raises an error: Vim(doautocmd):E216: No such group or event: filetypeindent FileType markdown
   let g:did_load_ftplugin         = 1
   let g:skip_loading_mswin        = 1
-  " let g:loaded_remote_plugins     = 1
 
   " " I prefer filtering text with Unix tools
   let g:loaded_logiPat            = 1
@@ -814,13 +813,10 @@ local config = {
   let g:loaded_rrhelper           = 1
 
   let g:loaded_shada_plugin       = 1
-  " let g:loaded_spellfile_plugin   = 1
+  let g:loaded_spellfile_plugin   = 1
   " let g:loaded_tutor_mode_plugin  = 1
 
   " let g:loaded_netrw              = 1
-  " let g:loaded_netrwFileHandlers  = 1
-  " let g:loaded_netrwSettings      = 1
-  " let g:loaded_netrwPlugin        = 1
   let g:netrw_nogx                = 1
 
   " )))
