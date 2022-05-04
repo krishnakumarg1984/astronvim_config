@@ -18,18 +18,9 @@ local config = {
 
   colorscheme = "default_theme",  -- set colorscheme
 
-  -- lua table of vim options (((
+  -- set vim options in this lua function (((
 
   -- NOTE: only my preferred settings that are not set by AstroNvim are set here
-
-  -- -- set vim options here (vim.<first_key>.<second_key> =  value)
-  -- options = {
-  --   g = {
-  --   },
-  --
-  --   -- )))
-  -- },
-
   options = function(defaults)
     defaults.g.loaded_netrwPlugin = nil
     defaults.g.mapleader = "\\" -- sets vim.g.mapleader
