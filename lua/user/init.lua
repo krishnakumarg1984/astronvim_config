@@ -1028,7 +1028,7 @@ local config = {
     -- Term mappings Autogroup (((
 
     vim.api.nvim_del_augroup_by_name "TermMappings"
-    vim.api.nvim_create_augroup("TermMappings", {})
+    vim.api.nvim_create_augroup("TermMappings", { clear = true })
     vim.api.nvim_create_autocmd("TermOpen", {
       desc = "Set terminal keymaps",
       group = "TermMappings",
@@ -1045,7 +1045,7 @@ local config = {
 
     -- Augroup for Alpha bindings (((
 
-    vim.api.nvim_create_augroup("alpha_bindings", {})
+    vim.api.nvim_create_augroup("alpha_bindings", { clear = true })
     vim.api.nvim_create_autocmd("FileType", {
       desc = "Set alpha bindings",
       group = "alpha_bindings",
@@ -1060,7 +1060,7 @@ local config = {
 
     -- Autogroup for automatically reload packer configs after saving (((
 
-    -- vim.api.nvim_create_augroup("packer_conf", {})
+    -- vim.api.nvim_create_augroup("packer_conf", { clear = true })
     -- vim.api.nvim_create_autocmd("BufWritePost", {
     --   desc = "Sync packer after modifying plugins.lua",
     --   group = "packer_conf",
