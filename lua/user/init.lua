@@ -272,7 +272,8 @@ local config = {
       end,
       placement_editor_edge = true,
       open_automatic = function(bufnr)
-        return vim.api.nvim_buf_line_count(bufnr) > 26  -- Enforce a minimum line count
+        return not vim.opt.diff:get()                   -- if not in 'diff' mode
+          and vim.api.nvim_buf_line_count(bufnr) > 26   -- Enforce a minimum line count
           and require("aerial").num_symbols(bufnr) > 3  -- Enforce a minimum symbol count
           and not require("aerial").was_closed()        -- A useful way to keep aerial closed when closed manually
       end,
