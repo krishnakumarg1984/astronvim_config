@@ -281,12 +281,9 @@ local config = {
       end,
       placement_editor_edge = true,
       open_automatic = function(bufnr)
-        -- Enforce a minimum line count
-        return vim.api.nvim_buf_line_count(bufnr) > 26
-          -- Enforce a minimum symbol count
-          and require("aerial").num_symbols(bufnr) > 3
-          -- -- A useful way to keep aerial closed when closed manually
-          and not require("aerial").was_closed()
+        return vim.api.nvim_buf_line_count(bufnr) > 26  -- Enforce a minimum line count
+          and require("aerial").num_symbols(bufnr) > 3  -- Enforce a minimum symbol count
+          and not require("aerial").was_closed()        -- A useful way to keep aerial closed when closed manually
       end,
       -- close_behavior = "auto", -- aerial window will stay open as long as there is a visible buffer to attach to
       -- close_behavior = "persist", -- aerial window will stay open until closed
