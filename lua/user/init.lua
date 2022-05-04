@@ -920,6 +920,7 @@ local config = {
   " https://stackoverflow.com/questions/3131393/remapping-help-in-vim-to-open-in-a-new-tab
   cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
   cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == 'help' ? 'tab help' : 'help'
+  cnoreabbrev <expr> helpgrep getcmdtype() == ":" && getcmdline() == 'helpgrep' ? 'tab helpgrep' : 'helpgrep'
 
   " nnoremaps (((
 
