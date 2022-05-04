@@ -822,6 +822,10 @@ local config = {
   " let g:loaded_netrw              = 1
   let g:netrw_nogx                = 1
 
+    let g:loaded_ruby_provider = 0  " To disable Ruby support
+    :let g:loaded_perl_provider = 0 " To disable perl support
+    :let g:loaded_node_provider = 0 " To disable Node.js support
+
   " )))
 
   " Folding-related global(g:) variables for various languages (((
