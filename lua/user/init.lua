@@ -601,7 +601,6 @@ local config = {
   cmp = {
     experimental = {
       ghost_text = true,
-      native_menu = true,
     },
     source_priority = {
       nvim_lsp = 1000,
