@@ -289,6 +289,16 @@ local config = {
       end,
       close_behavior = "close", -- aerial window will close when original file is no longer visible
     },
+    alpha = function(config)
+      local buttons = config.layout[4].val
+      local new_file = buttons[4]
+      new_file.opts.shortcut = new_file.opts.shortcut .. ", ESC, q"
+
+      table.remove(buttons, 4)
+      table.insert(buttons, 1, new_file)
+
+      return config
+    end,
     -- bufferline = {
     --   diagnostics = "nvim_lsp",
     --   -- count is an integer representing total count of errors
@@ -990,39 +1000,54 @@ local config = {
 
   -- )))
 
-  -- Autogroups & Autocommands (lua-based) (((
+    -- Autogroups & Autocommands (lua-based) (((
 
-  -- Term mappings Autogroup (((
+    -- Term mappings Autogroup (((
 
-  vim.api.nvim_del_augroup_by_name "TermMappings"
-  vim.api.nvim_create_augroup("TermMappings", {})
-  vim.api.nvim_create_autocmd("TermOpen", {
-    desc = "Set terminal keymaps",
-    group = "TermMappings",
-    callback = function()
-      vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], { desc = "Terminal normal mode" })
-      vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], { desc = "Terminal left window navigation" })
-      vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], { desc = "Terminal down window navigation" })
-      vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], { desc = "Terminal up window navigation" })
-      vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], { desc = "Terminal right window naviation" })
-    end,
-  })
+    vim.api.nvim_del_augroup_by_name "TermMappings"
+    vim.api.nvim_create_augroup("TermMappings", {})
+    vim.api.nvim_create_autocmd("TermOpen", {
+      desc = "Set terminal keymaps",
+      group = "TermMappings",
+      callback = function()
+        vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], { desc = "Terminal normal mode" })
+        vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], { desc = "Terminal left window navigation" })
+        vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], { desc = "Terminal down window navigation" })
+        vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], { desc = "Terminal up window navigation" })
+        vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], { desc = "Terminal right window naviation" })
+      end,
+    })
 
-  -- )))
+    -- )))
 
-  -- Automatically reload packer configs after saving (((
+    -- Augroup for Alpha bindings (((
 
-  -- vim.api.nvim_create_augroup("packer_conf", {})
-  -- vim.api.nvim_create_autocmd("BufWritePost", {
-  --   desc = "Sync packer after modifying plugins.lua",
-  --   group = "packer_conf",
-  --   pattern = "plugins.lua",
-  --   command = "source <afile> | PackerSync",
-  -- })
+    vim.api.nvim_create_augroup("alpha_bindings", {})
+    vim.api.nvim_create_autocmd("FileType", {
+      desc = "Set alpha bindings",
+      group = "alpha_bindings",
+      pattern = "alpha",
+      callback = function()
+        vim.keymap.set("n", "q", "<cmd>enew<cr>", { buffer = 0 })
+        vim.keymap.set("n", "<esc>", "<cmd>enew<cr>", { buffer = 0 })
+      end,
+    })
 
-  -- )))
+    -- )))
 
-  -- )))
+    -- Autogroup for automatically reload packer configs after saving (((
+
+    -- vim.api.nvim_create_augroup("packer_conf", {})
+    -- vim.api.nvim_create_autocmd("BufWritePost", {
+    --   desc = "Sync packer after modifying plugins.lua",
+    --   group = "packer_conf",
+    --   pattern = "plugins.lua",
+    --   command = "source <afile> | PackerSync",
+    -- })
+
+    -- )))
+
+    -- )))
 
   -- Autocommands (vimscript-based) (((
 
