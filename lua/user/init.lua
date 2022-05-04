@@ -288,7 +288,8 @@ local config = {
           -- -- A useful way to keep aerial closed when closed manually
           and not require("aerial").was_closed()
       end,
-      close_behavior = "close", -- aerial window will close when original file is no longer visible
+      -- close_behavior = "close", -- aerial window will close when original file is no longer visible
+      close_behavior = "global", -- aerial window will close when original file is no longer visible
     },
     alpha = function(config)
       local buttons = config.layout[4].val
