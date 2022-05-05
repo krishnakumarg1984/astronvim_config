@@ -531,14 +531,21 @@ local config = {
     ["nvim-lsp-installer"] = {
       ensure_installed = { "sumneko_lua" },
     },
-    -- which_key = {
-    --   operators = { gc = "Comments" },
-    --   -- plugins = {
-    --   --   presets = {
-    --   --     operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-    --   --   },
-    --   -- },
-    -- },
+    ["which-key"] = {
+      window = {
+        -- margin = { -10, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
+        padding = { 0, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
+      },
+      layout = {
+        height = { min = 3, max = 10 }, -- min and max height of the columns
+        width = { min = 10, max = 40 }, -- min and max width of the columns
+      },
+      plugins = {
+        presets = {
+          operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+        },
+      },
+    },
     packer = {
       compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
     },
