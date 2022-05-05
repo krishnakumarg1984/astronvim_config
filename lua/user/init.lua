@@ -1056,8 +1056,8 @@ local config = {
     " e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
     nnoremap <silent>[b :BufferLineCyclePrev<CR>
     nnoremap <silent>]b :BufferLineCycleNext<CR>
-    nnoremap <silent><leader><leader>[ :BufferLineMovePrev<CR>
-    nnoremap <silent><leader><leader>] :BufferLineMoveNext<CR>
+    " nnoremap <silent><leader><leader>[ :BufferLineMovePrev<CR>
+    " nnoremap <silent><leader><leader>] :BufferLineMoveNext<CR>
     nnoremap <silent><leader><leader>d :BufferLineSortByDirectory<CR>
     nnoremap <silent><leader><leader>e :BufferLineSortByExtension<CR>
     nnoremap <silent><leader><leader>p :BufferLinePick<CR>
