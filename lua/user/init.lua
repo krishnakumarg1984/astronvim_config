@@ -161,7 +161,8 @@ local config = {
   plugins = {
     -- Add plugins, the packer syntax without the "use"
     init = function(default_plugins)
-      default_plugins["windwp/nvim-autopairs"] = nil
+      -- default_plugins["windwp/nvim-autopairs"] = nil
+      -- default_plugins["hrsh7th/nvim-cmp"] = nil
       local my_plugins = {
         -- Add plugins (packer syntax without the "use" keyword)
         -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
@@ -206,13 +207,13 @@ local config = {
             })
           end,
         },
-        {
-          "windwp/nvim-autopairs",
-          event = "InsertEnter",
-          config = function()
-            require("autopairs").config()
-          end,
-        },
+        -- {
+        --   "windwp/nvim-autopairs",
+        --   event = "InsertEnter",
+        --   config = function()
+        --     require("autopairs").config()
+        --   end,
+        -- },
         {
           "kevinhwang91/nvim-hlslens",
           keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
@@ -395,6 +396,132 @@ local config = {
         },
       },
     },
+    -- npairs = function(config)
+    --   local npairs = require "nvim-autopairs"
+    --   local Rule   = require'nvim-autopairs.rule'
+    --   npairs.add_rules {
+    --     Rule(' ', ' ')
+    --       :with_pair(function (opts)
+    --         local pair = opts.line:sub(opts.col - 1, opts.col)
+    --         return vim.tbl_contains({ '()', '[]', '{}' }, pair)
+    --       end),
+    --     Rule('( ', ' )')
+    --       :with_pair(function() return false end)
+    --       :with_move(function(opts)
+    --         return opts.prev_char:match('.%)') ~= nil
+    --       end)
+    --       :use_key(')'),
+    --     Rule('{ ', ' }')
+    --       :with_pair(function() return false end)
+    --       :with_move(function(opts)
+    --         return opts.prev_char:match('.%}') ~= nil
+    --       end)
+    --       :use_key('}'),
+    --     Rule('[ ', ' ]')
+    --       :with_pair(function() return false end)
+    --       :with_move(function(opts)
+    --         return opts.prev_char:match('.%]') ~= nil
+    --       end)
+    --       :use_key(']')
+    --   }
+    --   return vim.tbl_deep_extend("force", config, {})
+    -- end,
+    cmp = function(config)
+      local kind_icons = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        -- Field = " ",
+        Field = "ﰠ",
+        -- Variable = " ",
+        Variable = "",
+        -- Class = " ",
+        Class = "",
+        Interface = " ",
+        -- Module = " ",
+        Module = "",
+        -- Property = " ",
+        Property = "",
+        Unit = " ",
+        -- Value = " ",
+        Value = "",
+        -- Enum = " ",
+        Enum = "",
+        -- Keyword = " ",
+        Keyword = "",
+        -- Snippet = " ",
+        Snippet = "",
+        -- Color = " ",
+        Color = "",
+        -- File = " ",
+        File = "",
+        -- Reference = " ",
+        Reference = "",
+        -- Folder = " ",
+        Folder = "",
+        -- EnumMember = " ",
+        EnumMember = "",
+        -- Constant = " ",
+        -- Constant = "",
+        Constant = "",
+        -- Struct = " ",
+        Struct = "פּ",
+        -- Struct = "" ,
+        -- Event = " ",
+        Event = "",
+        -- Operator = " ",
+        Operator = "",
+        -- TypeParameter = " ",
+        TypeParameter = "",
+      }
+      local cmp = require "cmp"
+
+      return vim.tbl_deep_extend("force", config, {
+        experimental = {
+          ghost_text = true,
+        },
+        view = {
+          entries = { name = "custom", selection_order = "near_cursor" },
+        },
+        window = {
+          documentation = {
+            border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+            -- border = { " ", " ", " ", " ", " ", " ", " ", " " },
+          },
+        },
+        formatting = {
+          fields = { "abbr", "kind", "menu" },
+          format = function(entry, vim_item)
+            -- Kind icons
+            vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+            vim_item.abbr = string.sub(vim_item.abbr, 1, 25)
+            -- Source
+            vim_item.menu = ({
+              buffer = "[Buf]",
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snippet]",
+              nvim_lua = "[Nvim_Lua]",
+              latex_symbols = "[LaTeX]",
+              cmp_tabnine = "[Tabnine]",
+              path = "[Path]",
+              emoji = "[Emoji]",
+              nuspell = "[Nuspell]",
+              spell = "[Spell]",
+              look = "[Look]",
+              dictionary = "[Dictionary]",
+              tags = "[Tags]",
+              tmux = "[Tmux]",
+            })[entry.source.name]
+            return vim_item
+          end,
+        },
+        mapping = {
+          ["<C-j>"] = cmp.config.disable,
+          ["<C-k>"] = cmp.config.disable,
+        },
+      })
+    end,
     gitsigns = {
       signs = {
         add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
@@ -537,7 +664,10 @@ local config = {
       },
     },
     ["nvim-lsp-installer"] = {
-      ensure_installed = { "sumneko_lua" },
+      ensure_installed = {
+        "sumneko_lua",
+        "clangd",
+      },
     },
     ["which-key"] = {
       window = {
@@ -695,8 +825,8 @@ local config = {
       ghost_text = true,
     },
     source_priority = {
-      nvim_lsp = 1000,
-      luasnip = 750,
+      luasnip = 1000,
+      nvim_lsp = 750,
       buffer = 500,
       path = 250,
     },
@@ -710,6 +840,7 @@ local config = {
     -- enable servers that you already have installed without lsp-installer
     servers = {
       "sumneko_lua",
+      "clangd",
       -- "pyright"
     },
     -- add to the server on_attach function
@@ -1123,24 +1254,6 @@ local config = {
 
     -- Autogroups & Autocommands (lua-based) (((
 
-    -- Term mappings Autogroup (((
-
-    vim.api.nvim_del_augroup_by_name "TermMappings"
-    vim.api.nvim_create_augroup("TermMappings", { clear = true })
-    vim.api.nvim_create_autocmd("TermOpen", {
-      desc = "Set terminal keymaps",
-      group = "TermMappings",
-      callback = function()
-        vim.api.nvim_buf_set_keymap(0, "t", "jk", [[<C-\><C-n>]], { desc = "Terminal normal mode" })
-        vim.api.nvim_buf_set_keymap(0, "t", "<C-h>", [[<C-\><C-n><C-W>h]], { desc = "Terminal left window navigation" })
-        vim.api.nvim_buf_set_keymap(0, "t", "<C-j>", [[<C-\><C-n><C-W>j]], { desc = "Terminal down window navigation" })
-        vim.api.nvim_buf_set_keymap(0, "t", "<C-k>", [[<C-\><C-n><C-W>k]], { desc = "Terminal up window navigation" })
-        vim.api.nvim_buf_set_keymap(0, "t", "<C-l>", [[<C-\><C-n><C-W>l]], { desc = "Terminal right window naviation" })
-      end,
-    })
-
-    -- )))
-
     -- Augroup for Alpha bindings (((
 
     vim.api.nvim_create_augroup("alpha_bindings", { clear = true })
@@ -1327,6 +1440,8 @@ local config = {
 
   -- Disable AstroNvim mappings that override important vim defaults (((
 
+  vim.keymap.del("t", "<esc>")
+  vim.keymap.set('t', "<esc>", "<C-\\><C-n>", { silent = true })
   vim.keymap.set('n', "<leader>w", "<leader>w", { silent = true })
   vim.keymap.del('n', "<leader>w")
   vim.keymap.set('n', "<leader>q", "<leader>q", { silent = true })
