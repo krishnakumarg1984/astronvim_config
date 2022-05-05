@@ -161,6 +161,7 @@ local config = {
   plugins = {
     -- Add plugins, the packer syntax without the "use"
     init = function(default_plugins)
+      default_plugins["windwp/nvim-autopairs"] = nil
       local my_plugins = {
         -- Add plugins (packer syntax without the "use" keyword)
         -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
@@ -203,6 +204,13 @@ local config = {
                 'unite',
               }
             })
+          end,
+        },
+        {
+          "windwp/nvim-autopairs",
+          event = "InsertEnter",
+          config = function()
+            require("autopairs").config()
           end,
         },
         {
