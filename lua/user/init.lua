@@ -593,6 +593,7 @@ local config = {
             t = { "<cmd>AerialToggle<cr>", "Toggle outline & move cursor" },
             -- u = { "<cmd>AerialPrevUp<cr>", "Prev symbol (up 1 level)" },
           },
+          f = { name = "File/Buffer" },
           g = {
             B = {
               "<cmd>Gitsigns stage_buffer<CR>",
