@@ -522,8 +522,8 @@ local config = {
           enable = true,
           border = "none",
           peek_definition_code = {
-            ["<leader>df"] = "@function.outer",
-            ["<leader>dF"] = "@class.outer",
+            ["<leader><leader>df"] = "@function.outer",
+            ["<leader><leader>dF"] = "@class.outer",
           },
         },
       },
@@ -593,6 +593,7 @@ local config = {
             t = { "<cmd>AerialToggle<cr>", "Toggle outline & move cursor" },
             -- u = { "<cmd>AerialPrevUp<cr>", "Prev symbol (up 1 level)" },
           },
+          d = { "<cmd>windo diffthis<CR>", "diff buffers" },
           f = { name = "File/Buffer" },
           g = {
             B = {
