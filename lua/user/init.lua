@@ -1318,8 +1318,11 @@ local config = {
 
   -- Disable AstroNvim mappings that override important vim defaults (((
 
+  vim.keymap.set('n', "<leader>w", "<leader>w", { silent = true })
   vim.keymap.del('n', "<leader>w")
+  vim.keymap.set('n', "<leader>q", "<leader>q", { silent = true })
   vim.keymap.del('n', "<leader>q")
+  vim.keymap.set('n', "<leader>h", "<leader>h", { silent = true })
   vim.keymap.del('n', "<leader>h")
   vim.keymap.set('n', "}", "}", { silent = true })
   vim.keymap.del("n", "}")
