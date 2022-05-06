@@ -118,7 +118,7 @@ local config = {
         -- numberwidth = 4, -- set number column width
         -- relativenumber = true, -- sets vim.opt.relativenumber
         -- tagcase = "smart",
-        -- timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds). set to 300 by AstroNvim
+        timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds). AstroNvim sets this to 300.
 
         -- )))
       },
