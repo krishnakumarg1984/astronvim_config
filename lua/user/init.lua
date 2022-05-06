@@ -211,6 +211,15 @@ local config = {
           end,
         },
         {
+          "danymat/neogen",
+          config = function()
+            require('neogen').setup ({ snippet_engine = "luasnip" })
+          end,
+          after = "nvim-treesitter",
+          -- Uncomment next line if you want to follow only stable versions
+          -- tag = "*"
+        },
+        {
           "Shatur/neovim-cmake",
           ft = { "c", "cpp", "cmake", "fortran" },
           requires = { "mfussenegger/nvim-dap" },
@@ -991,6 +1000,29 @@ local config = {
               "Workspace Symbols",
             },
           },
+          n = {
+            name = "Neogen annotation",
+            c = {
+              "<cmd>:lua require('neogen').generate({ type = 'class' })<CR>>",
+              "Class annotation",
+            },
+            f = {
+              "<cmd>:lua require('neogen').generate({ type = 'func' })<CR>>",
+              "Func annotation",
+            },
+            i = {
+              "<cmd>:lua require('neogen').generate({ type = 'file' })<CR>>",
+              "File annotation",
+            },
+            n = {
+              "<cmd>:lua require('neogen').generate()<CR>>",
+              "Generate annotation",
+            },
+            t = {
+              "<cmd>:lua require('neogen').generate({ type = 'type' })<CR>>",
+              "Type annotation",
+            },
+          },
           q = { nil },
           s = {
             name =  "Search/Set",
@@ -1663,3 +1695,13 @@ local config = {
 -- )))
 
 return config
+
+-- Other nice plugins worth looking into (((
+-- "s1n7ax/nvim-comment-frame"  -- Detects the language using treesitter and adds a comment block
+-- "danymat/neogen"  -- A better annotation generator. Supports multiple languages and annotation conventions
+-- "jbyuki/instant.nvim"  -- collaborative editing in Neovim using built-in capabilities
+-- "chipsenkbeil/distant.nvim"  -- Edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
+
+-- "jamestthompson3/nvim-remote-containers"  -- Develop inside docker containers, just like VSCode
+
+-- )))
