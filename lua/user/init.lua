@@ -281,10 +281,10 @@ local config = {
       }
 
       -- disable aerial lazy load
-      default_plugins["stevearc/aerial.nvim"].opt = false
-      default_plugins["stevearc/aerial.nvim"].setup = nil
+      -- default_plugins["stevearc/aerial.nvim"].opt = false
+      -- default_plugins["stevearc/aerial.nvim"].setup = nil
       -- load lualine after aerial
-      default_plugins["nvim-lualine/lualine.nvim"].after = "aerial.nvim"
+      -- default_plugins["nvim-lualine/lualine.nvim"].after = "aerial.nvim"
 
       -- https://github.com/AstroNvim/AstroNvim/issues/406
       default_plugins["p00f/nvim-ts-rainbow"] = nil
@@ -579,7 +579,7 @@ local config = {
     lualine = function(config)
       table.insert(config.sections.lualine_c, 1, "filename")
       -- add aerial to beginning of lualine_x section
-      table.insert(config.sections.lualine_x, 1, "aerial")
+      -- table.insert(config.sections.lualine_x, 1, "aerial")
       return config
     end,
     treesitter = {
