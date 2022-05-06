@@ -1564,14 +1564,14 @@ local config = {
   local opts_noremapsilent = { noremap = true, silent = true }
   local opts_noremapverbose = { noremap = true, silent = false }
   local opts_remapsilent = { noremap = false, silent = true }
-  local keymapset = vim.keymap.set
+  -- local vim.keymap.set = vim.keymap.set
 
   -- )))
 
   -- Disable some unnecessary/confusing default mappings (((
 
-  keymapset({ "n", "i" }, "<f1>", "<Nop>", opts_noremapsilent)
-  keymapset({ "n", "x" }, "s", "<Nop>", opts_remapsilent) -- Disable 's' as recommended by sandwich.vim help file
+  vim.keymap.set({ "n", "i" }, "<f1>", "<Nop>", opts_noremapsilent)
+  vim.keymap.set({ "n", "x" }, "s", "<Nop>", opts_remapsilent) -- Disable 's' as recommended by sandwich.vim help file
 
   -- )))
 
@@ -1609,22 +1609,24 @@ local config = {
 
   -- )))
 
-  keymapset({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags
+  vim.keymap.set({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags
+    -- vim.keymap.set({ "n" }, "<leader>*", ":%s;\<<c-r><c-w>\>;;g<left><left>") -- replace the word under cursor
+
 
   -- Normal mode keymaps -- (((
 
-  -- keymapset("n", "<leader>e", ":Lexplore 20<cr>", opts_noremapsilent)
-  keymapset("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
-  keymapset("n", "J", "mzJ`zmz", opts_noremapsilent)
-  keymapset("n", "'", "`", opts_noremapsilent)
-  keymapset("n", "<C-]>", "g<C-]>", opts_noremapsilent) -- show options if tag has multiple matches
+  -- vim.keymap.set("n", "<leader>e", ":Lexplore 20<cr>", opts_noremapsilent)
+  vim.keymap.set("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
+  vim.keymap.set("n", "J", "mzJ`zmz", opts_noremapsilent)
+  vim.keymap.set("n", "'", "`", opts_noremapsilent)
+  vim.keymap.set("n", "<C-]>", "g<C-]>", opts_noremapsilent) -- show options if tag has multiple matches
 
   -- Keymaps for navigating folds (((
 
-  -- keymapset("n", "zf", "zMzvzz", opts_noremapsilent)
-  -- keymapset("n", "zj", "zcjzOzz", opts_noremapsilent)
-  -- keymapset("n", "zk", "zckzOzz", opts_noremapsilent)
-  keymapset("n", "<Space>", "za", opts_noremapsilent)
+  -- vim.keymap.set("n", "zf", "zMzvzz", opts_noremapsilent)
+  -- vim.keymap.set("n", "zj", "zcjzOzz", opts_noremapsilent)
+  -- vim.keymap.set("n", "zk", "zckzOzz", opts_noremapsilent)
+  vim.keymap.set("n", "<Space>", "za", opts_noremapsilent)
 
   -- )))
 
@@ -1632,10 +1634,10 @@ local config = {
 
   local smart_splits_status_ok, smart_splits = pcall(require, "smart-splits")
   if smart_splits_status_ok then
-    keymapset('n', '<A-h>', smart_splits.resize_left)
-    keymapset('n', '<A-j>', smart_splits.resize_down)
-    keymapset('n', '<A-k>', smart_splits.resize_up)
-    keymapset('n', '<A-l>', smart_splits.resize_right)
+    vim.keymap.set('n', '<A-h>', smart_splits.resize_left)
+    vim.keymap.set('n', '<A-j>', smart_splits.resize_down)
+    vim.keymap.set('n', '<A-k>', smart_splits.resize_up)
+    vim.keymap.set('n', '<A-l>', smart_splits.resize_right)
   end
 
   -- )))
@@ -1644,14 +1646,14 @@ local config = {
 
   -- Insert mode keymaps -- (((
 
-  keymapset("i", "<c-c>", "<ESC>", opts_noremapsilent) -- CTRL-C doesn't trigger the InsertLeave autocmd. Map to <ESC> instead.
+  vim.keymap.set("i", "<c-c>", "<ESC>", opts_noremapsilent) -- CTRL-C doesn't trigger the InsertLeave autocmd. Map to <ESC> instead.
 
   -- )))
 
   -- Visual mode keymaps -- (((
 
-  keymapset("v", "y", "myy`ymy", opts_noremapsilent)
-  keymapset("v", "Y", "myY`ymy", opts_noremapsilent)
+  vim.keymap.set("v", "y", "myy`ymy", opts_noremapsilent)
+  vim.keymap.set("v", "Y", "myY`ymy", opts_noremapsilent)
 
   -- )))
 
@@ -1659,8 +1661,8 @@ local config = {
 
   -- Stay in indent mode in visual-block mode (((
 
-  keymapset("x", "<", "<gv", opts_noremapsilent)
-  keymapset("x", ">", ">gv", opts_noremapsilent)
+  vim.keymap.set("x", "<", "<gv", opts_noremapsilent)
+  vim.keymap.set("x", ">", ">gv", opts_noremapsilent)
 
   -- )))
 
@@ -1668,8 +1670,8 @@ local config = {
 
   -- Command-line mode keymaps -- (((
 
-  keymapset("c", "<c-n>", "<down>", opts_noremapverbose)
-  keymapset("c", "<c-p>", "<up>", opts_noremapverbose)
+  vim.keymap.set("c", "<c-n>", "<down>", opts_noremapverbose)
+  vim.keymap.set("c", "<c-p>", "<up>", opts_noremapverbose)
 
   -- )))
 
@@ -1677,10 +1679,10 @@ local config = {
 
   -- Gitsigns keymaps (((
 
-  keymapset("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
-  keymapset("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
-  keymapset("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
-  keymapset("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+  vim.keymap.set("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
+  vim.keymap.set("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+  vim.keymap.set("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+  vim.keymap.set("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
 
   -- )))
 
