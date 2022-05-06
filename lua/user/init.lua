@@ -1697,11 +1697,12 @@ local config = {
 return config
 
 -- Other nice plugins worth looking into (((
+
 -- "s1n7ax/nvim-comment-frame"  -- Detects the language using treesitter and adds a comment block
 -- "danymat/neogen"  -- A better annotation generator. Supports multiple languages and annotation conventions
 -- "jbyuki/instant.nvim"  -- collaborative editing in Neovim using built-in capabilities
 -- "chipsenkbeil/distant.nvim"  -- Edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
-
 -- "jamestthompson3/nvim-remote-containers"  -- Develop inside docker containers, just like VSCode
+-- "jubnzv/virtual-types.nvim"  -- A Neovim plugin that shows type annotations as virtual text
 
 -- )))
