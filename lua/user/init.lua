@@ -187,7 +187,7 @@ local config = {
             require("clangd_extensions").setup({})
           end,
         },
-        { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
+        -- { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
         {
           "hrsh7th/cmp-emoji",
           after = "nvim-cmp",
