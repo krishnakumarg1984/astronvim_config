@@ -179,6 +179,8 @@ local config = {
         {
           "p00f/clangd_extensions.nvim",
           ft = { "c", "cpp", "cuda" },
+          after = "nvim-cmp",
+          -- cmd = { "ClangdAST" },
           config = function()
             require("clangd_extensions").setup({})
           end,
