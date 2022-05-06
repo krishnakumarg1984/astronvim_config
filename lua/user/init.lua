@@ -1210,7 +1210,7 @@ local config = {
 
     " Diff-mode settings (((
 
-    set diffopt+=vertical,foldcolumn:0,context:3,iwhiteall,hiddenoff
+    set diffopt+=vertical,foldcolumn:0,context:2,iwhiteall,hiddenoff
     " set diffopt+=internal,indent-heuristic,algorithm:histogram
     set diffopt+=indent-heuristic,algorithm:minimal
 
