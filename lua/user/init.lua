@@ -176,7 +176,13 @@ local config = {
         { "lervag/vimtex", ft = "tex" },
         { "svban/YankAssassin.vim" },
         { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
-        { "p00f/clangd_extensions.nvim", ft = { "c", "cpp", "cuda" } },
+        {
+          "p00f/clangd_extensions.nvim",
+          ft = { "c", "cpp", "cuda" },
+          config = function()
+            require("clangd_extensions").setup({})
+          end,
+        },
         { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
         { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
         {
@@ -478,6 +484,18 @@ local config = {
       local cmp = require "cmp"
 
       return vim.tbl_deep_extend("force", config, {
+        sorting = {
+          comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.recently_used,
+            require("clangd_extensions.cmp_scores"),
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+          },
+        },
         experimental = {
           ghost_text = true,
         },
