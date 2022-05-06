@@ -324,9 +324,9 @@ local config = {
       placement_editor_edge = true,
       open_automatic = function(bufnr)
         return not vim.opt.diff:get()                   -- if not in 'diff' mode
-        and vim.api.nvim_buf_line_count(bufnr) > 26   -- Enforce a minimum line count
-        and require("aerial").num_symbols(bufnr) > 3  -- Enforce a minimum symbol count
-        and not require("aerial").was_closed()        -- A useful way to keep aerial closed when closed manually
+          and vim.api.nvim_buf_line_count(bufnr) > 26   -- Enforce a minimum line count
+          and require("aerial").num_symbols(bufnr) > 3  -- Enforce a minimum symbol count
+          and not require("aerial").was_closed()        -- A useful way to keep aerial closed when closed manually
       end,
       -- close_behavior = "auto", -- aerial window will stay open as long as there is a visible buffer to attach to
       -- close_behavior = "persist", -- aerial window will stay open until closed
@@ -405,362 +405,363 @@ local config = {
                 return buf.name:match('%.md') or buf.name:match('%.txt')
               end,
               separator = { -- Optional
-              style = require('bufferline.groups').separator.tab
-            },
+                style = require('bufferline.groups').separator.tab
+              },
+            }
           }
-        }
-      },
-      offsets = {
-        {
-          filetype = "neo-tree",
-          text = "File Explorer",
-          highlight = "Directory",
-          text_align = "left"
-        }
-      },
-      custom_areas = {
-        right = function()
-          local result = {}
-          local seve = vim.diagnostic.severity
-          local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
-          local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
-          local info = #vim.diagnostic.get(0, {severity = seve.INFO})
-          local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
+        },
+        offsets = {
+          {
+            filetype = "neo-tree",
+            text = "File Explorer",
+            highlight = "Directory",
+            text_align = "left"
+          }
+        },
+        custom_areas = {
+          right = function()
+            local result = {}
+            local seve = vim.diagnostic.severity
+            local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
+            local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
+            local info = #vim.diagnostic.get(0, {severity = seve.INFO})
+            local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
 
-          if error ~= 0 then
-            table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
-          end
+            if error ~= 0 then
+              table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
+            end
 
-          if warning ~= 0 then
-            table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
-          end
+            if warning ~= 0 then
+              table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
+            end
 
-          if hint ~= 0 then
-            table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
-          end
+            if hint ~= 0 then
+              table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
+            end
 
-          if info ~= 0 then
-            table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
-          end
-          return result
-        end,
-      },
-    },
-  },
-
-  -- )))
-
-  -- 'cmp' override setup() (((
-
-  cmp = function(config)
-    local kind_icons = {
-      Text = "",
-      Method = "",
-      Function = "",
-      Constructor = "",
-      -- Field = " ",
-      Field = "ﰠ",
-      -- Variable = " ",
-      Variable = "",
-      -- Class = " ",
-      Class = "",
-      Interface = " ",
-      -- Module = " ",
-      Module = "",
-      -- Property = " ",
-      Property = "",
-      Unit = " ",
-      -- Value = " ",
-      Value = "",
-      -- Enum = " ",
-      Enum = "",
-      -- Keyword = " ",
-      Keyword = "",
-      -- Snippet = " ",
-      Snippet = "",
-      -- Color = " ",
-      Color = "",
-      -- File = " ",
-      File = "",
-      -- Reference = " ",
-      Reference = "",
-      -- Folder = " ",
-      Folder = "",
-      -- EnumMember = " ",
-      EnumMember = "",
-      -- Constant = " ",
-      -- Constant = "",
-      Constant = "",
-      -- Struct = " ",
-      Struct = "פּ",
-      -- Struct = "" ,
-      -- Event = " ",
-      Event = "",
-      -- Operator = " ",
-      Operator = "",
-      -- TypeParameter = " ",
-      TypeParameter = "",
-    }
-    local cmp = require "cmp"
-
-    return vim.tbl_deep_extend("force", config, {
-      sorting = {
-        comparators = {
-          cmp.config.compare.offset,
-          cmp.config.compare.exact,
-          cmp.config.compare.recently_used,
-          require("clangd_extensions.cmp_scores"),
-          cmp.config.compare.kind,
-          cmp.config.compare.sort_text,
-          cmp.config.compare.length,
-          cmp.config.compare.order,
+            if info ~= 0 then
+              table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
+            end
+            return result
+          end,
         },
       },
-      experimental = {
-        ghost_text = true,
+    },
+
+    -- )))
+
+    -- 'cmp' override setup() (((
+
+    cmp = function(config)
+      local kind_icons = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        -- Field = " ",
+        Field = "ﰠ",
+        -- Variable = " ",
+        Variable = "",
+        -- Class = " ",
+        Class = "",
+        Interface = " ",
+        -- Module = " ",
+        Module = "",
+        -- Property = " ",
+        Property = "",
+        Unit = " ",
+        -- Value = " ",
+        Value = "",
+        -- Enum = " ",
+        Enum = "",
+        -- Keyword = " ",
+        Keyword = "",
+        -- Snippet = " ",
+        Snippet = "",
+        -- Color = " ",
+        Color = "",
+        -- File = " ",
+        File = "",
+        -- Reference = " ",
+        Reference = "",
+        -- Folder = " ",
+        Folder = "",
+        -- EnumMember = " ",
+        EnumMember = "",
+        -- Constant = " ",
+        -- Constant = "",
+        Constant = "",
+        -- Struct = " ",
+        Struct = "פּ",
+        -- Struct = "" ,
+        -- Event = " ",
+        Event = "",
+        -- Operator = " ",
+        Operator = "",
+        -- TypeParameter = " ",
+        TypeParameter = "",
+      }
+      local cmp = require "cmp"
+
+      return vim.tbl_deep_extend("force", config, {
+        sorting = {
+          comparators = {
+            cmp.config.compare.offset,
+            cmp.config.compare.exact,
+            cmp.config.compare.recently_used,
+            require("clangd_extensions.cmp_scores"),
+            cmp.config.compare.kind,
+            cmp.config.compare.sort_text,
+            cmp.config.compare.length,
+            cmp.config.compare.order,
+          },
+        },
+        experimental = {
+          ghost_text = true,
+        },
+        view = {
+          entries = { name = "custom", selection_order = "near_cursor" },
+        },
+        window = {
+          documentation = {
+            border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+            -- border = { " ", " ", " ", " ", " ", " ", " ", " " },
+          },
+        },
+        formatting = {
+          fields = { "abbr", "kind", "menu" },
+          format = function(entry, vim_item)
+            -- Kind icons
+            vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+            vim_item.abbr = string.sub(vim_item.abbr, 1, 25)
+            -- Source
+            vim_item.menu = ({
+              buffer = "[Buf]",
+              nvim_lsp = "[LSP]",
+              luasnip = "[Snippet]",
+              nvim_lua = "[Nvim_Lua]",
+              latex_symbols = "[LaTeX]",
+              cmp_tabnine = "[Tabnine]",
+              path = "[Path]",
+              emoji = "[Emoji]",
+              nvim_lsp_signature_help = "",
+              nuspell = "[Nuspell]",
+              spell = "[Spell]",
+              look = "[Look]",
+              dictionary = "[Dictionary]",
+              tags = "[Tags]",
+              tmux = "[Tmux]",
+            })[entry.source.name]
+            return vim_item
+          end,
+        },
+        mapping = {
+          ["<C-j>"] = cmp.config.disable,
+          ["<C-k>"] = cmp.config.disable,
+        },
+      })
+    end,
+
+    -- )))
+
+    -- 'gitsigns' override setup() (((
+
+    gitsigns = {
+      signs = {
+        add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+        change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+        delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+        topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+        changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn", },
       },
-      view = {
-        entries = { name = "custom", selection_order = "near_cursor" },
+      word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+    },
+
+    -- )))
+
+    -- 'lualine' override setup() (((
+
+    lualine = function(config)
+      table.insert(config.sections.lualine_c, 1, "filename")
+      -- add aerial to beginning of lualine_x section
+      -- table.insert(config.sections.lualine_x, 1, "aerial")
+      return config
+    end,
+
+    -- )))
+
+    -- 'nvim-lsp-installer' override setup() (((
+
+    ["nvim-lsp-installer"] = {
+      -- automatic_installation = true,
+      ensure_installed = {
+        "sumneko_lua",
+        "clangd",
       },
+    },
+
+    -- )))
+
+    -- 'treesitter' override setup() (((
+
+    treesitter = {
+      ensure_installed = {
+        "bash",
+        "bibtex",
+        "c",
+        "cmake",
+        -- "comment",
+        "cpp",
+        "cuda",
+        "dockerfile",
+        "dot",
+        "fortran",
+        "go",
+        "html",
+        "java",
+        -- "javascript",
+        "json",
+        "json5",
+        "jsonc",
+        "julia",
+        -- "latex",
+        "lua", -- problematic on remote servers?
+        "make",
+        "markdown",
+        "ninja",
+        "perl",
+        "python",
+        "r",
+        "regex",
+        -- "rst",
+        "ruby",
+        -- "rust",
+        "toml",
+        "verilog",
+        "vim",  -- problematic on remote servers?
+        "yaml",
+      },
+      highlight = {
+        use_languagetree = true,
+      },
+      context_commentstring = {
+        config = {
+          vim = '" %s',
+        },
+      },
+      indent = {
+        enable = true,
+      },
+      refactor = {
+        highlight_definitions = {
+          enable = true,
+          clear_on_cursor_move = true, -- Set to false if you have an `updatetime` of ~100.
+        },
+        -- highlight_current_scope = { enable = true },
+        smart_rename = {
+          enable = true,
+          keymaps = {
+            smart_rename = "grr",
+          },
+        },
+        navigation = {
+          enable = true,
+          keymaps = {
+            goto_definition = "gnd",
+            list_definitions = "gnD",
+            list_definitions_toc = "gO",
+            goto_next_usage = "<a-*>",
+            goto_previous_usage = "<a-#>",
+          },
+        },
+      },
+      textobjects = {
+        select = {
+          enable = true,
+
+          -- Automatically jump forward to textobj, similar to targets.vim
+          lookahead = true,
+
+          keymaps = {
+            -- You can use the capture groups defined in textobjects.scm
+            ["af"] = "@function.outer",
+            ["if"] = "@function.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
+          },
+        },
+        swap = {
+          enable = true,
+          swap_next = {
+            ["<leader><leader>a"] = "@parameter.inner",
+          },
+          swap_previous = {
+            ["<leader><leader>A"] = "@parameter.inner",
+          },
+        },
+        move = {
+          enable = true,
+          set_jumps = true, -- whether to set jumps in the jumplist
+          goto_next_start = {
+            ["]m"] = "@function.outer", -- "m" for method
+            ["]]"] = "@class.outer",
+          },
+          goto_next_end = {
+            ["]M"] = "@function.outer",
+            ["]["] = "@class.outer",
+          },
+          goto_previous_start = {
+            ["[m"] = "@function.outer",
+            ["[["] = "@class.outer",
+          },
+          goto_previous_end = {
+            ["[M"] = "@function.outer",
+            ["[]"] = "@class.outer",
+          },
+        },
+        lsp_interop = {
+          enable = true,
+          border = "none",
+          peek_definition_code = {
+            ["<leader><leader>df"] = "@function.outer",
+            ["<leader><leader>dF"] = "@class.outer",
+          },
+        },
+      },
+    },
+
+    -- )))
+
+    -- 'which-key' override setup() (((
+
+    ["which-key"] = {
       window = {
-        documentation = {
-          border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-          -- border = { " ", " ", " ", " ", " ", " ", " ", " " },
+        -- margin = { -10, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
+        margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+        padding = { 0, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
+      },
+      layout = {
+        height = { min = 3, max = 10 }, -- min and max height of the columns
+        width = { min = 10, max = 40 }, -- min and max width of the columns
+      },
+      plugins = {
+        presets = {
+          operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
         },
       },
-      formatting = {
-        fields = { "abbr", "kind", "menu" },
-        format = function(entry, vim_item)
-          -- Kind icons
-          vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-          vim_item.abbr = string.sub(vim_item.abbr, 1, 25)
-          -- Source
-          vim_item.menu = ({
-            buffer = "[Buf]",
-            nvim_lsp = "[LSP]",
-            luasnip = "[Snippet]",
-            nvim_lua = "[Nvim_Lua]",
-            latex_symbols = "[LaTeX]",
-            cmp_tabnine = "[Tabnine]",
-            path = "[Path]",
-            emoji = "[Emoji]",
-            nvim_lsp_signature_help = "",
-            nuspell = "[Nuspell]",
-            spell = "[Spell]",
-            look = "[Look]",
-            dictionary = "[Dictionary]",
-            tags = "[Tags]",
-            tmux = "[Tmux]",
-          })[entry.source.name]
-          return vim_item
-        end,
-      },
-      mapping = {
-        ["<C-j>"] = cmp.config.disable,
-        ["<C-k>"] = cmp.config.disable,
-      },
-    })
-  end,
-
-  -- )))
-
-  -- 'gitsigns' override setup() (((
-
-  gitsigns = {
-    signs = {
-      add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-      change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-      delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-      topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-      changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn", },
     },
-    word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+
+    -- )))
+
+    -- 'packer' override setup() (((
+
+    packer = {
+      compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+    },
+    -- )))
+
+    -- )))
   },
-
-  -- )))
-
-  -- 'lualine' override setup() (((
-
-  lualine = function(config)
-    table.insert(config.sections.lualine_c, 1, "filename")
-    -- add aerial to beginning of lualine_x section
-    -- table.insert(config.sections.lualine_x, 1, "aerial")
-    return config
-  end,
-
-  -- )))
-
-  -- 'nvim-lsp-installer' override setup() (((
-
-  ["nvim-lsp-installer"] = {
-    -- automatic_installation = true,
-    ensure_installed = {
-      "sumneko_lua",
-      "clangd",
-    },
-  },
-
-  -- )))
-
-  -- 'treesitter' override setup() (((
-
-  treesitter = {
-    ensure_installed = {
-      "bash",
-      "bibtex",
-      "c",
-      "cmake",
-      -- "comment",
-      "cpp",
-      "cuda",
-      "dockerfile",
-      "dot",
-      "fortran",
-      "go",
-      "html",
-      "java",
-      -- "javascript",
-      "json",
-      "json5",
-      "jsonc",
-      "julia",
-      -- "latex",
-      "lua", -- problematic on remote servers?
-      "make",
-      "markdown",
-      "ninja",
-      "perl",
-      "python",
-      "r",
-      "regex",
-      -- "rst",
-      "ruby",
-      -- "rust",
-      "toml",
-      "verilog",
-      "vim",  -- problematic on remote servers?
-      "yaml",
-    },
-    highlight = {
-      use_languagetree = true,
-    },
-    context_commentstring = {
-      config = {
-        vim = '" %s',
-      },
-    },
-    indent = {
-      enable = true,
-    },
-    refactor = {
-      highlight_definitions = {
-        enable = true,
-        clear_on_cursor_move = true, -- Set to false if you have an `updatetime` of ~100.
-      },
-      -- highlight_current_scope = { enable = true },
-      smart_rename = {
-        enable = true,
-        keymaps = {
-          smart_rename = "grr",
-        },
-      },
-      navigation = {
-        enable = true,
-        keymaps = {
-          goto_definition = "gnd",
-          list_definitions = "gnD",
-          list_definitions_toc = "gO",
-          goto_next_usage = "<a-*>",
-          goto_previous_usage = "<a-#>",
-        },
-      },
-    },
-    textobjects = {
-      select = {
-        enable = true,
-
-        -- Automatically jump forward to textobj, similar to targets.vim
-        lookahead = true,
-
-        keymaps = {
-          -- You can use the capture groups defined in textobjects.scm
-          ["af"] = "@function.outer",
-          ["if"] = "@function.inner",
-          ["ac"] = "@class.outer",
-          ["ic"] = "@class.inner",
-        },
-      },
-      swap = {
-        enable = true,
-        swap_next = {
-          ["<leader><leader>a"] = "@parameter.inner",
-        },
-        swap_previous = {
-          ["<leader><leader>A"] = "@parameter.inner",
-        },
-      },
-      move = {
-        enable = true,
-        set_jumps = true, -- whether to set jumps in the jumplist
-        goto_next_start = {
-          ["]m"] = "@function.outer", -- "m" for method
-          ["]]"] = "@class.outer",
-        },
-        goto_next_end = {
-          ["]M"] = "@function.outer",
-          ["]["] = "@class.outer",
-        },
-        goto_previous_start = {
-          ["[m"] = "@function.outer",
-          ["[["] = "@class.outer",
-        },
-        goto_previous_end = {
-          ["[M"] = "@function.outer",
-          ["[]"] = "@class.outer",
-        },
-      },
-      lsp_interop = {
-        enable = true,
-        border = "none",
-        peek_definition_code = {
-          ["<leader><leader>df"] = "@function.outer",
-          ["<leader><leader>dF"] = "@class.outer",
-        },
-      },
-    },
-  },
-
-  -- )))
-
-  -- 'which-key' override setup() (((
-
-  ["which-key"] = {
-    window = {
-      -- margin = { -10, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
-      padding = { 0, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
-    },
-    layout = {
-      height = { min = 3, max = 10 }, -- min and max height of the columns
-      width = { min = 10, max = 40 }, -- min and max width of the columns
-    },
-    plugins = {
-      presets = {
-        operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-      },
-    },
-  },
-
-  -- )))
-
-  -- 'packer' override setup() (((
-
-  packer = {
-    compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
-  },
-  -- )))
-
-  -- )))
-},
 
   -- )))
 
@@ -956,6 +957,7 @@ local config = {
             -- u = { "<cmd>AerialPrevUp<cr>", "Prev symbol (up 1 level)" },
           },
           d = { "<cmd>windo diffthis<CR>", "diff buffers" },
+          e = { "<cmd>Neotree action=show toggle=true<CR>", "File Explorer" },
           f = { name = "File/Buffer" },
           g = {
             B = {
@@ -1541,154 +1543,154 @@ local config = {
 
   -- )))
 
-  -- Add custom filetypes (lua-based config from nvim 0.7+) (((
+    -- Add custom filetypes (lua-based config from nvim 0.7+) (((
 
-  -- vim.filetype.add {
-  --   extension = {
-  --     foo = "fooscript",
-  --   },
-  --   filename = {
-  --     ["Foofile"] = "fooscript",
-  --   },
-  --   pattern = {
-  --     ["~/%.config/foo/.*"] = "fooscript",
-  --   },
-  -- }
+    -- vim.filetype.add {
+    --   extension = {
+    --     foo = "fooscript",
+    --   },
+    --   filename = {
+    --     ["Foofile"] = "fooscript",
+    --   },
+    --   pattern = {
+    --     ["~/%.config/foo/.*"] = "fooscript",
+    --   },
+    -- }
 
-  -- )))
+    -- )))
 
-  -- keybindings (lua-based) (((
+    -- keybindings (lua-based) (((
 
-  -- Declare local variables for keymaps (options and shortened names) (((
+    -- Declare local variables for keymaps (options and shortened names) (((
 
-  local opts_noremapsilent = { noremap = true, silent = true }
-  local opts_noremapverbose = { noremap = true, silent = false }
-  local opts_remapsilent = { noremap = false, silent = true }
-  -- local vim.keymap.set = vim.keymap.set
+    local opts_noremapsilent = { noremap = true, silent = true }
+    local opts_noremapverbose = { noremap = true, silent = false }
+    local opts_remapsilent = { noremap = false, silent = true }
+    -- local vim.keymap.set = vim.keymap.set
 
-  -- )))
+    -- )))
 
-  -- Disable some unnecessary/confusing default mappings (((
+    -- Disable some unnecessary/confusing default mappings (((
 
-  vim.keymap.set({ "n", "i" }, "<f1>", "<Nop>", opts_noremapsilent)
-  vim.keymap.set({ "n", "x" }, "s", "<Nop>", opts_remapsilent) -- Disable 's' as recommended by sandwich.vim help file
+    vim.keymap.set({ "n", "i" }, "<f1>", "<Nop>", opts_noremapsilent)
+    vim.keymap.set({ "n", "x" }, "s", "<Nop>", opts_remapsilent) -- Disable 's' as recommended by sandwich.vim help file
 
-  -- )))
+    -- )))
 
-  -- Disable AstroNvim mappings that override important vim defaults (((
+    -- Disable AstroNvim mappings that override important vim defaults (((
 
-  vim.keymap.del("t", "<esc>")
-  vim.keymap.set('t', "<esc>", "<C-\\><C-n>", { silent = true })
-  vim.keymap.set('n', "<leader>w", "<leader>w", { silent = true })
-  vim.keymap.del('n', "<leader>w")
-  vim.keymap.set('n', "<leader>q", "<leader>q", { silent = true })
-  vim.keymap.del('n', "<leader>q")
-  vim.keymap.set('n', "<leader>h", "<leader>h", { silent = true })
-  vim.keymap.del('n', "<leader>h")
-  vim.keymap.set('n', "}", "}", { silent = true })
-  vim.keymap.del("n", "}")
-  vim.keymap.set('n', "{", "{", { silent = true })
-  vim.keymap.del("n", "{")
-  vim.keymap.set('n', "<C-q>", "<Nop>", { silent = true })
-  vim.keymap.del("n", "<C-q>")
-  vim.keymap.set('n', "<C-s>", "<Nop>", { silent = true })
-  vim.keymap.del("n", "<C-s>")
-  vim.keymap.set('n', "<leader>h", "<Nop>", { silent = true })
-  vim.keymap.set('n', "H", "H", { silent = true })
-  vim.keymap.del("n", "H")
-  vim.keymap.set('n', "L", "L", { silent = true })
-  vim.keymap.del("n", "L")
-  vim.keymap.set('x', "J", "J", { silent = true })
-  vim.keymap.del("x", "J")
-  vim.keymap.set('x', "K", "K", { silent = true })
-  vim.keymap.del("x", "K")
-  -- vim.keymap.set('x', "<A-j>", "<Nop>", { silent = true })
-  -- vim.keymap.del("x", "<A-j>")
-  -- vim.keymap.set('x', "<A-k>", "<Nop>", { silent = true })
-  -- vim.keymap.del("x", "<A-k>")
+    vim.keymap.del("t", "<esc>")
+    vim.keymap.set('t', "<esc>", "<C-\\><C-n>", { silent = true })
+    vim.keymap.set('n', "<leader>w", "<leader>w", { silent = true })
+    vim.keymap.del('n', "<leader>w")
+    vim.keymap.set('n', "<leader>q", "<leader>q", { silent = true })
+    vim.keymap.del('n', "<leader>q")
+    vim.keymap.set('n', "<leader>h", "<leader>h", { silent = true })
+    vim.keymap.del('n', "<leader>h")
+    vim.keymap.set('n', "}", "}", { silent = true })
+    vim.keymap.del("n", "}")
+    vim.keymap.set('n', "{", "{", { silent = true })
+    vim.keymap.del("n", "{")
+    vim.keymap.set('n', "<C-q>", "<Nop>", { silent = true })
+    vim.keymap.del("n", "<C-q>")
+    vim.keymap.set('n', "<C-s>", "<Nop>", { silent = true })
+    vim.keymap.del("n", "<C-s>")
+    vim.keymap.set('n', "<leader>h", "<Nop>", { silent = true })
+    vim.keymap.set('n', "H", "H", { silent = true })
+    vim.keymap.del("n", "H")
+    vim.keymap.set('n', "L", "L", { silent = true })
+    vim.keymap.del("n", "L")
+    vim.keymap.set('x', "J", "J", { silent = true })
+    vim.keymap.del("x", "J")
+    vim.keymap.set('x', "K", "K", { silent = true })
+    vim.keymap.del("x", "K")
+    -- vim.keymap.set('x', "<A-j>", "<Nop>", { silent = true })
+    -- vim.keymap.del("x", "<A-j>")
+    -- vim.keymap.set('x', "<A-k>", "<Nop>", { silent = true })
+    -- vim.keymap.del("x", "<A-k>")
 
-  -- )))
+    -- )))
 
-  vim.keymap.set({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags
+    vim.keymap.set({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags
     -- vim.keymap.set({ "n" }, "<leader>*", ":%s;\<<c-r><c-w>\>;;g<left><left>") -- replace the word under cursor
 
 
-  -- Normal mode keymaps -- (((
+    -- Normal mode keymaps -- (((
 
-  -- vim.keymap.set("n", "<leader>e", ":Lexplore 20<cr>", opts_noremapsilent)
-  vim.keymap.set("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
-  vim.keymap.set("n", "J", "mzJ`zmz", opts_noremapsilent)
-  vim.keymap.set("n", "'", "`", opts_noremapsilent)
-  vim.keymap.set("n", "<C-]>", "g<C-]>", opts_noremapsilent) -- show options if tag has multiple matches
+    -- vim.keymap.set("n", "<leader>e", ":Lexplore 20<cr>", opts_noremapsilent)
+    vim.keymap.set("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
+    vim.keymap.set("n", "J", "mzJ`zmz", opts_noremapsilent)
+    vim.keymap.set("n", "'", "`", opts_noremapsilent)
+    vim.keymap.set("n", "<C-]>", "g<C-]>", opts_noremapsilent) -- show options if tag has multiple matches
 
-  -- Keymaps for navigating folds (((
+    -- Keymaps for navigating folds (((
 
-  -- vim.keymap.set("n", "zf", "zMzvzz", opts_noremapsilent)
-  -- vim.keymap.set("n", "zj", "zcjzOzz", opts_noremapsilent)
-  -- vim.keymap.set("n", "zk", "zckzOzz", opts_noremapsilent)
-  vim.keymap.set("n", "<Space>", "za", opts_noremapsilent)
+    -- vim.keymap.set("n", "zf", "zMzvzz", opts_noremapsilent)
+    -- vim.keymap.set("n", "zj", "zcjzOzz", opts_noremapsilent)
+    -- vim.keymap.set("n", "zk", "zckzOzz", opts_noremapsilent)
+    vim.keymap.set("n", "<Space>", "za", opts_noremapsilent)
 
-  -- )))
+    -- )))
 
-  -- Resize with smart-splits and meta-key mapping (((
+    -- Resize with smart-splits and meta-key mapping (((
 
-  local smart_splits_status_ok, smart_splits = pcall(require, "smart-splits")
-  if smart_splits_status_ok then
-    vim.keymap.set('n', '<A-h>', smart_splits.resize_left)
-    vim.keymap.set('n', '<A-j>', smart_splits.resize_down)
-    vim.keymap.set('n', '<A-k>', smart_splits.resize_up)
-    vim.keymap.set('n', '<A-l>', smart_splits.resize_right)
-  end
+    local smart_splits_status_ok, smart_splits = pcall(require, "smart-splits")
+    if smart_splits_status_ok then
+      vim.keymap.set('n', '<A-h>', smart_splits.resize_left)
+      vim.keymap.set('n', '<A-j>', smart_splits.resize_down)
+      vim.keymap.set('n', '<A-k>', smart_splits.resize_up)
+      vim.keymap.set('n', '<A-l>', smart_splits.resize_right)
+    end
 
-  -- )))
+    -- )))
 
-  -- )))
+    -- )))
 
-  -- Insert mode keymaps -- (((
+    -- Insert mode keymaps -- (((
 
-  vim.keymap.set("i", "<c-c>", "<ESC>", opts_noremapsilent) -- CTRL-C doesn't trigger the InsertLeave autocmd. Map to <ESC> instead.
+    vim.keymap.set("i", "<c-c>", "<ESC>", opts_noremapsilent) -- CTRL-C doesn't trigger the InsertLeave autocmd. Map to <ESC> instead.
 
-  -- )))
+    -- )))
 
-  -- Visual mode keymaps -- (((
+    -- Visual mode keymaps -- (((
 
-  vim.keymap.set("v", "y", "myy`ymy", opts_noremapsilent)
-  vim.keymap.set("v", "Y", "myY`ymy", opts_noremapsilent)
+    vim.keymap.set("v", "y", "myy`ymy", opts_noremapsilent)
+    vim.keymap.set("v", "Y", "myY`ymy", opts_noremapsilent)
 
-  -- )))
+    -- )))
 
-  -- Visual block mode keymaps  -- (((
+    -- Visual block mode keymaps  -- (((
 
-  -- Stay in indent mode in visual-block mode (((
+    -- Stay in indent mode in visual-block mode (((
 
-  vim.keymap.set("x", "<", "<gv", opts_noremapsilent)
-  vim.keymap.set("x", ">", ">gv", opts_noremapsilent)
+    vim.keymap.set("x", "<", "<gv", opts_noremapsilent)
+    vim.keymap.set("x", ">", ">gv", opts_noremapsilent)
 
-  -- )))
+    -- )))
 
-  -- )))
+    -- )))
 
-  -- Command-line mode keymaps -- (((
+    -- Command-line mode keymaps -- (((
 
-  vim.keymap.set("c", "<c-n>", "<down>", opts_noremapverbose)
-  vim.keymap.set("c", "<c-p>", "<up>", opts_noremapverbose)
+    vim.keymap.set("c", "<c-n>", "<down>", opts_noremapverbose)
+    vim.keymap.set("c", "<c-p>", "<up>", opts_noremapverbose)
 
-  -- )))
+    -- )))
 
-  -- Plugin keymaps (((
+    -- Plugin keymaps (((
 
-  -- Gitsigns keymaps (((
+    -- Gitsigns keymaps (((
 
-  vim.keymap.set("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
-  vim.keymap.set("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
-  vim.keymap.set("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
-  vim.keymap.set("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+    vim.keymap.set("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
+    vim.keymap.set("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+    vim.keymap.set("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+    vim.keymap.set("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
 
-  -- )))
+    -- )))
 
-  -- )))
+    -- )))
 
-  -- )))
+    -- )))
   end,
 }
 
