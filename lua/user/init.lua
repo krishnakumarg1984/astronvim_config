@@ -1633,16 +1633,19 @@ local config = {
 
     -- )))
 
-    -- Resize with smart-splits and meta-key mapping (((
-
-    -- local smart_splits_status_ok, smart_splits = pcall(require, "smart-splits")
-    -- if smart_splits_status_ok then
     if require("core.utils").is_available "smart-splits.nvim" then
-      local smart_splits = require("smart-splits")
-      vim.keymap.set('n', '<A-h>', smart_splits.resize_left)
-      vim.keymap.set('n', '<A-j>', smart_splits.resize_down)
-      vim.keymap.set('n', '<A-k>', smart_splits.resize_up)
-      vim.keymap.set('n', '<A-l>', smart_splits.resize_right)
+      vim.keymap.set("n", "<A-h>", function()
+        require("smart-splits").move_cursor_left()
+      end, { desc = "Move to left split" })
+      vim.keymap.set("n", "<A-j>", function()
+        require("smart-splits").move_cursor_down()
+      end, { desc = "Move to below split" })
+      vim.keymap.set("n", "<A-k>", function()
+        require("smart-splits").move_cursor_up()
+      end, { desc = "Move to above split" })
+      vim.keymap.set("n", "<A-l>", function()
+        require("smart-splits").move_cursor_right()
+      end, { desc = "Move to right split" })
     end
 
     -- )))
