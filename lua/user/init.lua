@@ -504,18 +504,18 @@ local config = {
       local cmp = require "cmp"
 
       return vim.tbl_deep_extend("force", config, {
-        sorting = {
-          comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.exact,
-            cmp.config.compare.recently_used,
-            require("clangd_extensions.cmp_scores"),
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order,
-          },
-        },
+        -- sorting = {
+        --   comparators = {
+        --     cmp.config.compare.offset,
+        --     cmp.config.compare.exact,
+        --     cmp.config.compare.recently_used,
+        --     require("clangd_extensions.cmp_scores"),
+        --     cmp.config.compare.kind,
+        --     cmp.config.compare.sort_text,
+        --     cmp.config.compare.length,
+        --     cmp.config.compare.order,
+        --   },
+        -- },
         experimental = {
           ghost_text = true,
         },
@@ -1635,8 +1635,10 @@ local config = {
 
     -- Resize with smart-splits and meta-key mapping (((
 
-    local smart_splits_status_ok, smart_splits = pcall(require, "smart-splits")
-    if smart_splits_status_ok then
+    -- local smart_splits_status_ok, smart_splits = pcall(require, "smart-splits")
+    -- if smart_splits_status_ok then
+    if require("core.utils").is_available "smart-splits.nvim" then
+      local smart_splits = require("smart-splits")
       vim.keymap.set('n', '<A-h>', smart_splits.resize_left)
       vim.keymap.set('n', '<A-j>', smart_splits.resize_down)
       vim.keymap.set('n', '<A-k>', smart_splits.resize_up)
