@@ -157,12 +157,14 @@ local config = {
 
   -- )))
 
-  -- Configure plugins (((
+  -- Configure new plugins + update setup() of default AstroNvim plugins (((
+
   plugins = {
-    -- Add plugins, the packer syntax without the "use"
+    -- Add plugins to the `init` function below, the packer syntax without the "use"  (((
+
     init = function(default_plugins)
-      -- default_plugins["windwp/nvim-autopairs"] = nil
-      -- default_plugins["hrsh7th/nvim-cmp"] = nil
+      -- Additional plugins (((
+
       local my_plugins = {
         -- Add plugins (packer syntax without the "use" keyword)
         -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
@@ -201,14 +203,6 @@ local config = {
             require("core.utils").add_user_cmp_source("nvim_lsp_signature_help")
           end,
         },
-        -- {
-        --   "uga-rosa/cmp-dictionary",
-        --   after = "nvim-cmp",
-        --   ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" },
-        --   config = function()
-        --     require("core.utils").add_user_cmp_source("dictionary")
-        --   end,
-        -- },
         { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
         {
           "echasnovski/mini.nvim",
@@ -238,13 +232,6 @@ local config = {
             })
           end,
         },
-        -- {
-        --   "windwp/nvim-autopairs",
-        --   event = "InsertEnter",
-        --   config = function()
-        --     require("autopairs").config()
-        --   end,
-        -- },
         {
           "kevinhwang91/nvim-hlslens",
           keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
@@ -280,19 +267,33 @@ local config = {
         },
       }
 
-      -- disable aerial lazy load
+      -- )))
+
+      -- -- Disable 'aerial' lazy load (((
+
       -- default_plugins["stevearc/aerial.nvim"].opt = false
       -- default_plugins["stevearc/aerial.nvim"].setup = nil
-      -- load lualine after aerial
-      -- default_plugins["nvim-lualine/lualine.nvim"].after = "aerial.nvim"
+      -- default_plugins["nvim-lualine/lualine.nvim"].after = "aerial.nvim"  -- load lualine after aerial
+
+      -- )))
+
+      -- Disable AstroNvim built-in plugins (((
 
       -- https://github.com/AstroNvim/AstroNvim/issues/406
       default_plugins["p00f/nvim-ts-rainbow"] = nil
       default_plugins["max397574/better-escape.nvim"] = nil
 
       return vim.tbl_deep_extend("force", default_plugins, my_plugins)
+
+      -- )))
     end,
-    -- All other entries override the setup() call for default plugins
+
+    -- )))
+
+    -- All other entries override the setup() call for default AstroNvim plugins (((
+
+    -- 'aerial' override setup() (((
+
     aerial = {
       backends = { "treesitter", "lsp", "markdown" },
       min_width = 18,
@@ -314,15 +315,20 @@ local config = {
       placement_editor_edge = true,
       open_automatic = function(bufnr)
         return not vim.opt.diff:get()                   -- if not in 'diff' mode
-          and vim.api.nvim_buf_line_count(bufnr) > 26   -- Enforce a minimum line count
-          and require("aerial").num_symbols(bufnr) > 3  -- Enforce a minimum symbol count
-          and not require("aerial").was_closed()        -- A useful way to keep aerial closed when closed manually
+        and vim.api.nvim_buf_line_count(bufnr) > 26   -- Enforce a minimum line count
+        and require("aerial").num_symbols(bufnr) > 3  -- Enforce a minimum symbol count
+        and not require("aerial").was_closed()        -- A useful way to keep aerial closed when closed manually
       end,
       -- close_behavior = "auto", -- aerial window will stay open as long as there is a visible buffer to attach to
       -- close_behavior = "persist", -- aerial window will stay open until closed
       -- close_behavior = "close", -- aerial window will close when original file is no longer visible
       close_behavior = "global", -- same as 'persist', and will always show symbols for the current buffer
     },
+
+    -- )))
+
+    -- 'alpha' override setup() (((
+
     alpha = function(config)
       local buttons = config.layout[4].val
       local new_file = buttons[4]
@@ -344,6 +350,11 @@ local config = {
 
       return config
     end,
+
+    -- )))
+
+    -- 'bufferline' override setup() (((
+
     bufferline = {
       options = {
         -- numbers = "ordinal",
@@ -385,357 +396,434 @@ local config = {
                 return buf.name:match('%.md') or buf.name:match('%.txt')
               end,
               separator = { -- Optional
-                style = require('bufferline.groups').separator.tab
-              },
-            }
+              style = require('bufferline.groups').separator.tab
+            },
           }
-        },
-        offsets = {
-          {
-            filetype = "neo-tree",
-            text = "File Explorer",
-            highlight = "Directory",
-            text_align = "left"
-          }
-        },
-        custom_areas = {
-          right = function()
-            local result = {}
-            local seve = vim.diagnostic.severity
-            local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
-            local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
-            local info = #vim.diagnostic.get(0, {severity = seve.INFO})
-            local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
+        }
+      },
+      offsets = {
+        {
+          filetype = "neo-tree",
+          text = "File Explorer",
+          highlight = "Directory",
+          text_align = "left"
+        }
+      },
+      custom_areas = {
+        right = function()
+          local result = {}
+          local seve = vim.diagnostic.severity
+          local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
+          local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
+          local info = #vim.diagnostic.get(0, {severity = seve.INFO})
+          local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
 
-            if error ~= 0 then
-              table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
-            end
+          if error ~= 0 then
+            table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
+          end
 
-            if warning ~= 0 then
-              table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
-            end
+          if warning ~= 0 then
+            table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
+          end
 
-            if hint ~= 0 then
-              table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
-            end
+          if hint ~= 0 then
+            table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
+          end
 
-            if info ~= 0 then
-              table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
-            end
-            return result
-          end,
-        },
+          if info ~= 0 then
+            table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
+          end
+          return result
+        end,
       },
-    },
-    -- npairs = function(config)
-    --   local npairs = require "nvim-autopairs"
-    --   local Rule   = require'nvim-autopairs.rule'
-    --   npairs.add_rules {
-    --     Rule(' ', ' ')
-    --       :with_pair(function (opts)
-    --         local pair = opts.line:sub(opts.col - 1, opts.col)
-    --         return vim.tbl_contains({ '()', '[]', '{}' }, pair)
-    --       end),
-    --     Rule('( ', ' )')
-    --       :with_pair(function() return false end)
-    --       :with_move(function(opts)
-    --         return opts.prev_char:match('.%)') ~= nil
-    --       end)
-    --       :use_key(')'),
-    --     Rule('{ ', ' }')
-    --       :with_pair(function() return false end)
-    --       :with_move(function(opts)
-    --         return opts.prev_char:match('.%}') ~= nil
-    --       end)
-    --       :use_key('}'),
-    --     Rule('[ ', ' ]')
-    --       :with_pair(function() return false end)
-    --       :with_move(function(opts)
-    --         return opts.prev_char:match('.%]') ~= nil
-    --       end)
-    --       :use_key(']')
-    --   }
-    --   return vim.tbl_deep_extend("force", config, {})
-    -- end,
-    cmp = function(config)
-      local kind_icons = {
-        Text = "",
-        Method = "",
-        Function = "",
-        Constructor = "",
-        -- Field = " ",
-        Field = "ﰠ",
-        -- Variable = " ",
-        Variable = "",
-        -- Class = " ",
-        Class = "",
-        Interface = " ",
-        -- Module = " ",
-        Module = "",
-        -- Property = " ",
-        Property = "",
-        Unit = " ",
-        -- Value = " ",
-        Value = "",
-        -- Enum = " ",
-        Enum = "",
-        -- Keyword = " ",
-        Keyword = "",
-        -- Snippet = " ",
-        Snippet = "",
-        -- Color = " ",
-        Color = "",
-        -- File = " ",
-        File = "",
-        -- Reference = " ",
-        Reference = "",
-        -- Folder = " ",
-        Folder = "",
-        -- EnumMember = " ",
-        EnumMember = "",
-        -- Constant = " ",
-        -- Constant = "",
-        Constant = "",
-        -- Struct = " ",
-        Struct = "פּ",
-        -- Struct = "" ,
-        -- Event = " ",
-        Event = "",
-        -- Operator = " ",
-        Operator = "",
-        -- TypeParameter = " ",
-        TypeParameter = "",
-      }
-      local cmp = require "cmp"
-
-      return vim.tbl_deep_extend("force", config, {
-        sorting = {
-          comparators = {
-            cmp.config.compare.offset,
-            cmp.config.compare.exact,
-            cmp.config.compare.recently_used,
-            require("clangd_extensions.cmp_scores"),
-            cmp.config.compare.kind,
-            cmp.config.compare.sort_text,
-            cmp.config.compare.length,
-            cmp.config.compare.order,
-          },
-        },
-        experimental = {
-          ghost_text = true,
-        },
-        view = {
-          entries = { name = "custom", selection_order = "near_cursor" },
-        },
-        window = {
-          documentation = {
-            border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-            -- border = { " ", " ", " ", " ", " ", " ", " ", " " },
-          },
-        },
-        formatting = {
-          fields = { "abbr", "kind", "menu" },
-          format = function(entry, vim_item)
-            -- Kind icons
-            vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-            vim_item.abbr = string.sub(vim_item.abbr, 1, 25)
-            -- Source
-            vim_item.menu = ({
-              buffer = "[Buf]",
-              nvim_lsp = "[LSP]",
-              luasnip = "[Snippet]",
-              nvim_lua = "[Nvim_Lua]",
-              latex_symbols = "[LaTeX]",
-              cmp_tabnine = "[Tabnine]",
-              path = "[Path]",
-              emoji = "[Emoji]",
-              nvim_lsp_signature_help = "",
-              nuspell = "[Nuspell]",
-              spell = "[Spell]",
-              look = "[Look]",
-              dictionary = "[Dictionary]",
-              tags = "[Tags]",
-              tmux = "[Tmux]",
-            })[entry.source.name]
-            return vim_item
-          end,
-        },
-        mapping = {
-          ["<C-j>"] = cmp.config.disable,
-          ["<C-k>"] = cmp.config.disable,
-        },
-      })
-    end,
-    gitsigns = {
-      signs = {
-        add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
-        change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
-        delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-        topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-        changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn", },
-      },
-      word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
-    },
-    lualine = function(config)
-      table.insert(config.sections.lualine_c, 1, "filename")
-      -- add aerial to beginning of lualine_x section
-      -- table.insert(config.sections.lualine_x, 1, "aerial")
-      return config
-    end,
-    treesitter = {
-      ensure_installed = {
-        "bash",
-        "bibtex",
-        "c",
-        "cmake",
-        -- "comment",
-        "cpp",
-        "cuda",
-        "dockerfile",
-        "dot",
-        "fortran",
-        "go",
-        "html",
-        "java",
-        -- "javascript",
-        "json",
-        "json5",
-        "jsonc",
-        "julia",
-        -- "latex",
-        "lua", -- problematic on remote servers?
-        "make",
-        "markdown",
-        "ninja",
-        "perl",
-        "python",
-        "r",
-        "regex",
-        -- "rst",
-        "ruby",
-        -- "rust",
-        "toml",
-        "verilog",
-        "vim",  -- problematic on remote servers?
-        "yaml",
-      },
-      highlight = {
-        use_languagetree = true,
-      },
-      context_commentstring = {
-        config = {
-          vim = '" %s',
-        },
-      },
-      indent = {
-        enable = true,
-      },
-      refactor = {
-        highlight_definitions = {
-          enable = true,
-          clear_on_cursor_move = true, -- Set to false if you have an `updatetime` of ~100.
-        },
-        -- highlight_current_scope = { enable = true },
-        smart_rename = {
-          enable = true,
-          keymaps = {
-            smart_rename = "grr",
-          },
-        },
-        navigation = {
-          enable = true,
-          keymaps = {
-            goto_definition = "gnd",
-            list_definitions = "gnD",
-            list_definitions_toc = "gO",
-            goto_next_usage = "<a-*>",
-            goto_previous_usage = "<a-#>",
-          },
-        },
-      },
-      textobjects = {
-        select = {
-          enable = true,
-
-          -- Automatically jump forward to textobj, similar to targets.vim
-          lookahead = true,
-
-          keymaps = {
-            -- You can use the capture groups defined in textobjects.scm
-            ["af"] = "@function.outer",
-            ["if"] = "@function.inner",
-            ["ac"] = "@class.outer",
-            ["ic"] = "@class.inner",
-          },
-        },
-        swap = {
-          enable = true,
-          swap_next = {
-            ["<leader><leader>a"] = "@parameter.inner",
-          },
-          swap_previous = {
-            ["<leader><leader>A"] = "@parameter.inner",
-          },
-        },
-        move = {
-          enable = true,
-          set_jumps = true, -- whether to set jumps in the jumplist
-          goto_next_start = {
-            ["]m"] = "@function.outer", -- "m" for method
-            ["]]"] = "@class.outer",
-          },
-          goto_next_end = {
-            ["]M"] = "@function.outer",
-            ["]["] = "@class.outer",
-          },
-          goto_previous_start = {
-            ["[m"] = "@function.outer",
-            ["[["] = "@class.outer",
-          },
-          goto_previous_end = {
-            ["[M"] = "@function.outer",
-            ["[]"] = "@class.outer",
-          },
-        },
-        lsp_interop = {
-          enable = true,
-          border = "none",
-          peek_definition_code = {
-            ["<leader><leader>df"] = "@function.outer",
-            ["<leader><leader>dF"] = "@class.outer",
-          },
-        },
-      },
-    },
-    ["nvim-lsp-installer"] = {
-      ensure_installed = {
-        "sumneko_lua",
-        "clangd",
-      },
-    },
-    ["which-key"] = {
-      window = {
-        -- margin = { -10, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
-        padding = { 0, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
-      },
-      layout = {
-        height = { min = 3, max = 10 }, -- min and max height of the columns
-        width = { min = 10, max = 40 }, -- min and max width of the columns
-      },
-      plugins = {
-        presets = {
-          operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-        },
-      },
-    },
-    packer = {
-      compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
     },
   },
 
   -- )))
 
-  -- LuaSnip Options (((
+  -- 'cmp' override setup() (((
+
+  cmp = function(config)
+    local kind_icons = {
+      Text = "",
+      Method = "",
+      Function = "",
+      Constructor = "",
+      -- Field = " ",
+      Field = "ﰠ",
+      -- Variable = " ",
+      Variable = "",
+      -- Class = " ",
+      Class = "",
+      Interface = " ",
+      -- Module = " ",
+      Module = "",
+      -- Property = " ",
+      Property = "",
+      Unit = " ",
+      -- Value = " ",
+      Value = "",
+      -- Enum = " ",
+      Enum = "",
+      -- Keyword = " ",
+      Keyword = "",
+      -- Snippet = " ",
+      Snippet = "",
+      -- Color = " ",
+      Color = "",
+      -- File = " ",
+      File = "",
+      -- Reference = " ",
+      Reference = "",
+      -- Folder = " ",
+      Folder = "",
+      -- EnumMember = " ",
+      EnumMember = "",
+      -- Constant = " ",
+      -- Constant = "",
+      Constant = "",
+      -- Struct = " ",
+      Struct = "פּ",
+      -- Struct = "" ,
+      -- Event = " ",
+      Event = "",
+      -- Operator = " ",
+      Operator = "",
+      -- TypeParameter = " ",
+      TypeParameter = "",
+    }
+    local cmp = require "cmp"
+
+    return vim.tbl_deep_extend("force", config, {
+      sorting = {
+        comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.recently_used,
+          require("clangd_extensions.cmp_scores"),
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+        },
+      },
+      experimental = {
+        ghost_text = true,
+      },
+      view = {
+        entries = { name = "custom", selection_order = "near_cursor" },
+      },
+      window = {
+        documentation = {
+          border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+          -- border = { " ", " ", " ", " ", " ", " ", " ", " " },
+        },
+      },
+      formatting = {
+        fields = { "abbr", "kind", "menu" },
+        format = function(entry, vim_item)
+          -- Kind icons
+          vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+          vim_item.abbr = string.sub(vim_item.abbr, 1, 25)
+          -- Source
+          vim_item.menu = ({
+            buffer = "[Buf]",
+            nvim_lsp = "[LSP]",
+            luasnip = "[Snippet]",
+            nvim_lua = "[Nvim_Lua]",
+            latex_symbols = "[LaTeX]",
+            cmp_tabnine = "[Tabnine]",
+            path = "[Path]",
+            emoji = "[Emoji]",
+            nvim_lsp_signature_help = "",
+            nuspell = "[Nuspell]",
+            spell = "[Spell]",
+            look = "[Look]",
+            dictionary = "[Dictionary]",
+            tags = "[Tags]",
+            tmux = "[Tmux]",
+          })[entry.source.name]
+          return vim_item
+        end,
+      },
+      mapping = {
+        ["<C-j>"] = cmp.config.disable,
+        ["<C-k>"] = cmp.config.disable,
+      },
+    })
+  end,
+
+  -- )))
+
+  -- 'gitsigns' override setup() (((
+
+  gitsigns = {
+    signs = {
+      add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
+      change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
+      delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+      topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
+      changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn", },
+    },
+    word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
+  },
+
+  -- )))
+
+  -- 'lualine' override setup() (((
+
+  lualine = function(config)
+    table.insert(config.sections.lualine_c, 1, "filename")
+    -- add aerial to beginning of lualine_x section
+    -- table.insert(config.sections.lualine_x, 1, "aerial")
+    return config
+  end,
+
+  -- )))
+
+  -- 'nvim-lsp-installer' override setup() (((
+
+  ["nvim-lsp-installer"] = {
+    -- automatic_installation = true,
+    ensure_installed = {
+      "sumneko_lua",
+      "clangd",
+    },
+  },
+
+  -- )))
+
+  -- 'treesitter' override setup() (((
+
+  treesitter = {
+    ensure_installed = {
+      "bash",
+      "bibtex",
+      "c",
+      "cmake",
+      -- "comment",
+      "cpp",
+      "cuda",
+      "dockerfile",
+      "dot",
+      "fortran",
+      "go",
+      "html",
+      "java",
+      -- "javascript",
+      "json",
+      "json5",
+      "jsonc",
+      "julia",
+      -- "latex",
+      "lua", -- problematic on remote servers?
+      "make",
+      "markdown",
+      "ninja",
+      "perl",
+      "python",
+      "r",
+      "regex",
+      -- "rst",
+      "ruby",
+      -- "rust",
+      "toml",
+      "verilog",
+      "vim",  -- problematic on remote servers?
+      "yaml",
+    },
+    highlight = {
+      use_languagetree = true,
+    },
+    context_commentstring = {
+      config = {
+        vim = '" %s',
+      },
+    },
+    indent = {
+      enable = true,
+    },
+    refactor = {
+      highlight_definitions = {
+        enable = true,
+        clear_on_cursor_move = true, -- Set to false if you have an `updatetime` of ~100.
+      },
+      -- highlight_current_scope = { enable = true },
+      smart_rename = {
+        enable = true,
+        keymaps = {
+          smart_rename = "grr",
+        },
+      },
+      navigation = {
+        enable = true,
+        keymaps = {
+          goto_definition = "gnd",
+          list_definitions = "gnD",
+          list_definitions_toc = "gO",
+          goto_next_usage = "<a-*>",
+          goto_previous_usage = "<a-#>",
+        },
+      },
+    },
+    textobjects = {
+      select = {
+        enable = true,
+
+        -- Automatically jump forward to textobj, similar to targets.vim
+        lookahead = true,
+
+        keymaps = {
+          -- You can use the capture groups defined in textobjects.scm
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+          ["ac"] = "@class.outer",
+          ["ic"] = "@class.inner",
+        },
+      },
+      swap = {
+        enable = true,
+        swap_next = {
+          ["<leader><leader>a"] = "@parameter.inner",
+        },
+        swap_previous = {
+          ["<leader><leader>A"] = "@parameter.inner",
+        },
+      },
+      move = {
+        enable = true,
+        set_jumps = true, -- whether to set jumps in the jumplist
+        goto_next_start = {
+          ["]m"] = "@function.outer", -- "m" for method
+          ["]]"] = "@class.outer",
+        },
+        goto_next_end = {
+          ["]M"] = "@function.outer",
+          ["]["] = "@class.outer",
+        },
+        goto_previous_start = {
+          ["[m"] = "@function.outer",
+          ["[["] = "@class.outer",
+        },
+        goto_previous_end = {
+          ["[M"] = "@function.outer",
+          ["[]"] = "@class.outer",
+        },
+      },
+      lsp_interop = {
+        enable = true,
+        border = "none",
+        peek_definition_code = {
+          ["<leader><leader>df"] = "@function.outer",
+          ["<leader><leader>dF"] = "@class.outer",
+        },
+      },
+    },
+  },
+
+  -- )))
+
+  -- 'which-key' override setup() (((
+
+  ["which-key"] = {
+    window = {
+      -- margin = { -10, 0, 0, 0 }, -- extra window margin [top, right, bottom, left]
+      padding = { 0, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
+    },
+    layout = {
+      height = { min = 3, max = 10 }, -- min and max height of the columns
+      width = { min = 10, max = 40 }, -- min and max width of the columns
+    },
+    plugins = {
+      presets = {
+        operators = true, -- adds help for operators like d, y, ... and registers them for motion / text object completion
+      },
+    },
+  },
+
+  -- )))
+
+  -- 'packer' override setup() (((
+
+  packer = {
+    compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
+  },
+  -- )))
+
+  -- )))
+},
+
+  -- )))
+
+  -- Source priorities of 'cmp' (((
+
+  -- modify here the priorities of default cmp sources
+  -- higher value == higher priority
+  -- The value can also be set to a boolean for disabling default sources:
+  -- false == disabled
+  -- true == 1000
+  cmp = {
+    source_priority = {
+      luasnip = 1000,
+      nvim_lsp = 750,
+      nvim_lsp_signature_help = 700,
+      pandoc_references = 600,
+      buffer = 500,
+      path = 250,
+      emoji = 200,
+      -- dictionary = 150,
+    },
+  },
+
+  -- )))
+
+  -- Diagnostics configuration (for vim.diagnostics.config({})) (((
+
+  diagnostics = {
+    virtual_text = false,
+    underline = true,
+  },
+
+  -- )))
+
+  -- Extend LSP configuration (((
+
+  lsp = {
+    -- enable servers that you already have installed without lsp-installer
+    servers = {
+      "clangd",
+      "sumneko_lua",
+      -- "pyright"
+    },
+    -- add to the server on_attach function
+    -- on_attach = function(client, bufnr)
+    -- end,
+
+    -- override the lsp installer server-registration function
+    -- server_registration = function(server, opts)
+    --   require("lspconfig")[server.name].setup(opts)
+    -- end
+
+    -- Add overrides for LSP server settings, the keys are the name of the server
+    ["server-settings"] = {
+      -- example for addings schemas to yamlls
+      -- yamlls = {
+      --   settings = {
+      --     yaml = {
+      --       schemas = {
+      --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
+      --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+      --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+      --       },
+      --     },
+      --   },
+      -- },
+    },
+  },
+
+  -- )))
+
+  -- LuaSnip options (((
 
   luasnip = {
     -- Add paths for including more VS Code style snippets in luasnip
@@ -748,7 +836,92 @@ local config = {
 
   -- )))
 
-  -- Modify which-key registration (((
+  -- 'null-ls' configuration (((
+
+  ["null-ls"] = function()
+    -- Formatting and linting
+    -- https://github.com/jose-elias-alvarez/null-ls.nvim
+    local status_ok, null_ls = pcall(require, "null-ls")
+    if not status_ok then
+      return
+    end
+
+    -- Check supported formatters
+    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+    local formatting = null_ls.builtins.formatting
+
+    -- Check supported linters
+    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+    local diagnostics = null_ls.builtins.diagnostics
+
+    null_ls.setup {
+      debug = false,
+      sources = {
+        -- Set a formatter
+        formatting.rufo,
+        -- Set a linter
+        diagnostics.rubocop,
+      },
+      -- NOTE: You can remove this on attach function to disable format on save
+      on_attach = function(client)
+        if client.resolved_capabilities.document_formatting then
+          vim.api.nvim_create_augroup("lsp_format", { clear = true })
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            desc = "Auto format before save",
+            group = "lsp_format",
+            pattern = "<buffer>",
+            callback = vim.lsp.buf.formatting_sync,
+          })
+        end
+      end,
+    }
+  end,
+
+  -- )))
+
+  -- Rules for 'nvim-autopairs' (((
+
+  ["nvim-autopairs"] = {
+    add_rules = function(npairs)
+      local Rule = require "nvim-autopairs.rule"
+      -- npairs.clear_rules()
+
+      return {
+        Rule(" ", " "):with_pair(function(opts)
+          local pair = opts.line:sub(opts.col - 1, opts.col)
+          return vim.tbl_contains({ "()", "[]", "{}" }, pair)
+        end),
+        Rule("( ", " )")
+          :with_pair(function()
+            return false
+          end)
+          :with_move(function(opts)
+            return opts.prev_char:match ".%)" ~= nil
+          end)
+          :use_key ")",
+        Rule("{ ", " }")
+          :with_pair(function()
+            return false
+          end)
+          :with_move(function(opts)
+            return opts.prev_char:match ".%}" ~= nil
+          end)
+          :use_key "}",
+        Rule("[ ", " ]")
+          :with_pair(function()
+            return false
+          end)
+          :with_move(function(opts)
+            return opts.prev_char:match ".%]" ~= nil
+          end)
+          :use_key "]",
+      }
+    end,
+  },
+
+  -- )))
+
+  -- Modify 'which-key' keybindings registration (((
 
   ["which-key"] = {
     -- Add bindings
@@ -854,120 +1027,6 @@ local config = {
       },
     },
   },
-
-  -- )))
-
-  -- cmp source priorities (((
-
-  -- modify here the priorities of default cmp sources
-  -- higher value == higher priority
-  -- The value can also be set to a boolean for disabling default sources:
-  -- false == disabled
-  -- true == 1000
-  cmp = {
-    experimental = {
-      ghost_text = true,
-    },
-    source_priority = {
-      luasnip = 1000,
-      nvim_lsp = 750,
-      nvim_lsp_signature_help = 700,
-      pandoc_references = 600,
-      buffer = 500,
-      path = 250,
-      emoji = 200,
-      -- dictionary = 150,
-    },
-  },
-
-  -- )))
-
-  -- Extend LSP configuration (((
-
-  lsp = {
-    -- enable servers that you already have installed without lsp-installer
-    servers = {
-      "sumneko_lua",
-      "clangd",
-      -- "pyright"
-    },
-    -- add to the server on_attach function
-    -- on_attach = function(client, bufnr)
-    -- end,
-
-    -- override the lsp installer server-registration function
-    -- server_registration = function(server, opts)
-    --   require("lspconfig")[server.name].setup(opts)
-    -- end
-
-    -- Add overrides for LSP server settings, the keys are the name of the server
-    ["server-settings"] = {
-      -- example for addings schemas to yamlls
-      -- yamlls = {
-      --   settings = {
-      --     yaml = {
-      --       schemas = {
-      --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
-      --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-      --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-      --       },
-      --     },
-      --   },
-      -- },
-    },
-  },
-
-  -- )))
-
-  -- Diagnostics configuration (for vim.diagnostics.config({})) (((
-
-  diagnostics = {
-    virtual_text = false,
-    underline = true,
-  },
-
-  -- )))
-
-  -- null-ls configuration (((
-
-  ["null-ls"] = function()
-    -- Formatting and linting
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim
-    local status_ok, null_ls = pcall(require, "null-ls")
-    if not status_ok then
-      return
-    end
-
-    -- Check supported formatters
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-    local formatting = null_ls.builtins.formatting
-
-    -- Check supported linters
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    local diagnostics = null_ls.builtins.diagnostics
-
-    null_ls.setup {
-      debug = false,
-      sources = {
-        -- Set a formatter
-        formatting.rufo,
-        -- Set a linter
-        diagnostics.rubocop,
-      },
-      -- NOTE: You can remove this on attach function to disable format on save
-      on_attach = function(client)
-        if client.resolved_capabilities.document_formatting then
-          vim.api.nvim_create_augroup("lsp_format", { clear = true })
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            desc = "Auto format before save",
-            group = "lsp_format",
-            pattern = "<buffer>",
-            callback = vim.lsp.buf.formatting_sync,
-          })
-        end
-      end,
-    }
-  end,
 
   -- )))
 
