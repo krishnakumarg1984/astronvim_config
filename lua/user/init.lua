@@ -186,6 +186,29 @@ local config = {
           end,
         },
         { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
+        {
+          "hrsh7th/cmp-emoji",
+          after = "nvim-cmp",
+          ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" },
+          config = function()
+            require("core.utils").add_user_cmp_source("emoji")
+          end,
+        },
+        {
+          "hrsh7th/cmp-nvim-lsp-signature-help",
+          after = "nvim-cmp",
+          config = function()
+            require("core.utils").add_user_cmp_source("nvim_lsp_signature_help")
+          end,
+        },
+        -- {
+        --   "uga-rosa/cmp-dictionary",
+        --   after = "nvim-cmp",
+        --   ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" },
+        --   config = function()
+        --     require("core.utils").add_user_cmp_source("dictionary")
+        --   end,
+        -- },
         { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
         {
           "echasnovski/mini.nvim",
@@ -526,6 +549,7 @@ local config = {
               cmp_tabnine = "[Tabnine]",
               path = "[Path]",
               emoji = "[Emoji]",
+              nvim_lsp_signature_help = "",
               nuspell = "[Nuspell]",
               spell = "[Spell]",
               look = "[Look]",
@@ -847,8 +871,12 @@ local config = {
     source_priority = {
       luasnip = 1000,
       nvim_lsp = 750,
+      nvim_lsp_signature_help = 700,
+      pandoc_references = 600,
       buffer = 500,
       path = 250,
+      emoji = 200,
+      -- dictionary = 150,
     },
   },
 
