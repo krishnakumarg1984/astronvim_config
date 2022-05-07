@@ -266,14 +266,14 @@ local config = {
           "nvim-treesitter/nvim-treesitter-textobjects",
           after = "nvim-treesitter",
         },
-        {
-          "s1n7ax/nvim-window-picker",
-          tag = 'v1.*',
-          -- after = "neo-tree",
-          config = function()
-            require'window-picker'.setup()
-          end,
-        },
+        -- {
+        --   "s1n7ax/nvim-window-picker",
+        --   tag = 'v1.*',
+        --   -- after = "neo-tree",
+        --   config = function()
+        --     require'window-picker'.setup()
+        --   end,
+        -- },
       }
 
       -- )))
