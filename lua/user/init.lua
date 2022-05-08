@@ -78,7 +78,7 @@ local config = {
 
         foldlevel = 2, -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
         foldlevelstart = 2,
-        foldcolumn = "auto:6",
+        foldcolumn = "auto:5",
         -- foldopen=all, -- helps to avoid automatic closing of previously open folds when returning to a buffer
 
         -- )))
