@@ -1,0 +1,15 @@
+SchemaStore.nvim
+YankAssassin.vim
+bufferline.nvim
+gitsigns.nvim
+impatient.nvim
+indent-blankline.nvim
+lualine.nvim
+nvim-lastplace
+nvim-lsp-installer
+nvim-lspconfig
+nvim-notify
+nvim-web-devicons
+packer.nvim
+plenary.nvim
+popup.nvim

@@ -574,6 +574,14 @@ local config = {
 
     -- )))
 
+    -- 'indent_blankline' override setup() (((
+
+    indent_blankline = {
+      show_first_indent_level = false,
+    },
+
+    -- )))
+
     -- 'lualine' override setup() (((
 
     lualine = function(config)
@@ -1631,6 +1639,7 @@ local config = {
     -- )))
 
     if require("core.utils").is_available "smart-splits.nvim" then
+      print("here")
       vim.keymap.set("n", "<A-h>", function()
         require("smart-splits").move_cursor_left()
       end, { desc = "Move to left split" })
