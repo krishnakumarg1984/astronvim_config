@@ -220,14 +220,14 @@ local config = {
           -- Uncomment next line if you want to follow only stable versions
           -- tag = "*"
         },
-        {
-          "Shatur/neovim-cmake",
-          ft = { "c", "cpp", "cmake", "fortran" },
-          requires = { "mfussenegger/nvim-dap" },
-          config = function()
-            require("cmake").setup({})
-          end,
-        },
+        -- {
+        --   "Shatur/neovim-cmake",
+        --   ft = { "c", "cpp", "cmake", "fortran" },
+        --   requires = { "mfussenegger/nvim-dap" },
+        --   config = function()
+        --     require("cmake").setup({})
+        --   end,
+        -- },
         {
           "nkakouros-original/numbers.nvim",
           event = "InsertEnter",
@@ -1606,6 +1606,8 @@ local config = {
     vim.keymap.del("x", "J")
     vim.keymap.set('x', "K", "K", { silent = true })
     vim.keymap.del("x", "K")
+    vim.keymap.del("t", "<c-j>")
+    vim.keymap.del("t", "<c-k>")
     -- vim.keymap.set('x', "<A-j>", "<Nop>", { silent = true })
     -- vim.keymap.del("x", "<A-j>")
     -- vim.keymap.set('x', "<A-k>", "<Nop>", { silent = true })
