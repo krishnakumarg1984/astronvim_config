@@ -1,4 +1,4 @@
--- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
+-- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2:foldcolumn=5
 
 local config = {
 
@@ -104,8 +104,9 @@ local config = {
         listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
         -- listchars = { tab = "▸", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
         pumwidth = 35,
-        softtabstop = 2, -- how many spaces to insert with tab key
         showbreak = "↪ ",
+        signcolumn = "yes:1",
+        softtabstop = 2, -- how many spaces to insert with tab key
         -- spelllang = "en_gb",
         report = 0, -- Threshold for reporting number of lines changed.
         updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
