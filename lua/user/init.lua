@@ -206,6 +206,7 @@ local config = {
         { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
         {
           "echasnovski/mini.nvim",
+          keys = { "sa", "sd", "sr" },
           config = function()
             require("mini.surround").setup()
           end,
