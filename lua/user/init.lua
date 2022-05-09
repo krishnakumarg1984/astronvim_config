@@ -1740,6 +1740,7 @@ return config
 -- "lukas-reineke/lsp-format.nvim" -- A wrapper around Neovims native LSP formatting
 -- "tjdevries/diff-therapy.nvim" -- resolve those conflicts and have a happy relationship with git
 --  "akinsho/git-conflict.nvim" -- A plugin to visualise and resolve merge conflicts in neovim
+-- "miversen33/netman.nvim" -- Neovim (Lua powered) Network File Manager
 
 
 -- )))
