@@ -1,5 +1,7 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
+-- 'kind_icons' (((
+
 local kind_icons = {
   Text = "",
   Method = "",
@@ -48,6 +50,10 @@ local kind_icons = {
   -- TypeParameter = " ",
   TypeParameter = "",
 }
+
+-- )))
+
+-- AstroNvim config table (((
 
 local config = {
 
@@ -200,147 +206,161 @@ local config = {
 
   -- )))
 
-  -- Configure new plugins + update setup() of default AstroNvim plugins (((
+  -- Configure new plugins, disable some default AstroNvim plugins and update setup() of other default plugins (((
 
   plugins = {
-    -- Add plugins to the `init` function below, the packer syntax without the "use"  (((
+    -- `init` function for adding new plugins and disabling default plugins (((
 
-    init = function(default_plugins)
+    init = {
       -- Additional plugins (((
 
-      local my_plugins = {
-        -- Add plugins (packer syntax without the "use" keyword)
-        -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
-        -- { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
-        -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
-        { "tyru/capture.vim", cmd = { "Capture" } },
-        { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
-        { "Konfekt/vim-DetectSpellLang", ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" } },
-        { "dbmrq/vim-dialect", ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" } },
-        { "tpope/vim-unimpaired", keys = { "[", "]" } }, -- e (exchange), ob (background), oc (cursorline), od (diff), oh (hlsearch), oi (ignorecase), ol (list), on (number), or (relativenumber), os (spell), ot (colorcolumn), ou (cursorcolumn), ov (virtualedit), ow (wrap), ox (cursorline cursorcolumn), u (encode/decode urls), y (C-string style escaping), n (conflict marker), a (args), b (buffers), l (location), q (quickfix), t (tag), >p Paste after linewise, increasing indent, >P (Paste before linewise, increasing indent), <p (Paste after linewise, decreasing indent), <P (Paste before linewise, decreasing indent), =p (Paste after linewise, reindenting), =P (Paste before linewise, reindenting), x<motion> (xml encode/decode)
-        { "lervag/vimtex", ft = "tex" },
-        { "svban/YankAssassin.vim" },
-        { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
-        {
-          "p00f/clangd_extensions.nvim",
-          ft = { "c", "cpp", "cuda" },
-          after = "nvim-cmp",
-          -- cmd = { "ClangdAST" },
-          config = function()
-            require("clangd_extensions").setup({})
-          end,
-        },
-        -- { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
-        {
-          "hrsh7th/cmp-emoji",
-          after = "nvim-cmp",
-          ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" },
-          config = function()
-            require("core.utils").add_user_cmp_source("emoji")
-          end,
-        },
-        {
-          "hrsh7th/cmp-nvim-lsp-signature-help",
-          after = "nvim-cmp",
-          config = function()
-            require("core.utils").add_user_cmp_source("nvim_lsp_signature_help")
-          end,
-        },
-        { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
-        {
-          "echasnovski/mini.nvim",
-          keys = { "sa", "sd", "sr" },
-          config = function()
-            require("mini.surround").setup()
-          end,
-        },
-        {
-          "danymat/neogen",
-          config = function()
-            require('neogen').setup ({ snippet_engine = "luasnip" })
-          end,
-          after = "nvim-treesitter",
-          -- Uncomment next line if you want to follow only stable versions
-          -- tag = "*"
-        },
-        -- {
-        --   "Shatur/neovim-cmake",
-        --   ft = { "c", "cpp", "cmake", "fortran" },
-        --   requires = { "mfussenegger/nvim-dap" },
-        --   config = function()
-        --     require("cmake").setup({})
-        --   end,
-        -- },
-        {
-          "nkakouros-original/numbers.nvim",
-          event = "InsertEnter",
-          config = function()
-            require("numbers").setup({
-              excluded_filetypes = {
-                'alpha',
-                'TelescopePrompt',
-                'TelescopeResults',
-                'nerdtree',
-                'unite',
-              }
-            })
-          end,
-        },
-        {
-          "kevinhwang91/nvim-hlslens",
-          keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
-          config = function()
-            require("hlslens").setup( { calm_down = true } )
-          end,
-        },
-        {
-          "ethanholz/nvim-lastplace",
-          config = function()
-            require("nvim-lastplace").setup( {
-              lastplace_ignore_buftype = {"quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo"},
-              lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit","startify", "dashboard", "packer", "neogitstatus", "NvimTree", "neo-tree", "Trouble"},
-              lastplace_open_folds = true
-            } )
-          end,
-        },
-        {
-          "nvim-treesitter/nvim-treesitter-refactor",
-          after = "nvim-treesitter",
-        },
-        {
-          "nvim-treesitter/nvim-treesitter-textobjects",
-          after = "nvim-treesitter",
-        },
-        -- {
-        --   "s1n7ax/nvim-window-picker",
-        --   tag = 'v1.*',
-        --   -- after = "neo-tree",
-        --   config = function()
-        --     require'window-picker'.setup()
-        --   end,
-        -- },
-      }
+      -- Add plugins (packer syntax without the "use" keyword)
+      -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
+      -- { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
+      -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
+      { "tyru/capture.vim", cmd = { "Capture" } },
+      { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
+      { "Konfekt/vim-DetectSpellLang", ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" } },
+      { "dbmrq/vim-dialect", ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" } },
+      -- { "tpope/vim-unimpaired", keys = { "[", "]" } }, -- e (exchange), ob (background), oc (cursorline), od (diff), oh (hlsearch), oi (ignorecase), ol (list), on (number), or (relativenumber), os (spell), ot (colorcolumn), ou (cursorcolumn), ov (virtualedit), ow (wrap), ox (cursorline cursorcolumn), u (encode/decode urls), y (C-string style escaping), n (conflict marker), a (args), b (buffers), l (location), q (quickfix), t (tag), >p Paste after linewise, increasing indent, >P (Paste before linewise, increasing indent), <p (Paste after linewise, decreasing indent), <P (Paste before linewise, decreasing indent), =p (Paste after linewise, reindenting), =P (Paste before linewise, reindenting), x<motion> (xml encode/decode)
+      { "lervag/vimtex", ft = "tex" },
+      { "svban/YankAssassin.vim" },
+      { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
+      {
+        "p00f/clangd_extensions.nvim",
+        ft = { "c", "cpp", "cuda" },
+        after = "nvim-cmp",
+        -- cmd = { "ClangdAST" },
+        config = function()
+          require("clangd_extensions").setup({})
+        end,
+      },
+      -- { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
+      -- {
+      --   "uga-rosa/cmp-dictionary",
+      --   after = "nvim-cmp",
+      --   ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" },
+      --   config = function()
+      --     require("core.utils").add_user_cmp_source { name = "dictionary", max_item_count = 7, keyword_length = 2 }
+      --     require("cmp_dictionary").setup{
+      --       dic = {
+      --         ["*"] = { "/usr/share/dict/words" },
+      --         -- spelllang = {
+      --         --   en = "path/to/english.dic",
+      --         -- },
+      --       },
+      --     }
+      --   end,
+      -- },
+      {
+        "hrsh7th/cmp-emoji",
+        after = "nvim-cmp",
+        ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" },
+        config = function()
+          require("core.utils").add_user_cmp_source("emoji")
+        end,
+      },
+      {
+        "octaltree/cmp-look",
+        after = "nvim-cmp",
+        config = function()
+          require("core.utils").add_user_cmp_source{ name = "look", max_item_count = 7, keyword_length = 2, option = { convert_case = true, loud = true, }}
+        end,
+      },
+      {
+        "hrsh7th/cmp-nvim-lsp-signature-help",
+        after = "nvim-cmp",
+        config = function()
+          require("core.utils").add_user_cmp_source("nvim_lsp_signature_help")
+        end,
+      },
+      -- ["hrsh7th/cmp-path"] = {
+      --   config = function()
+      --     require("core.utils").add_user_cmp_source { name = "path", keyword_length = 2 }
+      --   end,
+      -- },
+      { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
+      {
+        "echasnovski/mini.nvim",
+        keys = { "sa", "sd", "sr" },
+        config = function()
+          require("mini.surround").setup()
+        end,
+      },
+      {
+        "danymat/neogen",
+        config = function()
+          require('neogen').setup ({ snippet_engine = "luasnip" })
+        end,
+        after = "nvim-treesitter",
+        -- Uncomment next line if you want to follow only stable versions
+        -- tag = "*"
+      },
+      -- {
+      --   "Shatur/neovim-cmake",
+      --   ft = { "c", "cpp", "cmake", "fortran" },
+      --   requires = { "mfussenegger/nvim-dap" },
+      --   config = function()
+      --     require("cmake").setup({})
+      --   end,
+      -- },
+      {
+        "nkakouros-original/numbers.nvim",
+        event = "InsertEnter",
+        config = function()
+          require("numbers").setup({
+            excluded_filetypes = {
+              'alpha',
+              'TelescopePrompt',
+              'TelescopeResults',
+              'nerdtree',
+              'unite',
+            }
+          })
+        end,
+      },
+      {
+        "kevinhwang91/nvim-hlslens",
+        keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
+        config = function()
+          require("hlslens").setup( { calm_down = true } )
+        end,
+      },
+      {
+        "ethanholz/nvim-lastplace",
+        config = function()
+          require("nvim-lastplace").setup( {
+            lastplace_ignore_buftype = {"quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo"},
+            lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit","startify", "dashboard", "packer", "neogitstatus", "NvimTree", "neo-tree", "Trouble"},
+            lastplace_open_folds = true
+          } )
+        end,
+      },
+      {
+        "nvim-treesitter/nvim-treesitter-refactor",
+        after = "nvim-treesitter",
+      },
+      {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        after = "nvim-treesitter",
+      },
+      -- {
+      --   "s1n7ax/nvim-window-picker",
+      --   tag = 'v1.*',
+      --   -- after = "neo-tree",
+      --   config = function()
+      --     require'window-picker'.setup()
+      --   end,
+      -- },
+    },
 
-      -- )))
+    -- )))
 
-      -- -- Disable 'aerial' lazy load (((
+    -- Disable AstroNvim built-in plugins (((
 
-      -- default_plugins["stevearc/aerial.nvim"].opt = false
-      -- default_plugins["stevearc/aerial.nvim"].setup = nil
-      -- default_plugins["nvim-lualine/lualine.nvim"].after = "aerial.nvim"  -- load lualine after aerial
-
-      -- )))
-
-      -- Disable AstroNvim built-in plugins (((
-
-      -- https://github.com/AstroNvim/AstroNvim/issues/406
-      default_plugins["p00f/nvim-ts-rainbow"] = nil
-      default_plugins["max397574/better-escape.nvim"] = nil
-
-      return vim.tbl_deep_extend("force", default_plugins, my_plugins)
-
-      -- )))
-    end,
+    -- https://github.com/AstroNvim/AstroNvim/issues/406
+    ["p00f/nvim-ts-rainbow"] = { disable = true },
+    ["max397574/better-escape.nvim"] = { disable = true },
 
     -- )))
 
@@ -777,6 +797,8 @@ local config = {
 
   -- )))
 
+  -- )))
+
   -- Source priorities of 'cmp' (((
 
   -- modify here the priorities of default cmp sources
@@ -793,7 +815,7 @@ local config = {
       buffer = 500,
       path = 250,
       emoji = 200,
-      -- dictionary = 150,
+      dictionary = 150,
     },
   },
 
@@ -1724,9 +1746,9 @@ local config = {
 -- )))
 }
 
--- )))
-
 return config
+
+-- )))
 
 -- Other nice plugins worth looking into (((
 
