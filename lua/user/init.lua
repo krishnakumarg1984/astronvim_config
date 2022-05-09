@@ -683,6 +683,7 @@ local config = {
       },
       highlight = {
         use_languagetree = true,
+        disable = { "latex" },
       },
       context_commentstring = {
         config = {
@@ -691,7 +692,7 @@ local config = {
       },
       indent = {
         enable = true,
-        disable = { "yaml", "python" },
+        disable = { "yaml", "python", "latex" },
       },
       refactor = {
         highlight_definitions = {
