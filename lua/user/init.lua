@@ -212,6 +212,13 @@ local config = {
     -- `plugins.init` table for adding new plugins and disabling default plugins (((
 
     init = {
+      -- Disable AstroNvim built-in plugins (((
+
+      -- https://github.com/AstroNvim/AstroNvim/issues/406
+      ["p00f/nvim-ts-rainbow"] = { disable = true },
+      ["max397574/better-escape.nvim"] = { disable = true },
+
+      -- )))
       -- Additional plugins (((
 
       -- Add plugins (packer syntax without the "use" keyword)
@@ -360,13 +367,6 @@ local config = {
 
     -- )))
 
-    -- Disable AstroNvim built-in plugins (((
-
-    -- https://github.com/AstroNvim/AstroNvim/issues/406
-    ["p00f/nvim-ts-rainbow"] = { disable = true },
-    ["max397574/better-escape.nvim"] = { disable = true },
-
-    -- )))
 
     -- All other entries override the setup() call for default AstroNvim plugins (((
 
