@@ -330,6 +330,11 @@ local config = {
           })
         end,
       },
+      ["norcalli/nvim-colorizer.lua"] = {
+        -- disable = true
+        event = { nil },
+        ft = { "html", "javascript", "css" },
+      },
       {
         "kevinhwang91/nvim-hlslens",
         keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
