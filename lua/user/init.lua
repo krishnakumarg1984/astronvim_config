@@ -842,7 +842,7 @@ local config = {
 
   -- )))
 
-  -- LuaSnip options (((
+  -- Options for 'LuaSnip' (((
 
   luasnip = {
     -- Add paths for including more VS Code style snippets in luasnip
@@ -855,7 +855,7 @@ local config = {
 
   -- )))
 
-  -- 'null-ls' configuration (((
+  -- Configuration of 'null-ls' (((
 
   ["null-ls"] = function()
     -- Formatting and linting
