@@ -597,6 +597,7 @@ local config = {
 
     ["neo-tree"] = {
       close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+      enable_diagnostics = true,
     },
 
     -- )))
