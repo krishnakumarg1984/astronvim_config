@@ -1,4 +1,4 @@
--- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2:foldcolumn=5
+-- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
 local config = {
 
@@ -745,7 +745,7 @@ local config = {
         padding = { 0, 0, 1, 0 }, -- extra window padding [top, right, bottom, left]
       },
       layout = {
-        height = { min = 3, max = 10 }, -- min and max height of the columns
+        height = { min = 3, max = 12 }, -- min and max height of the columns
         width = { min = 10, max = 40 }, -- min and max width of the columns
       },
       plugins = {
@@ -1544,6 +1544,11 @@ local config = {
     autocmd FileType tex setlocal foldcolumn=auto:7
     autocmd InsertEnter *.tex set conceallevel=0
     autocmd InsertLeave *.tex set conceallevel=2
+  augroup END
+
+  augroup FtLuaSettings
+    autocmd!
+    autocmd FileType lua setlocal foldcolumn=auto:6
   augroup END
 
   " )))
