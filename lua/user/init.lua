@@ -232,7 +232,11 @@ local config = {
         after = "nvim-cmp",
         -- cmd = { "ClangdAST" },
         config = function()
-          require("clangd_extensions").setup({})
+          require("clangd_extensions").setup{
+            server = {
+              on_attach = require("configs.lsp.handlers").on_attach,
+            },
+          }
         end,
       },
       -- { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
@@ -520,6 +524,10 @@ local config = {
       local MAX_LABEL_WIDTH = 20
 
       return vim.tbl_deep_extend("force", config, {
+        -- Yeah, to enable this you will probably need to not lazy load clangd_extensions and add that to your cmp setup override in plugins.cmp and then also modify the lazy loading to load cmp after clangd_extensions 
+        -- You could probably add a change in your cmp setup to check for the existence of clangd_extensions and add the sorting table if it's available
+        -- And then keep the lazy loading for clangd_extensions and at the end of your config function add something like require("configs.cmp").config() to reconfigure cmp once clangd is loaded
+        -- But this is a pretty specific use case that would require a non 0 amount of lua knowledge
         -- sorting = {
         --   comparators = {
         --     cmp.config.compare.offset,
@@ -635,7 +643,7 @@ local config = {
     ["nvim-lsp-installer"] = {
       automatic_installation = true,
       -- ensure_installed = {
-      --   -- "clangd", -- requires a reasonably new version of glibc
+      --   "clangd", -- requires a reasonably new version of glibc
       --   "sumneko_lua",
       -- },
     },
