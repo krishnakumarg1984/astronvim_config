@@ -596,11 +596,11 @@ local config = {
     -- 'nvim-lsp-installer' override setup() (((
 
     ["nvim-lsp-installer"] = {
-      -- automatic_installation = true,
-      ensure_installed = {
-        "sumneko_lua",
-        "clangd",
-      },
+      automatic_installation = true,
+      -- ensure_installed = {
+      --   -- "clangd", -- requires a reasonably new version of glibc
+      --   "sumneko_lua",
+      -- },
     },
 
     -- )))
@@ -806,7 +806,11 @@ local config = {
   lsp = {
     -- enable servers that you already have installed without lsp-installer
     servers = {
-      "clangd",
+      "clangd", -- requires a reasonably new version of glibc
+      "cmake",
+      "fortls",
+      "pylsp",
+      "r_language_server",
       "sumneko_lua",
       -- "pyright"
     },
