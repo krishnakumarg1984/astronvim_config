@@ -206,10 +206,10 @@ local config = {
 
   -- )))
 
-  -- Configure new plugins, disable some default AstroNvim plugins and update setup() of other default plugins (((
+  -- 'plugins' table (((
 
   plugins = {
-    -- `init` function for adding new plugins and disabling default plugins (((
+    -- `plugins.init` table for adding new plugins and disabling default plugins (((
 
     init = {
       -- Additional plugins (((
