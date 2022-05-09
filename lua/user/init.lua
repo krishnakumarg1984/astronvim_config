@@ -850,7 +850,7 @@ local config = {
       "cmake",
       "fortls",
       "pylsp",
-      "r_language_server",
+      -- "r_language_server", -- needs R in path
       "sumneko_lua",
       -- "pyright"
     },
