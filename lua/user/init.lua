@@ -277,6 +277,7 @@ local config = {
           config = function()
             require("numbers").setup({
               excluded_filetypes = {
+                'alpha',
                 'TelescopePrompt',
                 'TelescopeResults',
                 'nerdtree',
