@@ -516,6 +516,8 @@ local config = {
 
     cmp = function(config)
       local cmp = require "cmp"
+      local ELLIPSIS_CHAR = '…'
+      local MAX_LABEL_WIDTH = 20
 
       return vim.tbl_deep_extend("force", config, {
         -- sorting = {
@@ -547,22 +549,29 @@ local config = {
           format = function(entry, vim_item)
             -- Kind icons
             vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-            vim_item.abbr = string.sub(vim_item.abbr, 1, 25)
+            -- https://github.com/hrsh7th/nvim-cmp/discussions/609#discussioncomment-1844480
+            local label = vim_item.abbr
+            local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+            if truncated_label ~= label then
+              vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
+            end
+            -- vim_item.abbr = string.sub(vim_item.abbr, 1, 25)
             -- Source
             vim_item.menu = ({
               buffer = "[Buf]",
-              nvim_lsp = "[LSP]",
-              luasnip = "[Snippet]",
-              nvim_lua = "[Nvim_Lua]",
-              latex_symbols = "[LaTeX]",
               cmp_tabnine = "[Tabnine]",
-              path = "[Path]",
-              emoji = "[Emoji]",
-              nvim_lsp_signature_help = "",
-              nuspell = "[Nuspell]",
-              spell = "[Spell]",
-              look = "[Look]",
               dictionary = "[Dictionary]",
+              nvim_lsp_signature_help = "[Function Signature]",
+              signature_help = "[Function Signature]",
+              emoji = "[Emoji]",
+              latex_symbols = "[LaTeX]",
+              look = "[Dict]",
+              luasnip = "[Snippet]",
+              nuspell = "[Nuspell]",
+              nvim_lsp = "[LSP]",
+              nvim_lua = "[Nvim_Lua]",
+              path = "[Path]",
+              spell = "[Spell]",
               tags = "[Tags]",
               tmux = "[Tmux]",
             })[entry.source.name]
