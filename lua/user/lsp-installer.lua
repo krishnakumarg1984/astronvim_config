@@ -14,37 +14,4 @@ lsp_installer.on_server_ready(function(server)
     opts.capabilities.memoryUsageProvider = true
   end
 
-  -- This setup() function is exactly the same as lspconfig's setup function.
-  -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
-  server:setup(opts)
-  vim.cmd([[ do User LspAttachBuffers ]])
 end)
-
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {
-  -- "bashls", -- requires nodejs
-  "c",
-  -- "clangd", -- requires a reasonably new version of glibc
-  "cmake",
-  -- "dockerls",  -- requires nodejs
-  -- "dotls", -- requires nodejs
-  "esbonio",
-  "fortls",
-  -- "ltex", -- slow to install on remote systems
-  "opencl_ls",
-  -- "pyright", -- requires nodejs
-  "sumneko_lua",
-  "texlab",
-  -- "vimls", -- requires nodejs
-  -- "yamlls", -- requires nodejs
-  "zk",
-  -- "ansiblels",
-}
-
--- setup the LS
--- make_server_ready() -- LSP mappings
-
--- install the LS
-for _, server in ipairs(servers) do
-  install_server(server)
-end

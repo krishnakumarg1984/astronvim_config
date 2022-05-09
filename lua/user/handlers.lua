@@ -55,10 +55,6 @@ end
 
 local status_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 
--- https://github.com/williamboman/nvim-lsp-installer/issues/305
--- capabilities.offsetEncoding = { "utf-16" }
--- mylspconfig.clangd.setup({ capabilities = capabilities })
-
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 
 return M
