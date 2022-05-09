@@ -374,10 +374,6 @@ local config = {
           and require("aerial").num_symbols(bufnr) > 3  -- Enforce a minimum symbol count
           and not require("aerial").was_closed()        -- A useful way to keep aerial closed when closed manually
       end,
-      -- close_behavior = "auto", -- aerial window will stay open as long as there is a visible buffer to attach to
-      -- close_behavior = "persist", -- aerial window will stay open until closed
-      -- close_behavior = "close", -- aerial window will close when original file is no longer visible
-      close_behavior = "global", -- same as 'persist', and will always show symbols for the current buffer
     },
 
     -- )))
