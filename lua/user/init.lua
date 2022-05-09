@@ -593,6 +593,14 @@ local config = {
 
     -- )))
 
+    -- 'neo-tree' override setup() (((
+
+    ["neo-tree"] = {
+      close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
+    },
+
+    -- )))
+
     -- 'nvim-lsp-installer' override setup() (((
 
     ["nvim-lsp-installer"] = {
@@ -1548,7 +1556,7 @@ local config = {
 
   augroup FtLuaSettings
     autocmd!
-    autocmd FileType lua setlocal foldcolumn=auto:6
+    autocmd FileType lua setlocal foldcolumn=auto:7
   augroup END
 
   " )))
