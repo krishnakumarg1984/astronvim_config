@@ -1639,18 +1639,17 @@ local config = {
     -- )))
 
     if require("core.utils").is_available "smart-splits.nvim" then
-      print("here")
       vim.keymap.set("n", "<A-h>", function()
-        require("smart-splits").move_cursor_left()
+        require("smart-splits").resize_left()
       end, { desc = "Move to left split" })
       vim.keymap.set("n", "<A-j>", function()
-        require("smart-splits").move_cursor_down()
+        require("smart-splits").resize_down()
       end, { desc = "Move to below split" })
       vim.keymap.set("n", "<A-k>", function()
-        require("smart-splits").move_cursor_up()
+        require("smart-splits").resize_up()
       end, { desc = "Move to above split" })
       vim.keymap.set("n", "<A-l>", function()
-        require("smart-splits").move_cursor_right()
+        require("smart-splits").resize_right()
       end, { desc = "Move to right split" })
     end
 
