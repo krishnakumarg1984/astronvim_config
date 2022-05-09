@@ -1,5 +1,54 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
+local kind_icons = {
+  Text = "",
+  Method = "",
+  Function = "",
+  Constructor = "",
+  -- Field = " ",
+  Field = "ﰠ",
+  -- Variable = " ",
+  Variable = "",
+  -- Class = " ",
+  Class = "",
+  Interface = " ",
+  -- Module = " ",
+  Module = "",
+  -- Property = " ",
+  Property = "",
+  Unit = " ",
+  -- Value = " ",
+  Value = "",
+  -- Enum = " ",
+  Enum = "",
+  -- Keyword = " ",
+  Keyword = "",
+  -- Snippet = " ",
+  Snippet = "",
+  -- Color = " ",
+  Color = "",
+  -- File = " ",
+  File = "",
+  -- Reference = " ",
+  Reference = "",
+  -- Folder = " ",
+  Folder = "",
+  -- EnumMember = " ",
+  EnumMember = "",
+  -- Constant = " ",
+  -- Constant = "",
+  Constant = "",
+  -- Struct = " ",
+  Struct = "פּ",
+  -- Struct = "" ,
+  -- Event = " ",
+  Event = "",
+  -- Operator = " ",
+  Operator = "",
+  -- TypeParameter = " ",
+  TypeParameter = "",
+}
+
 local config = {
 
   -- Startscreen/greeter header (((
@@ -301,6 +350,7 @@ local config = {
     aerial = {
       backends = { "treesitter", "lsp", "markdown" },
       min_width = 18,
+      icons = kind_icons,
       on_attach = function(bufnr)
         -- Jump forwards/backwards with '{' and '}'
         vim.keymap.set('n', "}", "}", { silent = true })
@@ -448,54 +498,6 @@ local config = {
     -- 'cmp' override setup() (((
 
     cmp = function(config)
-      local kind_icons = {
-        Text = "",
-        Method = "",
-        Function = "",
-        Constructor = "",
-        -- Field = " ",
-        Field = "ﰠ",
-        -- Variable = " ",
-        Variable = "",
-        -- Class = " ",
-        Class = "",
-        Interface = " ",
-        -- Module = " ",
-        Module = "",
-        -- Property = " ",
-        Property = "",
-        Unit = " ",
-        -- Value = " ",
-        Value = "",
-        -- Enum = " ",
-        Enum = "",
-        -- Keyword = " ",
-        Keyword = "",
-        -- Snippet = " ",
-        Snippet = "",
-        -- Color = " ",
-        Color = "",
-        -- File = " ",
-        File = "",
-        -- Reference = " ",
-        Reference = "",
-        -- Folder = " ",
-        Folder = "",
-        -- EnumMember = " ",
-        EnumMember = "",
-        -- Constant = " ",
-        -- Constant = "",
-        Constant = "",
-        -- Struct = " ",
-        Struct = "פּ",
-        -- Struct = "" ,
-        -- Event = " ",
-        Event = "",
-        -- Operator = " ",
-        Operator = "",
-        -- TypeParameter = " ",
-        TypeParameter = "",
-      }
       local cmp = require "cmp"
 
       return vim.tbl_deep_extend("force", config, {
