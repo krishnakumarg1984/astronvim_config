@@ -1783,23 +1783,6 @@ local config = {
 
     -- )))
 
-    if require("core.utils").is_available "smart-splits.nvim" then
-      vim.keymap.set("n", "<A-h>", function()
-        require("smart-splits").resize_left()
-      end, { desc = "Move to left split" })
-      vim.keymap.set("n", "<A-j>", function()
-        require("smart-splits").resize_down()
-      end, { desc = "Move to below split" })
-      vim.keymap.set("n", "<A-k>", function()
-        require("smart-splits").resize_up()
-      end, { desc = "Move to above split" })
-      vim.keymap.set("n", "<A-l>", function()
-        require("smart-splits").resize_right()
-      end, { desc = "Move to right split" })
-    end
-
-    -- )))
-
     -- )))
 
     -- Insert mode keymaps -- (((
@@ -1833,9 +1816,9 @@ local config = {
 
     -- )))
 
-    -- Plugin keymaps (((
+    -- Keymaps that leverage various plugins (((
 
-    -- Gitsigns keymaps (((
+    -- 'gitsigns' keymaps (((
 
     vim.keymap.set("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
     vim.keymap.set("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
@@ -1844,11 +1827,40 @@ local config = {
 
     -- )))
 
+    -- Resize keymaps with 'smart-splits' (((
+
+    if require("core.utils").is_available "smart-splits.nvim" then
+      vim.keymap.set("n", "<A-h>", function()
+        require("smart-splits").resize_left()
+      end, { desc = "Move to left split" })
+      vim.keymap.set("n", "<A-j>", function()
+        require("smart-splits").resize_down()
+      end, { desc = "Move to below split" })
+      vim.keymap.set("n", "<A-k>", function()
+        require("smart-splits").resize_up()
+      end, { desc = "Move to above split" })
+      vim.keymap.set("n", "<A-l>", function()
+        require("smart-splits").resize_right()
+      end, { desc = "Move to right split" })
+    end
+
+    -- )))
+
+    -- -- 'telescope' keymaps (((
+    --
+    -- vim.keymap.set("n", "<leader>fF", function()
+    --   require("telescope.builtin").find_files { hidden = true }
+    -- end, { desc = "Search all files" })
+    --
+    -- -- )))
+
+    -- )))
+
     -- )))
   end,
 
   -- )))
-}
+} -- end of 'config' table
 
 return config
 
