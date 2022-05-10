@@ -80,7 +80,7 @@ local config = {
   options = function(defaults)
     defaults.g.loaded_netrwPlugin = nil
     defaults.g.mapleader = "\\" -- sets vim.g.mapleader
-    defaults.g.null_ls_disable = true
+    -- defaults.g.null_ls_disable = false
 
     return vim.tbl_deep_extend("force", defaults, {
       -- vim.opt settings (((
@@ -373,6 +373,12 @@ local config = {
         ft = { "html", "javascript", "css" },
       },
       {
+        "klen/nvim-config-local",
+        config = function()
+          require("config-local").setup {}
+        end,
+      },
+      {
         "kevinhwang91/nvim-hlslens",
         keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
         config = function()
@@ -417,6 +423,16 @@ local config = {
       --     require'window-picker'.setup()
       --   end,
       -- },
+      {
+        "ahmedkhalf/project.nvim",
+        config = function()
+          require("project_nvim").setup {
+            detection_methods = { "pattern" },
+            patterns = { ".root", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json" },
+            silent_chdir = false,
+          }
+        end,
+      }, -- , event = { "CursorHold" } }
     },
 
     -- )))
@@ -988,7 +1004,7 @@ local config = {
     null_ls.setup {
       debug = false,
       sources = {
-        -- Set a formatter
+        -- Set formatters
         formatting.clang_format,
         formatting.stylua.with {
           condition = function(utils)
