@@ -432,12 +432,13 @@ local config = {
             silent_chdir = false,
           }
         end,
-      }, -- , event = { "CursorHold" } }
+      },
+      -- ))) -- ends "additional plugins"
     },
 
-    -- )))
+    -- ))) ends 'plugins.init' table
 
-    -- All other entries override the setup() call for default AstroNvim plugins (((
+    -- Each entry below overrides the setup() call for default AstroNvim plugins (((
 
     -- 'aerial' override setup() (((
 
@@ -884,9 +885,7 @@ local config = {
     -- )))
   },
 
-  -- )))
-
-  -- )))
+  -- ))) end of 'plugins' table
 
   -- Source priorities of 'cmp' (((
 
