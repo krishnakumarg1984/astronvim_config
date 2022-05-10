@@ -80,6 +80,7 @@ local config = {
   options = function(defaults)
     defaults.g.loaded_netrwPlugin = nil
     defaults.g.mapleader = "\\" -- sets vim.g.mapleader
+    defaults.g.null_ls_disable = true
 
     return vim.tbl_deep_extend("force", defaults, {
       -- vim.opt settings (((
