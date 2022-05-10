@@ -72,7 +72,7 @@ local config = {
   -- )))
 
   -- colorscheme = "default_theme",  -- set colorscheme
-  colorscheme = "kanagawa",  -- set colorscheme
+  colorscheme = "kanagawa", -- set colorscheme
 
   -- Set vim options in this lua function (((
 
@@ -95,22 +95,22 @@ local config = {
 
         -- https://vi.stackexchange.com/questions/21872/change-fold-sign-character
         fillchars = {
-          foldclose = '▸',
-          foldopen = '▾',
-          foldsep = '│',
-          horiz = '━',
+          foldclose = "▸",
+          foldopen = "▾",
+          foldsep = "│",
+          horiz = "━",
           -- horiz = '━',
-          horizdown = '┳',
+          horizdown = "┳",
           -- horizdown = '┳',
-          horizup   = '┻',
+          horizup = "┻",
           -- horizup = '┻',
-          vert = '┃',
+          vert = "┃",
           -- vert = '┃',
-          verthoriz = '╋',
+          verthoriz = "╋",
           -- verthoriz = '╋',
-          vertleft  = '┫',
+          vertleft = "┫",
           -- vertleft  = '┫',
-          vertright = '┣',
+          vertright = "┣",
           -- vertright = '┣',
         },
 
@@ -230,8 +230,42 @@ local config = {
       -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
       { "tyru/capture.vim", cmd = { "Capture" } },
       { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
-      { "Konfekt/vim-DetectSpellLang", ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" } },
-      { "dbmrq/vim-dialect", ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" } },
+      {
+        "Konfekt/vim-DetectSpellLang",
+        ft = {
+          "asciidoc",
+          "changelog",
+          "context",
+          "gitcommit",
+          "lsp_markdown",
+          "mail",
+          "markdown",
+          "rst",
+          "rtf",
+          "tex",
+          "texinfo",
+          "text",
+          "txt",
+        },
+      },
+      {
+        "dbmrq/vim-dialect",
+        ft = {
+          "asciidoc",
+          "changelog",
+          "context",
+          "gitcommit",
+          "lsp_markdown",
+          "mail",
+          "markdown",
+          "rst",
+          "rtf",
+          "tex",
+          "texinfo",
+          "text",
+          "txt",
+        },
+      },
       { "tpope/vim-unimpaired", keys = { "[", "]" } }, -- e (exchange), ob (background), oc (cursorline), od (diff), oh (hlsearch), oi (ignorecase), ol (list), on (number), or (relativenumber), os (spell), ot (colorcolumn), ou (cursorcolumn), ov (virtualedit), ow (wrap), ox (cursorline cursorcolumn), u (encode/decode urls), y (C-string style escaping), n (conflict marker), a (args), b (buffers), l (location), q (quickfix), t (tag), >p Paste after linewise, increasing indent, >P (Paste before linewise, increasing indent), <p (Paste after linewise, decreasing indent), <P (Paste before linewise, decreasing indent), =p (Paste after linewise, reindenting), =P (Paste before linewise, reindenting), x<motion> (xml encode/decode)
       { "lervag/vimtex", ft = "tex" },
       { "svban/YankAssassin.vim" },
@@ -242,7 +276,7 @@ local config = {
         after = "nvim-cmp",
         -- cmd = { "ClangdAST" },
         config = function()
-          require("clangd_extensions").setup{
+          require("clangd_extensions").setup {
             server = {
               on_attach = require("configs.lsp.handlers").on_attach,
             },
@@ -253,23 +287,42 @@ local config = {
       {
         "hrsh7th/cmp-emoji",
         after = "nvim-cmp",
-        ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" },
+        ft = {
+          "asciidoc",
+          "changelog",
+          "context",
+          "gitcommit",
+          "lsp_markdown",
+          "mail",
+          "markdown",
+          "rst",
+          "rtf",
+          "tex",
+          "texinfo",
+          "text",
+          "txt",
+        },
         config = function()
-          require("core.utils").add_user_cmp_source("emoji")
+          require("core.utils").add_user_cmp_source "emoji"
         end,
       },
       {
         "octaltree/cmp-look",
         after = "nvim-cmp",
         config = function()
-          require("core.utils").add_user_cmp_source{ name = "look", max_item_count = 7, keyword_length = 2, option = { convert_case = true, loud = true, }}
+          require("core.utils").add_user_cmp_source {
+            name = "look",
+            max_item_count = 7,
+            keyword_length = 2,
+            option = { convert_case = true, loud = true },
+          }
         end,
       },
       {
         "hrsh7th/cmp-nvim-lsp-signature-help",
         after = "nvim-cmp",
         config = function()
-          require("core.utils").add_user_cmp_source("nvim_lsp_signature_help")
+          require("core.utils").add_user_cmp_source "nvim_lsp_signature_help"
         end,
       },
       { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
@@ -284,7 +337,7 @@ local config = {
       {
         "danymat/neogen",
         config = function()
-          require('neogen').setup ({ snippet_engine = "luasnip" })
+          require("neogen").setup { snippet_engine = "luasnip" }
         end,
         after = "nvim-treesitter",
         -- Uncomment next line if you want to follow only stable versions
@@ -302,15 +355,15 @@ local config = {
         "nkakouros-original/numbers.nvim",
         event = "InsertEnter",
         config = function()
-          require("numbers").setup({
+          require("numbers").setup {
             excluded_filetypes = {
-              'alpha',
-              'TelescopePrompt',
-              'TelescopeResults',
-              'nerdtree',
-              'unite',
-            }
-          })
+              "alpha",
+              "TelescopePrompt",
+              "TelescopeResults",
+              "nerdtree",
+              "unite",
+            },
+          }
         end,
       },
       ["norcalli/nvim-colorizer.lua"] = {
@@ -322,17 +375,29 @@ local config = {
         "kevinhwang91/nvim-hlslens",
         keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
         config = function()
-          require("hlslens").setup( { calm_down = true } )
+          require("hlslens").setup { calm_down = true }
         end,
       },
       {
         "ethanholz/nvim-lastplace",
         config = function()
-          require("nvim-lastplace").setup( {
-            lastplace_ignore_buftype = {"quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo"},
-            lastplace_ignore_filetype = {"gitcommit", "gitrebase", "svn", "hgcommit","startify", "dashboard", "packer", "neogitstatus", "NvimTree", "neo-tree", "Trouble"},
-            lastplace_open_folds = true
-          } )
+          require("nvim-lastplace").setup {
+            lastplace_ignore_buftype = { "quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo" },
+            lastplace_ignore_filetype = {
+              "gitcommit",
+              "gitrebase",
+              "svn",
+              "hgcommit",
+              "startify",
+              "dashboard",
+              "packer",
+              "neogitstatus",
+              "NvimTree",
+              "neo-tree",
+              "Trouble",
+            },
+            lastplace_open_folds = true,
+          }
         end,
       },
       {
@@ -365,25 +430,35 @@ local config = {
       icons = kind_icons,
       on_attach = function(bufnr)
         -- Jump forwards/backwards with '{' and '}'
-        vim.keymap.set('n', "}", "}", { silent = true })
+        vim.keymap.set("n", "}", "}", { silent = true })
         vim.keymap.del("n", "}")
         vim.keymap.set("n", "<leader>{", "<cmd>AerialPrev<cr>", { buffer = bufnr, desc = "Jump backwards in Aerial" })
         vim.keymap.set("n", "<leader>}", "<cmd>AerialNext<cr>", { buffer = bufnr, desc = "Jump forwards in Aerial" })
         -- Jump up the tree with '[[' or ']]'
-        vim.keymap.set('n', "]]", "]]", { silent = true })
+        vim.keymap.set("n", "]]", "]]", { silent = true })
         vim.keymap.del("n", "]]")
-        vim.keymap.set('n', "[[", "[[", { silent = true })
+        vim.keymap.set("n", "[[", "[[", { silent = true })
         vim.keymap.del("n", "[[")
-        vim.keymap.set("n", "<leader>[", "<cmd>AerialPrevUp<cr>", { buffer = bufnr, desc = "Jump up and backwards in Aerial" })
-        vim.keymap.set("n", "<leader>]", "<cmd>AerialNextUp<cr>", { buffer = bufnr, desc = "Jump up and forwards in Aerial" })
+        vim.keymap.set(
+          "n",
+          "<leader>[",
+          "<cmd>AerialPrevUp<cr>",
+          { buffer = bufnr, desc = "Jump up and backwards in Aerial" }
+        )
+        vim.keymap.set(
+          "n",
+          "<leader>]",
+          "<cmd>AerialNextUp<cr>",
+          { buffer = bufnr, desc = "Jump up and forwards in Aerial" }
+        )
         -- vim.keymap.set('n', '<C-w>o', '<C-w>o:AerialClose<CR>') -- https://github.com/stevearc/aerial.nvim/issues/99
       end,
       placement_editor_edge = true,
       open_automatic = function(bufnr)
-        return not vim.opt.diff:get()                   -- if not in 'diff' mode
-          and vim.api.nvim_buf_line_count(bufnr) > 26   -- Enforce a minimum line count
-          and require("aerial").num_symbols(bufnr) > 3  -- Enforce a minimum symbol count
-          and not require("aerial").was_closed()        -- A useful way to keep aerial closed when closed manually
+        return not vim.opt.diff:get() -- if not in 'diff' mode
+          and vim.api.nvim_buf_line_count(bufnr) > 26 -- Enforce a minimum line count
+          and require("aerial").num_symbols(bufnr) > 3 -- Enforce a minimum symbol count
+          and not require("aerial").was_closed() -- A useful way to keep aerial closed when closed manually
       end,
     },
 
@@ -424,9 +499,9 @@ local config = {
         diagnostics = "nvim_lsp",
         diagnostics_indicator = function(count, level, diagnostics_dict, context)
           if context.buffer:current() then
-            return ''
+            return ""
           end
-          local icon = level:match("error") and " " or " "
+          local icon = level:match "error" and " " or " "
           return " " .. icon .. count
           -- local s = " "
           -- for e, n in pairs(diagnostics_dict) do
@@ -468,32 +543,32 @@ local config = {
             filetype = "neo-tree",
             text = "File Explorer",
             highlight = "Directory",
-            text_align = "left"
-          }
+            text_align = "left",
+          },
         },
         custom_areas = {
           right = function()
             local result = {}
             local seve = vim.diagnostic.severity
-            local error = #vim.diagnostic.get(0, {severity = seve.ERROR})
-            local warning = #vim.diagnostic.get(0, {severity = seve.WARN})
-            local info = #vim.diagnostic.get(0, {severity = seve.INFO})
-            local hint = #vim.diagnostic.get(0, {severity = seve.HINT})
+            local error = #vim.diagnostic.get(0, { severity = seve.ERROR })
+            local warning = #vim.diagnostic.get(0, { severity = seve.WARN })
+            local info = #vim.diagnostic.get(0, { severity = seve.INFO })
+            local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
 
             if error ~= 0 then
-              table.insert(result, {text = "  " .. error, guifg = "#EC5241"})
+              table.insert(result, { text = "  " .. error, guifg = "#EC5241" })
             end
 
             if warning ~= 0 then
-              table.insert(result, {text = "  " .. warning, guifg = "#EFB839"})
+              table.insert(result, { text = "  " .. warning, guifg = "#EFB839" })
             end
 
             if hint ~= 0 then
-              table.insert(result, {text = "  " .. hint, guifg = "#A3BA5E"})
+              table.insert(result, { text = "  " .. hint, guifg = "#A3BA5E" })
             end
 
             if info ~= 0 then
-              table.insert(result, {text = "  " .. info, guifg = "#7EA9A7"})
+              table.insert(result, { text = "  " .. info, guifg = "#7EA9A7" })
             end
             return result
           end,
@@ -507,11 +582,11 @@ local config = {
 
     cmp = function(config)
       local cmp = require "cmp"
-      local ELLIPSIS_CHAR = '…'
+      local ELLIPSIS_CHAR = "…"
       local MAX_LABEL_WIDTH = 20
 
       return vim.tbl_deep_extend("force", config, {
-        -- Yeah, to enable this you will probably need to not lazy load clangd_extensions and add that to your cmp setup override in plugins.cmp and then also modify the lazy loading to load cmp after clangd_extensions 
+        -- Yeah, to enable this you will probably need to not lazy load clangd_extensions and add that to your cmp setup override in plugins.cmp and then also modify the lazy loading to load cmp after clangd_extensions
         -- You could probably add a change in your cmp setup to check for the existence of clangd_extensions and add the sorting table if it's available
         -- And then keep the lazy loading for clangd_extensions and at the end of your config function add something like require("configs.cmp").config() to reconfigure cmp once clangd is loaded
         -- But this is a pretty specific use case that would require a non 0 amount of lua knowledge
@@ -591,7 +666,7 @@ local config = {
         delete = { hl = "GitSignsDelete", text = "▎", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
         -- delete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
         topdelete = { hl = "GitSignsDelete", text = "契", numhl = "GitSignsDeleteNr", linehl = "GitSignsDeleteLn" },
-        changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn", },
+        changedelete = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
       },
       word_diff = true, -- Toggle with `:Gitsigns toggle_word_diff`
     },
@@ -674,7 +749,7 @@ local config = {
         -- "rust",
         "toml",
         "verilog",
-        "vim",  -- problematic on remote servers?
+        "vim", -- problematic on remote servers?
         "yaml",
       },
       highlight = {
@@ -913,9 +988,15 @@ local config = {
       debug = false,
       sources = {
         -- Set a formatter
-        formatting.rufo,
+        formatting.clang_format,
+        formatting.stylua.with {
+          condition = function(utils)
+            return utils.root_has_file { "stylua.toml", ".stylua.toml" }
+          end,
+        },
+        -- formatting.rufo,
         -- Set a linter
-        diagnostics.rubocop,
+        -- diagnostics.rubocop,
       },
       -- NOTE: You can remove this on attach function to disable format on save
       on_attach = function(client)
@@ -1070,7 +1151,7 @@ local config = {
           },
           q = { nil },
           s = {
-            name =  "Search/Set",
+            name = "Search/Set",
             a = { "<cmd>Telescope autocommands<cr>", "Autocommands" },
             -- b = { "nil", "Builtins" },
             b = { "<cmd>Telescope builtin<cr>", "Builtins" },
@@ -1107,16 +1188,16 @@ local config = {
 
   -- )))
 
--- This 'polish' function is run last (good place to configure mappings and vim options) (((
+  -- This 'polish' function is run last (good place to configure mappings and vim options) (((
 
   polish = function()
-    vim.api.nvim_set_hl(0, 'WinSeparator', { fg = 'black', bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
+    vim.api.nvim_set_hl(0, "WinSeparator", { fg = "black", bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
 
     vim.wo.colorcolumn = ""
 
     -- Vimscript-based options (((
 
-    vim.cmd([[
+    vim.cmd [[
 
       let g:detectspelllang_langs = {
       \ 'aspell'   : [ 'en_GB', 'en_US', 'cs', 'cy', 'da', 'de_DE', 'el', 'es', 'fr', 'gd', 'hu', 'id', 'it', 'ms', 'nl', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl', 'sv' ],
@@ -1432,7 +1513,7 @@ local config = {
 
     set foldexpr=nvim_treesitter#foldexpr()
 
-    ]])
+    ]]
 
     -- )))
 
@@ -1467,9 +1548,9 @@ local config = {
 
     -- )))
 
-  -- Autocommands (vimscript-based) (((
+    -- Autocommands (vimscript-based) (((
 
-  vim.cmd [[
+    vim.cmd [[
 
   " _general_settings autogroup (((
 
@@ -1591,7 +1672,7 @@ local config = {
 
   ]]
 
-  -- )))
+    -- )))
 
     -- Add custom filetypes (lua-based config from nvim 0.7+) (((
 
@@ -1630,29 +1711,29 @@ local config = {
     -- Disable AstroNvim mappings that override important vim defaults (((
 
     vim.keymap.del("t", "<esc>")
-    vim.keymap.set('t', "<esc>", "<C-\\><C-n>", { silent = true })
-    vim.keymap.set('n', "<leader>w", "<leader>w", { silent = true })
-    vim.keymap.del('n', "<leader>w")
-    vim.keymap.set('n', "<leader>q", "<leader>q", { silent = true })
-    vim.keymap.del('n', "<leader>q")
-    vim.keymap.set('n', "<leader>h", "<leader>h", { silent = true })
-    vim.keymap.del('n', "<leader>h")
-    vim.keymap.set('n', "}", "}", { silent = true })
+    vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { silent = true })
+    vim.keymap.set("n", "<leader>w", "<leader>w", { silent = true })
+    vim.keymap.del("n", "<leader>w")
+    vim.keymap.set("n", "<leader>q", "<leader>q", { silent = true })
+    vim.keymap.del("n", "<leader>q")
+    vim.keymap.set("n", "<leader>h", "<leader>h", { silent = true })
+    vim.keymap.del("n", "<leader>h")
+    vim.keymap.set("n", "}", "}", { silent = true })
     vim.keymap.del("n", "}")
-    vim.keymap.set('n', "{", "{", { silent = true })
+    vim.keymap.set("n", "{", "{", { silent = true })
     vim.keymap.del("n", "{")
-    vim.keymap.set('n', "<C-q>", "<Nop>", { silent = true })
+    vim.keymap.set("n", "<C-q>", "<Nop>", { silent = true })
     vim.keymap.del("n", "<C-q>")
-    vim.keymap.set('n', "<C-s>", "<Nop>", { silent = true })
+    vim.keymap.set("n", "<C-s>", "<Nop>", { silent = true })
     vim.keymap.del("n", "<C-s>")
-    vim.keymap.set('n', "<leader>h", "<Nop>", { silent = true })
-    vim.keymap.set('n', "H", "H", { silent = true })
+    vim.keymap.set("n", "<leader>h", "<Nop>", { silent = true })
+    vim.keymap.set("n", "H", "H", { silent = true })
     vim.keymap.del("n", "H")
-    vim.keymap.set('n', "L", "L", { silent = true })
+    vim.keymap.set("n", "L", "L", { silent = true })
     vim.keymap.del("n", "L")
-    vim.keymap.set('x', "J", "J", { silent = true })
+    vim.keymap.set("x", "J", "J", { silent = true })
     vim.keymap.del("x", "J")
-    vim.keymap.set('x', "K", "K", { silent = true })
+    vim.keymap.set("x", "K", "K", { silent = true })
     vim.keymap.del("x", "K")
     vim.keymap.del("t", "<c-j>")
     vim.keymap.del("t", "<c-k>")
@@ -1665,7 +1746,6 @@ local config = {
 
     vim.keymap.set({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags
     -- vim.keymap.set({ "n" }, "<leader>*", ":%s;\<<c-r><c-w>\>;;g<left><left>") -- replace the word under cursor
-
 
     -- Normal mode keymaps -- (((
 
@@ -1746,10 +1826,9 @@ local config = {
     -- )))
 
     -- )))
-
   end,
 
--- )))
+  -- )))
 }
 
 return config
@@ -1769,6 +1848,5 @@ return config
 -- "tjdevries/diff-therapy.nvim" -- resolve those conflicts and have a happy relationship with git
 --  "akinsho/git-conflict.nvim" -- A plugin to visualise and resolve merge conflicts in neovim
 -- "miversen33/netman.nvim" -- Neovim (Lua powered) Network File Manager
-
 
 -- )))
