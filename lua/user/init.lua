@@ -680,12 +680,10 @@ local config = {
 
     -- )))
 
-    -- 'indent_blankline' override setup() (((
+    -- 'indent-blankline' override setup() (((
 
     indent_blankline = {
-      -- enabled = false,
       show_first_indent_level = false,
-      indent_blankline_show_first_indent_level = false,
     },
 
     -- )))
@@ -1211,7 +1209,6 @@ local config = {
       \ 'hunspell' : [ 'en_GB', 'en_US', 'cs_CS', 'cy_CY', 'da_DA', 'de_DE', 'el_GR', 'gd_GD', 'es_ES', 'fr_FR', 'hu_HU', 'id_ID', 'it_IT', 'ms_MS', 'nl_NL', 'pl_PL', 'pt_PT', 'ro_RO', 'ru_RU', 'sk_SK', 'sl_SL', 'sv_SV' ],
       \ }
       let g:python3_host_prog = "python3"
-      let g:indent_blankline_show_first_indent_level = 0
 
     " let mapleader = "\\"
 
