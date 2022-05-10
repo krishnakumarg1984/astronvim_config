@@ -693,7 +693,9 @@ local config = {
     -- 'indent_blankline' override setup() (((
 
     indent_blankline = {
+      -- enabled = false,
       show_first_indent_level = false,
+      indent_blankline_show_first_indent_level = false,
     },
 
     -- )))
