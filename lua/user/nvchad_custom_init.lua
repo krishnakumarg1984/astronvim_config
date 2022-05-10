@@ -1,7 +1,5 @@
 -- lua-style settings and plugin-setup calls (((
 
-require "custom.plugins.mini"
-require "custom.plugins.neoscroll"
 require "custom.plugins.lsp.null-ls"
 require "custom.plugins.nvim_cmake"
 require "custom.plugins.nvim_config_local"
