@@ -1,0 +1,29 @@
+• YankAssassin.vim
+• bufferline.nvim
+• gitsigns.nvim
+• impatient.nvim
+• indent-blankline.nvim
+• kanagawa.nvim
+• lualine.nvim
+• nvim-config-local
+• nvim-lastplace
+• nvim-lsp-installer
+• nvim-lspconfig
+• nvim-web-devicons
+• packer.nvim
+• plenary.nvim
+• popup.nvim
+• project.nvim
+• Comment.nvim (manually loaded)
+• FixCursorHold.nvim (manually loaded)
+• aerial.nvim (manually loaded)
+• cinnamon.nvim (manually loaded)
+• indent-o-matic (manually loaded)
+• neogen (manually loaded)
+• null-ls.nvim (manually loaded)
+• nvim-treesitter (manually loaded)
+• nvim-treesitter-refactor (manually loaded)
+• nvim-treesitter-textobjects (manually loaded)
+• nvim-ts-autotag (manually loaded)
+• nvim-ts-context-commentstring (manually loaded)
+• which-key.nvim (manually loaded)
