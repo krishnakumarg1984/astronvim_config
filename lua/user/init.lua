@@ -491,17 +491,6 @@ local config = {
       table.remove(buttons, 4)
       table.insert(buttons, 1, new_file)
 
-      local alpha_plugins_loaded_existing_text = config.layout[5].val
-      local alpha_plugins_loaded_new_text = config.layout[5]
-      local plugins_count = vim.fn.len(vim.fn.globpath(vim.fn.stdpath "data" .. "/site/pack/packer/start", "*", 0, 1))
-      alpha_plugins_loaded_new_text.val = {
-        " ",
-        " ",
-        " ",
-        " Loaded " .. plugins_count .. " plugins ",
-      }
-      table.remove(alpha_plugins_loaded_existing_text)
-
       return config
     end,
 
