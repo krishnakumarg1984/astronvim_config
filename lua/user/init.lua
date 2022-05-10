@@ -71,7 +71,8 @@ local config = {
 
   -- )))
 
-  colorscheme = "default_theme",  -- set colorscheme
+  -- colorscheme = "default_theme",  -- set colorscheme
+  colorscheme = "kanagawa",  -- set colorscheme
 
   -- Set vim options in this lua function (((
 
@@ -209,6 +210,7 @@ local config = {
   -- 'plugins' table (((
 
   plugins = {
+
     -- `plugins.init` table for adding new plugins and disabling default plugins (((
 
     init = {
@@ -219,6 +221,7 @@ local config = {
       ["max397574/better-escape.nvim"] = { disable = true },
 
       -- )))
+
       -- Additional plugins (((
 
       -- Add plugins (packer syntax without the "use" keyword)
@@ -247,22 +250,6 @@ local config = {
         end,
       },
       -- { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
-      -- {
-      --   "uga-rosa/cmp-dictionary",
-      --   after = "nvim-cmp",
-      --   ft = { "asciidoc", "changelog", "context","gitcommit", "lsp_markdown", "mail", "markdown", "rst", "rtf", "tex", "texinfo", "text", "txt" },
-      --   config = function()
-      --     require("core.utils").add_user_cmp_source { name = "dictionary", max_item_count = 7, keyword_length = 2 }
-      --     require("cmp_dictionary").setup{
-      --       dic = {
-      --         ["*"] = { "/usr/share/dict/words" },
-      --         -- spelllang = {
-      --         --   en = "path/to/english.dic",
-      --         -- },
-      --       },
-      --     }
-      --   end,
-      -- },
       {
         "hrsh7th/cmp-emoji",
         after = "nvim-cmp",
@@ -285,12 +272,8 @@ local config = {
           require("core.utils").add_user_cmp_source("nvim_lsp_signature_help")
         end,
       },
-      -- ["hrsh7th/cmp-path"] = {
-      --   config = function()
-      --     require("core.utils").add_user_cmp_source { name = "path", keyword_length = 2 }
-      --   end,
-      -- },
       { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
+      { "rebelot/kanagawa.nvim" },
       {
         "echasnovski/mini.nvim",
         keys = { "sa", "sd", "sr" },
@@ -371,7 +354,6 @@ local config = {
     },
 
     -- )))
-
 
     -- All other entries override the setup() call for default AstroNvim plugins (((
 
