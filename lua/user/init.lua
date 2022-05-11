@@ -231,7 +231,6 @@ local config = {
       -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
       { "tyru/capture.vim", cmd = { "Capture" } },
       { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
-      { "jenterkin/vim-autosource" },
       {
         "Konfekt/vim-DetectSpellLang",
         ft = {
@@ -373,12 +372,16 @@ local config = {
         event = { nil },
         ft = { "html", "javascript", "css" },
       },
-      -- {
-      --   "klen/nvim-config-local",
-      --   config = function()
-      --     require("config-local").setup {}
-      --   end,
-      -- },
+      {
+        "klen/nvim-config-local",
+        tag = "1.1.1",
+        config = function()
+          require("config-local").setup {}
+        end,
+      }, -- fastest among all local-rc plugins
+      -- { "jenterkin/vim-autosource" }, -- 2nd fastest among all local-rc plugins
+      -- { "embear/vim-localvimrc" }, -- 3rd fastest among all local-rc plugins
+      -- { "ii14/exrc.vim" }, -- slowest among all local-rc plugins
       {
         "kevinhwang91/nvim-hlslens",
         keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
@@ -1209,6 +1212,7 @@ local config = {
       \ 'aspell'   : [ 'en_GB', 'en_US', 'cs', 'cy', 'da', 'de_DE', 'el', 'es', 'fr', 'gd', 'hu', 'id', 'it', 'ms', 'nl', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl', 'sv' ],
       \ 'hunspell' : [ 'en_GB', 'en_US', 'cs_CS', 'cy_CY', 'da_DA', 'de_DE', 'el_GR', 'gd_GD', 'es_ES', 'fr_FR', 'hu_HU', 'id_ID', 'it_IT', 'ms_MS', 'nl_NL', 'pl_PL', 'pt_PT', 'ro_RO', 'ru_RU', 'sk_SK', 'sl_SL', 'sv_SV' ],
       \ }
+
       let g:python3_host_prog = "python3"
 
     " let mapleader = "\\"
