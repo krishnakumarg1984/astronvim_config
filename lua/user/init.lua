@@ -279,6 +279,10 @@ local config = {
         config = function()
           require("clangd_extensions").setup {
             server = {
+              capabilities = {
+                offsetEncoding = "utf-8",
+                memoryUsageProvider = true,
+              },
               on_attach = require("configs.lsp.handlers").on_attach,
             },
           }
@@ -716,10 +720,6 @@ local config = {
 
     ["nvim-lsp-installer"] = {
       automatic_installation = true,
-      -- ensure_installed = {
-      --   "clangd", -- requires a reasonably new version of glibc
-      --   "sumneko_lua",
-      -- },
     },
 
     -- )))
@@ -934,9 +934,13 @@ local config = {
       "sumneko_lua",
       -- "pyright"
     },
+
     -- add to the server on_attach function
-    -- on_attach = function(client, bufnr)
-    -- end,
+    on_attach = function(client, bufnr)
+      if client.name == "clangd" then
+        client.resolved_capabilities.document_formatting = false
+      end
+    end,
 
     -- override the lsp installer server-registration function
     -- server_registration = function(server, opts)
