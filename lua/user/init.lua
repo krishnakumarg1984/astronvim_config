@@ -1836,6 +1836,15 @@ local config = {
 
     -- )))
 
+    -- Remove some keymaps set by 'cinnamon.nvim' (((
+
+    vim.keymap.set("n", "<C-o>", "<C-o>")
+    vim.keymap.del("n", "<C-o>")
+    vim.keymap.set("n", "<C-i>", "<C-i>")
+    vim.keymap.del("n", "<C-i>")
+
+    -- )))
+
     -- -- 'telescope' keymaps (((
     --
     -- vim.keymap.set("n", "<leader>fF", function()
