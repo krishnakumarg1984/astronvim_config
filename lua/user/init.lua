@@ -231,6 +231,7 @@ local config = {
       -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
       { "tyru/capture.vim", cmd = { "Capture" } },
       { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
+      { "jenterkin/vim-autosource" },
       {
         "Konfekt/vim-DetectSpellLang",
         ft = {
@@ -372,12 +373,12 @@ local config = {
         event = { nil },
         ft = { "html", "javascript", "css" },
       },
-      {
-        "klen/nvim-config-local",
-        config = function()
-          require("config-local").setup {}
-        end,
-      },
+      -- {
+      --   "klen/nvim-config-local",
+      --   config = function()
+      --     require("config-local").setup {}
+      --   end,
+      -- },
       {
         "kevinhwang91/nvim-hlslens",
         keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
