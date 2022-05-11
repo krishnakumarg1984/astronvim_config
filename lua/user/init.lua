@@ -1852,6 +1852,10 @@ local config = {
     vim.keymap.del("n", "<C-o>")
     vim.keymap.set("n", "<C-i>", "<C-i>")
     vim.keymap.del("n", "<C-i>")
+    vim.keymap.set({ "n", "x" }, "gg", "gg")
+    vim.keymap.del({ "n", "x" }, "gg")
+    vim.keymap.set({ "n", "x" }, "G", "G")
+    vim.keymap.del({ "n", "x" }, "G")
 
     -- )))
 
