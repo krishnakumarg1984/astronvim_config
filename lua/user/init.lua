@@ -601,6 +601,7 @@ local config = {
       local cmp = require "cmp"
       local ELLIPSIS_CHAR = "…"
       local MAX_LABEL_WIDTH = 20
+      local MIN_LABEL_WIDTH = 20
 
       return vim.tbl_deep_extend("force", config, {
         -- Yeah, to enable this you will probably need to not lazy load clangd_extensions and add that to your cmp setup override in plugins.cmp and then also modify the lazy loading to load cmp after clangd_extensions
@@ -641,6 +642,9 @@ local config = {
             local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
             if truncated_label ~= label then
               vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
+            elseif string.len(label) < MIN_LABEL_WIDTH then
+              local padding = string.rep(" ", MIN_LABEL_WIDTH - string.len(label))
+              vim_item.abbr = label .. padding
             end
             -- vim_item.abbr = string.sub(vim_item.abbr, 1, 25)
             -- Source
