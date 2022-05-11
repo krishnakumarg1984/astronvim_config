@@ -1020,7 +1020,7 @@ local config = {
         },
         diagnostics.ansiblelint,
         diagnostics.chktex,
-        diagnostics.codespell,
+        -- diagnostics.codespell,
         diagnostics.cppcheck,
         -- diagnostics.cspell,
         diagnostics.flake8,
