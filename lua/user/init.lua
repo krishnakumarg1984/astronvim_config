@@ -1006,16 +1006,39 @@ local config = {
     null_ls.setup {
       debug = false,
       sources = {
-        -- Set formatters
+        formatting.black,
         formatting.clang_format,
+        formatting.fprettify,
+        formatting.perltidy,
+        formatting.reorder_python_imports,
+        formatting.rustfmt,
+        formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
         formatting.stylua.with {
           condition = function(utils)
             return utils.root_has_file { "stylua.toml", ".stylua.toml" }
           end,
         },
-        -- formatting.rufo,
-        -- Set a linter
-        -- diagnostics.rubocop,
+        diagnostics.ansiblelint,
+        diagnostics.chktex,
+        diagnostics.codespell,
+        diagnostics.cppcheck,
+        -- diagnostics.cspell,
+        diagnostics.flake8,
+        diagnostics.hadolint,
+        diagnostics.jsonlint,
+        diagnostics.markdownlint,
+        diagnostics.mypy,
+        diagnostics.proselint,
+        diagnostics.pylint,
+        diagnostics.pylama,
+        -- diagnostics.selene,
+        -- will show code and source name
+        diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
+        diagnostics.vint,
+        diagnostics.write_good,
+
+        diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
+        diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
       },
       -- NOTE: You can remove this on attach function to disable format on save
       on_attach = function(client)
