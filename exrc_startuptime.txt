@@ -1,0 +1,668 @@
+Total Time:   28.633 -- Flawless Victory
+
+
+Slowest 6 plugins (out of 6)~
+           [vimrc]  20.604  
+         [unknown]  5.823   
+    nvim-lspconfig  1.371   
+         [runtime]  0.730   
+nvim-lsp-installer  0.084   
+    which-key.nvim  0.021   
+
+Phase Detail:~
+
+init default autocommands (21.760)~
+20.604    [vimrc] >
+    20.604    /home/krishnakumar/.config/nvim/init.lua
+<
+1.077     [unknown] >
+    1.020     /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+    0.030     /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+    0.016     /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+    0.011     /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+<
+0.067     [runtime] >
+    0.048     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+    0.018     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+<
+0.013     which-key.nvim >
+    0.013     /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+<
+
+sourcing vimrc file(s) (0.672)~
+0.664     [runtime] >
+    0.207     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+    0.169     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+    0.112     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+    0.062     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+    0.027     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+    0.011     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+    0.010     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+    0.009     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+    0.008     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+    0.008     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+    0.007     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+    0.007     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+    0.006     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+    0.006     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+    0.005     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+    0.005     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+    0.005     /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+<
+0.008     which-key.nvim >
+    0.008     /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+<
+
+loading rtp plugins (4.747)~
+4.747     [unknown] >
+    4.311     /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+    0.221     /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+    0.098     /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+    0.065     /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+    0.027     /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+    0.025     /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+<
+
+
+================================== FULL LOGS ==================================
+
+Log 1/10 >
+  times in msec
+   clock   self+sourced   self:  sourced script
+   clock   elapsed:              other lines
+  
+  000.003  000.003: --- NVIM STARTING ---
+  000.200  000.197: locale set
+  000.403  000.203: inits 1
+  000.415  000.012: window checked
+  000.419  000.004: parsing arguments
+  001.900  001.481: expanding arguments
+  001.923  000.023: inits 2
+  002.248  000.326: init highlight
+  002.262  000.013: init default mappings
+  002.286  000.024: init default autocommands
+  002.809  000.044  000.044: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+  002.913  000.027  000.027: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+  012.938  000.865  000.865: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+  022.288  000.048  000.048: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+  022.354  000.022  000.022: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+  022.375  000.011  000.011: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+  024.499  000.023  000.023: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  025.754  022.833  021.863: sourcing /home/krishnakumar/.config/nvim/init.lua
+  025.762  000.571: sourcing vimrc file(s)
+  026.472  000.175  000.175: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+  026.499  000.014  000.014: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+  026.742  000.075  000.075: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+  026.849  000.242  000.167: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+  027.180  000.008  000.008: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  027.357  000.009  000.009: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+  027.369  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+  027.400  000.026  000.026: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+  027.413  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+  027.425  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+  027.621  000.190  000.190: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+  027.639  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+  027.655  000.004  000.004: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+  027.668  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+  027.683  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+  027.696  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+  027.712  000.010  000.010: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+  027.728  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+  027.884  001.396: loading rtp plugins
+  028.046  000.059  000.059: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+  028.648  000.088  000.088: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+  032.542  004.447  004.359: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+  032.815  000.197  000.197: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+  032.951  000.020  000.020: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+  033.033  000.025  000.025: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+  033.168  000.536: loading packages
+  033.169  000.001: loading after plugins
+  033.179  000.010: inits 3
+  033.180  000.001: reading ShaDa
+  033.188  000.008: clearing screen
+  034.898  001.711: opening buffers
+  035.054  000.156: BufEnter autocommands
+  035.056  000.002: editing files in windows
+  043.536  001.753  001.753: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+  043.890  000.086  000.086: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+<
+Log 2/10 >
+  times in msec
+   clock   self+sourced   self:  sourced script
+   clock   elapsed:              other lines
+  
+  000.004  000.004: --- NVIM STARTING ---
+  000.222  000.218: locale set
+  000.465  000.242: inits 1
+  000.478  000.013: window checked
+  000.483  000.005: parsing arguments
+  002.067  001.584: expanding arguments
+  002.088  000.021: inits 2
+  002.367  000.279: init highlight
+  002.378  000.012: init default mappings
+  002.400  000.021: init default autocommands
+  002.850  000.037  000.037: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+  002.902  000.016  000.016: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+  013.052  000.963  000.963: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+  022.502  000.018  000.018: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+  022.528  000.012  000.012: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+  022.547  000.009  000.009: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+  024.151  000.024  000.024: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  026.505  023.596  022.570: sourcing /home/krishnakumar/.config/nvim/init.lua
+  026.511  000.462: sourcing vimrc file(s)
+  027.134  000.183  000.183: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+  027.159  000.011  000.011: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+  027.373  000.060  000.060: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+  027.425  000.166  000.106: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+  027.710  000.008  000.008: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  027.891  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+  027.903  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+  027.935  000.025  000.025: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+  027.949  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+  027.963  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+  028.178  000.209  000.209: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+  028.199  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+  028.215  000.004  000.004: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+  028.229  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+  028.245  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+  028.258  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+  028.277  000.011  000.011: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+  028.293  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+  028.467  001.279: loading rtp plugins
+  028.643  000.064  000.064: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+  029.303  000.096  000.096: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+  033.024  004.328  004.232: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+  033.279  000.182  000.182: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+  033.420  000.023  000.023: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+  033.508  000.027  000.027: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+  033.655  000.564: loading packages
+  033.656  000.001: loading after plugins
+  033.667  000.011: inits 3
+  033.668  000.001: reading ShaDa
+  033.675  000.007: clearing screen
+  035.622  001.947: opening buffers
+  035.730  000.108: BufEnter autocommands
+  035.732  000.002: editing files in windows
+  041.994  001.354  001.354: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+  042.386  000.078  000.078: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+<
+Log 3/10 >
+  times in msec
+   clock   self+sourced   self:  sourced script
+   clock   elapsed:              other lines
+  
+  000.006  000.006: --- NVIM STARTING ---
+  000.286  000.280: locale set
+  000.563  000.277: inits 1
+  000.582  000.019: window checked
+  000.592  000.009: parsing arguments
+  002.216  001.625: expanding arguments
+  002.243  000.027: inits 2
+  002.534  000.291: init highlight
+  002.546  000.012: init default mappings
+  002.568  000.022: init default autocommands
+  003.025  000.037  000.037: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+  003.078  000.016  000.016: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+  012.200  001.626  001.626: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+  021.316  000.019  000.019: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+  021.345  000.014  000.014: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+  021.365  000.010  000.010: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+  022.334  000.010  000.010: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  023.801  020.717  019.038: sourcing /home/krishnakumar/.config/nvim/init.lua
+  023.806  000.467: sourcing vimrc file(s)
+  024.459  000.161  000.161: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+  024.481  000.010  000.010: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+  024.695  000.059  000.059: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+  024.746  000.164  000.105: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+  025.036  000.008  000.008: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  025.215  000.009  000.009: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+  025.228  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+  025.260  000.026  000.026: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+  025.274  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+  025.288  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+  025.514  000.220  000.220: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+  025.536  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+  025.552  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+  025.566  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+  025.582  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+  025.596  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+  025.614  000.011  000.011: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+  025.630  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+  025.800  001.329: loading rtp plugins
+  026.010  000.070  000.070: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+  026.774  000.118  000.118: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+  030.870  004.803  004.686: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+  031.126  000.182  000.182: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+  031.261  000.024  000.024: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+  031.341  000.023  000.023: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+  031.473  000.571: loading packages
+  031.474  000.001: loading after plugins
+  031.483  000.010: inits 3
+  031.484  000.001: reading ShaDa
+  031.490  000.006: clearing screen
+  033.273  001.783: opening buffers
+  033.388  000.115: BufEnter autocommands
+  033.390  000.002: editing files in windows
+  039.704  001.259  001.259: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+  040.068  000.137  000.137: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+<
+Log 4/10 >
+  times in msec
+   clock   self+sourced   self:  sourced script
+   clock   elapsed:              other lines
+  
+  000.004  000.004: --- NVIM STARTING ---
+  000.219  000.215: locale set
+  000.431  000.212: inits 1
+  000.445  000.014: window checked
+  000.449  000.004: parsing arguments
+  002.049  001.600: expanding arguments
+  002.072  000.023: inits 2
+  002.376  000.304: init highlight
+  002.389  000.013: init default mappings
+  002.412  000.023: init default autocommands
+  002.910  000.040  000.040: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+  002.968  000.018  000.018: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+  011.096  000.948  000.948: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+  022.077  000.033  000.033: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+  022.113  000.014  000.014: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+  022.134  000.010  000.010: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+  023.085  000.010  000.010: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  024.463  021.487  020.472: sourcing /home/krishnakumar/.config/nvim/init.lua
+  024.467  000.509: sourcing vimrc file(s)
+  025.047  000.150  000.150: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+  025.067  000.009  000.009: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+  025.263  000.055  000.055: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+  025.311  000.152  000.097: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+  025.573  000.007  000.007: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  025.737  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+  025.749  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+  025.778  000.023  000.023: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+  025.790  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+  025.803  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+  025.999  000.190  000.190: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+  026.016  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+  026.037  000.004  000.004: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+  026.050  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+  026.065  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+  026.078  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+  026.095  000.010  000.010: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+  026.111  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+  026.265  001.195: loading rtp plugins
+  026.427  000.058  000.058: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+  027.028  000.087  000.087: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+  030.865  004.391  004.303: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+  031.532  000.524  000.524: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+  031.800  000.039  000.039: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+  031.929  000.042  000.042: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+  032.093  000.775: loading packages
+  032.099  000.006: loading after plugins
+  032.119  000.020: inits 3
+  032.121  000.002: reading ShaDa
+  032.166  000.045: clearing screen
+  034.663  002.497: opening buffers
+  034.782  000.118: BufEnter autocommands
+  034.784  000.002: editing files in windows
+  041.516  001.328  001.328: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+  041.834  000.075  000.075: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+<
+Log 5/10 >
+  times in msec
+   clock   self+sourced   self:  sourced script
+   clock   elapsed:              other lines
+  
+  000.006  000.006: --- NVIM STARTING ---
+  000.251  000.245: locale set
+  000.472  000.222: inits 1
+  000.486  000.014: window checked
+  000.491  000.005: parsing arguments
+  003.009  002.518: expanding arguments
+  003.088  000.079: inits 2
+  003.453  000.365: init highlight
+  003.481  000.028: init default mappings
+  003.550  000.069: init default autocommands
+  004.343  000.040  000.040: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+  004.396  000.016  000.016: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+  012.373  000.950  000.950: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+  021.486  000.018  000.018: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+  021.514  000.013  000.013: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+  021.532  000.009  000.009: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+  022.541  000.010  000.010: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  024.034  019.632  018.632: sourcing /home/krishnakumar/.config/nvim/init.lua
+  024.039  000.801: sourcing vimrc file(s)
+  024.630  000.148  000.148: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+  024.650  000.010  000.010: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+  024.846  000.055  000.055: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+  024.894  000.153  000.098: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+  025.181  000.007  000.007: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  025.347  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+  025.358  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+  025.387  000.024  000.024: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+  025.400  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+  025.413  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+  025.613  000.194  000.194: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+  025.632  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+  025.645  000.004  000.004: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+  025.658  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+  025.673  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+  025.685  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+  025.702  000.010  000.010: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+  025.717  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+  025.872  001.229: loading rtp plugins
+  026.032  000.058  000.058: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+  026.632  000.088  000.088: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+  030.269  004.189  004.101: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+  030.518  000.176  000.176: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+  030.660  000.021  000.021: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+  030.743  000.024  000.024: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+  030.878  000.538: loading packages
+  030.879  000.001: loading after plugins
+  030.889  000.010: inits 3
+  030.890  000.001: reading ShaDa
+  030.897  000.007: clearing screen
+  032.734  001.837: opening buffers
+  032.876  000.143: BufEnter autocommands
+  032.878  000.002: editing files in windows
+  041.450  001.392  001.392: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+  041.799  000.076  000.076: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+<
+Log 6/10 >
+  times in msec
+   clock   self+sourced   self:  sourced script
+   clock   elapsed:              other lines
+  
+  000.005  000.005: --- NVIM STARTING ---
+  000.258  000.253: locale set
+  000.519  000.261: inits 1
+  000.534  000.015: window checked
+  000.538  000.004: parsing arguments
+  002.078  001.540: expanding arguments
+  002.101  000.023: inits 2
+  002.388  000.287: init highlight
+  002.400  000.012: init default mappings
+  002.422  000.021: init default autocommands
+  003.037  000.128  000.128: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+  003.119  000.020  000.020: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+  012.831  000.886  000.886: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+  022.800  000.051  000.051: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+  022.858  000.021  000.021: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+  022.881  000.012  000.012: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+  024.201  000.011  000.011: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  025.685  022.554  021.574: sourcing /home/krishnakumar/.config/nvim/init.lua
+  025.690  000.566: sourcing vimrc file(s)
+  026.270  000.150  000.150: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+  026.292  000.010  000.010: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+  026.525  000.061  000.061: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+  026.576  000.170  000.108: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+  026.865  000.008  000.008: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  027.041  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+  027.054  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+  027.086  000.026  000.026: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+  027.099  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+  027.112  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+  027.326  000.207  000.207: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+  027.346  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+  027.361  000.004  000.004: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+  027.375  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+  027.391  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+  027.405  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+  027.423  000.011  000.011: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+  027.439  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+  027.609  001.275: loading rtp plugins
+  027.784  000.063  000.063: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+  028.488  000.140  000.140: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+  032.275  004.437  004.297: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+  032.581  000.227  000.227: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+  032.729  000.023  000.023: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+  032.813  000.025  000.025: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+  032.958  000.574: loading packages
+  032.960  000.002: loading after plugins
+  032.970  000.009: inits 3
+  032.971  000.001: reading ShaDa
+  032.979  000.008: clearing screen
+  034.741  001.762: opening buffers
+  034.855  000.115: BufEnter autocommands
+  034.857  000.002: editing files in windows
+  041.212  001.363  001.363: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+  041.505  000.075  000.075: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+<
+Log 7/10 >
+  times in msec
+   clock   self+sourced   self:  sourced script
+   clock   elapsed:              other lines
+  
+  000.005  000.005: --- NVIM STARTING ---
+  000.233  000.228: locale set
+  000.487  000.255: inits 1
+  000.518  000.031: window checked
+  000.531  000.012: parsing arguments
+  002.085  001.555: expanding arguments
+  002.108  000.022: inits 2
+  002.413  000.305: init highlight
+  002.426  000.013: init default mappings
+  002.448  000.022: init default autocommands
+  002.946  000.039  000.039: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+  003.003  000.018  000.018: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+  013.714  000.986  000.986: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+  024.185  000.056  000.056: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+  024.252  000.026  000.026: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+  024.336  000.018  000.018: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+  025.516  000.009  000.009: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  026.945  023.935  022.841: sourcing /home/krishnakumar/.config/nvim/init.lua
+  026.950  000.510: sourcing vimrc file(s)
+  027.616  000.165  000.165: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+  027.638  000.010  000.010: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+  027.856  000.061  000.061: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+  027.907  000.167  000.105: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+  028.194  000.008  000.008: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  028.580  000.011  000.011: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+  028.593  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+  028.625  000.026  000.026: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+  028.638  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+  028.650  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+  028.851  000.196  000.196: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+  028.871  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+  028.886  000.004  000.004: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+  028.898  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+  028.913  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+  028.926  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+  028.943  000.010  000.010: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+  028.959  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+  029.117  001.522: loading rtp plugins
+  029.281  000.059  000.059: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+  029.880  000.087  000.087: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+  033.579  004.250  004.163: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+  033.843  000.184  000.184: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+  033.975  000.020  000.020: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+  034.055  000.023  000.023: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+  034.188  000.534: loading packages
+  034.189  000.001: loading after plugins
+  034.199  000.010: inits 3
+  034.199  000.001: reading ShaDa
+  034.207  000.007: clearing screen
+  035.927  001.720: opening buffers
+  036.053  000.126: BufEnter autocommands
+  036.055  000.002: editing files in windows
+  042.423  001.347  001.347: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+  042.750  000.075  000.075: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+<
+Log 8/10 >
+  times in msec
+   clock   self+sourced   self:  sourced script
+   clock   elapsed:              other lines
+  
+  000.005  000.005: --- NVIM STARTING ---
+  000.250  000.245: locale set
+  000.534  000.284: inits 1
+  000.547  000.014: window checked
+  000.552  000.004: parsing arguments
+  001.981  001.429: expanding arguments
+  002.002  000.021: inits 2
+  002.279  000.278: init highlight
+  002.291  000.012: init default mappings
+  002.312  000.021: init default autocommands
+  002.812  000.040  000.040: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+  002.870  000.018  000.018: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+  012.992  000.957  000.957: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+  021.851  000.018  000.018: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+  021.877  000.012  000.012: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+  021.895  000.009  000.009: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+  022.941  000.009  000.009: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  024.483  021.606  020.600: sourcing /home/krishnakumar/.config/nvim/init.lua
+  024.489  000.513: sourcing vimrc file(s)
+  025.375  000.249  000.249: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+  025.412  000.023  000.023: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+  025.714  000.075  000.075: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+  025.771  000.195  000.120: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+  026.193  000.015  000.015: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  026.414  000.012  000.012: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+  026.433  000.009  000.009: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+  026.478  000.038  000.038: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+  026.516  000.011  000.011: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+  026.533  000.010  000.010: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+  026.787  000.247  000.247: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+  026.826  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+  026.851  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+  026.867  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+  026.887  000.009  000.009: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+  026.906  000.009  000.009: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+  026.926  000.011  000.011: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+  026.945  000.010  000.010: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+  027.127  001.766: loading rtp plugins
+  027.368  000.100  000.100: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+  028.108  000.097  000.097: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+  031.950  004.502  004.405: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+  032.235  000.206  000.206: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+  032.390  000.023  000.023: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+  032.499  000.029  000.029: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+  032.641  000.653: loading packages
+  032.642  000.001: loading after plugins
+  032.652  000.010: inits 3
+  032.653  000.001: reading ShaDa
+  032.660  000.007: clearing screen
+  034.547  001.886: opening buffers
+  034.672  000.126: BufEnter autocommands
+  034.674  000.002: editing files in windows
+  041.264  001.318  001.318: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+  041.581  000.076  000.076: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+<
+Log 9/10 >
+  times in msec
+   clock   self+sourced   self:  sourced script
+   clock   elapsed:              other lines
+  
+  000.005  000.005: --- NVIM STARTING ---
+  000.262  000.257: locale set
+  000.519  000.257: inits 1
+  000.534  000.015: window checked
+  000.539  000.005: parsing arguments
+  002.099  001.560: expanding arguments
+  002.121  000.022: inits 2
+  002.400  000.279: init highlight
+  002.412  000.012: init default mappings
+  002.434  000.022: init default autocommands
+  002.888  000.038  000.038: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+  002.941  000.016  000.016: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+  011.330  001.145  001.145: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+  021.385  000.019  000.019: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+  021.412  000.012  000.012: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+  021.430  000.009  000.009: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+  022.290  000.009  000.009: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  023.565  020.618  019.423: sourcing /home/krishnakumar/.config/nvim/init.lua
+  023.570  000.464: sourcing vimrc file(s)
+  024.165  000.145  000.145: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+  024.185  000.009  000.009: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+  024.404  000.062  000.062: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+  024.455  000.168  000.106: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+  024.947  000.008  000.008: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  025.129  000.009  000.009: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+  025.141  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+  025.174  000.027  000.027: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+  025.188  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+  025.202  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+  025.405  000.196  000.196: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+  025.422  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+  025.437  000.004  000.004: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+  025.450  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+  025.465  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+  025.477  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+  025.494  000.009  000.009: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+  025.509  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+  025.664  001.469: loading rtp plugins
+  025.827  000.059  000.059: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+  026.428  000.087  000.087: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+  030.405  004.530  004.443: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+  030.652  000.170  000.170: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+  030.791  000.021  000.021: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+  030.871  000.024  000.024: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+  031.005  000.536: loading packages
+  031.006  000.001: loading after plugins
+  031.016  000.010: inits 3
+  031.017  000.001: reading ShaDa
+  031.022  000.006: clearing screen
+  032.626  001.604: opening buffers
+  032.741  000.114: BufEnter autocommands
+  032.742  000.002: editing files in windows
+  038.925  001.114  001.114: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+  039.242  000.075  000.075: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+<
+Log 10/10 >
+  times in msec
+   clock   self+sourced   self:  sourced script
+   clock   elapsed:              other lines
+  
+  000.006  000.006: --- NVIM STARTING ---
+  000.229  000.223: locale set
+  000.458  000.229: inits 1
+  000.478  000.019: window checked
+  000.485  000.007: parsing arguments
+  003.382  002.898: expanding arguments
+  003.417  000.034: inits 2
+  003.748  000.332: init highlight
+  003.762  000.014: init default mappings
+  003.785  000.023: init default autocommands
+  004.286  000.040  000.040: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/ftplugin.vim
+  004.343  000.018  000.018: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/indent.vim
+  012.576  000.874  000.874: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/kanagawa.nvim/colors/kanagawa.vim
+  021.840  000.020  000.020: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/cls.vim
+  021.868  000.014  000.014: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tex.vim
+  021.888  000.010  000.010: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/vimtex/ftdetect/tikz.vim
+  022.875  000.011  000.011: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  024.308  019.958  019.030: sourcing /home/krishnakumar/.config/nvim/init.lua
+  024.313  000.512: sourcing vimrc file(s)
+  024.929  000.163  000.163: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.lua
+  024.950  000.009  000.009: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/filetype.vim
+  025.168  000.059  000.059: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/synload.vim
+  025.218  000.163  000.104: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/syntax/syntax.vim
+  025.503  000.007  000.007: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/which-key.nvim/plugin/which-key.vim
+  025.683  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/gzip.vim
+  025.695  000.006  000.006: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/health.vim
+  025.726  000.025  000.025: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/man.vim
+  025.740  000.007  000.007: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchit.vim
+  025.755  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/matchparen.vim
+  025.982  000.219  000.219: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/netrwPlugin.vim
+  026.006  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/rplugin.vim
+  026.021  000.004  000.004: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/shada.vim
+  026.035  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/spellfile.vim
+  026.051  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tarPlugin.vim
+  026.065  000.005  000.005: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tohtml.vim
+  026.084  000.011  000.011: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/tutor.vim
+  026.100  000.008  000.008: sourcing /home/linuxbrew/.linuxbrew/Cellar/neovim/0.7.0/share/nvim/runtime/plugin/zipPlugin.vim
+  026.276  001.301: loading rtp plugins
+  026.458  000.063  000.063: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/YankAssassin.vim/plugin/YankAssassin.vim
+  027.120  000.093  000.093: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/autoload/exrc.vim
+  030.725  004.213  004.119: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/exrc.vim/plugin/exrc.vim
+  030.963  000.164  000.164: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim/plugin/indent_blankline.vim
+  031.141  000.033  000.033: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/nvim-web-devicons/plugin/nvim-web-devicons.vim
+  031.222  000.024  000.024: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/start/plenary.nvim/plugin/plenary.vim
+  031.357  000.585: loading packages
+  031.359  000.001: loading after plugins
+  031.368  000.010: inits 3
+  031.369  000.001: reading ShaDa
+  031.377  000.007: clearing screen
+  033.945  002.568: opening buffers
+  034.199  000.254: BufEnter autocommands
+  034.203  000.003: editing files in windows
+  041.878  001.478  001.478: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lspconfig/plugin/lspconfig.vim
+  042.219  000.083  000.083: sourcing /home/krishnakumar/.local/share/nvim/site/pack/packer/opt/nvim-lsp-installer/plugin/nvim-lsp-installer.vim
+<
