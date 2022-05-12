@@ -887,7 +887,7 @@ local config = {
           border = "none",
           peek_definition_code = {
             ["<leader><leader>df"] = "@function.outer",
-            ["<leader><leader>dF"] = "@class.outer",
+            ["<leader><leader>dc"] = "@class.outer",
           },
         },
       },
