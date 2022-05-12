@@ -1724,10 +1724,10 @@ local config = {
 
   " Autocommand to set ft to julia for files ending in .jl (((
 
-  augroup _julia
-    autocmd!
-    autocmd BufRead,BufNewFile *.jl set filetype=julia
-  augroup END
+  " augroup _julia
+  "   autocmd!
+  "   autocmd BufRead,BufNewFile *.jl set filetype=julia
+  " augroup END
 
   " )))
 
@@ -1799,7 +1799,7 @@ local config = {
 
     -- vim.filetype.add {
     --   extension = {
-    --     foo = "fooscript",
+    --     jl = "julia",
     --   },
     --   filename = {
     --     ["Foofile"] = "fooscript",
