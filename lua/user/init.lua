@@ -500,8 +500,11 @@ local config = {
         -- vim.keymap.set('n', '<C-w>o', '<C-w>o:AerialClose<CR>') -- https://github.com/stevearc/aerial.nvim/issues/99
       end,
       placement_editor_edge = true,
+      close_behavior = "global",
+      highlight_on_hover = true, -- Highlight the symbol in the source buffer when cursor is in the aerial win
       open_automatic = function(bufnr)
-        return not vim.opt.diff:get() -- if not in 'diff' mode
+        return vim.fn.expand "%:t" ~= "init.lua"
+          and not vim.opt.diff:get() -- if not in 'diff' mode
           and vim.api.nvim_buf_line_count(bufnr) > 26 -- Enforce a minimum line count
           and require("aerial").num_symbols(bufnr) > 3 -- Enforce a minimum symbol count
           and not require("aerial").was_closed() -- A useful way to keep aerial closed when closed manually
