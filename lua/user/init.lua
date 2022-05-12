@@ -1259,6 +1259,11 @@ local config = {
 
     vim.wo.colorcolumn = ""
 
+    -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
+    vim.wo.foldnestmax = 3
+    vim.o.foldtext =
+      [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+
     -- Vimscript-based options (((
 
     vim.cmd [[
@@ -1273,6 +1278,16 @@ local config = {
     " let mapleader = "\\"
 
     set whichwrap+=<,>,[,],h,l
+
+    " " https://www.reddit.com/r/neovim/comments/sofaax/is_there_a_way_to_change_neovims_way_of/
+    " function FoldText()
+    "   let line = getline(v:foldstart)
+    "   let numOfLines = v:foldend - v:foldstart
+    "   let fillCount = winwidth('%') - len(line) - len(numOfLines) - 14
+    "   return line . '  ' . repeat('.', fillCount) . ' (' . numOfLines . ' L)'
+    " endfunction
+    " set foldtext=FoldText()
+    set fillchars=fold:\  " removes trailing dots. Mind that there is a whitespace after the \!
 
     " Linebreak settings (((
 
@@ -1576,6 +1591,8 @@ local config = {
     set tags=~/.cache/tags
 
     set foldexpr=nvim_treesitter#foldexpr()
+    " https://www.reddit.com/r/neovim/comments/seq0q1/plugin_request_autofolding_file_imports_using/
+    " set foldexpr=v:lnum==1?'>1':getline(v:lnum)=~'import'?1:nvim_treesitter#foldexpr()
 
     ]]
 
