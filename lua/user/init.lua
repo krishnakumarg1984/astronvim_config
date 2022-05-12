@@ -329,13 +329,13 @@ local config = {
           }
         end,
       },
-      {
-        "hrsh7th/cmp-nvim-lsp-signature-help",
-        after = "nvim-cmp",
-        config = function()
-          require("core.utils").add_user_cmp_source "nvim_lsp_signature_help"
-        end,
-      },
+      -- {
+      --   "hrsh7th/cmp-nvim-lsp-signature-help",
+      --   after = "nvim-cmp",
+      --   config = function()
+      --     require("core.utils").add_user_cmp_source "nvim_lsp_signature_help"
+      --   end,
+      -- },
       {
         "ellisonleao/glow.nvim",
         ft = { "markdown", "lsp_markdown", "rmd" },
@@ -763,6 +763,17 @@ local config = {
 
     -- )))
 
+    -- 'telescope' override setup() (((
+    telescope = {
+      pickers = {
+        diagnostics = { theme = "dropdown" },
+        -- diagnostics = { layout = { "vertical" } },
+        git_status = { theme = "ivy" },
+      },
+    },
+
+    -- )))
+
     -- 'treesitter' override setup() (((
 
     treesitter = {
@@ -989,6 +1000,9 @@ local config = {
         client.resolved_capabilities.document_formatting = false
       end
       vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
+      vim.keymap.del("n", "gd", { buffer = bufnr })
+      vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "LSP Definition", buffer = bufnr })
+      vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { desc = "LSP Definition", buffer = bufnr })
     end,
 
     -- override the lsp installer server-registration function
@@ -1201,7 +1215,7 @@ local config = {
               "Prev Diagnostic",
             },
             l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-            q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
+            -- q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
             w = {
               "<cmd>Telescope diagnostics<cr>",
               "Workspace Diagnostics",
