@@ -420,6 +420,19 @@ local config = {
         end,
       },
       {
+        "kosayoda/nvim-lightbulb",
+        config = function()
+          vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+        end,
+      },
+      {
+        "romgrk/nvim-treesitter-context",
+        after = "nvim-treesitter", -- this is a separate plugin, which requires a separate configuration
+        config = function()
+          require("treesitter-context").setup {}
+        end,
+      },
+      {
         "nvim-treesitter/nvim-treesitter-refactor",
         after = "nvim-treesitter",
       },
