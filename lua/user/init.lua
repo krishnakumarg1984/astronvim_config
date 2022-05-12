@@ -435,6 +435,11 @@ local config = {
         end,
       },
       {
+        "eddiebergman/nvim-treesitter-pyfold",
+        ft = "python",
+        after = "nvim-treesitter",
+      },
+      {
         "nvim-treesitter/nvim-treesitter-refactor",
         after = "nvim-treesitter",
       },
@@ -880,6 +885,10 @@ local config = {
             ["<leader><leader>dF"] = "@class.outer",
           },
         },
+      },
+      pyfold = {
+        enable = true,
+        custom_foldtext = true, -- Sets provided foldtext on window where module is active
       },
     },
 
