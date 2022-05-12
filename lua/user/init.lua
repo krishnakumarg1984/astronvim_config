@@ -149,7 +149,7 @@ local config = {
 
         clipboard = "",
         confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
-        -- cursorlineopt = "number"
+        cursorlineopt = "number",
         foldmethod = "expr",
         guifont = "monospace:h17", -- the font used in graphical neovim applications
         history = 10000,
