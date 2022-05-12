@@ -1001,8 +1001,13 @@ local config = {
       end
       vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
       vim.keymap.del("n", "gd", { buffer = bufnr })
-      vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "LSP Definition", buffer = bufnr })
-      vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", { desc = "LSP Definition", buffer = bufnr })
+      vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition(s)", buffer = bufnr })
+      vim.keymap.set(
+        "n",
+        "gr",
+        "<cmd>Telescope lsp_references<cr>",
+        { desc = "References of current symbol", buffer = bufnr }
+      )
     end,
 
     -- override the lsp installer server-registration function
