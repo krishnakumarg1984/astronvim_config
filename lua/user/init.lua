@@ -1366,9 +1366,9 @@ local config = {
     " Disable unnecessary internal plugins (((
 
     let g:did_install_default_menus = 1
-	  :let did_install_default_menus  = 1
+    :let did_install_default_menus  = 1
     let g:did_install_syntax_menu   = 1
-	  :let did_install_syntax_menu    = 1
+    :let did_install_syntax_menu    = 1
     " let g:did_indent_on             = 1    " raises an error: Vim(doautocmd):E216: No such group or event: filetypeindent FileType markdown
     let g:did_load_ftplugin         = 1
     let g:skip_loading_mswin        = 1
@@ -1379,7 +1379,7 @@ local config = {
     " let g:loaded_man      = 1
     " let g:loaded_matchit  = 1
     let g:loaded_matchparen = 1
-	  :let loaded_matchparen  = 1
+    :let loaded_matchparen  = 1
 
     " I don't use Vim servers
     " let g:loaded_rrhelper = 1   " doesn't exist in neovim
