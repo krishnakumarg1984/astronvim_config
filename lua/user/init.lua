@@ -449,47 +449,6 @@ local config = {
       --   end,
       -- },
       {
-        "anuvyklack/pretty-fold.nvim",
-        requires = "anuvyklack/nvim-keymap-amend", -- only for preview
-        config = function()
-          require("pretty-fold").setup {
-            keep_indentation = false,
-            fill_char = "━",
-            sections = {
-              left = {
-                "━ ",
-                function()
-                  return string.rep("*", vim.v.foldlevel)
-                end,
-                " ━┫",
-                "content",
-                "┣",
-              },
-              right = {
-                "┫ ",
-                "number_of_folded_lines",
-                ": ",
-                "percentage",
-                " ┣━━",
-              },
-            },
-          }
-
-          require("pretty-fold.preview").setup()
-          -- require("pretty-fold").ft_setup("cpp", {
-          --   process_comment_signs = false,
-          --   comment_signs = {
-          --     "/**", -- C++ Doxygen comments
-          --   },
-          --   stop_words = {
-          --     -- ╟─ "*" ──╭───────╮── "@brief" ──╭───────╮──╢
-          --     --          ╰─ WSP ─╯              ╰─ WSP ─╯
-          --     "%*%s*@brief%s*",
-          --   },
-          -- })
-        end,
-      },
-      {
         "ahmedkhalf/project.nvim",
         after = "telescope.nvim",
         config = function()
@@ -501,6 +460,7 @@ local config = {
           require("telescope").load_extension "projects"
         end,
       },
+
       -- ))) -- ends "additional plugins"
     },
 
