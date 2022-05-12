@@ -330,7 +330,11 @@ local config = {
           require("core.utils").add_user_cmp_source "nvim_lsp_signature_help"
         end,
       },
-      { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
+      {
+        "ellisonleao/glow.nvim",
+        ft = { "markdown", "lsp_markdown", "rmd" },
+        cmd = { "Glow", "GlowInstall" },
+      },
       { "rebelot/kanagawa.nvim" },
       {
         "echasnovski/mini.nvim",
