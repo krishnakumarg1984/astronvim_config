@@ -976,7 +976,7 @@ local config = {
 
     -- add to the server on_attach function
     on_attach = function(client, bufnr)
-      if client.name == "clangd" then
+      if client.name == "clangd" or client.name == "pylsp" then
         client.resolved_capabilities.document_formatting = false
       end
       vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
