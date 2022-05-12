@@ -942,7 +942,7 @@ local config = {
 
   diagnostics = {
     virtual_text = false,
-    underline = true,
+    underline = false,
     update_in_insert = false,
     severity_sort = true, -- <---
   },
