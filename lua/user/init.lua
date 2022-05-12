@@ -58,7 +58,7 @@ local kind_icons = {
 
 -- )))
 
--- AstroNvim config table (((
+-- AstroNvim user-config table (((
 
 local config = {
 
@@ -1946,17 +1946,17 @@ local config = {
     --
     -- -- )))
 
-    -- )))
+    -- ))) end of plugin keybindings (lua-based) fold
 
-    -- )))
-  end,
+    -- ))) -- end of keybindings (lua-based) fold
+  end, -- end of 'polish' function
 
-  -- )))
+  -- ))) end of 'polish' fold
 } -- end of 'config' table
 
 return config
 
--- )))
+-- ))) -- end of 'config' fold
 
 -- Other nice plugins worth looking into (((
 
