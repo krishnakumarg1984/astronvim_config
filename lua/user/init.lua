@@ -961,6 +961,10 @@ local config = {
     underline = false,
     update_in_insert = false,
     severity_sort = true, -- <---
+    -- float = {
+    --   prefix = "■ ",
+    --   source = "always",
+    -- },
   },
 
   -- )))
