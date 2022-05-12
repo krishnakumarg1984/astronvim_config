@@ -81,6 +81,7 @@ local config = {
     defaults.g.loaded_netrwPlugin = nil
     defaults.g.mapleader = "\\" -- sets vim.g.mapleader
     -- defaults.g.null_ls_disable = false
+    defaults.g.code_action_menu_show_diff = true
 
     return vim.tbl_deep_extend("force", defaults, {
       -- vim.opt settings (((
@@ -375,6 +376,7 @@ local config = {
           }
         end,
       },
+      { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
       ["norcalli/nvim-colorizer.lua"] = {
         -- disable = true
         event = { nil },
@@ -968,6 +970,7 @@ local config = {
       if client.name == "clangd" then
         client.resolved_capabilities.document_formatting = false
       end
+      vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
     end,
 
     -- override the lsp installer server-registration function
