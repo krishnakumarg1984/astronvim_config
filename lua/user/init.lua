@@ -218,14 +218,25 @@ local config = {
 
   plugins = {
 
-    -- `plugins.init` table for adding new plugins and disabling default plugins (((
+    -- `plugins.init` table for adding new plugins and disabling/modifying default plugins (((
 
     init = {
-      -- Disable AstroNvim built-in plugins (((
+      -- Disable/modify AstroNvim built-in plugins (((
 
       -- https://github.com/AstroNvim/AstroNvim/issues/406
-      ["p00f/nvim-ts-rainbow"] = { disable = true },
       ["max397574/better-escape.nvim"] = { disable = true },
+      ["rcarriga/nvim-notify"] = { disable = true },
+      ["p00f/nvim-ts-rainbow"] = { disable = true },
+      ["norcalli/nvim-colorizer.lua"] = {
+        -- disable = true
+        event = { nil },
+        ft = { "html", "javascript", "css" },
+      },
+      ["Darazaki/indent-o-matic"] = {
+        keys = { "1", "2", "3", "4", "5", "6", "7", "8", "9", ">", "=", "<" },
+        event = "InsertCharPre",
+      },
+      ["windwp/nvim-ts-autotag"] = { after = { nil }, ft = { "html", "vue", "php" } },
 
       -- )))
 
@@ -280,7 +291,7 @@ local config = {
       {
         "p00f/clangd_extensions.nvim",
         ft = { "c", "cpp", "cuda" },
-        after = "nvim-cmp",
+        -- after = "nvim-cmp",
         -- cmd = { "ClangdAST" },
         config = function()
           require("clangd_extensions").setup {
@@ -294,10 +305,9 @@ local config = {
           }
         end,
       },
-      -- { "hrsh7th/cmp-cmdline", after = "nvim-cmp" }, -- cmdline completions
       {
         "hrsh7th/cmp-emoji",
-        after = "nvim-cmp",
+        -- after = "nvim-cmp",
         ft = {
           "asciidoc",
           "changelog",
@@ -313,6 +323,7 @@ local config = {
           "text",
           "txt",
         },
+        -- event = { "InsertCharPre" },
         config = function()
           require("core.utils").add_user_cmp_source "emoji"
         end,
@@ -329,19 +340,29 @@ local config = {
           }
         end,
       },
-      -- {
-      --   "hrsh7th/cmp-nvim-lsp-signature-help",
-      --   after = "nvim-cmp",
-      --   config = function()
-      --     require("core.utils").add_user_cmp_source "nvim_lsp_signature_help"
-      --   end,
-      -- },
       {
         "ellisonleao/glow.nvim",
         ft = { "markdown", "lsp_markdown", "rmd" },
         cmd = { "Glow", "GlowInstall" },
       },
       { "rebelot/kanagawa.nvim" },
+      {
+        "ray-x/lsp_signature.nvim",
+        -- after = "nvim-lspconfig",
+        event = "InsertCharPre",
+        config = function()
+          local signature_config = {
+            -- log_path = vim.fn.expand "$HOME" .. "/tmp/sig.log",
+            debug = true,
+            hint_enable = false,
+            -- handler_opts = { border = "single" },
+            fix_pos = true,
+            max_width = 70,
+            -- toggle_key = "<A-x>", -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
+          }
+          require("lsp_signature").setup(signature_config)
+        end,
+      },
       {
         "echasnovski/mini.nvim",
         keys = { "sa", "sd", "sr" },
@@ -354,9 +375,7 @@ local config = {
         config = function()
           require("neogen").setup { snippet_engine = "luasnip" }
         end,
-        after = "nvim-treesitter",
-        -- Uncomment next line if you want to follow only stable versions
-        -- tag = "*"
+        cmd = { "Neogen", "Neogen func", "Neogen class", "Neogen file", "Neogen type" },
       },
       -- {
       --   "Shatur/neovim-cmake",
@@ -368,7 +387,7 @@ local config = {
       -- },
       {
         "nkakouros-original/numbers.nvim",
-        event = "InsertEnter",
+        event = "InsertCharPre",
         config = function()
           require("numbers").setup {
             excluded_filetypes = {
@@ -381,11 +400,9 @@ local config = {
           }
         end,
       },
-      { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
-      ["norcalli/nvim-colorizer.lua"] = {
-        -- disable = true
-        event = { nil },
-        ft = { "html", "javascript", "css" },
+      {
+        "weilbith/nvim-code-action-menu",
+        cmd = "CodeActionMenu",
       },
       {
         "klen/nvim-config-local",
@@ -406,6 +423,7 @@ local config = {
       },
       {
         "ethanholz/nvim-lastplace",
+        event = { "BufRead" },
         config = function()
           require("nvim-lastplace").setup {
             lastplace_ignore_buftype = { "quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo" },
@@ -428,8 +446,10 @@ local config = {
       },
       {
         "kosayoda/nvim-lightbulb",
+        -- after = "nvim-lspconfig",
+        event = { "CursorHold", "CursorHoldI" },
         config = function()
-          vim.cmd [[autocmd CursorHold,CursorHoldI * lua require'nvim-lightbulb'.update_lightbulb()]]
+          vim.cmd [[autocmd CursorHold,CursorHoldI * lua require"nvim-lightbulb".update_lightbulb()]]
         end,
       },
       {
@@ -442,7 +462,6 @@ local config = {
       {
         "eddiebergman/nvim-treesitter-pyfold",
         ft = "python",
-        after = "nvim-treesitter",
       },
       {
         "nvim-treesitter/nvim-treesitter-refactor",
@@ -1233,23 +1252,28 @@ local config = {
           n = {
             name = "Neogen annotation",
             c = {
-              "<cmd>:lua require('neogen').generate({ type = 'class' })<CR>>",
+              -- "<cmd>:lua require('neogen').generate({ type = 'class' })<CR>>",
+              "<cmd>Neogen class<CR>",
               "Class annotation",
             },
             f = {
-              "<cmd>:lua require('neogen').generate({ type = 'func' })<CR>>",
+              -- "<cmd>:lua require('neogen').generate({ type = 'func' })<CR>>",
+              "<cmd>Neogen func<CR>",
               "Func annotation",
             },
             i = {
-              "<cmd>:lua require('neogen').generate({ type = 'file' })<CR>>",
+              -- "<cmd>:lua require('neogen').generate({ type = 'file' })<CR>>",
+              "<cmd>Neogen file<CR>",
               "File annotation",
             },
             n = {
-              "<cmd>:lua require('neogen').generate()<CR>>",
+              -- "<cmd>:lua require('neogen').generate()<CR>>",
+              "<cmd>Neogen<CR>",
               "Generate annotation",
             },
             t = {
-              "<cmd>:lua require('neogen').generate({ type = 'type' })<CR>>",
+              -- "<cmd>:lua require('neogen').generate({ type = 'type' })<CR>>",
+              "<cmd>Neogen type<CR>",
               "Type annotation",
             },
           },
@@ -1780,7 +1804,7 @@ local config = {
   augroup LaTeXSettings
     autocmd!
     autocmd FileType tex setlocal foldcolumn=auto:7
-    autocmd InsertEnter *.tex set conceallevel=0
+    autocmd InsertCharPre *.tex set conceallevel=0
     autocmd InsertLeave *.tex set conceallevel=2
   augroup END
 
