@@ -325,14 +325,14 @@ local config = {
         },
         -- event = { "InsertCharPre" },
         config = function()
-          require("core.utils").add_user_cmp_source "emoji"
+          astronvim.add_user_cmp_source "emoji"
         end,
       },
       {
         "octaltree/cmp-look",
         after = "nvim-cmp",
         config = function()
-          require("core.utils").add_user_cmp_source {
+          astronvim.add_user_cmp_source {
             name = "look",
             max_item_count = 7,
             keyword_length = 2,
@@ -1227,7 +1227,7 @@ local config = {
             t = { "<cmd>Telescope git_stash<cr>", "Stash all changes" },
             U = {
               function()
-                require("core.utils").toggle_term_cmd "gitui"
+                astronvim.toggle_term_cmd "gitui"
               end,
               "GitUI",
             },
@@ -1307,7 +1307,7 @@ local config = {
             l = { nil },
             g = {
               function()
-                require("core.utils").toggle_term_cmd "gitui"
+                astronvim.toggle_term_cmd "gitui"
               end,
               "GitUI",
             },
@@ -1959,7 +1959,7 @@ local config = {
 
     -- Resize keymaps with 'smart-splits' (((
 
-    if require("core.utils").is_available "smart-splits.nvim" then
+    if astronvim.is_available "smart-splits.nvim" then
       vim.keymap.set("n", "<A-h>", function()
         require("smart-splits").resize_left()
       end, { desc = "Move to left split" })
