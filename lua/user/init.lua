@@ -372,7 +372,7 @@ local config = {
         end,
       },
       {
-        "danymat/neogen",
+        "danymat/neogen", -- A better annotation generator. Supports multiple languages and annotation conventions
         config = function()
           require("neogen").setup { snippet_engine = "luasnip" }
         end,
