@@ -1976,6 +1976,14 @@ local config = {
 
     -- )))
 
+    -- -- 'telescope' keymaps (((
+    --
+    -- vim.keymap.set("n", "<leader>fF", function()
+    --   require("telescope.builtin").find_files { hidden = true }
+    -- end, { desc = "Search all files" })
+    --
+    -- -- )))
+
     -- Remove some keymaps set by 'cinnamon.nvim' (((
 
     vim.keymap.set("n", "<C-o>", "<C-o>")
@@ -1988,14 +1996,6 @@ local config = {
     vim.keymap.del({ "n", "x" }, "G")
 
     -- )))
-
-    -- -- 'telescope' keymaps (((
-    --
-    -- vim.keymap.set("n", "<leader>fF", function()
-    --   require("telescope.builtin").find_files { hidden = true }
-    -- end, { desc = "Search all files" })
-    --
-    -- -- )))
 
     -- ))) end of plugin keybindings (lua-based) fold
 
