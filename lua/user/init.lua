@@ -2002,18 +2002,170 @@ return config
 
 -- ))) -- end of 'config' fold
 
--- Other nice plugins worth looking into (((
+-- Evaluate these plugins next (((
 
--- "s1n7ax/nvim-comment-frame"  -- Detects the language using treesitter and adds a comment block
--- "danymat/neogen"  -- A better annotation generator. Supports multiple languages and annotation conventions
--- "jbyuki/instant.nvim"  -- collaborative editing in Neovim using built-in capabilities
--- "chipsenkbeil/distant.nvim"  -- Edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
--- "jamestthompson3/nvim-remote-containers"  -- Develop inside docker containers, just like VSCode
--- "jubnzv/virtual-types.nvim"  -- A Neovim plugin that shows type annotations as virtual text
--- "yioneko/nvim-yati" -- Yet another tree-sitter powered indent plugin for Neovim
--- "lukas-reineke/lsp-format.nvim" -- A wrapper around Neovims native LSP formatting
--- "tjdevries/diff-therapy.nvim" -- resolve those conflicts and have a happy relationship with git
---  "akinsho/git-conflict.nvim" -- A plugin to visualise and resolve merge conflicts in neovim
--- "miversen33/netman.nvim" -- Neovim (Lua powered) Network File Manager
+-- https://github.com/monaqa/dial.nvim
+-- https://github.com/sindrets/diffview.nvim
+-- https://github.com/narutoxy/dim.lua
+-- https://github.com/chipsenkbeil/distant.nvim  -- Edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
+-- https://github.com/akinsho/git-conflict.nvim -- A plugin to visualise and resolve merge conflicts in neovim
+-- https://github.com/brymer-meneses/grammar-guard.nvim
+-- https://github.com/pierreglaser/folding-nvim
+-- https://github.com/ggandor/leap.nvim
+-- https://github.com/mfussenegger/nvim-dap-python
+-- https://github.com/gbprod/substitute.nvim
+-- https://github.com/abecodes/tabout.nvim
+-- https://github.com/jamestthompson3/nvim-remote-containers  -- Develop inside docker containers, just like VSCode
+-- https://github.com/anufrievroman/vim-angry-reviewer
+-- use { "andymass/vim-matchup", event = "BufWinEnter" }
+-- use { "Konfekt/vim-sentence-chopper" }
+-- https://github.com/Julian/vim-textobj-variable-segment -- vimscript plugin
+-- https://github.com/rcarriga/vim-ultest
+-- https://github.com/hoschi/yode-nvim
+-- https://github.com/jalvesaq/zotcite
+
+-- )))
+
+-- use { "numtostr/BufOnly.nvim", cmd = { "BufOnly" } }
+-- use { "kwkarlwang/bufresize.nvim" }
+-- use { "kazhala/close-buffers.nvim", cmd = {} }
+-- use { "andersevenrud/cmp-tmux" }
+-- use { "Konfekt/FastFold" }
+-- use { "j-hui/fidget.nvim" }
+-- use { "rmagatti/goto-preview", event = { "CursorHold" } }
+-- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
+-- use { "ggandor/lightspeed.nvim", requires = "tpope/vim-repeat", }
+-- use { "ldelossa/litee-calltree.nvim", requires = { "ldelossa/litee.nvim" } }
+-- use { "onsails/lspkind-nvim" }
+-- use { "chentau/marks.nvim", keys = { "m", "dm" }, cmd = { "MarksToggleSigns", "MarksListBuf", "MarksListGlobal", "MarksListAll", "MarksQFListBuf", "MarksQFListGlobal", "MarksQFListAll" } }
+-- use { "TimUntersberger/neogit", cmd = { "Neogit" } }
+-- use { "nyngwang/NeoZoom.lua" }
+-- use { "kevinhwang91/nvim-bqf", ft = "qf", event = { "CursorHold" } }
+-- use { "norcalli/nvim-colorizer.lua" }
+-- use { "s1n7ax/nvim-comment-frame" }
+-- use { "https://gitlab.com/yorickpeterse/nvim-dd", event = { "CursorHold" } }
+-- use { "kosayoda/nvim-lightbulb" }
+-- use { "mfussenegger/nvim-lint" }
+-- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
+-- use { "petertriho/nvim-scrollbar" }
+-- use { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
+-- use { "tyru/open-browser.vim", event = "BufWinEnter" }
+-- use { "weirongxu/plantuml-previewer.vim", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
+-- use { "lewis6991/spellsitter.nvim" }
+-- use { "luukvbaal/stabilize.nvim" }
+-- use { "blackCauldron7/surround.nvim" }
+-- use { "wellle/targets.vim" }
+-- use { "mg979/tasks.vim" }
+-- use { "nvim-telescope/telescope-media-files.nvim" }
+-- use { "nvim-telescope/telescope-packer.nvim" }
+-- use { "cljoly/telescope-repo.nvim" }
+-- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
+-- use { "folke/twilight.nvim", cmd = { "ZenMode", "Twilight", "TwilightEnable" } }
+
+-- Other lua plugins (((
+
+-- https://github.com/rmagatti/auto-session
+-- https://github.com/jceb/blinds.nvim
+-- https://github.com/tjdevries/diff-therapy.nvim -- resolve those conflicts and have a happy relationship with git
+-- https://github.com/elihunter173/dirbuf.nvim
+-- use { "stevearc/dressing.nvim" }
+-- use { "ii14/exrc.vim" } -- "jenterkin/vim-autosource", "embear/vim-localvimrc", "LucHermitte/local_vimrc", "thinca/vim-localrc"
+-- https://github.com/Furkanzmc/firvish.nvim
+-- https://github.com/ruifm/gitlinker.nvim
+-- https://github.com/ThePrimeagen/git-worktree.nvim
+-- https://github.com/NMAC427/guess-indent.nvim
+-- https://github.com/beauwilliams/focus.nvim
+-- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
+-- https://github.com/lukas-reineke/lsp-format.nvim -- A wrapper around Neovims native LSP formatting
+-- https://git.sr.ht/~whynothugo/lsp_lines.nvim
+-- https://github.com/nyngwang/NeoClear.lua
+-- https://github.com/nyngwang/NeoNoName.lua
+-- https://github.com/miversen33/netman.nvim -- Neovim (Lua powered) Network File Manager
+-- https://github.com/nacro90/numb.nvim
+-- https://github.com/s1n7ax/nvim-comment-frame  -- Detects the language using treesitter and adds a comment block
+-- https://github.com/booperlv/nvim-gomove
+-- https://github.com/bennypowers/nvim-regexplainer
+-- https://github.com/yioneko/nvim-yati -- Yet another tree-sitter powered indent plugin for Neovim
+-- https://gitlab.com/yorickpeterse/nvim-window
+-- https://github.com/rlane/pounce.nvim
+-- https://github.com/filipdutescu/renamer.nvim
+-- https://github.com/rmagatti/session-lens
+-- https://github.com/TC72/telescope-tele-tabby.nvim
+-- https://github.com/David-Kunz/treesitter-unit/
+-- https://github.com/jubnzv/virtual-types.nvim  -- A Neovim plugin that shows type annotations as virtual text
+-- https://github.com/sindrets/winshift.nvim
+-- use { "folke/zen-mode.nvim", cmd = "ZenMode" }
+
+-- )))
+
+-- Other vimscript plugins (((
+
+-- https://github.com/iamcco/markdown-preview.nvim
+-- https://github.com/Sangdol/mintabline.vim
+-- https://github.com/stefandtw/quickfix-reflector.vim
+-- https://github.com/kamykn/spelunker.vim
+-- https://github.com/tpope/vim-apathy
+-- use { "wsdjeg/vim-assembly" }
+-- use { "ntpeters/vim-better-whitespace" }
+-- https://github.com/dhruvasagar/vim-buffer-history
+-- https://github.com/JoseConseco/vim-case-change
+-- use { "gauteh/vim-cppman", ft = { "c", "cpp" }, cmd = { "Cppman" } }
+-- use { "tpope/vim-fugitive", event = "BufWinEnter" }
+-- use { "ludovicchabant/vim-gutentags", event = { "CursorHold" } } -- , event = "BufWinEnter" }
+-- use { "petRUShka/vim-opencl", ft = { "opencl" } }  -- note: slow plugin on remote systems
+-- https://github.com/ojroques/vim-oscyank
+-- https://github.com/4513ECHO/vim-readme-viewer
+-- use { "urbainvaes/vim-ripple" }
+-- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } } -- also a telescope extension
+-- https://github.com/marklcrns/vim-smartq
+-- https://github.com/svermeulen/vim-subversive
+-- use { "tweekmonster/wstrip.vim" }
+
+-- )))
+
+-- Note-taking systems, Documentation generators, to-do systems (((
+
+--[[
+
+Personal wiki/notes
+-------------------
+https://github.com/mickael-menu/zk + https://github.com/mickael-menu/zk-nvim  (others: https://github.com/terror/zk, https://github.com/sirupsen/zk)
+https://github.com/xwmx/nb
+mkdocs material
+zeta-note (markdown lsp server)
+org-mode (with org-roam)
+Markdown + https://github.com/jakewvincent/mkdnflow.nvim + Markor on android + syncthing (or another service to sync)
+vim-wiki (is vimscript)
+wiki.vim
+https://github.com/srid/emanote
+neorg
+https://github.com/oberblastmeister/neuron.nvim (neuron is deprecated and succeeded by emanote)
+
+ToDo
+----
+todotxt.org
+taskwarrior (taskwiki + vimwiki)
+
+Time tracking
+-------------
+Timewarrior
+
+Other proprietary systems
+-------------------------
+google keep (proprietary)
+]]
+
+-- )))
+
+-- ipython/jupyter vim plugins (((
+
+-- "jupyter-vim/jupyter-vim"
+-- "untitled-ai/jupyter_ascending"
+-- "goerz/jupytext.vim"
+-- { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' } -- need to set up mappings
+-- "bfredl/nvim-ipy"
+-- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } }
+
+-- )))
 
 -- )))
