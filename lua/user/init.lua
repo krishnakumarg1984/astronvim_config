@@ -341,6 +341,10 @@ local config = {
         end,
       },
       {
+        "gpanders/editorconfig.nvim",
+        event = { "InsertCharPre" },
+      },
+      {
         "ellisonleao/glow.nvim",
         ft = { "markdown", "lsp_markdown", "rmd" },
         cmd = { "Glow", "GlowInstall" },
