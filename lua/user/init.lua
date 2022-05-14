@@ -775,6 +775,72 @@ local config = {
 
     -- )))
 
+    -- Configuration of 'null-ls' (((
+
+    ["null-ls"] = function(config)
+      -- Formatting and linting
+      -- https://github.com/jose-elias-alvarez/null-ls.nvim
+      local null_ls = require "null-ls"
+
+      -- Check supported formatters
+      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+      local formatting = null_ls.builtins.formatting
+
+      -- Check supported linters
+      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+      local diagnostics = null_ls.builtins.diagnostics
+
+      config.sources = {
+        formatting.black,
+        formatting.clang_format,
+        formatting.fprettify,
+        formatting.perltidy,
+        formatting.reorder_python_imports,
+        formatting.rustfmt,
+        formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
+        formatting.stylua.with {
+          condition = function(utils)
+            return utils.root_has_file { "stylua.toml", ".stylua.toml" }
+          end,
+        },
+        diagnostics.ansiblelint,
+        diagnostics.chktex,
+        -- diagnostics.codespell,
+        diagnostics.cppcheck,
+        -- diagnostics.cspell,
+        diagnostics.flake8,
+        diagnostics.hadolint,
+        diagnostics.jsonlint,
+        diagnostics.markdownlint,
+        diagnostics.mypy,
+        diagnostics.proselint,
+        diagnostics.pylint,
+        diagnostics.pylama,
+        -- diagnostics.selene,
+        -- will show code and source name
+        diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
+        diagnostics.vint,
+        diagnostics.write_good,
+
+        diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
+        diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
+      }
+      -- set up null-ls's on_attach function
+      config.on_attach = function(client)
+        -- NOTE: You can remove this on attach function to disable format on save
+        if client.resolved_capabilities.document_formatting and not vim.g.null_ls_disable then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            desc = "Auto format before save",
+            pattern = "<buffer>",
+            callback = vim.lsp.buf.formatting_sync,
+          })
+        end
+      end
+      return config -- return the final config table
+    end,
+
+    -- )))
+
     -- 'nvim-lsp-installer' override setup() (((
 
     ["nvim-lsp-installer"] = {
@@ -1064,76 +1130,6 @@ local config = {
       javascript = { "javascriptreact" },
     },
   },
-
-  -- )))
-
-  -- Configuration of 'null-ls' (((
-
-  ["null-ls"] = function()
-    -- Formatting and linting
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim
-    local status_ok, null_ls = pcall(require, "null-ls")
-    if not status_ok then
-      return
-    end
-
-    -- Check supported formatters
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-    local formatting = null_ls.builtins.formatting
-
-    -- Check supported linters
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-    local diagnostics = null_ls.builtins.diagnostics
-
-    null_ls.setup {
-      debug = false,
-      sources = {
-        formatting.black,
-        formatting.clang_format,
-        formatting.fprettify,
-        formatting.perltidy,
-        formatting.reorder_python_imports,
-        formatting.rustfmt,
-        formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
-        formatting.stylua.with {
-          condition = function(utils)
-            return utils.root_has_file { "stylua.toml", ".stylua.toml" }
-          end,
-        },
-        diagnostics.ansiblelint,
-        diagnostics.chktex,
-        -- diagnostics.codespell,
-        diagnostics.cppcheck,
-        -- diagnostics.cspell,
-        diagnostics.flake8,
-        diagnostics.hadolint,
-        diagnostics.jsonlint,
-        diagnostics.markdownlint,
-        diagnostics.mypy,
-        diagnostics.proselint,
-        diagnostics.pylint,
-        diagnostics.pylama,
-        -- diagnostics.selene,
-        -- will show code and source name
-        diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
-        diagnostics.vint,
-        diagnostics.write_good,
-
-        diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
-        diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
-      },
-      -- NOTE: You can remove this on attach function to disable format on save
-      on_attach = function(client)
-        if client.resolved_capabilities.document_formatting and not vim.g.null_ls_disable then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            desc = "Auto format before save",
-            pattern = "<buffer>",
-            callback = vim.lsp.buf.formatting_sync,
-          })
-        end
-      end,
-    }
-  end,
 
   -- )))
 
