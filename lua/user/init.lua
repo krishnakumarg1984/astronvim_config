@@ -1127,6 +1127,14 @@ local config = {
         "<cmd>Telescope lsp_references<cr>",
         { desc = "References of current symbol", buffer = bufnr }
       )
+      vim.keymap.set("n", "gj", "gj")
+      vim.keymap.del("n", "gj")
+      vim.keymap.set("n", "gk", "gk")
+      vim.keymap.del("n", "gk")
+      vim.keymap.set("n", "gl", "gl")
+      vim.keymap.del("n", "gl")
+      vim.keymap.set("n", "go", "go")
+      vim.keymap.del("n", "go")
     end,
 
     -- override the lsp installer server-registration function
