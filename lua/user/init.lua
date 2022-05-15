@@ -2047,13 +2047,9 @@ return config
 
 -- Evaluate these plugins next (((
 
--- https://github.com/monaqa/dial.nvim
--- https://github.com/sindrets/diffview.nvim
--- https://github.com/narutoxy/dim.lua
--- https://github.com/chipsenkbeil/distant.nvim  -- Edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
+-- https://github.com/pierreglaser/folding-nvim
 -- https://github.com/akinsho/git-conflict.nvim -- A plugin to visualise and resolve merge conflicts in neovim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
--- https://github.com/pierreglaser/folding-nvim
 -- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
 -- https://github.com/ggandor/leap.nvim
 -- https://github.com/mfussenegger/nvim-dap-python
@@ -2084,8 +2080,11 @@ return config
 -- use { "kwkarlwang/bufresize.nvim" }
 -- use { "kazhala/close-buffers.nvim", cmd = {} }
 -- use { "andersevenrud/cmp-tmux" }
+-- https://github.com/monaqa/dial.nvim
+-- https://github.com/narutoxy/dim.lua
 -- https://github.com/tjdevries/diff-therapy.nvim -- resolve those conflicts and have a happy relationship with git
 -- https://github.com/elihunter173/dirbuf.nvim
+-- https://github.com/chipsenkbeil/distant.nvim  -- Edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
 -- use { "stevearc/dressing.nvim" }
 -- use { "j-hui/fidget.nvim" }
 -- https://github.com/Furkanzmc/firvish.nvim
