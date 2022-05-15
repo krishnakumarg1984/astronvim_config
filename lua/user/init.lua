@@ -838,7 +838,7 @@ local config = {
         diagnostics.chktex,
         -- diagnostics.codespell,
         diagnostics.cppcheck,
-        -- diagnostics.cspell,
+        -- diagnostics.cspell,  -- requires 'npm'
         diagnostics.flake8,
         diagnostics.hadolint,
         diagnostics.jsonlint,
