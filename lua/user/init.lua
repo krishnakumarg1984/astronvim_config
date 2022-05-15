@@ -80,7 +80,6 @@ local config = {
     defaults.g.loaded_netrwPlugin = nil
     defaults.g.mapleader = "\\" -- sets vim.g.mapleader
     -- defaults.g.null_ls_disable = false
-    defaults.g.code_action_menu_show_diff = true
 
     return vim.tbl_deep_extend("force", defaults, {
       -- vim.opt settings (((
@@ -284,6 +283,11 @@ local config = {
           "txt",
         },
       },
+      {
+        "andymass/vim-matchup",
+        -- ft = { "abaqus", "ada", "aspvbs", "bash", "c", "cpp", "chicken", "clojure", "cmake", "cobol", "context", "csc", "csh", "dtd", "dtrace", "eiffel", "eruby", "falcon", "fortran", "framescript", "haml", "hamster", "hog", "html", "ishd", "j", "javascript", "javascriptreact", "jsp", "kconfig", "liquid", "lua", "m3quake", "make", "matlab", "mf", "modula2", "modula3", "mp", "nsis", "ocaml", "pascal", "pdf", "perl", "php", "plaintex", "postscr", "ruby", "sh", "spec", "sql", "tex", "typescriptreact", "vb", "verilog", "vhdl", "vim", "xhtml", "xml", "zimbu", "zsh", },
+      },
+
       { "tpope/vim-unimpaired", keys = { "[", "]" } }, -- e (exchange), ob (background), oc (cursorline), od (diff), oh (hlsearch), oi (ignorecase), ol (list), on (number), or (relativenumber), os (spell), ot (colorcolumn), ou (cursorcolumn), ov (virtualedit), ow (wrap), ox (cursorline cursorcolumn), u (encode/decode urls), y (C-string style escaping), n (conflict marker), a (args), b (buffers), l (location), q (quickfix), t (tag), >p Paste after linewise, increasing indent, >P (Paste before linewise, increasing indent), <p (Paste after linewise, decreasing indent), <P (Paste before linewise, decreasing indent), =p (Paste after linewise, reindenting), =P (Paste before linewise, reindenting), x<motion> (xml encode/decode)
       { "lervag/vimtex", ft = "tex" },
       { "svban/YankAssassin.vim" },
@@ -1023,6 +1027,11 @@ local config = {
         enable = true,
         custom_foldtext = true, -- Sets provided foldtext on window where module is active
       },
+      matchup = {
+        enable = true, -- mandatory, false will disable the whole extension
+        -- disable = { "c", "ruby" }, -- optional, list of language that will be disabled
+        -- [options]
+      },
     },
 
     -- )))
@@ -1376,6 +1385,11 @@ local config = {
       \ 'aspell'   : [ 'en_GB', 'en_US', 'cs', 'cy', 'da', 'de_DE', 'el', 'es', 'fr', 'gd', 'hu', 'id', 'it', 'ms', 'nl', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl', 'sv' ],
       \ 'hunspell' : [ 'en_GB', 'en_US', 'cs_CS', 'cy_CY', 'da_DA', 'de_DE', 'el_GR', 'gd_GD', 'es_ES', 'fr_FR', 'hu_HU', 'id_ID', 'it_IT', 'ms_MS', 'nl_NL', 'pl_PL', 'pt_PT', 'ro_RO', 'ru_RU', 'sk_SK', 'sl_SL', 'sv_SV' ],
       \ }
+
+      let g:matchup_matchparen_offscreen = {'method': 'popup'}
+      let g:matchup_surround_enabled = 1
+      let g:matchup_matchparen_enabled = 0
+      let g:matchup_matchparen_deferred = 1
 
       let g:python3_host_prog = "python3"
 
@@ -2063,7 +2077,6 @@ return config
 -- https://github.com/abecodes/tabout.nvim
 -- https://github.com/jamestthompson3/nvim-remote-containers  -- Develop inside docker containers, just like VSCode
 -- https://github.com/anufrievroman/vim-angry-reviewer
--- use { "andymass/vim-matchup", event = "BufWinEnter" }
 -- use { "Konfekt/vim-sentence-chopper" }
 -- https://github.com/Julian/vim-textobj-variable-segment -- vimscript plugin
 -- https://github.com/rcarriga/vim-ultest
@@ -2202,7 +2215,5 @@ google keep (proprietary)
 -- { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' } -- need to set up mappings
 -- "bfredl/nvim-ipy"
 -- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } }
-
--- )))
 
 -- )))
