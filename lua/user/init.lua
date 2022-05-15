@@ -2054,9 +2054,16 @@ return config
 -- https://github.com/akinsho/git-conflict.nvim -- A plugin to visualise and resolve merge conflicts in neovim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/pierreglaser/folding-nvim
+-- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
 -- https://github.com/ggandor/leap.nvim
 -- https://github.com/mfussenegger/nvim-dap-python
+-- use { "https://gitlab.com/yorickpeterse/nvim-dd", event = { "CursorHold" } }
+-- use { "mfussenegger/nvim-lint" }
+-- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
+-- use { "lewis6991/spellsitter.nvim" }
+-- use { "luukvbaal/stabilize.nvim" }
 -- https://github.com/gbprod/substitute.nvim
+-- use { "ur4ltz/surround.nvim" }
 -- https://github.com/abecodes/tabout.nvim
 -- https://github.com/jamestthompson3/nvim-remote-containers  -- Develop inside docker containers, just like VSCode
 -- https://github.com/anufrievroman/vim-angry-reviewer
@@ -2067,86 +2074,74 @@ return config
 -- https://github.com/hoschi/yode-nvim
 -- https://github.com/jalvesaq/zotcite
 
--- )))
-
--- use { "numtostr/BufOnly.nvim", cmd = { "BufOnly" } }
--- use { "kwkarlwang/bufresize.nvim" }
--- use { "kazhala/close-buffers.nvim", cmd = {} }
--- use { "andersevenrud/cmp-tmux" }
--- use { "Konfekt/FastFold" }
--- use { "j-hui/fidget.nvim" }
--- use { "rmagatti/goto-preview", event = { "CursorHold" } }
--- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
--- use { "ggandor/lightspeed.nvim", requires = "tpope/vim-repeat", }
--- use { "ldelossa/litee-calltree.nvim", requires = { "ldelossa/litee.nvim" } }
--- use { "onsails/lspkind-nvim" }
--- use { "chentau/marks.nvim", keys = { "m", "dm" }, cmd = { "MarksToggleSigns", "MarksListBuf", "MarksListGlobal", "MarksListAll", "MarksQFListBuf", "MarksQFListGlobal", "MarksQFListAll" } }
--- use { "TimUntersberger/neogit", cmd = { "Neogit" } }
--- use { "nyngwang/NeoZoom.lua" }
--- use { "kevinhwang91/nvim-bqf", ft = "qf", event = { "CursorHold" } }
--- use { "norcalli/nvim-colorizer.lua" }
--- use { "s1n7ax/nvim-comment-frame" }
--- use { "https://gitlab.com/yorickpeterse/nvim-dd", event = { "CursorHold" } }
--- use { "kosayoda/nvim-lightbulb" }
--- use { "mfussenegger/nvim-lint" }
--- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
--- use { "petertriho/nvim-scrollbar" }
--- use { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
--- use { "tyru/open-browser.vim", event = "BufWinEnter" }
--- use { "weirongxu/plantuml-previewer.vim", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
--- use { "lewis6991/spellsitter.nvim" }
--- use { "luukvbaal/stabilize.nvim" }
--- use { "blackCauldron7/surround.nvim" }
--- use { "wellle/targets.vim" }
--- use { "mg979/tasks.vim" }
--- use { "nvim-telescope/telescope-media-files.nvim" }
--- use { "nvim-telescope/telescope-packer.nvim" }
--- use { "cljoly/telescope-repo.nvim" }
--- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
--- use { "folke/twilight.nvim", cmd = { "ZenMode", "Twilight", "TwilightEnable" } }
+-- ))) end of 'next_plugins' fold
 
 -- Other lua plugins (((
 
 -- https://github.com/rmagatti/auto-session
 -- https://github.com/jceb/blinds.nvim
+-- use { "numtostr/BufOnly.nvim", cmd = { "BufOnly" } }
+-- use { "kwkarlwang/bufresize.nvim" }
+-- use { "kazhala/close-buffers.nvim", cmd = {} }
+-- use { "andersevenrud/cmp-tmux" }
 -- https://github.com/tjdevries/diff-therapy.nvim -- resolve those conflicts and have a happy relationship with git
 -- https://github.com/elihunter173/dirbuf.nvim
 -- use { "stevearc/dressing.nvim" }
--- use { "ii14/exrc.vim" } -- "jenterkin/vim-autosource", "embear/vim-localvimrc", "LucHermitte/local_vimrc", "thinca/vim-localrc"
+-- use { "j-hui/fidget.nvim" }
 -- https://github.com/Furkanzmc/firvish.nvim
 -- https://github.com/ruifm/gitlinker.nvim
 -- https://github.com/ThePrimeagen/git-worktree.nvim
--- https://github.com/NMAC427/guess-indent.nvim
+-- use { "rmagatti/goto-preview", event = { "CursorHold" } }
 -- https://github.com/beauwilliams/focus.nvim
+-- https://github.com/NMAC427/guess-indent.nvim
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
+-- use { "ggandor/lightspeed.nvim", requires = "tpope/vim-repeat", }
+-- use { "ldelossa/litee-calltree.nvim", requires = { "ldelossa/litee.nvim" } }
 -- https://github.com/lukas-reineke/lsp-format.nvim -- A wrapper around Neovims native LSP formatting
+-- use { "onsails/lspkind-nvim" }
 -- https://git.sr.ht/~whynothugo/lsp_lines.nvim
+-- use { "chentoast/marks.nvim", keys = { "m", "dm" }, cmd = { "MarksToggleSigns", "MarksListBuf", "MarksListGlobal", "MarksListAll", "MarksQFListBuf", "MarksQFListGlobal", "MarksQFListAll" } }
 -- https://github.com/nyngwang/NeoClear.lua
 -- https://github.com/nyngwang/NeoNoName.lua
+-- use { "nyngwang/NeoZoom.lua" }
 -- https://github.com/miversen33/netman.nvim -- Neovim (Lua powered) Network File Manager
 -- https://github.com/nacro90/numb.nvim
+-- use { "kevinhwang91/nvim-bqf", ft = "qf", event = { "CursorHold" } }
 -- https://github.com/s1n7ax/nvim-comment-frame  -- Detects the language using treesitter and adds a comment block
 -- https://github.com/booperlv/nvim-gomove
 -- https://github.com/bennypowers/nvim-regexplainer
+-- use { "petertriho/nvim-scrollbar" }
+-- https://github.com/dstein64/nvim-scrollview
+-- use { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
 -- https://github.com/yioneko/nvim-yati -- Yet another tree-sitter powered indent plugin for Neovim
 -- https://gitlab.com/yorickpeterse/nvim-window
 -- https://github.com/rlane/pounce.nvim
 -- https://github.com/filipdutescu/renamer.nvim
 -- https://github.com/rmagatti/session-lens
+-- use { "nvim-telescope/telescope-media-files.nvim" }
+-- use { "nvim-telescope/telescope-packer.nvim" }
+-- use { "cljoly/telescope-repo.nvim" }
 -- https://github.com/TC72/telescope-tele-tabby.nvim
+-- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
 -- https://github.com/David-Kunz/treesitter-unit/
+-- use { "folke/twilight.nvim", cmd = { "ZenMode", "Twilight", "TwilightEnable" } }
 -- https://github.com/jubnzv/virtual-types.nvim  -- A Neovim plugin that shows type annotations as virtual text
 -- https://github.com/sindrets/winshift.nvim
 -- use { "folke/zen-mode.nvim", cmd = "ZenMode" }
 
--- )))
+-- ))) end of 'other lua plugins' fold
 
 -- Other vimscript plugins (((
 
+-- use { "ii14/exrc.vim" } -- "jenterkin/vim-autosource", "embear/vim-localvimrc", "LucHermitte/local_vimrc", "thinca/vim-localrc"
+-- use { "Konfekt/FastFold" }
 -- https://github.com/iamcco/markdown-preview.nvim
 -- https://github.com/Sangdol/mintabline.vim
+-- use { "weirongxu/plantuml-previewer.vim", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
 -- https://github.com/stefandtw/quickfix-reflector.vim
 -- https://github.com/kamykn/spelunker.vim
+-- use { "wellle/targets.vim" }
+-- use { "mg979/tasks.vim" }
 -- https://github.com/tpope/vim-apathy
 -- use { "wsdjeg/vim-assembly" }
 -- use { "ntpeters/vim-better-whitespace" }
@@ -2164,7 +2159,7 @@ return config
 -- https://github.com/svermeulen/vim-subversive
 -- use { "tweekmonster/wstrip.vim" }
 
--- )))
+-- ))) end of 'other vimscript plugins'
 
 -- Note-taking systems, Documentation generators, to-do systems (((
 
