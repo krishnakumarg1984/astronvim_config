@@ -566,6 +566,12 @@ local config = {
           and require("aerial").num_symbols(bufnr) > 3 -- Enforce a minimum symbol count
           and not require("aerial").was_closed() -- A useful way to keep aerial closed when closed manually
       end,
+      on_first_symbols = function(bufnr)
+        local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
+        if ft == "lua" then
+          require("aerial").tree_set_collapse_level(bufnr, 0)
+        end
+      end,
     },
 
     -- )))
