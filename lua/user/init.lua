@@ -248,7 +248,10 @@ local config = {
           "asciidoc",
           "changelog",
           "context",
+          "DiffviewFiles",
           "gitcommit",
+          "Neogitcommit",
+          "NeogitCommit",
           "lsp_markdown",
           "mail",
           "markdown",
@@ -266,7 +269,10 @@ local config = {
           "asciidoc",
           "changelog",
           "context",
+          "DiffviewFiles",
           "gitcommit",
+          "Neogitcommit",
+          "NeogitCommit",
           "lsp_markdown",
           "mail",
           "markdown",
@@ -306,7 +312,10 @@ local config = {
           "asciidoc",
           "changelog",
           "context",
+          "DiffviewFiles",
           "gitcommit",
+          "Neogitcommit",
+          "NeogitCommit",
           "lsp_markdown",
           "mail",
           "markdown",
@@ -440,7 +449,10 @@ local config = {
           require("nvim-lastplace").setup {
             lastplace_ignore_buftype = { "quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo" },
             lastplace_ignore_filetype = {
+              "DiffviewFiles",
               "gitcommit",
+              "Neogitcommit",
+              "NeogitCommit",
               "gitrebase",
               "svn",
               "hgcommit",
@@ -448,6 +460,8 @@ local config = {
               "dashboard",
               "packer",
               "neogitstatus",
+              "NeogitStatus",
+              "NeogitPopup",
               "NvimTree",
               "neo-tree",
               "Trouble",
@@ -1222,11 +1236,13 @@ local config = {
               "Stage Buffer",
             },
             C = { "<cmd>Telescope git_bcommits<cr>", "Checkout buffer commits" },
+            D = { "<cmd>DiffviewOpen<cr>", "Git Diff (interactive)" },
             f = { "<cmd>Telescope git_files<cr>", "Open file in repo" },
             g = { nil },
             h = { "<cmd>Gitsigns stage_hunk<cr>", "Stage Hunk" },
             H = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
             -- o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+            n = { "<cmd>Neogit<cr>", "Neogit" },
             s = { "<cmd>Telescope git_status<cr>", "Status" },
             t = { "<cmd>Telescope git_stash<cr>", "Stash all changes" },
             U = {
@@ -1724,7 +1740,7 @@ local config = {
     autocmd FileType help nnoremap <buffer> <leader>Tn /\|.\zs\S\{-}\|/<cr>zz
 
     autocmd FileType help setlocal number relativenumber
-    autocmd FileType gitcommit,help setlocal nolist
+    autocmd FileType gitcommit,help,NeogitCommit setlocal nolist
 
     " )))
 
@@ -1742,8 +1758,8 @@ local config = {
 
     autocmd FileType qf set nobuflisted
 
-    autocmd FileType asciidoc,changelog,context,gitcommit,lsp_markdown,mail,markdown,rst,rtf,tex,texinfo,text,txt setlocal spell
-    autocmd FileType gitcommit setlocal wrap textwidth=80
+    autocmd FileType asciidoc,changelog,context,gitcommit,NeogitCommit,lsp_markdown,mail,markdown,rst,rtf,tex,texinfo,text,txt setlocal spell
+    autocmd FileType gitcommit,NeogitCommit setlocal wrap textwidth=80
 
   augroup end
 
