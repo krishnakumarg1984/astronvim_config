@@ -1105,10 +1105,12 @@ local config = {
       "clangd", -- requires a reasonably new version of glibc
       "cmake",
       "fortls",
+      "prosemd_lsp",
       "pylsp",
       -- "r_language_server", -- needs R in path
       "sumneko_lua",
       -- "pyright"
+      "zk",
     },
 
     -- add to the server on_attach function
