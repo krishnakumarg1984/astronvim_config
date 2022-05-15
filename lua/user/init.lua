@@ -372,6 +372,23 @@ local config = {
         end,
         cmd = { "Neogen", "Neogen func", "Neogen class", "Neogen file", "Neogen type" },
       },
+      {
+        "TimUntersberger/neogit",
+        requires = {
+          {
+            "sindrets/diffview.nvim",
+            cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewRefresh" },
+          },
+        },
+        cmd = { "Neogit" },
+        config = function()
+          require("neogit").setup {
+            integrations = {
+              diffview = true,
+            },
+          }
+        end,
+      },
       -- {
       --   "Shatur/neovim-cmake",
       --   ft = { "c", "cpp", "cmake", "fortran" },
