@@ -861,6 +861,7 @@ local config = {
         formatting.reorder_python_imports,
         formatting.rustfmt,
         formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
+        formatting.standardrb,
         formatting.stylua.with {
           condition = function(utils)
             return utils.root_has_file { "stylua.toml", ".stylua.toml" }
@@ -877,16 +878,21 @@ local config = {
         diagnostics.markdownlint,
         diagnostics.mypy,
         diagnostics.proselint,
+        diagnostics.pydocstyle,
         diagnostics.pylint,
         diagnostics.pylama,
         -- diagnostics.selene,
         -- will show code and source name
+        diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
+        diagnostics.rstcheck,
         diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
+        diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
+        diagnostics.stylint,
+        diagnostics.vale,
+        -- diagnostics.vulture, -- usually not available in path
         diagnostics.vint,
         diagnostics.write_good,
-
-        diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
-        diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
+        diagnostics.yamllint,
       }
       -- set up null-ls's on_attach function
       config.on_attach = function(client)
