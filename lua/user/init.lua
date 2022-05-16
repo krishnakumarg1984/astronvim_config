@@ -1155,6 +1155,10 @@ local config = {
       vim.keymap.del("n", "gl")
       vim.keymap.set("n", "go", "go")
       vim.keymap.del("n", "go")
+
+      -- if client.name == "pyright" then
+      --   require("folding").on_attach()
+      -- end
     end,
 
     -- override the lsp installer server-registration function
