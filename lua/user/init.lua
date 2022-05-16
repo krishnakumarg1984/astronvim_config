@@ -497,6 +497,10 @@ local config = {
         end,
       },
       {
+        "mfussenegger/nvim-lint",
+        module = "lint",
+      },
+      {
         "romgrk/nvim-treesitter-context",
         after = "nvim-treesitter", -- this is a separate plugin, which requires a separate configuration
         config = function()
@@ -2085,7 +2089,6 @@ return config
 -- Evaluate these plugins next (((
 
 -- https://github.com/mfussenegger/nvim-dap-python
--- use { "mfussenegger/nvim-lint" }
 -- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
 -- use { "lewis6991/spellsitter.nvim" }
 -- use { "luukvbaal/stabilize.nvim" }
