@@ -2081,7 +2081,6 @@ return config
 
 -- Evaluate these plugins next (((
 
--- https://github.com/brymer-meneses/grammar-guard.nvim
 -- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
 -- https://github.com/ggandor/leap.nvim
 -- https://github.com/mfussenegger/nvim-dap-python
@@ -2124,6 +2123,7 @@ return config
 -- use { "rmagatti/goto-preview", event = { "CursorHold" } }
 -- https://github.com/beauwilliams/focus.nvim
 -- https://github.com/pierreglaser/folding-nvim
+-- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/NMAC427/guess-indent.nvim
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
 -- use { "ggandor/lightspeed.nvim", requires = "tpope/vim-repeat", }
@@ -2176,6 +2176,7 @@ return config
 -- use { "wellle/targets.vim" }
 -- use { "mg979/tasks.vim" }
 -- https://github.com/tpope/vim-apathy
+-- https://github.com/foosoft/vim-argwrap
 -- use { "wsdjeg/vim-assembly" }
 -- use { "ntpeters/vim-better-whitespace" }
 -- https://github.com/dhruvasagar/vim-buffer-history
