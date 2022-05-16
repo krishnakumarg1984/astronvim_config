@@ -539,6 +539,16 @@ local config = {
           require("telescope").load_extension "projects"
         end,
       },
+      {
+        "folke/trouble.nvim",
+        -- ft = { "c", "cpp", "cuda", "fortran", "lua", "rust" }
+        -- keys = { "<leader>xx", "<leader>xw", "<leader>xd", "<leader>xq", "<leader>xl" },
+        keys = { "\\xx", "\\xw", "\\xd", "\\xq", "\\xl" },
+        cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
+        config = function()
+          require("trouble").setup {}
+        end,
+      },
 
       -- ))) -- ends "additional plugins"
     },
@@ -1164,6 +1174,24 @@ local config = {
       vim.keymap.del("n", "gl")
       vim.keymap.set("n", "go", "go")
       vim.keymap.del("n", "go")
+
+      -- Lua
+      vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", { silent = true, noremap = true })
+      vim.api.nvim_set_keymap(
+        "n",
+        "<leader>xw",
+        "<cmd>Trouble workspace_diagnostics<cr>",
+        { silent = true, noremap = true }
+      )
+      vim.api.nvim_set_keymap(
+        "n",
+        "<leader>xd",
+        "<cmd>Trouble document_diagnostics<cr>",
+        { silent = true, noremap = true }
+      )
+      vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { silent = true, noremap = true })
+      vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { silent = true, noremap = true })
+      vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", { silent = true, noremap = true })
 
       -- if client.name == "pyright" then
       --   require("folding").on_attach()
