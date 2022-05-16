@@ -1123,6 +1123,8 @@ local config = {
       "clangd", -- requires a reasonably new version of glibc
       "cmake",
       "fortls",
+      -- "grammar_guard",
+      "ltex",
       "prosemd_lsp",
       "pylsp",
       -- "r_language_server", -- needs R in path
