@@ -2084,10 +2084,7 @@ return config
 
 -- Evaluate these plugins next (((
 
--- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
--- https://github.com/ggandor/leap.nvim
 -- https://github.com/mfussenegger/nvim-dap-python
--- use { "https://gitlab.com/yorickpeterse/nvim-dd", event = { "CursorHold" } }
 -- use { "mfussenegger/nvim-lint" }
 -- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
 -- use { "lewis6991/spellsitter.nvim" }
@@ -2130,6 +2127,7 @@ return config
 -- https://github.com/NMAC427/guess-indent.nvim
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
 -- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
+-- https://github.com/ggandor/leap.nvim
 -- use { "ggandor/lightspeed.nvim", requires = "tpope/vim-repeat", }
 -- use { "ldelossa/litee-calltree.nvim", requires = { "ldelossa/litee.nvim" } }
 -- https://github.com/lukas-reineke/lsp-format.nvim -- A wrapper around Neovims native LSP formatting
