@@ -2113,6 +2113,7 @@ return config
 -- https://github.com/ThePrimeagen/git-worktree.nvim
 -- use { "rmagatti/goto-preview", event = { "CursorHold" } }
 -- https://github.com/beauwilliams/focus.nvim
+-- https://github.com/pierreglaser/folding-nvim
 -- https://github.com/NMAC427/guess-indent.nvim
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
 -- use { "ggandor/lightspeed.nvim", requires = "tpope/vim-repeat", }
