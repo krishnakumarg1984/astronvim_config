@@ -296,7 +296,6 @@ local config = {
       {
         "p00f/clangd_extensions.nvim",
         ft = { "c", "cpp", "cuda" },
-        -- after = "nvim-lsp-installer",
         config = function()
           require("clangd_extensions").setup {
             server = {
@@ -312,7 +311,6 @@ local config = {
       },
       {
         "hrsh7th/cmp-emoji",
-        -- after = "nvim-cmp",
         ft = {
           "asciidoc",
           "changelog",
@@ -364,7 +362,6 @@ local config = {
       { "rebelot/kanagawa.nvim" },
       {
         "ray-x/lsp_signature.nvim",
-        -- after = "nvim-lspconfig",
         event = "InsertCharPre",
         config = function()
           local signature_config = {
