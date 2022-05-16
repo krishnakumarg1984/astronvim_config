@@ -251,6 +251,7 @@ local config = {
           "gitcommit",
           "Neogitcommit",
           "NeogitCommit",
+          "NeogitCommitMessage",
           "lsp_markdown",
           "mail",
           "markdown",
@@ -272,6 +273,7 @@ local config = {
           "gitcommit",
           "Neogitcommit",
           "NeogitCommit",
+          "NeogitCommitMessage",
           "lsp_markdown",
           "mail",
           "markdown",
@@ -319,6 +321,7 @@ local config = {
           "gitcommit",
           "Neogitcommit",
           "NeogitCommit",
+          "NeogitCommitMessage",
           "lsp_markdown",
           "mail",
           "markdown",
@@ -462,6 +465,7 @@ local config = {
               "gitcommit",
               "Neogitcommit",
               "NeogitCommit",
+              "NeogitCommitMessage",
               "gitrebase",
               "svn",
               "hgcommit",
@@ -1776,7 +1780,7 @@ local config = {
     autocmd FileType help nnoremap <buffer> <leader>Tn /\|.\zs\S\{-}\|/<cr>zz
 
     autocmd FileType help setlocal number relativenumber
-    autocmd FileType gitcommit,help,NeogitCommit setlocal nolist
+    autocmd FileType gitcommit,help,NeogitCommit,NeogitCommitMessage setlocal nolist
 
     " )))
 
@@ -1794,8 +1798,8 @@ local config = {
 
     autocmd FileType qf set nobuflisted
 
-    autocmd FileType asciidoc,changelog,context,gitcommit,NeogitCommit,lsp_markdown,mail,markdown,rst,rtf,tex,texinfo,text,txt setlocal spell
-    autocmd FileType gitcommit,NeogitCommit setlocal wrap textwidth=80
+    autocmd FileType asciidoc,changelog,context,gitcommit,NeogitCommit,NeogitCommitMessage,lsp_markdown,mail,markdown,rst,rtf,tex,texinfo,text,txt setlocal spell
+    autocmd FileType gitcommit,NeogitCommit,NeogitCommitMessage setlocal wrap textwidth=80
 
   augroup end
 
