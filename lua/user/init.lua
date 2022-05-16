@@ -296,11 +296,11 @@ local config = {
       {
         "p00f/clangd_extensions.nvim",
         ft = { "c", "cpp", "cuda" },
-        -- after = "nvim-cmp",
-        -- cmd = { "ClangdAST" },
+        -- after = "nvim-lsp-installer",
         config = function()
           require("clangd_extensions").setup {
             server = {
+              cmd = { vim.fn.stdpath "data" .. "/lsp_servers/clangd/clangd/bin/clangd" },
               capabilities = {
                 offsetEncoding = "utf-8",
                 memoryUsageProvider = true,
@@ -889,6 +889,7 @@ local config = {
 
     ["nvim-lsp-installer"] = {
       automatic_installation = true,
+      ensure_installed = { "clangd" },
     },
 
     -- )))
@@ -1161,14 +1162,11 @@ local config = {
     end,
 
     -- override the lsp installer server-registration function
-    -- server_registration = function(server, opts)
-    --   if server == "grammar_guard" then
-    --     require("grammar-guard").init()
-    --   end
-    --   -- if server ~= "ltex" then
-    --   require("lspconfig")[server].setup(opts)
-    --   -- end
-    -- end,
+    server_registration = function(server, opts)
+      if server ~= "clangd" then
+        require("lspconfig")[server].setup(opts)
+      end
+    end,
 
     -- Add overrides for LSP server settings, the keys are the name of the server
     ["server-settings"] = {
