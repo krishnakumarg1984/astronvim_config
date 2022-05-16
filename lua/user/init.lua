@@ -448,6 +448,15 @@ local config = {
       -- { "embear/vim-localvimrc" }, -- 3rd fastest among all local-rc plugins
       -- { "ii14/exrc.vim" }, -- slowest among all local-rc plugins
       {
+        "https://gitlab.com/yorickpeterse/nvim-dd", -- Deferring of NeoVim diagnostics
+        event = { "CursorHold" },
+        config = function()
+          require("dd").setup {
+            timeout = 1000, -- The time to wait before displaying newly produced diagnostics.
+          }
+        end,
+      },
+      {
         "kevinhwang91/nvim-hlslens",
         keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
         config = function()
