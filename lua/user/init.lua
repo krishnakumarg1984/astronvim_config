@@ -2124,6 +2124,7 @@ return config
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/NMAC427/guess-indent.nvim
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
+-- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
 -- use { "ggandor/lightspeed.nvim", requires = "tpope/vim-repeat", }
 -- use { "ldelossa/litee-calltree.nvim", requires = { "ldelossa/litee.nvim" } }
 -- https://github.com/lukas-reineke/lsp-format.nvim -- A wrapper around Neovims native LSP formatting
