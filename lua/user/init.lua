@@ -348,6 +348,12 @@ local config = {
       },
       { "gpanders/editorconfig.nvim" },
       {
+        "akinsho/git-conflict.nvim", -- A plugin to visualise and resolve merge conflicts in neovim
+        config = function()
+          require("git-conflict").setup()
+        end,
+      },
+      {
         "ellisonleao/glow.nvim",
         ft = { "markdown", "lsp_markdown", "rmd" },
         cmd = { "Glow", "GlowInstall" },
@@ -2061,8 +2067,6 @@ return config
 
 -- Evaluate these plugins next (((
 
--- https://github.com/pierreglaser/folding-nvim
--- https://github.com/akinsho/git-conflict.nvim -- A plugin to visualise and resolve merge conflicts in neovim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
 -- https://github.com/ggandor/leap.nvim
@@ -2145,6 +2149,8 @@ return config
 
 -- Other vimscript plugins (((
 
+-- https://github.com/rhysd/conflict-marker.vim
+-- https://github.com/whiteinge/diffconflicts
 -- use { "ii14/exrc.vim" } -- "jenterkin/vim-autosource", "embear/vim-localvimrc", "LucHermitte/local_vimrc", "thinca/vim-localrc"
 -- use { "Konfekt/FastFold" }
 -- https://github.com/iamcco/markdown-preview.nvim
