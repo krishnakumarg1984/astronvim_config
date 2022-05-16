@@ -1779,7 +1779,7 @@ local config = {
 
     -- Autogroups & Autocommands (lua-based) (((
 
-    -- Augroup for Alpha bindings (((
+    -- Autogroup for Alpha bindings (((
 
     vim.api.nvim_create_augroup("alpha_bindings", { clear = true })
     vim.api.nvim_create_autocmd("FileType", {
