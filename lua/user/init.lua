@@ -1395,6 +1395,9 @@ local config = {
               "Type annotation",
             },
           },
+          p = {
+            p = { "<cmd>PackerProfile<CR>", "Profile plugins" },
+          },
           q = { nil },
           s = {
             name = "Search/Set",
