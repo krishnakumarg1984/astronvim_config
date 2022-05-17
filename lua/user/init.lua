@@ -163,6 +163,7 @@ local config = {
         showbreak = "↪ ",
         signcolumn = "yes:1",
         softtabstop = 2, -- how many spaces to insert with tab key
+        -- spell = true,
         -- spelllang = "en_gb",
         report = 0, -- Threshold for reporting number of lines changed.
         updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
@@ -265,25 +266,25 @@ local config = {
       },
       {
         "dbmrq/vim-dialect",
-        ft = {
-          "asciidoc",
-          "changelog",
-          "context",
-          "DiffviewFiles",
-          "gitcommit",
-          "Neogitcommit",
-          "NeogitCommit",
-          "NeogitCommitMessage",
-          "lsp_markdown",
-          "mail",
-          "markdown",
-          "rst",
-          "rtf",
-          "tex",
-          "texinfo",
-          "text",
-          "txt",
-        },
+        -- ft = {
+        --   "asciidoc",
+        --   "changelog",
+        --   "context",
+        --   "DiffviewFiles",
+        --   "gitcommit",
+        --   "Neogitcommit",
+        --   "NeogitCommit",
+        --   "NeogitCommitMessage",
+        --   "lsp_markdown",
+        --   "mail",
+        --   "markdown",
+        --   "rst",
+        --   "rtf",
+        --   "tex",
+        --   "texinfo",
+        --   "text",
+        --   "txt",
+        -- },
       },
       {
         "andymass/vim-matchup",
@@ -549,6 +550,23 @@ local config = {
           require("trouble").setup {}
         end,
       },
+      -- {
+      --   "lewis6991/spellsitter.nvim",
+      --   config = function()
+      --     require("spellsitter").setup {
+      --       -- Whether enabled, can be a list of filetypes, e.g. {'python', 'lua'}
+      --       -- enable = true,
+      --     }
+      --   end,
+      -- },
+      -- {
+      --   "luukvbaal/stabilize.nvim",
+      --   config = function()
+      --     require("stabilize").setup {
+      --       nested = "QuickFixCmdPost,DiagnosticChanged *",
+      --     }
+      --   end,
+      -- },
 
       -- ))) -- ends "additional plugins"
     },
@@ -2123,9 +2141,6 @@ return config
 -- Evaluate these plugins next (((
 
 -- https://github.com/mfussenegger/nvim-dap-python
--- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
--- use { "lewis6991/spellsitter.nvim" }
--- use { "luukvbaal/stabilize.nvim" }
 -- https://github.com/gbprod/substitute.nvim
 -- use { "ur4ltz/surround.nvim" }
 -- https://github.com/abecodes/tabout.nvim
