@@ -907,6 +907,7 @@ local config = {
               emoji = "[Emoji]",
               latex_symbols = "[LaTeX]",
               look = "[Dict]",
+              git = "[Git]",
               luasnip = "[Snippet]",
               nuspell = "[Nuspell]",
               nvim_lsp = "[LSP]",
@@ -1283,7 +1284,7 @@ local config = {
       local cmp = require "cmp"
       local user_source = astronvim.get_user_cmp_source
       local git_sources = cmp.config.sources(
-        { user_source "cmp_git" },
+        { user_source "git" },
         { user_source(require("user.cmp_sources").buffer_source) }
       )
       return {
