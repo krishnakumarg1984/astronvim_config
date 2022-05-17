@@ -572,7 +572,11 @@ local config = {
         "kosayoda/nvim-lightbulb",
         event = { "CursorHold", "CursorHoldI" },
         config = function()
-          require("nvim-lightbulb").setup { autocmd = { enabled = true } }
+          require("nvim-lightbulb").setup {
+            sign = { enabled = false },
+            virtual_text = { enabled = true },
+            autocmd = { enabled = true },
+          }
         end,
       },
       {
