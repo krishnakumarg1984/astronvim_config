@@ -763,8 +763,10 @@ local config = {
           {
             filetype = "neo-tree",
             text = "File Explorer",
-            highlight = "Directory",
+            -- highlight = "Directory",
+            highlight = "NeoTreeNormalNC",
             text_align = "left",
+            padding = 1,
           },
         },
         custom_areas = {
