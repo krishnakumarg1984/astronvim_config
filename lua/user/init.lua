@@ -2239,7 +2239,6 @@ return config
 -- https://github.com/jamestthompson3/nvim-remote-containers  -- Develop inside docker containers, just like VSCode
 -- https://github.com/anufrievroman/vim-angry-reviewer
 -- use { "Konfekt/vim-sentence-chopper" }
--- https://github.com/Julian/vim-textobj-variable-segment -- vimscript plugin
 -- https://github.com/rcarriga/vim-ultest
 -- https://github.com/hoschi/yode-nvim
 -- https://github.com/jalvesaq/zotcite
@@ -2344,6 +2343,7 @@ return config
 -- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } } -- also a telescope extension
 -- https://github.com/marklcrns/vim-smartq
 -- https://github.com/svermeulen/vim-subversive
+-- https://github.com/Julian/vim-textobj-variable-segment
 -- use { "tweekmonster/wstrip.vim" }
 
 -- ))) end of 'other vimscript plugins'
