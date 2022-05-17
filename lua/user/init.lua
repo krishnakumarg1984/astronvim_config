@@ -2155,6 +2155,7 @@ return config
 -- use { "numtostr/BufOnly.nvim", cmd = { "BufOnly" } }
 -- use { "kwkarlwang/bufresize.nvim" }
 -- use { "kazhala/close-buffers.nvim", cmd = {} }
+-- https://github.com/Civitasv/cmake-tools.nvim
 -- use { "andersevenrud/cmp-tmux" }
 -- https://github.com/monaqa/dial.nvim
 -- https://github.com/narutoxy/dim.lua
@@ -2169,6 +2170,7 @@ return config
 -- use { "rmagatti/goto-preview", event = { "CursorHold" } }
 -- https://github.com/beauwilliams/focus.nvim
 -- https://github.com/pierreglaser/folding-nvim
+-- https://github.com/kalvinpearce/gitignore-gen.nvim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/NMAC427/guess-indent.nvim
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
@@ -2176,6 +2178,7 @@ return config
 -- https://github.com/ggandor/leap.nvim
 -- use { "ggandor/lightspeed.nvim", requires = "tpope/vim-repeat", }
 -- use { "ldelossa/litee-calltree.nvim", requires = { "ldelossa/litee.nvim" } }
+-- https://github.com/mbpowers/lorem-nvim
 -- https://github.com/lukas-reineke/lsp-format.nvim -- A wrapper around Neovims native LSP formatting
 -- use { "onsails/lspkind-nvim" }
 -- https://git.sr.ht/~whynothugo/lsp_lines.nvim
@@ -2186,8 +2189,10 @@ return config
 -- https://github.com/miversen33/netman.nvim -- Neovim (Lua powered) Network File Manager
 -- https://github.com/nacro90/numb.nvim
 -- use { "kevinhwang91/nvim-bqf", ft = "qf", event = { "CursorHold" } }
+-- https://github.com/ojroques/nvim-bufdel
 -- https://github.com/s1n7ax/nvim-comment-frame  -- Detects the language using treesitter and adds a comment block
 -- https://github.com/booperlv/nvim-gomove
+-- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
 -- https://github.com/bennypowers/nvim-regexplainer
 -- use { "petertriho/nvim-scrollbar" }
 -- https://github.com/dstein64/nvim-scrollview
