@@ -1874,10 +1874,6 @@ local config = {
 
     set tags=~/.cache/tags
 
-    set foldexpr=nvim_treesitter#foldexpr()
-    " https://www.reddit.com/r/neovim/comments/seq0q1/plugin_request_autofolding_file_imports_using/
-    " set foldexpr=v:lnum==1?'>1':getline(v:lnum)=~'import'?1:nvim_treesitter#foldexpr()
-
     ]]
 
     -- )))
@@ -2199,19 +2195,6 @@ local config = {
     -- end, { desc = "Search all files" })
     --
     -- -- )))
-
-    -- Remove some keymaps set by 'cinnamon.nvim' (((
-
-    vim.keymap.set("n", "<C-o>", "<C-o>")
-    vim.keymap.del("n", "<C-o>")
-    vim.keymap.set("n", "<C-i>", "<C-i>")
-    vim.keymap.del("n", "<C-i>")
-    vim.keymap.set({ "n", "x" }, "gg", "gg")
-    vim.keymap.del({ "n", "x" }, "gg")
-    vim.keymap.set({ "n", "x" }, "G", "G")
-    vim.keymap.del({ "n", "x" }, "G")
-
-    -- )))
 
     -- ))) end of plugin keybindings (lua-based) fold
 
