@@ -547,7 +547,9 @@ local config = {
         keys = { "\\xx", "\\xw", "\\xd", "\\xq", "\\xl" },
         cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
         config = function()
-          require("trouble").setup {}
+          require("trouble").setup {
+            mode = "document_diagnostics",
+          }
         end,
       },
       -- {
@@ -1199,23 +1201,12 @@ local config = {
       vim.keymap.set("n", "go", "go")
       vim.keymap.del("n", "go")
 
-      -- Lua
-      vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>", { silent = true, noremap = true })
-      vim.api.nvim_set_keymap(
-        "n",
-        "<leader>xw",
-        "<cmd>Trouble workspace_diagnostics<cr>",
-        { silent = true, noremap = true }
-      )
-      vim.api.nvim_set_keymap(
-        "n",
-        "<leader>xd",
-        "<cmd>Trouble document_diagnostics<cr>",
-        { silent = true, noremap = true }
-      )
-      vim.api.nvim_set_keymap("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { silent = true, noremap = true })
-      vim.api.nvim_set_keymap("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { silent = true, noremap = true })
-      vim.api.nvim_set_keymap("n", "gR", "<cmd>Trouble lsp_references<cr>", { silent = true, noremap = true })
+      vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>")
+      vim.keymap.set("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>")
+      vim.keymap.set("n", "<leader>xw", "<cmd>Trouble document_diagnostics<cr>")
+      vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>")
+      vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>")
+      vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>")
 
       -- if client.name == "pyright" then
       --   require("folding").on_attach()
