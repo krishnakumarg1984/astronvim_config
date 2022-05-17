@@ -70,8 +70,12 @@ local config = {
 
   -- )))
 
-  -- colorscheme = "default_theme",  -- set colorscheme
-  colorscheme = "kanagawa", -- set colorscheme
+  -- set colorscheme (((
+
+  -- colorscheme = "default_theme",
+  colorscheme = "kanagawa",
+
+  -- )))
 
   -- Set vim options in this lua function (((
 
