@@ -1222,7 +1222,7 @@ local config = {
 
     -- Add overrides for LSP server settings, the keys are the name of the server
     ["server-settings"] = {
-      -- example for addings schemas to yamlls
+      -- example for adding schemas to yamlls
       -- yamlls = {
       --   settings = {
       --     yaml = {
