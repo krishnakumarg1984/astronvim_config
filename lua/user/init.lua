@@ -306,7 +306,7 @@ local config = {
       },
       {
         "andymass/vim-matchup",
-        -- ft = { "abaqus", "ada", "aspvbs", "bash", "c", "cpp", "chicken", "clojure", "cmake", "cobol", "context", "csc", "csh", "dtd", "dtrace", "eiffel", "eruby", "falcon", "fortran", "framescript", "haml", "hamster", "hog", "html", "ishd", "j", "javascript", "javascriptreact", "jsp", "kconfig", "liquid", "lua", "m3quake", "make", "matlab", "mf", "modula2", "modula3", "mp", "nsis", "ocaml", "pascal", "pdf", "perl", "php", "plaintex", "postscr", "ruby", "sh", "spec", "sql", "tex", "typescriptreact", "vb", "verilog", "vhdl", "vim", "xhtml", "xml", "zimbu", "zsh", },
+        after = "nvim-treesitter",
       },
       { "tpope/vim-unimpaired", keys = { "[", "]" } }, -- e (exchange), ob (background), oc (cursorline), od (diff), oh (hlsearch), oi (ignorecase), ol (list), on (number), or (relativenumber), os (spell), ot (colorcolumn), ou (cursorcolumn), ov (virtualedit), ow (wrap), ox (cursorline cursorcolumn), u (encode/decode urls), y (C-string style escaping), n (conflict marker), a (args), b (buffers), l (location), q (quickfix), t (tag), >p Paste after linewise, increasing indent, >P (Paste before linewise, increasing indent), <p (Paste after linewise, decreasing indent), <P (Paste before linewise, decreasing indent), =p (Paste after linewise, reindenting), =P (Paste before linewise, reindenting), x<motion> (xml encode/decode)
       { "lervag/vimtex", ft = "tex" },
