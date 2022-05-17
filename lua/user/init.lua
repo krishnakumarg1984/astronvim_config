@@ -349,12 +349,12 @@ local config = {
         end,
       },
       { "gpanders/editorconfig.nvim" },
-      {
-        "akinsho/git-conflict.nvim", -- A plugin to visualise and resolve merge conflicts in neovim
-        config = function()
-          require("git-conflict").setup()
-        end,
-      },
+      -- {
+      --   "akinsho/git-conflict.nvim", -- A plugin to visualise and resolve merge conflicts in neovim
+      --   config = function()
+      --     require("git-conflict").setup()
+      --   end,
+      -- },
       {
         "ellisonleao/glow.nvim",
         ft = { "markdown", "lsp_markdown", "rmd" },
