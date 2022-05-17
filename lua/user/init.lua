@@ -244,20 +244,11 @@ local config = {
     init = {
       -- Disable/modify AstroNvim built-in plugins (((
 
-      -- https://github.com/AstroNvim/AstroNvim/issues/406
       ["max397574/better-escape.nvim"] = { disable = true },
+      ["norcalli/nvim-colorizer.lua"] = { event = { nil }, ft = { "html", "javascript", "css" } },
       ["rcarriga/nvim-notify"] = { disable = true },
-      ["p00f/nvim-ts-rainbow"] = { disable = true },
-      ["norcalli/nvim-colorizer.lua"] = {
-        -- disable = true
-        event = { nil },
-        ft = { "html", "javascript", "css" },
-      },
-      ["Darazaki/indent-o-matic"] = {
-        keys = { "1", "2", "3", "4", "5", "6", "7", "8", "9", ">", "=", "<" },
-        event = "InsertCharPre",
-      },
       ["windwp/nvim-ts-autotag"] = { after = { nil }, ft = { "html", "vue", "php" } },
+      ["p00f/nvim-ts-rainbow"] = { disable = true },
 
       -- )))
 
