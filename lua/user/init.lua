@@ -416,6 +416,7 @@ local config = {
       },
       {
         "echasnovski/mini.nvim",
+        -- event = "VimEnter",
         keys = { "sa", "sd", "sr" },
         config = function()
           require("mini.surround").setup()
