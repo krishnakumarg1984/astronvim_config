@@ -378,6 +378,25 @@ local config = {
         ft = { "markdown", "lsp_markdown", "rmd" },
         cmd = { "Glow", "GlowInstall" },
       },
+      ["lukas-reineke/headlines.nvim"] = {
+        ft = { "lsp_markdown", "markdown", "rmd" },
+        config = function()
+          require("headlines").setup {
+            -- markdown = {
+            --   headline_highlights = { "DiagnosticVirtualTextInfo" },
+            --   dash_string = "―",
+            -- },
+            -- lsp_markdown = {
+            --   headline_highlights = { "DiagnosticVirtualTextInfo" },
+            --   dash_string = "―",
+            -- },
+            -- rmd = {
+            --   headline_highlights = { "DiagnosticVirtualTextInfo" },
+            --   dash_string = "―",
+            -- },
+          }
+        end,
+      },
       { "rebelot/kanagawa.nvim" },
       {
         "ray-x/lsp_signature.nvim",
