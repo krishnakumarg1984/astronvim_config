@@ -151,8 +151,10 @@ local config = {
         -- All other lua-based options (((
 
         clipboard = "",
+        conceallevel = 2,
         confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
         cursorlineopt = "number",
+        foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
         foldmethod = "expr",
         guifont = "monospace:h17", -- the font used in graphical neovim applications
         history = 10000,
