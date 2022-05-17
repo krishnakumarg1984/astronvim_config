@@ -1507,6 +1507,7 @@ local config = {
             q = { "<cmd>Telescope quickfix<cr>", "Quickfix" },
             R = { "<cmd>Telescope resume<cr>", "Resume Last" },
             s = { "<cmd>Telescope treesitter<cr>", "Outline Symbols (from treesitter)" },
+            S = { "<cmd>Telescope luasnip<cr>", "Code Snippets" },
             t = { "<cmd>Telescope tags<cr>", "Tags in Project" },
             T = { "<cmd>Telescope tagstack<cr>", "Tagstack" },
             v = { "<cmd>Telescope vim_options<cr>", "Vim Options" },
