@@ -996,6 +996,7 @@ local config = {
         diagnostics.vint,
         diagnostics.write_good,
         diagnostics.yamllint,
+        null_ls.builtins.hover.dictionary,
       }
       -- set up null-ls's on_attach function
       config.on_attach = function(client)
