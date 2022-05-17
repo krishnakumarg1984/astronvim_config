@@ -330,19 +330,7 @@ local config = {
       },
       ["hrsh7th/cmp-buffer"] = {
         config = function()
-          astronvim.add_user_cmp_source {
-            name = "buffer",
-            priority = 500,
-            option = {
-              get_bufnrs = function()
-                local bufs = {}
-                for _, win in ipairs(vim.api.nvim_list_wins()) do
-                  bufs[vim.api.nvim_win_get_buf(win)] = true
-                end
-                return vim.tbl_keys(bufs)
-              end,
-            },
-          }
+          astronvim.add_user_cmp_source(require("user.cmp_sources").buffer_source)
         end,
       },
       {
@@ -369,6 +357,16 @@ local config = {
         -- event = { "InsertCharPre" },
         config = function()
           astronvim.add_user_cmp_source "emoji"
+        end,
+      },
+      ["petertriho/cmp-git"] = {
+        after = "nvim-cmp",
+        config = function()
+          require("cmp_git").setup {
+            -- other defaults
+            filetypes = { "gitcommit", "octo", "NeogitCommitMessage" },
+          }
+          astronvim.add_user_cmp_source "git"
         end,
       },
       {
@@ -1272,6 +1270,7 @@ local config = {
   cmp = {
     source_priority = {
       luasnip = 1000,
+      git = 900,
       nvim_lsp = 750,
       nvim_lsp_signature_help = 700,
       pandoc_references = 600,
@@ -1280,6 +1279,35 @@ local config = {
       emoji = 200,
       dictionary = 150,
     },
+    setup = function()
+      local cmp = require "cmp"
+      local user_source = astronvim.get_user_cmp_source
+      local git_sources = cmp.config.sources(
+        { user_source "cmp_git" },
+        { user_source(require("user.cmp_sources").buffer_source) }
+      )
+      return {
+        filetype = {
+          gitcommit = { sources = git_sources },
+          NeogitCommitMessage = { sources = git_sources },
+          -- lua = {
+          --   sources = {
+          --     user_source "lsp",
+          --   },
+          -- },
+        },
+        -- cmd = {
+        --   [":"] = {
+        --     mapping = cmp.mapping.preset.cmdline(),
+        --     sources = cmp.config.sources({
+        --       user_source "path",
+        --     }, {
+        --       user_source "cmd",
+        --     }),
+        --   },
+        -- },
+      }
+    end,
   },
 
   -- )))
