@@ -422,10 +422,33 @@ local config = {
           require("mini.surround").setup()
         end,
       },
-      {
-        "danymat/neogen", -- A better annotation generator. Supports multiple languages and annotation conventions
+      ["danymat/neogen"] = { -- A better annotation generator. Supports multiple languages and annotation conventions
         config = function()
-          require("neogen").setup { snippet_engine = "luasnip" }
+          require("neogen").setup {
+            snippet_engine = "luasnip",
+            languages = {
+              ruby = {
+                template = {
+                  annotation_convention = "tomdoc",
+                },
+              },
+              python = {
+                template = {
+                  annotation_convention = "google_docstrings",
+                },
+              },
+              typescript = {
+                template = {
+                  annotation_convention = "tsdoc",
+                },
+              },
+              typescriptreact = {
+                template = {
+                  annotation_convention = "tsdoc",
+                },
+              },
+            },
+          }
         end,
         cmd = { "Neogen", "Neogen func", "Neogen class", "Neogen file", "Neogen type" },
       },
