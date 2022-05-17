@@ -966,7 +966,7 @@ local config = {
 
     -- )))
 
-    -- Configuration of 'null-ls' (((
+    -- 'null-ls' configuration (((
 
     ["null-ls"] = function(config)
       -- Formatting and linting
