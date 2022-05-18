@@ -412,7 +412,10 @@ local config = {
       { "rebelot/kanagawa.nvim" },
       {
         "ray-x/lsp_signature.nvim",
-        event = "InsertCharPre",
+        -- after = "nvim-cmp",
+        -- event = "InsertCharPre",
+        -- event = "InsertEnter",
+        event = "BufRead",
         config = function()
           local signature_config = {
             -- log_path = vim.fn.expand "$HOME" .. "/tmp/sig.log",
