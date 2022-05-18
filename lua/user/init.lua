@@ -2346,6 +2346,7 @@ return config
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
 -- https://github.com/hkupty/iron.nvim
 -- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
+-- https://github.com/matbme/JABS.nvim
 -- https://github.com/ggandor/leap.nvim
 -- use { "ggandor/lightspeed.nvim", requires = "tpope/vim-repeat", }
 -- use { "ldelossa/litee-calltree.nvim", requires = { "ldelossa/litee.nvim" } }
