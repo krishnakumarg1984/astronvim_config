@@ -352,7 +352,6 @@ local config = {
           "text",
           "txt",
         },
-        -- event = { "InsertCharPre" },
         config = function()
           astronvim.add_user_cmp_source "emoji"
         end,
