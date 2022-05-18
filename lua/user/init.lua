@@ -259,6 +259,7 @@ local config = {
       -- { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
       -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
       { "tyru/capture.vim", cmd = { "Capture" } },
+      ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } },
       { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
       { "jeffkreeftmeijer/vim-numbertoggle", event = { "InsertEnter", "FocusLost" } },
       {
