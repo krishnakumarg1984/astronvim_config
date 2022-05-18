@@ -1134,7 +1134,7 @@ local config = {
       },
       highlight = {
         use_languagetree = true,
-        disable = { "latex" },
+        disable = { "css", "latex" },
       },
       context_commentstring = {
         config = {
