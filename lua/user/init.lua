@@ -260,7 +260,7 @@ local config = {
       -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
       { "tyru/capture.vim", cmd = { "Capture" } },
       { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
-      -- { "jeffkreeftmeijer/vim-numbertoggle", event = { "InsertEnter", "FocusLost" } },
+      { "jeffkreeftmeijer/vim-numbertoggle", event = { "InsertEnter", "FocusLost" } },
       {
         "Konfekt/vim-DetectSpellLang",
         ft = {
