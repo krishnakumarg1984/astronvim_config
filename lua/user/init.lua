@@ -463,7 +463,6 @@ local config = {
             },
           }
         end,
-        cmd = { "Neogen", "Neogen func", "Neogen class", "Neogen file", "Neogen type" },
       },
       {
         "TimUntersberger/neogit",
