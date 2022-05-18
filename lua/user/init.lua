@@ -826,6 +826,7 @@ local config = {
             return result
           end,
         },
+        themable = true,
       },
     },
 
