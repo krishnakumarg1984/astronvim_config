@@ -588,6 +588,10 @@ local config = {
         "nvim-treesitter/nvim-treesitter-textobjects",
         after = "nvim-treesitter",
       },
+      {
+        "RRethy/nvim-treesitter-textsubjects",
+        after = "nvim-treesitter",
+      },
       -- {
       --   "s1n7ax/nvim-window-picker",
       --   tag = 'v1.*',
@@ -1248,6 +1252,15 @@ local config = {
         enable = true, -- mandatory, false will disable the whole extension
         -- disable = { "c", "ruby" }, -- optional, list of language that will be disabled
         -- [options]
+      },
+      textsubjects = {
+        enable = true,
+        prev_selection = ",", -- (Optional) keymap to select the previous selection
+        keymaps = {
+          ["."] = "textsubjects-smart",
+          [";"] = "textsubjects-container-outer",
+          ["i;"] = "textsubjects-container-inner",
+        },
       },
     },
 
