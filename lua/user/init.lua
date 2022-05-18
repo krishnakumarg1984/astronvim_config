@@ -933,6 +933,15 @@ local config = {
 
     -- )))
 
+    -- 'feline' override setup() (((
+
+    feline = function(config)
+      table.insert(config.components.active[1], { provider = vim.g.currentContainer, icon = "  " })
+      return config
+    end,
+
+    -- )))
+
     -- 'gitsigns' override setup() (((
 
     gitsigns = {
