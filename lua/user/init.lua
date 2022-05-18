@@ -1182,8 +1182,8 @@ local config = {
             -- You can use the capture groups defined in textobjects.scm
             ["af"] = "@function.outer",
             ["if"] = "@function.inner",
-            ["ax"] = "@class.outer",
-            ["ix"] = "@class.inner",
+            ["ac"] = "@class.outer",
+            ["ic"] = "@class.inner",
           },
         },
         swap = {
@@ -1199,20 +1199,20 @@ local config = {
           enable = true,
           set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
-            ["]f"] = "@function.outer", -- "m" for method
-            ["]x"] = "@class.outer",
+            ["]m"] = "@function.outer", -- "m" for method
+            ["]]"] = "@class.outer",
           },
           goto_next_end = {
-            ["]F"] = "@function.outer",
-            ["]X"] = "@class.outer",
+            ["]M"] = "@function.outer",
+            ["]["] = "@class.outer",
           },
           goto_previous_start = {
-            ["[f"] = "@function.outer",
-            ["[x"] = "@class.outer",
+            ["[m"] = "@function.outer",
+            ["[["] = "@class.outer",
           },
           goto_previous_end = {
-            ["[F"] = "@function.outer",
-            ["[X"] = "@class.outer",
+            ["[M"] = "@function.outer",
+            ["[]"] = "@class.outer",
           },
         },
         lsp_interop = {
