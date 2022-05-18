@@ -1385,7 +1385,7 @@ local config = {
           vim.diagnostic.hide()
         end
       end
-      vim.keymap.set("n", "<leader>lt", toggle_diagnostics, "Toggle diagnostics")
+      vim.keymap.set("n", "<leader>lt", toggle_diagnostics, { buffer = bufnr, desc = "Toggle diagnostics" })
 
       -- if client.name == "pyright" then
       --   require("folding").on_attach()
