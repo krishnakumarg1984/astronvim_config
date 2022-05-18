@@ -581,6 +581,7 @@ local config = {
         "mfussenegger/nvim-lint",
         module = "lint",
       },
+      -- { "jamestthompson3/nvim-remote-containers" },
       {
         "romgrk/nvim-treesitter-context",
         after = "nvim-treesitter", -- this is a separate plugin, which requires a separate configuration
