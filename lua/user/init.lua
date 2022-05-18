@@ -2316,6 +2316,7 @@ return config
 
 -- Other lua plugins (((
 
+-- https://github.com/0styx0/abbreinder.nvim
 -- https://github.com/rmagatti/auto-session
 -- https://github.com/jceb/blinds.nvim
 -- use { "numtostr/BufOnly.nvim", cmd = { "BufOnly" } }
@@ -2329,6 +2330,7 @@ return config
 -- https://github.com/elihunter173/dirbuf.nvim
 -- https://github.com/chipsenkbeil/distant.nvim  -- Edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
 -- use { "stevearc/dressing.nvim" }
+-- https://github.com/NFrid/due.nvim
 -- use { "j-hui/fidget.nvim" }
 -- https://github.com/Furkanzmc/firvish.nvim
 -- https://github.com/ruifm/gitlinker.nvim
@@ -2339,6 +2341,7 @@ return config
 -- https://github.com/kalvinpearce/gitignore-gen.nvim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/NMAC427/guess-indent.nvim
+-- https://github.com/m-demare/hlargs.nvim
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
 -- https://github.com/hkupty/iron.nvim
 -- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
@@ -2370,6 +2373,7 @@ return config
 -- https://github.com/rlane/pounce.nvim
 -- https://github.com/filipdutescu/renamer.nvim
 -- https://github.com/rmagatti/session-lens
+-- https://github.com/sunjon/Shade.nvim
 -- https://github.com/gbprod/substitute.nvim
 -- use { "ur4ltz/surround.nvim" }
 -- use { "nvim-telescope/telescope-media-files.nvim" }
@@ -2441,7 +2445,7 @@ return config
 
 Personal wiki/notes
 -------------------
-https://github.com/mickael-menu/zk + https://github.com/mickael-menu/zk-nvim  (others: https://github.com/terror/zk, https://github.com/sirupsen/zk)
+https://github.com/mickael-menu/zk + https://github.com/mickael-menu/zk-nvim  (others: https://github.com/terror/zk, https://github.com/sirupsen/zk, https://github.com/renerocksai/telekasten.nvim)
 https://github.com/xwmx/nb
 mkdocs material
 zeta-note (markdown lsp server)
@@ -2465,6 +2469,7 @@ Timewarrior
 Other proprietary systems
 -------------------------
 google keep (proprietary)
+https://github.com/stevearc/gkeep.nvim
 ]]
 
 -- )))
