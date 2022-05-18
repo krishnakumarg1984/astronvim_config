@@ -497,12 +497,12 @@ local config = {
         cmd = "CodeActionMenu",
       },
       {
-        "klen/nvim-config-local",
+        "klen/nvim-config-local", -- fastest among all local-rc plugins
         tag = "1.1.1",
         config = function()
           require("config-local").setup {}
         end,
-      }, -- fastest among all local-rc plugins
+      },
       -- { "jenterkin/vim-autosource" }, -- 2nd fastest among all local-rc plugins
       -- { "embear/vim-localvimrc" }, -- 3rd fastest among all local-rc plugins
       -- { "ii14/exrc.vim" }, -- slowest among all local-rc plugins
