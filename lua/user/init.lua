@@ -391,6 +391,7 @@ local config = {
         ft = { "markdown", "lsp_markdown", "rmd" },
         cmd = { "Glow", "GlowInstall" },
       },
+      -- ["JASONews/glow-hover"] = { after = "nvim-lsp-installer" },
       ["lukas-reineke/headlines.nvim"] = {
         ft = { "lsp_markdown", "markdown", "rmd" },
         config = function()
