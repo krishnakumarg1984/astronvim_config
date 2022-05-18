@@ -511,7 +511,7 @@ local config = {
         event = { "CursorHold" },
         config = function()
           require("dd").setup {
-            timeout = 500, -- The time to wait before displaying newly produced diagnostics.
+            timeout = 600, -- The time to wait before displaying newly produced diagnostics.
           }
         end,
       },
