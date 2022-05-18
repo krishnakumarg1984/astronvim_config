@@ -171,6 +171,7 @@ local config = {
         softtabstop = 2, -- how many spaces to insert with tab key
         -- spell = true,
         -- spelllang = "en_gb",
+        synmaxcol = 300,
         report = 0, -- Threshold for reporting number of lines changed.
         updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
         winaltkeys = "no",
