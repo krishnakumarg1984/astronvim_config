@@ -490,21 +490,6 @@ local config = {
       --   end,
       -- },
       {
-        "nkakouros-original/numbers.nvim",
-        event = "InsertCharPre",
-        config = function()
-          require("numbers").setup {
-            excluded_filetypes = {
-              "alpha",
-              "TelescopePrompt",
-              "TelescopeResults",
-              "nerdtree",
-              "unite",
-            },
-          }
-        end,
-      },
-      {
         "weilbith/nvim-code-action-menu",
         cmd = "CodeActionMenu",
       },
