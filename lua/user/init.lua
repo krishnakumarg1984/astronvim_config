@@ -386,11 +386,7 @@ local config = {
       --     require("git-conflict").setup()
       --   end,
       -- },
-      {
-        "ellisonleao/glow.nvim",
-        ft = { "markdown", "lsp_markdown", "rmd" },
-        cmd = { "Glow", "GlowInstall" },
-      },
+      { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
       -- ["JASONews/glow-hover"] = { after = "nvim-lsp-installer" },
       ["lukas-reineke/headlines.nvim"] = {
         ft = { "lsp_markdown", "markdown", "rmd" },
@@ -494,10 +490,7 @@ local config = {
       --     require("cmake").setup({})
       --   end,
       -- },
-      {
-        "weilbith/nvim-code-action-menu",
-        cmd = "CodeActionMenu",
-      },
+      { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
       {
         "klen/nvim-config-local", -- fastest among all local-rc plugins
         tag = "1.1.1",
@@ -564,10 +557,7 @@ local config = {
           }
         end,
       },
-      {
-        "mfussenegger/nvim-lint",
-        module = "lint",
-      },
+      { "mfussenegger/nvim-lint", module = "lint" },
       -- { "jamestthompson3/nvim-remote-containers" },
       {
         "romgrk/nvim-treesitter-context",
@@ -576,22 +566,10 @@ local config = {
           require("treesitter-context").setup {}
         end,
       },
-      {
-        "eddiebergman/nvim-treesitter-pyfold",
-        ft = "python",
-      },
-      {
-        "nvim-treesitter/nvim-treesitter-refactor",
-        after = "nvim-treesitter",
-      },
-      {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        after = "nvim-treesitter",
-      },
-      {
-        "RRethy/nvim-treesitter-textsubjects",
-        after = "nvim-treesitter",
-      },
+      { "eddiebergman/nvim-treesitter-pyfold", ft = "python" },
+      { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
+      { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
+      { "RRethy/nvim-treesitter-textsubjects", after = "nvim-treesitter" },
       -- {
       --   "s1n7ax/nvim-window-picker",
       --   tag = 'v1.*',
