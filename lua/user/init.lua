@@ -163,7 +163,7 @@ local config = {
         iskeyword = vim.opt.iskeyword + { "-" },
         lazyredraw = true, -- Don't redraw the screen during batch execution
         list = true,
-        listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
+        listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
         -- listchars = { tab = "▸", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
         pumwidth = 35,
         showbreak = "↪ ",
