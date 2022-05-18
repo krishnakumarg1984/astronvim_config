@@ -435,6 +435,7 @@ local config = {
           require("mini.surround").setup()
         end,
       },
+      ["jbyuki/nabla.nvim"] = { ft = { "text", "markdown", "rmd", "lsp_markdown", "tex" } },
       ["danymat/neogen"] = { -- A better annotation generator. Supports multiple languages and annotation conventions
         cmd = { "Neogen", "Neogen func", "Neogen class", "Neogen file", "Neogen type" },
         config = function()
@@ -1560,6 +1561,7 @@ local config = {
               "Workspace Symbols",
             },
           },
+          N = { "<cmd>lua require('nabla').popup()<CR>", "Scientific preview" },
           n = {
             name = "Neogen annotation",
             c = {
