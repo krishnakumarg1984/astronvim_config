@@ -435,6 +435,7 @@ local config = {
         end,
       },
       ["danymat/neogen"] = { -- A better annotation generator. Supports multiple languages and annotation conventions
+        cmd = { "Neogen", "Neogen func", "Neogen class", "Neogen file", "Neogen type" },
         config = function()
           require("neogen").setup {
             snippet_engine = "luasnip",
