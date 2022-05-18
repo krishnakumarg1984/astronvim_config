@@ -2304,17 +2304,7 @@ return config
 
 -- ))) -- end of 'config' fold
 
--- Evaluate these plugins next (((
-
--- https://github.com/mfussenegger/nvim-dap-python
--- https://github.com/jamestthompson3/nvim-remote-containers  -- Develop inside docker containers, just like VSCode
--- https://github.com/anufrievroman/vim-angry-reviewer
--- use { "Konfekt/vim-sentence-chopper" }
--- https://github.com/rcarriga/vim-ultest
--- https://github.com/hoschi/yode-nvim
--- https://github.com/jalvesaq/zotcite
-
--- ))) end of 'next_plugins' fold
+-- Other plugins to consider (((
 
 -- Other lua plugins (((
 
@@ -2360,6 +2350,7 @@ return config
 -- use { "kevinhwang91/nvim-bqf", ft = "qf", event = { "CursorHold" } }
 -- https://github.com/ojroques/nvim-bufdel
 -- https://github.com/s1n7ax/nvim-comment-frame  -- Detects the language using treesitter and adds a comment block
+-- https://github.com/mfussenegger/nvim-dap-python
 -- https://github.com/booperlv/nvim-gomove
 -- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
 -- https://github.com/bennypowers/nvim-regexplainer
@@ -2380,8 +2371,10 @@ return config
 -- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
 -- https://github.com/David-Kunz/treesitter-unit/
 -- use { "folke/twilight.nvim", cmd = { "ZenMode", "Twilight", "TwilightEnable" } }
+-- https://github.com/rcarriga/vim-ultest
 -- https://github.com/jubnzv/virtual-types.nvim  -- A Neovim plugin that shows type annotations as virtual text
 -- https://github.com/sindrets/winshift.nvim
+-- https://github.com/hoschi/yode-nvim
 -- use { "folke/zen-mode.nvim", cmd = "ZenMode" }
 
 -- ))) end of 'other lua plugins' fold
@@ -2399,6 +2392,7 @@ return config
 -- https://github.com/kamykn/spelunker.vim
 -- use { "wellle/targets.vim" }
 -- use { "mg979/tasks.vim" }
+-- https://github.com/anufrievroman/vim-angry-reviewer
 -- https://github.com/tpope/vim-apathy
 -- https://github.com/foosoft/vim-argwrap
 -- use { "wsdjeg/vim-assembly" }
@@ -2412,13 +2406,26 @@ return config
 -- https://github.com/ojroques/vim-oscyank
 -- https://github.com/4513ECHO/vim-readme-viewer
 -- use { "urbainvaes/vim-ripple" }
+-- use { "Konfekt/vim-sentence-chopper" }
 -- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } } -- also a telescope extension
 -- https://github.com/marklcrns/vim-smartq
 -- https://github.com/svermeulen/vim-subversive
 -- https://github.com/Julian/vim-textobj-variable-segment
 -- use { "tweekmonster/wstrip.vim" }
+-- https://github.com/jalvesaq/zotcite
 
 -- ))) end of 'other vimscript plugins'
+
+-- ipython/jupyter vim plugins (((
+
+-- "jupyter-vim/jupyter-vim"
+-- "untitled-ai/jupyter_ascending"
+-- "goerz/jupytext.vim"
+-- { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' } -- need to set up mappings
+-- "bfredl/nvim-ipy"
+-- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } }
+
+-- )))
 
 -- Note-taking systems, Documentation generators, to-do systems (((
 
@@ -2453,14 +2460,5 @@ google keep (proprietary)
 ]]
 
 -- )))
-
--- ipython/jupyter vim plugins (((
-
--- "jupyter-vim/jupyter-vim"
--- "untitled-ai/jupyter_ascending"
--- "goerz/jupytext.vim"
--- { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' } -- need to set up mappings
--- "bfredl/nvim-ipy"
--- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } }
 
 -- )))
