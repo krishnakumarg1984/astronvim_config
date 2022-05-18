@@ -792,7 +792,7 @@ local config = {
         offsets = {
           {
             filetype = "neo-tree",
-            text = "File Explorer",
+            text = " File Explorer",
             -- highlight = "Directory",
             highlight = "NeoTreeNormalNC",
             text_align = "left",
