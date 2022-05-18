@@ -634,9 +634,6 @@ local config = {
       },
       {
         "folke/trouble.nvim",
-        -- ft = { "c", "cpp", "cuda", "fortran", "lua", "rust" }
-        -- keys = { "<leader>xx", "<leader>xw", "<leader>xd", "<leader>xq", "<leader>xl" },
-        keys = { "\\xx", "\\xw", "\\xd", "\\xq", "\\xl" },
         cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
         config = function()
           require("trouble").setup {
@@ -1389,12 +1386,16 @@ local config = {
       vim.keymap.set("n", "gl", "gl")
       vim.keymap.del("n", "gl")
 
+      -- 'trouble.nvim' keymaps (((
+
       vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>")
       vim.keymap.set("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>")
-      vim.keymap.set("n", "<leader>xw", "<cmd>Trouble document_diagnostics<cr>")
+      vim.keymap.set("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>")
       vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>")
       vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>")
       vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>")
+
+      -- )))
 
       -- https://www.reddit.com/r/neovim/comments/uri2p4/comment/i8ydfti/?utm_source=share&utm_medium=web2x&context=3
       local diagnostics_active = true
