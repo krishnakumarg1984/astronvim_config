@@ -1211,12 +1211,8 @@ local config = {
         },
         swap = {
           enable = true,
-          swap_next = {
-            ["<leader><leader>a"] = "@parameter.inner",
-          },
-          swap_previous = {
-            ["<leader><leader>A"] = "@parameter.inner",
-          },
+          swap_next = { ["<leader><leader>a"] = "@parameter.inner" }, -- https://www.reddit.com/r/neovim/comments/tlkieq/swapping_objects_with_nvimtreesittertextobjects/?sort=old
+          swap_previous = { ["<leader><leader>A"] = "@parameter.inner" },
         },
         move = {
           enable = true,
