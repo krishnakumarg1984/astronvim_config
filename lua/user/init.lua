@@ -1098,6 +1098,8 @@ local config = {
 
     -- )))
 
+    -- ["mrjones2014/smart-splits"] = { ignored_filetypes = { "neo-tree" } },
+
     -- 'telescope' override setup() (((
     telescope = {
       pickers = {
