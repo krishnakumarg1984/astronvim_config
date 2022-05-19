@@ -447,7 +447,7 @@ local config = {
         end,
       },
       {
-        "echasnovski/mini.nvim",
+        "echasnovski/mini.nvim", -- refer to: https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/plugins/mini.lua, https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/autocmds.lua
         -- event = "VimEnter",
         keys = { "sa", "sd", "sr" },
         config = function()
