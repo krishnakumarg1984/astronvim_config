@@ -1696,7 +1696,7 @@ local config = {
     "   return line . '  ' . repeat('.', fillCount) . ' (' . numOfLines . ' L)'
     " endfunction
     " set foldtext=FoldText()
-    set fillchars=fold:\  " removes trailing dots. Mind that there is a whitespace after the \!
+    " set fillchars=fold:\  " removes trailing dots. Mind that there is a whitespace after the \!
 
     " Linebreak settings (((
 
