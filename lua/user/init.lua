@@ -2262,6 +2262,10 @@ local config = {
     vim.keymap.set("v", "y", "myy`ymy", opts_noremapsilent)
     vim.keymap.set("v", "Y", "myY`ymy", opts_noremapsilent)
 
+    -- https://www.reddit.com/r/neovim/comments/ttwzge/magic_replace_selected_text_mapping_with_repeat/
+    vim.api.nvim_set_keymap("v", "cg*", "\"ay/\\V<C-R>=escape(@a,'/')<CR><CR>N\"_cgn", { noremap = true }) -- based on * visual remap
+    vim.api.nvim_set_keymap("v", "*", "y/\\V<C-R>=escape(@\",'/')<CR><CR>", { noremap = true })
+
     -- )))
 
     -- Visual block mode keymaps  -- (((
