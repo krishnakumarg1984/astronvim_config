@@ -247,7 +247,27 @@ local config = {
       ["max397574/better-escape.nvim"] = { disable = true },
       ["norcalli/nvim-colorizer.lua"] = { event = { nil }, ft = { "html", "javascript", "css" } },
       ["rcarriga/nvim-notify"] = { disable = true },
-      ["windwp/nvim-ts-autotag"] = { after = { nil }, ft = { "html", "vue", "php" } },
+      ["windwp/nvim-ts-autotag"] = {
+        after = { nil },
+        ft = {
+          "glimmer",
+          "handlebars",
+          "hbs",
+          "html",
+          "javascript",
+          "javascriptreact",
+          "jsx",
+          "markdown",
+          "php",
+          "rescript",
+          "svelte",
+          "tsx",
+          "typescript",
+          "typescriptreact",
+          "vue",
+          "xml",
+        },
+      },
       ["p00f/nvim-ts-rainbow"] = { disable = true },
 
       -- )))
