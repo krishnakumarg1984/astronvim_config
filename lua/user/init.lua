@@ -275,7 +275,6 @@ local config = {
       -- Additional plugins (((
 
       -- Add plugins (packer syntax without the "use" keyword)
-      -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
       -- { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
       -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
       { "tyru/capture.vim", cmd = { "Capture" } },
@@ -2410,6 +2409,7 @@ return config
 -- https://github.com/sunjon/Shade.nvim
 -- https://github.com/gbprod/substitute.nvim
 -- use { "ur4ltz/surround.nvim" }
+-- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
 -- use { "nvim-telescope/telescope-media-files.nvim" }
 -- use { "nvim-telescope/telescope-packer.nvim" }
 -- use { "cljoly/telescope-repo.nvim" }
