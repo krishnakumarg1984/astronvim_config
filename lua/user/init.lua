@@ -2343,6 +2343,13 @@ return config
 -- dap notes and hyperlinks (((
 
 -- https://www.reddit.com/r/neovim/comments/silikv/debugging_in_neovim/?sort=old
+-- https://github.com/datamonsterr/astronvim_config/blob/main/which-key/mode/n.lua
+-- https://github.com/datamonsterr/astronvim_config/blob/main/plugins/nvim-dap.lua
+-- https://github.com/datamonsterr/astronvim_config/blob/main/plugins/nvim-dapui.lua
+-- https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/which-key/register_mappings.lua
+-- https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/plugins/dap.lua
+-- https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/plugins/dapui.lua
+-- https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/plugins/init.lua
 
 -- )))
 
