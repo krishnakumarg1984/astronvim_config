@@ -2338,8 +2338,15 @@ return config
 
 -- Other lua plugins (((
 
+-- dap notes and hyperlinks (((
+
+-- https://www.reddit.com/r/neovim/comments/silikv/debugging_in_neovim/?sort=old
+
+-- )))
+
 -- Something in my config is messing up URL highlights. Need to investigate
 -- https://github.com/0styx0/abbreinder.nvim
+-- https://github.com/henriquehbr/ataraxis.lua
 -- https://github.com/rmagatti/auto-session
 -- https://github.com/jceb/blinds.nvim
 -- use { "numtostr/BufOnly.nvim", cmd = { "BufOnly" } }
@@ -2348,8 +2355,11 @@ return config
 -- use { "kazhala/close-buffers.nvim", cmd = {} }
 -- https://github.com/Civitasv/cmake-tools.nvim
 -- use { "andersevenrud/cmp-tmux" }
+-- https://github.com/xeluxee/competitest.nvim
+-- https://github.com/p00f/cphelper.nvim
 -- https://github.com/Pocco81/dap-buddy.nvim
 -- https://github.com/monaqa/dial.nvim
+-- https://github.com/elihunter173/dirbuf.nvim
 -- https://github.com/narutoxy/dim.lua
 -- https://github.com/tjdevries/diff-therapy.nvim -- resolve those conflicts and have a happy relationship with git
 -- https://github.com/elihunter173/dirbuf.nvim
@@ -2360,18 +2370,21 @@ return config
 -- https://github.com/Furkanzmc/firvish.nvim
 -- https://github.com/ruifm/gitlinker.nvim
 -- https://github.com/ThePrimeagen/git-worktree.nvim
+-- https://github.com/ray-x/go.nvim
 -- use { "rmagatti/goto-preview", event = { "CursorHold" } }
 -- https://github.com/beauwilliams/focus.nvim
 -- https://github.com/pierreglaser/folding-nvim
 -- https://github.com/kalvinpearce/gitignore-gen.nvim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/NMAC427/guess-indent.nvim
+-- https://github.com/Pocco81/HighStr.nvim
 -- https://github.com/m-demare/hlargs.nvim
 -- https://github.com/b0o/incline.nvim
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
 -- https://github.com/hkupty/iron.nvim
 -- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
 -- https://github.com/matbme/JABS.nvim
+-- https://github.com/frabjous/knap
 -- https://github.com/ggandor/leap.nvim
 -- use { "ggandor/lightspeed.nvim", requires = "tpope/vim-repeat", }
 -- use { "ldelossa/litee-calltree.nvim", requires = { "ldelossa/litee.nvim" } }
@@ -2381,6 +2394,7 @@ return config
 -- https://git.sr.ht/~whynothugo/lsp_lines.nvim
 -- use { "chentoast/marks.nvim", keys = { "m", "dm" }, cmd = { "MarksToggleSigns", "MarksListBuf", "MarksListGlobal", "MarksListAll", "MarksQFListBuf", "MarksQFListGlobal", "MarksQFListAll" } }
 -- https://github.com/nyngwang/NeoClear.lua
+-- https://github.com/sbdchd/neoformat
 -- https://github.com/nyngwang/NeoNoName.lua
 -- use { "nyngwang/NeoZoom.lua" }
 -- https://github.com/miversen33/netman.nvim -- Neovim (Lua powered) Network File Manager
@@ -2388,25 +2402,33 @@ return config
 -- use { "kevinhwang91/nvim-bqf", ft = "qf", event = { "CursorHold" } }
 -- https://github.com/ojroques/nvim-bufdel
 -- https://github.com/s1n7ax/nvim-comment-frame  -- Detects the language using treesitter and adds a comment block
+-- https://github.com/haringsrob/nvim_context_vt
 -- https://github.com/yamatsum/nvim-cursorline
 -- https://github.com/xiyaowong/nvim-cursorword
 -- https://github.com/mfussenegger/nvim-dap
 -- https://github.com/mfussenegger/nvim-dap-python
+-- https://github.com/rcarriga/nvim-dap-ui
 -- https://github.com/sakhnik/nvim-gdb
 -- https://github.com/booperlv/nvim-gomove
 -- https://github.com/SmiteshP/nvim-gps
+-- https://github.com/gennaro-tedesco/nvim-jqx
 -- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
 -- https://github.com/bennypowers/nvim-regexplainer
 -- use { "petertriho/nvim-scrollbar" }
 -- https://github.com/dstein64/nvim-scrollview
+-- https://github.com/AckslD/nvim-trevJ.lua
 -- use { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
 -- https://github.com/yioneko/nvim-yati -- Yet another tree-sitter powered indent plugin for Neovim
 -- https://gitlab.com/yorickpeterse/nvim-window
 -- https://github.com/rktjmp/paperplanes.nvim
 -- https://github.com/rlane/pounce.nvim
+-- https://github.com/anuvyklack/pretty-fold.nvim
 -- https://github.com/filipdutescu/renamer.nvim
+-- https://github.com/xuyuanp/scrollbar.nvim
 -- https://github.com/rmagatti/session-lens
 -- https://github.com/sunjon/Shade.nvim
+-- https://github.com/sQVe/sort.nvim
+-- https://github.com/stsewd/sphinx.nvim
 -- https://github.com/gbprod/substitute.nvim
 -- use { "ur4ltz/surround.nvim" }
 -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
@@ -2414,13 +2436,16 @@ return config
 -- use { "nvim-telescope/telescope-packer.nvim" }
 -- use { "cljoly/telescope-repo.nvim" }
 -- https://github.com/TC72/telescope-tele-tabby.nvim
+-- https://github.com/mcauley-penney/tidy.nvim
 -- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
 -- https://github.com/David-Kunz/treesitter-unit/
+-- https://github.com/Pocco81/TrueZen.nvim
 -- use { "folke/twilight.nvim", cmd = { "ZenMode", "Twilight", "TwilightEnable" } }
 -- https://github.com/axieax/urlview.nvim
 -- https://github.com/RRethy/vim-illuminate
 -- https://github.com/rcarriga/vim-ultest
 -- https://github.com/jubnzv/virtual-types.nvim  -- A Neovim plugin that shows type annotations as virtual text
+-- https://github.com/gelguy/wilder.nvim
 -- https://github.com/sindrets/winshift.nvim
 -- https://github.com/hoschi/yode-nvim
 -- use { "folke/zen-mode.nvim", cmd = "ZenMode" }
@@ -2429,6 +2454,7 @@ return config
 
 -- Other vimscript plugins (((
 
+-- https://github.com/hiphish/awk-ward.nvim
 -- https://github.com/rhysd/conflict-marker.vim
 -- https://github.com/whiteinge/diffconflicts
 -- use { "ii14/exrc.vim" } -- "jenterkin/vim-autosource", "embear/vim-localvimrc", "LucHermitte/local_vimrc", "thinca/vim-localrc"
