@@ -446,6 +446,12 @@ local config = {
           require("lsp_signature").setup(signature_config)
         end,
       },
+      -- {
+      --   "chentoast/marks.nvim",
+      --   config = function()
+      --     require("marks").setup {}
+      --   end,
+      -- },
       {
         "echasnovski/mini.nvim", -- refer to: https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/plugins/mini.lua, https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/autocmds.lua
         -- event = "VimEnter",
@@ -2408,7 +2414,6 @@ return config
 -- use { "onsails/lspkind-nvim" }
 -- https://git.sr.ht/~whynothugo/lsp_lines.nvim
 -- https://github.com/aspeddro/lsp_menu.nvim
--- use { "chentoast/marks.nvim", keys = { "m", "dm" }, cmd = { "MarksToggleSigns", "MarksListBuf", "MarksListGlobal", "MarksListAll", "MarksQFListBuf", "MarksQFListGlobal", "MarksQFListAll" } }
 -- https://github.com/p00f/mdpreview.nvim
 -- https://github.com/numToStr/Navigator.nvim
 -- https://github.com/nyngwang/NeoClear.lua
