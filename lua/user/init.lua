@@ -617,6 +617,21 @@ local config = {
           require("telescope").load_extension "projects"
         end,
       },
+      {
+        "linty-org/readline.nvim",
+        event = { "InsertCharPre", "CmdlineEnter" },
+        config = function()
+          local readline = require "readline"
+          vim.keymap.set({ "i", "c" }, "<A-f>", readline.forward_word)
+          vim.keymap.set({ "i", "c" }, "<A-b>", readline.backward_word)
+          vim.keymap.set({ "i", "c" }, "<C-a>", readline.beginning_of_line)
+          vim.keymap.set({ "i", "c" }, "<C-e>", readline.end_of_line)
+          vim.keymap.set({ "i", "c" }, "<A-d>", readline.kill_word)
+          vim.keymap.set({ "i", "c" }, "<C-w>", readline.backward_kill_word)
+          vim.keymap.set({ "i", "c" }, "<C-k>", readline.kill_line)
+          vim.keymap.set({ "i", "c" }, "<C-u>", readline.backward_kill_line)
+        end,
+      },
       ["abecodes/tabout.nvim"] = {
         after = "nvim-cmp",
         config = function()
