@@ -1926,10 +1926,10 @@ local config = {
 
     " nnoremaps (((
 
-    noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-    noremap <silent> <expr> <Down> (v:count == 0 ? 'gj' : 'j')
-    noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-    noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
+    " noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+    " noremap <silent> <expr> <Down> (v:count == 0 ? 'gj' : 'j')
+    " noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+    " noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
 
     " replace the word under cursor
     nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
@@ -2204,6 +2204,7 @@ local config = {
     local opts_noremapsilent = { noremap = true, silent = true }
     local opts_noremapverbose = { noremap = true, silent = false }
     local opts_remapsilent = { noremap = false, silent = true }
+    local expr = { silent = true, expr = true, remap = false }
     -- local vim.keymap.set = vim.keymap.set
 
     -- )))
@@ -2253,6 +2254,11 @@ local config = {
 
     vim.keymap.set({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags
     -- vim.keymap.set({ "n" }, "<leader>*", ":%s;\<<c-r><c-w>\>;;g<left><left>") -- replace the word under cursor
+
+    vim.keymap.set("", "j", "(v:count == 0 ? 'gj' : 'j')", expr)
+    vim.keymap.set("", "k", "(v:count == 0 ? 'gk' : 'k')", expr)
+    vim.keymap.set("", "<Down>", "(v:count == 0 ? 'gj' : 'j')", expr)
+    vim.keymap.set("", "<Up>", "(v:count == 0 ? 'gk' : 'k')", expr)
 
     -- Normal mode keymaps -- (((
 
