@@ -336,7 +336,10 @@ local config = {
         config = function()
           require("clangd_extensions").setup {
             server = {
-              cmd = { vim.fn.stdpath "data" .. "/lsp_servers/clangd/clangd/bin/clangd" },
+              cmd = {
+                vim.fn.stdpath "data" .. "/lsp_servers/clangd/clangd/bin/clangd",
+                -- "--completion-style=detailed",
+              },
               capabilities = {
                 offsetEncoding = "utf-8",
                 memoryUsageProvider = true,
