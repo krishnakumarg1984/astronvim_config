@@ -58,7 +58,7 @@ local kind_icons = {
 
 -- )))
 
--- AstroNvim user-config table (((
+-- User-config table to supplement AstroNvim base config (((
 
 local config = {
 
