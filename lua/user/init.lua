@@ -1179,6 +1179,7 @@ local config = {
         "vim", -- problematic on remote servers?
         "yaml",
       },
+      ignore_install = { "latex" },
       highlight = {
         use_languagetree = true,
         disable = { "css", "latex" },
