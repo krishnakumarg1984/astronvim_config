@@ -2387,6 +2387,7 @@ return config
 -- )))
 
 -- Something in my config is messing up URL highlights. Need to investigate
+-- https://superuser.com/questions/1485332/how-to-clear-neovim-buffer
 -- https://github.com/0styx0/abbreinder.nvim
 -- https://github.com/henriquehbr/ataraxis.lua
 -- https://github.com/rmagatti/auto-session
@@ -2441,6 +2442,7 @@ return config
 -- use { "onsails/lspkind-nvim" }
 -- https://git.sr.ht/~whynothugo/lsp_lines.nvim
 -- https://github.com/aspeddro/lsp_menu.nvim
+-- https://github.com/jubnzv/mdeval.nvim
 -- https://github.com/p00f/mdpreview.nvim
 -- https://github.com/numToStr/Navigator.nvim
 -- https://github.com/nyngwang/NeoClear.lua
@@ -2519,6 +2521,7 @@ return config
 -- https://github.com/whiteinge/diffconflicts
 -- use { "ii14/exrc.vim" } -- "jenterkin/vim-autosource", "embear/vim-localvimrc", "LucHermitte/local_vimrc", "thinca/vim-localrc"
 -- use { "Konfekt/FastFold" }
+-- https://github.com/goerz/jupytext.vim
 -- https://github.com/iamcco/markdown-preview.nvim
 -- https://github.com/Sangdol/mintabline.vim
 -- use { "weirongxu/plantuml-previewer.vim", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
@@ -2533,6 +2536,7 @@ return config
 -- use { "ntpeters/vim-better-whitespace" }
 -- https://github.com/dhruvasagar/vim-buffer-history
 -- https://github.com/JoseConseco/vim-case-change
+-- https://github.com/jalvesaq/vimcmdline
 -- use { "gauteh/vim-cppman", ft = { "c", "cpp" }, cmd = { "Cppman" } }
 -- use { "tpope/vim-fugitive", event = "BufWinEnter" }
 -- use { "ludovicchabant/vim-gutentags", event = { "CursorHold" } } -- , event = "BufWinEnter" }
@@ -2552,12 +2556,14 @@ return config
 
 -- ipython/jupyter vim plugins (((
 
+-- https://www.maxwellrules.com/misc/nvim_jupyter.html
 -- "jupyter-vim/jupyter-vim"
 -- "untitled-ai/jupyter_ascending"
 -- "goerz/jupytext.vim"
 -- { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' } -- need to set up mappings
 -- "bfredl/nvim-ipy"
 -- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } }
+-- https://github.com/ahmedkhalf/jupyter-nvim
 -- https://github.com/jupyterlab-contrib/jupyterlab-vim (browser-based)
 -- https://github.com/ianhi/jupyterlab-vimrc (browser-based)
 
