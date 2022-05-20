@@ -2558,6 +2558,8 @@ return config
 -- { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' } -- need to set up mappings
 -- "bfredl/nvim-ipy"
 -- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } }
+-- https://github.com/jupyterlab-contrib/jupyterlab-vim (browser-based)
+-- https://github.com/ianhi/jupyterlab-vimrc (browser-based)
 
 -- )))
 
