@@ -2523,6 +2523,7 @@ return config
 -- use { "Konfekt/FastFold" }
 -- https://github.com/goerz/jupytext.vim
 -- https://github.com/iamcco/markdown-preview.nvim
+-- https://github.com/MortenStabenau/matlab-vim
 -- https://github.com/Sangdol/mintabline.vim
 -- use { "weirongxu/plantuml-previewer.vim", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
 -- https://github.com/stefandtw/quickfix-reflector.vim
@@ -2540,6 +2541,7 @@ return config
 -- use { "gauteh/vim-cppman", ft = { "c", "cpp" }, cmd = { "Cppman" } }
 -- use { "tpope/vim-fugitive", event = "BufWinEnter" }
 -- use { "ludovicchabant/vim-gutentags", event = { "CursorHold" } } -- , event = "BufWinEnter" }
+-- https://github.com/ebranlard/vim-matlab-behave
 -- use { "petRUShka/vim-opencl", ft = { "opencl" } }  -- note: slow plugin on remote systems
 -- https://github.com/ojroques/vim-oscyank
 -- https://github.com/4513ECHO/vim-readme-viewer
