@@ -416,6 +416,19 @@ local config = {
           }
         end,
       },
+      {
+        "f3fora/cmp-nuspell",
+        rocks = { "lua-nuspell" },
+        after = "nvim-cmp",
+        config = function()
+          astronvim.add_user_cmp_source {
+            name = "nuspell",
+            max_item_count = 7,
+            keyword_length = 2,
+            -- option = { convert_case = true, loud = true },
+          }
+        end,
+      },
       { "gpanders/editorconfig.nvim" },
       -- {
       --   "akinsho/git-conflict.nvim", -- A plugin to visualise and resolve merge conflicts in neovim
@@ -1358,6 +1371,7 @@ local config = {
       path = 250,
       emoji = 200,
       dictionary = 150,
+      nuspell = 125,
     },
     setup = function()
       local cmp = require "cmp"
