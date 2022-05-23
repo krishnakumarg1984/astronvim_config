@@ -2578,6 +2578,7 @@ return config
 -- https://github.com/hiphish/awk-ward.nvim
 -- https://github.com/rhysd/conflict-marker.vim
 -- https://github.com/whiteinge/diffconflicts
+-- https://github.com/direnv/direnv.vim
 -- use { "ii14/exrc.vim" } -- "jenterkin/vim-autosource", "embear/vim-localvimrc", "LucHermitte/local_vimrc", "thinca/vim-localrc"
 -- use { "Konfekt/FastFold" }
 -- https://github.com/goerz/jupytext.vim
