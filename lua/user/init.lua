@@ -447,29 +447,41 @@ local config = {
       {
         "michaelb/sniprun",
         run = "bash ./install.sh",
-        event = "BufRead",
-        ft = {
-          "ada",
-          "sh",
-          "bash",
-          "c",
-          "cpp",
-          "rmd",
-          "markdown",
-          "lsp_markdown",
-          "go",
-          "haskell",
-          "julia",
-          "lua",
-          "mma",
-          "org",
-          "python",
-          "rust",
-        },
+        -- event = "BufRead",
+        -- ft = {
+        --   "ada",
+        --   "sh",
+        --   "bash",
+        --   "c",
+        --   "cpp",
+        --   "rmd",
+        --   "markdown",
+        --   "lsp_markdown",
+        --   "go",
+        --   "haskell",
+        --   "julia",
+        --   "lua",
+        --   "mma",
+        --   "org",
+        --   "python",
+        --   "rust",
+        -- },
         config = function()
           require("sniprun").setup {
             -- selected_interpreters = { "Python3_jupyter" },
             selected_interpreters = { "Python3_fifo" },
+            --# you can combo different display modes as desired
+            display = {
+              -- "Classic", --# display results in the command-line  area
+              -- "VirtualTextOk", --# display ok results as virtual text (multiline is shortened)
+              "VirtualTextErr", --# display error results as virtual text
+              -- "TempFloatingWindow", --# display results in a floating window
+              "LongTempFloatingWindow", --# same as above, but only long results. To use with VirtualText__
+              -- "Terminal",                --# display results in a vertical split
+              -- "TerminalWithCode",        --# display results and code history in a vertical split
+              -- "NvimNotify",              --# display with the nvim-notify plugin
+              -- "Api"                      --# return output to a programming interface
+            },
             repl_enable = {
               "Python3_fifo",
               "Bash_original",
@@ -479,6 +491,8 @@ local config = {
               "R_original",
               "Sage_fifo",
             },
+            -- borders = "none",
+            -- borders = "shadow",
             -- interpreter_options = {
             --   Python3_fifo = {
             --     intepreter = "python3.9",
@@ -488,17 +502,17 @@ local config = {
           }
         end,
         -- keys = { "<leader>r" },
-        -- cmd = {
-        --   "SnipRun",
-        --   "<Plug>SnipRun",
-        --   "SnipRunOperator",
-        --   "<Plug>SnipRunOperator",
-        --   "SnipReset",
-        --   "SnipClose",
-        --   "SnipInfo",
-        --   "SnipReplMemoryClean",
-        --   "SnipTerminate",
-        -- },
+        cmd = {
+          "SnipRun",
+          "<Plug>SnipRun",
+          "SnipRunOperator",
+          "<Plug>SnipRunOperator",
+          "SnipReset",
+          "SnipClose",
+          "SnipInfo",
+          "SnipReplMemoryClean",
+          "SnipTerminate",
+        },
       },
       { "rebelot/kanagawa.nvim" },
       {
@@ -2434,6 +2448,8 @@ local config = {
     vim.keymap.set("v", "<leader>r", "<Plug>SnipRun", { silent = true })
     vim.keymap.set("n", "<leader>r", "<Plug>SnipRunOperator", { silent = true })
     vim.keymap.set("n", "<leader>rr", "<Plug>SnipRun", { silent = true })
+    vim.keymap.set("n", "<leader>rc", "<Plug>SnipClose", { silent = true })
+    vim.keymap.set("n", "<leader>rI", "<Plug>SnipInfo", { silent = true })
 
     -- )))
 
@@ -2485,6 +2501,7 @@ return config
 -- https://github.com/zbirenbaum/copilot-cmp
 -- https://github.com/p00f/cphelper.nvim
 -- https://github.com/Pocco81/dap-buddy.nvim
+-- https://github.com/jbyuki/dash.nvim
 -- https://github.com/monaqa/dial.nvim
 -- https://github.com/elihunter173/dirbuf.nvim
 -- https://github.com/narutoxy/dim.lua
@@ -2597,6 +2614,7 @@ return config
 -- Other vimscript plugins (((
 
 -- https://github.com/hiphish/awk-ward.nvim
+-- https://github.com/metakirby5/codi.vim
 -- https://github.com/rhysd/conflict-marker.vim
 -- https://github.com/whiteinge/diffconflicts
 -- https://github.com/direnv/direnv.vim
@@ -2605,8 +2623,10 @@ return config
 -- https://github.com/goerz/jupytext.vim
 -- https://github.com/iamcco/markdown-preview.nvim
 -- https://github.com/Sangdol/mintabline.vim
+-- https://github.com/kassio/neoterm   -- promises matlab repl support
 -- use { "weirongxu/plantuml-previewer.vim", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
 -- https://github.com/stefandtw/quickfix-reflector.vim
+-- https://gitlab.com/HiPhish/repl.nvim
 -- https://github.com/kamykn/spelunker.vim
 -- use { "wellle/targets.vim" }
 -- use { "mg979/tasks.vim" }
@@ -2617,15 +2637,17 @@ return config
 -- use { "ntpeters/vim-better-whitespace" }
 -- https://github.com/dhruvasagar/vim-buffer-history
 -- https://github.com/JoseConseco/vim-case-change
--- https://github.com/jalvesaq/vimcmdline
+-- https://github.com/jalvesaq/vimcmdline  -- promises matlab support
 -- use { "gauteh/vim-cppman", ft = { "c", "cpp" }, cmd = { "Cppman" } }
 -- use { "tpope/vim-fugitive", event = "BufWinEnter" }
 -- use { "ludovicchabant/vim-gutentags", event = { "CursorHold" } } -- , event = "BufWinEnter" }
 -- use { "petRUShka/vim-opencl", ft = { "opencl" } }  -- note: slow plugin on remote systems
 -- https://github.com/ojroques/vim-oscyank
+-- https://github.com/thinca/vim-quickrun
 -- https://github.com/4513ECHO/vim-readme-viewer
 -- use { "urbainvaes/vim-ripple" }
 -- use { "Konfekt/vim-sentence-chopper" }
+-- https://github.com/jpalardy/vim-slime
 -- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } } -- also a telescope extension
 -- https://github.com/marklcrns/vim-smartq
 -- https://github.com/svermeulen/vim-subversive
@@ -2637,13 +2659,13 @@ return config
 
 -- ipython/jupyter vim plugins (((
 
+-- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } }
 -- https://www.maxwellrules.com/misc/nvim_jupyter.html
 -- "jupyter-vim/jupyter-vim"
 -- "untitled-ai/jupyter_ascending"
 -- "goerz/jupytext.vim"
 -- { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' } -- need to set up mappings
 -- "bfredl/nvim-ipy"
--- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } }
 -- https://github.com/ahmedkhalf/jupyter-nvim
 -- https://github.com/jupyterlab-contrib/jupyterlab-vim (browser-based)
 -- https://github.com/ianhi/jupyterlab-vimrc (browser-based)
