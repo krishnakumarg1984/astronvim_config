@@ -1118,6 +1118,7 @@ local config = {
             return utils.root_has_file { "stylua.toml", ".stylua.toml" }
           end,
         },
+        formatting.taplo,
         diagnostics.ansiblelint,
         diagnostics.chktex,
         -- diagnostics.codespell,
@@ -1455,12 +1456,13 @@ local config = {
       -- "r_language_server", -- needs R in path
       "sumneko_lua",
       -- "pyright"
+      "taplo",
       "zk",
     },
 
     -- add to the server on_attach function
     on_attach = function(client, bufnr)
-      if client.name == "clangd" or client.name == "pylsp" then
+      if client.name == "clangd" or client.name == "pylsp" or client.name == "taplo" then
         client.resolved_capabilities.document_formatting = false
       end
       vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
