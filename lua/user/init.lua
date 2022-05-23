@@ -466,6 +466,27 @@ local config = {
           "python",
           "rust",
         },
+        config = function()
+          require("sniprun").setup {
+            -- selected_interpreters = { "Python3_jupyter" },
+            selected_interpreters = { "Python3_fifo" },
+            repl_enable = {
+              "Python3_fifo",
+              "Bash_original",
+              "Julia_jupyter",
+              "GFM_original",
+              "Mathematica_original",
+              "R_original",
+              "Sage_fifo",
+            },
+            -- interpreter_options = {
+            --   Python3_fifo = {
+            --     intepreter = "python3.9",
+            --     venv = { "venv_project1", "venv_project2", "../venv_project2" },
+            --   },
+            -- },
+          }
+        end,
         -- keys = { "<leader>r" },
         -- cmd = {
         --   "SnipRun",
