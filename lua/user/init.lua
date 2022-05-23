@@ -2408,6 +2408,14 @@ local config = {
     --
     -- -- )))
 
+    -- 'sniprun' keymaps (((
+
+    vim.keymap.set("v", "<leader>r", "<Plug>SnipRun", { silent = true })
+    vim.keymap.set("n", "<leader>r", "<Plug>SnipRunOperator", { silent = true })
+    vim.keymap.set("n", "<leader>rr", "<Plug>SnipRun", { silent = true })
+
+    -- )))
+
     -- ))) end of plugin keybindings (lua-based) fold
 
     -- ))) -- end of keybindings (lua-based) fold
