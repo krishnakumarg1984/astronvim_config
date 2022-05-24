@@ -1796,7 +1796,7 @@ local config = {
     vim.o.foldtext =
       [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
 
-    -- Vimscript-based options (((
+    -- Vimscript-based options and mappings (((
 
     vim.cmd [[
 
