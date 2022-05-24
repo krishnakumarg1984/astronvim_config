@@ -1188,7 +1188,7 @@ local config = {
         diagnostics.pyproject_flake8,
         diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
         diagnostics.rstcheck,
-        diagnostics.semgrep,
+        -- diagnostics.semgrep,
         diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
         diagnostics.sqlfluff,
         diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
