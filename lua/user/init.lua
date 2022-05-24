@@ -1140,14 +1140,24 @@ local config = {
       local diagnostics = null_ls.builtins.diagnostics
 
       config.sources = {
+        -- formatting.asmformat,
+        -- formatting.goformat,
+        -- formatting.standardrb,
+        formatting.bibclean,
         formatting.black,
+        formatting.brittany,
         formatting.clang_format,
+        formatting.format_r,
         formatting.fprettify,
+        formatting.goimports,
+        formatting.latexindent,
+        formatting.mdformat,
         formatting.perltidy,
         formatting.reorder_python_imports,
         formatting.rustfmt,
         formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
-        formatting.standardrb,
+        formatting.sqlfluff,
+        formatting.styler,
         formatting.stylua.with {
           condition = function(utils)
             return utils.root_has_file { "stylua.toml", ".stylua.toml" }
@@ -1157,30 +1167,37 @@ local config = {
         -- diagnostics.codespell,
         -- diagnostics.cspell,  -- requires 'npm'
         -- diagnostics.selene,
+        -- diagnostics.textlint,
         -- diagnostics.vulture, -- usually not available in path
-        -- will show code and source name
+        diagnostics.actionlint,
         diagnostics.ansiblelint,
+        diagnostics.checkmake,
         diagnostics.chktex,
         diagnostics.cppcheck,
         diagnostics.flake8,
+        diagnostics.gitlint,
         diagnostics.hadolint,
         diagnostics.jsonlint,
         diagnostics.markdownlint,
+        diagnostics.mlint,
         diagnostics.mypy,
         diagnostics.proselint,
         diagnostics.pydocstyle,
         diagnostics.pylama,
         diagnostics.pylint,
+        diagnostics.pyproject_flake8,
         diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
         diagnostics.rstcheck,
+        diagnostics.semgrep,
         diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
+        diagnostics.sqlfluff,
         diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
         diagnostics.stylint,
-        diagnostics.textlint,
         diagnostics.vale,
         diagnostics.vint,
         diagnostics.write_good,
         diagnostics.yamllint,
+        null_ls.builtins.code_actions.gitrebase,
         null_ls.builtins.hover.dictionary,
       }
       -- set up null-ls's on_attach function
