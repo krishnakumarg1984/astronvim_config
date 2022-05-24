@@ -1154,11 +1154,14 @@ local config = {
           end,
         },
         formatting.taplo,
+        -- diagnostics.codespell,
+        -- diagnostics.cspell,  -- requires 'npm'
+        -- diagnostics.selene,
+        -- diagnostics.vulture, -- usually not available in path
+        -- will show code and source name
         diagnostics.ansiblelint,
         diagnostics.chktex,
-        -- diagnostics.codespell,
         diagnostics.cppcheck,
-        -- diagnostics.cspell,  -- requires 'npm'
         diagnostics.flake8,
         diagnostics.hadolint,
         diagnostics.jsonlint,
@@ -1166,17 +1169,15 @@ local config = {
         diagnostics.mypy,
         diagnostics.proselint,
         diagnostics.pydocstyle,
-        diagnostics.pylint,
         diagnostics.pylama,
-        -- diagnostics.selene,
-        -- will show code and source name
+        diagnostics.pylint,
         diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
         diagnostics.rstcheck,
         diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
         diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
         diagnostics.stylint,
+        diagnostics.textlint,
         diagnostics.vale,
-        -- diagnostics.vulture, -- usually not available in path
         diagnostics.vint,
         diagnostics.write_good,
         diagnostics.yamllint,
