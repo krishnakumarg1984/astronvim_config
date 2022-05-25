@@ -620,7 +620,8 @@ local config = {
       -- { "ii14/exrc.vim" }, -- slowest among all local-rc plugins
       {
         "https://gitlab.com/yorickpeterse/nvim-dd", -- Deferring of NeoVim diagnostics
-        event = { "CursorHold" },
+        -- event = { "CursorHold" },
+        event = { "InsertLeave" },
         config = function()
           require("dd").setup {
             timeout = 600, -- The time to wait before displaying newly produced diagnostics.
