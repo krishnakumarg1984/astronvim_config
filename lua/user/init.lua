@@ -2584,6 +2584,7 @@ return config
 -- https://github.com/mfussenegger/nvim-dap
 -- https://github.com/mfussenegger/nvim-dap-python
 -- https://github.com/rcarriga/nvim-dap-ui
+-- https://github.com/esensar/nvim-dev-container
 -- https://github.com/AllenDang/nvim-expand-expr
 -- https://github.com/sakhnik/nvim-gdb
 -- https://github.com/booperlv/nvim-gomove
@@ -2668,6 +2669,7 @@ return config
 -- use { "gauteh/vim-cppman", ft = { "c", "cpp" }, cmd = { "Cppman" } }
 -- use { "tpope/vim-fugitive", event = "BufWinEnter" }
 -- use { "ludovicchabant/vim-gutentags", event = { "CursorHold" } } -- , event = "BufWinEnter" }
+-- https://github.com/azabiong/vim-highlighter
 -- use { "petRUShka/vim-opencl", ft = { "opencl" } }  -- note: slow plugin on remote systems
 -- https://github.com/ojroques/vim-oscyank
 -- https://github.com/thinca/vim-quickrun
