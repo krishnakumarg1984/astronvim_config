@@ -423,7 +423,7 @@ local config = {
       --     require("git-conflict").setup()
       --   end,
       -- },
-      { "ellisonleao/glow.nvim", ft = { "markdown", "lsp_markdown", "rmd" }, cmd = { "Glow", "GlowInstall" } },
+      { "ellisonleao/glow.nvim", cmd = { "Glow", "GlowInstall" } },
       -- ["JASONews/glow-hover"] = { after = "nvim-lsp-installer" },
       ["lukas-reineke/headlines.nvim"] = {
         ft = { "lsp_markdown", "markdown", "rmd" },
