@@ -245,7 +245,7 @@ local config = {
       -- Disable/modify AstroNvim built-in plugins (((
 
       ["max397574/better-escape.nvim"] = { disable = true },
-      ["norcalli/nvim-colorizer.lua"] = { event = { nil }, ft = { "html", "javascript", "css" } },
+      ["norcalli/nvim-colorizer.lua"] = { event = { nil }, ft = { "html", "javascript", "css" } }, -- look into more filetypes
       ["rcarriga/nvim-notify"] = { disable = true },
       ["windwp/nvim-ts-autotag"] = {
         after = { nil },
