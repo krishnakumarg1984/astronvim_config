@@ -171,20 +171,88 @@ local config = {
         softtabstop = 2, -- how many spaces to insert with tab key
         -- spell = true,
         -- spelllang = "en_gb",
-        synmaxcol = 300,
         report = 0, -- Threshold for reporting number of lines changed.
+        synmaxcol = 300,
+        timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds). AstroNvim sets this to 300.
         updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
-        winaltkeys = "no",
+        -- whichwrap = vim.opt.whichwrap + { "<", ">", "[", "]", "h", "l" },
+        whichwrap = vim.opt.whichwrap + {
+          ["<"] = true,
+          [">"] = true,
+          ["["] = true,
+          ["]"] = true,
+          ["h"] = true,
+          ["l"] = true,
+        },
         wildignorecase = true, -- If supported, make wildmenu completions case-insensitive
+        winaltkeys = "no",
 
         -- )))
         -- Commented-out settings (((
 
         -- numberwidth = 4, -- set number column width
         -- tagcase = "smart",
-        timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds). AstroNvim sets this to 300.
 
         -- )))
+      },
+
+      g = {
+        detectspelllang_langs = {
+          aspell = {
+            "en_GB",
+            "en_US",
+            "cs",
+            "cy",
+            "da",
+            "de_DE",
+            "el",
+            "es",
+            "fr",
+            "gd",
+            "hu",
+            "id",
+            "it",
+            "ms",
+            "nl",
+            "pl",
+            "pt",
+            "ro",
+            "ru",
+            "sk",
+            "sl",
+            "sv",
+          },
+          hunspell = {
+            "en_GB",
+            "en_US",
+            "cs_CS",
+            "cy_CY",
+            "da_DA",
+            "de_DE",
+            "el_GR",
+            "gd_GD",
+            "es_ES",
+            "fr_FR",
+            "hu_HU",
+            "id_ID",
+            "it_IT",
+            "ms_MS",
+            "nl_NL",
+            "pl_PL",
+            "pt_PT",
+            "ro_RO",
+            "ru_RU",
+            "sk_SK",
+            "sl_SL",
+            "sv_SV",
+          },
+        },
+        matchup_matchparen_offscreen = { method = "popup" },
+        matchup_surround_enabled = true,
+        matchup_matchparen_enabled = false,
+        matchup_matchparen_deferred = true,
+        matchup_override_vimtex = true,
+        python3_host_prog = "python3",
       },
 
       -- )))
@@ -1805,38 +1873,8 @@ local config = {
 
     vim.cmd [[
 
-      let g:detectspelllang_langs = {
-      \ 'aspell'   : [ 'en_GB', 'en_US', 'cs', 'cy', 'da', 'de_DE', 'el', 'es', 'fr', 'gd', 'hu', 'id', 'it', 'ms', 'nl', 'pl', 'pt', 'ro', 'ru', 'sk', 'sl', 'sv' ],
-      \ 'hunspell' : [ 'en_GB', 'en_US', 'cs_CS', 'cy_CY', 'da_DA', 'de_DE', 'el_GR', 'gd_GD', 'es_ES', 'fr_FR', 'hu_HU', 'id_ID', 'it_IT', 'ms_MS', 'nl_NL', 'pl_PL', 'pt_PT', 'ro_RO', 'ru_RU', 'sk_SK', 'sl_SL', 'sv_SV' ],
-      \ }
-
-      let g:matchup_matchparen_offscreen = {'method': 'popup'}
-      let g:matchup_surround_enabled = 1
-      let g:matchup_matchparen_enabled = 0
-      let g:matchup_matchparen_deferred = 1
-      let g:matchup_override_vimtex = 1
-
-      let g:python3_host_prog = "python3"
-
-    " let mapleader = "\\"
-
-    set whichwrap+=<,>,[,],h,l
-
-    " " https://www.reddit.com/r/neovim/comments/sofaax/is_there_a_way_to_change_neovims_way_of/
-    " function FoldText()
-    "   let line = getline(v:foldstart)
-    "   let numOfLines = v:foldend - v:foldstart
-    "   let fillCount = winwidth('%') - len(line) - len(numOfLines) - 14
-    "   return line . '  ' . repeat('.', fillCount) . ' (' . numOfLines . ' L)'
-    " endfunction
-    " set foldtext=FoldText()
-    " set fillchars=fold:\  " removes trailing dots. Mind that there is a whitespace after the \!
-
     " Linebreak settings (((
 
-    " let &showbreak='→ '
-    " let &showbreak='… '
-    " let &showbreak='↪ '
     set breakat=\ \ ;:,!? " which characters might cause a line break if 'linebreak' is on.
     set breakindentopt=shift:2,sbr
 
