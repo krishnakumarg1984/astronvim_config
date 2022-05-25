@@ -1214,23 +1214,23 @@ local config = {
 
       config.sources = {
         -- formatting.asmformat,
+        -- formatting.brittany,
+        -- formatting.format_r, -- needs the 'R' command to be in $PATH
         -- formatting.goformat,
+        -- formatting.goimports,
+        -- formatting.mdformat,
         -- formatting.standardrb,
+        -- formatting.styler, -- needs the 'R' command to be in $PATH
         formatting.bibclean,
         formatting.black,
-        formatting.brittany,
         formatting.clang_format,
-        formatting.format_r,
         formatting.fprettify,
-        formatting.goimports,
         formatting.latexindent,
-        formatting.mdformat,
         formatting.perltidy,
         formatting.reorder_python_imports,
         formatting.rustfmt,
         formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
         formatting.sqlfluff,
-        formatting.styler,
         formatting.stylua.with {
           condition = function(utils)
             return utils.root_has_file { "stylua.toml", ".stylua.toml" }
@@ -1239,10 +1239,15 @@ local config = {
         formatting.taplo,
         -- diagnostics.codespell,
         -- diagnostics.cspell,  -- requires 'npm'
+        -- diagnostics.jsonlint,
         -- diagnostics.markdownlint,
+        -- diagnostics.mlint,
         -- diagnostics.pyproject_flake8,
+        -- diagnostics.rstcheck,
         -- diagnostics.selene,
         -- diagnostics.semgrep,
+        -- diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
+        -- diagnostics.stylint,
         -- diagnostics.textlint,
         -- diagnostics.vale,
         -- diagnostics.vulture, -- usually not available in path
@@ -1255,19 +1260,14 @@ local config = {
         diagnostics.flake8,
         diagnostics.gitlint,
         diagnostics.hadolint,
-        diagnostics.jsonlint,
-        diagnostics.mlint,
         diagnostics.mypy,
         diagnostics.proselint,
         diagnostics.pydocstyle,
         diagnostics.pylama,
         diagnostics.pylint,
         diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
-        diagnostics.rstcheck,
         diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
         diagnostics.sqlfluff,
-        diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
-        diagnostics.stylint,
         diagnostics.vint,
         diagnostics.yamllint,
         null_ls.builtins.code_actions.gitrebase,
@@ -1321,7 +1321,7 @@ local config = {
         "bibtex",
         "c",
         "cmake",
-        -- "comment",
+        "comment", -- difficult to get this working on remote servers?
         "cpp",
         "css",
         "cuda",
@@ -2572,7 +2572,7 @@ return config
 -- https://github.com/rcarriga/cmp-dap
 -- use { "andersevenrud/cmp-tmux" }
 -- https://github.com/xeluxee/competitest.nvim
--- https://github.com/zbirenbaum/copilot-cmp
+-- https://github.com/zbirenbaum/copilot-cmp -- TODO
 -- https://github.com/p00f/cphelper.nvim
 -- https://github.com/Pocco81/dap-buddy.nvim
 -- https://github.com/jbyuki/dash.nvim
