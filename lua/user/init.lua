@@ -548,8 +548,8 @@ local config = {
           require("mini.surround").setup()
         end,
       },
-      ["jghauser/mkdir.nvim"] = { event = "CmdlineEnter" },
-      ["jbyuki/nabla.nvim"] = { ft = { "text", "markdown", "rmd", "lsp_markdown", "tex" } },
+      ["jghauser/mkdir.nvim"] = { event = "BufWritePre" },
+      ["jbyuki/nabla.nvim"] = { module = "nabla" },
       ["danymat/neogen"] = { -- A better annotation generator. Supports multiple languages and annotation conventions
         cmd = { "Neogen", "Neogen func", "Neogen class", "Neogen file", "Neogen type" },
         config = function()
