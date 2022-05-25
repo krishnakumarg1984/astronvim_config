@@ -608,6 +608,8 @@ local config = {
       { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
       {
         "klen/nvim-config-local", -- fastest among all local-rc plugins
+        -- after = "project.nvim",
+        event = "BufReadPost",
         tag = "1.1.1",
         config = function()
           require("config-local").setup {}
