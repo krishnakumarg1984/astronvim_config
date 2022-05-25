@@ -2496,6 +2496,15 @@ return config
 
 -- Other lua plugins (((
 
+-- TODO (((
+
+-- 1. REPL
+-- 2. Compiling
+-- 3. Testing
+-- 4. Debugging
+
+-- )))
+
 -- dap notes and hyperlinks (((
 
 -- https://www.reddit.com/r/neovim/comments/silikv/debugging_in_neovim/?sort=old
