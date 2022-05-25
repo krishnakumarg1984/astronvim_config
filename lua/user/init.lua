@@ -425,25 +425,25 @@ local config = {
       -- },
       { "ellisonleao/glow.nvim", cmd = { "Glow", "GlowInstall" } },
       -- ["JASONews/glow-hover"] = { after = "nvim-lsp-installer" },
-      ["lukas-reineke/headlines.nvim"] = {
-        ft = { "lsp_markdown", "markdown", "rmd" },
-        config = function()
-          require("headlines").setup {
-            -- markdown = {
-            --   headline_highlights = { "DiagnosticVirtualTextInfo" },
-            --   dash_string = "―",
-            -- },
-            -- lsp_markdown = {
-            --   headline_highlights = { "DiagnosticVirtualTextInfo" },
-            --   dash_string = "―",
-            -- },
-            -- rmd = {
-            --   headline_highlights = { "DiagnosticVirtualTextInfo" },
-            --   dash_string = "―",
-            -- },
-          }
-        end,
-      },
+      -- ["lukas-reineke/headlines.nvim"] = {
+      --   ft = { "lsp_markdown", "markdown", "rmd" },
+      --   config = function()
+      --     require("headlines").setup {
+      --       -- markdown = {
+      --       --   headline_highlights = { "DiagnosticVirtualTextInfo" },
+      --       --   dash_string = "―",
+      --       -- },
+      --       -- lsp_markdown = {
+      --       --   headline_highlights = { "DiagnosticVirtualTextInfo" },
+      --       --   dash_string = "―",
+      --       -- },
+      --       -- rmd = {
+      --       --   headline_highlights = { "DiagnosticVirtualTextInfo" },
+      --       --   dash_string = "―",
+      --       -- },
+      --     }
+      --   end,
+      -- },
       {
         "michaelb/sniprun",
         run = "bash ./install.sh",
