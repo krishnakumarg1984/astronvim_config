@@ -514,7 +514,7 @@ local config = {
           "SnipTerminate",
         },
       },
-      { "rebelot/kanagawa.nvim" },
+      { "rebelot/kanagawa.nvim" }, -- event = "BufRead" },
       {
         "ray-x/lsp_signature.nvim",
         -- after = "nvim-cmp",
