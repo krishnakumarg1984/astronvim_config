@@ -4,6 +4,7 @@
 
 local kind_icons = {
   Text = "",
+  -- Text = "",
   Method = "",
   Function = "",
   -- Constructor = "",
@@ -12,6 +13,7 @@ local kind_icons = {
   Field = "ﰠ",
   -- Variable = " ",
   Variable = "",
+  -- Variable = "",
   -- Class = " ",
   -- Class = "",
   Class = "ﴯ",
@@ -44,7 +46,8 @@ local kind_icons = {
   EnumMember = "",
   -- Constant = " ",
   -- Constant = "",
-  Constant = "",
+  -- Constant = "",
+  Constant = "",
   -- Struct = " ",
   Struct = "פּ",
   -- Struct = "" ,
@@ -166,6 +169,7 @@ local config = {
         listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
         -- listchars = { tab = "▸", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
         pumwidth = 35,
+        shiftround = true,
         showbreak = "↪ ",
         signcolumn = "yes:1",
         softtabstop = 2, -- how many spaces to insert with tab key
@@ -358,7 +362,7 @@ local config = {
       -- Additional plugins (((
 
       -- Add plugins (packer syntax without the "use" keyword)
-      -- { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
+      { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
       -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
       { "tyru/capture.vim", cmd = { "Capture" } },
       ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } },
@@ -2538,8 +2542,9 @@ return config
 
 -- 1. REPL
 -- 2. Compiling
--- 3. Testing
+-- 3. Unit Testing
 -- 4. Debugging
+-- 5. Tmux integration
 
 -- )))
 
@@ -2564,6 +2569,7 @@ return config
 -- https://github.com/protex/better-digraphs.nvim
 -- https://github.com/jceb/blinds.nvim
 -- https://github.com/MordechaiHadad/bob
+-- https://github.com/lalitmee/browse.nvim
 -- use { "numtostr/BufOnly.nvim", cmd = { "BufOnly" } }
 -- use { "kwkarlwang/bufresize.nvim" }
 -- https://github.com/saifulapm/chartoggle.nvim
@@ -2683,6 +2689,8 @@ return config
 -- https://github.com/sindrets/winshift.nvim
 -- https://github.com/hoschi/yode-nvim
 -- use { "folke/zen-mode.nvim", cmd = "ZenMode" }
+-- https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized
+-- https://github.com/thanhvule0310/dotfiles
 
 -- ))) end of 'other lua plugins' fold
 
