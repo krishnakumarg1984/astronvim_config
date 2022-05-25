@@ -1050,25 +1050,25 @@ local config = {
 
     -- )))
 
-    -- 'feline' override setup() (((
-
-    feline = function(config)
-      config.force_inactive = {}
-      table.insert(config.components.active[1], {
-        provider = function()
-          return vim.g.currentContainer
-        end,
-        enabled = function()
-          return vim.g.currentContainer ~= nil
-        end,
-        hl = { fg = "#0db7ed" },
-        icon = "  ",
-      })
-
-      return config
-    end,
-
-    -- )))
+    -- -- 'feline' override setup() (((
+    --
+    -- feline = function(config)
+    --   config.force_inactive = {}
+    --   table.insert(config.components.active[1], {
+    --     provider = function()
+    --       return vim.g.currentContainer
+    --     end,
+    --     enabled = function()
+    --       return vim.g.currentContainer ~= nil
+    --     end,
+    --     hl = { fg = "#0db7ed" },
+    --     icon = "  ",
+    --   })
+    --
+    --   return config
+    -- end,
+    --
+    -- -- )))
 
     -- 'gitsigns' override setup() (((
 
