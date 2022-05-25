@@ -637,7 +637,9 @@ local config = {
       },
       {
         "ethanholz/nvim-lastplace",
-        event = { "BufRead" },
+        -- event = { "BufRead" },
+        -- event = { "VimLeavePre", "ExitPre" },
+        event = { "BufWinEnter" },
         config = function()
           require("nvim-lastplace").setup {
             lastplace_ignore_buftype = { "quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo" },
