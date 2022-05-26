@@ -522,6 +522,30 @@ local config = {
       --     }
       --   end,
       -- },
+      ["hkupty/iron.nvim"] = {
+        config = function()
+          local iron = require "iron.core"
+          iron.setup {
+            config = {
+              highlight_last = "IronLastSent", -- Highlights the last sent block with bold
+              should_map_plug = true, -- If iron should expose `<plug>(...)` mappings for the plugins
+              scratch_repl = true, -- Whether a repl should be discarded or not
+              close_window_on_exit = true, -- Automatically closes the repl window on process end
+              -- Your repl definitions come here
+              repl_definition = {
+                sh = {
+                  command = { "zsh" },
+                },
+                python = require("iron.fts.python").ipython,
+                -- forcing a default
+              },
+              repl_open_cmd = require("iron.view").curry.right(60),
+              -- how the REPL window will be opened, the default is opening a float window of height 40 at the bottom.
+              buflisted = false, -- If the repl buffer is listed
+            },
+          }
+        end,
+      },
       {
         "michaelb/sniprun",
         run = "bash ./install.sh",
@@ -2547,6 +2571,20 @@ local config = {
 
     -- )))
 
+    -- 'iron.nvim' keymaps (((
+
+    vim.keymap.set("n", "<leader>i", "<Plug>(iron-send-motion)", { silent = true })
+    vim.keymap.set("n", "<leader>ix", "<Plug>(iron-exit)", { silent = true })
+    vim.keymap.set("n", "<leader>il", "<Plug>(iron-send-line)", { silent = true })
+    vim.keymap.set("n", "<leader>ic", "<Plug>(iron-interrupt)", { silent = true })
+    vim.keymap.set("v", "<leader>i", "<Plug>(iron-visual-send)", { silent = true })
+    vim.keymap.set("n", "<leader>ic", "<Plug>(iron-clear)", { silent = true })
+    vim.keymap.set("n", "<leader>if", "<cmd>IronFocus<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>it", "<cmd>IronRepl<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>ih", "<cmd>IronReplHere<CR>", { silent = true })
+    vim.keymap.set("n", "<leader>ir", "<cmd>IronRestart<CR>", { silent = true })
+
+    -- )))
     -- ))) end of plugin keybindings (lua-based) fold
 
     -- ))) -- end of keybindings (lua-based) fold
