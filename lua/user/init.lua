@@ -2733,6 +2733,7 @@ return config
 -- https://github.com/iamcco/markdown-preview.nvim
 -- https://github.com/Sangdol/mintabline.vim
 -- https://github.com/kassio/neoterm   -- promises matlab repl support
+-- https://github.com/svban/PasteSorcerer.vim
 -- use { "weirongxu/plantuml-previewer.vim", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
 -- https://github.com/stefandtw/quickfix-reflector.vim
 -- https://gitlab.com/HiPhish/repl.nvim
@@ -2762,6 +2763,7 @@ return config
 -- https://github.com/marklcrns/vim-smartq
 -- https://github.com/svermeulen/vim-subversive
 -- https://github.com/Matt-A-Bennett/vim-surround-funk
+-- https://github.com/inkarkat/vim-UnconditionalPaste
 -- https://github.com/Julian/vim-textobj-variable-segment
 -- use { "tweekmonster/wstrip.vim" }
 -- https://github.com/Einenlum/yaml-revealer
@@ -2826,6 +2828,7 @@ https://github.com/stevearc/gkeep.nvim
 -- Readings and resources (((
 
 -- https://www.reddit.com/r/neovim/comments/uxwwbw/comment/ia0m8vg/?utm_source=share&utm_medium=web2x&context=3
+-- https://www.reddit.com/r/vim/comments/uy0qnx/how_to_create_syntax_file_that_highlights_the/?utm_source=share&utm_medium=web2x&context=3
 -- https://github.com/PacktPublishing/Mastering-Vim
 -- https://www.reddit.com/r/vim/comments/ti2is7/open_relevant_git_files_in_your_editor/
 -- https://www.reddit.com/r/vim/comments/pozc9s/tips_for_working_in_large_projects_with_vim/
