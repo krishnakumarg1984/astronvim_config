@@ -153,6 +153,7 @@ local config = {
         -- )))
         -- All other lua-based options (((
 
+        backspace = vim.opt.backspace + { "nostop" }, -- https://vi.stackexchange.com/a/26722
         clipboard = "",
         conceallevel = 2,
         confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
