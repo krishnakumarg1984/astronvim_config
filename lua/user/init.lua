@@ -157,7 +157,6 @@ local config = {
         -- )))
         -- All other lua-based options (((
 
-        backspace = vim.opt.backspace + { "nostop" }, -- https://vi.stackexchange.com/a/26722
         clipboard = "",
         conceallevel = 2,
         confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
@@ -2826,6 +2825,7 @@ https://github.com/stevearc/gkeep.nvim
 
 -- Readings and resources (((
 
+-- https://www.reddit.com/r/neovim/comments/uxwwbw/comment/ia0m8vg/?utm_source=share&utm_medium=web2x&context=3
 -- https://github.com/PacktPublishing/Mastering-Vim
 -- https://www.reddit.com/r/vim/comments/ti2is7/open_relevant_git_files_in_your_editor/
 -- https://www.reddit.com/r/vim/comments/pozc9s/tips_for_working_in_large_projects_with_vim/
