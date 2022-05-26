@@ -73,7 +73,7 @@ local config = {
 
   -- )))
 
-  -- set colorscheme (((
+  -- Set colorscheme (((
 
   -- colorscheme = "default_theme",
   colorscheme = "kanagawa",
