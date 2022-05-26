@@ -2055,7 +2055,7 @@ local config = {
     " set path+=**    " Search current directory's whole tree
     set cpoptions-=a  " Stop the :read command from annoyingly setting the alternative buffer
     set fileformats=unix,dos,mac " This gives the end-of-line (<EOL>) formats that will be tried when starting to edit a new buffer and when reading a file into an existing buffer:
-    set isfname-==
+    set isfname-==     " When using commands like Ctrl-x Ctrl-f for filename completion, do not read equal signs as part of file names, a common nuisance when working with shell scripts
     set isfname-={,}
     set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " Probably overridden by status-line plugins
     set virtualedit+=block " Allow movement beyond buffer text only in visual block mode
@@ -2063,6 +2063,11 @@ local config = {
     " )))
 
     " Mappings (((
+
+    " nnoremap <silent> J :<C-U>exec "exec 'norm m`' \| move +" . (0+v:count1)<CR>==``
+    " nnoremap <silent> K :<C-U>exec "exec 'norm m`' \| move -" . (1+v:count1)<CR>==``
+    " xnoremap <silent> J :<C-U>exec "'<,'>move '>+" . (0+v:count1)<CR>gv=gv
+    " xnoremap <silent> K :<C-U>exec "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
 
     " https://github.com/neovim/neovim/issues/9953
     " if &wildoptions == 'pum'
@@ -2082,11 +2087,22 @@ local config = {
     cnoreabbrev <expr> helpgrep getcmdtype() == ":" && getcmdline() == 'helpgrep' ? 'tab helpgrep' : 'helpgrep'
     cnoreabbrev <expr> Man getcmdtype() == ":" && getcmdline() == 'Man' ? 'tab Man' : 'Man'
 
+    " https://www.reddit.com/r/vim/comments/rctvgk/comment/hnzk5wl/?utm_source=share&utm_medium=web2x&context=3
+    " inoremap <expr> <c-y> pumvisible() ? "\<c-y>" : matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(\k\+\\|.\)')
+
     " nnoremaps (((
 
-    " https://vi.stackexchange.com/a/3891
-    nnoremap <silent> [<space>  :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>
-    nnoremap <silent> ]<space>  :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
+    " https://www.reddit.com/r/vim/comments/oyqkkd/comment/h7x83ce/?utm_source=share&utm_medium=web2x&context=3
+    " Basically, it makes '0' act like '^' on first press, and then like '0' on
+    " second press. So if I press 0, I go back to indentation. If I press 0
+    " again, I go to the first column of the line. And if I continue pressing
+    " zero, it switches between the first column and the first character.
+    nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+
+    " " Replacing vim-unimpaired mapping for inserting blankline below and above the cursor position
+    " " https://vi.stackexchange.com/a/3891
+    " nnoremap <silent> [<space>  :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>
+    " nnoremap <silent> ]<space>  :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
 
     " noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
     " noremap <silent> <expr> <Down> (v:count == 0 ? 'gj' : 'j')
@@ -2168,7 +2184,7 @@ local config = {
 
     " Custom highlights (((
 
-    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Nobody wants to commit merge conflict markers, so let’s highlight these so we can’t miss them: https://vimways.org/2018/vim-and-git/
+    " match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Nobody wants to commit merge conflict markers, so letâs highlight these so we canât miss them: https://vimways.org/2018/vim-and-git/
 
     " )))
 
@@ -2689,22 +2705,24 @@ return config
 -- https://github.com/gelguy/wilder.nvim
 -- https://github.com/declancm/windex.nvim
 -- https://github.com/sindrets/winshift.nvim
+-- https://github.com/cuducos/yaml.nvim
 -- https://github.com/hoschi/yode-nvim
 -- use { "folke/zen-mode.nvim", cmd = "ZenMode" }
--- https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized
--- https://github.com/thanhvule0310/dotfiles
 
 -- ))) end of 'other lua plugins' fold
 
 -- Other vimscript plugins (((
 
 -- https://github.com/hiphish/awk-ward.nvim
+-- https://github.com/dkarter/bullets.vim
 -- https://github.com/metakirby5/codi.vim
 -- https://github.com/rhysd/conflict-marker.vim
 -- https://github.com/whiteinge/diffconflicts
 -- https://github.com/direnv/direnv.vim
 -- use { "ii14/exrc.vim" } -- "jenterkin/vim-autosource", "embear/vim-localvimrc", "LucHermitte/local_vimrc", "thinca/vim-localrc"
 -- use { "Konfekt/FastFold" }
+-- https://github.com/axlebedev/footprints
+-- https://github.com/aadv1k/gdoc.vim  (python + vimscript)
 -- https://github.com/goerz/jupytext.vim
 -- https://github.com/iamcco/markdown-preview.nvim
 -- https://github.com/Sangdol/mintabline.vim
@@ -2737,21 +2755,27 @@ return config
 -- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } } -- also a telescope extension
 -- https://github.com/marklcrns/vim-smartq
 -- https://github.com/svermeulen/vim-subversive
+-- https://github.com/Matt-A-Bennett/vim-surround-funk
 -- https://github.com/Julian/vim-textobj-variable-segment
 -- use { "tweekmonster/wstrip.vim" }
+-- https://github.com/Einenlum/yaml-revealer
 -- https://github.com/jalvesaq/zotcite
 
 -- ))) end of 'other vimscript plugins'
 
 -- ipython/jupyter vim plugins (((
 
--- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } }
+-- https://euporie.readthedocs.io/en/latest/
+-- https://alpha2phi.medium.com/jupyter-notebook-vim-neovim-c2d67d56d563
+-- https://github.com/luk400/vim-jukit   -- (vimscript + python)
+-- https://github.com/sillybun/vim-repl -- (vimscript + python)
+-- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } } -- (python + vimscript)
 -- https://www.maxwellrules.com/misc/nvim_jupyter.html
--- "jupyter-vim/jupyter-vim"
+-- "jupyter-vim/jupyter-vim"  (python + vimscript)
 -- "untitled-ai/jupyter_ascending"
--- "goerz/jupytext.vim"
--- { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' } -- need to set up mappings
--- "bfredl/nvim-ipy"
+-- "goerz/jupytext.vim"  -- (pure vimscript)
+-- { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' } -- need to set up mappings (python + vimscript)
+-- "bfredl/nvim-ipy"  -- (python plugin)
 -- https://github.com/ahmedkhalf/jupyter-nvim
 -- https://github.com/jupyterlab-contrib/jupyterlab-vim (browser-based)
 -- https://github.com/ianhi/jupyterlab-vimrc (browser-based)
@@ -2790,6 +2814,36 @@ Other proprietary systems
 google keep (proprietary)
 https://github.com/stevearc/gkeep.nvim
 ]]
+
+-- )))
+
+-- Readings and resources (((
+
+-- https://github.com/PacktPublishing/Mastering-Vim
+-- https://www.reddit.com/r/vim/comments/ti2is7/open_relevant_git_files_in_your_editor/
+-- https://www.reddit.com/r/vim/comments/pozc9s/tips_for_working_in_large_projects_with_vim/
+-- https://www.reddit.com/r/vim/comments/oqkfur/comment/h6del3b/?utm_source=share&utm_medium=web2x&context=3
+-- https://www.youtube.com/watch?v=7LDlUMMbv6k
+-- https://www.reddit.com/r/vim/comments/osednx/lesser_known_vim_functionality/
+-- https://doriankarter.com/inspect-contents-of-lua-table-in-neovim/
+-- https://www.reddit.com/r/vim/comments/osednx/comment/h6pad2n/?utm_source=share&utm_medium=web2x&context=3
+-- https://github.com/shaunsingh/SFMono-Nerd-Font-Ligaturized
+-- https://github.com/thanhvule0310/dotfiles
+-- https://www.integralist.co.uk/posts/vim/
+-- https://github.com/cheap-glitch/vim.help
+-- https://alexfertel.hashnode.dev/vim-is-actually-worth-it
+-- https://github.com/mhinz/vim-galore
+-- https://github.com/ArthurSonzogni/Diagon
+-- https://github.com/melvio/medical-spell-files
+-- https://ploomber.io/
+-- https://iamsang.com/en/2022/04/13/vimrc/
+-- https://vimtips.strix.dev/
+-- https://github.com/ibhagwan/vim-cheatsheet
+-- https://jovica.org/posts/vim-edit-multiple-files/
+-- https://www.theviminator.com/
+-- https://vimgore.netlify.app/
+-- https://github.com/pit-ray/win-vind
+-- https://gosukiwi.github.io/vim/2022/04/19/vim-advanced-search-and-replace.html
 
 -- )))
 
