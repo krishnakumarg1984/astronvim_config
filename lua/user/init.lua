@@ -102,8 +102,12 @@ local config = {
 
         -- https://vi.stackexchange.com/questions/21872/change-fold-sign-character
         fillchars = {
-          foldclose = "▸",
-          foldopen = "▾",
+          -- fold = "",
+          fold = " ",
+          -- foldclose = "▸",
+          foldclose = "",
+          -- foldopen = "▾",
+          foldopen = "",
           foldsep = "│",
           horiz = "━",
           -- horiz = '━',
@@ -1872,8 +1876,11 @@ local config = {
 
     -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
     vim.wo.foldnestmax = 3
+    -- vim.o.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+    -- https://www.reddit.com/r/vim/comments/ogqarw/another_take_on_minimal_folds/h4l8j4z/
     vim.o.foldtext =
-      [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
+      [[printf('  %-4d %s', v:foldend - v:foldstart + 1, substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g')) . ' ﯀ ' . trim(getline(v:foldend))]]
+    -- [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
 
     -- Vimscript-based options and mappings (((
 
