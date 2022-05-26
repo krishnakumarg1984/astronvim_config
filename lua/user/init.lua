@@ -2588,6 +2588,7 @@ return config
 -- Something in my config is messing up URL highlights. Need to investigate
 -- https://superuser.com/questions/1485332/how-to-clear-neovim-buffer
 -- https://github.com/0styx0/abbreinder.nvim
+-- https://github.com/emmanueltouzery/agitator.nvim
 -- https://github.com/henriquehbr/ataraxis.lua
 -- https://github.com/rmagatti/auto-session
 -- https://github.com/protex/better-digraphs.nvim
@@ -2668,6 +2669,7 @@ return config
 -- https://github.com/SmiteshP/nvim-gps
 -- https://github.com/gennaro-tedesco/nvim-jqx
 -- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
+-- https://github.com/geg2102/nvim-python-repl
 -- https://github.com/bennypowers/nvim-regexplainer
 -- use { "petertriho/nvim-scrollbar" }
 -- https://github.com/dstein64/nvim-scrollview
@@ -2696,6 +2698,7 @@ return config
 -- use { "nvim-telescope/telescope-packer.nvim" }
 -- use { "cljoly/telescope-repo.nvim" }
 -- https://github.com/TC72/telescope-tele-tabby.nvim
+-- https://github.com/da-moon/telescope-toggleterm.nvim
 -- https://github.com/mcauley-penney/tidy.nvim
 -- https://github.com/aserowy/tmux.nvim
 -- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
@@ -2711,6 +2714,7 @@ return config
 -- https://github.com/gelguy/wilder.nvim
 -- https://github.com/declancm/windex.nvim
 -- https://github.com/sindrets/winshift.nvim
+-- https://github.com/yaclt/yaclt.nvim
 -- https://github.com/cuducos/yaml.nvim
 -- https://github.com/hoschi/yode-nvim
 -- use { "folke/zen-mode.nvim", cmd = "ZenMode" }
@@ -2774,6 +2778,7 @@ return config
 -- ipython/jupyter vim plugins (((
 
 -- https://euporie.readthedocs.io/en/latest/
+-- https://github.com/tbung/cell-textobjects.nvim
 -- https://alpha2phi.medium.com/jupyter-notebook-vim-neovim-c2d67d56d563
 -- https://github.com/luk400/vim-jukit   -- (vimscript + python)
 -- https://github.com/sillybun/vim-repl -- (vimscript + python)
