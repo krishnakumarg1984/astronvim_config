@@ -539,7 +539,13 @@ local config = {
                 python = require("iron.fts.python").ipython,
                 -- forcing a default
               },
-              repl_open_cmd = require("iron.view").curry.right(60),
+              -- repl_open_cmd = require("iron.view").curry.right(60),
+              -- repl_open_cmd = "belowright 15 split",
+              -- repl_open_cmd = "belowright 60 vsplit",
+              -- Alternatively, pass a function, which is evaluated when a repl is open.
+              repl_open_cmd = require("iron.view").curry.right(function()
+                return vim.o.columns / 2
+              end),
               -- how the REPL window will be opened, the default is opening a float window of height 40 at the bottom.
               buflisted = false, -- If the repl buffer is listed
             },
