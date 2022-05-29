@@ -2791,14 +2791,17 @@ return config
 -- https://github.com/goerz/jupytext.vim
 -- https://github.com/iamcco/markdown-preview.nvim
 -- https://github.com/Sangdol/mintabline.vim
--- https://github.com/kassio/neoterm   -- promises matlab repl support
+-- https://github.com/kassio/neoterm   -- promises matlab REPL support
 -- https://github.com/svban/PasteSorcerer.vim
 -- use { "weirongxu/plantuml-previewer.vim", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
 -- https://github.com/stefandtw/quickfix-reflector.vim
--- https://gitlab.com/HiPhish/repl.nvim
+-- https://github.com/aiya000/vim-quickrepl  -- REPL
+-- https://gitlab.com/HiPhish/repl.nvim -- REPL
+-- https://github.com/rhysd/reply.vim -- REPL
 -- https://github.com/kamykn/spelunker.vim
 -- use { "wellle/targets.vim" }
 -- use { "mg979/tasks.vim" }
+-- https://github.com/markonm/traces.vim
 -- https://github.com/anufrievroman/vim-angry-reviewer
 -- https://github.com/tpope/vim-apathy
 -- https://github.com/foosoft/vim-argwrap
@@ -2806,7 +2809,7 @@ return config
 -- use { "ntpeters/vim-better-whitespace" }
 -- https://github.com/dhruvasagar/vim-buffer-history
 -- https://github.com/JoseConseco/vim-case-change
--- https://github.com/jalvesaq/vimcmdline  -- promises matlab support
+-- https://github.com/jalvesaq/vimcmdline  -- promises matlab support (REPL?)
 -- use { "gauteh/vim-cppman", ft = { "c", "cpp" }, cmd = { "Cppman" } }
 -- use { "tpope/vim-fugitive", event = "BufWinEnter" }
 -- use { "ludovicchabant/vim-gutentags", event = { "CursorHold" } } -- , event = "BufWinEnter" }
@@ -2815,18 +2818,23 @@ return config
 -- https://github.com/ojroques/vim-oscyank
 -- https://github.com/thinca/vim-quickrun
 -- https://github.com/4513ECHO/vim-readme-viewer
--- use { "urbainvaes/vim-ripple" }
+-- use { "urbainvaes/vim-ripple" }  -- REPL
 -- use { "Konfekt/vim-sentence-chopper" }
 -- https://github.com/jpalardy/vim-slime
 -- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } } -- also a telescope extension
 -- https://github.com/marklcrns/vim-smartq
 -- https://github.com/svermeulen/vim-subversive
 -- https://github.com/Matt-A-Bennett/vim-surround-funk
+-- https://github.com/mroavi/vim-tomux
 -- https://github.com/inkarkat/vim-UnconditionalPaste
+-- https://github.com/erietz/vim-terminator
 -- https://github.com/Julian/vim-textobj-variable-segment
+-- https://github.com/mg979/vim-visual-multi
 -- use { "tweekmonster/wstrip.vim" }
 -- https://github.com/Einenlum/yaml-revealer
+-- https://github.com/axvr/zepl.vim  -- (REPL)
 -- https://github.com/jalvesaq/zotcite
+-- https://www.reddit.com/r/vim/comments/dpj0fz/vim_and_matlab/
 
 -- ))) end of 'other vimscript plugins'
 
@@ -2836,7 +2844,7 @@ return config
 -- https://github.com/tbung/cell-textobjects.nvim
 -- https://alpha2phi.medium.com/jupyter-notebook-vim-neovim-c2d67d56d563
 -- https://github.com/luk400/vim-jukit   -- (vimscript + python)
--- https://github.com/sillybun/vim-repl -- (vimscript + python)
+-- https://github.com/sillybun/vim-repl -- (vimscript + python). Good generic REPL
 -- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } } -- (python + vimscript)
 -- https://www.maxwellrules.com/misc/nvim_jupyter.html
 -- "jupyter-vim/jupyter-vim"  (python + vimscript)
