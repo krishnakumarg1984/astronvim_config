@@ -1228,7 +1228,6 @@ local config = {
     -- 'neo-tree' override setup() (((
 
     ["neo-tree"] = {
-      close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
       enable_diagnostics = true,
       event_handlers = {
         {
