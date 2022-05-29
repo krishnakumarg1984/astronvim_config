@@ -1317,7 +1317,7 @@ local config = {
         diagnostics.hadolint,
         diagnostics.mypy,
         diagnostics.proselint,
-        diagnostics.pydocstyle,
+        diagnostics.pydocstyle.with { extra_args = { "--config=$ROOT/setup.cfg" } },
         diagnostics.pylama,
         diagnostics.pylint,
         diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
