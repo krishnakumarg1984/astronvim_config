@@ -372,6 +372,19 @@ local config = {
       -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
       { "tyru/capture.vim", cmd = { "Capture" } },
       ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } },
+      {
+        "mg979/tasks.vim",
+        -- keys = { "<f2>", "<f3>", "<f4>", "<f5>", "<f6>", "<S-F6>", "<f7>", "<f8>", "<f9>", "<f10>", "<f11>", "<f12>" },
+        -- ft = { "c", "cpp", "go", "python", "javascript", "sh", "perl", "ruby", "julia" },
+        keys = {
+          "<Plug>(Tasks-Choose)",
+          "<Plug>(Tasks-Choose!)",
+          "<Plug>(Tasks-Profile)",
+          "<Plug>)(Tasks-FileNext)",
+          "<Plug>(Tasks-FileNext)",
+        },
+        cmd = { "Tasks", "Tasks!", "TasksOpen", "TasksProfile", "TasksProfile!", "Task", "Task!" },
+      },
       { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
       { "jeffkreeftmeijer/vim-numbertoggle", event = { "InsertEnter", "FocusLost" } },
       {
@@ -2219,6 +2232,16 @@ local config = {
 
     " )))
 
+    " mg979/tasks.vim keymaps (vimscript-based) (((
+
+    nmap <F6>   <Plug>(Tasks-Choose)
+    nmap <S-F6> <Plug>(Tasks-Choose!)
+    nmap <F7>   <Plug>(Tasks-Profile)
+    " nmapr ]r    <Plug>(Tasks-FileNext)
+    " nmapr [r    <Plug>(Tasks-FilePrev)
+
+    " )))
+
     " )))
 
     " )))
@@ -2806,7 +2829,6 @@ return config
 -- https://github.com/rhysd/reply.vim -- REPL
 -- https://github.com/kamykn/spelunker.vim
 -- use { "wellle/targets.vim" }
--- use { "mg979/tasks.vim" }
 -- https://github.com/markonm/traces.vim
 -- https://github.com/anufrievroman/vim-angry-reviewer
 -- https://github.com/tpope/vim-apathy
