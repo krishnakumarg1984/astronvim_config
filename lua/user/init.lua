@@ -858,7 +858,7 @@ local config = {
           vim.keymap.set("!", "<C-e>", readline.end_of_line)
           vim.keymap.set("!", "<M-d>", readline.kill_word)
           vim.keymap.set("!", "<C-w>", readline.backward_kill_word)
-          vim.keymap.set("!", "<C-k>", readline.kill_line)
+          vim.keymap.set("c", "<C-k>", readline.kill_line)
           vim.keymap.set("!", "<C-u>", readline.backward_kill_line)
           vim.keymap.set({ "i" }, "<C-f>", "<Right>")
           vim.keymap.set("!", "<C-b>", "<Left>")
