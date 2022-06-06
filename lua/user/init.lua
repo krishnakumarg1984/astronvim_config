@@ -65,7 +65,9 @@ local kind_icons = {
 
 local config = {
 
-  -- Configure AstroNvim updates (((
+  -- AstroNvim-specific configuration (((
+
+  -- Configure updates to AstroNvim (((
 
   updater = {
     remote = "origin", -- remote to use
@@ -85,11 +87,7 @@ local config = {
 
   -- )))
 
-  -- Startscreen/greeter header (((
-
-  header = {
-    " ",
-  },
+  header = { " " }, -- Startscreen/greeter header for AstroNvim
 
   -- )))
 
