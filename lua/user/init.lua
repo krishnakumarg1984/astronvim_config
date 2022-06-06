@@ -2648,6 +2648,7 @@ return config
 
 -- dap notes and hyperlinks (((
 
+-- https://gist.github.com/mehalter/b02b1d35499b650290d89badf0f2abac
 -- https://www.reddit.com/r/neovim/comments/silikv/debugging_in_neovim/?sort=old
 -- https://github.com/datamonsterr/astronvim_config/blob/main/which-key/mode/n.lua
 -- https://github.com/datamonsterr/astronvim_config/blob/main/plugins/nvim-dap.lua
