@@ -466,53 +466,53 @@ local config = {
       --     astronvim.add_user_cmp_source(require("user.cmp_sources").buffer_source)
       --   end,
       -- },
-      {
-        "hrsh7th/cmp-emoji",
-        -- ft = {
-        --   "asciidoc",
-        --   "changelog",
-        --   "context",
-        --   "DiffviewFiles",
-        --   "gitcommit",
-        --   "Neogitcommit",
-        --   "NeogitCommit",
-        --   "NeogitCommitMessage",
-        --   "lsp_markdown",
-        --   "mail",
-        --   "markdown",
-        --   "rst",
-        --   "rtf",
-        --   "tex",
-        --   "texinfo",
-        --   "text",
-        --   "txt",
-        -- },
-        config = function()
-          astronvim.add_user_cmp_source "emoji"
-        end,
-      },
-      ["petertriho/cmp-git"] = {
-        after = "nvim-cmp",
-        config = function()
-          require("cmp_git").setup {
-            -- other defaults
-            filetypes = { "gitcommit", "octo", "NeogitCommitMessage" },
-          }
-          astronvim.add_user_cmp_source "git"
-        end,
-      },
-      {
-        "octaltree/cmp-look",
-        after = "nvim-cmp",
-        config = function()
-          astronvim.add_user_cmp_source {
-            name = "look",
-            max_item_count = 7,
-            keyword_length = 2,
-            option = { convert_case = true, loud = true },
-          }
-        end,
-      },
+      -- {
+      --   "hrsh7th/cmp-emoji",
+      --   -- ft = {
+      --   --   "asciidoc",
+      --   --   "changelog",
+      --   --   "context",
+      --   --   "DiffviewFiles",
+      --   --   "gitcommit",
+      --   --   "Neogitcommit",
+      --   --   "NeogitCommit",
+      --   --   "NeogitCommitMessage",
+      --   --   "lsp_markdown",
+      --   --   "mail",
+      --   --   "markdown",
+      --   --   "rst",
+      --   --   "rtf",
+      --   --   "tex",
+      --   --   "texinfo",
+      --   --   "text",
+      --   --   "txt",
+      --   -- },
+      --   config = function()
+      --     astronvim.add_user_cmp_source "emoji"
+      --   end,
+      -- },
+      -- ["petertriho/cmp-git"] = {
+      --   after = "nvim-cmp",
+      --   config = function()
+      --     require("cmp_git").setup {
+      --       -- other defaults
+      --       filetypes = { "gitcommit", "octo", "NeogitCommitMessage" },
+      --     }
+      --     astronvim.add_user_cmp_source "git"
+      --   end,
+      -- },
+      -- {
+      --   "octaltree/cmp-look",
+      --   after = "nvim-cmp",
+      --   config = function()
+      --     astronvim.add_user_cmp_source {
+      --       name = "look",
+      --       max_item_count = 7,
+      --       keyword_length = 2,
+      --       option = { convert_case = true, loud = true },
+      --     }
+      --   end,
+      -- },
       { "gpanders/editorconfig.nvim" },
       -- {
       --   "akinsho/git-conflict.nvim", -- A plugin to visualise and resolve merge conflicts in neovim
@@ -864,31 +864,31 @@ local config = {
           vim.keymap.set("!", "<C-b>", "<Left>")
         end,
       },
-      ["abecodes/tabout.nvim"] = {
-        after = "nvim-cmp",
-        config = function()
-          require("tabout").setup {
-            tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
-            backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
-            act_as_tab = true, -- shift content if tab out is not possible
-            act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
-            default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
-            default_shift_tab = "<C-d>", -- reverse shift default action,
-            enable_backwards = true, -- well ...
-            completion = true, -- if the tabkey is used in a completion pum
-            tabouts = {
-              { open = "'", close = "'" },
-              { open = '"', close = '"' },
-              { open = "`", close = "`" },
-              { open = "(", close = ")" },
-              { open = "[", close = "]" },
-              { open = "{", close = "}" },
-            },
-            ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
-            exclude = {}, -- tabout will ignore these filetypes
-          }
-        end,
-      },
+      -- ["abecodes/tabout.nvim"] = {
+      --   after = "nvim-cmp",
+      --   config = function()
+      --     require("tabout").setup {
+      --       tabkey = "<Tab>", -- key to trigger tabout, set to an empty string to disable
+      --       backwards_tabkey = "<S-Tab>", -- key to trigger backwards tabout, set to an empty string to disable
+      --       act_as_tab = true, -- shift content if tab out is not possible
+      --       act_as_shift_tab = false, -- reverse shift content if tab out is not possible (if your keyboard/terminal supports <S-Tab>)
+      --       default_tab = "<C-t>", -- shift default action (only at the beginning of a line, otherwise <TAB> is used)
+      --       default_shift_tab = "<C-d>", -- reverse shift default action,
+      --       enable_backwards = true, -- well ...
+      --       completion = true, -- if the tabkey is used in a completion pum
+      --       tabouts = {
+      --         { open = "'", close = "'" },
+      --         { open = '"', close = '"' },
+      --         { open = "`", close = "`" },
+      --         { open = "(", close = ")" },
+      --         { open = "[", close = "]" },
+      --         { open = "{", close = "}" },
+      --       },
+      --       ignore_beginning = true, --[[ if the cursor is at the beginning of a filled element it will rather tab out than shift the content ]]
+      --       exclude = {}, -- tabout will ignore these filetypes
+      --     }
+      --   end,
+      -- },
       {
         "folke/trouble.nvim",
         cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
@@ -1150,7 +1150,7 @@ local config = {
             else
               vim_item.menu = ({
                 buffer = "[Buf]",
-                cmp_tabnine = "[Tabnine]",
+                -- cmp_tabnine = "[Tabnine]",
                 dictionary = "[Dictionary]",
                 nvim_lsp_signature_help = "[Function Signature]",
                 signature_help = "[Function Signature]",
