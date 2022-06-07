@@ -460,22 +460,11 @@ local config = {
       -- { "axvr/zepl.vim" },
       -- { "svban/YankAssassin.vim" },
       -- { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
-      {
-        "p00f/clangd_extensions.nvim",
-        ft = { "c", "cpp", "cuda" },
+      ["p00f/clangd_extensions.nvim"] = {
+        after = "nvim-lsp-installer", -- make sure to load after nvim-lsp-installer
         config = function()
           require("clangd_extensions").setup {
-            server = {
-              cmd = {
-                vim.fn.stdpath "data" .. "/lsp_servers/clangd/clangd/bin/clangd",
-                -- "--completion-style=detailed",
-              },
-              capabilities = {
-                offsetEncoding = "utf-8",
-                memoryUsageProvider = true,
-              },
-              on_attach = require("configs.lsp.handlers").on_attach,
-            },
+            server = astronvim.lsp.server_settings "clangd",
           }
         end,
       },
@@ -1650,6 +1639,8 @@ local config = {
   -- Extend LSP configuration (((
 
   lsp = {
+    skip_setup = { "clangd" },
+
     -- enable servers that you already have installed without lsp-installer
     servers = {
       "clangd", -- requires a reasonably new version of glibc
@@ -1663,6 +1654,30 @@ local config = {
       -- "pyright"
       "taplo",
       "zk",
+    },
+    -- Add overrides for LSP server settings, the keys are the names of the server
+    ["server-settings"] = {
+      clangd = {
+        capabilities = {
+          offsetEncoding = "utf-8",
+          memoryUsageProvider = true,
+        },
+      },
+      -- pyright = {
+      --   single_filesupport = false,
+      -- },
+      -- example for adding schemas to yamlls
+      -- yamlls = {
+      --   settings = {
+      --     yaml = {
+      --       schemas = {
+      --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
+      --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
+      --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
+      --       },
+      --     },
+      --   },
+      -- },
     },
 
     -- add to the server on_attach function
@@ -1716,22 +1731,6 @@ local config = {
         require("lspconfig")[server].setup(opts)
       end
     end,
-
-    -- Add overrides for LSP server settings, the keys are the name of the server
-    ["server-settings"] = {
-      -- example for adding schemas to yamlls
-      -- yamlls = {
-      --   settings = {
-      --     yaml = {
-      --       schemas = {
-      --         ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*.{yml,yaml}",
-      --         ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
-      --         ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/*.{yml,yaml}",
-      --       },
-      --     },
-      --   },
-      -- },
-    },
   },
 
   -- )))
