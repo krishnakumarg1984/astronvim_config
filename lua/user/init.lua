@@ -366,21 +366,6 @@ local config = {
         },
       },
       ["p00f/nvim-ts-rainbow"] = { disable = true },
-      -- ["wbthomason/packer.nvim"] = {
-      --   cmd = {
-      --     "PackerCompile",
-      --     "PackerInstall",
-      --     "PackerSync",
-      --     "PackerStatus",
-      --     "PackerUpdate",
-      --     "PackerClean",
-      --     "PackerLoad",
-      --     "PackerProfile",
-      --     "PackerSnapshot",
-      --     "PackerSnapshotDelete",
-      --     "PackerSnapshotRollback",
-      --   },
-      -- },
 
       -- )))
 
