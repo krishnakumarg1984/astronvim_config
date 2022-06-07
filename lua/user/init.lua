@@ -1652,6 +1652,19 @@ local config = {
           offsetEncoding = "utf-8",
           memoryUsageProvider = true,
         },
+        on_attach = function(client, bufnr)
+          client.resolved_capabilities.document_formatting = false
+        end,
+      },
+      pylsp = {
+        on_attach = function(client, bufnr)
+          client.resolved_capabilities.document_formatting = false
+        end,
+      },
+      taplo = {
+        on_attach = function(client, bufnr)
+          client.resolved_capabilities.document_formatting = false
+        end,
       },
       -- pyright = {
       --   single_filesupport = false,
@@ -1672,9 +1685,6 @@ local config = {
 
     -- add to the server on_attach function
     on_attach = function(client, bufnr)
-      if client.name == "clangd" or client.name == "pylsp" or client.name == "taplo" then
-        client.resolved_capabilities.document_formatting = false
-      end
       vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
       vim.keymap.del("n", "gd", { buffer = bufnr })
       vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition(s)", buffer = bufnr })
