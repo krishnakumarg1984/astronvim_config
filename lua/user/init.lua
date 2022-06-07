@@ -2680,24 +2680,24 @@ return config
 
 -- Something in my config is messing up URL highlights. Need to investigate
 -- https://superuser.com/questions/1485332/how-to-clear-neovim-buffer
--- https://github.com/0styx0/abbreinder.nvim
+-- https://github.com/0styx0/abbreinder.nvim  -- Abbreviation reminder plugin for Neovim 0.5+
 -- https://github.com/emmanueltouzery/agitator.nvim
--- https://github.com/henriquehbr/ataraxis.lua
--- https://github.com/rmagatti/auto-session
--- https://github.com/protex/better-digraphs.nvim
--- https://github.com/jceb/blinds.nvim
--- https://github.com/MordechaiHadad/bob
--- https://github.com/lalitmee/browse.nvim
--- use { "numtostr/BufOnly.nvim", cmd = { "BufOnly" } }
--- use { "kwkarlwang/bufresize.nvim" }
--- https://github.com/saifulapm/chartoggle.nvim
--- use { "kazhala/close-buffers.nvim", cmd = {} }
--- https://github.com/Civitasv/cmake-tools.nvim
--- https://github.com/rcarriga/cmp-dap
--- use { "andersevenrud/cmp-tmux" }
--- https://github.com/xeluxee/competitest.nvim
--- https://github.com/zbirenbaum/copilot-cmp -- TODO
--- https://github.com/p00f/cphelper.nvim
+-- https://github.com/henriquehbr/ataraxis.lua  -- A simple zen mode for improving code readability on neovim
+-- https://github.com/rmagatti/auto-session  -- A small automated session manager for Neovim
+-- https://github.com/protex/better-digraphs.nvim  -- Better digraphs plugin based on idea from Damian Conway
+-- https://github.com/jceb/blinds.nvim  -- blinds.nvim emphasizes the current window by shading the non-active windows
+-- https://github.com/MordechaiHadad/bob  -- A version manager for neovim
+-- https://github.com/lalitmee/browse.nvim  -- browse for anything using your choice of method
+-- use { "numtostr/BufOnly.nvim", cmd = { "BufOnly" } }  -- Lua/Neovim port of BufOnly.vim with some changes
+-- use { "kwkarlwang/bufresize.nvim" }  --  Keep buffer dimensions in proportion when terminal window is resized
+-- https://github.com/saifulapm/chartoggle.nvim  -- Toggle character in Neovim
+-- use { "kazhala/close-buffers.nvim", cmd = {} }  -- Delete multiple vim buffers based on different conditions
+-- https://github.com/Civitasv/cmake-tools.nvim  --  CMake integration in Neovim
+-- https://github.com/rcarriga/cmp-dap  -- nvim-cmp source for nvim-dap REPL and nvim-dap-ui buffers
+-- use { "andersevenrud/cmp-tmux" }  -- Tmux completion source for nvim-cmp and nvim-compe
+-- https://github.com/xeluxee/competitest.nvim -- CompetiTest.nvim is a Neovim plugin to automate testcases management and checking for Competitive Programming
+-- https://github.com/zbirenbaum/copilot-cmp -- Lua plugin to turn github copilot into a cmp source
+-- https://github.com/p00f/cphelper.nvim -- Neovim helper for competitive programming. https://sr.ht/~p00f/cphelper.nvim preferred
 -- https://github.com/Pocco81/dap-buddy.nvim
 -- https://github.com/jbyuki/dash.nvim
 -- https://github.com/monaqa/dial.nvim
@@ -2777,6 +2777,7 @@ return config
 -- https://github.com/sheodox/projectlaunch.nvim
 -- https://github.com/VonHeikemen/project-settings.nvim -- https://www.reddit.com/r/neovim/comments/tydpmy/using_projectsettingsnvim_to_call_language_servers/?sort=new
 -- https://github.com/filipdutescu/renamer.nvim
+-- https://github.com/simrat39/rust-tools.nvim  -- Tools for better development in rust using neovim's builtin lsp
 -- https://github.com/xuyuanp/scrollbar.nvim
 -- https://github.com/rmagatti/session-lens
 -- https://github.com/sunjon/Shade.nvim
