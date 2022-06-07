@@ -1567,9 +1567,12 @@ local config = {
 
     -- 'packer' override setup() (((
 
-    packer = {
-      compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",
-    },
+    packer = function(config)
+      config.display = nil
+      config.compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua"
+      return config
+    end,
+
     -- )))
 
     -- )))
