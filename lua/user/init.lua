@@ -942,7 +942,7 @@ local config = {
       backends = { "treesitter", "lsp", "markdown" },
       min_width = 18,
       icons = kind_icons,
-      on_attach = function(bufnr)
+      on_attach = function(client, bufnr)
         -- Jump forwards/backwards with '{' and '}'
         vim.keymap.set("n", "}", "}", { silent = true })
         vim.keymap.del("n", "}")
