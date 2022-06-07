@@ -344,7 +344,8 @@ local config = {
       ["norcalli/nvim-colorizer.lua"] = { event = { nil }, ft = { "html", "javascript", "css" } }, -- look into more filetypes
       ["rcarriga/nvim-notify"] = { disable = true },
       ["windwp/nvim-ts-autotag"] = {
-        after = { nil },
+        -- after = { nil },
+        requires = { "nvim-treesitter/nvim-treesitter" },
         ft = {
           "glimmer",
           "handlebars",
@@ -461,7 +462,8 @@ local config = {
       -- { "svban/YankAssassin.vim" },
       -- { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
       ["p00f/clangd_extensions.nvim"] = {
-        wants = "nvim-lsp-installer", -- make sure to load after nvim-lsp-installer
+        -- https://github.com/wbthomason/packer.nvim/issues/810
+        requires = { "williamboman/nvim-lsp-installer" }, -- make sure to load after nvim-lsp-installer
         ft = { "c", "cpp", "cuda" },
         config = function()
           require("clangd_extensions").setup {
@@ -830,7 +832,7 @@ local config = {
           require("treesitter-context").setup {}
         end,
       },
-      { "eddiebergman/nvim-treesitter-pyfold", ft = "python" },
+      { "eddiebergman/nvim-treesitter-pyfold", requires = { "nvim-treesitter/nvim-treesitter" }, ft = "python" },
       { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
       { "nvim-treesitter/nvim-treesitter-textobjects", after = "nvim-treesitter" },
       -- { "RRethy/nvim-treesitter-textsubjects", after = "nvim-treesitter" },
