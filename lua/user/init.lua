@@ -625,6 +625,7 @@ local config = {
           }
         end,
         -- keys = { "<leader>r" },
+        keys = { "<Plug>SnipRun", "<Plug>SnipRunOperator" },
         cmd = {
           "SnipRun",
           "<Plug>SnipRun",
