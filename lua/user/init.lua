@@ -1724,13 +1724,6 @@ local config = {
       --   require("folding").on_attach()
       -- end
     end,
-
-    -- override the lsp installer server-registration function
-    server_registration = function(server, opts)
-      if server ~= "clangd" then
-        require("lspconfig")[server].setup(opts)
-      end
-    end,
   },
 
   -- )))
