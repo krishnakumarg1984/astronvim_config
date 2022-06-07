@@ -378,8 +378,6 @@ local config = {
       ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } },
       {
         "mg979/tasks.vim",
-        -- keys = { "<f2>", "<f3>", "<f4>", "<f5>", "<f6>", "<S-F6>", "<f7>", "<f8>", "<f9>", "<f10>", "<f11>", "<f12>" },
-        -- ft = { "c", "cpp", "go", "python", "javascript", "sh", "perl", "ruby", "julia" },
         keys = {
           "<Plug>(Tasks-Choose)",
           "<Plug>(Tasks-Choose!)",
