@@ -2758,12 +2758,13 @@ return config
 -- https://github.com/mfussenegger/nvim-dap
 -- https://github.com/mfussenegger/nvim-dap-python
 -- https://github.com/rcarriga/nvim-dap-ui
--- https://github.com/esensar/nvim-dev-container
+-- https://github.com/esensar/nvim-dev-container -- Neovim dev container support
 -- https://github.com/AllenDang/nvim-expand-expr
 -- https://github.com/sakhnik/nvim-gdb
 -- https://github.com/booperlv/nvim-gomove
 -- https://github.com/SmiteshP/nvim-gps
 -- https://github.com/gennaro-tedesco/nvim-jqx
+-- https://github.com/nanotee/nvim-lua-guide -- A guide to using Lua in Neovim
 -- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
 -- https://github.com/geg2102/nvim-python-repl
 -- https://github.com/bennypowers/nvim-regexplainer
