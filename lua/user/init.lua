@@ -540,7 +540,7 @@ local config = {
       -- },
       { "ellisonleao/glow.nvim", cmd = { "Glow", "GlowInstall" } },
       -- ["JASONews/glow-hover"] = { after = "nvim-lsp-installer" },
-      -- ["lukas-reineke/headlines.nvim"] = {
+      -- ["lukas-reineke/headlines.nvim"] = { -- This plugin adds 3 kind of horizontal highlights for text filetypes, like `markdown`, `vimwiki` and `orgmode`
       --   ft = { "lsp_markdown", "markdown", "rmd" },
       --   config = function()
       --     require("headlines").setup {
