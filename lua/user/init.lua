@@ -461,7 +461,8 @@ local config = {
       -- { "svban/YankAssassin.vim" },
       -- { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
       ["p00f/clangd_extensions.nvim"] = {
-        after = "nvim-lsp-installer", -- make sure to load after nvim-lsp-installer
+        wants = "nvim-lsp-installer", -- make sure to load after nvim-lsp-installer
+        ft = { "c", "cpp", "cuda" },
         config = function()
           require("clangd_extensions").setup {
             server = astronvim.lsp.server_settings "clangd",
