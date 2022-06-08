@@ -1637,6 +1637,7 @@ local config = {
       "cmake",
       "fortls",
       "ltex",
+      "marksman",
       "prosemd_lsp",
       "pylsp",
       -- "r_language_server", -- needs R in path
