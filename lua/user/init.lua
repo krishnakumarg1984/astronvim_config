@@ -1643,7 +1643,7 @@ local config = {
       -- "r_language_server", -- needs R in path
       "sumneko_lua",
       -- "pyright"
-      "taplo",
+      -- "taplo", -- problematic with rust/cargo installs
       "zk",
     },
     -- Add overrides for LSP server settings, the keys are the names of the server
