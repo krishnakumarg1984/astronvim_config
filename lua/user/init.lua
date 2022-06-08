@@ -2792,6 +2792,8 @@ return config
 -- https://github.com/psliwka/vim-dirtytalk
 -- https://github.com/RRethy/vim-illuminate
 -- https://github.com/rcarriga/vim-ultest
+-- https://github.com/lukas-reineke/virt-column.nvim -- Display a character as the colorcolumn
+-- https://github.com/xiyaowong/virtcolumn.nvim  -- Display a line as the colorcolumn
 -- https://github.com/jubnzv/virtual-types.nvim  -- A Neovim plugin that shows type annotations as virtual text
 -- https://github.com/gelguy/wilder.nvim
 -- https://github.com/declancm/windex.nvim
