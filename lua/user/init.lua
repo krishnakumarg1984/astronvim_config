@@ -2760,6 +2760,7 @@ return config
 -- https://gitlab.com/yorickpeterse/nvim-window
 -- https://github.com/pwntester/octo.nvim
 -- https://github.com/rktjmp/paperplanes.nvim
+-- https://github.com/koenverburg/peepsight.nvim -- Focus on one function at a time
 -- https://github.com/rlane/pounce.nvim
 -- https://github.com/anuvyklack/pretty-fold.nvim
 -- https://github.com/sheodox/projectlaunch.nvim
@@ -2785,6 +2786,7 @@ return config
 -- https://github.com/aserowy/tmux.nvim
 -- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
 -- https://github.com/jedrzejboczar/toggletasks.nvim
+-- https://github.com/drybalka/tree-climber.nvim -- Plugin for easy navigation around the syntax-tree produced by the treesitter that also works in comments and multi-language files!
 -- https://github.com/David-Kunz/treesitter-unit/
 -- https://github.com/Pocco81/TrueZen.nvim
 -- use { "folke/twilight.nvim", cmd = { "ZenMode", "Twilight", "TwilightEnable" } }
