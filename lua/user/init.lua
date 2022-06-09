@@ -515,6 +515,37 @@ local config = {
       --     require("git-conflict").setup()
       --   end,
       -- },
+      ["jose-elias-alvarez/null-ls.nvim"] = {
+        requires = "PlatyPew/format-installer.nvim",
+        after = "nvim-lspconfig", -- To prevent null-ls from failing to read buffer
+        config = function()
+          local null_ls = require "null-ls"
+          local formatter_install = require "format-installer"
+          local sources = {
+            -- insert any manual sources you want here
+            -- null_ls.builtins.formatting.clang_format,
+          }
+          for _, formatter in ipairs(formatter_install.get_installed_formatters()) do
+            local config = { command = formatter.cmd }
+            table.insert(sources, null_ls.builtins.formatting[formatter.name].with(config))
+          end
+
+          null_ls.setup {
+            sources = sources,
+            on_attach = function(client)
+              if client.resolved_capabilities.document_formatting then
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                  desc = "Auto format before save",
+                  pattern = "<buffer>",
+                  callback = function()
+                    vim.lsp.buf.formatting_sync()
+                  end,
+                })
+              end
+            end,
+          }
+        end,
+      },
       { "ellisonleao/glow.nvim", cmd = { "Glow", "GlowInstall" } },
       -- ["JASONews/glow-hover"] = { after = "nvim-lsp-installer" },
       -- ["lukas-reineke/headlines.nvim"] = { -- This plugin adds 3 kind of horizontal highlights for text filetypes, like `markdown`, `vimwiki` and `orgmode`
@@ -1253,40 +1284,40 @@ local config = {
 
     -- )))
 
-    -- 'null-ls' configuration (((
-
-    ["null-ls"] = function(config)
-      -- Formatting and linting
-      -- https://github.com/jose-elias-alvarez/null-ls.nvim
-      local null_ls = require "null-ls"
-
-      -- Check supported formatters
-      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-      local formatting = null_ls.builtins.formatting
-
-      -- Check supported linters
-      -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
-      local diagnostics = null_ls.builtins.diagnostics
-
-      config.sources = {}
-
-      -- set up null-ls's on_attach function
-      config.on_attach = function(client)
-        -- NOTE: You can remove this on attach function to disable format on save
-        if client.resolved_capabilities.document_formatting and not vim.g.null_ls_disable then
-          vim.api.nvim_create_autocmd("BufWritePre", {
-            desc = "Auto format before save",
-            pattern = "<buffer>",
-            callback = function()
-              vim.lsp.buf.formatting_sync()
-            end,
-          })
-        end
-      end
-      return config -- return the final config table
-    end,
-
-    -- )))
+    -- -- 'null-ls' configuration (((
+    --
+    -- ["null-ls"] = function(config)
+    --   -- Formatting and linting
+    --   -- https://github.com/jose-elias-alvarez/null-ls.nvim
+    --   local null_ls = require "null-ls"
+    --
+    --   -- Check supported formatters
+    --   -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
+    --   local formatting = null_ls.builtins.formatting
+    --
+    --   -- Check supported linters
+    --   -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
+    --   local diagnostics = null_ls.builtins.diagnostics
+    --
+    --   config.sources = {}
+    --
+    --   -- set up null-ls's on_attach function
+    --   config.on_attach = function(client)
+    --     -- NOTE: You can remove this on attach function to disable format on save
+    --     if client.resolved_capabilities.document_formatting and not vim.g.null_ls_disable then
+    --       vim.api.nvim_create_autocmd("BufWritePre", {
+    --         desc = "Auto format before save",
+    --         pattern = "<buffer>",
+    --         callback = function()
+    --           vim.lsp.buf.formatting_sync()
+    --         end,
+    --       })
+    --     end
+    --   end
+    --   return config -- return the final config table
+    -- end,
+    --
+    -- -- )))
 
     -- 'nvim-lsp-installer' override setup() (((
 
