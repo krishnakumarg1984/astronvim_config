@@ -516,12 +516,6 @@ local config = {
       --     require("git-conflict").setup()
       --   end,
       -- },
-      ["PlatyPew/format-installer.nvim"] = {
-        after = "nvim-lspconfig", -- To prevent null-ls from failing to read buffer
-        config = function()
-          require("format-installer").setup {}
-        end,
-      },
       { "ellisonleao/glow.nvim", cmd = { "Glow", "GlowInstall" } },
       -- ["JASONews/glow-hover"] = { after = "nvim-lsp-installer" },
       -- ["lukas-reineke/headlines.nvim"] = { -- This plugin adds 3 kind of horizontal highlights for text filetypes, like `markdown`, `vimwiki` and `orgmode`
