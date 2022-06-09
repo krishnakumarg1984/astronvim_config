@@ -1,12 +1,8 @@
 -- vim: foldmethod=marker:foldlevel=0:
--- local has_run = False
+
 local null_ls = require "null-ls"
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
-
-local null_ls = require "null-ls"
-
--- null_ls.setup()
 
 if not local_vimrc_has_run then
   -- list of globally installed sources in $PATH (not those installed with ':FInstall')
@@ -16,7 +12,7 @@ if not local_vimrc_has_run then
         return utils.root_has_file { "stylua.toml", ".stylua.toml" }
       end,
     },
-    -- formatting.black,
+    -- formatting.black,  -- not in $PATH, but installed with ':FInstall' which is automatically made available with ':e!'
     formatting.clang_format,
     diagnostics.cppcheck,
     null_ls.builtins.code_actions.gitrebase,
@@ -24,7 +20,7 @@ if not local_vimrc_has_run then
   }
   null_ls.enable {}
 end
-local_vimrc_has_run = 1 -- silly workaround to stop local '.vimrc.lua' from being loaded twice due to a bug in the "klen/config-local.nvim" plugin
+local_vimrc_has_run = 1 -- silly workaround to stop local '.vimrc.lua' from being loaded twice due to a bug in the "klen/nvim-config-local" plugin
 
 -- Other project-specific 'diagnostic-linters' and 'formatters' to consider {{{
 -- formatting.asmformat,
