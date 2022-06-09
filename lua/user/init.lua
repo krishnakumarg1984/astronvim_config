@@ -104,7 +104,6 @@ local config = {
   options = function(defaults)
     defaults.g.loaded_netrwPlugin = nil
     defaults.g.mapleader = "\\" -- sets vim.g.mapleader
-    -- defaults.g.null_ls_disable = false
 
     return vim.tbl_deep_extend("force", defaults, {
       -- vim.opt settings (((
@@ -1269,67 +1268,8 @@ local config = {
       -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
       local diagnostics = null_ls.builtins.diagnostics
 
-      config.sources = {
-        -- formatting.asmformat,
-        -- formatting.brittany,
-        -- formatting.format_r, -- needs the 'R' command to be in $PATH
-        -- formatting.goformat,
-        -- formatting.goimports,
-        -- formatting.mdformat,
-        -- formatting.standardrb,
-        -- formatting.styler, -- needs the 'R' command to be in $PATH
-        formatting.bibclean,
-        formatting.black,
-        formatting.clang_format,
-        formatting.fprettify,
-        formatting.latexindent,
-        formatting.perltidy,
-        formatting.reorder_python_imports,
-        formatting.rustfmt,
-        formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
-        formatting.sqlfluff,
-        -- formatting.stylua.with {
-        --   condition = function(utils)
-        --     return utils.root_has_file { "stylua.toml", ".stylua.toml" }
-        --   end,
-        -- },
-        formatting.taplo,
-        -- diagnostics.codespell,
-        -- diagnostics.cspell,  -- requires 'npm'
-        -- diagnostics.jsonlint,
-        -- diagnostics.markdownlint,
-        -- diagnostics.mlint,
-        -- diagnostics.pyproject_flake8,
-        -- diagnostics.rstcheck,
-        -- diagnostics.selene,
-        -- diagnostics.semgrep,
-        -- diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
-        -- diagnostics.stylint,
-        -- diagnostics.textlint,
-        -- diagnostics.vale,
-        -- diagnostics.vulture, -- usually not available in path
-        -- diagnostics.write_good,
-        diagnostics.actionlint,
-        diagnostics.ansiblelint,
-        diagnostics.checkmake,
-        diagnostics.chktex,
-        diagnostics.cppcheck,
-        diagnostics.flake8,
-        diagnostics.gitlint,
-        diagnostics.hadolint,
-        diagnostics.mypy,
-        diagnostics.proselint,
-        diagnostics.pydocstyle.with { extra_args = { "--config=$ROOT/setup.cfg" } },
-        diagnostics.pylama,
-        diagnostics.pylint,
-        diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
-        diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
-        diagnostics.sqlfluff,
-        diagnostics.vint,
-        diagnostics.yamllint,
-        null_ls.builtins.code_actions.gitrebase,
-        null_ls.builtins.hover.dictionary,
-      }
+      config.sources = {}
+
       -- set up null-ls's on_attach function
       config.on_attach = function(client)
         -- NOTE: You can remove this on attach function to disable format on save
