@@ -658,7 +658,7 @@ local config = {
             floating_window_above_cur_line = true, -- try to place the floating above the current line when possible Note:
             -- floating_window_off_x = 75, -- adjust float windows x position.
             -- floating_window_off_y = -10, -- adjust float windows y position.
-            max_width = 70,
+            max_width = 80,
             max_height = 10, -- max height of signature floating_window, if content is more than max_height, you can scroll down
             toggle_key = "<A-x>", -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
             doc_lines = 5,
