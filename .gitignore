@@ -1,3 +1,4 @@
 *.txt
 *.c
 *.py
+!.vimrc.lua

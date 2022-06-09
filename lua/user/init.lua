@@ -745,6 +745,7 @@ local config = {
         -- after = "project.nvim",
         event = "BufReadPost",
         tag = "1.1.1",
+        -- commit = "3f1e788",
         config = function()
           require("config-local").setup {}
         end,
@@ -1287,11 +1288,11 @@ local config = {
         formatting.rustfmt,
         formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
         formatting.sqlfluff,
-        formatting.stylua.with {
-          condition = function(utils)
-            return utils.root_has_file { "stylua.toml", ".stylua.toml" }
-          end,
-        },
+        -- formatting.stylua.with {
+        --   condition = function(utils)
+        --     return utils.root_has_file { "stylua.toml", ".stylua.toml" }
+        --   end,
+        -- },
         formatting.taplo,
         -- diagnostics.codespell,
         -- diagnostics.cspell,  -- requires 'npm'
