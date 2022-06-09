@@ -74,6 +74,7 @@ local config = {
     channel = "nightly", -- "stable" or "nightly"
     version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
     branch = "main", -- branch name (NIGHTLY ONLY)
+    -- branch = "lsp_moving", -- branch name (NIGHTLY ONLY)
     commit = nil, -- commit hash (NIGHTLY ONLY)
     pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
     skip_prompts = false, -- skip prompts about breaking changes
@@ -453,8 +454,9 @@ local config = {
       -- { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
       ["p00f/clangd_extensions.nvim"] = {
         -- https://github.com/wbthomason/packer.nvim/issues/810
-        requires = { "williamboman/nvim-lsp-installer" }, -- make sure to load after nvim-lsp-installer
+        -- requires = { "williamboman/nvim-lsp-installer", "neovim/nvim-lspconfig" }, -- make sure to load after lsp stuff
         ft = { "c", "cpp", "cuda" },
+        wants = { "nvim-lsp-installer", "nvim-lspconfig" }, -- make sure to load after lsp stuff
         config = function()
           require("clangd_extensions").setup {
             server = astronvim.lsp.server_settings "clangd",
