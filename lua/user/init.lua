@@ -388,6 +388,7 @@ local config = {
         cmd = { "Tasks", "Tasks!", "TasksOpen", "TasksProfile", "TasksProfile!", "Task", "Task!" },
       },
       { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
+      { "gauteh/vim-cppman", cmd = { "Cppman" } },
       { "jeffkreeftmeijer/vim-numbertoggle", event = { "InsertEnter", "FocusLost" } },
       {
         "Konfekt/vim-DetectSpellLang",
@@ -864,6 +865,7 @@ local config = {
       --     require'window-picker'.setup()
       --   end,
       -- },
+      { "samjwill/nvim-unception" }, -- A plugin that leverages Neovim's native client-server feature to make opening files from within Neovim's terminal emulator without experiencing weird behavior easier and completely automatic.
       {
         "ahmedkhalf/project.nvim",
         after = "telescope.nvim",
