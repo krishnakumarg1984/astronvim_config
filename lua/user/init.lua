@@ -2784,6 +2784,7 @@ return config
 -- Other vimscript plugins (((
 
 -- https://github.com/hiphish/awk-ward.nvim
+-- https://github.com/AlxHnr/build.vim  -- Vim plugin for building projects
 -- https://github.com/dkarter/bullets.vim
 -- https://github.com/metakirby5/codi.vim
 -- https://github.com/rhysd/conflict-marker.vim
