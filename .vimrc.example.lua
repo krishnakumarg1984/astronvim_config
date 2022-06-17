@@ -1,7 +1,5 @@
 -- vim: ft=lua:
 
--- vim.g.null_ls_disable = false
-
 -- local status_ok_nvim_lint, nvim_lint = pcall(require, "lint")
 -- if not status_ok_nvim_lint then
 --   return
