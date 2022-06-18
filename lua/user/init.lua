@@ -1984,7 +1984,7 @@ local config = {
     " Linebreak settings (((
 
     set breakat=\ \ ;:,!? " which characters might cause a line break if 'linebreak' is on.
-    set breakindentopt=shift:2,sbr
+    set breakindentopt=shift:2,sbr,list:-1  " https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
 
     " )))
 
