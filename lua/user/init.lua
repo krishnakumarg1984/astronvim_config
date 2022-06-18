@@ -385,7 +385,39 @@ local config = {
           "<Plug>)(Tasks-FileNext)",
           "<Plug>(Tasks-FileNext)",
         },
-        cmd = { "Tasks", "Tasks!", "TasksOpen", "TasksProfile", "TasksProfile!", "Task", "Task!" },
+        cmd = {
+          "Async!",
+          "Async",
+          "AsyncBuf!",
+          "AsyncBuf",
+          "AsyncCmd!",
+          "AsyncCmd",
+          "Compiler!",
+          "Compiler",
+          "Grep!",
+          "Grep",
+          "GrepAdd!",
+          "GrepAdd",
+          "Jobs!",
+          "Jobs",
+          "LCompiler!",
+          "LCompiler",
+          "LGrep!",
+          "LGrep",
+          "LGrepAdd!",
+          "LGrepAdd",
+          "LMake!",
+          "LMake",
+          "Make!",
+          "Make",
+          "Task!",
+          "Task",
+          "Tasks!",
+          "Tasks",
+          "TasksOpen",
+          "TasksProfile!",
+          "TasksProfile",
+        },
       },
       { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
       { "gauteh/vim-cppman", cmd = { "Cppman" } },
@@ -876,6 +908,40 @@ local config = {
             silent_chdir = false,
           }
           require("telescope").load_extension "projects"
+        end,
+      },
+      ["stevearc/qf_helper.nvim"] = {
+        event = { "QuickFixCmdPre", "QuickFixCmdPost" },
+        cmd = {
+          "QNext",
+          "QNext!",
+          "QPrev",
+          "QPrev!",
+          "QFNext",
+          "QFNext!",
+          "QFPrev",
+          "QFPrev!",
+          "LLNext",
+          "LLNext!",
+          "LLPrev",
+          "LLPrev!",
+          "QFOpen",
+          "QFOpen!",
+          "LLOpen",
+          "LLOpen!",
+          "QFToggle",
+          "QFToggle!",
+          "LLToggle",
+          "LLToggle!",
+          "Keep",
+          "Reject",
+        },
+        config = function()
+          require("qf_helper").setup {
+            quickfix = {
+              min_height = 5, -- Min qf height when using open() or toggle()
+            },
+          }
         end,
       },
       {
@@ -2400,6 +2466,20 @@ local config = {
   augroup END
 
   " )))
+
+    " Autocommand for opening the quickfix window (((
+
+    augroup my_quickfix
+    autocmd!
+    " autocmd QuickFixCmdPost [^l]* QFOpen!
+    autocmd QuickFixCmdPost cexpr QFOpen
+    " autocmd QuickFixCmdPost cexpr cwindow
+    " autocmd QuickFixCmdPost l* nested lopen
+    " https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
+    " autocmd QuickFixCmdPost cgetexpr cwindow
+    augroup END
+
+    " )))
 
   ]]
 
