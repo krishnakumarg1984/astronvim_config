@@ -1016,11 +1016,17 @@ local config = {
       --     }
       --   end,
       -- },
-      ["benfowler/telescope-luasnip.nvim"] = {
-        after = "telescope.nvim",
-        module = "telescope._extensions.luasnip",
+      -- ["benfowler/telescope-luasnip.nvim"] = {
+      --   after = "telescope.nvim",
+      --   module = "telescope._extensions.luasnip",
+      --   config = function()
+      --     require("telescope").load_extension "luasnip"
+      --   end,
+      -- },
+      ["johmsalas/text-case.nvim"] = {
+        keys = { "ga" },
         config = function()
-          require("telescope").load_extension "luasnip"
+          require("textcase").setup {}
         end,
       },
 
@@ -1742,6 +1748,24 @@ local config = {
       vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>")
       vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>")
       vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>")
+
+      -- )))
+
+      -- 'text-case.nvim' keymaps (((
+
+      vim.cmd [[
+      " nnoremap gau :lua require('textcase').lsp_rename('to_upper_case')<CR>
+      " nnoremap gal :lua require('textcase').lsp_rename('to_lower_case')<CR>
+      nnoremap gaS :lua require('textcase').lsp_rename('to_snake_case')<CR>
+      " nnoremap gad :lua require('textcase').lsp_rename('to_dash_case')<CR>
+      " nnoremap gan :lua require('textcase').lsp_rename('to_constant_case')<CR>
+      " nnoremap ga. :lua require('textcase').lsp_rename('to_dot_case')<CR>
+      nnoremap gaA :lua require('textcase').lsp_rename('to_phrase_case')<CR>
+      " nnoremap gac :lua require('textcase').lsp_rename('to_camel_case')<CR>
+      " nnoremap gap :lua require('textcase').lsp_rename('to_pascal_case')<CR>
+      " nnoremap gat :lua require('textcase').lsp_rename('to_title_case')<CR>
+      nnoremap gaF :lua require('textcase').lsp_rename('to_path_case')<CR>
+      ]]
 
       -- )))
 
