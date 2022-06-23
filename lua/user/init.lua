@@ -635,6 +635,11 @@ local config = {
           }
         end,
       },
+      ["https://gitlab.com/yorickpeterse/nvim-pqf"] = {
+        config = function()
+          require("pqf").setup()
+        end,
+      },
       {
         "michaelb/sniprun",
         run = "bash ./install.sh",
@@ -2834,7 +2839,6 @@ return config
 -- https://github.com/SmiteshP/nvim-gps
 -- https://github.com/gennaro-tedesco/nvim-jqx
 -- https://github.com/nanotee/nvim-lua-guide -- A guide to using Lua in Neovim
--- use { "https://gitlab.com/yorickpeterse/nvim-pqf" }
 -- https://github.com/geg2102/nvim-python-repl
 -- https://github.com/bennypowers/nvim-regexplainer
 -- use { "petertriho/nvim-scrollbar" }
