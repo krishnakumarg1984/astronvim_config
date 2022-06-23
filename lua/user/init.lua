@@ -1604,8 +1604,8 @@ local config = {
     -- 'packer' override setup() (((
 
     packer = function(config)
-      config.display = nil
-      config.compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua"
+      config.display = nil -- no floating window for packer
+      -- config.compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua"
       return config
     end,
 
