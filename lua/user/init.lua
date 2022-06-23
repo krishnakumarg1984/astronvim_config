@@ -468,6 +468,7 @@ local config = {
           "txt",
         },
       },
+      { "Konfekt/vim-sentence-chopper", ft = { "tex", "markdown", "text" } },
       { "andymass/vim-matchup", after = "nvim-treesitter" },
       {
         "urbainvaes/vim-ripple",
