@@ -419,7 +419,9 @@ local config = {
           "TasksProfile",
         },
       },
-      { "kenn7/vim-arsync", cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" } },
+      ["kenn7/vim-arsync"] = {
+        -- cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" },
+      },
       { "gauteh/vim-cppman", cmd = { "Cppman" } },
       { "jeffkreeftmeijer/vim-numbertoggle", event = { "InsertEnter", "FocusLost" } },
       {
