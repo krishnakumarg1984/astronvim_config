@@ -2,7 +2,7 @@ return {
   "clangd", -- requires a reasonably new version of glibc
   "cmake",
   "fortls",
-  "ltex",
+  -- "ltex",
   "marksman",
   "prosemd_lsp",
   "pylsp",
