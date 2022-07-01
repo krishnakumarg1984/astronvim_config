@@ -270,82 +270,6 @@ return {
   --     }
   --   end,
   -- },
-  ["https://gitlab.com/yorickpeterse/nvim-pqf"] = {
-    config = function()
-      require("pqf").setup()
-    end,
-  },
-  {
-    "michaelb/sniprun",
-    run = "bash ./install.sh",
-    -- event = "BufRead",
-    -- ft = {
-    --   "ada",
-    --   "sh",
-    --   "bash",
-    --   "c",
-    --   "cpp",
-    --   "rmd",
-    --   "markdown",
-    --   "lsp_markdown",
-    --   "go",
-    --   "haskell",
-    --   "julia",
-    --   "lua",
-    --   "mma",
-    --   "org",
-    --   "python",
-    --   "rust",
-    -- },
-    config = function()
-      require("sniprun").setup {
-        -- selected_interpreters = { "Python3_jupyter" },
-        selected_interpreters = { "Python3_fifo" },
-        --# you can combo different display modes as desired
-        display = {
-          -- "Classic", --# display results in the command-line  area
-          -- "VirtualTextOk", --# display ok results as virtual text (multiline is shortened)
-          "VirtualTextErr", --# display error results as virtual text
-          -- "TempFloatingWindow", --# display results in a floating window
-          "LongTempFloatingWindow", --# same as above, but only long results. To use with VirtualText__
-          -- "Terminal",                --# display results in a vertical split
-          -- "TerminalWithCode",        --# display results and code history in a vertical split
-          -- "NvimNotify",              --# display with the nvim-notify plugin
-          -- "Api"                      --# return output to a programming interface
-        },
-        repl_enable = {
-          "Python3_fifo",
-          "Bash_original",
-          "Julia_jupyter",
-          "GFM_original",
-          "Mathematica_original",
-          "R_original",
-          "Sage_fifo",
-        },
-        -- borders = "none",
-        -- borders = "shadow",
-        -- interpreter_options = {
-        --   Python3_fifo = {
-        --     intepreter = "python3.9",
-        --     venv = { "venv_project1", "venv_project2", "../venv_project2" },
-        --   },
-        -- },
-      }
-    end,
-    -- keys = { "<leader>r" },
-    keys = { "<Plug>SnipRun", "<Plug>SnipRunOperator" },
-    cmd = {
-      "SnipRun",
-      "<Plug>SnipRun",
-      "SnipRunOperator",
-      "<Plug>SnipRunOperator",
-      "SnipReset",
-      "SnipClose",
-      "SnipInfo",
-      "SnipReplMemoryClean",
-      "SnipTerminate",
-    },
-  },
   { "rebelot/kanagawa.nvim" }, -- event = "BufRead" },
   {
     "ray-x/lsp_signature.nvim",
@@ -521,6 +445,11 @@ return {
     end,
   },
   { "mfussenegger/nvim-lint", module = "lint" },
+  ["https://gitlab.com/yorickpeterse/nvim-pqf"] = {
+    config = function()
+      require("pqf").setup()
+    end,
+  },
   {
     "romgrk/nvim-treesitter-context",
     after = "nvim-treesitter", -- this is a separate plugin, which requires a separate configuration
@@ -604,6 +533,58 @@ return {
       vim.keymap.set({ "i" }, "<C-f>", "<Right>")
       vim.keymap.set("!", "<C-b>", "<Left>")
     end,
+  },
+  {
+    "michaelb/sniprun",
+    run = "bash ./install.sh",
+    config = function()
+      require("sniprun").setup {
+        -- selected_interpreters = { "Python3_jupyter" },
+        selected_interpreters = { "Python3_fifo" },
+        --# you can combo different display modes as desired
+        display = {
+          -- "Classic", --# display results in the command-line  area
+          -- "VirtualTextOk", --# display ok results as virtual text (multiline is shortened)
+          "VirtualTextErr", --# display error results as virtual text
+          -- "TempFloatingWindow", --# display results in a floating window
+          "LongTempFloatingWindow", --# same as above, but only long results. To use with VirtualText__
+          -- "Terminal",                --# display results in a vertical split
+          -- "TerminalWithCode",        --# display results and code history in a vertical split
+          -- "NvimNotify",              --# display with the nvim-notify plugin
+          -- "Api"                      --# return output to a programming interface
+        },
+        repl_enable = {
+          "Python3_fifo",
+          "Bash_original",
+          "Julia_jupyter",
+          "GFM_original",
+          "Mathematica_original",
+          "R_original",
+          "Sage_fifo",
+        },
+        -- borders = "none",
+        -- borders = "shadow",
+        -- interpreter_options = {
+        --   Python3_fifo = {
+        --     intepreter = "python3.9",
+        --     venv = { "venv_project1", "venv_project2", "../venv_project2" },
+        --   },
+        -- },
+      }
+    end,
+    -- keys = { "<leader>r" },
+    keys = { "<Plug>SnipRun", "<Plug>SnipRunOperator" },
+    cmd = {
+      "SnipRun",
+      "<Plug>SnipRun",
+      "SnipRunOperator",
+      "<Plug>SnipRunOperator",
+      "SnipReset",
+      "SnipClose",
+      "SnipInfo",
+      "SnipReplMemoryClean",
+      "SnipTerminate",
+    },
   },
   -- ["abecodes/tabout.nvim"] = {
   --   after = "nvim-cmp",
