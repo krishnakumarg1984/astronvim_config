@@ -759,6 +759,7 @@ return {
 -- https://github.com/ruifm/gitlinker.nvim
 -- https://github.com/ThePrimeagen/git-worktree.nvim
 -- https://github.com/ray-x/go.nvim
+-- https://github.com/olexsmir/gopher.nvim/  -- Neovim plugin for make golang development easiest
 -- use { "rmagatti/goto-preview", event = { "CursorHold" } }
 -- https://github.com/beauwilliams/focus.nvim
 -- https://github.com/pierreglaser/folding-nvim
@@ -789,6 +790,7 @@ return {
 -- https://github.com/nyngwang/NeoClear.lua
 -- https://github.com/sbdchd/neoformat
 -- https://github.com/nyngwang/NeoNoName.lua
+-- https://github.com/nvim-neotest/neotest  --  An extensible framework for interacting with tests within NeoVim.
 -- use { "nyngwang/NeoZoom.lua" }
 -- https://github.com/miversen33/netman.nvim -- Neovim (Lua powered) Network File Manager
 -- https://github.com/nacro90/numb.nvim
@@ -859,7 +861,7 @@ return {
 -- https://github.com/declancm/windex.nvim
 -- https://github.com/sindrets/winshift.nvim
 -- https://github.com/yaclt/yaclt.nvim
--- https://github.com/cuducos/yaml.nvim
+-- https://github.com/cuducos/yaml.nvim  -- YAML toolkit for Neovim users
 -- https://github.com/hoschi/yode-nvim
 -- use { "folke/zen-mode.nvim", cmd = "ZenMode" }
 
@@ -912,7 +914,7 @@ return {
 -- https://github.com/jpalardy/vim-slime
 -- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } } -- also a telescope extension
 -- https://github.com/marklcrns/vim-smartq
--- https://github.com/svermeulen/vim-subversive
+-- https://github.com/svermeulen/vim-subversive  -- Vim plugin providing operator motions to quickly replace text
 -- https://github.com/Matt-A-Bennett/vim-surround-funk
 -- https://github.com/mroavi/vim-tomux
 -- https://github.com/inkarkat/vim-UnconditionalPaste
