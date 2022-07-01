@@ -2,3 +2,4 @@
 *.c
 *.py
 !.vimrc.lua
+**/dap_old/
