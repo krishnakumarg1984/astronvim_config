@@ -1,4 +1,6 @@
--- This 'polish' function is run last (good place to configure mappings and vim options)
+-- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
+
+-- This 'polish' function is run last
 return function()
   vim.api.nvim_set_hl(0, "WinSeparator", { fg = "black", bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
 
@@ -12,7 +14,7 @@ return function()
     [[printf('  %-4d %s', v:foldend - v:foldstart + 1, substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g')) . '  ' . trim(getline(v:foldend))]]
   -- [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
 
-  -- Vimscript-based options and mappings (((
+  -- Vimscript-based options (((
 
   vim.cmd [[
 
@@ -201,20 +203,6 @@ return function()
 
     " Mappings (((
 
-    " nnoremap <silent> J :<C-U>exec "exec 'norm m`' \| move +" . (0+v:count1)<CR>==``
-    " nnoremap <silent> K :<C-U>exec "exec 'norm m`' \| move -" . (1+v:count1)<CR>==``
-    " xnoremap <silent> J :<C-U>exec "'<,'>move '>+" . (0+v:count1)<CR>gv=gv
-    " xnoremap <silent> K :<C-U>exec "'<,'>move '<-" . (1+v:count1)<CR>gv=gv
-
-    " https://github.com/neovim/neovim/issues/9953
-    " if &wildoptions == 'pum'
-    "     cnoremap <expr> <up>   pumvisible() ? "<C-p>" : "\<up>"
-    "     cnoremap <expr> <down> pumvisible() ? "<C-n>" : "\<down>"
-    " endif
-    "
-    " cnoremap <c-n> <down>
-    " cnoremap <c-p> <up>
-
     " Replace :w with :up
     cnoreabbrev <expr> w getcmdtype() == ":" && getcmdline() == 'w' ? 'up' : 'w'
 
@@ -223,9 +211,6 @@ return function()
     cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == 'help' ? 'tab help' : 'help'
     cnoreabbrev <expr> helpgrep getcmdtype() == ":" && getcmdline() == 'helpgrep' ? 'tab helpgrep' : 'helpgrep'
     cnoreabbrev <expr> Man getcmdtype() == ":" && getcmdline() == 'Man' ? 'tab Man' : 'Man'
-
-    " https://www.reddit.com/r/vim/comments/rctvgk/comment/hnzk5wl/?utm_source=share&utm_medium=web2x&context=3
-    " inoremap <expr> <c-y> pumvisible() ? "\<c-y>" : matchstr(getline(line('.')-1), '\%' . virtcol('.') . 'v\%(\k\+\\|.\)')
 
     " nnoremaps (((
 
@@ -236,24 +221,14 @@ return function()
     " zero, it switches between the first column and the first character.
     nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
-    " " Replacing vim-unimpaired mapping for inserting blankline below and above the cursor position
-    " " https://vi.stackexchange.com/a/3891
-    " nnoremap <silent> [<space>  :<c-u>put!=repeat([''],v:count)<bar>']+1<cr>
-    " nnoremap <silent> ]<space>  :<c-u>put =repeat([''],v:count)<bar>'[-1<cr>
-
-    " noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
-    " noremap <silent> <expr> <Down> (v:count == 0 ? 'gj' : 'j')
-    " noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
-    " noremap <silent> <expr> <Up> (v:count == 0 ? 'gk' : 'k')
-
     " replace the word under cursor
     nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
 
     " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
     " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
-    nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
+    " nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
 
-    nmap cg* *Ncgn
+    " nmap cg* *Ncgn
 
     noremap <c-w>" <c-w>t<c-w>K    " change vertical to horizontal with -
     noremap <c-w>% <c-w>t<c-w>H    " change horizontal to vertical with %
@@ -702,21 +677,6 @@ return function()
   vim.keymap.set("n", "<leader>rI", "<Plug>SnipInfo", { silent = true })
 
   -- )))
-
-  -- -- 'iron.nvim' keymaps (((
-  --
-  -- vim.keymap.set("n", "<leader>i", "<Plug>(iron-send-motion)", { silent = true })
-  -- vim.keymap.set("n", "<leader>ix", "<Plug>(iron-exit)", { silent = true })
-  -- vim.keymap.set("n", "<leader>il", "<Plug>(iron-send-line)", { silent = true })
-  -- vim.keymap.set("n", "<leader>ic", "<Plug>(iron-interrupt)", { silent = true })
-  -- vim.keymap.set("v", "<leader>i", "<Plug>(iron-visual-send)", { silent = true })
-  -- vim.keymap.set("n", "<leader>ic", "<Plug>(iron-clear)", { silent = true })
-  -- vim.keymap.set("n", "<leader>if", "<cmd>IronFocus<CR>", { silent = true })
-  -- vim.keymap.set("n", "<leader>it", "<cmd>IronRepl<CR>", { silent = true })
-  -- vim.keymap.set("n", "<leader>ih", "<cmd>IronReplHere<CR>", { silent = true })
-  -- vim.keymap.set("n", "<leader>ir", "<cmd>IronRestart<CR>", { silent = true })
-  --
-  -- -- )))
 
   -- ))) end of plugin keybindings (lua-based) fold
 
