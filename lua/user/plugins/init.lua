@@ -386,6 +386,16 @@ return {
   -- { "embear/vim-localvimrc" }, -- 3rd fastest among all local-rc plugins
   -- { "ii14/exrc.vim" }, -- slowest among all local-rc plugins
   {
+    "mfussenegger/nvim-dap",
+    module = "dap",
+    config = require "user.plugins.nvim-dap",
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    after = "nvim-dap",
+    config = require "user.plugins.nvim-dapui",
+  },
+  {
     "https://gitlab.com/yorickpeterse/nvim-dd", -- Deferring of NeoVim diagnostics
     -- event = { "CursorHold" },
     event = { "InsertLeave" },
