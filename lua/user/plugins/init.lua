@@ -774,6 +774,7 @@ return {
 -- https://github.com/NMAC427/guess-indent.nvim
 -- https://github.com/Pocco81/HighStr.nvim
 -- https://github.com/m-demare/hlargs.nvim
+-- https://github.com/lewis6991/hover.nvim --  Hover plugin framework for Neovim
 -- https://github.com/b0o/incline.nvim
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
 -- https://github.com/hkupty/iron.nvim
