@@ -3,8 +3,6 @@ return function()
   ---@diagnostic disable-next-line: need-check-nil
   local codelldb_cmd = codelldb_cmdhandle:read "*all" --  .. ' --params {"showDisassembly" : "never"}'
 
-  -- local codelldb_cmd = "/home/krishnakumar/sw_src/scripts_and_archives_for_installing/codelldb/adapter/codelldb"
-
   local dap = require "dap"
 
   -- If you're using the integrated terminal, you can configure the command that is used to create a split window:
@@ -87,6 +85,7 @@ return function()
       command = "python",
       args = { "-m", "debugpy.adapter" },
     },
+    ---@diagnostic disable-next-line: unused-local
     go = function(callback, config)
       local stdout = vim.loop.new_pipe(false)
       local handle
@@ -211,7 +210,9 @@ return function()
       },
     },
   }
-  dap.configurations.rust = dap.configurations.cpp
+
+  local dapui = require "dapui"
+  -- dap.configurations.rust = dap.configurations.cpp
   local function start_session(_, _)
     local info_string = string.format("%s", dap.session().config.program)
     vim.notify(info_string, "debug", { title = "Debugger Started", timeout = 500 })
@@ -222,9 +223,21 @@ return function()
   end
   dap.listeners.after.event_initialized["dapui"] = start_session
   dap.listeners.before.event_terminated["dapui"] = terminate_session
+
   vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn" })
   vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticInfo" })
   vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticError" })
   vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DiagnosticInfo" })
   vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "DiagnosticInfo" })
+
+  -- add listeners to auto open DAP UI
+  dap.listeners.after.event_initialized["dapui"] = function()
+    dapui.open()
+  end
+  dap.listeners.before.event_terminated["dapui"] = function()
+    dapui.close()
+  end
+  dap.listeners.before.event_exited["dapui"] = function()
+    dapui.close()
+  end
 end

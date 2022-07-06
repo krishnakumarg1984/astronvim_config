@@ -5,7 +5,7 @@ return {
 
   n = {
     ["<leader>la"] = { "<cmd>CodeActionMenu<CR>", desc = "Code Action" },
-    ["gd"] = { "<cmd>Telescope lsp_definitions<cr>", desc = "Go to definition(s)" },
+    -- ["gd"] = { "<cmd>Telescope lsp_definitions<cr>", desc = "Go to definition(s)" },
     ["gl"] = false,
     ["gr"] = { "<cmd>Telescope lsp_references<cr>", desc = "Symbol references" },
 

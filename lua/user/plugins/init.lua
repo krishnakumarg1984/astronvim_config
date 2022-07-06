@@ -41,8 +41,7 @@ return {
   -- { "tweekmonster/startuptime.vim", cmd = { "StartupTime" } },
   { "tyru/capture.vim", cmd = { "Capture" } },
   ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } },
-  {
-    "mg979/tasks.vim",
+  ["mg979/tasks.vim"] = { -- "tasks.vim" (((
     keys = {
       "<Plug>(Tasks-Choose)",
       "<Plug>(Tasks-Choose!)",
@@ -83,14 +82,13 @@ return {
       "TasksProfile!",
       "TasksProfile",
     },
-  },
-  ["kenn7/vim-arsync"] = {
-    -- cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" },
-  },
+  }, -- end 'tasks.vim' )))
+  -- ["kenn7/vim-arsync"] = {
+  --   -- cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" },
+  -- },
   { "gauteh/vim-cppman", cmd = { "Cppman" } },
   -- { "jeffkreeftmeijer/vim-numbertoggle", event = { "InsertEnter", "FocusLost" } },
-  {
-    "Konfekt/vim-DetectSpellLang",
+  ["Konfekt/vim-DetectSpellLang"] = { -- "vim-DetectSpellLang" (((
     ft = {
       "asciidoc",
       "changelog",
@@ -110,9 +108,8 @@ return {
       "text",
       "txt",
     },
-  },
-  {
-    "dbmrq/vim-dialect",
+  }, -- end "vim-DetectSpellLang" )))
+  ["dbmrq/vim-dialect"] = { -- "vim-dialect" (((
     ft = {
       "asciidoc",
       "changelog",
@@ -132,11 +129,10 @@ return {
       "text",
       "txt",
     },
-  },
+  }, -- end "vim-dialect" )))
   { "Konfekt/vim-sentence-chopper", ft = { "tex", "markdown", "text" } },
   { "andymass/vim-matchup", after = "nvim-treesitter" },
-  {
-    "urbainvaes/vim-ripple",
+  ["urbainvaes/vim-ripple"] = { -- "vim-ripple" (((
     -- keys = {
     --   "<Plug>(ripple_open_repl)",
     --   "<Plug>(ripple_send_motion)",
@@ -147,14 +143,14 @@ return {
     -- },
     ft = { "python", "julia", "r", "ruby", "scheme" },
     -- requires = { "machakann/vim-highlightedyank" },
-  },
+  }, -- end "vim-ripple" )))
   { "tpope/vim-unimpaired", keys = { "[", "]", "=", "<", ">" } }, -- e (exchange), ob (background), oc (cursorline), od (diff), oh (hlsearch), oi (ignorecase), ol (list), on (number), or (relativenumber), os (spell), ot (colorcolumn), ou (cursorcolumn), ov (virtualedit), ow (wrap), ox (cursorline cursorcolumn), u (encode/decode urls), y (C-string style escaping), n (conflict marker), a (args), b (buffers), l (location), q (quickfix), t (tag), >p Paste after linewise, increasing indent, >P (Paste before linewise, increasing indent), <p (Paste after linewise, decreasing indent), <P (Paste before linewise, decreasing indent), =p (Paste after linewise, reindenting), =P (Paste before linewise, reindenting), x<motion> (xml encode/decode)
   -- { "puremourning/vimspector", cmd = { "VimspectorInstall", "VimspectorUpdate" } },
   { "lervag/vimtex" }, -- ft = "tex" },
   -- { "axvr/zepl.vim" },
   -- { "svban/YankAssassin.vim" },
   -- { "sudormrfbin/cheatsheet.nvim", cmd = { "Cheatsheet", "CheatsheetEdit" } },
-  ["p00f/clangd_extensions.nvim"] = {
+  ["p00f/clangd_extensions.nvim"] = { -- "clangd_extensions" (((
     -- https://github.com/wbthomason/packer.nvim/issues/810
     -- requires = { "williamboman/nvim-lsp-installer", "neovim/nvim-lspconfig" }, -- make sure to load after lsp stuff
     ft = { "c", "cpp", "cuda" },
@@ -164,33 +160,32 @@ return {
         server = astronvim.lsp.server_settings "clangd",
       }
     end,
-  },
-  -- {
-  --   "hrsh7th/cmp-emoji",
-  -- ft = {
-  --   "asciidoc",
-  --   "changelog",
-  --   "context",
-  --   "DiffviewFiles",
-  --   "gitcommit",
-  --   "Neogitcommit",
-  --   "NeogitCommit",
-  --   "NeogitCommitMessage",
-  --   "lsp_markdown",
-  --   "mail",
-  --   "markdown",
-  --   "rst",
-  --   "rtf",
-  --   "tex",
-  --   "texinfo",
-  --   "text",
-  --   "txt",
-  -- },
+  }, -- end "clangd_extensions" )))
+  -- ["hrsh7th/cmp-emoji"] = { -- "cmp-emoji" (((
+  --   ft = {
+  --     "asciidoc",
+  --     "changelog",
+  --     "context",
+  --     "DiffviewFiles",
+  --     "gitcommit",
+  --     "Neogitcommit",
+  --     "NeogitCommit",
+  --     "NeogitCommitMessage",
+  --     "lsp_markdown",
+  --     "mail",
+  --     "markdown",
+  --     "rst",
+  --     "rtf",
+  --     "tex",
+  --     "texinfo",
+  --     "text",
+  --     "txt",
+  --   },
   --   config = function()
   --     astronvim.add_user_cmp_source "emoji"
   --   end,
-  -- },
-  -- ["petertriho/cmp-git"] = {
+  -- }, -- end "cmp-emoji" )))
+  -- ["petertriho/cmp-git"] = { -- "cmp-git" (((
   --   after = "nvim-cmp",
   --   config = function()
   --     require("cmp_git").setup {
@@ -199,9 +194,8 @@ return {
   --     }
   --     astronvim.add_user_cmp_source "git"
   --   end,
-  -- },
-  -- {
-  --   "octaltree/cmp-look",
+  -- }, -- end "cmp-git" )))
+  --   ["octaltree/cmp-look"] = { -- "cmp-look" (((
   --   after = "nvim-cmp",
   --   config = function()
   --     astronvim.add_user_cmp_source {
@@ -211,7 +205,7 @@ return {
   --       option = { convert_case = true, loud = true },
   --     }
   --   end,
-  -- },
+  -- }, -- end "cmp-look" )))
   { "gpanders/editorconfig.nvim" },
   -- {
   --   "akinsho/git-conflict.nvim", -- A plugin to visualise and resolve merge conflicts in neovim
@@ -385,15 +379,18 @@ return {
   -- { "jenterkin/vim-autosource" }, -- 2nd fastest among all local-rc plugins
   -- { "embear/vim-localvimrc" }, -- 3rd fastest among all local-rc plugins
   -- { "ii14/exrc.vim" }, -- slowest among all local-rc plugins
-  {
-    "mfussenegger/nvim-dap",
-    -- module = "dap",
-    config = require "user.plugins.nvim-dap",
-  },
+  -- {
+  --   "mfussenegger/nvim-dap",
+  --   -- module = "dap",
+  --   config = require "user.plugins.nvim-dap",
+  -- },
   -- {
   --   "rcarriga/nvim-dap-ui",
-  --   after = "nvim-dap",
-  --   config = require "user.plugins.nvim-dapui",
+  --   requires = { "mfussenegger/nvim-dap" },
+  --   -- config = function()
+  --   --   require("dapui").setup {}
+  --   -- end,
+  --   config = require "user.plugins.nvim-dap",
   -- },
   {
     "https://gitlab.com/yorickpeterse/nvim-dd", -- Deferring of NeoVim diagnostics
@@ -660,7 +657,7 @@ return {
   --   end,
   -- },
   ["johmsalas/text-case.nvim"] = {
-    keys = { "ga" },
+    -- keys = { "ga" },
     config = function()
       require("textcase").setup {}
     end,
@@ -707,11 +704,10 @@ return {
 
 -- TODO (((
 
--- 1. REPL
--- 2. Compiling
--- 3. Unit Testing
--- 4. Debugging
--- 5. Tmux integration
+-- 1. Compiling
+-- 2. Unit Testing
+-- 3. Debugging
+-- 4. Tmux integration
 
 -- )))
 
