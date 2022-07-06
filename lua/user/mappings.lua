@@ -235,3 +235,17 @@ return {
 
   -- )))
 }
+
+-- from discord chat on how to conditionally set mappings
+-- vim.keymap.set({ "n", "x" }, "&", ":&&<CR>", silent=true) -- Remap normal/visual '&' to preserve substitution flags
+--
+-- return function(maps)
+--   if true then
+--     maps.n["<leader>r"] = { "<Plug>SnipRunOperator" }
+--   end
+--   return vim.tbl_deep_extend("force", maps, {
+--     n = {
+--       ["<C-w>f"] = { "<C-w>vgf" }
+--     }
+--   })
+-- end
