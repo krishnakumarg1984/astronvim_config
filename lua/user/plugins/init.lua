@@ -88,7 +88,7 @@ return {
     -- cmd = { "ARshowConf", "ARsyncUp", "ARsyncUpDelete", "ARsyncDown" },
   },
   { "gauteh/vim-cppman", cmd = { "Cppman" } },
-  { "jeffkreeftmeijer/vim-numbertoggle", event = { "InsertEnter", "FocusLost" } },
+  -- { "jeffkreeftmeijer/vim-numbertoggle", event = { "InsertEnter", "FocusLost" } },
   {
     "Konfekt/vim-DetectSpellLang",
     ft = {
@@ -458,6 +458,11 @@ return {
   ["https://gitlab.com/yorickpeterse/nvim-pqf"] = {
     config = function()
       require("pqf").setup()
+    end,
+  },
+  ["sitiom/nvim-numbertoggle"] = {
+    config = function()
+      require("numbertoggle").setup()
     end,
   },
   {
