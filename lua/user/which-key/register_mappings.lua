@@ -22,87 +22,130 @@ return {
         t = { "<cmd>AerialToggle<cr>", "Toggle outline & move cursor" },
         -- u = { "<cmd>AerialPrevUp<cr>", "Prev symbol (up 1 level)" },
       },
+      b = {
+        name = "Bufferline",
+        ["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 1" },
+        ["2"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 2" },
+        ["3"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 3" },
+        ["4"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 4" },
+        ["5"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 5" },
+        ["6"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 6" },
+        ["7"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 7" },
+        ["8"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 8" },
+        ["9"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 9" },
+        d = { "<Cmd>BufferLineSortByDirectory<CR>", "Sort bufferline by directory" },
+        e = { "<Cmd>BufferLineSortByExtension<CR>", "Sort bufferline by extension" },
+        c = { "<Cmd>BufferLinePick<CR>", "Choose buffer (interactive)" },
+        C = { "<Cmd>BufferLinePickClose<CR>", "Pick buffer to close (interactive)" },
+        M = { "<Cmd>BufferLineMovePrev<CR>", "Reorder (move left)" },
+        m = { "<Cmd>BufferLineMoveNext<CR>", "Reorder (move right)" },
+        p = { "<Cmd>BufferLineTogglePin<CR>", "Pin buffer (toggle)" },
+      },
       D = { "<cmd>windo diffthis<CR>", "diff buffers" },
       d = {
         name = "Debug",
         b = {
           function()
-            require("dap").toggle_breakpoint()
+            require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
           end,
-          "Toggle Breakpoint",
+          "Set conditional breakpoint",
         },
         B = {
           function()
+            require("dap").list_breakpoints()
+          end,
+          "List breakpoints",
+        },
+        C = {
+          function()
             require("dap").clear_breakpoints()
           end,
-          "Clear Breakpoints",
+          "Clear breakpoints",
         },
-        c = {
+        -- c = {
+        --   function()
+        --     require("dap").continue()
+        --   end,
+        --   "Continue",
+        -- },
+        -- i = {
+        --   function()
+        --     require("dap").step_into()
+        --   end,
+        --   "Step Into",
+        -- },
+        L = {
           function()
-            require("dap").continue()
+            require("dap").set_breakpoint(nil, nil, vim.fn.input "Log point message: ")
           end,
-          "Continue",
+          "Lop point message (debug)",
         },
-        i = {
+        l = {
           function()
-            require("dap").step_into()
+            require("dap").run_last()
           end,
-          "Step Into",
+          "Run last debugged",
         },
-        o = {
-          function()
-            require("dap").step_over()
-          end,
-          "Step Over",
-        },
+        -- o = {
+        --   function()
+        --     require("dap").step_over()
+        --   end,
+        --   "Step Over",
+        -- },
         q = {
           function()
             require("dap").close()
           end,
-          "Close Session",
+          "Close debug session",
         },
         Q = {
           function()
             require("dap").terminate()
           end,
-          "Terminate",
+          "Terminate debug session",
         },
         r = {
           function()
             require("dap").repl.toggle()
           end,
-          "REPL",
+          "Debug REPL Toggle",
         },
-        s = {
+        R = {
           function()
-            require("dapui").float_element "scopes"
+            require("dap").repl.open()
           end,
-          "Scopes",
+          "Debug REPL Open",
         },
-        t = {
-          function()
-            require("dapui").float_element "stacks"
-          end,
-          "Threads",
-        },
-        u = {
-          function()
-            require("dapui").toggle()
-          end,
-          "Toggle Debugger UI",
-        },
-        w = {
-          function()
-            require("dapui").float_element "watches"
-          end,
-          "Watches",
-        },
-        x = {
-          function()
-            require("dap.ui.widgets").hover()
-          end,
-          "Inspect",
-        },
+        -- s = {
+        --   function()
+        --     require("dapui").float_element "scopes"
+        --   end,
+        --   "Scopes (debug-ui)",
+        -- },
+        -- t = {
+        --   function()
+        --     require("dapui").float_element "stacks"
+        --   end,
+        --   "Threads (debug-ui)",
+        -- },
+        -- u = {
+        --   function()
+        --     require("dapui").toggle()
+        --   end,
+        --   "Toggle Debugger UI",
+        -- },
+        -- w = {
+        --   function()
+        --     require("dapui").float_element "watches"
+        --   end,
+        --   "Watches (debug-ui)",
+        -- },
+        -- x = {
+        --   function()
+        --     require("dap.ui.widgets").hover()
+        --   end,
+        --   "Inspect (debug-ui)",
+        -- },
         -- v = { ":DapVirtualTextToggle<cr>", "Virtual Text" },
       },
       e = { "<cmd>Neotree action=show toggle=true<CR>", "File Explorer" },
@@ -206,7 +249,7 @@ return {
         y = { "<cmd>Telescope filetypes<cr>", "Choose filetype" },
       },
       t = {
-        l = { nil },
+        -- l = { nil },
         g = {
           function()
             astronvim.toggle_term_cmd "gitui"
