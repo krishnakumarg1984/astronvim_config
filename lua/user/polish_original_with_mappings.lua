@@ -201,6 +201,98 @@ return function()
 
     " )))
 
+    " Mappings (((
+
+    " Replace :w with :up
+    cnoreabbrev <expr> w getcmdtype() == ":" && getcmdline() == 'w' ? 'up' : 'w'
+
+    " https://stackoverflow.com/questions/3131393/remapping-help-in-vim-to-open-in-a-new-tab
+    cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
+    cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == 'help' ? 'tab help' : 'help'
+    cnoreabbrev <expr> helpgrep getcmdtype() == ":" && getcmdline() == 'helpgrep' ? 'tab helpgrep' : 'helpgrep'
+    cnoreabbrev <expr> Man getcmdtype() == ":" && getcmdline() == 'Man' ? 'tab Man' : 'Man'
+
+    " nnoremaps (((
+
+    " https://www.reddit.com/r/vim/comments/oyqkkd/comment/h7x83ce/?utm_source=share&utm_medium=web2x&context=3
+    " Basically, it makes '0' act like '^' on first press, and then like '0' on
+    " second press. So if I press 0, I go back to indentation. If I press 0
+    " again, I go to the first column of the line. And if I continue pressing
+    " zero, it switches between the first column and the first character.
+    nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+
+    " replace the word under cursor
+    nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
+
+    " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
+    " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
+    " nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
+
+    " nmap cg* *Ncgn
+
+    noremap <c-w>" <c-w>t<c-w>K    " change vertical to horizontal with -
+    noremap <c-w>% <c-w>t<c-w>H    " change horizontal to vertical with %
+
+    " )))
+
+    " Make jump-selections work better in visual block mode (((
+
+    xnoremap <expr>  G   'G' . virtcol('.') . "\|"
+    xnoremap <expr>  }   '}' . virtcol('.') . "\|"
+    xnoremap <expr>  {   '{' . virtcol('.') . "\|"
+
+    " )))
+
+    " Substitute word under cursor and dot repeat (((
+
+    " https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
+    " nnoremap <silent> \\C :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+    " nnoremap <leader><leader>c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+    " xnoremap <silent> \\C "sy:let @/=@s<CR>cgn
+
+    " )))
+
+    " Plugin keymaps (vimscript-based) (((
+
+    " Bufferline keymaps (vimscript-based) (((
+
+    " These commands will navigate through buffers in order regardless of which mode you are using
+    " e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
+    nnoremap <silent>[b :BufferLineCyclePrev<CR>
+    nnoremap <silent>]b :BufferLineCycleNext<CR>
+    " nnoremap <silent><leader><leader>[ :BufferLineMovePrev<CR>
+    " nnoremap <silent><leader><leader>] :BufferLineMoveNext<CR>
+    nnoremap <silent><leader><leader>d :BufferLineSortByDirectory<CR>
+    nnoremap <silent><leader><leader>e :BufferLineSortByExtension<CR>
+    nnoremap <silent><leader><leader>p :BufferLinePick<CR>
+    nnoremap <silent><leader><leader>c :BufferLinePickClose<CR>
+    nnoremap <silent><leader><leader>P :BufferLineTogglePin<CR>
+    " nnoremap <silent><leader>1 <Cmd>BufferLineGoToBuffer 1<CR>
+    " nnoremap <silent><leader>2 <Cmd>BufferLineGoToBuffer 2<CR>
+    " nnoremap <silent><leader>3 <Cmd>BufferLineGoToBuffer 3<CR>
+    " nnoremap <silent><leader>4 <Cmd>BufferLineGoToBuffer 4<CR>
+    " nnoremap <silent><leader>5 <Cmd>BufferLineGoToBuffer 5<CR>
+    " nnoremap <silent><leader>6 <Cmd>BufferLineGoToBuffer 6<CR>
+    " nnoremap <silent><leader>7 <Cmd>BufferLineGoToBuffer 7<CR>
+    " nnoremap <silent><leader>8 <Cmd>BufferLineGoToBuffer 8<CR>
+    " nnoremap <silent><leader>9 <Cmd>BufferLineGoToBuffer 9<CR>
+
+    " )))
+
+    " mg979/tasks.vim keymaps (vimscript-based) (((
+
+    nmap <F6>   <Plug>(Tasks-Choose)
+    nmap <S-F6> <Plug>(Tasks-Choose!)
+    nmap <F7>   <Plug>(Tasks-Profile)
+    " nmapr ]r    <Plug>(Tasks-FileNext)
+    " nmapr [r    <Plug>(Tasks-FilePrev)
+
+    " )))
+
+    " )))
+
+    " )))
+
     " Dictionary settings (((
 
     if has('unix')
@@ -401,8 +493,6 @@ return function()
 
     " )))
 
-  nnoremap <Space> zA
-
   ]]
 
   -- )))
@@ -422,4 +512,173 @@ return function()
   -- }
 
   -- )))
+
+  -- keybindings (lua-based) (((
+
+  -- Declare local variables for keymaps (options and shortened names) (((
+
+  local opts_noremapsilent = { noremap = true, silent = true }
+  local opts_noremapverbose = { noremap = true, silent = false }
+  local opts_remapsilent = { noremap = false, silent = true }
+  local expr = { silent = true, expr = true, remap = false }
+  -- local vim.keymap.set = vim.keymap.set
+
+  -- )))
+
+  -- Disable some unnecessary/confusing default mappings (((
+
+  vim.keymap.set({ "n", "i" }, "<f1>", "<Nop>", opts_noremapsilent)
+  vim.keymap.set({ "n", "x" }, "s", "<Nop>", opts_remapsilent) -- Disable 's' as recommended by sandwich.vim help file
+
+  -- )))
+
+  -- Disable AstroNvim mappings that override important vim defaults (((
+
+  vim.keymap.del("t", "<esc>")
+  vim.keymap.set("t", "<esc>", "<C-\\><C-n>", { silent = true })
+  vim.keymap.set("n", "<leader>w", "<leader>w", { silent = true })
+  vim.keymap.del("n", "<leader>w")
+  vim.keymap.set("n", "<leader>q", "<leader>q", { silent = true })
+  vim.keymap.del("n", "<leader>q")
+  vim.keymap.set("n", "<leader>h", "<leader>h", { silent = true })
+  vim.keymap.del("n", "<leader>h")
+  vim.keymap.set("n", "}", "}", { silent = true })
+  vim.keymap.del("n", "}")
+  vim.keymap.set("n", "{", "{", { silent = true })
+  vim.keymap.del("n", "{")
+  vim.keymap.set("n", "<C-q>", "<Nop>", { silent = true })
+  vim.keymap.del("n", "<C-q>")
+  vim.keymap.set("n", "<C-s>", "<Nop>", { silent = true })
+  vim.keymap.del("n", "<C-s>")
+  vim.keymap.set("n", "<leader>h", "<Nop>", { silent = true })
+  vim.keymap.set("n", "H", "H", { silent = true })
+  vim.keymap.del("n", "H")
+  vim.keymap.set("n", "L", "L", { silent = true })
+  vim.keymap.del("n", "L")
+  vim.keymap.set("x", "J", "J", { silent = true })
+  vim.keymap.del("x", "J")
+  vim.keymap.set("x", "K", "K", { silent = true })
+  vim.keymap.del("x", "K")
+  vim.keymap.del("t", "<c-j>")
+  vim.keymap.del("t", "<c-k>")
+  -- vim.keymap.set('x', "<A-j>", "<Nop>", { silent = true })
+  -- vim.keymap.del("x", "<A-j>")
+  -- vim.keymap.set('x', "<A-k>", "<Nop>", { silent = true })
+  -- vim.keymap.del("x", "<A-k>")
+
+  -- )))
+
+  vim.keymap.set({ "n", "x" }, "&", ":&&<CR>", opts_noremapsilent) -- Remap normal/visual '&' to preserve substitution flags
+  -- vim.keymap.set({ "n" }, "<leader>*", ":%s;\<<c-r><c-w>\>;;g<left><left>") -- replace the word under cursor
+
+  vim.keymap.set("", "j", "(v:count == 0 ? 'gj' : 'j')", expr)
+  vim.keymap.set("", "k", "(v:count == 0 ? 'gk' : 'k')", expr)
+  vim.keymap.set("", "<Down>", "(v:count == 0 ? 'gj' : 'j')", expr)
+  vim.keymap.set("", "<Up>", "(v:count == 0 ? 'gk' : 'k')", expr)
+
+  -- Normal mode keymaps -- (((
+
+  -- vim.keymap.set("n", "<leader>e", ":Lexplore 20<cr>", opts_noremapsilent)
+  vim.keymap.set("n", "<C-w>f", "<C-w>vgf", opts_noremapsilent) -- is a more generic mode remap required?
+  vim.keymap.set("n", "J", "mzJ`zmz", opts_noremapsilent)
+  vim.keymap.set("n", "'", "`", opts_noremapsilent)
+  vim.keymap.set("n", "<C-]>", "g<C-]>", opts_noremapsilent) -- show options if tag has multiple matches
+
+  -- Keymaps for navigating folds (((
+
+  -- vim.keymap.set("n", "zf", "zMzvzz", opts_noremapsilent)
+  -- vim.keymap.set("n", "zj", "zcjzOzz", opts_noremapsilent)
+  -- vim.keymap.set("n", "zk", "zckzOzz", opts_noremapsilent)
+  vim.keymap.set("n", "<Space>", "za", opts_noremapsilent)
+
+  -- )))
+
+  -- )))
+
+  -- Insert mode keymaps -- (((
+
+  vim.keymap.set("i", "<c-c>", "<ESC>", opts_noremapsilent) -- CTRL-C doesn't trigger the InsertLeave autocmd. Map to <ESC> instead.
+
+  -- )))
+
+  -- Visual mode keymaps -- (((
+
+  vim.keymap.set("v", "y", "myy`ymy", opts_noremapsilent)
+  vim.keymap.set("v", "Y", "myY`ymy", opts_noremapsilent)
+
+  -- https://www.reddit.com/r/neovim/comments/ttwzge/magic_replace_selected_text_mapping_with_repeat/
+  vim.api.nvim_set_keymap("v", "cg*", "\"ay/\\V<C-R>=escape(@a,'/')<CR><CR>N\"_cgn", { noremap = true }) -- based on * visual remap
+  vim.api.nvim_set_keymap("v", "*", "y/\\V<C-R>=escape(@\",'/')<CR><CR>", { noremap = true })
+
+  -- )))
+
+  -- Visual block mode keymaps  -- (((
+
+  -- Stay in indent mode in visual-block mode (((
+
+  vim.keymap.set("x", "<", "<gv", opts_noremapsilent)
+  vim.keymap.set("x", ">", ">gv", opts_noremapsilent)
+
+  -- )))
+
+  -- )))
+
+  -- Command-line mode keymaps -- (((
+
+  vim.keymap.set("c", "<c-n>", "<down>", opts_noremapverbose)
+  vim.keymap.set("c", "<c-p>", "<up>", opts_noremapverbose)
+
+  -- )))
+
+  -- Keymaps that leverage various plugins (((
+
+  -- 'gitsigns' keymaps (((
+
+  vim.keymap.set("n", "]c", "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", { expr = true })
+  vim.keymap.set("n", "[c", "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", { expr = true })
+  vim.keymap.set("o", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+  vim.keymap.set("x", "ih", ":<C-U>Gitsigns select_hunk<CR>")
+
+  -- )))
+
+  -- Resize keymaps with 'smart-splits' (((
+
+  if astronvim.is_available "smart-splits.nvim" then
+    vim.keymap.set("n", "<A-h>", function()
+      require("smart-splits").resize_left()
+    end, { desc = "Move to left split" })
+    vim.keymap.set("n", "<A-j>", function()
+      require("smart-splits").resize_down()
+    end, { desc = "Move to below split" })
+    vim.keymap.set("n", "<A-k>", function()
+      require("smart-splits").resize_up()
+    end, { desc = "Move to above split" })
+    vim.keymap.set("n", "<A-l>", function()
+      require("smart-splits").resize_right()
+    end, { desc = "Move to right split" })
+  end
+
+  -- )))
+
+  -- -- 'telescope' keymaps (((
+  --
+  -- vim.keymap.set("n", "<leader>fF", function()
+  --   require("telescope.builtin").find_files { hidden = true }
+  -- end, { desc = "Search all files" })
+  --
+  -- -- )))
+
+  -- 'sniprun' keymaps (((
+
+  vim.keymap.set("v", "<leader>r", "<Plug>SnipRun", { silent = true })
+  vim.keymap.set("n", "<leader>r", "<Plug>SnipRunOperator", { silent = true })
+  vim.keymap.set("n", "<leader>rr", "<Plug>SnipRun", { silent = true })
+  vim.keymap.set("n", "<leader>rc", "<Plug>SnipClose", { silent = true })
+  vim.keymap.set("n", "<leader>rI", "<Plug>SnipInfo", { silent = true })
+
+  -- )))
+
+  -- ))) end of plugin keybindings (lua-based) fold
+
+  -- ))) -- end of keybindings (lua-based) fold
 end -- end of 'polish' function
