@@ -39,8 +39,6 @@ nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
 " nmap cg* *Ncgn
 
-noremap <c-w>" <c-w>t<c-w>K    " change a vertical split to horizontal
-noremap <c-w>% <c-w>t<c-w>H    " change a horizontal split to vertical
 
 " )))
 
@@ -73,7 +71,7 @@ return {
     ["k"] = { "v:count == 0 ? 'gk' : 'k'", expr = true },
     ["<Down>"] = { "v:count == 0 ? 'gj' : 'j'", expr = true },
     ["<Up>"] = { "v:count == 0 ? 'gk' : 'k'", expr = true },
-    ["<Space>"] = { "<Nop>" },
+    ["<Space>"] = false,
   },
 
   -- )))
@@ -102,6 +100,8 @@ return {
     ["<C-]>"] = { "g<C-]>" }, -- show options if tag has multiple
     ["<C-q"] = false,
     ["<C-s"] = false,
+    ["<c-w>%"] = { "<c-w>t<c-w>H", desc = "Change split to vertical" }, -- change a horizontal split to vertical
+    ['<c-w>"'] = { "<c-w>t<c-w>K", desc = "Change split to horizontal" }, -- change a vertical split to horizontal
     ["<C-w>f"] = { "<C-w>vgf" }, -- is a more generic mode remap
     ["<leader>*"] = { ":%s/<<c-r><c-w>>//g<left><left>", desc = "Replace cursor word" },
     ["<leader>q"] = false,

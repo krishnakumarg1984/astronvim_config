@@ -401,8 +401,6 @@ return function()
 
     " )))
 
-  nnoremap <Space> zA
-
   ]]
 
   -- )))
