@@ -688,10 +688,9 @@ return {
 
 -- TODO (((
 
--- 1. Compiling
--- 2. Unit Testing
--- 3. Debugging
--- 4. Tmux integration
+-- 1. Unit Testing
+-- 2. Debugging
+-- 3. Tmux integration
 
 -- )))
 
@@ -704,6 +703,7 @@ return {
 -- https://github.com/datamonsterr/astronvim_config/blob/main/plugins/nvim-dapui.lua
 -- https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/which-key/register_mappings.lua
 -- https://code.mehalter.com/projects/68
+-- https://www.reddit.com/r/neovim/comments/pzm3d8/comment/hf5h71t/?utm_source=share&utm_medium=web2x&context=3
 
 -- )))
 
@@ -728,31 +728,34 @@ return {
 -- https://github.com/zbirenbaum/copilot-cmp -- Lua plugin to turn github copilot into a cmp source
 -- https://github.com/p00f/cphelper.nvim -- Neovim helper for competitive programming. https://sr.ht/~p00f/cphelper.nvim preferred
 -- https://github.com/Pocco81/dap-buddy.nvim
+-- https://github.com/yriveiro/dap-go.nvim/  -- nvim-dap extenstion to make simpler debug Golang using Delve
 -- https://github.com/jbyuki/dash.nvim
+-- https://gitlab.com/HiPhish/debugpy.nvim  -- Command and configuration frontend for Debugpy and nvim-dap
 -- https://github.com/monaqa/dial.nvim
 -- https://github.com/elihunter173/dirbuf.nvim
 -- https://github.com/narutoxy/dim.lua
--- https://github.com/tjdevries/diff-therapy.nvim -- resolve those conflicts and have a happy relationship with git
+-- https://github.com/tjdevries/diff-therapy.nvim  -- resolve those conflicts and have a happy relationship with git
 -- https://github.com/elihunter173/dirbuf.nvim
--- https://github.com/chipsenkbeil/distant.nvim  -- Edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
+-- https://github.com/chipsenkbeil/distant.nvim   -- Edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
 -- use { "stevearc/dressing.nvim" }
 -- https://github.com/NFrid/due.nvim
 -- use { "j-hui/fidget.nvim" }
 -- https://github.com/Furkanzmc/firvish.nvim
+-- https://github.com/beauwilliams/focus.nvim
+-- https://github.com/pierreglaser/folding-nvim
 -- https://github.com/ruifm/gitlinker.nvim
 -- https://github.com/ThePrimeagen/git-worktree.nvim
 -- https://github.com/ray-x/go.nvim
 -- https://github.com/olexsmir/gopher.nvim/  -- Neovim plugin for make golang development easiest
 -- use { "rmagatti/goto-preview", event = { "CursorHold" } }
--- https://github.com/beauwilliams/focus.nvim
--- https://github.com/pierreglaser/folding-nvim
 -- https://github.com/kalvinpearce/gitignore-gen.nvim
 -- https://github.com/p00f/godbolt.nvim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/NMAC427/guess-indent.nvim
 -- https://github.com/Pocco81/HighStr.nvim
 -- https://github.com/m-demare/hlargs.nvim
--- https://github.com/lewis6991/hover.nvim --  Hover plugin framework for Neovim
+-- https://github.com/lewis6991/hover.nvim   -- Hover plugin framework for Neovim
+-- https://github.com/anuvyklack/hydra.nvim  -- Bind a bunch of key bindings together
 -- https://github.com/b0o/incline.nvim
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
 -- https://github.com/hkupty/iron.nvim
@@ -784,9 +787,11 @@ return {
 -- https://github.com/haringsrob/nvim_context_vt
 -- https://github.com/yamatsum/nvim-cursorline
 -- https://github.com/xiyaowong/nvim-cursorword
--- https://github.com/mfussenegger/nvim-dap
+-- https://github.com/leoluz/nvim-dap-go  -- An extension for nvim-dap providing configurations for launching go debugger (delve) and debugging individual tests
+-- https://github.com/mfussenegger/nvim-dap-go  -- An extension for nvim-dap providing configurations for launching go debugger (delve) and debugging individual tests
 -- https://github.com/mfussenegger/nvim-dap-python
 -- https://github.com/rcarriga/nvim-dap-ui
+-- https://github.com/theHamsta/nvim-dap-virtual-text
 -- https://github.com/esensar/nvim-dev-container -- Neovim dev container support
 -- https://github.com/AllenDang/nvim-expand-expr
 -- https://github.com/sakhnik/nvim-gdb
@@ -821,6 +826,7 @@ return {
 -- use { "ur4ltz/surround.nvim" }
 -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
 -- https://github.com/nvim-telescope/telescope-bibtex.nvim
+-- https://github.com/nvim-telescope/telescope-dap.nvim -- Integration for nvim-dap with telescope.nvim
 -- use { "nvim-telescope/telescope-media-files.nvim" }
 -- use { "nvim-telescope/telescope-packer.nvim" }
 -- use { "cljoly/telescope-repo.nvim" }
