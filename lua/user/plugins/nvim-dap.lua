@@ -50,9 +50,7 @@ return function()
         stdout:close()
         stderr:close()
         handle:close()
-        if code ~= 0 then
-          print("codelldb exited with code", code)
-        end
+        if code ~= 0 then print("codelldb exited with code", code) end
       end)
       if not handle then
         vim.notify("Error running codelldb: " .. tostring(pid_or_err), vim.log.levels.ERROR)
@@ -63,11 +61,7 @@ return function()
       vim.notify("\rcodelldb started. pid=" .. pid_or_err)
       stderr:read_start(function(err, chunk)
         assert(not err, err)
-        if chunk then
-          vim.schedule(function()
-            require("dap.repl").append(chunk)
-          end)
-        end
+        if chunk then vim.schedule(function() require("dap.repl").append(chunk) end) end
       end)
       local adapter = {
         type = "server",
@@ -76,9 +70,7 @@ return function()
       }
       -- Wait for codelldb to get ready and start listening before telling nvim-dap to connect
       -- If you get connect errors, try to increase 500 to a higher value, or check the stderr (Open the REPL)
-      vim.defer_fn(function()
-        on_adapter(adapter)
-      end, 500)
+      vim.defer_fn(function() on_adapter(adapter) end, 500)
     end,
     python = {
       type = "executable",
@@ -99,23 +91,15 @@ return function()
       handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
         stdout:close()
         handle:close()
-        if code ~= 0 then
-          print("dlv exited with code", code)
-        end
+        if code ~= 0 then print("dlv exited with code", code) end
       end)
       assert(handle, "Error running dlv: " .. tostring(pid_or_err))
       stdout:read_start(function(err, chunk)
         assert(not err, err)
-        if chunk then
-          vim.schedule(function()
-            require("dap.repl").append(chunk)
-          end)
-        end
+        if chunk then vim.schedule(function() require("dap.repl").append(chunk) end) end
       end)
       -- Wait for delve to start
-      vim.defer_fn(function()
-        callback { type = "server", host = "127.0.0.1", port = port }
-      end, 100)
+      vim.defer_fn(function() callback { type = "server", host = "127.0.0.1", port = port } end, 100)
     end,
   }
 
@@ -140,9 +124,7 @@ return function()
         name = "Debug program (with cpptools)", -- A user-readable name for the configuration
         type = "cppdbg", -- Which debug adapter to use.
         request = "launch", -- "Launch" indicates that the debug adapter should launch the application being debugged. Either `attach` or `launch`.
-        program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-        end,
+        program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
         cwd = "${workspaceFolder}",
         stopOnEntry = true,
         externalConsole = false,
@@ -181,9 +163,7 @@ return function()
         request = "launch",
         name = "Launch file",
         program = "${file}",
-        pythonPath = function()
-          return "python"
-        end,
+        pythonPath = function() return "python" end,
       },
     },
     go = {
@@ -231,13 +211,7 @@ return function()
   vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "DiagnosticInfo" })
 
   -- add listeners to auto open DAP UI
-  dap.listeners.after.event_initialized["dapui"] = function()
-    dapui.open()
-  end
-  dap.listeners.before.event_terminated["dapui"] = function()
-    dapui.close()
-  end
-  dap.listeners.before.event_exited["dapui"] = function()
-    dapui.close()
-  end
+  dap.listeners.after.event_initialized["dapui"] = function() dapui.open() end
+  dap.listeners.before.event_terminated["dapui"] = function() dapui.close() end
+  dap.listeners.before.event_exited["dapui"] = function() dapui.close() end
 end

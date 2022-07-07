@@ -40,8 +40,6 @@ return {
   end,
   on_first_symbols = function(bufnr)
     local ft = vim.api.nvim_buf_get_option(bufnr, "filetype")
-    if ft == "lua" then
-      require("aerial").tree_set_collapse_level(bufnr, 0)
-    end
+    if ft == "lua" then require("aerial").tree_set_collapse_level(bufnr, 0) end
   end,
 }

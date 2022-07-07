@@ -4,9 +4,7 @@ return {
     close_command = "Bdelete %d", -- can be a string | function, see "Mouse actions"
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      if context.buffer:current() then
-        return ""
-      end
+      if context.buffer:current() then return "" end
       local icon = level:match "error" and " " or " "
       return " " .. icon .. count
       -- local s = " "
@@ -63,21 +61,13 @@ return {
         local info = #vim.diagnostic.get(0, { severity = seve.INFO })
         local hint = #vim.diagnostic.get(0, { severity = seve.HINT })
 
-        if error ~= 0 then
-          table.insert(result, { text = "  " .. error, guifg = "#EC5241" })
-        end
+        if error ~= 0 then table.insert(result, { text = "  " .. error, guifg = "#EC5241" }) end
 
-        if warning ~= 0 then
-          table.insert(result, { text = "  " .. warning, guifg = "#EFB839" })
-        end
+        if warning ~= 0 then table.insert(result, { text = "  " .. warning, guifg = "#EFB839" }) end
 
-        if hint ~= 0 then
-          table.insert(result, { text = "  " .. hint, guifg = "#A3BA5E" })
-        end
+        if hint ~= 0 then table.insert(result, { text = "  " .. hint, guifg = "#A3BA5E" }) end
 
-        if info ~= 0 then
-          table.insert(result, { text = "  " .. info, guifg = "#7EA9A7" })
-        end
+        if info ~= 0 then table.insert(result, { text = "  " .. info, guifg = "#7EA9A7" }) end
         return result
       end,
     },

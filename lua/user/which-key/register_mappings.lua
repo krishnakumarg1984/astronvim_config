@@ -45,21 +45,15 @@ return {
       d = {
         name = "Debug",
         b = {
-          function()
-            require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ")
-          end,
+          function() require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ") end,
           "Set conditional breakpoint",
         },
         B = {
-          function()
-            require("dap").list_breakpoints()
-          end,
+          function() require("dap").list_breakpoints() end,
           "List breakpoints",
         },
         C = {
-          function()
-            require("dap").clear_breakpoints()
-          end,
+          function() require("dap").clear_breakpoints() end,
           "Clear breakpoints",
         },
         -- c = {
@@ -75,15 +69,11 @@ return {
         --   "Step Into",
         -- },
         L = {
-          function()
-            require("dap").set_breakpoint(nil, nil, vim.fn.input "Log point message: ")
-          end,
+          function() require("dap").set_breakpoint(nil, nil, vim.fn.input "Log point message: ") end,
           "Lop point message (debug)",
         },
         l = {
-          function()
-            require("dap").run_last()
-          end,
+          function() require("dap").run_last() end,
           "Run last debugged",
         },
         -- o = {
@@ -93,27 +83,19 @@ return {
         --   "Step Over",
         -- },
         q = {
-          function()
-            require("dap").close()
-          end,
+          function() require("dap").close() end,
           "Close debug session",
         },
         Q = {
-          function()
-            require("dap").terminate()
-          end,
+          function() require("dap").terminate() end,
           "Terminate debug session",
         },
         r = {
-          function()
-            require("dap").repl.toggle()
-          end,
+          function() require("dap").repl.toggle() end,
           "Debug REPL Toggle",
         },
         R = {
-          function()
-            require("dap").repl.open()
-          end,
+          function() require("dap").repl.open() end,
           "Debug REPL Open",
         },
         -- s = {
@@ -166,9 +148,7 @@ return {
         s = { "<cmd>Telescope git_status<cr>", "Status" },
         t = { "<cmd>Telescope git_stash<cr>", "Stash all changes" },
         U = {
-          function()
-            astronvim.toggle_term_cmd "gitui"
-          end,
+          function() astronvim.toggle_term_cmd "gitui" end,
           "GitUI",
         },
       },
@@ -251,9 +231,7 @@ return {
       t = {
         -- l = { nil },
         g = {
-          function()
-            astronvim.toggle_term_cmd "gitui"
-          end,
+          function() astronvim.toggle_term_cmd "gitui" end,
           "GitUI",
         },
       },

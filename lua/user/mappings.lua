@@ -155,24 +155,16 @@ return {
 
     -- 'smart-splits' keymaps (((
     ["<A-h>"] = {
-      function()
-        require("smart-splits").resize_left()
-      end,
+      function() require("smart-splits").resize_left() end,
     },
     ["<A-j>"] = {
-      function()
-        require("smart-splits").resize_down()
-      end,
+      function() require("smart-splits").resize_down() end,
     },
     ["<A-k>"] = {
-      function()
-        require("smart-splits").resize_up()
-      end,
+      function() require("smart-splits").resize_up() end,
     },
     ["<A-l>"] = {
-      function()
-        require("smart-splits").resize_right()
-      end,
+      function() require("smart-splits").resize_right() end,
     },
     -- )))
 

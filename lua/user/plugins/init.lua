@@ -304,9 +304,7 @@ return {
     "echasnovski/mini.nvim", -- refer to: https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/plugins/mini.lua, https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/autocmds.lua
     -- event = "VimEnter",
     keys = { "sa", "sd", "sr", "sf", "sF", "sn" },
-    config = function()
-      require("mini.surround").setup()
-    end,
+    config = function() require("mini.surround").setup() end,
   },
   ["jghauser/mkdir.nvim"] = { event = "BufWritePre" },
   ["jbyuki/nabla.nvim"] = { module = "nabla" },
@@ -372,9 +370,7 @@ return {
     event = "BufReadPost",
     tag = "1.1.1",
     -- commit = "3f1e788",
-    config = function()
-      require("config-local").setup {}
-    end,
+    config = function() require("config-local").setup {} end,
   },
   -- { "jenterkin/vim-autosource" }, -- 2nd fastest among all local-rc plugins
   -- { "embear/vim-localvimrc" }, -- 3rd fastest among all local-rc plugins
@@ -405,9 +401,7 @@ return {
   {
     "kevinhwang91/nvim-hlslens",
     keys = { "/", "?", "q/", "q?", "*", "#", "g*", "g#", "n", "N" },
-    config = function()
-      require("hlslens").setup { calm_down = true }
-    end,
+    config = function() require("hlslens").setup { calm_down = true } end,
   },
   {
     "ethanholz/nvim-lastplace",
@@ -453,21 +447,15 @@ return {
   },
   { "mfussenegger/nvim-lint", module = "lint" },
   ["https://gitlab.com/yorickpeterse/nvim-pqf"] = {
-    config = function()
-      require("pqf").setup()
-    end,
+    config = function() require("pqf").setup() end,
   },
   ["sitiom/nvim-numbertoggle"] = {
-    config = function()
-      require("numbertoggle").setup()
-    end,
+    config = function() require("numbertoggle").setup() end,
   },
   {
     "romgrk/nvim-treesitter-context",
     after = "nvim-treesitter", -- this is a separate plugin, which requires a separate configuration
-    config = function()
-      require("treesitter-context").setup {}
-    end,
+    config = function() require("treesitter-context").setup {} end,
   },
   { "eddiebergman/nvim-treesitter-pyfold", requires = { "nvim-treesitter/nvim-treesitter" }, ft = "python" },
   { "nvim-treesitter/nvim-treesitter-refactor", after = "nvim-treesitter" },
@@ -658,9 +646,7 @@ return {
   -- },
   ["johmsalas/text-case.nvim"] = {
     -- keys = { "ga" },
-    config = function()
-      require("textcase").setup {}
-    end,
+    config = function() require("textcase").setup {} end,
   },
 
   ["jose-elias-alvarez/null-ls.nvim"] = {
@@ -685,9 +671,7 @@ return {
             vim.api.nvim_create_autocmd("BufWritePre", {
               desc = "Auto format before save",
               pattern = "<buffer>",
-              callback = function()
-                vim.lsp.buf.formatting_sync()
-              end,
+              callback = function() vim.lsp.buf.formatting_sync() end,
             })
           end
         end,

@@ -1,4 +1,3 @@
--- vim: ft=lua:
 return function(C)
   C.telescope_green = C.green
   C.telescope_red = C.red
