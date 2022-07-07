@@ -1,6 +1,19 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
--- Disable some unnecessary/confusing neovim-default mappings for Multiple modes (((
+-- more in/all objects between 2 characters (((
+
+-- https://code.mehalter.com/projects/68/files/master/mappings.lua
+local map = vim.keymap.set
+for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "?" } do
+  for _, mode in ipairs { "x", "o" } do
+    map(mode, "i" .. char, (":<C-u>silent! normal! f%sF%slvt%s<CR>"):format(char, char, char))
+    map(mode, "a" .. char, (":<C-u>silent! normal! f%sF%svf%s<CR>"):format(char, char, char))
+  end
+end
+
+-- )))
+
+-- for MULTIPLE vim-modes, disable some unnecessary/confusing neovim-default mappings (((
 
 vim.keymap.set({ "n", "i" }, "<f1>", "<Nop>")
 vim.keymap.set({ "n", "x" }, "s", "<Nop>") -- Disable 's' as recommended by sandwich.vim help file
