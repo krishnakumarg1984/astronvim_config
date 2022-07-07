@@ -825,6 +825,7 @@ return {
 -- https://github.com/gbprod/substitute.nvim
 -- use { "ur4ltz/surround.nvim" }
 -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
+-- https://github.com/GustavoKatel/tasks.nvim  -- Yet another task runner/manager for Neovim
 -- https://github.com/nvim-telescope/telescope-bibtex.nvim
 -- https://github.com/nvim-telescope/telescope-dap.nvim -- Integration for nvim-dap with telescope.nvim
 -- use { "nvim-telescope/telescope-media-files.nvim" }
@@ -847,6 +848,7 @@ return {
 -- https://github.com/lukas-reineke/virt-column.nvim -- Display a character as the colorcolumn
 -- https://github.com/xiyaowong/virtcolumn.nvim  -- Display a line as the colorcolumn
 -- https://github.com/jubnzv/virtual-types.nvim  -- A Neovim plugin that shows type annotations as virtual text
+-- https://github.com/EthanJWright/vs-tasks.nvim  -- A telescope plugin that runs tasks similar to VS Code's task implementation.
 -- https://github.com/gelguy/wilder.nvim
 -- https://github.com/declancm/windex.nvim
 -- https://github.com/sindrets/winshift.nvim
