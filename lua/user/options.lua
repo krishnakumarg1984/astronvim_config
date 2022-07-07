@@ -45,6 +45,7 @@ return function(defaults)
       -- Scroll-related settings (scrolljump, sidescroll) (((
 
       scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
+      shortmess = vim.opt.shortmess + { I = true, c = true, x = false }, -- " a) +I => Don't give the intro message when starting Vim |:intro|. b) +c => Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc. c) -x => Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions.
       sidescrolloff = 8, -- The minimal number of screen columns to keep to the left and to the right of the cursor
       -- scrolljump = 3,  -- How many lines to scroll at a time, make scrolling appears faster (i.e. when you move the cursor close to the vertical limits of display, how many more lines to reveal ?)
       -- sidescroll = 3,  -- The minimal number of columns to scroll horizontally
