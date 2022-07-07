@@ -42,20 +42,20 @@ return function(client, bufnr)
       ]]
 
   -- )))
-
-  -- https://www.reddit.com/r/neovim/comments/uri2p4/comment/i8ydfti/?utm_source=share&utm_medium=web2x&context=3
-  local diagnostics_active = true
-  local toggle_diagnostics = function()
-    diagnostics_active = not diagnostics_active
-    if diagnostics_active then
-      vim.diagnostic.show()
-    else
-      vim.diagnostic.hide()
-    end
-  end
-  vim.keymap.set("n", "<leader>lt", toggle_diagnostics, { buffer = bufnr, desc = "Toggle diagnostics" })
-
-  -- if client.name == "pyright" then
-  --   require("folding").on_attach()
-  -- end
 end
+
+-- https://www.reddit.com/r/neovim/comments/uri2p4/comment/i8ydfti/?utm_source=share&utm_medium=web2x&context=3
+-- local diagnostics_active = true
+-- local toggle_diagnostics = function()
+--   diagnostics_active = not diagnostics_active
+--   if diagnostics_active then
+--     vim.diagnostic.show()
+--   else
+--     vim.diagnostic.hide()
+--   end
+-- end
+-- vim.keymap.set("n", "<leader>lt", toggle_diagnostics, { buffer = bufnr, desc = "Toggle diagnostics" })
+
+-- if client.name == "pyright" then
+--   require("folding").on_attach()
+-- end
