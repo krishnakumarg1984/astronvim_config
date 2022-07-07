@@ -415,7 +415,7 @@ return function()
   --     ["Foofile"] = "fooscript",
   --   },
   --   pattern = {
-  --     ["~/%.config/foo/.*"] = "fooscript",
+  --     ["/tmp/neomutt.*"] = "markdown",
   --   },
   -- }
 
