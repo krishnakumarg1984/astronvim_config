@@ -5,7 +5,7 @@ return {
   branch = "main", -- branch name (NIGHTLY ONLY)
   commit = nil, -- commit hash (NIGHTLY ONLY)
   pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
-  skip_prompts = false, -- skip prompts about breaking changes
+  skip_prompts = true, -- skip prompts about breaking changes
   show_changelog = true, -- show the changelog after performing an update
   -- remotes = { -- easily add new remotes to track
   --   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
