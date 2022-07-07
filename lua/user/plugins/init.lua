@@ -704,6 +704,8 @@ return {
 -- https://git.mehalter.com/mehalter/AstroNvim_user/src/branch/master/which-key/register_mappings.lua
 -- https://code.mehalter.com/projects/68
 -- https://www.reddit.com/r/neovim/comments/pzm3d8/comment/hf5h71t/?utm_source=share&utm_medium=web2x&context=3
+-- https://www.reddit.com/r/neovim/comments/u014b4/a_convenient_python_dap_configuration/?utm_source=share&utm_medium=web2x&context=3
+-- https://www.reddit.com/r/neovim/comments/uyg0r3/nvimdap_run_config_and_get_promted_to_input_args/?utm_source=share&utm_medium=web2x&context=3
 
 -- )))
 
