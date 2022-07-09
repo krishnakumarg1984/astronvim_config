@@ -7,7 +7,7 @@ return function()
 
   -- If you're using the integrated terminal, you can configure the command that is used to create a split window:
 
-  -- dap.defaults.fallback.terminal_win_cmd = '50vsplit new'
+  -- dap.defaults.fallback.terminal_win_cmd = '20vsplit new'
 
   -- Be default `dap` opens the integrated terminal but keeps focus on the current
   -- buffer. If you rather have focus to be shifted to the terminal when it opens
@@ -204,11 +204,12 @@ return function()
   dap.listeners.after.event_initialized["dapui"] = start_session
   dap.listeners.before.event_terminated["dapui"] = terminate_session
 
-  vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn" })
   vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticInfo" })
-  vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticError" })
   vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DiagnosticInfo" })
+  vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticError" })
   vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "DiagnosticInfo" })
+  vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "DiagnosticWarn" })
+  -- vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn" })
 
   -- add listeners to auto open DAP UI
   dap.listeners.after.event_initialized["dapui"] = function() dapui.open() end
