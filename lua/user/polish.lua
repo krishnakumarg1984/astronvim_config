@@ -218,14 +218,6 @@ return function()
 
     " )))
 
-    " " shortmess settings (((
-    "
-    " set shortmess+=I  " Don't give the intro message when starting Vim |:intro|.
-    " set shortmess+=c  " Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc.
-    " set shortmess-=x  " Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions
-    "
-    " " )))
-
     set tags=~/.cache/tags
 
     ]]
