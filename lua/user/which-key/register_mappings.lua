@@ -130,48 +130,40 @@ return {
         -- },
         -- v = { ":DapVirtualTextToggle<cr>", "Virtual Text" },
       },
-      e = { "<cmd>Neotree action=show toggle=true<CR>", "File Explorer" },
+      e = { "<cmd>Neotree action=show toggle=true<CR>", "File explorer" },
       f = { name = "File/Buffer" },
       g = {
-        B = {
-          "<cmd>Gitsigns stage_buffer<CR>",
-          "Stage Buffer",
-        },
+        B = { "<cmd>Gitsigns stage_buffer<CR>", "Stage buffer" },
+        -- b = branches, -- astronvim default
         C = { "<cmd>Telescope git_bcommits<cr>", "Checkout buffer commits" },
+        -- c = commits, -- astronvim default
         D = { "<cmd>DiffviewOpen<cr>", "Git Diff (interactive)" },
+        -- d = diffs, -- astronvim default
         f = { "<cmd>Telescope git_files<cr>", "Open file in repo" },
-        g = { nil },
-        h = { "<cmd>Gitsigns stage_hunk<cr>", "Stage Hunk" },
-        H = { "<cmd>Gitsigns reset_hunk<cr>", "Reset Hunk" },
-        -- o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+        -- g = lazygit, -- astronvim default
+        h = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
+        -- j = next hunk, -- astronvim default
+        -- k = previous hunk, -- astronvim default
+        -- l = blame, -- astronvim default
+        L = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" },
         n = { "<cmd>Neogit<cr>", "Neogit" },
+        -- o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
+        -- p = preview hunk, -- astronvim default
+        -- R = reset buffer, -- astronvim default
+        R = { "<cmd>Gitsigns reset_hunk<cr>", "Reset hunk" },
         s = { "<cmd>Telescope git_status<cr>", "Status" },
         t = { "<cmd>Telescope git_stash<cr>", "Stash all changes" },
-        U = {
-          function() astronvim.toggle_term_cmd "gitui" end,
-          "GitUI",
-        },
+        T = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle deleted" },
+        -- u = Undo stage hunk, -- astronvim default
+        U = { function() astronvim.toggle_term_cmd "gitui" end, "GitUI" },
       },
-      h = { nil },
       l = {
-        j = {
-          "<cmd>lua vim.diagnostic.goto_next()<CR>",
-          "Next Diagnostic",
-        },
-        k = {
-          "<cmd>lua vim.diagnostic.goto_prev()<cr>",
-          "Prev Diagnostic",
-        },
+        j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+        k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
         -- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
         -- q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
-        w = {
-          "<cmd>Telescope diagnostics<cr>",
-          "Workspace Diagnostics",
-        },
-        y = {
-          "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-          "Workspace Symbols",
-        },
+        w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
+        y = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
       },
       N = { "<cmd>lua require('nabla').popup()<CR>", "Scientific preview" },
       n = {
@@ -205,11 +197,9 @@ return {
       p = {
         p = { "<cmd>PackerProfile<CR>", "Profile plugins" },
       },
-      q = { nil },
       s = {
         name = "Search/Set",
         a = { "<cmd>Telescope autocommands<cr>", "Autocommands" },
-        -- b = { "nil", "Builtins" },
         b = { "<cmd>Telescope builtin<cr>", "Builtins" },
         B = { "<cmd>Telescope current_buffer_tags<cr>", "Tags in Current Buffer" },
         C = { "<cmd>Telescope colorscheme<cr>", "Pick colorscheme" },
@@ -229,13 +219,19 @@ return {
         y = { "<cmd>Telescope filetypes<cr>", "Choose filetype" },
       },
       t = {
-        -- l = { nil },
-        g = {
-          function() astronvim.toggle_term_cmd "gitui" end,
-          "GitUI",
-        },
+        -- l = lazygit -- astronvim default
+        g = { function() astronvim.toggle_term_cmd "gitui" end, "GitUI" },
       },
-      w = { nil },
+      x = { name = "Diagnostics" },
     },
   },
 }
+
+-- https://github.com/David-Kunz/vim/blob/master/init.lua
+-- function diffThisBranch()
+--   local branch = vim.fn.input("Branch: ", "")
+--   require"gitsigns".diffthis(branch)
+-- end
+-- vim.keymap.set('n', '<leader>hD', function() require"gitsigns".diffthis("~") end)
+-- vim.keymap.set('n', '<leader>hm', function() require"gitsigns".diffthis("main")end)
+-- vim.keymap.set('n', '<leader>hM', diffThisBranch)
