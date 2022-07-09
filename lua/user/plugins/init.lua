@@ -355,14 +355,6 @@ return {
       }
     end,
   },
-  -- {
-  --   "Shatur/neovim-cmake",
-  --   ft = { "c", "cpp", "cmake", "fortran" },
-  --   requires = { "mfussenegger/nvim-dap" },
-  --   config = function()
-  --     require("cmake").setup({})
-  --   end,
-  -- },
   { "weilbith/nvim-code-action-menu", cmd = "CodeActionMenu" },
   {
     "klen/nvim-config-local", -- fastest among all local-rc plugins
@@ -642,6 +634,14 @@ return {
   --   module = "telescope._extensions.luasnip",
   --   config = function()
   --     require("telescope").load_extension "luasnip"
+  --   end,
+  -- },
+  -- {
+  --   "Shatur/neovim-cmake",
+  --   ft = { "c", "cpp", "cmake", "fortran" },
+  --   requires = { "mfussenegger/nvim-dap" },
+  --   config = function()
+  --     require("cmake").setup({})
   --   end,
   -- },
   ["johmsalas/text-case.nvim"] = {
