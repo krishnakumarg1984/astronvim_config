@@ -184,3 +184,7 @@ return function(defaults)
     -- )))
   })
 end
+
+-- g.markdown_fenced_languages = { 'javascript', 'js=javascript', 'json=javascript' }
+-- set path+=$PWD/**
+-- set path+=/usr/local/include
