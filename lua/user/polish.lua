@@ -1,7 +1,6 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
--- This 'polish' function is run last
-return function()
+return function() -- This 'polish' function is run last
   vim.api.nvim_set_hl(0, "WinSeparator", { fg = "black", bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
 
   vim.wo.colorcolumn = ""
@@ -412,4 +411,4 @@ return function()
   -- }
 
   -- )))
-end -- end of 'polish' function
+end
