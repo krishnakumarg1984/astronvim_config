@@ -1,4 +1,7 @@
+-- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 return function(config)
+  -- Define local variables (((
+
   local kind_icons = require("user.global_vars").kind_icons
   local cmp = require "cmp"
   -- https://github.com/hrsh7th/nvim-cmp/issues/980
@@ -9,23 +12,9 @@ return function(config)
   local MIN_MENU_DETAIL_WIDTH = 15
   local MAX_MENU_DETAIL_WIDTH = 15
 
+  -- )))
+
   return vim.tbl_deep_extend("force", config, {
-    -- Yeah, to enable this you will probably need to not lazy load clangd_extensions and add that to your cmp setup override in plugins.cmp and then also modify the lazy loading to load cmp after clangd_extensions
-    -- You could probably add a change in your cmp setup to check for the existence of clangd_extensions and add the sorting table if it's available
-    -- And then keep the lazy loading for clangd_extensions and at the end of your config function add something like require("configs.cmp").config() to reconfigure cmp once clangd is loaded
-    -- But this is a pretty specific use case that would require a non 0 amount of lua knowledge
-    -- sorting = {
-    --   comparators = {
-    --     cmp.config.compare.offset,
-    --     cmp.config.compare.exact,
-    --     cmp.config.compare.recently_used,
-    --     require("clangd_extensions.cmp_scores"),
-    --     cmp.config.compare.kind,
-    --     cmp.config.compare.sort_text,
-    --     cmp.config.compare.length,
-    --     cmp.config.compare.order,
-    --   },
-    -- },
     experimental = {
       ghost_text = true,
     },
@@ -40,7 +29,7 @@ return function(config)
     },
     formatting = {
       fields = { "abbr", "kind", "menu" },
-      format = function(entry, vim_item)
+      format = function(entry, vim_item) -- (((
         -- Kind icons
         vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
         -- https://github.com/hrsh7th/nvim-cmp/discussions/609#discussioncomment-1844480
@@ -86,7 +75,7 @@ return function(config)
           vim_item.menu = my_menu .. menu_padding
         end
         return vim_item
-      end,
+      end, -- )))
     },
     mapping = {
       ["<C-j>"] = cmp.config.disable,
@@ -94,3 +83,22 @@ return function(config)
     },
   })
 end
+
+-- some notes on using the clangd_extensions custom sort (((
+-- Yeah, to enable this you will probably need to not lazy load clangd_extensions and add that to your cmp setup override in plugins.cmp and then also modify the lazy loading to load cmp after clangd_extensions
+-- You could probably add a change in your cmp setup to check for the existence of clangd_extensions and add the sorting table if it's available
+-- And then keep the lazy loading for clangd_extensions and at the end of your config function add something like require("configs.cmp").config() to reconfigure cmp once clangd is loaded
+-- But this is a pretty specific use case that would require a non 0 amount of lua knowledge
+-- sorting = {
+--   comparators = {
+--     cmp.config.compare.offset,
+--     cmp.config.compare.exact,
+--     cmp.config.compare.recently_used,
+--     require("clangd_extensions.cmp_scores"),
+--     cmp.config.compare.kind,
+--     cmp.config.compare.sort_text,
+--     cmp.config.compare.length,
+--     cmp.config.compare.order,
+--   },
+-- },
+-- )))
