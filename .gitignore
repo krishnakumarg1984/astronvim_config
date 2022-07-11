@@ -3,3 +3,4 @@
 *.py
 !.vimrc.lua
 **/dap_old/
+!setup.lua.bak
