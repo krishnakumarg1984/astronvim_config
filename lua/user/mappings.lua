@@ -204,6 +204,7 @@ return {
 
   t = {
     ["<esc>"] = { "<C-\\><C-n>", silent = true },
+    ["jk"] = false,
     ["<c-j>"] = false,
     ["<c-k>"] = false,
   },
