@@ -10,5 +10,5 @@ return {
   "sumneko_lua",
   -- "pyright"
   -- "taplo", -- problematic with rust/cargo installs
-  "zk",
+  -- "zk", -- link not found (404 errror)
 }
