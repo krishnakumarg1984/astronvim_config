@@ -226,10 +226,11 @@
 -- https://github.com/marklcrns/vim-smartq
 -- https://github.com/svermeulen/vim-subversive  -- Vim plugin providing operator motions to quickly replace text
 -- https://github.com/Matt-A-Bennett/vim-surround-funk
+-- https://github.com/dhruvasagar/vim-table-mode -- Vim Table Mode for instant table creation.
 -- https://github.com/mroavi/vim-tomux
--- https://github.com/inkarkat/vim-UnconditionalPaste
 -- https://github.com/erietz/vim-terminator
 -- https://github.com/Julian/vim-textobj-variable-segment
+-- https://github.com/inkarkat/vim-UnconditionalPaste
 -- https://github.com/mg979/vim-visual-multi
 -- use { "tweekmonster/wstrip.vim" }
 -- https://github.com/Einenlum/yaml-revealer
