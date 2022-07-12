@@ -19,12 +19,12 @@ dapui.setup {
   layouts = {
     {
       elements = {
-        "scopes",
-        "breakpoints",
-        "stacks",
-        "watches",
+        { id = "breakpoints", size = 0.30 }, -- Match this value
+        { id = "scopes", size = 0.20 },
+        { id = "stacks", size = 0.20 },
+        { id = "watches", size = 0.30 },
       },
-      size = 40,
+      size = 0.25,
       position = "left",
     },
     {
@@ -32,7 +32,7 @@ dapui.setup {
         "repl",
         "console",
       },
-      size = 10,
+      size = 0.30, -- With this value
       position = "bottom",
     },
   },
