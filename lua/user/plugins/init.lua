@@ -36,8 +36,9 @@ return {
 
   -- ["sudormrfbin/cheatsheet.nvim"] = { cmd = { "Cheatsheet", "CheatsheetEdit" } }, -- A cheatsheet plugin
   ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd_extensions", -- Clangd's off-spec features
+  ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp-buffer", -- nvim-cmp source for buffer words
   ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp-emoji", -- nvim-cmp source for emoji
-  -- ["petertriho/cmp-git"] = require "user.plugins.cmp-git", -- Git source for nvim-cmp
+  ["petertriho/cmp-git"] = require "user.plugins.cmp-git", -- Git source for nvim-cmp
   -- ["octaltree/cmp-look"] = require "user.plugins.cmp-look",
   ["gpanders/editorconfig.nvim"] = {}, --  EditorConfig plugin for Neovim
   ["akinsho/git-conflict.nvim"] = require "user.plugins.git-conflict", -- Visualise & resolve merge conflicts
