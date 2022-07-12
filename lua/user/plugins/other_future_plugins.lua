@@ -140,6 +140,7 @@
 -- https://github.com/michaelb/sniprun
 -- https://github.com/sQVe/sort.nvim
 -- https://github.com/stsewd/sphinx.nvim
+-- https://github.com/nanotee/sqls.nvim -- Neovim plugin for sqls that leverages the built-in LSP client
 -- https://github.com/gbprod/substitute.nvim
 -- use { "ur4ltz/surround.nvim" }
 -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" }, -- Surf through & move elements with treesitter
