@@ -48,7 +48,7 @@ return {
   -- ["hkupty/iron.nvim"] = require "user.plugins.iron", -- Interactive Repl Over Neovim
   ["rebelot/kanagawa.nvim"] = {}, -- Colorscheme inspired by the colors of the famous painting by Katsushika Hokusai.
   ["ray-x/lsp_signature.nvim"] = require "user.plugins.lsp_signature", -- LSP signature hint as you type
-  ["chentoast/marks.nvim"] = require "user.plugins.marks", -- A better UX for viewing & interacting with Vim marks.
+  -- ["chentoast/marks.nvim"] = require "user.plugins.marks", -- A better UX for viewing & interacting with Vim marks.
   ["echasnovski/mini.nvim"] = require "user.plugins.mini", -- Collection of minimal, independent, & fast Lua modules
   ["jghauser/mkdir.nvim"] = { event = "BufWritePre" }, -- This neovim plugin creates missing folders on save.
   ["jbyuki/nabla.nvim"] = { module = "nabla" }, -- Take your scientific notes in Neovim
