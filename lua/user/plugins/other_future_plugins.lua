@@ -142,9 +142,9 @@
 -- https://github.com/stsewd/sphinx.nvim
 -- https://github.com/gbprod/substitute.nvim
 -- use { "ur4ltz/surround.nvim" }
--- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" },
+-- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" }, -- Surf through & move elements with treesitter
 -- https://github.com/GustavoKatel/tasks.nvim  -- Yet another task runner/manager for Neovim
--- https://github.com/nvim-telescope/telescope-bibtex.nvim
+-- https://github.com/nvim-telescope/telescope-bibtex.nvim -- A telescope extension to search & paste bibtex entries
 -- https://github.com/nvim-telescope/telescope-dap.nvim -- Integration for nvim-dap with telescope.nvim
 -- use { "nvim-telescope/telescope-media-files.nvim" }
 -- use { "nvim-telescope/telescope-packer.nvim" }
@@ -159,6 +159,7 @@
 -- https://github.com/David-Kunz/treesitter-unit/
 -- https://github.com/Pocco81/TrueZen.nvim
 -- use { "folke/twilight.nvim", cmd = { "ZenMode", "Twilight", "TwilightEnable" } }
+-- https://github.com/jose-elias-alvarez/typescript.nvim -- A Lua plugin, written in TypeScript, to write TypeScript.
 -- https://github.com/axieax/urlview.nvim
 -- https://github.com/psliwka/vim-dirtytalk
 -- https://github.com/RRethy/vim-illuminate
