@@ -242,13 +242,13 @@ return function() -- This 'polish' function is run last
 
   -- Autogroup for automatically reload packer configs after saving (((
 
-  -- vim.api.nvim_create_augroup("packer_conf", { clear = true })
-  -- vim.api.nvim_create_autocmd("BufWritePost", {
-  --   desc = "Sync packer after modifying init.lua",
-  --   group = "packer_conf",
-  --   pattern = "init.lua",
-  --   command = "source <afile> | PackerSync",
-  -- })
+  vim.api.nvim_create_augroup("packer_conf", { clear = true })
+  vim.api.nvim_create_autocmd("BufWritePost", {
+    desc = "Sync packer after modifying init.lua",
+    group = "packer_conf",
+    pattern = "init.lua",
+    command = "source <afile> | PackerSync",
+  })
 
   -- )))
 
