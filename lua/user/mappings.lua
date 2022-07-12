@@ -115,15 +115,15 @@ return {
     ["<C-s"] = false,
     ["<c-w>%"] = { "<c-w>t<c-w>H", desc = "Change split to vertical" }, -- change a horizontal split to vertical
     ['<c-w>"'] = { "<c-w>t<c-w>K", desc = "Change split to horizontal" }, -- change a vertical split to horizontal
-    ["<C-w>f"] = { "<C-w>vgf" }, -- is a more generic mode remap
+    ["<C-w>f"] = { "<C-w>vgf", desc = "Open in vertical split" }, -- is a more generic mode remap
+    ["<C-w>z"] = { "<C-w>|<C-w>_", desc = "Maximize screen" }, -- zoom full-screen by maximising the screen height and width
     ["<leader>*"] = { ":%s/<<c-r><c-w>>//g<left><left>", desc = "Replace cursor word" },
     ["<leader>q"] = false,
     ["<leader>w"] = false,
+    ["<S-h>"] = false,
+    ["<S-j>"] = { "mzJ`zmz" },
+    ["<S-l>"] = false,
     ["<Space>"] = { "za" },
-    ["H"] = false,
-    ["J"] = { "mzJ`zmz" },
-    ["K"] = false,
-    ["L"] = false,
     ["{"] = false,
     ["}"] = false,
 
