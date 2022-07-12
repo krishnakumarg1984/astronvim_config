@@ -1,6 +1,5 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
--- `plugins.init` table for adding new plugins and disabling/modifying default plugins
 return {
   -- Disable a few AstroNvim default plugins (((
 
@@ -57,6 +56,8 @@ return {
   -- ["Shatur/neovim-cmake"] = require "user.plugins.neovim-cmake", -- CMake integration for Neovim
   ["weilbith/nvim-code-action-menu"] = { cmd = "CodeActionMenu" }, -- Code action pop-up menu (meta-info & diff)
   ["klen/nvim-config-local"] = require "user.plugins.nvim-config-local", -- Secure load local config files for neovim
+  ["mfussenegger/nvim-dap"] = require "user.plugins.nvim-dap", -- Debug Adapter Protocol client implementation
+  ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim-dapui", -- A UI for nvim-dap
   ["https://gitlab.com/yorickpeterse/nvim-dd"] = require "user.plugins.nvim-dd", -- Deferring of NeoVim diagnostics
   ["kevinhwang91/nvim-hlslens"] = require "user.plugins.nvim-hlslens", -- A hlsearch Lens for Neovim
   ["ethanholz/nvim-lastplace"] = require "user.plugins.nvim-lastplace", -- A Lua rewrite of vim-lastplace
@@ -93,4 +94,4 @@ return {
   ["windwp/nvim-ts-autotag"] = require "user.plugins.nvim-ts-autotag", -- treesitter to auto close & rename html tags
 
   -- ))) end of modification of default AstroNvim plugins
-} -- end of 'plugins.init' table
+}
