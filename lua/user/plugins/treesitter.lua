@@ -1,48 +1,5 @@
 return {
-  ensure_installed = {
-    "bash",
-    "bibtex",
-    "c",
-    "cmake",
-    "comment", -- difficult to get this working on remote servers?
-    "cpp",
-    "css",
-    "cuda",
-    "dart",
-    "dockerfile",
-    "dot",
-    "fish",
-    "fortran",
-    "go",
-    "haskell",
-    "html",
-    "http",
-    "java",
-    -- "javascript",
-    "json",
-    "json5",
-    "jsonc",
-    "julia",
-    -- "latex",
-    "lua", -- problematic on remote servers?
-    "make",
-    "markdown",
-    "ninja",
-    "perl",
-    "python",
-    "r",
-    "regex",
-    -- "rst",
-    "ruby",
-    -- "rust",
-    "scss",
-    "toml",
-    "tsx",
-    "typescript",
-    "verilog",
-    "vim", -- problematic on remote servers?
-    "yaml",
-  },
+  auto_install = true, -- Automatically install missing parsers when entering buffer
   ignore_install = { "latex" },
   highlight = {
     use_languagetree = true,
@@ -55,7 +12,16 @@ return {
   },
   indent = {
     enable = true,
-    disable = { "yaml", "python", "latex" },
+    disable = { "latex", "python", "yaml" },
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
   },
   refactor = {
     highlight_definitions = {
@@ -66,7 +32,7 @@ return {
     smart_rename = {
       enable = true,
       keymaps = {
-        smart_rename = "grr",
+        smart_rename = "grr", -- in the absence of LSP , can use treesitter for smart renaming
       },
     },
     navigation = {
@@ -83,10 +49,7 @@ return {
   textobjects = {
     select = {
       enable = true,
-
-      -- Automatically jump forward to textobj, similar to targets.vim
-      lookahead = true,
-
+      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
       keymaps = {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
@@ -129,15 +92,15 @@ return {
       },
     },
   },
-  pyfold = {
-    enable = true,
-    custom_foldtext = true, -- Sets provided foldtext on window where module is active
-  },
   matchup = {
     enable = true, -- mandatory, false will disable the whole extension
     -- disable = { "c", "ruby" }, -- optional, list of language that will be disabled
     -- [options]
   },
+  -- pyfold = {
+  --   enable = true,
+  --   custom_foldtext = true, -- Sets provided foldtext on window where module is active
+  -- },
   textsubjects = {
     enable = true,
     prev_selection = ",", -- (Optional) keymap to select the previous selection
@@ -148,3 +111,48 @@ return {
     },
   },
 }
+
+-- ensure_installed = {
+--   "bash",
+--   "bibtex",
+--   "c",
+--   "cmake",
+--   -- "comment", -- difficult to get this working on remote servers?
+--   "cpp",
+--   "css",
+--   "cuda",
+--   "dart",
+--   "dockerfile",
+--   "dot",
+--   "fish",
+--   "fortran",
+--   "go",
+--   "haskell",
+--   "html",
+--   "http",
+--   "java",
+--   -- "javascript",
+--   "json",
+--   "json5",
+--   "jsonc",
+--   "julia",
+--   -- "latex",
+--   "lua", -- problematic on remote servers?
+--   "make",
+--   "markdown",
+--   "ninja",
+--   "perl",
+--   "python",
+--   "r",
+--   "regex",
+--   -- "rst",
+--   "ruby",
+--   -- "rust",
+--   "scss",
+--   "toml",
+--   "tsx",
+--   "typescript",
+--   "verilog",
+--   "vim", -- problematic on remote servers?
+--   "yaml",
+-- },
