@@ -1,6 +1,11 @@
 local codelldb_cmdhandle = io.popen 'find -L $HOME/.vscode/extensions -name "codelldb" -type f -print0'
 ---@diagnostic disable-next-line: unused-local, need-check-nil
 local codelldb_cmd = codelldb_cmdhandle:read "*all" --  .. ' --params {"showDisassembly" : "never"}'
+
+local cpptools_cmdhandle = io.popen 'find -L $HOME/.vscode/extensions -name "OpenDebugAD7" -type f -print0'
+---@diagnostic disable-next-line: unused-local, need-check-nil
+local cpptools_cmd = cpptools_cmdhandle:read "*all"
+
 local dap = require "dap"
 
 -- To tell Neovim if it should launch a debug adapter or connect to one, and if so, how, you need to configure them via the `dap.adapters` table.
@@ -10,8 +15,8 @@ dap.adapters = {
   cppdbg = {
     id = "cppdbg",
     type = "executable", -- indicate that nvim-dap must launch the debug adapter. If type is "executable", nvim-dap will spawn the given process and communicate with it using stdio. If type is "server", indicate that nvim-dap can connect to an already-running debug adapter via TCP.
-    command = os.getenv "HOME"
-      .. "/sw_src/scripts_and_archives_for_installing/cpptools/extension/debugAdapters/bin/OpenDebugAD7", -- command to invoke
+    command = cpptools_cmd,
+    -- command = os.getenv "HOME" .. "/sw_src/scripts_and_archives_for_installing/cpptools/extension/debugAdapters/bin/OpenDebugAD7", -- command to invoke
     -- name = "cpptools",
     -- options = {
     --   detached = false, -- defaults to true. Spawn the debug adapter process in a detached state.

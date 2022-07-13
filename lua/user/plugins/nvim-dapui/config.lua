@@ -55,3 +55,14 @@ dapui.setup {
 dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
 dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
 dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
+
+-- local function start_session(_, _)
+--   local info_string = string.format("%s", dap.session().config.program)
+--   vim.notify(info_string, "debug", { title = "Debugger Started", timeout = 500 })
+-- end
+-- local function terminate_session(_, _)
+--   local info_string = string.format("%s", dap.session().config.program)
+--   vim.notify(info_string, "debug", { title = "Debugger Terminated", timeout = 500 })
+-- end
+-- dap.listeners.after.event_initialized["dapui_config"] = start_session
+-- dap.listeners.before.event_terminated["dapui_config"] = terminate_session
