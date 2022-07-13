@@ -2,7 +2,7 @@ return {
   auto_install = true, -- Automatically install missing parsers when entering buffer
   ignore_install = { "latex" },
   highlight = {
-    use_languagetree = true,
+    use_languagetree = true, -- Use this to enable language injection
     disable = { "css", "latex" },
   },
   context_commentstring = {
