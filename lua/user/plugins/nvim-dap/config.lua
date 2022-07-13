@@ -65,11 +65,6 @@ dap.adapters = {
     -- If you get connect errors, try to increase 500 to a higher value, or check the stderr (Open the REPL)
     vim.defer_fn(function() on_adapter(adapter) end, 500)
   end,
-  python = {
-    type = "executable",
-    command = "python",
-    args = { "-m", "debugpy.adapter" },
-  },
   ---@diagnostic disable-next-line: unused-local
   go = function(callback, config)
     local stdout = vim.loop.new_pipe(false)
@@ -94,6 +89,14 @@ dap.adapters = {
     -- Wait for delve to start
     vim.defer_fn(function() callback { type = "server", host = "127.0.0.1", port = port } end, 100)
   end,
+  nlua = {
+    function(callback, config) callback { type = "server", host = config.host, port = config.port } end,
+  },
+  python = {
+    type = "executable",
+    command = "python",
+    args = { "-m", "debugpy.adapter" },
+  },
 }
 
 -- The keys of `dap.configurations` are filetypes
@@ -150,15 +153,6 @@ dap.configurations = { -- "launch configurations"
     --   },
     -- },
   },
-  python = {
-    {
-      type = "python",
-      request = "launch",
-      name = "Launch file",
-      program = "${file}",
-      pythonPath = function() return "python" end,
-    },
-  },
   go = {
     {
       type = "go",
@@ -182,14 +176,44 @@ dap.configurations = { -- "launch configurations"
       program = "./${relativeFileDirname}",
     },
   },
+  lua = {
+    {
+      type = "nlua",
+      request = "attach",
+      name = "Attach to running Neovim instance",
+      host = function()
+        local value = vim.fn.input "Host [127.0.0.1]: "
+        if value ~= "" then return value end
+        return "127.0.0.1"
+      end,
+      port = function()
+        local val = tonumber(vim.fn.input("Port: ", "54321"))
+        assert(val, "Please provide a port number")
+        return val
+      end,
+    },
+  },
+  python = {
+    {
+      type = "python",
+      request = "launch",
+      name = "Launch file",
+      program = "${file}",
+      pythonPath = function() return "python" end,
+    },
+  },
 }
 
 vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticInfo" })
 vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DiagnosticInfo" })
-vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticError" })
+vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "LspDiagnosticsSignError" })
 vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "DiagnosticInfo" })
 vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn" })
+-- vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "LspDiagnosticsSignError" })
+-- vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticError" })
+-- vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "LspDiagnosticsSignHint" })
 -- vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "DiagnosticWarn" })
+-- vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "LspDiagnosticsSignInformation", linehl = "DiagnosticUnderlineInfo", numhl = "LspDiagnosticsSignInformation" })
 
 -- If you're using the integrated terminal, you can configure the command that is used to create a split window:
 
