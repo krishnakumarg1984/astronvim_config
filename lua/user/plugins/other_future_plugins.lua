@@ -25,7 +25,6 @@
 
 -- )))
 
--- Something in my config is messing up URL highlights. Need to investigate
 -- https://superuser.com/questions/1485332/how-to-clear-neovim-buffer
 -- https://github.com/0styx0/abbreinder.nvim  -- Abbreviation reminder plugin for Neovim 0.5+
 -- https://github.com/emmanueltouzery/agitator.nvim
@@ -42,9 +41,9 @@
 -- https://github.com/Civitasv/cmake-tools.nvim  --  CMake integration in Neovim
 -- https://github.com/rcarriga/cmp-dap  -- nvim-cmp source for nvim-dap REPL and nvim-dap-ui buffers
 -- use { "andersevenrud/cmp-tmux" }  -- Tmux completion source for nvim-cmp and nvim-compe
--- https://github.com/xeluxee/competitest.nvim -- CompetiTest.nvim is a Neovim plugin to automate testcases management and checking for Competitive Programming
+-- https://github.com/xeluxee/competitest.nvim -- Automate testcases management & checking for Competitive Programming
 -- https://github.com/zbirenbaum/copilot-cmp -- Lua plugin to turn github copilot into a cmp source
--- https://github.com/p00f/cphelper.nvim -- Neovim helper for competitive programming. https://sr.ht/~p00f/cphelper.nvim preferred
+-- https://github.com/p00f/cphelper.nvim -- Neovim helper for competitive programming
 -- https://github.com/Pocco81/dap-buddy.nvim
 -- https://github.com/yriveiro/dap-go.nvim/  -- nvim-dap extenstion to make simpler debug Golang using Delve
 -- https://github.com/jbyuki/dash.nvim
@@ -54,7 +53,7 @@
 -- https://github.com/narutoxy/dim.lua
 -- https://github.com/tjdevries/diff-therapy.nvim  -- resolve those conflicts and have a happy relationship with git
 -- https://github.com/elihunter173/dirbuf.nvim
--- https://github.com/chipsenkbeil/distant.nvim   -- Edit files, run programs, and work with LSP on a remote machine from the comfort of your local environment construction
+-- https://github.com/chipsenkbeil/distant.nvim  -- Edit files, run programs, and work with LSP on a remote machine
 -- use { "stevearc/dressing.nvim" }
 -- https://github.com/NFrid/due.nvim
 -- use { "j-hui/fidget.nvim" }
@@ -105,9 +104,9 @@
 -- https://github.com/haringsrob/nvim_context_vt
 -- https://github.com/yamatsum/nvim-cursorline
 -- https://github.com/xiyaowong/nvim-cursorword
--- https://github.com/leoluz/nvim-dap-go  -- An extension for nvim-dap providing configurations for launching go debugger (delve) and debugging individual tests
--- https://github.com/mfussenegger/nvim-dap-go  -- An extension for nvim-dap providing configurations for launching go debugger (delve) and debugging individual tests
--- https://github.com/mfussenegger/nvim-dap-python
+-- https://github.com/leoluz/nvim-dap-go  -- configs for launching go debugger (delve) and debugging individual tests
+-- https://github.com/mfussenegger/nvim-dap-go  -- configs for launching go debugger (delve) & for individual tests
+-- https://github.com/mfussenegger/nvim-dap-python -- default config for python & methods to debug individual tests
 -- https://github.com/rcarriga/nvim-dap-ui
 -- https://github.com/theHamsta/nvim-dap-virtual-text
 -- https://github.com/esensar/nvim-dev-container -- Neovim dev container support
@@ -156,7 +155,7 @@
 -- https://github.com/aserowy/tmux.nvim
 -- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
 -- https://github.com/jedrzejboczar/toggletasks.nvim
--- https://github.com/drybalka/tree-climber.nvim -- Plugin for easy navigation around the syntax-tree produced by the treesitter that also works in comments and multi-language files!
+-- https://github.com/drybalka/tree-climber.nvim -- Plugin for easy navigation around the syntax-tree
 -- https://github.com/David-Kunz/treesitter-unit/
 -- https://github.com/Pocco81/TrueZen.nvim
 -- use { "folke/twilight.nvim", cmd = { "ZenMode", "Twilight", "TwilightEnable" } }
@@ -168,7 +167,7 @@
 -- https://github.com/lukas-reineke/virt-column.nvim -- Display a character as the colorcolumn
 -- https://github.com/xiyaowong/virtcolumn.nvim  -- Display a line as the colorcolumn
 -- https://github.com/jubnzv/virtual-types.nvim  -- A Neovim plugin that shows type annotations as virtual text
--- https://github.com/EthanJWright/vs-tasks.nvim  -- A telescope plugin that runs tasks similar to VS Code's task implementation.
+-- https://github.com/EthanJWright/vs-tasks.nvim  -- Telescope plugin similar to VS Code's task implementation.
 -- https://github.com/gelguy/wilder.nvim
 -- https://github.com/declancm/windex.nvim
 -- https://github.com/sindrets/winshift.nvim
@@ -224,7 +223,7 @@
 -- use { "urbainvaes/vim-ripple" }  -- REPL
 -- use { "Konfekt/vim-sentence-chopper" }
 -- https://github.com/jpalardy/vim-slime
--- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } } -- also a telescope extension
+-- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
 -- https://github.com/marklcrns/vim-smartq
 -- https://github.com/svermeulen/vim-subversive  -- Vim plugin providing operator motions to quickly replace text
 -- https://github.com/Matt-A-Bennett/vim-surround-funk
