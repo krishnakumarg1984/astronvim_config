@@ -30,7 +30,7 @@ dapui.setup {
     },
     {
       elements = {
-        "repl", -- The REPL provided by nvim-dap.
+        -- "repl", -- The REPL provided by nvim-dap.
         "console", -- The console window used by nvim-dap for the integrated terminal.
       },
       size = 0.30, -- With this value
@@ -52,6 +52,7 @@ dapui.setup {
 }
 
 -- add listeners to auto open DAP UI
+-- use the DAP listener to display the UI when a debug session starts and close it when the session exits
 dap.listeners.after.event_initialized["dapui_config"] = function() dapui.open() end
 dap.listeners.before.event_terminated["dapui_config"] = function() dapui.close() end
 dap.listeners.before.event_exited["dapui_config"] = function() dapui.close() end
