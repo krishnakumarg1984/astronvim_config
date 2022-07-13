@@ -94,7 +94,7 @@
 -- https://github.com/nyngwang/NeoClear.lua
 -- https://github.com/sbdchd/neoformat
 -- https://github.com/nyngwang/NeoNoName.lua
--- https://github.com/nvim-neotest/neotest  --  An extensible framework for interacting with tests within NeoVim.
+-- https://github.com/nvim-neotest/neotest  -- An extensible framework for interacting with tests within NeoVim https://gitlab.com/HiPhish/nvim-config/-/blob/master/plugin/neotest.lua
 -- use { "nyngwang/NeoZoom.lua" }
 -- https://github.com/miversen33/netman.nvim -- Neovim (Lua powered) Network File Manager
 -- https://github.com/nacro90/numb.nvim
@@ -159,7 +159,7 @@
 -- https://github.com/David-Kunz/treesitter-unit/
 -- https://github.com/Pocco81/TrueZen.nvim
 -- use { "folke/twilight.nvim", cmd = { "ZenMode", "Twilight", "TwilightEnable" } }
--- https://github.com/jose-elias-alvarez/typescript.nvim -- A Lua plugin, written in TypeScript, to write TypeScript.
+-- https://github.com/jose-elias-alvarez/typescript.nvim -- A Lua plugin, written in TypeScript, to write TypeScript
 -- https://github.com/axieax/urlview.nvim
 -- https://github.com/psliwka/vim-dirtytalk
 -- https://github.com/RRethy/vim-illuminate
@@ -167,7 +167,7 @@
 -- https://github.com/lukas-reineke/virt-column.nvim -- Display a character as the colorcolumn
 -- https://github.com/xiyaowong/virtcolumn.nvim  -- Display a line as the colorcolumn
 -- https://github.com/jubnzv/virtual-types.nvim  -- A Neovim plugin that shows type annotations as virtual text
--- https://github.com/EthanJWright/vs-tasks.nvim  -- Telescope plugin similar to VS Code's task implementation.
+-- https://github.com/EthanJWright/vs-tasks.nvim  -- Telescope plugin similar to VS Code's task implementation
 -- https://github.com/gelguy/wilder.nvim
 -- https://github.com/declancm/windex.nvim
 -- https://github.com/sindrets/winshift.nvim
@@ -227,7 +227,7 @@
 -- https://github.com/marklcrns/vim-smartq
 -- https://github.com/svermeulen/vim-subversive  -- Vim plugin providing operator motions to quickly replace text
 -- https://github.com/Matt-A-Bennett/vim-surround-funk
--- https://github.com/dhruvasagar/vim-table-mode -- Vim Table Mode for instant table creation.
+-- https://github.com/dhruvasagar/vim-table-mode -- Vim Table Mode for instant table creation
 -- https://github.com/mroavi/vim-tomux
 -- https://github.com/erietz/vim-terminator
 -- https://github.com/Julian/vim-textobj-variable-segment
