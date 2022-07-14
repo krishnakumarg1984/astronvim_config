@@ -108,7 +108,6 @@
 -- https://github.com/mfussenegger/nvim-dap-go  -- configs for launching go debugger (delve) & for individual tests
 -- https://github.com/mfussenegger/nvim-dap-python -- default config for python & methods to debug individual tests
 -- https://github.com/rcarriga/nvim-dap-ui
--- https://github.com/theHamsta/nvim-dap-virtual-text
 -- https://github.com/esensar/nvim-dev-container -- Neovim dev container support
 -- https://github.com/AllenDang/nvim-expand-expr
 -- https://github.com/sakhnik/nvim-gdb
@@ -145,7 +144,6 @@
 -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" }, -- Surf through & move elements with treesitter
 -- https://github.com/GustavoKatel/tasks.nvim  -- Yet another task runner/manager for Neovim
 -- https://github.com/nvim-telescope/telescope-bibtex.nvim -- A telescope extension to search & paste bibtex entries
--- https://github.com/nvim-telescope/telescope-dap.nvim -- Integration for nvim-dap with telescope.nvim
 -- use { "nvim-telescope/telescope-media-files.nvim" }
 -- use { "nvim-telescope/telescope-packer.nvim" }
 -- use { "cljoly/telescope-repo.nvim" }
