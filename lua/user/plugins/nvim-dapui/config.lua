@@ -22,20 +22,20 @@ dapui.setup {
   layouts = {
     {
       elements = { -- Elements can be strings or table with id and size keys.
-        { id = "breakpoints", size = 0.30 }, -- Match this value
-        { id = "scopes", size = 0.20 },
-        { id = "stacks", size = 0.20 },
-        { id = "watches", size = 0.30 },
+        -- { id = "breakpoints", size = 0.20 }, -- Match this value
+        { id = "scopes", size = 0.33 },
+        { id = "stacks", size = 0.33 },
+        { id = "watches", size = 0.34 },
       },
       size = 0.25,
       position = "left",
     },
     {
       elements = {
-        "repl", -- The REPL provided by nvim-dap.
+        -- "repl", -- The REPL provided by nvim-dap.
         "console", -- The console window used by nvim-dap for the integrated terminal.
       },
-      size = 0.30, -- With this value
+      size = 0.34, -- With this value
       position = "bottom",
     },
   },
