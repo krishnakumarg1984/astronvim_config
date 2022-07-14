@@ -265,7 +265,7 @@ return function() -- This 'polish' function is run last
 
     " ft help autocommands (((
 
-    autocmd FileType qf,help,man,lspinfo nnoremap <silent> <buffer> q :close<CR>
+    autocmd FileType qf,help,man,lspinfo,dap-float nnoremap <silent> <buffer> q :close<CR>
 
     " Press Enter to follow a help tag
     autocmd FileType help nnoremap <buffer><CR> <c-]>
