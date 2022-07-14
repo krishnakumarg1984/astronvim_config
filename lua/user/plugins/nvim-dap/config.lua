@@ -68,9 +68,7 @@ dap.adapters = {
   ---@diagnostic disable-next-line: unused-local
   go = function(callback, config)
     local stdout = vim.loop.new_pipe(false)
-    local handle
-    local pid_or_err
-    local port = 38697
+    local handle, pid_or_err, port = nil, nil, 38697
     local opts = {
       stdio = { nil, stdout },
       args = { "dap", "-l", "127.0.0.1:" .. port },
@@ -79,9 +77,9 @@ dap.adapters = {
     handle, pid_or_err = vim.loop.spawn("dlv", opts, function(code)
       stdout:close()
       handle:close()
-      if code ~= 0 then print("dlv exited with code", code) end
+      if code ~= 0 then print("Delve has exited with code: ", code) end
     end)
-    assert(handle, "Error running dlv: " .. tostring(pid_or_err))
+    assert(handle, "Error running Delve: " .. tostring(pid_or_err))
     stdout:read_start(function(err, chunk)
       assert(not err, err)
       if chunk then vim.schedule(function() require("dap.repl").append(chunk) end) end
@@ -158,14 +156,19 @@ dap.configurations = { -- "launch configurations"
       type = "go",
       name = "Debug",
       request = "launch",
+      showLog = true,
       program = "${file}",
+      -- console = "externalTerminal",
+      dlvToolPath = vim.fn.exepath "dlv",
     },
     {
       type = "go",
-      name = "Debug test", -- configuration for debugging test files
+      name = "Debug test current file", -- configuration for debugging test files
       request = "launch",
+      showLog = true,
       mode = "test",
       program = "${file}",
+      dlvToolPath = vim.fn.exepath "dlv",
     },
     -- works with go.mod packages and sub packages
     {
