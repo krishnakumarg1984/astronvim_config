@@ -32,7 +32,7 @@ dapui.setup {
     },
     {
       elements = {
-        -- "repl", -- The REPL provided by nvim-dap.
+        "repl", -- The REPL provided by nvim-dap.
         "console", -- The console window used by nvim-dap for the integrated terminal.
       },
       size = 0.30, -- With this value
