@@ -1,9 +1,15 @@
 return {
+  ts_funky_keywords = { enable = true }, -- https://github.com/simrat39/dotfiles/blob/master/nvim/.config/nvim/lua/sim_config/tree-sitter.lua
   auto_install = true, -- Automatically install missing parsers when entering buffer
   ignore_install = { "latex" },
   highlight = {
     use_languagetree = true, -- Use this to enable language injection
     disable = { "css", "latex" },
+  },
+  query_linter = { -- https://github.com/simrat39/dotfiles/blob/master/nvim/.config/nvim/lua/sim_config/tree-sitter.lua
+    enable = true,
+    use_virtual_text = true,
+    lint_events = { "BufWrite", "CursorHold" },
   },
   context_commentstring = {
     config = {
