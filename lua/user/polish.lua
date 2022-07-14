@@ -398,17 +398,29 @@ return function() -- This 'polish' function is run last
 
   -- Add custom filetypes (lua-based config from nvim 0.7+) (((
 
-  -- vim.filetype.add {
-  --   extension = {
-  --     jl = "julia",
-  --   },
-  --   filename = {
-  --     ["Foofile"] = "fooscript",
-  --   },
-  --   pattern = {
-  --     ["/tmp/neomutt.*"] = "markdown",
-  --   },
-  -- }
+  -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/filetype.lua
+  vim.filetype.add {
+    extension = {
+      cl = "opencl",
+      frag = "glsl",
+      fs = "glsl",
+      geom = "glsl",
+      gs = "glsl",
+      make = "make",
+      pd_lua = "lua",
+      pd_luax = "lua",
+      vert = "glsl",
+      vs = "glsl",
+      jl = "julia",
+    },
+    filename = {
+      ["/etc/mkinitcpio.conf"] = "confini",
+      ["/etc/environment"] = "confini",
+    },
+    pattern = {
+      [vim.env.XDG_CONFIG_HOME .. "/udev/rules.d/.*%.rules"] = "udevrules",
+    },
+  }
 
   -- )))
 end
