@@ -200,9 +200,20 @@ dap.configurations = { -- "launch configurations"
     {
       type = "python",
       request = "launch",
-      name = "Launch file",
+      name = "Debug current file (only user code)",
       program = "${file}",
       pythonPath = function() return "python" end,
+      console = "integratedTerminal",
+      justMyCode = true,
+    },
+    {
+      type = "python",
+      request = "launch",
+      name = "Debug current file (also external/library code)",
+      program = "${file}",
+      pythonPath = function() return "python" end,
+      console = "integratedTerminal",
+      justMyCode = false,
     },
   },
 }
@@ -220,13 +231,15 @@ vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn" })
 
 -- If you're using the integrated terminal, you can configure the command that is used to create a split window:
 
--- dap.defaults.fallback.terminal_win_cmd = '20vsplit new'
+-- dap.defaults.fallback.terminal_win_cmd = "20vsplit new"
 
 -- Be default `dap` opens the integrated terminal but keeps focus on the current
 -- buffer. If you rather have focus to be shifted to the terminal when it opens
 -- you can configure:
 
 -- dap.defaults.fallback.focus_terminal = true
+
+-- If you want to use the `externalTerminal` you need to setup the terminal which should be launched by nvim-dap:
 
 -- https://github.com/David-Kunz/vim/blob/master/init.lua
 -- vim.keymap.set('n', '<leader>de', function() require"dap".set_exception_breakpoints({"all"}) end)
