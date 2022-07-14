@@ -138,6 +138,7 @@ return {
 
     ["<F5>"] = { "<Cmd>lua require'dap'.continue()<CR>", silent = true },
     ["<F6>"] = { "<Cmd>lua require'dap'.pause()<CR>", silent = true },
+    ["<F7>"] = { "<Cmd>lua require'dapui'.float_element('console')<CR>", silent = true },
     ["<F8>"] = { "<Cmd>lua require'dap'.run_to_cursor()<CR>", silent = true },
     ["<F9>"] = { "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", silent = true },
     ["<F10>"] = { "<Cmd>lua require'dap'.step_over()<CR>", silent = true },
