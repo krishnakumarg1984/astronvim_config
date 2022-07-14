@@ -81,6 +81,7 @@ return {
   -- ["lewis6991/spellsitter.nvim"] = require "user.plugins.spellsitter", -- Treesitter powered spellchecker
   -- ["luukvbaal/stabilize.nvim"] = require "user.plugins.stabilize", -- Stabilize window open/close events
   -- ["abecodes/tabout.nvim"] = require "user.plugins.tabout", -- tabout plugin for neovim
+  ["nvim-telescope/telescope-dap.nvim"] = require "user.plugins.telescope-dap", -- Dap-Telescope integration
   -- ["benfowler/telescope-luasnip.nvim"] = require "user.plugins.telescope-luasnip", -- Telescope+LuaSnip integration
   ["johmsalas/text-case.nvim"] = require "user.plugins.text-case", -- An all in one plugin for converting text case
   ["folke/trouble.nvim"] = require "user.plugins.trouble", -- Helps you solve all the trouble your code is causing
