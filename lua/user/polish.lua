@@ -17,6 +17,8 @@ return function() -- This 'polish' function is run last
 
   vim.cmd [[
 
+  silent! set rtp+=$HOME/.config/astronvim/after
+
     " Linebreak settings (((
 
     set breakat=\ \ ;:,!? " which characters might cause a line break if 'linebreak' is on.
