@@ -417,9 +417,9 @@ return function() -- This 'polish' function is run last
       ["/etc/mkinitcpio.conf"] = "confini",
       ["/etc/environment"] = "confini",
     },
-    pattern = {
-      [vim.env.XDG_CONFIG_HOME .. "/udev/rules.d/.*%.rules"] = "udevrules",
-    },
+    -- pattern = {
+    --   [vim.env.XDG_CONFIG_HOME .. "/udev/rules.d/.*%.rules"] = "udevrules",
+    -- },
   }
 
   -- )))
