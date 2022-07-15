@@ -3,6 +3,7 @@
 return {
   -- Disable a few AstroNvim default plugins (((
 
+  ["goolord/alpha-nvim"] = { disable = true }, -- A lua powered greeter like vim-startify / dashboard-nvim
   ["max397574/better-escape.nvim"] = { disable = true }, -- Escape from insert mode without delay when typing
   ["rcarriga/nvim-notify"] = { disable = true }, -- A fancy, configurable, notification manager for NeoVim
   ["p00f/nvim-ts-rainbow"] = { disable = true }, -- Rainbow parentheses for neovim using tree-sitter
@@ -59,7 +60,7 @@ return {
   ["klen/nvim-config-local"] = require "user.plugins.nvim-config-local", -- Secure load local config files for neovim
   ["mfussenegger/nvim-dap"] = require "user.plugins.nvim-dap", -- Debug Adapter Protocol client implementation
   ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim-dapui", -- A UI for nvim-dap
-  ["theHamsta/nvim-dap-virtual-text"] = require "user.plugins.nvim-dap-virtual-text",
+  -- ["theHamsta/nvim-dap-virtual-text"] = require "user.plugins.nvim-dap-virtual-text",  -- slow!
   ["https://gitlab.com/yorickpeterse/nvim-dd"] = require "user.plugins.nvim-dd", -- Deferring of NeoVim diagnostics
   ["kevinhwang91/nvim-hlslens"] = require "user.plugins.nvim-hlslens", -- A hlsearch Lens for Neovim
   ["ethanholz/nvim-lastplace"] = require "user.plugins.nvim-lastplace", -- A Lua rewrite of vim-lastplace
