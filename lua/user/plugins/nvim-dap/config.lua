@@ -109,9 +109,8 @@ dap.configurations = { -- "launch configurations"
       end,
       cwd = "${workspaceFolder}",
       stopOnEntry = false, -- Whether to stop debuggee immediately after launching.
-      args = { "-x", "hah" },
       -- args = { "--params", "{'showDisassembly' : 'never'}" },
-      -- showDisassembly = never,
+      showDisassembly = "never",
       -- terminal = "external", -- console (default) for Debug Console, integrated for VSCode integrated terminal, external for a new terminal window
     },
     {
