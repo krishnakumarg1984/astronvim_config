@@ -1,3 +1,4 @@
+-- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 -- NOTE: Only my preferred settings that are not set by AstroNvim are here
 return function(defaults)
   defaults.g.loaded_netrwPlugin = nil
@@ -60,10 +61,11 @@ return function(defaults)
       -- )))
       -- Fold settings (((
 
+      foldcolumn = "4",
       foldlevel = 2, -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
       foldlevelstart = 2,
-      foldcolumn = "4",
       -- foldopen=all, -- helps to avoid automatic closing of previously open folds when returning to a buffer
+      foldopen = vim.opt.foldopen + { "jump" },
 
       -- )))
       -- Settings for showing matching parenthesis (((
@@ -86,6 +88,7 @@ return function(defaults)
       infercase = true, -- Ignore case on insert completion. When doing keyword completion in insert mode |ins-completion|, and 'ignorecase' is also on, the case of the match is adjusted depending on the typed text.
       iskeyword = vim.opt.iskeyword + { "-" },
       lazyredraw = true, -- Don't redraw the screen during batch execution
+      -- jumpoptions = "view",
       list = true,
       listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
       -- listchars = { tab = "▸", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
@@ -96,6 +99,7 @@ return function(defaults)
       softtabstop = 2, -- how many spaces to insert with tab key
       -- spell = true,
       -- spelllang = "en_gb",
+      spelloptions = vim.opt.spelloptions + { "camel" },
       report = 0, -- Threshold for reporting number of lines changed.
       synmaxcol = 300,
       -- tildeop = yes, -- when on: The tilde command "~" behaves like an operator
