@@ -26,13 +26,13 @@ return function() -- This 'polish' function is run last
 
     " )))
 
-    " formatoptions (((
+    " " formatoptions (((
 
-    " set formatoptions-=cro " TODO: this doesn't seem to work
-    set formatoptions-=t " Disable 'auto-wrap text using textwidth'
-    set formatoptions+=n " When formatting text, recognize numbered lists. This actually uses the 'formatlistpat' option, thus any kind of list can be used. Helps to avoid joining distinct items as if they were a single paragraph.
+    " " set formatoptions-=cro " TODO: this doesn't seem to work
+    " " set formatoptions-=t " Disable 'auto-wrap text using textwidth'
+    " " set formatoptions+=n " When formatting text, recognize numbered lists. This actually uses the 'formatlistpat' option, thus any kind of list can be used. Helps to avoid joining distinct items as if they were a single paragraph.
 
-    " )))
+    " " )))
 
     " Wildignore and low-priority suffixes/filetype-extensions (((
 
@@ -184,7 +184,7 @@ return function() -- This 'polish' function is run last
     " Settings for grepprg and grepformat (((
 
     if executable('rg')
-      set grepprg=rg\ -H\ --no-heading\ --vimgrep
+      set grepprg=rg\ -H\ --no-heading\ --vimgrep\ --smart-case
       set grepformat^=%f:%l:%c:%m
     endif
 
@@ -215,7 +215,7 @@ return function() -- This 'polish' function is run last
 
     " Custom highlights (((
 
-    " match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Nobody wants to commit merge conflict markers, so letâs highlight these so we canât miss them: https://vimways.org/2018/vim-and-git/
+    " match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Nobody wants to commit merge conflict markers, so let's highlight these so we can's them: https://vimways.org/2018/vim-and-git/
 
     " )))
 
@@ -227,20 +227,47 @@ return function() -- This 'polish' function is run last
 
   -- Autogroups & Autocommands (lua-based) (((
 
-  -- Autogroup for Alpha bindings (((
+  ---@diagnostic disable: missing-parameter
+  -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/lua/settings/autocmds.lua
+  local aucmd = vim.api.nvim_create_autocmd
+  local augroup = vim.api.nvim_create_augroup
+  local auexec = vim.api.nvim_exec_autocmds
+  local exec = vim.api.nvim_command
+  local augrp_opts = { clear = true }
 
-  vim.api.nvim_create_augroup("alpha_bindings", { clear = true })
-  vim.api.nvim_create_autocmd("FileType", {
-    desc = "Set alpha bindings",
-    group = "alpha_bindings",
-    pattern = "alpha",
+  augroup("FormatOptions", augrp_opts)
+
+  aucmd("FileType", {
+    group = "FormatOptions",
     callback = function()
-      vim.keymap.set("n", "q", "<cmd>enew<cr>", { buffer = 0 })
-      vim.keymap.set("n", "<esc>", "<cmd>enew<cr>", { buffer = 0 })
+      vim.opt.formatoptions = vim.opt.formatoptions
+        - "a" -- Dont format pasted code
+        - "t" -- Delegate to linter prgs/LSP. Disable 'auto-wrap text using textwidth'
+        - "o" -- O and o don't continue comments
+        - "r" -- Return does not continue comments
+        -- + "c" -- comments respect textwidth
+        -- + "q" -- Allow formatting comments w/ gq
+        + "n" -- Recognize numbered lists. This actually uses the 'formatlistpat' option, thus any kind of list can be used. Helps to avoid joining distinct items as if they were a single paragraph.
+        -- + "j" -- Auto-remove comments if possible.
+        + "2" -- Indent according to 2nd line
     end,
+    desc = "Custom formatoptions",
   })
 
-  -- )))
+  -- -- Autogroup for Alpha bindings (((
+  --
+  -- -- augroup("alpha_bindings", augrp_opts)
+  -- -- aucmd("FileType", {
+  -- --   desc = "Set alpha bindings",
+  -- --   group = "alpha_bindings",
+  -- --   pattern = "alpha",
+  -- --   callback = function()
+  -- --     vim.keymap.set("n", "q", "<cmd>enew<cr>", { buffer = 0 })
+  -- --     vim.keymap.set("n", "<esc>", "<cmd>enew<cr>", { buffer = 0 })
+  -- --   end,
+  -- -- })
+  --
+  -- -- )))
 
   -- Autogroup for automatically reload packer configs after saving (((
 
@@ -289,7 +316,7 @@ return function() -- This 'polish' function is run last
     " autocmd BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
     " autocmd BufWinEnter *.txt set iskeyword+=- iskeyword+=: iskeyword+=.
 
-    autocmd BufWinEnter * set formatoptions-=cro
+    " autocmd BufWinEnter * set formatoptions-=cro
 
     " https://stackoverflow.com/questions/4687009/opening-help-in-a-full-window
     " autocmd FileType help :tabnew % | tabprevious | quit | tabnext
