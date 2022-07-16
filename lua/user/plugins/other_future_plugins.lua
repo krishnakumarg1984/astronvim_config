@@ -110,15 +110,17 @@
 -- https://github.com/rcarriga/nvim-dap-ui
 -- https://github.com/esensar/nvim-dev-container -- Neovim dev container support
 -- https://github.com/AllenDang/nvim-expand-expr
--- https://github.com/sakhnik/nvim-gdb
+-- https://github.com/sakhnik/nvim-gdb -- Neovim thin wrapper for GDB, LLDB, PDB/PDB++ and BashDB
 -- https://github.com/booperlv/nvim-gomove
 -- https://github.com/SmiteshP/nvim-gps
 -- https://github.com/gennaro-tedesco/nvim-jqx
 -- https://github.com/nanotee/nvim-lua-guide -- A guide to using Lua in Neovim
+-- "kevinhwang91/nvim-ufo" -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/lua/plugins.lua
 -- https://github.com/geg2102/nvim-python-repl
 -- https://github.com/bennypowers/nvim-regexplainer
 -- use { "petertriho/nvim-scrollbar" }
 -- https://github.com/dstein64/nvim-scrollview
+-- https://github.com/Badhi/nvim-treesitter-cpp-tools -- C++ Helper Snippets Using Treesitter
 -- https://github.com/AckslD/nvim-trevJ.lua
 -- use { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
 -- https://github.com/yioneko/nvim-yati -- Yet another tree-sitter powered indent plugin for Neovim
