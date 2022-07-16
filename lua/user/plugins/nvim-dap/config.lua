@@ -36,6 +36,7 @@ dap.adapters = {
     local opts = {
       stdio = { nil, stdout, stderr },
       args = { "--port", tostring(port) },
+      detached = true,
     }
     local handle
     local pid_or_err
@@ -112,6 +113,8 @@ dap.configurations = { -- "launch configurations"
       -- args = { "--params", "{'showDisassembly' : 'never'}" },
       showDisassembly = "never",
       -- terminal = "external", -- console (default) for Debug Console, integrated for VSCode integrated terminal, external for a new terminal window
+      terminal = "integrated",
+      console = "integratedTerminal",
     },
     {
       name = "Debug program (with cpptools)", -- A user-readable name for the configuration
@@ -120,13 +123,28 @@ dap.configurations = { -- "launch configurations"
       program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
       cwd = "${workspaceFolder}",
       stopOnEntry = true,
+      showDisplayString = true,
+      MIMode = "gdb",
+      miDebuggerPath = "/usr/local/bin/prime-debug",
       externalConsole = false,
       setupCommands = {
-        {
-          text = "-enable-pretty-printing",
-          description = "enable pretty printing",
-          ignoreFailures = false,
-        },
+        { text = "-enable-pretty-printing", description = "enable pretty printing", ignoreFailures = true },
+      },
+    },
+    {
+      name = "Launch vscode-gdb on Nvidia",
+      type = "cppdbg",
+      request = "launch",
+      program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
+      -- externalConsole = true,
+      visualizerFile = vim.env.XDG_DATA_HOME .. "/debug-adapters/natvis/concurrency.natvis",
+      cwd = "${workspaceFolder}",
+      stopOnEntry = false,
+      showDisplayString = true,
+      MIMode = "gdb",
+      miDebuggerPath = "/usr/local/bin/prime-debug",
+      setupCommands = {
+        { text = "-enable-pretty-printing", description = "enable pretty printing", ignoreFailures = true },
       },
     },
     -- {
