@@ -1,6 +1,7 @@
 return {
-  -- after = { nil },
-  requires = { "nvim-treesitter/nvim-treesitter" },
+  after = { nil },
+  -- requires = { "nvim-treesitter/nvim-treesitter" },
+  wants = "nvim-treesitter",
   ft = {
     -- "glimmer",
     -- "handlebars",
