@@ -122,8 +122,7 @@
 -- https://github.com/dstein64/nvim-scrollview
 -- https://github.com/Badhi/nvim-treesitter-cpp-tools -- C++ Helper Snippets Using Treesitter
 -- https://github.com/AckslD/nvim-trevJ.lua
--- use { "JoosepAlviste/nvim-ts-context-commentstring", after = "nvim-treesitter" }
--- https://github.com/yioneko/nvim-yati -- Yet another tree-sitter powered indent plugin for Neovim
+-- https://github.com/yioneko/nvim-yati -- Yet another tree-sitter powered indent plugin
 -- https://gitlab.com/yorickpeterse/nvim-window
 -- https://github.com/pwntester/octo.nvim
 -- https://github.com/rktjmp/paperplanes.nvim
