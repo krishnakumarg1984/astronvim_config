@@ -7,7 +7,7 @@ return {
     disable = { "css", "latex" },
   },
   query_linter = { -- https://github.com/simrat39/dotfiles/blob/master/nvim/.config/nvim/lua/sim_config/tree-sitter.lua
-    enable = true,
+    enable = true, -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/lua/r/settings/treesitter.lua
     use_virtual_text = true,
     lint_events = { "BufWrite", "CursorHold" },
   },
@@ -18,7 +18,7 @@ return {
   },
   indent = {
     enable = true,
-    disable = { "latex", "python", "yaml" },
+    disable = { "latex", "python", "yaml", "org" },
   },
   incremental_selection = {
     enable = true,
@@ -114,6 +114,20 @@ return {
       ["."] = "textsubjects-smart",
       [";"] = "textsubjects-container-outer",
       ["i;"] = "textsubjects-container-inner",
+    },
+  },
+  nt_cpp_tools = {
+    enable = true,
+    preview = {
+      quit = "Q",
+      accept = "<leader><cr>",
+    },
+    header_extension = "h",
+    source_extension = "cxx",
+    custom_define_class_function_commands = {
+      TSCppImplWrite = {
+        output_handle = pcall(require, '("nvim-treesitter.nt-cpp-tools.output_handlers").get_add_to_cpp()'),
+      },
     },
   },
 }
