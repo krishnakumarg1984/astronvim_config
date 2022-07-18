@@ -121,11 +121,14 @@ return {
     ["<leader>q"] = false,
     ["<leader>w"] = false,
     ["<S-h>"] = false,
-    ["<S-j>"] = { "mzJ`zmz" },
+    -- ["<S-j>"] = { "mzJ`zmz" },
+    ["<S-j>"] = { "mzJ`z" },
     ["<S-l>"] = false,
     ["<Space>"] = { "za" },
     ["{"] = false,
     ["}"] = false,
+    ["n"] = { "nzzzv" },
+    ["N"] = { "Nzzzv" },
 
     -- "bufferline.nvim" keymaps (((
 
