@@ -86,6 +86,7 @@
 -- https://github.com/mbpowers/lorem-nvim
 -- https://github.com/lukas-reineke/lsp-format.nvim -- A wrapper around Neovims native LSP formatting
 -- use { "onsails/lspkind-nvim" }
+-- https://github.com/ericpubu/lsp_codelens_extensions.nvim  -- Adds client side code for codelenses commands not in the lsp servers
 -- https://git.sr.ht/~whynothugo/lsp_lines.nvim
 -- https://github.com/aspeddro/lsp_menu.nvim
 -- https://github.com/jubnzv/mdeval.nvim
@@ -102,6 +103,7 @@
 -- https://github.com/ojroques/nvim-bufdel
 -- https://github.com/s1n7ax/nvim-comment-frame  -- Detects the language using treesitter and adds a comment block
 -- https://github.com/haringsrob/nvim_context_vt
+-- https://github.com/andythigpen/nvim-coverage  -- Displays test coverage data in the sign column
 -- https://github.com/yamatsum/nvim-cursorline
 -- https://github.com/xiyaowong/nvim-cursorword
 -- https://github.com/leoluz/nvim-dap-go  -- configs for launching go debugger (delve) and debugging individual tests
@@ -153,6 +155,7 @@
 -- https://github.com/mcauley-penney/tidy.nvim
 -- https://github.com/aserowy/tmux.nvim
 -- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
+-- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim  -- toggle LSP diagnostics
 -- https://github.com/jedrzejboczar/toggletasks.nvim
 -- https://github.com/drybalka/tree-climber.nvim -- Plugin for easy navigation around the syntax-tree
 -- https://github.com/David-Kunz/treesitter-unit/
@@ -213,6 +216,8 @@
 -- https://github.com/jalvesaq/vimcmdline  -- promises matlab support (REPL?)
 -- use { "gauteh/vim-cppman", ft = { "c", "cpp" }, cmd = { "Cppman" } }
 -- use { "tpope/vim-fugitive", event = "BufWinEnter" }
+-- https://github.com/tenfyzhong/vim-gencode-cpp -- auto generate function definition or declaration
+-- https://github.com/alepez/vim-gtest  -- Quickly select and run GoogleTest asyncronously
 -- use { "ludovicchabant/vim-gutentags", event = { "CursorHold" } } -- , event = "BufWinEnter" }
 -- https://github.com/azabiong/vim-highlighter
 -- use { "petRUShka/vim-opencl", ft = { "opencl" } }  -- note: slow plugin on remote systems
