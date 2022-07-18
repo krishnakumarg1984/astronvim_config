@@ -131,7 +131,6 @@ return function(defaults)
     -- 'vim.g.' settings (((
 
     g = {
-
       detectspelllang_langs = {
         aspell = {
           "en_GB",
@@ -193,6 +192,8 @@ return function(defaults)
       loaded_perl_provider = 0, -- To disable perl support
       loaded_node_provider = 0, -- To disable node support
       loaded_ruby_provider = 0, -- To disable Ruby support
+      loaded_python_provider = 0,
+      python_host_skip_check = 1,
       did_load_ftplugin = 1,
     },
 
