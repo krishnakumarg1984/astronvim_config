@@ -79,6 +79,7 @@ return {
   -- ["s1n7ax/nvim-window-picker"] = {}, -- Prompts to pick a window & returns its window id
   ["samjwill/nvim-unception"] = {}, -- Open files from within Neovim's terminal emulator without weird behavior
   -- ["jbyuki/one-small-step-for-vimkind"] = {}, -- Debug adapter for Neovim plugins
+  ["Weissle/persistent-breakpoints.nvim"] = require "user.plugins.persistent-breakpoints",
   ["ahmedkhalf/project.nvim"] = require "user.plugins.project", -- The superior project management solution for nvim
   ["stevearc/qf_helper.nvim"] = require "user.plugins.qf_helper", -- A collection of improvements for quickfix buffer
   ["linty-org/readline.nvim"] = require "user.plugins.readline", -- Readline motions and deletions in Neovim

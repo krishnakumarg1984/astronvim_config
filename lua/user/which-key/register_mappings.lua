@@ -48,13 +48,21 @@ return {
         B = { "<cmd>Telescope dap list_breakpoints<cr>", "List breakpoints" },
         b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
         -- C = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", "Conditional Breakpoint" },
+        -- C = {
+        --   function() require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ") end,
+        --   "Set conditional breakpoint",
+        -- },
         C = {
-          function() require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ") end,
+          "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint(vim.fn.input)<cr>",
           "Set conditional breakpoint",
         },
-        c = { function() require("dap").clear_breakpoints() end, "Clear breakpoints" },
+        -- c = { function() require("dap").clear_breakpoints() end, "Clear breakpoints" },
         -- c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
         -- c = { function() require("dap").continue() end, "Continue", },
+        c = {
+          "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>",
+          "Clear breakpoints",
+        },
         d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
         E = { "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
         e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
