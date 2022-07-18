@@ -21,7 +21,7 @@ return {
   ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } }, -- An alternative sudo.vim for Vim and Neovim
   ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
   -- ["kenn7/vim-arsync"] = require "user.plugins.vim-arsync", -- Synchronisation of remote & local files using rsync
-  ["m-pilia/vim-ccls"] = require "user.plugins.vim-ccls", -- Vim plugin for the ccls language server
+  -- ["m-pilia/vim-ccls"] = require "user.plugins.vim-ccls", -- Vim plugin for the ccls language server
   ["gauteh/vim-cppman"] = { cmd = { "Cppman" } }, -- cppman ("C++ 98/11/14 manual pages for Linux/MacOS" ) from vim
   ["Konfekt/vim-DetectSpellLang"] = require "user.plugins.vim-detectspelllang", -- Autodetect the spellcheck language
   ["dbmrq/vim-dialect"] = require "user.plugins.vim-dialect", -- Project specific spellfiles
@@ -59,7 +59,7 @@ return {
   ["TimUntersberger/neogit"] = require "user.plugins.neogit", -- Magit for neovim
   -- ["Shatur/neovim-cmake"] = require "user.plugins.neovim-cmake", -- CMake integration for Neovim
   ["weilbith/nvim-code-action-menu"] = { cmd = "CodeActionMenu" }, -- Code action pop-up menu (meta-info & diff)
-  ["xiyaowong/nvim-colorizer.lua"] = require "user.plugins.nvim-colorizer", -- The fastest colorizer
+  -- ["xiyaowong/nvim-colorizer.lua"] = require "user.plugins.nvim-colorizer", -- The fastest colorizer
   ["klen/nvim-config-local"] = require "user.plugins.nvim-config-local", -- Secure load local config files for neovim
   ["mfussenegger/nvim-dap"] = require "user.plugins.nvim-dap", -- Debug Adapter Protocol client implementation
   ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim-dapui", -- A UI for nvim-dap
