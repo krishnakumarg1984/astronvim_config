@@ -83,7 +83,7 @@ return function() -- This 'polish' function is run last
     " https://damrah.netlify.app/post/note-taking-with-latex-part-1/
     " let g:tex_no_error=1   " The <tex.vim> supports lexical error checking of various sorts.  Thus, although the error checking is ofttimes very useful, it can indicate errors where none actually are.  If this proves to be a problem for you, you may put in your vimrc the following statement: > let g:tex_no_error=1 and all error checking by <syntax/tex.vim> will be suppressed.
     let g:tex_comment_nospell= 1
-    let g:tex_conceal='abdmgs'
+    " let g:tex_conceal='abdmgs'
     let g:tex_flavor = 'latex'
     let g:tex_fold_enabled=1
     let g:tex_isk='48-57,a-z,A-Z,192-255,:,_'
@@ -97,7 +97,6 @@ return function() -- This 'polish' function is run last
     let g:did_install_syntax_menu   = 1
     :let did_install_syntax_menu    = 1
     " let g:did_indent_on             = 1    " raises an error: Vim(doautocmd):E216: No such group or event: filetypeindent FileType markdown
-    let g:did_load_ftplugin         = 1
     let g:skip_loading_mswin        = 1
 
     " " I prefer filtering text with Unix tools
@@ -118,15 +117,10 @@ return function() -- This 'polish' function is run last
     " let g:loaded_netrw              = 1
     let g:netrw_nogx                = 1
 
-      let g:loaded_ruby_provider = 0  " To disable Ruby support
-      :let g:loaded_perl_provider = 0 " To disable perl support
-      :let g:loaded_node_provider = 0 " To disable Node.js support
-
     " )))
 
     " Folding-related global(g:) variables for various languages (((
 
-    let g:markdown_folding        = 1
     let g:markdown_enable_folding = 1
     let g:tex_fold_enabled        = 1
     let g:vimsyn_folding          = 'af'

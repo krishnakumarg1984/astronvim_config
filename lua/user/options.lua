@@ -32,6 +32,7 @@ return function(defaults)
         -- horizdown = '┳',
         horizup = "┻",
         -- horizup = '┻',
+        stlnc = "»",
         vert = "┃",
         -- vert = '┃',
         verthoriz = "╋",
@@ -125,9 +126,12 @@ return function(defaults)
       -- tagcase = "smart",
 
       -- )))
-    },
+    }, -- )))
+
+    -- 'vim.g.' settings (((
 
     g = {
+
       detectspelllang_langs = {
         aspell = {
           "en_GB",
@@ -184,6 +188,12 @@ return function(defaults)
       matchup_matchparen_deferred = true,
       matchup_override_vimtex = true,
       python3_host_prog = "python3",
+      tex_conceal = "abdmgs",
+      markdown_folding = 1,
+      loaded_perl_provider = 0, -- To disable perl support
+      loaded_node_provider = 0, -- To disable node support
+      loaded_ruby_provider = 0, -- To disable Ruby support
+      did_load_ftplugin = 1,
     },
 
     -- )))
