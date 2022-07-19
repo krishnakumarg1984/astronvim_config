@@ -76,7 +76,7 @@ M.kind_icons = {
 M.lsp_servers = {
   -- "arduino_language_server", -- written in 'go'
   -- "asm_lsp", -- written in 'rust'
-  -- "ccls",
+  "ccls",
   "clangd", -- requires a reasonably new version of glibc
   "cmake",
   -- "fortls", -- written in 'python'

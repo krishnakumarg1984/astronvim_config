@@ -1,6 +1,7 @@
 return {
   capabilities = {
-    offsetEncoding = "utf-8",
+    -- offsetEncoding = "utf-8",
+    offsetEncoding = "utf-32",
     memoryUsageProvider = true,
   },
   filetypes = { "c", "cpp", "objc", "objcpp", "opencl" },
@@ -17,6 +18,6 @@ return {
     "--suggest-missing-includes",
     "--fallback-style=webkit",
     "--cross-file-rename",
-    -- "--offset-encoding=utf-32",
+    "--offset-encoding=utf-32",
   },
 }
