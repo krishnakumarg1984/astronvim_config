@@ -59,8 +59,8 @@ return function(client, bufnr)
   end
 
   vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
-  vim.keymap.del("n", "gd", { buffer = bufnr })
-  vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition(s)", buffer = bufnr })
+  -- vim.keymap.del("n", "gd", { buffer = bufnr })
+  -- vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition(s)", buffer = bufnr })
   vim.keymap.set(
     "n",
     "gr",
