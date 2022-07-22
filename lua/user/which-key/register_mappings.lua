@@ -23,7 +23,7 @@ return {
         -- u = { "<cmd>AerialPrevUp<cr>", "Prev symbol (up 1 level)" },
       },
       b = {
-        name = "Bufferline",
+        name = "Buffers",
         ["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 1" },
         ["2"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 2" },
         ["3"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 3" },
@@ -40,6 +40,7 @@ return {
         M = { "<Cmd>BufferLineMovePrev<CR>", "Reorder (move left)" },
         m = { "<Cmd>BufferLineMoveNext<CR>", "Reorder (move right)" },
         p = { "<Cmd>BufferLineTogglePin<CR>", "Pin buffer (toggle)" },
+        x = { "<Cmd>BufOnly<CR>", "Only current buffer" },
       },
       D = { "<cmd>windo diffthis<CR>", "diff buffers" },
       d = {
@@ -67,7 +68,10 @@ return {
         E = { "<cmd>lua require'dapui'.eval(vim.fn.input '[Expression] > ')<cr>", "Evaluate Input" },
         e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
         f = { "<Cmd>Telescope dap frames<cr>", "Frames" },
-        g = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
+        G = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
+        -- g = { ":lua require'dap'.goto_()", "Goto line (skip rest)" },
+        -- set_breakpoint({condition}, {hit_condition}, {log_message})
+        -- goto_({line})
         h = { "<cmd>lua require'dap.ui.widgets'.hover()<cr>", "Hover Variables" },
         -- i = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
         -- i = { function() require("dap").step_into() end, "Step Into", },
