@@ -37,6 +37,7 @@ return {
 
   -- Additional lua plugins (((
 
+  ["numtostr/BufOnly.nvim"] = { cmd = { "BufOnly" } }, -- Lua/Neovim port of BufOnly.vim with some changes
   -- ["sudormrfbin/cheatsheet.nvim"] = { cmd = { "Cheatsheet", "CheatsheetEdit" } }, -- A cheatsheet plugin
   ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd_extensions", -- Clangd's off-spec features
   ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp-buffer", -- nvim-cmp source for buffer words
