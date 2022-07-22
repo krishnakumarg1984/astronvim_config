@@ -34,7 +34,6 @@
 -- https://github.com/jceb/blinds.nvim  -- blinds.nvim emphasizes the current window by shading the non-active windows
 -- https://github.com/MordechaiHadad/bob  -- A version manager for neovim
 -- https://github.com/lalitmee/browse.nvim  -- browse for anything using your choice of method
--- use { "numtostr/BufOnly.nvim", cmd = { "BufOnly" } }  -- Lua/Neovim port of BufOnly.vim with some changes
 -- use { "kwkarlwang/bufresize.nvim" }  --  Keep buffer dimensions in proportion when terminal window is resized
 -- https://github.com/saifulapm/chartoggle.nvim  -- Toggle character in Neovim
 -- use { "kazhala/close-buffers.nvim", cmd = {} }  -- Delete multiple vim buffers based on different conditions
@@ -205,6 +204,7 @@
 -- https://github.com/rhysd/reply.vim -- REPL
 -- https://github.com/kamykn/spelunker.vim
 -- use { "wellle/targets.vim" }
+-- https://github.com/epheien/termdbg -- Terminal debugger for vim
 -- https://github.com/markonm/traces.vim
 -- https://github.com/anufrievroman/vim-angry-reviewer
 -- https://github.com/tpope/vim-apathy
