@@ -439,6 +439,7 @@ return function() -- This 'polish' function is run last
     filename = {
       ["/etc/mkinitcpio.conf"] = "confini",
       ["/etc/environment"] = "confini",
+      [".dace.conf"] = "yaml",
     },
     -- pattern = {
     --   [vim.env.XDG_CONFIG_HOME .. "/udev/rules.d/.*%.rules"] = "udevrules",
