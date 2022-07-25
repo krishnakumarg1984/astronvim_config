@@ -265,3 +265,17 @@ vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn" })
 -- https://github.com/David-Kunz/vim/blob/master/init.lua
 -- vim.keymap.set('n', '<leader>de', function() require"dap".set_exception_breakpoints({"all"}) end)
 -- vim.keymap.set('n', '<leader>di', function() require"dap.ui.widgets".hover() end)
+
+-- nvim-dap keymaps (((
+
+vim.keymap.set("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", { silent = true })
+vim.keymap.set("n", "<F6>", "<Cmd>lua require'dap'.pause()<CR>", { silent = true })
+vim.keymap.set("n", "<F7>", "<Cmd>lua require'dapui'.float_element('console')<CR>", { silent = true })
+vim.keymap.set("n", "<F8>", "<Cmd>lua require'dap'.run_to_cursor()<CR>", { silent = true })
+-- -- ["<F9>" ,  "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", silent = true },
+vim.keymap.set("n", "<leader>dg", "<Cmd>lua require'dap'.goto_(", { silent = true })
+vim.keymap.set("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", { silent = true })
+vim.keymap.set("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", { silent = true })
+vim.keymap.set("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>", { silent = true })
+
+-- )))

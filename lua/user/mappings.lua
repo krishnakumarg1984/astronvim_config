@@ -137,20 +137,6 @@ return {
 
     -- )))
 
-    -- nvim-dap keymaps (((
-
-    ["<F5>"] = { "<Cmd>lua require'dap'.continue()<CR>", silent = true },
-    ["<F6>"] = { "<Cmd>lua require'dap'.pause()<CR>", silent = true },
-    ["<F7>"] = { "<Cmd>lua require'dapui'.float_element('console')<CR>", silent = true },
-    ["<F8>"] = { "<Cmd>lua require'dap'.run_to_cursor()<CR>", silent = true },
-    -- ["<F9>"] = { "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", silent = true },
-    ["<leader>dg"] = { ":lua require'dap'.goto_(", silent = false },
-    ["<F10>"] = { "<Cmd>lua require'dap'.step_over()<CR>", silent = true },
-    ["<F11>"] = { "<Cmd>lua require'dap'.step_into()<CR>", silent = true },
-    ["<F12>"] = { "<Cmd>lua require'dap'.step_out()<CR>", silent = true },
-
-    -- )))
-
     -- 'gitsigns' keymaps (((
 
     ["]c"] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", expr = true, desc = "Next diff" },
