@@ -84,7 +84,7 @@ return {
   ["ahmedkhalf/project.nvim"] = require "user.plugins.project", -- The superior project management solution for nvim
   ["stevearc/qf_helper.nvim"] = require "user.plugins.qf_helper", -- A collection of improvements for quickfix buffer
   ["linty-org/readline.nvim"] = require "user.plugins.readline", -- Readline motions and deletions in Neovim
-  ["michaelb/sniprun"] = require "user.plugins.sniprun", -- Run lines/blocs of code, supports multiples languages
+  -- ["michaelb/sniprun"] = require "user.plugins.sniprun", -- Run lines/blocs of code, supports multiples languages
   -- ["lewis6991/spellsitter.nvim"] = require "user.plugins.spellsitter", -- Treesitter powered spellchecker
   -- ["luukvbaal/stabilize.nvim"] = require "user.plugins.stabilize", -- Stabilize window open/close events
   -- ["abecodes/tabout.nvim"] = require "user.plugins.tabout", -- tabout plugin for neovim
