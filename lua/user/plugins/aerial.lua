@@ -7,25 +7,15 @@ return {
     -- Jump forwards/backwards with '{' and '}'
     vim.keymap.set("n", "}", "}", { silent = true })
     vim.keymap.del("n", "}")
-    vim.keymap.set("n", "<leader>{", "<cmd>AerialPrev<cr>", { buffer = bufnr, desc = "Jump backwards in Aerial" })
-    vim.keymap.set("n", "<leader>}", "<cmd>AerialNext<cr>", { buffer = bufnr, desc = "Jump forwards in Aerial" })
+    vim.keymap.set("n", "<leader>{", "<cmd>AerialPrev<cr>", { buffer = bufnr, desc = "Jump back (outline)" })
+    vim.keymap.set("n", "<leader>}", "<cmd>AerialNext<cr>", { buffer = bufnr, desc = "Jump fwd (outline)" })
     -- Jump up the tree with '[[' or ']]'
     vim.keymap.set("n", "]]", "]]", { silent = true })
     vim.keymap.del("n", "]]")
     vim.keymap.set("n", "[[", "[[", { silent = true })
     vim.keymap.del("n", "[[")
-    vim.keymap.set(
-      "n",
-      "<leader>[",
-      "<cmd>AerialPrevUp<cr>",
-      { buffer = bufnr, desc = "Jump up and backwards in Aerial" }
-    )
-    vim.keymap.set(
-      "n",
-      "<leader>]",
-      "<cmd>AerialNextUp<cr>",
-      { buffer = bufnr, desc = "Jump up and forwards in Aerial" }
-    )
+    vim.keymap.set("n", "<leader>[", "<cmd>AerialPrevUp<cr>", { buffer = bufnr, desc = "Jump up+back (outline)" })
+    vim.keymap.set("n", "<leader>]", "<cmd>AerialNextUp<cr>", { buffer = bufnr, desc = "Jump up+fwd (outline)" })
     -- vim.keymap.set('n', '<C-w>o', '<C-w>o:AerialClose<CR>') -- https://github.com/stevearc/aerial.nvim/issues/99
   end,
   placement_editor_edge = true,
