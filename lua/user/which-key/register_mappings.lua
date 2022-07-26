@@ -143,7 +143,7 @@ return {
       },
       N = { "<cmd>lua require('nabla').popup()<CR>", "Scientific preview" },
       n = {
-        name = "Neogen annotation",
+        name = "Annotate",
         c = {
           -- "<cmd>:lua require('neogen').generate({ type = 'class' })<CR>>",
           "<cmd>Neogen class<CR>",
@@ -193,6 +193,35 @@ return {
         T = { "<cmd>Telescope tagstack<cr>", "Tagstack" },
         v = { "<cmd>Telescope vim_options<cr>", "Vim Options" },
         y = { "<cmd>Telescope filetypes<cr>", "Choose filetype" },
+      },
+      T = {
+        name = "Unit Tests",
+        a = { require("neotest").run.attach(), "Attach" },
+        d = { function() require("neotest").run.run { strategy = "dap" } end, "Debug test" },
+        l = { require("neotest").run.run_last(), "Re-test last" },
+        L = { function() require("neotest").run.run_last { strategy = "dap" } end, "Debug last test" },
+        m = { require("neotest").summary.run_marked() },
+        N = { function() require("neotest").jump.prev { status = "failed" } end, "Goto prev failed test" },
+        n = { function() require("neotest").jump.next { status = "failed" } end, "Goto next failed test" },
+        O = {
+          function() require("neotest").output.open { enter = true, short = true } end,
+          "Open test output (short)",
+        },
+        o = { function() require("neotest").output.open { enter = true } end, "Open test output" },
+        p = { require("neotest").summary.toggle, "Toggle summary" },
+        r = {
+          function() require("neotest").run.run(vim.fn.expand "%") end,
+          "Test file",
+        },
+        s = {
+          function()
+            for _, adapter_id in ipairs(require("neotest").run.adapters()) do
+              require("neotest").run.run { suite = true, adapter = adapter_id }
+            end
+          end,
+          "Test suite",
+        },
+        t = { require("neotest").run.run(), "Test nearest" },
       },
       t = {
         -- l = lazygit -- astronvim default
