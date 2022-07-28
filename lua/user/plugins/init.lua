@@ -58,11 +58,12 @@ return {
   ["jbyuki/nabla.nvim"] = { module = "nabla" }, -- Take your scientific notes in Neovim
   ["danymat/neogen"] = require "user.plugins.neogen", -- Annotation generator (multiple languages & conventions)
   ["TimUntersberger/neogit"] = require "user.plugins.neogit", -- Magit for neovim
-  ["nvim-neotest/neotest"] = require "user.plugins.neotest", -- An extensible framework for interacting with tests within NeoVim.
+  -- ["nvim-neotest/neotest"] = require "user.plugins.neotest", -- An extensible framework for interacting with tests within NeoVim.
   -- ["Shatur/neovim-cmake"] = require "user.plugins.neovim-cmake", -- CMake integration for Neovim
   ["weilbith/nvim-code-action-menu"] = { cmd = "CodeActionMenu" }, -- Code action pop-up menu (meta-info & diff)
   -- ["xiyaowong/nvim-colorizer.lua"] = require "user.plugins.nvim-colorizer", -- The fastest colorizer
   ["klen/nvim-config-local"] = require "user.plugins.nvim-config-local", -- Secure load local config files for neovim
+  -- ["andythigpen/nvim-coverage"] = require "user.plugins.nvim-coverage", -- Displays test coverage data in the sign column
   ["mfussenegger/nvim-dap"] = require "user.plugins.nvim-dap", -- Debug Adapter Protocol client implementation
   ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim-dapui", -- A UI for nvim-dap
   ["theHamsta/nvim-dap-virtual-text"] = require "user.plugins.nvim-dap-virtual-text", -- slow!
