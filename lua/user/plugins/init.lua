@@ -58,7 +58,8 @@ return {
   ["jbyuki/nabla.nvim"] = { module = "nabla" }, -- Take your scientific notes in Neovim
   ["danymat/neogen"] = require "user.plugins.neogen", -- Annotation generator (multiple languages & conventions)
   ["TimUntersberger/neogit"] = require "user.plugins.neogit", -- Magit for neovim
-  -- ["nvim-neotest/neotest"] = require "user.plugins.neotest", -- An extensible framework for interacting with tests within NeoVim.
+  ["nvim-neotest/neotest"] = require "user.plugins.neotest", -- An extensible framework for interacting with tests within NeoVim.
+  ["nvim-neotest/neotest-python"] = {}, -- Neotest adapter for python. Supports Pytest and unittest test files.
   -- ["Shatur/neovim-cmake"] = require "user.plugins.neovim-cmake", -- CMake integration for Neovim
   ["weilbith/nvim-code-action-menu"] = { cmd = "CodeActionMenu" }, -- Code action pop-up menu (meta-info & diff)
   -- ["xiyaowong/nvim-colorizer.lua"] = require "user.plugins.nvim-colorizer", -- The fastest colorizer

@@ -102,7 +102,6 @@
 -- https://github.com/ojroques/nvim-bufdel
 -- https://github.com/s1n7ax/nvim-comment-frame  -- Detects the language using treesitter and adds a comment block
 -- https://github.com/haringsrob/nvim_context_vt
--- https://github.com/andythigpen/nvim-coverage  -- Displays test coverage data in the sign column
 -- https://github.com/yamatsum/nvim-cursorline
 -- https://github.com/xiyaowong/nvim-cursorword
 -- https://github.com/leoluz/nvim-dap-go  -- configs for launching go debugger (delve) and debugging individual tests
