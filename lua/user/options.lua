@@ -102,6 +102,7 @@ return function(defaults)
       -- spelllang = "en_gb",
       spelloptions = vim.opt.spelloptions + { "camel" },
       report = 0, -- Threshold for reporting number of lines changed.
+      rtp = vim.opt.rtp + { "$HOME/.config/astronvim/after" },
       synmaxcol = 300,
       -- tildeop = yes, -- when on: The tilde command "~" behaves like an operator
       timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds). AstroNvim sets this to 300.

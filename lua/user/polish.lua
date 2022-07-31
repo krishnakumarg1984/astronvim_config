@@ -3,21 +3,14 @@
 return function() -- This 'polish' function is run last
   vim.api.nvim_set_hl(0, "WinSeparator", { fg = "black", bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
 
-  vim.wo.colorcolumn = ""
-
   -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
-  vim.wo.foldnestmax = 3
-  -- vim.o.foldtext = [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
   -- https://www.reddit.com/r/vim/comments/ogqarw/another_take_on_minimal_folds/h4l8j4z/
   vim.o.foldtext =
     [[printf('  %-4d %s', v:foldend - v:foldstart + 1, substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g')) . '  ' . trim(getline(v:foldend))]]
-  -- [[substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend)) . ' (' . (v:foldend - v:foldstart + 1) . ' lines)']]
 
   -- Vimscript-based options (((
 
   vim.cmd [[
-
-  silent! set rtp+=$HOME/.config/astronvim/after
 
     " Linebreak settings (((
 
@@ -25,14 +18,6 @@ return function() -- This 'polish' function is run last
     set breakindentopt=shift:2,sbr,list:-1  " https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
 
     " )))
-
-    " " formatoptions (((
-
-    " " set formatoptions-=cro " TODO: this doesn't seem to work
-    " " set formatoptions-=t " Disable 'auto-wrap text using textwidth'
-    " " set formatoptions+=n " When formatting text, recognize numbered lists. This actually uses the 'formatlistpat' option, thus any kind of list can be used. Helps to avoid joining distinct items as if they were a single paragraph.
-
-    " " )))
 
     " Wildignore and low-priority suffixes/filetype-extensions (((
 
@@ -429,7 +414,7 @@ return function() -- This 'polish' function is run last
       fs = "glsl",
       geom = "glsl",
       gs = "glsl",
-      make = "make",
+      -- make = "make",
       pd_lua = "lua",
       pd_luax = "lua",
       vert = "glsl",
