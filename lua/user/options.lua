@@ -196,8 +196,8 @@ return function(defaults)
       loaded_python_provider = 0,
       python_host_skip_check = 1,
       did_load_ftplugin = 1,
-      ccls_close_on_jump = true,
-      ccls_levels = 3,
+      -- ccls_close_on_jump = true,
+      -- ccls_levels = 3,
     },
 
     -- )))
