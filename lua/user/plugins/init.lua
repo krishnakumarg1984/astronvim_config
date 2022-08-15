@@ -5,7 +5,7 @@ return {
 
   ["goolord/alpha-nvim"] = { disable = true }, -- A lua powered greeter like vim-startify / dashboard-nvim
   ["max397574/better-escape.nvim"] = { disable = true }, -- Escape from insert mode without delay when typing
-  ["norcalli/nvim-colorizer.lua"] = { disable = true },
+  ["NvChad/nvim-colorizer.lua"] = { disable = true },
   ["rcarriga/nvim-notify"] = { disable = true }, -- A fancy, configurable, notification manager for NeoVim
   ["p00f/nvim-ts-rainbow"] = { disable = true }, -- Rainbow parentheses for neovim using tree-sitter
 
