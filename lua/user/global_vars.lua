@@ -84,7 +84,7 @@ M.lsp_servers = {
   -- "ltex",
   "marksman",
   "prosemd_lsp",
-  "pylsp",
+  -- "python-lsp-server",
   -- "r_language_server", -- needs R in path
   "sumneko_lua",
   -- "pyright"
