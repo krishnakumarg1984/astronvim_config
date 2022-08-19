@@ -8,16 +8,15 @@ return function(defaults)
     -- vim.opt settings (((
 
     opt = {
-      -- Backup-related settings (((
-
       backupdir = vim.opt.backupdir - { "." },
       backupext = "nvimbackup",
-
-      -- )))
-      -- 'fillchar' settings (((
-
-      -- https://vi.stackexchange.com/questions/21872/change-fold-sign-character
-      fillchars = {
+      breakindent = true, -- Every wrapped line will continue visually indented (same amount of space as the beginning of that line), thus preserving horizontal blocks of text.
+      breakindentopt = { "shift:2", "sbr", "list:-1" }, -- https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
+      clipboard = "",
+      conceallevel = 2,
+      confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
+      cursorlineopt = "number",
+      fillchars = { -- (((
         -- fold = "",
         fold = " ",
         -- foldclose = "▸",
@@ -41,90 +40,272 @@ return function(defaults)
         -- vertleft  = '┫',
         vertright = "┣",
         -- vertright = '┣',
-      },
-
-      -- )))
-      -- Scroll-related settings (scrolljump, sidescroll) (((
-
-      scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
-      shortmess = vim.opt.shortmess + { I = true, c = true, x = false }, -- " a) +I => Don't give the intro message when starting Vim |:intro|. b) +c => Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc. c) -x => Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions.
-      sidescrolloff = 8, -- The minimal number of screen columns to keep to the left and to the right of the cursor
-      -- scrolljump = 3,  -- How many lines to scroll at a time, make scrolling appears faster (i.e. when you move the cursor close to the vertical limits of display, how many more lines to reveal ?)
-      -- sidescroll = 3,  -- The minimal number of columns to scroll horizontally
-
-      -- )))
-      -- Indent wrapped lines (((
-
-      wrap = true,
-      linebreak = true, -- Wrap lines at convenient point (only affects the on-screen display, not actual content in file) -- Break lines at word boundaries
-      breakindent = true, -- Every wrapped line will continue visually indented (same amount of space as the beginning of that line), thus preserving horizontal blocks of text.
-
-      -- )))
-      -- Fold settings (((
-
+      }, -- https://vi.stackexchange.com/questions/21872/change-fold-sign-character -- )))
       foldcolumn = "4",
+      foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
       foldlevel = 2, -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
       foldlevelstart = 2,
-      -- foldopen=all, -- helps to avoid automatic closing of previously open folds when returning to a buffer
-      foldopen = vim.opt.foldopen + { "jump" },
-
-      -- )))
-      -- Settings for showing matching parenthesis (((
-
-      showmatch = true,
-      matchtime = 3, -- Tenths of a second to show the matching paren, when 'showmatch' is set.  Note that this is not in milliseconds, like other options that set a time.
-
-      -- )))
-      -- All other lua-based options (((
-
-      clipboard = "",
-      conceallevel = 2,
-      confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
-      cursorlineopt = "number",
-      foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
       foldmethod = "expr",
-      guifont = "monospace:h17", -- the font used in graphical neovim applications
+      foldopen = vim.opt.foldopen + { "jump" },
       history = 10000,
-      -- inccommand = "split",
       infercase = true, -- Ignore case on insert completion. When doing keyword completion in insert mode |ins-completion|, and 'ignorecase' is also on, the case of the match is adjusted depending on the typed text.
       iskeyword = vim.opt.iskeyword + { "-" },
       lazyredraw = true, -- Don't redraw the screen during batch execution
-      -- jumpoptions = "view",
+      linebreak = true, -- Wrap lines at convenient point (only affects the on-screen display, not actual content in file) -- Break lines at word boundaries
       list = true,
       listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
-      -- listchars = { tab = "▸", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
+      matchtime = 3, -- Tenths of a second to show the matching paren, when 'showmatch' is set.  Note that this is not in milliseconds, like other options that set a time.
       pumwidth = 35,
-      shiftround = true,
-      showbreak = "↪ ",
-      signcolumn = "yes:1",
-      softtabstop = 2, -- how many spaces to insert with tab key
-      -- spell = true,
-      -- spelllang = "en_gb",
-      spelloptions = vim.opt.spelloptions + { "camel" },
       report = 0, -- Threshold for reporting number of lines changed.
       rtp = vim.opt.rtp + { "$HOME/.config/astronvim/after" },
+      scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
+      shiftround = true,
+      shortmess = vim.opt.shortmess + { I = true, c = true, x = false }, -- " a) +I => Don't give the intro message when starting Vim |:intro|. b) +c => Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc. c) -x => Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions.
+      showbreak = "↪ ",
+      showmatch = true,
+      sidescrolloff = 8, -- The minimal number of screen columns to keep to the left and to the right of the cursor
+      signcolumn = "yes:1",
+      softtabstop = 2, -- how many spaces to insert with tab key
+      spelloptions = vim.opt.spelloptions + { "camel" },
+      suffixes = { -- (((
+        "*.aux",
+        "*.bak",
+        "*.bbl",
+        "*.dvi",
+        "*.info",
+        "*.log",
+        "*.old",
+        "*.out",
+        "*.swp",
+        "*/.log",
+        "*/.out",
+        "~",
+      }, -- This gives files lower priority, instead of outright ignoring them )))
       synmaxcol = 300,
-      -- tildeop = yes, -- when on: The tilde command "~" behaves like an operator
+      tags = { "$HOME/.cache/nvim/tags" },
       timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds). AstroNvim sets this to 300.
       updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
-      -- whichwrap = vim.opt.whichwrap + { "<", ">", "[", "]", "h", "l" },
-      whichwrap = vim.opt.whichwrap + {
+      whichwrap = { -- (((
         ["<"] = true,
         [">"] = true,
         ["["] = true,
         ["]"] = true,
+        ["b"] = true,
         ["h"] = true,
         ["l"] = true,
-      },
+        ["s"] = true,
+      }, -- )))
+      wildignore = { -- (((
+        "*.4ct",
+        "*.4tc",
+        "*.7z",
+        "*.a",
+        "*.acn",
+        "*.acr",
+        "*.alg",
+        "*.auxlock",
+        "*.backup",
+        "*.bcf",
+        "*.beam",
+        "*.bin",
+        "*.blg",
+        "*.bmp",
+        "*.brf",
+        "*.cb",
+        "*.cb2",
+        "*.class",
+        "*.cpt",
+        "*.cut",
+        "*.dats",
+        "*.db",
+        "*.dll",
+        "*.dmg",
+        "*.docx",
+        "*.dpth",
+        "*.DS_Store",
+        "*.dx64fsl",
+        "*.el",
+        "*.end",
+        "*.ent",
+        "*.eps",
+        "*.exe",
+        "*.fasl",
+        "*.fdb_latexmk",
+        "*.fff",
+        "*.fls",
+        "*.flv",
+        "*.fmt",
+        "*.fot",
+        "*.gaux",
+        "*.gem",
+        "*.gif",
+        "*.git",
+        "*.glg",
+        "*.glo",
+        "*.gls",
+        "*.glsdefs",
+        "*.glstex",
+        "*.gtex",
+        "*.hg",
+        "*.hst",
+        "*.idv",
+        "*.idx",
+        "*.ilg",
+        "*.img",
+        "*.ind",
+        "*.ini",
+        "*.ist",
+        "*.jpeg",
+        "*.JPG",
+        "*.la",
+        "*.lb",
+        "*.lg",
+        "*.listing",
+        "*.lnk",
+        "*.loa",
+        "*.load",
+        "*.loe",
+        "*.lof",
+        "*.lol",
+        "*.lot",
+        "*.lox",
+        "*.ltjruby",
+        "*.luac",
+        "*.lx64fsl",
+        "*.maf",
+        "*.manifest",
+        "*.mf",
+        "*.mkv",
+        "*.mlf",
+        "*.mlt",
+        "*.mo",
+        "*.mod",
+        "*.mp",
+        "*.mp4",
+        "*.mw",
+        "*.nav",
+        "*.nlg",
+        "*.nlo",
+        "*.nls",
+        "*.o",
+        "*.obj",
+        "*.orig",
+        "*.pax",
+        "*.pdf",
+        "*.pdfpc",
+        "*.pdfsync",
+        "*.png",
+        "*.pre",
+        "*.ps",
+        "*.psd",
+        "*.pyc",
+        "*.pyg",
+        "*.pyo",
+        "*.pytxcode",
+        "*.rar",
+        "*.rbc",
+        "*.rbo",
+        "*.run.xml",
+        "*.save",
+        "*.snm",
+        "*.so",
+        "*.soc",
+        "*.sout",
+        "*.spl",
+        "*.sqlite",
+        "*.sta",
+        "*.svg",
+        "*.svn",
+        "*.sw?",
+        "*.swp",
+        "*.sympy",
+        "*.synctex",
+        "*.synctex.gz",
+        "*.tar",
+        "*.tar.bz2",
+        "*.tar.gz",
+        "*.tar.xz",
+        "*.tdo",
+        "*.texpadtmp",
+        "*.tfm",
+        "*.thm",
+        "*.tiff",
+        "*.toc",
+        "*.trc",
+        "*.ttt",
+        "*.upa",
+        "*.upb",
+        "*.ver",
+        "*.vrb",
+        "*.wrt",
+        "*.xcp",
+        "*.xdv",
+        "*.xdy",
+        "*.xlsx",
+        "*.xmpi",
+        "*.xpm",
+        "*.xref",
+        "*.xyc",
+        "*.xz",
+        "*.zip",
+        "*/.bundle/*",
+        "*/.cls",
+        "*/.fdb*/",
+        "*/.git/*",
+        "*/.glo",
+        "*/.ist",
+        "*/.sass-cache/*",
+        "*/.svn/*",
+        "*/.toc",
+        "*/.vim$",
+        "*/__pycache__/*",
+        "*/builds/*",
+        "*/dist*/*",
+        "*/node_modules/*",
+        "*/target/*",
+        "*/tmp/*",
+        "*/vendor/cache/*",
+        "*/vendor/gems/*",
+        "*/venv/*",
+        "*\\tmp\\*",
+        "*~",
+        "./tags",
+        "._*",
+        ".git/",
+        ".git/*",
+        ".idea/",
+        "~$",
+        "_site",
+        "bower_components/*",
+        "CVS",
+        "CVS/*",
+        "media/*",
+        "migrations",
+        "tags",
+        "types_*taghl",
+        "vendor/cache/**",
+        "vendor/rails/**",
+      }, -- Ignore the following type of files when tab completing. There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions. )))
       wildignorecase = true, -- If supported, make wildmenu completions case-insensitive
       winaltkeys = "no",
       winminheight = 0, -- Default is 1. The minimal height of a window, when it's not the current window.
+      wrap = true,
 
-      -- )))
       -- Commented-out settings (((
 
+      -- breakat = " \t;:,!?", -- which characters might cause a line break if 'linebreak' is on.
+      -- foldopen=all, -- helps to avoid automatic closing of previously open folds when returning to a buffer
+      -- guifont = "monospace:h17", -- the font used in graphical neovim applications
+      -- inccommand = "split",
+      -- jumpoptions = "view",
+      -- listchars = { tab = "▸", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
       -- numberwidth = 4, -- set number column width
+      -- scrolljump = 3,  -- How many lines to scroll at a time, make scrolling appears faster (i.e. when you move the cursor close to the vertical limits of display, how many more lines to reveal ?)
+      -- sidescroll = 3,  -- The minimal number of columns to scroll horizontally
+      -- spell = true,
+      -- spelllang = "en_gb",
       -- tagcase = "smart",
+      -- tildeop = yes, -- when on: The tilde command "~" behaves like an operator
 
       -- )))
     }, -- )))
@@ -132,8 +313,8 @@ return function(defaults)
     -- 'vim.g.' settings (((
 
     g = {
-      detectspelllang_langs = {
-        aspell = {
+      detectspelllang_langs = { -- (((
+        aspell = { -- (((
           "en_GB",
           "en_US",
           "cs",
@@ -156,8 +337,8 @@ return function(defaults)
           "sk",
           "sl",
           "sv",
-        },
-        hunspell = {
+        }, -- )))
+        hunspell = { -- (((
           "en_GB",
           "en_US",
           "cs_CS",
@@ -180,24 +361,44 @@ return function(defaults)
           "sk_SK",
           "sl_SL",
           "sv_SV",
-        },
-      },
-      matchup_matchparen_offscreen = { method = "popup" },
-      matchup_surround_enabled = true,
-      matchup_matchparen_enabled = false,
-      matchup_matchparen_deferred = true,
-      matchup_override_vimtex = true,
-      python3_host_prog = "python3",
-      tex_conceal = "abdmgs",
-      markdown_folding = 1,
-      loaded_perl_provider = 0, -- To disable perl support
-      loaded_node_provider = 0, -- To disable node support
-      loaded_ruby_provider = 0, -- To disable Ruby support
-      loaded_python_provider = 0,
-      python_host_skip_check = 1,
+        }, -- )))
+      }, -- )))
+      did_install_default_menus = 1,
+      did_install_syntax_menu = 1,
       did_load_ftplugin = 1,
-      -- ccls_close_on_jump = true,
-      -- ccls_levels = 3,
+      loaded_matchparen = 1,
+      loaded_node_provider = 0, -- To disable node support
+      loaded_perl_provider = 0, -- To disable perl support
+      loaded_python_provider = 0,
+      loaded_ruby_provider = 0, -- To disable Ruby support
+      loaded_shada_plugin = 1,
+      loaded_spellfile_plugin = 1,
+      matchup_matchparen_deferred = true,
+      matchup_matchparen_enabled = false,
+      matchup_matchparen_offscreen = { method = "popup" },
+      matchup_override_vimtex = true,
+      matchup_surround_enabled = true,
+      netrw_nogx = 1,
+      python3_host_prog = "python3",
+      python_host_skip_check = 1,
+      skip_loading_mswin = 1,
+      tex_comment_nospell = 1,
+      tex_conceal = "abdmgs",
+      tex_flavor = "latex",
+      tex_isk = "48-57,a-z,A-Z,192-255,:,_",
+      tex_fold_enabled = 1,
+      markdown_enable_folding = 1,
+      markdown_folding = 1,
+      vimsyn_folding = "af",
+      xml_syntax_folding = 1,
+      javaScript_fold = 1,
+      sh_fold_enabled = 7,
+      ruby_fold = 1,
+      perl_fold = 1,
+      perl_fold_blocks = 1,
+      r_syntax_folding = 1,
+      rust_fold = 1,
+      php_folding = 1,
     },
 
     -- )))

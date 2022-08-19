@@ -38,28 +38,29 @@ cnoreabbrev <expr> Man getcmdtype() == ":" && getcmdline() == 'Man' ? 'tab Man' 
 
 " )))
 
+" Make jump-selections work better in visual block mode (((
+
+xnoremap <expr>  G   'G' . virtcol('.') . "\|"
+xnoremap <expr>  }   '}' . virtcol('.') . "\|"
+xnoremap <expr>  {   '{' . virtcol('.') . "\|"
+
+" )))
+
+" Commented-out (((
+
 " nnoremaps (((
 
 " https://www.reddit.com/r/vim/comments/oyqkkd/comment/h7x83ce/?utm_source=share&utm_medium=web2x&context=3
 " Basically, it makes '0' act like '^' on first press, and then like '0' on " second press.
 " So if I press 0, I go back to indentation. If I press 0 " again, I go to the first column of the line.
 " And if I continue pressing " zero, it switches between the first column and the first character.
-nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+" nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
 
 " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
 " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
 " nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
 
 " nmap cg* *Ncgn
-
-
-" )))
-
-" Make jump-selections work better in visual block mode (((
-
-xnoremap <expr>  G   'G' . virtcol('.') . "\|"
-xnoremap <expr>  }   '}' . virtcol('.') . "\|"
-xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 
 " )))
 
@@ -69,6 +70,8 @@ xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 " nnoremap <silent> \\C :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 " nnoremap <leader><leader>c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 " xnoremap <silent> \\C "sy:let @/=@s<CR>cgn
+
+" )))
 
 " )))
 
@@ -232,17 +235,3 @@ return {
 
   -- )))
 }
-
--- from discord chat on how to conditionally set mappings
--- vim.keymap.set({ "n", "x" }, "&", ":&&<CR>", silent=true) -- Remap normal/visual '&' to preserve substitution flags
---
--- return function(maps)
---   if true then
---     maps.n["<leader>r"] = { "<Plug>SnipRunOperator" }
---   end
---   return vim.tbl_deep_extend("force", maps, {
---     n = {
---       ["<C-w>f"] = { "<C-w>vgf" }
---     }
---   })
--- end

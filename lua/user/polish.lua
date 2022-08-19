@@ -12,24 +12,6 @@ return function() -- This 'polish' function is run last
 
   vim.cmd [[
 
-    " Linebreak settings (((
-
-    set breakat=\ \ ;:,!? " which characters might cause a line break if 'linebreak' is on.
-    set breakindentopt=shift:2,sbr,list:-1  " https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
-
-    " )))
-
-    " Wildignore and low-priority suffixes/filetype-extensions (((
-
-    " Ignore the following type of files when tab completing. " There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
-    set wildignore+=*.4ct,*.4tc,*.7z,*.a,*.acn,*.acr,*.alg,*.auxlock,*.backup,*.bcf,*.beam,*.bin,*.blg,*.bmp,*.brf,*.cb,*.cb2,*.class,*.cpt,*.cut,*.dats,*.db,*.dll,*.dmg,*.docx,*.dpth,*.DS_Store,*.dx64fsl,*.el,*.end,*.ent,*.eps,*.exe,*.fasl,*.fdb_latexmk,*.fff,*.fls,*.flv,*.fmt,*.fot,*.gaux,*.gem,*.gif,*.git,*.glg,*.glo,*.gls,*.glsdefs,*.glstex,*.gtex,*.hg,*.hst,*.idv,*.idx,*.ilg,*.img,*.ind,*.ini,*.ist,*.jpeg,*.JPG,*.la,*.lb,*.lg,*.listing,*.lnk,*.loa,*.load,*.loe,*.lof,*.lol,*.lot,*.lox,*.ltjruby,*.luac,*.lx64fsl,*.maf,*.manifest,*.mf,*.mkv,*.mlf,*.mlt,*.mo,*.mod,*.mp,*.mp4,*.mw,*.nav,*.nlg,*.nlo,*.nls,*.o,*.obj,*.orig,*.pax,*.pdf,*.pdfpc,*.pdfsync,*.png,*.pre,*.ps,*.psd,*.pyc,*.pyg,*.pyo,*.pytxcode,*.rar,*.rbc,*.rbo,*.run.xml,*.save,*.snm,*.so,*.soc,*.sout,*.spl,*.sqlite,*.sta,*.svg,*.svn,*.sw?,*.swp,*.sympy,*.synctex,*.synctex.gz,*.tar,*.tar.bz2,*.tar.gz,*.tar.xz,*.tdo,*.texpadtmp,*.tfm,*.thm,*.tiff,*.toc,*.trc,*.ttt,*.upa,*.upb,*.ver,*.vrb,*.wrt,*.xcp,*.xdv,*.xdy,*.xlsx,*.xmpi,*.xpm,*.xref,*.xyc,*.xz,*.zip,*/.bundle/*,*/.cls,*/.fdb*/,*/.git/*,*/.glo,*/.ist,*/.sass-cache/*,*/.svn/*,*/.toc,*/.vim$,*/__pycache__/*,*/builds/*,*/dist*/*,*/node_modules/*,*/target/*,*/tmp/*,*/vendor/cache/*,*/vendor/gems/*,*/venv/*,*\\tmp\\*,*~,./tags,._*,.git/,.git/*,.idea/,\~$,_site,bower_components/*,CVS,CVS/*,media/*,migrations,tags,types_*taghl,vendor/cache/**,vendor/rails/**,
-
-
-    " This gives files lower priority, instead of outright ignoring them
-    set suffixes+=*.info,*.aux,*.log,*/.log,*.dvi,*.bbl,*.out,*/.out,*.old,*.bak
-
-    " )))
-
     " Custom 'Underline' command using user-defined function (((
 
     " https://vim.fandom.com/wiki/Underline_using_dashes_automatically
@@ -60,64 +42,6 @@ return function() -- This 'polish' function is run last
     set formatlistpat+=\\s\\+              " One or more spaces
     set formatlistpat+=\\\|                " or
     set formatlistpat+=^\\s*[-–+o*•]\\s\\+ " Bullet points
-
-    " )))
-
-    " Global g:tex_ settings (((
-
-    " https://damrah.netlify.app/post/note-taking-with-latex-part-1/
-    " let g:tex_no_error=1   " The <tex.vim> supports lexical error checking of various sorts.  Thus, although the error checking is ofttimes very useful, it can indicate errors where none actually are.  If this proves to be a problem for you, you may put in your vimrc the following statement: > let g:tex_no_error=1 and all error checking by <syntax/tex.vim> will be suppressed.
-    let g:tex_comment_nospell= 1
-    " let g:tex_conceal='abdmgs'
-    let g:tex_flavor = 'latex'
-    let g:tex_fold_enabled=1
-    let g:tex_isk='48-57,a-z,A-Z,192-255,:,_'
-
-    " )))
-
-    " Disable unnecessary internal plugins (((
-
-    let g:did_install_default_menus = 1
-    :let did_install_default_menus  = 1
-    let g:did_install_syntax_menu   = 1
-    :let did_install_syntax_menu    = 1
-    " let g:did_indent_on             = 1    " raises an error: Vim(doautocmd):E216: No such group or event: filetypeindent FileType markdown
-    let g:skip_loading_mswin        = 1
-
-    " " I prefer filtering text with Unix tools
-    let g:loaded_logiPat            = 1
-
-    " let g:loaded_man      = 1
-    " let g:loaded_matchit  = 1
-    let g:loaded_matchparen = 1
-    :let loaded_matchparen  = 1
-
-    " I don't use Vim servers
-    " let g:loaded_rrhelper = 1   " doesn't exist in neovim
-
-    let g:loaded_shada_plugin       = 1
-    let g:loaded_spellfile_plugin   = 1
-    " let g:loaded_tutor_mode_plugin  = 1
-
-    " let g:loaded_netrw              = 1
-    let g:netrw_nogx                = 1
-
-    " )))
-
-    " Folding-related global(g:) variables for various languages (((
-
-    let g:markdown_enable_folding = 1
-    let g:tex_fold_enabled        = 1
-    let g:vimsyn_folding          = 'af'
-    let g:xml_syntax_folding      = 1
-    let g:javaScript_fold         = 1
-    let g:sh_fold_enabled         = 7
-    let g:ruby_fold               = 1
-    let g:perl_fold               = 1
-    let g:perl_fold_blocks        = 1
-    let g:r_syntax_folding        = 1
-    let g:rust_fold               = 1
-    let g:php_folding             = 1
 
     " )))
 
@@ -192,13 +116,15 @@ return function() -- This 'polish' function is run last
 
     " )))
 
-    " Custom highlights (((
+  " Commented-out settings (((
 
-    " match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Nobody wants to commit merge conflict markers, so let's highlight these so we can's them: https://vimways.org/2018/vim-and-git/
+  " Custom highlights (((
 
-    " )))
+  " match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$' " Nobody wants to commit merge conflict markers, so let's highlight these so we can's them: https://vimways.org/2018/vim-and-git/
 
-    set tags=~/.cache/tags
+  " )))
+
+  " )))
 
     ]]
 
@@ -316,15 +242,6 @@ return function() -- This 'polish' function is run last
     autocmd!
     autocmd VimResized * tabdo wincmd =
   augroup end
-
-  " Autocommand to set ft to julia for files ending in .jl (((
-
-  " augroup _julia
-  "   autocmd!
-  "   autocmd BufRead,BufNewFile *.jl set filetype=julia
-  " augroup END
-
-  " )))
 
   " Autocommand for file changed alert (((
 
