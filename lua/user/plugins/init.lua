@@ -5,7 +5,7 @@ return {
 
   ["goolord/alpha-nvim"] = { disable = true }, -- A lua powered greeter like vim-startify / dashboard-nvim
   ["max397574/better-escape.nvim"] = { disable = true }, -- Escape from insert mode without delay when typing
-  ["NvChad/nvim-colorizer.lua"] = { disable = true },
+  ["NvChad/nvim-colorizer.lua"] = { disable = true }, -- The fastest Neovim colorizer
   ["rcarriga/nvim-notify"] = { disable = true }, -- A fancy, configurable, notification manager for NeoVim
   ["p00f/nvim-ts-rainbow"] = { disable = true }, -- Rainbow parentheses for neovim using tree-sitter
 
@@ -17,11 +17,14 @@ return {
 
   -- ["tweekmonster/startuptime.vim"] = { cmd = { "StartupTime" } }, -- Breakdown Vim's '--startuptime' output
   -- ["dstein64/vim-startuptime"] = { cmd = { "StartupTime" } }, -- A Vim plugin for profiling Vim's startup time
+
   ["tyru/capture.vim"] = { cmd = { "Capture" } }, -- Show Ex command output in buffer
   ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } }, -- An alternative sudo.vim for Vim and Neovim
-  ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
+
+  -- ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
   -- ["kenn7/vim-arsync"] = require "user.plugins.vim-arsync", -- Synchronisation of remote & local files using rsync
   -- ["m-pilia/vim-ccls"] = require "user.plugins.vim-ccls", -- Vim plugin for the ccls language server
+
   ["gauteh/vim-cppman"] = { cmd = { "Cppman" } }, -- cppman ("C++ 98/11/14 manual pages for Linux/MacOS" ) from vim
   ["Konfekt/vim-DetectSpellLang"] = require "user.plugins.vim-detectspelllang", -- Autodetect the spellcheck language
   ["dbmrq/vim-dialect"] = require "user.plugins.vim-dialect", -- Project specific spellfiles
@@ -30,6 +33,7 @@ return {
   ["urbainvaes/vim-ripple"] = require "user.plugins.vim-ripple", -- Minimalist plugin to interact with a REPL
   ["tpope/vim-unimpaired"] = require "user.plugins.vim-unimpaired", -- Pairs of handy bracket mappings
   ["lervag/vimtex"] = {}, --  VimTeX: A modern Vim and neovim filetype plugin for LaTeX files
+
   -- ["svban/YankAssassin.vim"] = {}, -- Don't let the cursor move while Yanking in Vim/Neovim
   -- ["axvr/zepl.vim"] = {}, -- Simple and minimal REPL integration plugin for Vim and Neovim
 

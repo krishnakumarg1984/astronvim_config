@@ -1,3 +1,4 @@
+-- Modify the color palette for the default theme
 return function(C)
   C.telescope_green = C.green
   C.telescope_red = C.red

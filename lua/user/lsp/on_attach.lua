@@ -1,62 +1,7 @@
-local aucmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
-local opts = { clear = true }
-augroup("LspCodeLens", opts)
-
 return function(client, bufnr)
   if vim.tbl_contains({ "ccls", "clangd", "jsonls", "pylsp", "taplo" }, client.name) then
     astronvim.lsp.disable_formatting(client)
   end
-
-  -- if client.name == "ccls" then
-  --   client.resolved_capabilities.codeActionProvider = false
-  --   client.resolved_capabilities.completionProvider = false
-  --   client.resolved_capabilities.declarationProvider = false
-  --   client.resolved_capabilities.definitionProvider = false
-  --   client.resolved_capabilities.documentFormattingProvider = false
-  --   client.resolved_capabilities.documentHighlightProvider = false
-  --   client.resolved_capabilities.documentLinkProvider = true
-  --   client.resolved_capabilities.documentOnTypeFormattingProvider = false
-  --   client.resolved_capabilities.documentRangeFormattingProvider = false
-  --   client.resolved_capabilities.documentSymbolProvider = false
-  --   client.resolved_capabilities.executeCommandProvider = false
-  --   client.resolved_capabilities.foldingRangeProvider = false
-  --   client.resolved_capabilities.hoverProvider = false
-  --   client.resolved_capabilities.implementationProvider = false
-  --   client.resolved_capabilities.referencesProvider = false
-  --   client.resolved_capabilities.renameProvider = false
-  --   client.resolved_capabilities.signatureHelpProvider = false
-  --   client.resolved_capabilities.typeDefinitionProvider = false
-  --   client.resolved_capabilities.workspaceSymbolProvider = false
-  --   client.server_capabilities.codeActionProvider = false
-  --   client.server_capabilities.completionProvider = false
-  --   client.server_capabilities.declarationProvider = false
-  --   client.server_capabilities.definitionProvider = false
-  --   client.server_capabilities.documentFormattingProvider = false
-  --   client.server_capabilities.documentHighlightProvider = false
-  --   client.server_capabilities.documentLinkProvider = true
-  --   client.server_capabilities.documentOnTypeFormattingProvider = false
-  --   client.server_capabilities.documentRangeFormattingProvider = false
-  --   client.server_capabilities.documentSymbolProvider = false
-  --   client.server_capabilities.executeCommandProvider = false
-  --   client.server_capabilities.foldingRangeProvider = false
-  --   client.server_capabilities.hoverProvider = false
-  --   client.server_capabilities.implementationProvider = false
-  --   client.server_capabilities.referencesProvider = false
-  --   client.server_capabilities.renameProvider = false
-  --   client.server_capabilities.signatureHelpProvider = false
-  --   client.server_capabilities.typeDefinitionProvider = false
-  --   client.server_capabilities.workspaceSymbolProvider = false
-  --   aucmd("BufWritePost", {
-  --     buffer = bufnr,
-  --     group = "LspCodeLens",
-  --     callback = vim.lsp.codelens.refresh,
-  --     desc = "Refresh codelens on save",
-  --   })
-  --   vim.lsp.codelens.refresh()
-  --   vim.bo[bufnr].tagfunc = ""
-  --   return
-  -- end
 
   vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
   -- vim.keymap.del("n", "gd", { buffer = bufnr })
@@ -100,18 +45,14 @@ return function(client, bufnr)
   -- )))
 end
 
--- https://www.reddit.com/r/neovim/comments/uri2p4/comment/i8ydfti/?utm_source=share&utm_medium=web2x&context=3
--- local diagnostics_active = true
--- local toggle_diagnostics = function()
---   diagnostics_active = not diagnostics_active
---   if diagnostics_active then
---     vim.diagnostic.show()
---   else
---     vim.diagnostic.hide()
---   end
--- end
--- vim.keymap.set("n", "<leader>lt", toggle_diagnostics, { buffer = bufnr, desc = "Toggle diagnostics" })
-
--- if client.name == "pyright" then
---   require("folding").on_attach()
--- end
+--[[ -- https://www.reddit.com/r/neovim/comments/uri2p4/comment/i8ydfti/?utm_source=share&utm_medium=web2x&context=3
+local diagnostics_active = true
+local toggle_diagnostics = function()
+  diagnostics_active = not diagnostics_active
+  if diagnostics_active then
+    vim.diagnostic.show()
+  else
+    vim.diagnostic.hide()
+  end
+end
+vim.keymap.set("n", "<leader>lt", toggle_diagnostics, { buffer = bufnr, desc = "Toggle diagnostics" }) ]]
