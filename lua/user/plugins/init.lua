@@ -51,7 +51,6 @@ return {
   ["gpanders/editorconfig.nvim"] = {}, --  EditorConfig plugin for Neovim
   ["akinsho/git-conflict.nvim"] = require "user.plugins.git-conflict", -- Visualise & resolve merge conflicts
   ["ellisonleao/glow.nvim"] = { cmd = { "Glow", "GlowInstall" } }, -- A markdown preview directly in your neovim
-  -- ["JASONews/glow-hover"] = { after = "nvim-lsp-installer" }, -- Leverages 'glow' for LSPs hover responses
   -- ["lukas-reineke/headlines.nvim"] = require "user.plugins.headlines", -- Horizontal highlights for text filetypes
   -- ["hkupty/iron.nvim"] = require "user.plugins.iron", -- Interactive Repl Over Neovim
   ["rebelot/kanagawa.nvim"] = {}, -- Colorscheme inspired by the colors of the famous painting by Katsushika Hokusai

@@ -65,6 +65,7 @@
 -- https://github.com/olexsmir/gopher.nvim/  -- Neovim plugin for make golang development easiest
 -- use { "rmagatti/goto-preview", event = { "CursorHold" } }
 -- https://github.com/kalvinpearce/gitignore-gen.nvim
+-- ["JASONews/glow-hover"] = { after = "nvim-lsp-installer" }, -- Leverages 'glow' for LSPs hover responses
 -- https://github.com/p00f/godbolt.nvim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/NMAC427/guess-indent.nvim

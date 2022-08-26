@@ -1,3 +1,4 @@
+-- overrides `require("treesitter").setup(...)`
 return {
   ts_funky_keywords = { enable = true }, -- https://github.com/simrat39/dotfiles/blob/master/nvim/.config/nvim/lua/sim_config/tree-sitter.lua
   auto_install = true, -- Automatically install missing parsers when entering buffer

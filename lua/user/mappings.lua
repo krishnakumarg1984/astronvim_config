@@ -121,6 +121,7 @@ return {
     ["<C-w>f"] = { "<C-w>vgf", desc = "Open in vertical split" }, -- is a more generic mode remap
     ["<C-w>z"] = { "<C-w>|<C-w>_", desc = "Maximize screen" }, -- zoom full-screen by maximising the screen height and width
     ["<leader>*"] = { ":%s/<<c-r><c-w>>//g<left><left>", desc = "Replace cursor word" },
+    ["<leader>/"] = false,
     ["<leader>q"] = false,
     ["<leader>w"] = false,
     ["<S-h>"] = false,
@@ -208,6 +209,7 @@ return {
   -- visual mode keymaps (((
 
   v = {
+    ["<leader>/"] = false,
     ["*"] = { "y/\\V<C-R>=escape(@\",'/')<CR><CR>" },
     ["cg*"] = { "\"ay/\\V<C-R>=escape(@a,'/')<CR><CR>N\"_cgn" },
     -- https://www.reddit.com/r/neovim/comments/ttwzge/magic_replace_selected_text_mapping_with_repeat/
