@@ -1,9 +1,7 @@
 -- vim: foldmethod=marker:foldlevel=0:
 
 local status_ok, null_ls = pcall(require, "null-ls")
-if not status_ok then
-  return
-end
+if not status_ok then return end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
@@ -11,15 +9,36 @@ local diagnostics = null_ls.builtins.diagnostics
 if not local_vimrc_has_run then
   -- list of globally installed sources in $PATH (not those installed with ':FInstall')
   null_ls.register {
-    formatting.stylua.with {
-      condition = function(utils)
-        return utils.root_has_file { "stylua.toml", ".stylua.toml" }
-      end,
-    },
-    -- formatting.black,  -- not in $PATH, but installed with ':FInstall' which is automatically made available with ':e!'
-    formatting.clang_format,
+    diagnostics.actionlint,
+    diagnostics.codespell,
     diagnostics.cppcheck,
+    diagnostics.editorconfig_checker,
+    diagnostics.flake8,
+    diagnostics.gitlint,
+    diagnostics.hadolint,
+    diagnostics.luacheck,
+    diagnostics.misspell,
+    diagnostics.mypy,
+    diagnostics.proselint,
+    diagnostics.pylint,
+    diagnostics.shellcheck,
+    diagnostics.vale,
+    diagnostics.vint,
+    diagnostics.vulture,
+    diagnostics.yamllint,
+    formatting.black,
+    formatting.cbfmt,
+    formatting.clang_format,
+    formatting.cmake_format,
+    formatting.codespell,
+    formatting.fixjson,
+    formatting.shfmt,
+    formatting.stylua.with {
+      condition = function(utils) return utils.root_has_file { "stylua.toml", ".stylua.toml" } end,
+    },
+    formatting.yamlfmt,
     null_ls.builtins.code_actions.gitrebase,
+    null_ls.builtins.code_actions.shellcheck,
     null_ls.builtins.hover.dictionary,
   }
   null_ls.enable {}

@@ -1,7 +1,6 @@
 return {
   -- https://github.com/wbthomason/packer.nvim/issues/810
-  -- requires = { "williamboman/nvim-lsp-installer", "neovim/nvim-lspconfig" }, -- make sure to load after lsp stuff
   ft = { "c", "cpp", "cuda", "opencl" },
-  wants = { "nvim-lspconfig" }, -- make sure to load after lsp stuff
+  wants = { "mason-lspconfig.nvim" }, -- make sure to load after mason-lspconfig
   config = function() require "user.plugins.clangd_extensions.config" end,
 }
