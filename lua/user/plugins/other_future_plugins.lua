@@ -44,7 +44,7 @@
 -- https://github.com/zbirenbaum/copilot-cmp -- Lua plugin to turn github copilot into a cmp source
 -- https://github.com/p00f/cphelper.nvim -- Neovim helper for competitive programming
 -- https://github.com/Pocco81/dap-buddy.nvim
--- https://github.com/yriveiro/dap-go.nvim/  -- nvim-dap extenstion to make simpler debug Golang using Delve
+-- https://github.com/yriveiro/dap-go.nvim/  -- nvim-dap extension to make simpler debug Golang using Delve
 -- https://github.com/jbyuki/dash.nvim
 -- https://gitlab.com/HiPhish/debugpy.nvim  -- Command and configuration frontend for Debugpy and nvim-dap
 -- https://github.com/monaqa/dial.nvim
@@ -65,7 +65,7 @@
 -- https://github.com/olexsmir/gopher.nvim/  -- Neovim plugin for make golang development easiest
 -- use { "rmagatti/goto-preview", event = { "CursorHold" } }
 -- https://github.com/kalvinpearce/gitignore-gen.nvim
--- ["JASONews/glow-hover"] = { after = "nvim-lsp-installer" }, -- Leverages 'glow' for LSPs hover responses
+-- ["JASONews/glow-hover"] = { after = "mason-lspconfig" }, -- Leverages 'glow' for LSPs hover responses
 -- https://github.com/p00f/godbolt.nvim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/NMAC427/guess-indent.nvim
@@ -217,7 +217,7 @@
 -- use { "gauteh/vim-cppman", ft = { "c", "cpp" }, cmd = { "Cppman" } }
 -- use { "tpope/vim-fugitive", event = "BufWinEnter" }
 -- https://github.com/tenfyzhong/vim-gencode-cpp -- auto generate function definition or declaration
--- https://github.com/alepez/vim-gtest  -- Quickly select and run GoogleTest asyncronously
+-- https://github.com/alepez/vim-gtest  -- Quickly select and run GoogleTest asynchronously
 -- use { "ludovicchabant/vim-gutentags", event = { "CursorHold" } } -- , event = "BufWinEnter" }
 -- https://github.com/azabiong/vim-highlighter
 -- use { "petRUShka/vim-opencl", ft = { "opencl" } }  -- note: slow plugin on remote systems

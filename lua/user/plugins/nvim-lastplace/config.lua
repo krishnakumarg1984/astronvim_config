@@ -1,11 +1,12 @@
 require("nvim-lastplace").setup {
-  lastplace_ignore_buftype = { "quickfix", "nofile", "help", "terminal", "lsp-installer", "lspinfo" },
+  lastplace_ignore_buftype = { "quickfix", "nofile", "help", "terminal", "lspinfo" },
   lastplace_ignore_filetype = {
     "dashboard",
     "DiffviewFiles",
     "gitcommit",
     "gitrebase",
     "hgcommit",
+    "mason",
     "neo-tree",
     "Neogitcommit",
     "NeogitCommitMessage",
