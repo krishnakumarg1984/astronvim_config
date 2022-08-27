@@ -1,8 +1,8 @@
-local codelldb_cmdhandle = io.popen 'find -L $HOME/.vscode/extensions -name "codelldb" -type f -print0'
+local codelldb_cmdhandle = io.popen 'find -L $HOME/.local/share/nvim/mason/bin -name "codelldb" -type f -print0'
 ---@diagnostic disable-next-line: unused-local, need-check-nil
 local codelldb_cmd = codelldb_cmdhandle:read "*all" --  .. ' --params {"showDisassembly" : "never"}'
 
-local cpptools_cmdhandle = io.popen 'find -L $HOME/.vscode/extensions -name "OpenDebugAD7" -type f -print0'
+local cpptools_cmdhandle = io.popen 'find -L $HOME/.local/share/nvim/mason/bin -name "OpenDebugAD7" -type f -print0'
 ---@diagnostic disable-next-line: unused-local, need-check-nil
 local cpptools_cmd = cpptools_cmdhandle:read "*all"
 
@@ -125,7 +125,7 @@ dap.configurations = { -- "launch configurations"
       stopOnEntry = true,
       showDisplayString = true,
       MIMode = "gdb",
-      miDebuggerPath = "/usr/local/bin/prime-debug",
+      -- miDebuggerPath = "/usr/local/bin/prime-debug",
       externalConsole = false,
       setupCommands = {
         { text = "-enable-pretty-printing", description = "enable pretty printing", ignoreFailures = true },
