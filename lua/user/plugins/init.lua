@@ -22,7 +22,7 @@ return {
   ["tyru/capture.vim"] = { cmd = { "Capture" } }, -- Show Ex command output in buffer
   ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } }, -- An alternative sudo.vim for Vim and Neovim
 
-  -- ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
+  ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
   -- ["kenn7/vim-arsync"] = require "user.plugins.vim-arsync", -- Synchronisation of remote & local files using rsync
   -- ["m-pilia/vim-ccls"] = require "user.plugins.vim-ccls", -- Vim plugin for the ccls language server
 
