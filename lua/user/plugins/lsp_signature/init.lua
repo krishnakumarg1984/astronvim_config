@@ -3,6 +3,6 @@ return {
   -- event = "InsertCharPre",
   -- event = "InsertEnter",
   -- event = "BufRead",
-  ft = require("user.global_vars").lsp_servers,
+  ft = { "c", "cpp", "cuda", "cmake", "lua" },
   config = function() require "user.plugins.lsp_signature.config" end,
 }
