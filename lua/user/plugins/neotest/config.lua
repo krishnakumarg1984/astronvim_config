@@ -43,4 +43,7 @@ neotest.setup {
       dap = { justMyCode = true, console = "integratedTerminal" },
     },
   },
+  consumers = {
+    overseer = require "neotest.consumers.overseer",
+  },
 }
