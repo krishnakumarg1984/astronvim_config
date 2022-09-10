@@ -19,7 +19,7 @@ return {
     -- vim.keymap.set('n', '<C-w>o', '<C-w>o:AerialClose<CR>') -- https://github.com/stevearc/aerial.nvim/issues/99
   end,
   placement_editor_edge = true,
-  close_behavior = "global",
+  attach_mode = "global",
   highlight_on_hover = true, -- Highlight the symbol in the source buffer when cursor is in the aerial win
   open_automatic = function(bufnr)
     return vim.fn.expand "%:t" ~= "init.lua"
