@@ -160,20 +160,20 @@ return function()
     desc = "Custom formatoptions",
   })
 
-  -- -- Autogroup for Alpha bindings (((
-  --
-  -- -- augroup("alpha_bindings", augrp_opts)
-  -- -- aucmd("FileType", {
-  -- --   desc = "Set alpha bindings",
-  -- --   group = "alpha_bindings",
-  -- --   pattern = "alpha",
-  -- --   callback = function()
-  -- --     vim.keymap.set("n", "q", "<cmd>enew<cr>", { buffer = 0 })
-  -- --     vim.keymap.set("n", "<esc>", "<cmd>enew<cr>", { buffer = 0 })
-  -- --   end,
-  -- -- })
-  --
-  -- -- )))
+  -- Autogroup for Alpha bindings (((
+
+  -- augroup("alpha_bindings", augrp_opts)
+  -- aucmd("FileType", {
+  --   desc = "Set alpha bindings",
+  --   group = "alpha_bindings",
+  --   pattern = "alpha",
+  --   callback = function()
+  --     vim.keymap.set("n", "q", "<cmd>new<cr>", { buffer = 0 })
+  --     vim.keymap.set("n", "<esc>", "<cmd>new<cr>", { buffer = 0 })
+  --   end,
+  -- })
+
+  -- )))
 
   -- Autogroup for automatically reload packer configs after saving (((
 
@@ -293,8 +293,8 @@ return function()
   augroup LaTeXSettings
     autocmd!
     autocmd FileType tex setlocal foldcolumn=auto:7
-    autocmd InsertCharPre *.tex set conceallevel=0
-    autocmd InsertLeave *.tex set conceallevel=2
+    " autocmd InsertCharPre *.tex set conceallevel=0
+    " autocmd InsertLeave *.tex set conceallevel=2
   augroup END
 
   augroup FtLuaSettings
