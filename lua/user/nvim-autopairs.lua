@@ -1,5 +1,6 @@
 -- Rules for 'nvim-autopairs'
 return {
+  ---@diagnostic disable-next-line: unused-local
   add_rules = function(npairs)
     local Rule = require "nvim-autopairs.rule"
     -- npairs.clear_rules()

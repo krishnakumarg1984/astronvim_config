@@ -3,6 +3,7 @@ return {
     -- numbers = "ordinal",
     close_command = "Bdelete %d", -- can be a string | function, see "Mouse actions"
     diagnostics = "nvim_lsp",
+    ---@diagnostic disable-next-line: unused-local
     diagnostics_indicator = function(count, level, diagnostics_dict, context)
       if context.buffer:current() then return "" end
       local icon = level:match "error" and " " or " "

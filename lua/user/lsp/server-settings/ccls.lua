@@ -1,6 +1,5 @@
-local nilfunc = function(...)
-  return nil
-end
+---@diagnostic disable-next-line: different-requires
+local nilfunc = function(...) return nil end
 
 return {
   filetypes = { "c", "cpp", "objc", "objcpp", "opencl" },
