@@ -9,6 +9,8 @@ return {
   ["NvChad/nvim-colorizer.lua"] = { disable = true }, -- The fastest Neovim colorizer
   ["rcarriga/nvim-notify"] = { disable = true }, -- A fancy, configurable, notification manager for NeoVim
   ["p00f/nvim-ts-rainbow"] = { disable = true }, -- Rainbow parentheses for neovim using tree-sitter
+  ["jayp0521/mason-null-ls.nvim"] = { disable = true },
+  -- ["jose-elias-alvarez/null-ls.nvim"] = { disable = true }, -- Inject LSP diagnostics, code actions etc
 
   -- )))
 
@@ -107,7 +109,7 @@ return {
 
   -- Modify AstroNvim default plugins (((
 
-  ["jose-elias-alvarez/null-ls.nvim"] = require "user.plugins.null-ls", -- Inject LSP diagnostics, code actions etc
+  ["jose-elias-alvarez/null-ls.nvim"] = require "user.plugins.nullls", -- Inject LSP diagnostics, code actions etc
   ["windwp/nvim-ts-autotag"] = require "user.plugins.nvim-ts-autotag", -- Autoclose & rename html tags with treesitter
 
   -- ))) end of modification of default AstroNvim plugins
