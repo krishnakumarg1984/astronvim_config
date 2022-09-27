@@ -10,7 +10,9 @@ if not local_vimrc_has_run then
   -- list of globally installed sources in $PATH (not those installed with ':FInstall')
   null_ls.register {
     -- diagnostics.actionlint,
-    diagnostics.codespell,
+    diagnostics.codespell.with {
+      extra_args = { "--ignore-words=.dialect.utf-8.add" },
+    },
     -- diagnostics.cppcheck,
     -- diagnostics.editorconfig_checker,
     -- diagnostics.flake8,
@@ -46,23 +48,6 @@ end
 local_vimrc_has_run = 1 -- silly workaround to stop local '.vimrc.lua' from being loaded twice due to a bug in the "klen/nvim-config-local" plugin
 
 -- Other project-specific 'diagnostic-linters' and 'formatters' to consider {{{
--- formatting.asmformat,
--- formatting.bibclean,
--- formatting.brittany,
--- formatting.format_r, -- needs the 'R' command to be in $PATH
--- formatting.fprettify,
--- formatting.goformat,
--- formatting.goimports,
--- formatting.latexindent,
--- formatting.mdformat,
--- formatting.perltidy,
--- formatting.reorder_python_imports,
--- formatting.rustfmt,
--- formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
--- formatting.sqlfluff,
--- formatting.standardrb,
--- formatting.styler, -- needs the 'R' command to be in $PATH
--- formatting.taplo,
 -- diagnostics.actionlint,
 -- diagnostics.ansiblelint,
 -- diagnostics.checkmake,
@@ -95,4 +80,22 @@ local_vimrc_has_run = 1 -- silly workaround to stop local '.vimrc.lua' from bein
 -- diagnostics.vulture, -- usually not available in path
 -- diagnostics.write_good,
 -- diagnostics.yamllint,
+-- formatting.asmformat,
+-- formatting.bibclean,
+-- formatting.brittany,
+-- formatting.format_r, -- needs the 'R' command to be in $PATH
+-- formatting.fprettify,
+-- formatting.goformat,
+-- formatting.goimports,
+-- formatting.latexindent,
+-- formatting.mdformat,
+-- formatting.perltidy,
+-- formatting.reorder_python_imports,
+-- formatting.rustfmt,
+-- formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
+-- formatting.sqlfluff,
+-- formatting.standardrb,
+-- formatting.styler, -- needs the 'R' command to be in $PATH
+-- formatting.taplo,
+-- formatting.textlint,
 -- }}}
