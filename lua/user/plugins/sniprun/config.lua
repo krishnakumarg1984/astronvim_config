@@ -26,7 +26,7 @@ require("sniprun").setup {
   -- borders = "shadow",
   -- interpreter_options = {
   --   Python3_fifo = {
-  --     intepreter = "python3.9",
+  --     interpreter = "python3.9",
   --     venv = { "venv_project1", "venv_project2", "../venv_project2" },
   --   },
   -- },
