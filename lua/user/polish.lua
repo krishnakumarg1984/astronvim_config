@@ -137,8 +137,8 @@ return function()
   -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/lua/settings/autocmds.lua
   local aucmd = vim.api.nvim_create_autocmd
   local augroup = vim.api.nvim_create_augroup
-  local auexec = vim.api.nvim_exec_autocmds
-  local exec = vim.api.nvim_command
+  -- local auexec = vim.api.nvim_exec_autocmds
+  -- local exec = vim.api.nvim_command
   local augrp_opts = { clear = true }
 
   augroup("FormatOptions", augrp_opts)
