@@ -109,7 +109,6 @@ return {
 
   -- Modify AstroNvim default plugins (((
 
-  ["jose-elias-alvarez/null-ls.nvim"] = require "user.plugins.nullls", -- Inject LSP diagnostics, code actions etc
   ["windwp/nvim-ts-autotag"] = require "user.plugins.nvim-ts-autotag", -- Autoclose & rename html tags with treesitter
 
   -- ))) end of modification of default AstroNvim plugins
