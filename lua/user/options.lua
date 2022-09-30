@@ -13,6 +13,7 @@ return function(defaults)
       breakindent = true, -- Every wrapped line will continue visually indented (same amount of space as the beginning of that line), thus preserving horizontal blocks of text.
       breakindentopt = { "shift:2", "sbr", "list:-1" }, -- https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
       clipboard = "",
+      cmdheight = 1, -- until the cmdheight=0 bugs are squashed
       conceallevel = 0,
       confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
       cursorlineopt = "number",
