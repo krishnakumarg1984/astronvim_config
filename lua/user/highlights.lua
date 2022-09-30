@@ -1,5 +1,5 @@
 -- Override highlight groups in any theme
-highlights = {
+return {
   -- duskfox = { -- a table of overrides/changes to the default
   --   Normal = { bg = "#000000" },
   -- },
