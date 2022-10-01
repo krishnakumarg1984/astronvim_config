@@ -57,6 +57,7 @@ return function(defaults)
       listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
       matchtime = 3, -- Tenths of a second to show the matching paren, when 'showmatch' is set.  Note that this is not in milliseconds, like other options that set a time.
       pumwidth = 35,
+      relativenumber = false,
       report = 0, -- Threshold for reporting number of lines changed.
       rtp = vim.opt.rtp + { "$HOME/.config/astronvim/after" },
       scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
