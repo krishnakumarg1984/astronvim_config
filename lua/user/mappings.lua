@@ -198,10 +198,10 @@ return {
   -- terminal mode mappings (((
 
   t = {
-    ["<esc>"] = { "<C-\\><C-n>", silent = true },
-    ["jk"] = false,
-    ["<c-j>"] = false,
-    ["<c-k>"] = false,
+    ["<C-h>"] = false,
+    ["<C-j>"] = false,
+    ["<C-k>"] = false,
+    ["<C-l>"] = false,
   },
 
   -- )))
