@@ -153,7 +153,8 @@ return function()
         - "r" -- Return does not continue comments
         -- + "c" -- comments respect textwidth
         -- + "q" -- Allow formatting comments w/ gq
-        + "n" -- Recognize numbered lists. This actually uses the 'formatlistpat' option, thus any kind of list can be used. Helps to avoid joining distinct items as if they were a single paragraph.
+        + "n" -- Recognize numbered lists.
+        -- This actually uses the 'formatlistpat' option, thus any kind of list can be used. Helps to avoid joining distinct items as if they were a single paragraph.
         -- + "j" -- Auto-remove comments if possible.
         + "2" -- Indent according to 2nd line
     end,
