@@ -2,15 +2,15 @@
 return function(config)
   -- Define local variables (((
 
-  local kind_icons = require("user.global_vars").kind_icons
+  -- local kind_icons = require("user.global_vars").kind_icons
   local cmp = require "cmp"
   -- https://github.com/hrsh7th/nvim-cmp/issues/980
-  local ELLIPSIS_CHAR = "…"
-  local MAX_LABEL_WIDTH = 25
-  local MIN_LABEL_WIDTH = 25
+  -- local ELLIPSIS_CHAR = "…"
+  -- local MAX_LABEL_WIDTH = 25
+  -- local MIN_LABEL_WIDTH = 25
   -- https://www.reddit.com/r/neovim/comments/unlj8d/is_there_any_way_to_show_types_in_nvimcmp/?sort=new
-  local MIN_MENU_DETAIL_WIDTH = 15
-  local MAX_MENU_DETAIL_WIDTH = 15
+  -- local MIN_MENU_DETAIL_WIDTH = 15
+  -- local MAX_MENU_DETAIL_WIDTH = 15
 
   -- )))
 
