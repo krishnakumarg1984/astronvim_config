@@ -1,7 +1,8 @@
+-- add to the global LSP on_attach function
 return function(client, bufnr)
-  if vim.tbl_contains({ "ccls", "clangd", "jsonls", "pylsp", "taplo" }, client.name) then
-    astronvim.lsp.disable_formatting(client)
-  end
+  -- if vim.tbl_contains({ "ccls", "clangd", "jsonls", "pylsp", "taplo" }, client.name) then
+  --   astronvim.lsp.disable_formatting(client)
+  -- end
 
   vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
   -- vim.keymap.del("n", "gd", { buffer = bufnr })
@@ -44,15 +45,3 @@ return function(client, bufnr)
 
   -- )))
 end
-
---[[ -- https://www.reddit.com/r/neovim/comments/uri2p4/comment/i8ydfti/?utm_source=share&utm_medium=web2x&context=3
-local diagnostics_active = true
-local toggle_diagnostics = function()
-  diagnostics_active = not diagnostics_active
-  if diagnostics_active then
-    vim.diagnostic.show()
-  else
-    vim.diagnostic.hide()
-  end
-end
-vim.keymap.set("n", "<leader>lt", toggle_diagnostics, { buffer = bufnr, desc = "Toggle diagnostics" }) ]]
