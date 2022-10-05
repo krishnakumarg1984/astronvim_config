@@ -15,9 +15,9 @@ return function(config)
   -- )))
 
   return vim.tbl_deep_extend("force", config, {
-    experimental = {
-      ghost_text = true,
-    },
+    -- experimental = {
+    --   ghost_text = true,
+    -- },
     view = {
       entries = { name = "custom", selection_order = "near_cursor" },
     },
