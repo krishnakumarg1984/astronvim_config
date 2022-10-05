@@ -1,5 +1,11 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
+-- Mapping data with "desc" stored directly by vim.keymap.set().
+--
+-- Please use this mappings table to set keyboard mapping since this is the
+-- lower level configuration and more robust one. (which-key will
+-- automatically pick-up stored data by this setting.)
+
 -- more in/all objects between 2 characters (((
 
 -- https://code.mehalter.com/projects/68/files/master/mappings.lua
@@ -198,6 +204,7 @@ return {
   -- terminal mode mappings (((
 
   t = {
+    ["<esc>"] = { "<C-\\><C-n>", silent = true },
     ["<C-h>"] = false,
     ["<C-j>"] = false,
     ["<C-k>"] = false,
