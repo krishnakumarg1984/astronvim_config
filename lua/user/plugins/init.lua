@@ -6,7 +6,7 @@ return {
   ["goolord/alpha-nvim"] = { disable = true }, -- A lua powered greeter like vim-startify / dashboard-nvim
   ["max397574/better-escape.nvim"] = { disable = true }, -- Escape from insert mode without delay when typing
   -- ["onsails/lspkind.nvim"] = { disable = true }, --  vscode-like pictograms for neovim lsp completion items
-  ["NvChad/nvim-colorizer.lua"] = { disable = true }, -- The fastest Neovim colorizer
+  -- ["NvChad/nvim-colorizer.lua"] = { disable = true }, -- The fastest Neovim colorizer
   ["rcarriga/nvim-notify"] = { disable = true }, -- A fancy, configurable, notification manager for NeoVim
   ["p00f/nvim-ts-rainbow"] = { disable = true }, -- Rainbow parentheses for neovim using tree-sitter
   ["jayp0521/mason-null-ls.nvim"] = { disable = true },
