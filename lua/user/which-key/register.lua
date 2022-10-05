@@ -118,6 +118,7 @@ return {
         -- d = diffs, -- astronvim default
         f = { "<cmd>Telescope git_files<cr>", "Open file in repo" },
         -- g = lazygit, -- astronvim default
+        g = nil, -- disable lazygit
         h = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
         -- j = next hunk, -- astronvim default
         -- k = previous hunk, -- astronvim default
@@ -133,7 +134,7 @@ return {
         t = { "<cmd>Telescope git_stash<cr>", "Stash all changes" },
         T = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle deleted" },
         -- u = Undo stage hunk, -- astronvim default
-        -- U = { function() astronvim.toggle_term_cmd "gitui" end, "GitUI" },
+        U = { function() astronvim.toggle_term_cmd "gitui" end, "GitUI" },
       },
       l = {
         j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
@@ -201,7 +202,8 @@ return {
       },
       t = {
         -- l = lazygit -- astronvim default
-        -- g = { function() astronvim.toggle_term_cmd "gitui" end, "GitUI" },
+        l = nil, -- disable lazygit
+        g = { function() astronvim.toggle_term_cmd "gitui" end, "GitUI" },
       },
       x = { name = "Diagnostics" },
     },
