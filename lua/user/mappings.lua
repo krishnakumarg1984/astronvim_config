@@ -141,12 +141,12 @@ return {
 
     -- )))
 
-    -- 'gitsigns' keymaps (((
+    -- -- 'gitsigns' keymaps (((
 
-    ["]c"] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", expr = true, desc = "Next diff" },
-    ["[c"] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", expr = true, desc = "Prev diff" },
+    -- ["]c"] = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'", expr = true, desc = "Next diff" },
+    -- ["[c"] = { "&diff ? '[c' : '<cmd>Gitsigns prev_hunk<CR>'", expr = true, desc = "Prev diff" },
 
-    -- )))
+    -- -- )))
 
     -- 'smart-splits' keymaps (((
     ["<A-h>"] = {
@@ -185,13 +185,13 @@ return {
 
   -- operator-pending mode keymaps (((
 
-  -- 'gitsigns' keymaps (((
-
-  o = {
-    ["ih"] = { ":<C-U>Gitsigns select_hunk<CR>" },
-  },
-
-  -- )))
+  -- -- 'gitsigns' keymaps (((
+  --
+  -- o = {
+  --   ["ih"] = { ":<C-U>Gitsigns select_hunk<CR>" },
+  -- },
+  --
+  -- -- )))
 
   -- )))
 
@@ -228,11 +228,11 @@ return {
     ["<"] = { "<gv" }, -- Stay in indent mode in visual-block mode
     [">"] = { ">gv" }, -- Stay in indent mode in visual-block mode
 
-    -- 'gitsigns' keymaps (((
-
-    ["ih"] = { "<Cmd><C-U>Gitsigns select_hunk<CR>" },
-
-    -- )))
+    -- -- 'gitsigns' keymaps (((
+    --
+    -- ["ih"] = { "<Cmd><C-U>Gitsigns select_hunk<CR>" },
+    --
+    -- -- )))
   },
 
   -- )))
