@@ -5,7 +5,7 @@ return {
   ignore_install = { "latex" },
   highlight = {
     use_languagetree = true, -- Use this to enable language injection
-    disable = { "css", "latex" },
+    disable = { "css", "help", "latex" },
   },
   query_linter = { -- https://github.com/simrat39/dotfiles/blob/master/nvim/.config/nvim/lua/sim_config/tree-sitter.lua
     enable = true, -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/lua/r/settings/treesitter.lua
@@ -19,7 +19,7 @@ return {
   },
   indent = {
     enable = true,
-    disable = { "latex", "python", "yaml", "org" },
+    disable = { "help", "latex", "python", "yaml", "org" },
   },
   incremental_selection = {
     enable = true,
