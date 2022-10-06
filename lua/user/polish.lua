@@ -298,11 +298,11 @@ return function()
     augroup my_quickfix
     autocmd!
     " autocmd QuickFixCmdPost [^l]* QFOpen!
-    autocmd QuickFixCmdPost cexpr QFOpen
+    " autocmd QuickFixCmdPost cexpr QFOpen
     " autocmd QuickFixCmdPost cexpr cwindow
     " autocmd QuickFixCmdPost l* nested lopen
     " https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
-    " autocmd QuickFixCmdPost cgetexpr cwindow
+    autocmd QuickFixCmdPost cgetexpr cwindow
     augroup END
 
     " )))
@@ -324,6 +324,7 @@ return function()
       -- make = "make",
       pd_lua = "lua",
       pd_luax = "lua",
+      qmd = "markdown",
       vert = "glsl",
       vs = "glsl",
       jl = "julia",
@@ -333,9 +334,10 @@ return function()
       ["/etc/environment"] = "confini",
       [".dace.conf"] = "yaml",
     },
-    -- pattern = {
-    --   [vim.env.XDG_CONFIG_HOME .. "/udev/rules.d/.*%.rules"] = "udevrules",
-    -- },
+    pattern = {
+      ["/tmp/neomutt.*"] = "markdown",
+      -- [vim.env.XDG_CONFIG_HOME .. "/udev/rules.d/.*%.rules"] = "udevrules",
+    },
   }
 
   -- )))

@@ -17,6 +17,9 @@ return {
     },
   },
   pickers = {
+    find_files = {
+      hidden = true,
+    },
     diagnostics = { theme = "dropdown" },
     -- diagnostics = { layout = { "vertical" } },
     git_status = { theme = "ivy" },

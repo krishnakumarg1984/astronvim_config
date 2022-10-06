@@ -36,9 +36,11 @@
 -- https://github.com/lalitmee/browse.nvim  -- browse for anything using your choice of method
 -- use { "kwkarlwang/bufresize.nvim" }  --  Keep buffer dimensions in proportion when terminal window is resized
 -- https://github.com/saifulapm/chartoggle.nvim  -- Toggle character in Neovim
+-- https://github.com/sudormrfbin/cheatsheet.nvim  -- A cheatsheet plugin
 -- use { "kazhala/close-buffers.nvim", cmd = {} }  -- Delete multiple vim buffers based on different conditions
 -- https://github.com/Civitasv/cmake-tools.nvim  --  CMake integration in Neovim
 -- https://github.com/rcarriga/cmp-dap  -- nvim-cmp source for nvim-dap REPL and nvim-dap-ui buffers
+-- https://github.com/octaltree/cmp-look = require "user.plugins.cmp-look",
 -- use { "andersevenrud/cmp-tmux" }  -- Tmux completion source for nvim-cmp and nvim-compe
 -- https://github.com/xeluxee/competitest.nvim -- Automate testcases management & checking for Competitive Programming
 -- https://github.com/zbirenbaum/copilot-cmp -- Lua plugin to turn github copilot into a cmp source
@@ -89,6 +91,7 @@
 -- https://github.com/ericpubu/lsp_codelens_extensions.nvim  -- Adds client side code for codelenses commands not in the lsp servers
 -- https://git.sr.ht/~whynothugo/lsp_lines.nvim
 -- https://github.com/aspeddro/lsp_menu.nvim
+-- https://github.com/AcksID/messages.nvim = {}, -- Capture and show any messages in a customisable (floating) buffer
 -- https://github.com/jubnzv/mdeval.nvim
 -- https://github.com/p00f/mdpreview.nvim
 -- https://github.com/numToStr/Navigator.nvim
@@ -148,7 +151,7 @@
 -- https://github.com/nvim-telescope/telescope-bibtex.nvim -- A telescope extension to search & paste bibtex entries
 -- use { "nvim-telescope/telescope-media-files.nvim" }
 -- use { "nvim-telescope/telescope-packer.nvim" }
--- use { "cljoly/telescope-repo.nvim" }
+-- use { "cljoly/telescope-repo.nvim" } --Jump into the repositories of your filesystem, without any setup
 -- https://github.com/TC72/telescope-tele-tabby.nvim
 -- https://github.com/da-moon/telescope-toggleterm.nvim
 -- https://github.com/mcauley-penney/tidy.nvim

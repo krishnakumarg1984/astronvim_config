@@ -10,7 +10,6 @@ return {
   ["rcarriga/nvim-notify"] = { disable = true }, -- A fancy, configurable, notification manager for NeoVim
   ["p00f/nvim-ts-rainbow"] = { disable = true }, -- Rainbow parentheses for neovim using tree-sitter
   ["jayp0521/mason-null-ls.nvim"] = { disable = true },
-  -- ["jose-elias-alvarez/null-ls.nvim"] = { disable = true }, -- Inject LSP diagnostics, code actions etc
 
   -- )))
 
@@ -21,18 +20,20 @@ return {
   -- ["tweekmonster/startuptime.vim"] = { cmd = { "StartupTime" } }, -- Breakdown Vim's '--startuptime' output
   -- ["dstein64/vim-startuptime"] = { cmd = { "StartupTime" } }, -- A Vim plugin for profiling Vim's startup time
 
-  ["tyru/capture.vim"] = { cmd = { "Capture" } }, -- Show Ex command output in buffer
+  ["AndrewRadev/bufferize.vim"] = {}, -- Execute a :command and show the output in a temporary buffer
+  -- ["tyru/capture.vim"] = { cmd = { "Capture" } }, -- Show Ex command output in buffer
   ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } }, -- An alternative sudo.vim for Vim and Neovim
 
   ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
+  -- https://github.com/Shatur/neovim-tasks
   -- ["kenn7/vim-arsync"] = require "user.plugins.vim-arsync", -- Synchronisation of remote & local files using rsync
   -- ["m-pilia/vim-ccls"] = require "user.plugins.vim-ccls", -- Vim plugin for the ccls language server
 
   ["gauteh/vim-cppman"] = { cmd = { "Cppman" } }, -- cppman ("C++ 98/11/14 manual pages for Linux/MacOS" ) from vim
-  ["Konfekt/vim-DetectSpellLang"] = require "user.plugins.vim-detectspelllang", -- Autodetect the spellcheck language
+  -- ["Konfekt/vim-DetectSpellLang"] = require "user.plugins.vim-detectspelllang", -- Autodetect the spellcheck language
   ["dbmrq/vim-dialect"] = require "user.plugins.vim-dialect", -- Project specific spellfiles
   ["Konfekt/vim-sentence-chopper"] = { ft = { "tex", "markdown", "text" } }, -- VCS-friendly text formatting
-  ["andymass/vim-matchup"] = { after = "nvim-treesitter" }, -- Even better % navigate & highlight matching words
+  ["andymass/vim-matchup"] = { after = "nvim-treesitter" }, -- Even better '%' navigate & highlight matching words
   ["urbainvaes/vim-ripple"] = require "user.plugins.vim-ripple", -- Minimalist plugin to interact with a REPL
   ["tpope/vim-unimpaired"] = require "user.plugins.vim-unimpaired", -- Pairs of handy bracket mappings
   ["lervag/vimtex"] = {}, --  VimTeX: A modern Vim and neovim filetype plugin for LaTeX files
@@ -45,31 +46,27 @@ return {
   -- Additional lua plugins (((
 
   ["numtostr/BufOnly.nvim"] = { cmd = { "BufOnly" } }, -- Lua/Neovim port of BufOnly.vim with some changes
-  -- ["sudormrfbin/cheatsheet.nvim"] = { cmd = { "Cheatsheet", "CheatsheetEdit" } }, -- A cheatsheet plugin
   ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd_extensions", -- Clangd's off-spec features
-  ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp-buffer", -- nvim-cmp source for buffer words
-  ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp-emoji", -- nvim-cmp source for emoji
-  ["petertriho/cmp-git"] = require "user.plugins.cmp-git", -- Git source for nvim-cmp
-  -- ["octaltree/cmp-look"] = require "user.plugins.cmp-look",
+  -- ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp-buffer", -- nvim-cmp source for buffer words
+  -- ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp-emoji", -- nvim-cmp source for emoji
+  -- ["petertriho/cmp-git"] = require "user.plugins.cmp-git", -- Git source for nvim-cmp
   ["gpanders/editorconfig.nvim"] = {}, --  EditorConfig plugin for Neovim
   ["akinsho/git-conflict.nvim"] = require "user.plugins.git-conflict", -- Visualise & resolve merge conflicts
   ["ellisonleao/glow.nvim"] = { cmd = { "Glow", "GlowInstall" } }, -- A markdown preview directly in your neovim
   -- ["lukas-reineke/headlines.nvim"] = require "user.plugins.headlines", -- Horizontal highlights for text filetypes
   -- ["hkupty/iron.nvim"] = require "user.plugins.iron", -- Interactive Repl Over Neovim
-  ["rebelot/kanagawa.nvim"] = {}, -- Colorscheme inspired by the colors of the famous painting by Katsushika Hokusai
+  ["rebelot/kanagawa.nvim"] = {}, -- require "user.plugins.kanagawa", -- Colorscheme inspired by the colors of the famous painting by Katsushika Hokusai
   ["ray-x/lsp_signature.nvim"] = require "user.plugins.lsp_signature", -- LSP signature hint as you type
   -- ["chentoast/marks.nvim"] = require "user.plugins.marks", -- A better UX for viewing & interacting with Vim marks
   ["echasnovski/mini.nvim"] = require "user.plugins.mini", -- Collection of minimal, independent, & fast Lua modules
   ["jghauser/mkdir.nvim"] = { event = "BufWritePre" }, -- This neovim plugin creates missing folders on save
-  ["jbyuki/nabla.nvim"] = { module = "nabla" }, -- Take your scientific notes in Neovim
+  ["jbyuki/nabla.nvim"] = require "user.plugins.nabla_nvim", -- Take your scientific notes in Neovim
   ["danymat/neogen"] = require "user.plugins.neogen", -- Annotation generator (multiple languages & conventions)
   ["TimUntersberger/neogit"] = require "user.plugins.neogit", -- Magit for neovim
   ["nvim-neotest/neotest"] = require "user.plugins.neotest", -- An extensible framework for interacting with tests within NeoVim.
   ["nvim-neotest/neotest-python"] = {}, -- Neotest adapter for python. Supports Pytest and unittest test files.
-  -- ["Shatur/neovim-cmake"] = require "user.plugins.neovim-cmake", -- CMake integration for Neovim
   ["weilbith/nvim-code-action-menu"] = { cmd = "CodeActionMenu" }, -- Code action pop-up menu (meta-info & diff)
-  -- ["xiyaowong/nvim-colorizer.lua"] = require "user.plugins.nvim-colorizer", -- The fastest colorizer
-  ["klen/nvim-config-local"] = require "user.plugins.nvim-config-local", -- Secure load local config files for neovim
+  ["MunifTanjim/exrc.nvim"] = require "user.plugins.exrc_nvim", -- Secure Project Local Config for Neovim
   -- ["andythigpen/nvim-coverage"] = require "user.plugins.nvim-coverage", -- Displays test coverage data in the sign column
   ["mfussenegger/nvim-dap"] = require "user.plugins.nvim-dap", -- Debug Adapter Protocol client implementation
   ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim-dapui", -- A UI for nvim-dap
@@ -92,15 +89,14 @@ return {
   -- ["stevearc/overseer.nvim"] = require "user.plugins.overseer", -- A task runner and job management plugin for Neovim
   -- ["Weissle/persistent-breakpoints.nvim"] = require "user.plugins.persistent-breakpoints",
   ["ahmedkhalf/project.nvim"] = require "user.plugins.project", -- The superior project management solution for nvim
-  ["stevearc/qf_helper.nvim"] = require "user.plugins.qf_helper", -- A collection of improvements for quickfix buffer
+  -- ["stevearc/qf_helper.nvim"] = require "user.plugins.qf_helper", -- A collection of improvements for quickfix buffer
   ["linty-org/readline.nvim"] = require "user.plugins.readline", -- Readline motions and deletions in Neovim
   -- ["michaelb/sniprun"] = require "user.plugins.sniprun", -- Run lines/blocks of code, supports multiples languages
-  -- ["lewis6991/spellsitter.nvim"] = require "user.plugins.spellsitter", -- Treesitter powered spellchecker
   -- ["luukvbaal/stabilize.nvim"] = require "user.plugins.stabilize", -- Stabilize window open/close events
   -- ["abecodes/tabout.nvim"] = require "user.plugins.tabout", -- tabout plugin for neovim
   ["nvim-telescope/telescope-dap.nvim"] = require "user.plugins.telescope-dap", -- Dap-Telescope integration
   -- ["benfowler/telescope-luasnip.nvim"] = require "user.plugins.telescope-luasnip", -- Telescope+LuaSnip integration
-  ["johmsalas/text-case.nvim"] = require "user.plugins.text-case", -- An all in one plugin for converting text case
+  ["johmsalas/text-case.nvim"] = require "user.plugins.text_case", -- An all in one plugin for converting text case
   ["folke/trouble.nvim"] = require "user.plugins.trouble", -- Helps you solve all the trouble your code is causing
 
   -- ))) -- end of additional lua plugins

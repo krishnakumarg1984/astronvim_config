@@ -1,3 +1,3 @@
 return {
-  config = function() require("git-conflict").setup() end,
+  config = function() require "user.plugins.git-conflict.config" end,
 }

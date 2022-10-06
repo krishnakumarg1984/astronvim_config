@@ -29,19 +29,36 @@ return function(client, bufnr)
 
   -- 'text-case.nvim' keymaps (((
 
-  vim.cmd [[
-      " nnoremap gau :lua require('textcase').lsp_rename('to_upper_case')<CR>
-      " nnoremap gal :lua require('textcase').lsp_rename('to_lower_case')<CR>
-      nnoremap gaS :lua require('textcase').lsp_rename('to_snake_case')<CR>
-      " nnoremap gad :lua require('textcase').lsp_rename('to_dash_case')<CR>
-      " nnoremap gan :lua require('textcase').lsp_rename('to_constant_case')<CR>
-      " nnoremap ga. :lua require('textcase').lsp_rename('to_dot_case')<CR>
-      nnoremap gaA :lua require('textcase').lsp_rename('to_phrase_case')<CR>
-      " nnoremap gac :lua require('textcase').lsp_rename('to_camel_case')<CR>
-      " nnoremap gap :lua require('textcase').lsp_rename('to_pascal_case')<CR>
-      " nnoremap gat :lua require('textcase').lsp_rename('to_title_case')<CR>
-      nnoremap gaF :lua require('textcase').lsp_rename('to_path_case')<CR>
-      ]]
+  vim.keymap.set(
+    { "n", "v", "o" },
+    "gaA",
+    "<cmd>lua require('textcase').lsp_rename('to_phrase_case')<CR>",
+    { desc = "LSP rename to phrase_case" }
+  )
+  vim.keymap.set(
+    { "n", "v", "o" },
+    "gaF",
+    "<cmd>lua require('textcase').lsp_rename('to_path_case')<CR>",
+    { desc = "LSP rename to path_case" }
+  )
+  vim.keymap.set(
+    { "n", "v", "o" },
+    "gaS",
+    "<cmd>lua require('textcase').lsp_rename('to_snake_case')<CR>",
+    { desc = "LSP rename to snake_case" }
+  )
+  vim.keymap.set(
+    { "n", "v", "o" },
+    "gaT",
+    "<cmd>lua require('textcase').lsp_rename('to_title_case')<CR>",
+    { desc = "LSP rename to title_case" }
+  )
+  vim.keymap.set(
+    { "n", "v", "o" },
+    "gaZ",
+    "<cmd>lua require('textcase').lsp_rename('to_dot_case')<CR>",
+    { desc = "LSP rename to dot_case" }
+  )
 
   -- )))
 end

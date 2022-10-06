@@ -12,7 +12,7 @@ return function(defaults)
       backupext = "nvimbackup",
       breakindent = true, -- Every wrapped line will continue visually indented (same amount of space as the beginning of that line), thus preserving horizontal blocks of text.
       breakindentopt = { "shift:2", "sbr", "list:-1" }, -- https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
-      -- clipboard = "",
+      clipboard = "",
       cmdheight = 1, -- until the cmdheight=0 bugs are squashed
       conceallevel = 0,
       confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
@@ -42,7 +42,7 @@ return function(defaults)
         vertright = "┣",
         -- vertright = '┣',
       }, -- https://vi.stackexchange.com/questions/21872/change-fold-sign-character -- )))
-      foldcolumn = "4",
+      -- foldcolumn = "4",
       foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
       foldlevel = 2, -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
       foldlevelstart = 2,
@@ -57,7 +57,7 @@ return function(defaults)
       listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
       matchtime = 3, -- Tenths of a second to show the matching paren, when 'showmatch' is set.  Note that this is not in milliseconds, like other options that set a time.
       pumwidth = 35,
-      relativenumber = false,
+      -- relativenumber = false,
       report = 0, -- Threshold for reporting number of lines changed.
       rtp = vim.opt.rtp + { "$HOME/.config/astronvim/after" },
       scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor

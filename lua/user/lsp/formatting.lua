@@ -1,6 +1,6 @@
 return {
   disabled = { -- disable formatting capabilities for the listed clients
-    -- "sumneko_lua",
+    "sumneko_lua",
   },
   filter = function(client) -- fully override the default formatting function
     -- only enable null-ls for javascript files

@@ -18,6 +18,6 @@ return {
     "--suggest-missing-includes",
     "--fallback-style=webkit",
     "--cross-file-rename",
-    "--offset-encoding=utf-8",
+    -- "--offset-encoding=utf-8",
   },
 }
