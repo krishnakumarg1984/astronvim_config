@@ -10,7 +10,7 @@ return function(config)
     -- add the vim mode component
     astronvim.status.component.mode {
       -- enable mode text with padding as well as an icon before it
-      mode_text = { icon = { kind = "VimIcon", padding = { right = 0, left = 0 } } },
+      mode_text = { pad_text = "center", icon = { kind = "VimIcon", padding = { right = 0, left = 0 } } },
       -- define the highlight color for the text
       hl = { fg = "bg" },
       -- surround the component with a separators
@@ -35,6 +35,7 @@ return function(config)
       -- enable the file_icon and disable the highlighting based on filetype
       filename = false,
       file_icon = { highlight = false, padding = { left = 0 } },
+      -- file_icon = { padding = { left = 0 } },
       -- add padding
       padding = { right = 0 },
       -- define the section separator
