@@ -34,6 +34,7 @@ return function(config)
     astronvim.status.component.file_info {
       -- enable the file_icon and disable the highlighting based on filetype
       filename = false,
+      file_modified = false,
       file_icon = { highlight = false, padding = { left = 0 } },
       -- file_icon = { padding = { left = 0 } },
       -- add padding
