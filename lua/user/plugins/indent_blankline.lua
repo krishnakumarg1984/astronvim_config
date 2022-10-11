@@ -13,6 +13,7 @@ return {
     "neogitstatus",
     "NvimTree",
     "packer",
+    "rust",
     "startify",
     "Trouble",
   },

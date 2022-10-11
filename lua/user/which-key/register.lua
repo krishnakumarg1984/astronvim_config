@@ -43,6 +43,7 @@ return {
         p = { "<Cmd>BufferLineTogglePin<CR>", "Pin buffer (toggle)" },
         x = { "<Cmd>BufOnly<CR>", "Only current buffer" },
       },
+      C = { name = "Crates" },
       D = { "<cmd>windo diffthis<CR>", "diff buffers" },
       d = {
         name = "Debug",
@@ -176,6 +177,7 @@ return {
       p = {
         p = { "<cmd>PackerProfile<CR>", "Profile plugins" },
       },
+      r = { name = "Compile" },
       s = {
         name = "Search/Set",
         a = { "<cmd>Telescope autocommands<cr>", "Autocommands" },

@@ -1,7 +1,10 @@
 local kind_icons = require("user.global_vars").kind_icons
 return {
   backends = { "treesitter", "lsp", "markdown" },
-  min_width = 18,
+  -- min_width = 18,
+  layout = {
+    min_width = 18,
+  },
   icons = kind_icons,
   on_attach = function(bufnr)
     -- Jump forwards/backwards with '{' and '}'

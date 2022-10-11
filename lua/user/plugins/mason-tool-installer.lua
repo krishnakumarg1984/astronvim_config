@@ -7,7 +7,7 @@ return {
     -- "cbfmt",
     -- "clang-format",
     -- "cmakelang",
-    -- "codelldb",
+    "codelldb",
     -- "codespell",
     -- "debugpy",
     -- "editorconfig-checker",

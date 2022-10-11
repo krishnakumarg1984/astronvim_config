@@ -1,0 +1,4 @@
+return {
+  -- VimIcon = "",
+  VimIcon = "",
+}

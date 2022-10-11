@@ -299,10 +299,10 @@ return function()
     autocmd!
     " autocmd QuickFixCmdPost [^l]* QFOpen!
     " autocmd QuickFixCmdPost cexpr QFOpen
-    " autocmd QuickFixCmdPost cexpr cwindow
+    autocmd QuickFixCmdPost cexpr cwindow
     " autocmd QuickFixCmdPost l* nested lopen
     " https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
-    autocmd QuickFixCmdPost cgetexpr cwindow
+    " autocmd QuickFixCmdPost cgetexpr cwindow
     augroup END
 
     " )))
@@ -333,6 +333,7 @@ return function()
       ["/etc/mkinitcpio.conf"] = "confini",
       ["/etc/environment"] = "confini",
       [".dace.conf"] = "yaml",
+      ["zuliprc"] = "dosini",
     },
     pattern = {
       ["/tmp/neomutt.*"] = "markdown",

@@ -27,6 +27,21 @@ vim.keymap.set({ "n", "x" }, "&", ":&&<CR>") -- Remap normal/visual '&' to prese
 
 -- )))
 
+-- local function show_documentation()
+--   local filetype = vim.bo.filetype
+--   if vim.tbl_contains({ "vim", "help" }, filetype) then
+--     vim.cmd("h " .. vim.fn.expand "<cword>")
+--   elseif vim.tbl_contains({ "man" }, filetype) then
+--     vim.cmd("Man " .. vim.fn.expand "<cword>")
+--   elseif vim.fn.expand "%:t" == "Cargo.toml" and require("crates").popup_available() then
+--     require("crates").show_popup()
+--   else
+--     vim.lsp.buf.hover()
+--   end
+-- end
+--
+-- vim.keymap.set("n", "K", show_documentation, { noremap = true, silent = true })
+
 -- vimscript mappings (((
 
 vim.cmd [[
@@ -201,6 +216,24 @@ return {
     ["<F3>"] = { "<Plug>(Tasks-Profile)" },
 
     -- )))
+
+    -- "crates.nvim" keymaps (((
+
+    ["<leader>Ct"] = { "<cmd>lua require('crates').toggle()<CR>", desc = "Toggle crates" },
+    ["<leader>Cr"] = { "<cmd>lua require('crates').reload()<CR>", desc = "Reload crates" },
+    ["<leader>Cv"] = { "<cmd>lua require('crates').show_versions_popup()<CR>", desc = "Show versions" },
+    ["<leader>Cf"] = { "<cmd>lua require('crates').show_features_popup()<CR>", desc = "Show features" },
+    ["<leader>Cd"] = { "<cmd>lua require('crates').show_dependencies_popup()<CR>", desc = "Show dependencies" },
+    ["<leader>Cu"] = { "<cmd>lua require('crates').update_crate()<CR>", desc = "Update crate" },
+    ["<leader>Ca"] = { "<cmd>lua require('crates').update_all_crates()<CR>", desc = "Update all crates" },
+    ["<leader>CU"] = { "<cmd>lua require('crates').upgrade_crate()<CR>", desc = "Upgrade crate" },
+    ["<leader>CA"] = { "<cmd>lua require('crates').upgrade_all_crates()<CR>", desc = "Upgrade all crates" },
+    ["<leader>CH"] = { "<cmd>lua require('crates').open_homepage()<CR>", desc = "Open crate homepage" },
+    ["<leader>CR"] = { "<cmd>lua require('crates').open_repository()<CR>", desc = "Open crate repository" },
+    ["<leader>CD"] = { "<cmd>lua require('crates').open_documentation()<CR>", desc = "Open crate documentation" },
+    ["<leader>CC"] = { "<cmd>lua require('crates').open_crates_io()<CR>", desc = "Open in crates.io" },
+
+    -- )))
   },
 
   -- )))
@@ -261,6 +294,12 @@ return {
     ["gas"] = { "<cmd>lua require('textcase').current_word('to_snake_case')<CR>", desc = "Convert to snake_case" },
     ["gat"] = { "<cmd>lua require('textcase').current_word('to_title_case')<CR>", desc = "Convert to title_case" },
     ["gaz"] = { "<cmd>lua require('textcase').current_word('to_dot_case')<CR>", desc = "Convert to dot_case" },
+
+    -- )))
+    -- "crates.nvim" keymaps (((
+
+    ["<leader>Cu"] = { "<cmd>lua require('crates').update_crate()<CR>", desc = "Update crate" },
+    ["<leader>CU"] = { "<cmd>lua require('crates').upgrade_crates()<CR>", desc = "Upgrade crates" },
 
     -- )))
   },
