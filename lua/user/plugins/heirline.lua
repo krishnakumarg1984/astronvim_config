@@ -10,7 +10,7 @@ return function(config)
     -- add the vim mode component
     astronvim.status.component.mode {
       -- enable mode text with padding as well as an icon before it
-      mode_text = { pad_text = "center", icon = { kind = "VimIcon", padding = { right = 0, left = 0 } } },
+      mode_text = { pad_text = "center" },
       -- define the highlight color for the text
       hl = { fg = "bg" },
       -- surround the component with a separators
@@ -19,7 +19,13 @@ return function(config)
         separator = "left",
         -- set the color of the surrounding based on the current mode using astronvim.status module
         -- color = function() return { main = astronvim.status.hl.mode_bg(), right = "blank_bg" } end,
-        color = function() return { main = astronvim.status.hl.mode_bg(), right = "file_info_bg" } end,
+        color = function(self)
+          return {
+            main = astronvim.status.hl.mode_bg(),
+            -- set the right separator color based on file modified
+            right = astronvim.status.condition.file_modified(self.bufnr) and "file_info_modified_bg" or "file_info_bg",
+          }
+        end,
       },
     },
     -- we want an empty space here so we can use the component builder to make a new section with just an empty string
@@ -39,10 +45,23 @@ return function(config)
       -- file_icon = { padding = { left = 0 } },
       -- add padding
       padding = { right = 0 },
+      -- change foreground when modified
+      hl = function(self)
+        return astronvim.status.condition.file_modified(self.bufnr) and { fg = "file_info_modified_fg" } or nil
+      end,
       -- define the section separator
       -- surround = { separator = "left", condition = false },
       -- surround = { separator = "left", color = { left = "blank_bg", main = "blank_bg" } },
-      surround = { separator = "left", color = { left = "file_info_bg", main = "file_info_bg" }, condition = false },
+      surround = {
+        separator = "left",
+        -- change background when modified
+        color = function(self)
+          return {
+            main = astronvim.status.condition.file_modified(self.bufnr) and "file_info_modified_bg" or "file_info_bg",
+          }
+        end,
+        condition = false,
+      },
     },
     -- add a component for the current git branch if it exists and use no separator for the sections
     astronvim.status.component.git_branch { surround = { separator = "none" } },
