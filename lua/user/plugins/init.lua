@@ -17,10 +17,10 @@ return {
 
   -- Additional vimscript plugins (((
 
-  -- ["tweekmonster/startuptime.vim"] = { cmd = { "StartupTime" } }, -- Breakdown Vim's '--startuptime' output
+  ["tweekmonster/startuptime.vim"] = { cmd = { "StartupTime" } }, -- Breakdown Vim's '--startuptime' output
   -- ["dstein64/vim-startuptime"] = { cmd = { "StartupTime" } }, -- A Vim plugin for profiling Vim's startup time
 
-  ["AndrewRadev/bufferize.vim"] = {}, -- Execute a :command and show the output in a temporary buffer
+  ["AndrewRadev/bufferize.vim"] = { cmd = { "Bufferize", "BufferizeSystem", "BufferizeTimer" } }, -- Execute a :command and show the output in a temporary buffer
   -- ["tyru/capture.vim"] = { cmd = { "Capture" } }, -- Show Ex command output in buffer
   ["rust-lang/rust.vim"] = {}, -- Vim configuration for Rust. (must be loaded before 'rust-tools')
   ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } }, -- An alternative sudo.vim for Vim and Neovim
@@ -47,6 +47,7 @@ return {
   -- Additional lua plugins (((
 
   ["numtostr/BufOnly.nvim"] = { cmd = { "BufOnly" } }, -- Lua/Neovim port of BufOnly.vim with some changes
+  -- ["catppuccin/nvim"] = require "user.plugins.catppuccin_nvim", -- Soothing pastel theme for Neovim
   ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd_extensions", -- Clangd's off-spec features
   ["saecki/crates.nvim"] = require "user.plugins.crates_nvim", -- A neovim plugin that helps managing crates.io dependencies
   -- ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp-buffer", -- nvim-cmp source for buffer words
@@ -67,10 +68,10 @@ return {
   ["danymat/neogen"] = require "user.plugins.neogen", -- Annotation generator (multiple languages & conventions)
   ["TimUntersberger/neogit"] = require "user.plugins.neogit", -- Magit for neovim
   ["nvim-neotest/neotest"] = require "user.plugins.neotest", -- An extensible framework for interacting with tests within NeoVim.
-  ["nvim-neotest/neotest-python"] = {}, -- Neotest adapter for python. Supports Pytest and unittest test files.
+  ["nvim-neotest/neotest-python"] = { ft = "python" }, -- Neotest adapter for python. Supports Pytest and unittest test files.
   ["weilbith/nvim-code-action-menu"] = { cmd = "CodeActionMenu" }, -- Code action pop-up menu (meta-info & diff)
   ["MunifTanjim/exrc.nvim"] = require "user.plugins.exrc_nvim", -- Secure Project Local Config for Neovim
-  ["Canop/nvim-bacon"] = { ft = "rust" }, -- bacon's companion for neovim
+  -- ["Canop/nvim-bacon"] = { ft = "rust" }, -- bacon's companion for neovim
   -- ["andythigpen/nvim-coverage"] = require "user.plugins.nvim-coverage", -- Displays test coverage data in the sign column
   ["mfussenegger/nvim-dap"] = require "user.plugins.nvim-dap", -- Debug Adapter Protocol client implementation
   ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim-dapui", -- A UI for nvim-dap
