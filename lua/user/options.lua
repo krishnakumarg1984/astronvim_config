@@ -375,8 +375,8 @@ return function(defaults)
       loaded_ruby_provider = 0, -- To disable Ruby support
       loaded_shada_plugin = 1,
       loaded_spellfile_plugin = 1,
-      matchup_matchparen_deferred = true,
-      matchup_matchparen_enabled = false,
+      matchup_matchparen_deferred = 1,
+      matchup_matchparen_enabled = 0,
       matchup_matchparen_offscreen = { method = "popup" },
       matchup_override_vimtex = true,
       matchup_surround_enabled = true,
