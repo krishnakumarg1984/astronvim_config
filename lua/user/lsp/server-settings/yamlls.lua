@@ -1,3 +1,4 @@
+-- example for addings schemas to yamlls
 return {
   settings = {
     yaml = {

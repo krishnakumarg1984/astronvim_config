@@ -1,9 +1,12 @@
 -- overrides `require("treesitter").setup(...)`
 return {
-  ts_funky_keywords = { enable = true }, -- https://github.com/simrat39/dotfiles/blob/master/nvim/.config/nvim/lua/sim_config/tree-sitter.lua
+  autotag = {
+    enable = true,
+  },
   auto_install = true, -- Automatically install missing parsers when entering buffer
   ignore_install = { "latex" },
   highlight = {
+    enable = true,
     use_languagetree = true, -- Use this to enable language injection
     disable = { "css", "help", "latex" },
   },
@@ -13,6 +16,7 @@ return {
     lint_events = { "BufWrite", "CursorHold" },
   },
   context_commentstring = {
+    enable = true,
     config = {
       vim = '" %s',
     },
@@ -131,6 +135,7 @@ return {
       },
     },
   },
+  ts_funky_keywords = { enable = true }, -- https://github.com/simrat39/dotfiles/blob/master/nvim/.config/nvim/lua/sim_config/tree-sitter.lua
 }
 
 -- ensure_installed = {

@@ -311,7 +311,7 @@ return function()
 
   -- )))
 
-  -- Add custom filetypes (lua-based config from nvim 0.7+) (((
+  -- Set up custom filetypes (lua-based config) (((
 
   -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/filetype.lua
   vim.filetype.add {

@@ -1,4 +1,4 @@
--- Add 'which-key' bindings
+-- Modify which-key registration (Use this with mappings table)
 return {
   -- first key is the mode, n == normal mode
   n = {
