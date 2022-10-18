@@ -342,4 +342,11 @@ return function()
   }
 
   -- )))
+
+  -- Set up custom commands (lua-based config) (((
+
+  -- https://discord.com/channels/939594913560031363/942007419050029086/1031995818812641320
+  -- vim.api.nvim_buf_create_user_command(0, "Messages", "<cmd>Bufferize messages<CR>", { desc = "Capture messages" })
+
+  -- )))
 end

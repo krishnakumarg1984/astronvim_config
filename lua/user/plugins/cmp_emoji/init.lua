@@ -1,5 +1,5 @@
 return {
-  -- wants = "nvim-cmp",
+  after = "nvim-cmp",
   ft = {
     "asciidoc",
     "changelog",

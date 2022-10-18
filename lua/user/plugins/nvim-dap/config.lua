@@ -239,22 +239,23 @@ dap.configurations = { -- "launch configurations"
   },
 }
 
--- vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticInfo" })
-vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
--- vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DiagnosticInfo" })
-vim.fn.sign_define(
-  "DapBreakpointCondition",
-  { text = "", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
-)
-vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "LspDiagnosticsSignError" })
--- vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "DiagnosticInfo" })
-vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "DapLogPoint", linehl = "", numhl = "" })
-vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn" })
--- vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "LspDiagnosticsSignError" })
--- vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticError" })
--- vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "LspDiagnosticsSignHint" })
--- vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "DiagnosticWarn" })
--- vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "LspDiagnosticsSignInformation", linehl = "DiagnosticUnderlineInfo", numhl = "LspDiagnosticsSignInformation" })
+-- Dap signs are now defined by AstroNVim. See here: https://github.com/AstroNvim/AstroNvim/commit/f61e63f90a22d0a45cb652f3cfa8076bb6144c9a
+-- -- vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DiagnosticInfo" })
+-- vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+-- -- vim.fn.sign_define("DapBreakpointCondition", { text = "", texthl = "DiagnosticInfo" })
+-- vim.fn.sign_define(
+--   "DapBreakpointCondition",
+--   { text = "", texthl = "DapBreakpointCondition", linehl = "", numhl = "" }
+-- )
+-- vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "LspDiagnosticsSignError" })
+-- -- vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "DiagnosticInfo" })
+-- vim.fn.sign_define("DapLogPoint", { text = ".>", texthl = "DapLogPoint", linehl = "", numhl = "" })
+-- vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn" })
+-- -- vim.fn.sign_define("DapBreakpoint", { text = "🟥", texthl = "LspDiagnosticsSignError" })
+-- -- vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "DiagnosticError" })
+-- -- vim.fn.sign_define("DapBreakpointRejected", { text = "", texthl = "LspDiagnosticsSignHint" })
+-- -- vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "DiagnosticWarn" })
+-- -- vim.fn.sign_define("DapStopped", { text = "⭐️", texthl = "LspDiagnosticsSignInformation", linehl = "DiagnosticUnderlineInfo", numhl = "LspDiagnosticsSignInformation" })
 
 -- If you're using the integrated terminal, you can configure the command that is used to create a split window:
 

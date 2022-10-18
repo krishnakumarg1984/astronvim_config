@@ -51,11 +51,13 @@ return {
   -- ["catppuccin/nvim"] = require "user.plugins.catppuccin_nvim", -- Soothing pastel theme for Neovim
   ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd_extensions", -- Clangd's off-spec features
   ["saecki/crates.nvim"] = require "user.plugins.crates_nvim", -- A neovim plugin that helps managing crates.io dependencies
-  -- ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp-buffer", -- nvim-cmp source for buffer words
-  -- ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp-emoji", -- nvim-cmp source for emoji
-  -- ["petertriho/cmp-git"] = require "user.plugins.cmp-git", -- Git source for nvim-cmp
+  -- ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp_buffer", -- nvim-cmp source for buffer words (buggy config. Breaks other cmp lazy loading)
+  ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for buffer words
+  ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp_emoji", -- nvim-cmp source for emoji
+  ["petertriho/cmp-git"] = require "user.plugins.cmp-git", -- Git source for nvim-cmp
   ["hrsh7th/cmp-omni"] = require "user.plugins.cmp_omni", -- nvim-cmp source for omnifunc
   ["gpanders/editorconfig.nvim"] = {}, --  EditorConfig plugin for Neovim
+  ["MunifTanjim/exrc.nvim"] = require "user.plugins.exrc_nvim", -- Secure Project Local Config for Neovim
   ["akinsho/git-conflict.nvim"] = require "user.plugins.git-conflict", -- Visualise & resolve merge conflicts
   ["ellisonleao/glow.nvim"] = { cmd = { "Glow", "GlowInstall" } }, -- A markdown preview directly in your neovim
   -- ["lukas-reineke/headlines.nvim"] = require "user.plugins.headlines", -- Horizontal highlights for text filetypes
@@ -72,7 +74,6 @@ return {
   ["nvim-neotest/neotest"] = require "user.plugins.neotest", -- An extensible framework for interacting with tests within NeoVim.
   ["nvim-neotest/neotest-python"] = { ft = "python" }, -- Neotest adapter for python. Supports Pytest and unittest test files.
   ["weilbith/nvim-code-action-menu"] = { cmd = "CodeActionMenu" }, -- Code action pop-up menu (meta-info & diff)
-  ["MunifTanjim/exrc.nvim"] = require "user.plugins.exrc_nvim", -- Secure Project Local Config for Neovim
   -- ["Canop/nvim-bacon"] = { ft = "rust" }, -- bacon's companion for neovim
   -- ["andythigpen/nvim-coverage"] = require "user.plugins.nvim-coverage", -- Displays test coverage data in the sign column
   ["mfussenegger/nvim-dap"] = require "user.plugins.nvim-dap", -- Debug Adapter Protocol client implementation

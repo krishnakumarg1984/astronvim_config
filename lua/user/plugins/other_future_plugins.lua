@@ -12,7 +12,7 @@
 
 -- tex/bib notes and hyperlinks (((
 
--- https://github.com/nvim-telescope/telescope-bibtex.nvim -- A telescope extension to search & paste bibtex entries
+-- https://github.com/nvim-telescope/telescope-bibtex.nvim -- A telescope extension to search & paste bibtex entries -- also refere to mehalter's config here: https://code.mehalter.com/projects/68/files/master/plugins/telescope-bibtex
 -- https://github.com/msprev/fzf-bibtex
 -- https://github.com/rafaqz/citation.vim
 
@@ -49,6 +49,8 @@
 -- https://github.com/Civitasv/cmake-tools.nvim  --  CMake integration in Neovim
 -- https://github.com/rcarriga/cmp-dap  -- nvim-cmp source for nvim-dap REPL and nvim-dap-ui buffers
 -- https://github.com/octaltree/cmp-look = require "user.plugins.cmp-look",
+-- cmp-latex-symbols
+-- cmp-pandoc-references
 -- use { "andersevenrud/cmp-tmux" }  -- Tmux completion source for nvim-cmp and nvim-compe
 -- https://github.com/xeluxee/competitest.nvim -- Automate testcases management & checking for Competitive Programming
 -- https://github.com/zbirenbaum/copilot-cmp -- Lua plugin to turn github copilot into a cmp source

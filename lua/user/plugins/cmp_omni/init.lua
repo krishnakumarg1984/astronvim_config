@@ -1,4 +1,4 @@
 return {
   after = "nvim-cmp",
-  config = function() require "user.plugins.cmp_omni.config" end,
+  config = function() astronvim.add_user_cmp_source "omni" end,
 }
