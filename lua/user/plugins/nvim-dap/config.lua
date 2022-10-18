@@ -275,9 +275,9 @@ vim.fn.sign_define("DapStopped", { text = "", texthl = "DiagnosticWarn" })
 -- nvim-dap keymaps (((
 
 vim.keymap.set("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", { silent = true })
-vim.keymap.set("n", "<F6>", "<Cmd>lua require'dap'.pause()<CR>", { silent = true })
-vim.keymap.set("n", "<F7>", "<Cmd>lua require'dapui'.float_element('console')<CR>", { silent = true })
-vim.keymap.set("n", "<F8>", "<Cmd>lua require'dap'.run_to_cursor()<CR>", { silent = true })
+-- vim.keymap.set("n", "<F6>", "<Cmd>lua require'dap'.pause()<CR>", { silent = true })
+-- vim.keymap.set("n", "<F7>", "<Cmd>lua require'dapui'.float_element('console')<CR>", { silent = true }) -- conflicts with vimtex's { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }
+-- vim.keymap.set("n", "<F8>", "<Cmd>lua require'dap'.run_to_cursor()<CR>", { silent = true }) -- conflicts with vimtex's (Add `\left ... \right)` modifiers to surrounding delimiters with `<F8>`)
 -- -- ["<F9>" ,  "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", silent = true },
 vim.keymap.set("n", "<leader>dg", "<Cmd>lua require'dap'.goto_(", { silent = true })
 vim.keymap.set("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", { silent = true })

@@ -1,5 +1,4 @@
 -- vim: ft=lua:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
---
 
 local cmp = require "cmp"
 local user_source = astronvim.get_user_cmp_source

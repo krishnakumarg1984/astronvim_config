@@ -33,11 +33,12 @@ return {
   ["gauteh/vim-cppman"] = { cmd = { "Cppman" } }, -- cppman ("C++ 98/11/14 manual pages for Linux/MacOS" ) from vim
   -- ["Konfekt/vim-DetectSpellLang"] = require "user.plugins.vim-detectspelllang", -- Autodetect the spellcheck language
   ["dbmrq/vim-dialect"] = require "user.plugins.vim-dialect", -- Project specific spellfiles
-  ["Konfekt/vim-sentence-chopper"] = { ft = { "tex", "markdown", "text" } }, -- VCS-friendly text formatting
+  -- ["ludovicchabant/vim-gutentags"] = require "user.plugins.vim-gutentags", -- A Vim plugin that manages your tag files
   ["andymass/vim-matchup"] = { after = "nvim-treesitter" }, -- Even better '%' navigate & highlight matching words
   ["urbainvaes/vim-ripple"] = require "user.plugins.vim-ripple", -- Minimalist plugin to interact with a REPL
+  ["Konfekt/vim-sentence-chopper"] = { ft = { "tex", "markdown", "text" } }, -- VCS-friendly text formatting
   ["tpope/vim-unimpaired"] = require "user.plugins.vim-unimpaired", -- Pairs of handy bracket mappings
-  ["lervag/vimtex"] = {}, --  VimTeX: A modern Vim and neovim filetype plugin for LaTeX files
+  ["lervag/vimtex"] = require "user.plugins.vimtex", --  VimTeX: A modern Vim and neovim filetype plugin for LaTeX files
 
   -- ["svban/YankAssassin.vim"] = {}, -- Don't let the cursor move while Yanking in Vim/Neovim
   -- ["axvr/zepl.vim"] = {}, -- Simple and minimal REPL integration plugin for Vim and Neovim
@@ -53,6 +54,7 @@ return {
   -- ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp-buffer", -- nvim-cmp source for buffer words
   -- ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp-emoji", -- nvim-cmp source for emoji
   -- ["petertriho/cmp-git"] = require "user.plugins.cmp-git", -- Git source for nvim-cmp
+  ["hrsh7th/cmp-omni"] = require "user.plugins.cmp_omni", -- nvim-cmp source for omnifunc
   ["gpanders/editorconfig.nvim"] = {}, --  EditorConfig plugin for Neovim
   ["akinsho/git-conflict.nvim"] = require "user.plugins.git-conflict", -- Visualise & resolve merge conflicts
   ["ellisonleao/glow.nvim"] = { cmd = { "Glow", "GlowInstall" } }, -- A markdown preview directly in your neovim

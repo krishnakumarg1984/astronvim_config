@@ -22,7 +22,7 @@ end
 -- for MULTIPLE vim-modes, disable some unnecessary/confusing neovim-default mappings (((
 
 vim.keymap.set({ "n", "i" }, "<f1>", "<Nop>")
-vim.keymap.set({ "n", "x" }, "s", "<Nop>") -- Disable 's' as recommended by sandwich.vim help file
+-- vim.keymap.set({ "n", "x" }, "s", "<Nop>") -- Disable 's' as recommended by sandwich.vim help file
 vim.keymap.set({ "n", "x" }, "&", ":&&<CR>") -- Remap normal/visual '&' to preserve substitution flags
 
 -- )))
@@ -145,6 +145,8 @@ return {
     ["<leader>/"] = false,
     ["<leader>q"] = false,
     ["<leader>w"] = false,
+    ["<F7>"] = false,
+    ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
     ["<S-h>"] = false,
     -- ["<S-j>"] = { "mzJ`zmz" },
     ["<S-j>"] = { "mzJ`z" },
@@ -234,6 +236,34 @@ return {
     ["<leader>CC"] = { "<cmd>lua require('crates').open_crates_io()<CR>", desc = "Open in crates.io" },
 
     -- )))
+
+    -- "VimTeX" keymaps (((
+
+    ["<leader>vi"] = { "<plug>(vimtex-info)", silent = true, desc = "Info" },
+    ["<leader>vI"] = { "<plug>(vimtex-info-full)", silent = true, desc = "Info (full)" },
+    ["<leader>vt"] = { "<plug>(vimtex-toc-toggle)", silent = true, desc = "Toggle ToC" },
+    ["<leader>vT"] = { "<plug>(vimtex-toc-open)", silent = true, desc = "Open ToC" },
+    ["<leader>vq"] = { "<plug>(vimtex-log)", silent = true, desc = "Log" },
+    ["<leader>vp"] = { "<plug>(vimtex-view)", silent = true, desc = "View PDF" },
+    ["<leader>vr"] = { "<plug>(vimtex-reverse-search)", silent = true, desc = "Reverse search" },
+    ["<leader>vv"] = { "<plug>(vimtex-compile)", silent = true, desc = "Compile" },
+    ["<leader>vV"] = { "<plug>(vimtex-compile-selected)", silent = true, desc = "Compile selected" },
+    ["<leader>vk"] = { "<plug>(vimtex-stop)", silent = true, desc = "Stop" },
+    ["<leader>vK"] = { "<plug>(vimtex-stop-all)", silent = true, desc = "Stop all" },
+    ["<leader>ve"] = { "<plug>(vimtex-errors)", silent = true, desc = "Errors" },
+    ["<leader>vo"] = { "<plug>(vimtex-compile-output)", silent = true, desc = "Compile output" },
+    ["<leader>vg"] = { "<plug>(vimtex-status)", silent = true, desc = "Status" },
+    ["<leader>vG"] = { "<plug>(vimtex-status-all)", silent = true, desc = "Status (all)" },
+    ["<leader>vc"] = { "<plug>(vimtex-clean)", silent = true, desc = "Clean" },
+    ["<leader>vC"] = { "<plug>(vimtex-clean-full)", silent = true, desc = "Clean full" },
+    ["<leader>vl"] = { "<plug>(vimtex-imaps-list)", silent = true, desc = "Insert-mode mappings" },
+    ["<leader>vx"] = { "<plug>(vimtex-reload)", silent = true, desc = "Reload" },
+    ["<leader>vX"] = { "<plug>(vimtex-reload-state)", silent = true, desc = "Reload state" },
+    ["<leader>vm"] = { "<plug>(vimtex-toggle-main)", silent = true, desc = "Toggle main" },
+    ["<leader>va"] = { "<plug>(vimtex-context-menu)", silent = true, desc = "Context menu" },
+    ["<leader>vd"] = { "<plug>(vimtex-doc-package)", silent = true, desc = "Doc package" },
+
+    -- )))
   },
 
   -- )))
@@ -266,6 +296,8 @@ return {
   t = {
     -- ["<esc>"] = { "<C-\\><C-n>", silent = true },
     -- ["<esc><esc>"] = { "<c-\\><c-n>:q<cr>", desc = "Terminal quit" },
+    ["<F7>"] = false,
+    ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
     ["<C-h>"] = false,
     ["<C-j>"] = false,
     ["<C-k>"] = false,
@@ -327,6 +359,12 @@ return {
     -- ["ih"] = { "<Cmd><C-U>Gitsigns select_hunk<CR>" },
     --
     -- -- )))
+
+    -- 'VimTeX' keymaps (((
+
+    ["<leader>vV"] = { "<plug>(vimtex-compile-selected)", desc = "Compile selected" },
+
+    -- )))
   },
 
   -- )))

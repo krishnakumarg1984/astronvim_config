@@ -6,6 +6,7 @@
 -- true == 1000
 return {
   nvim_lsp = 1000,
+  omni = 950,
   git = 900,
   luasnip = 750,
   nvim_lsp_signature_help = 700,

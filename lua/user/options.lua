@@ -1,5 +1,6 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 -- NOTE: Only my preferred settings that are not set by AstroNvim are here
+
 return function(defaults)
   defaults.g.loaded_netrwPlugin = nil
   defaults.g.mapleader = "\\" -- sets vim.g.mapleader
@@ -14,6 +15,7 @@ return function(defaults)
       breakindentopt = { "shift:2", "sbr", "list:-1" }, -- https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
       clipboard = "",
       cmdheight = 1, -- until the cmdheight=0 bugs are squashed
+      complete = vim.opt.complete + { "i" },
       conceallevel = 0,
       confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
       cursorlineopt = "number",
@@ -50,6 +52,7 @@ return function(defaults)
       foldopen = vim.opt.foldopen + { "jump" },
       history = 10000,
       infercase = true, -- Ignore case on insert completion. When doing keyword completion in insert mode |ins-completion|, and 'ignorecase' is also on, the case of the match is adjusted depending on the typed text.
+      isfname = vim.opt.isfname - { "," },
       iskeyword = vim.opt.iskeyword + { "-" },
       lazyredraw = true, -- Don't redraw the screen during batch execution
       linebreak = true, -- Wrap lines at convenient point (only affects the on-screen display, not actual content in file) -- Break lines at word boundaries
@@ -384,7 +387,7 @@ return function(defaults)
       matchup_matchparen_deferred = 1,
       matchup_matchparen_enabled = 0,
       matchup_matchparen_offscreen = { method = "popup" },
-      matchup_override_vimtex = true,
+      matchup_override_vimtex = 1,
       matchup_surround_enabled = true,
       netrw_nogx = 1,
       python3_host_prog = "python3",
@@ -392,7 +395,7 @@ return function(defaults)
       skip_loading_mswin = 1,
       tex_comment_nospell = 1,
       tex_conceal = "abdmgs",
-      tex_flavor = "latex",
+      -- tex_flavor = "latex",  -- vimtex already sets this up
       tex_isk = "48-57,a-z,A-Z,192-255,:,_",
       tex_fold_enabled = 1,
       markdown_enable_folding = 1,

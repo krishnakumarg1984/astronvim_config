@@ -2,15 +2,16 @@
 return function(config)
   -- Define local variables (((
 
-  -- local kind_icons = require("user.global_vars").kind_icons
+  local kind_icons = require("user.global_vars").kind_icons
   local cmp = require "cmp"
   -- https://github.com/hrsh7th/nvim-cmp/issues/980
   -- local ELLIPSIS_CHAR = "…"
-  -- local MAX_LABEL_WIDTH = 25
-  -- local MIN_LABEL_WIDTH = 25
+  local ELLIPSIS_CHAR = astronvim.get_icon "Ellipsis"
+  local MAX_LABEL_WIDTH = 25
+  local MIN_LABEL_WIDTH = 25
   -- https://www.reddit.com/r/neovim/comments/unlj8d/is_there_any_way_to_show_types_in_nvimcmp/?sort=new
-  -- local MIN_MENU_DETAIL_WIDTH = 15
-  -- local MAX_MENU_DETAIL_WIDTH = 15
+  local MIN_MENU_DETAIL_WIDTH = 15
+  local MAX_MENU_DETAIL_WIDTH = 15
 
   -- )))
 
@@ -23,72 +24,74 @@ return function(config)
     },
     window = {
       completion = {
-        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+        -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
         col_offset = -3,
         side_padding = 0,
       },
     },
-    formatting = {
-      fields = { "kind", "abbr", "menu" },
-      format = function(entry, vim_item)
-        local kind = require("lspkind").cmp_format { mode = "symbol_text", maxwidth = 50 }(entry, vim_item)
-        local strings = vim.split(kind.kind, "%s", { trimempty = true })
-        kind.kind = " " .. strings[1] .. " "
-        kind.menu = "    (" .. strings[2] .. ")"
-
-        return kind
-      end,
-    },
     -- formatting = {
     --   fields = { "kind", "abbr", "menu" },
-    --   format = function(entry, vim_item) -- (((
-    --     -- Kind icons
-    --     vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-    --     -- https://github.com/hrsh7th/nvim-cmp/discussions/609#discussioncomment-1844480
-    --     local label = vim_item.abbr
-    --     local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
-    --     if truncated_label ~= label then
-    --       vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
-    --     elseif string.len(label) < MIN_LABEL_WIDTH then
-    --       local padding = string.rep(" ", MIN_LABEL_WIDTH - string.len(label))
-    --       vim_item.abbr = label .. padding
-    --     end
-    --     -- vim_item.abbr = string.sub(vim_item.abbr, 1, 25)
-    --     -- Source
-    --     local item = entry:get_completion_item()
-    --     if item.detail then
-    --       vim_item.menu = item.detail
-    --     else
-    --       vim_item.menu = ({
-    --         buffer = "[Buf]",
-    --         -- cmp_tabnine = "[Tabnine]",
-    --         dictionary = "[Dictionary]",
-    --         nvim_lsp_signature_help = "[Function Signature]",
-    --         signature_help = "[Function Signature]",
-    --         emoji = "[Emoji]",
-    --         latex_symbols = "[LaTeX]",
-    --         look = "[Dict]",
-    --         git = "[Git]",
-    --         luasnip = "[Snippet]",
-    --         nvim_lsp = "[LSP]",
-    --         nvim_lua = "[Nvim_Lua]",
-    --         path = "[Path]",
-    --         spell = "[Spell]",
-    --         tags = "[Tags]",
-    --         tmux = "[Tmux]",
-    --       })[entry.source.name]
-    --     end
-    --     local my_menu = vim_item.menu
-    --     local truncated_my_menu = vim.fn.strcharpart(my_menu, 0, MAX_MENU_DETAIL_WIDTH)
-    --     if truncated_my_menu ~= my_menu then
-    --       vim_item.menu = truncated_my_menu .. ELLIPSIS_CHAR
-    --     elseif string.len(my_menu) < MIN_MENU_DETAIL_WIDTH then
-    --       local menu_padding = string.rep(" ", MIN_MENU_DETAIL_WIDTH - string.len(my_menu))
-    --       vim_item.menu = my_menu .. menu_padding
-    --     end
-    --     return vim_item
-    --   end, -- )))
+    --   format = function(entry, vim_item)
+    --     local kind = require("lspkind").cmp_format { mode = "symbol_text", maxwidth = 50 }(entry, vim_item)
+    --     local strings = vim.split(kind.kind, "%s", { trimempty = true })
+    --     kind.kind = " " .. strings[1] .. " "
+    --     kind.menu = "    (" .. strings[2] .. ")"
+    --
+    --     return kind
+    --   end,
     -- },
+    formatting = {
+      fields = { "kind", "abbr", "menu" },
+      format = function(entry, vim_item) -- (((
+        -- Kind icons
+        -- vim_item.kind = string.format("%s haha %s", kind_icons[vim_item.kind], vim_item.kind)
+        vim_item.kind = string.format("%s ", kind_icons[vim_item.kind])
+        -- https://github.com/hrsh7th/nvim-cmp/discussions/609#discussioncomment-1844480
+        local label = vim_item.abbr
+        local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+        if truncated_label ~= label then
+          vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
+        elseif string.len(label) < MIN_LABEL_WIDTH then
+          local padding = string.rep(" ", MIN_LABEL_WIDTH - string.len(label))
+          vim_item.abbr = label .. padding
+        end
+        -- vim_item.abbr = string.sub(vim_item.abbr, 1, 25)
+        -- Source
+        local item = entry:get_completion_item()
+        if item.detail then
+          vim_item.menu = item.detail
+        else
+          vim_item.menu = ({
+            buffer = "[Buf]",
+            -- cmp_tabnine = "[Tabnine]",
+            dictionary = "[Dictionary]",
+            nvim_lsp_signature_help = "[Function Signature]",
+            signature_help = "[Function Signature]",
+            emoji = "[Emoji]",
+            latex_symbols = "[LaTeX]",
+            look = "[Dict]",
+            git = "[Git]",
+            luasnip = "[Snippet]",
+            omni = "[Omni]",
+            nvim_lsp = "[LSP]",
+            nvim_lua = "[Nvim_Lua]",
+            path = "[Path]",
+            spell = "[Spell]",
+            tags = "[Tags]",
+            tmux = "[Tmux]",
+          })[entry.source.name]
+        end
+        local my_menu = vim_item.menu
+        local truncated_my_menu = vim.fn.strcharpart(my_menu, 0, MAX_MENU_DETAIL_WIDTH)
+        if truncated_my_menu ~= my_menu then
+          vim_item.menu = truncated_my_menu .. ELLIPSIS_CHAR
+        elseif string.len(my_menu) < MIN_MENU_DETAIL_WIDTH then
+          local menu_padding = string.rep(" ", MIN_MENU_DETAIL_WIDTH - string.len(my_menu))
+          vim_item.menu = my_menu .. menu_padding
+        end
+        return vim_item
+      end, -- )))
+    },
     mapping = {
       ["<C-j>"] = cmp.config.disable,
       ["<C-k>"] = cmp.config.disable,
@@ -116,3 +119,55 @@ end
 --   },
 -- },
 -- )))
+
+-- return {
+--   plugins = {
+--     cmp = {
+--       formatting = {
+--         format = function(_, vim_item)
+--           local MIN_MENU_DETAIL_WIDTH = 15
+--           local MAX_MENU_DETAIL_WIDTH = 15
+--           local lspkind_avail, lspkind = pcall(require, "lspkind")
+--           if lspkind_avail then vim_item = lspkind.cmp_format(astronvim.lspkind) end
+--           local my_menu = vim_item.menu
+--           local truncated_my_menu = vim.fn.strcharpart(my_menu, 0, MAX_MENU_DETAIL_WIDTH)
+--           if truncated_my_menu ~= my_menu then
+--             vim_item.menu = truncated_my_menu .. astronvim.get_icon "Ellipsis"
+--           elseif string.len(my_menu) < MIN_MENU_DETAIL_WIDTH then
+--             local menu_padding = string.rep(" ", MIN_MENU_DETAIL_WIDTH - string.len(my_menu))
+--             vim_item.menu = my_menu .. menu_padding
+--           end
+--           return vim_item
+--         end,
+--       },
+--     },
+--   },
+-- }
+
+-- https://discord.com/channels/939594913560031363/942007419050029086/1030563977064882216
+-- return {
+--   plugins = {
+--     cmp = {
+--       formatting = {
+--         format = function(_, vim_item)
+--           local MIN_MENU_DETAIL_WIDTH = 15
+--           local MAX_MENU_DETAIL_WIDTH = 15
+--           local lspkind_avail, lspkind = pcall(require, "lspkind")
+--           if lspkind_avail then vim_item = lspkind.cmp_format(astronvim.lspkind) end
+--           local my_menu = vim_item.menu
+--           local truncated_my_menu = vim.fn.strcharpart(my_menu, 0, MAX_MENU_DETAIL_WIDTH)
+--           if truncated_my_menu ~= my_menu then
+--             vim_item.menu = truncated_my_menu .. astronvim.get_icon "Ellipsis"
+--           elseif string.len(my_menu) < MIN_MENU_DETAIL_WIDTH then
+--             local menu_padding = string.rep(" ", MIN_MENU_DETAIL_WIDTH - string.len(my_menu))
+--             vim_item.menu = my_menu .. menu_padding
+--           end
+--           return vim_item
+--         end,
+--       },
+--     },
+--   },
+-- }
+
+-- the default is this
+--     format = lspkind_status_ok and lspkind.cmp_format(astronvim.lspkind) or nil,

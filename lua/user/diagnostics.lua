@@ -2,7 +2,7 @@
 return {
   underline = false,
   update_in_insert = false,
-  severity_sort = false,
+  severity_sort = true,
   virtual_lines = false,
   -- virtual_lines = { only_current_line = true },
   virtual_text = false,

@@ -38,12 +38,12 @@ end, { desc = "Test suite" })
 vim.keymap.set("n", "<leader>Tt", function() neotest.run.run() end, { desc = "Test nearest" })
 
 neotest.setup {
-  adapters = {
-    require "neotest-python" {
-      dap = { justMyCode = true, console = "integratedTerminal" },
-    },
-  },
-  consumers = {
-    overseer = require "neotest.consumers.overseer",
-  },
+  -- adapters = {
+  --   require "neotest-python" {
+  --     dap = { justMyCode = true, console = "integratedTerminal" },
+  --   },
+  -- },
+  -- consumers = {
+  --   overseer = require "neotest.consumers.overseer",
+  -- },
 }

@@ -1,3 +1,4 @@
+-- https://github.com/fitrh/init.nvim
 return {
   capabilities = {
     offsetEncoding = "utf-8",
@@ -6,18 +7,27 @@ return {
   },
   filetypes = { "c", "cpp", "objc", "objcpp", "opencl" },
   init_options = {
-    clangdFileStatus = true,
+    clangdFileStatus = true, -- Provides information about activity on clangd’s per-file worker thread
+    -- TODO: figure out what is this
+    usePlaceholders = true,
+    completeUnimported = true,
+    semanticHighlighting = true,
   },
   cmd = {
     "clangd",
-    "--clang-tidy",
-    "--background-index",
+    -- SEE: clangd --help-hidden for possible options
+    -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
+    -- to add more `checks`, create  a `.clang-tidy` file in the root directory
+    -- SEE: https://clang.llvm.org/extra/clang-tidy
     "--all-scopes-completion",
-    "--header-insertion=iwyu",
+    "--background-index",
+    "--clang-tidy",
+    -- "--completion-style=bundled",
     "--completion-style=detailed",
-    "--suggest-missing-includes",
-    "--fallback-style=webkit",
     "--cross-file-rename",
+    "--fallback-style=webkit",
+    "--header-insertion=iwyu",
+    "--suggest-missing-includes",
     -- "--offset-encoding=utf-8",
   },
 }

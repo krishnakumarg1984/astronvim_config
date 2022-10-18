@@ -1,8 +1,6 @@
 -- overrides `require("treesitter").setup(...)`
 return {
-  autotag = {
-    enable = true,
-  },
+  autotag = { enable = true },
   auto_install = true, -- Automatically install missing parsers when entering buffer
   ignore_install = { "latex" },
   highlight = {

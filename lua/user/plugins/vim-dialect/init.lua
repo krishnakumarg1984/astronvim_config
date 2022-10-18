@@ -5,6 +5,7 @@ return {
     "context",
     "DiffviewFiles",
     "gitcommit",
+    "help",
     "Neogitcommit",
     "NeogitCommit",
     "NeogitCommitMessage",

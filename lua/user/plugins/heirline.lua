@@ -81,6 +81,9 @@ return function(config)
     astronvim.status.component.lsp { lsp_progress = true, surround = { separator = "right" } },
     -- NvChad has some nice icons to go along with information, so we can create a parent component to do this
     -- all of the children of this table will be treated together as a single component
+    astronvim.status.component.treesitter {
+      surround = {},
+    },
     {
       -- define a simple component where the provider is just a folder icon
       astronvim.status.component.builder {

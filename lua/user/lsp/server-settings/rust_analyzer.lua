@@ -46,6 +46,11 @@ return {
       },
       procMacro = {
         enable = true,
+        ignored = { -- https://github.com/numToStr/dotfiles/blob/f972b9ebfd742daac8f2dc5ea6c19681241bd798/neovim/.config/nvim/lua/numToStr/plugins/lsp/servers.lua#L63-L85
+          ["async-trait"] = { "async_trait" },
+          ["napi-derive"] = { "napi" },
+          ["async-recursion"] = { "async_recursion" },
+        },
       },
       experimental = {
         procAttrMacros = true,

@@ -10,6 +10,14 @@
 
 -- )))
 
+-- tex/bib notes and hyperlinks (((
+
+-- https://github.com/nvim-telescope/telescope-bibtex.nvim -- A telescope extension to search & paste bibtex entries
+-- https://github.com/msprev/fzf-bibtex
+-- https://github.com/rafaqz/citation.vim
+
+-- )))
+
 -- dap notes and hyperlinks (((
 
 -- https://gist.github.com/mehalter/b02b1d35499b650290d89badf0f2abac
@@ -148,7 +156,6 @@
 -- use { "ur4ltz/surround.nvim" }
 -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" }, -- Surf through & move elements with treesitter
 -- https://github.com/GustavoKatel/tasks.nvim  -- Yet another task runner/manager for Neovim
--- https://github.com/nvim-telescope/telescope-bibtex.nvim -- A telescope extension to search & paste bibtex entries
 -- use { "nvim-telescope/telescope-media-files.nvim" }
 -- use { "nvim-telescope/telescope-packer.nvim" }
 -- use { "cljoly/telescope-repo.nvim" } --Jump into the repositories of your filesystem, without any setup
@@ -304,6 +311,93 @@ https://github.com/stevearc/gkeep.nvim
 -- )))
 
 -- Readings and resources (((
+
+-- setting up plugin mappings discord discussions (((
+
+-- https://discord.com/channels/939594913560031363/942007419050029086/1032003520263622717
+-- return {
+--   plugins = {
+--     init = {
+--       ["some_user/some_plugin"] = {
+--         setup = function()
+--           -- this runs right before the plugin is loaded
+--         end,
+--         config = function()
+--           -- this runs right after the plugin is loaded
+--         end
+--       }
+--     }
+--   }
+-- }
+-- https://github.com/wbthomason/packer.nvim
+--
+-- you can read the packer docs here
+-- GitHub
+-- GitHub - wbthomason/packer.nvim: A use-package inspired plugin mana...
+-- A use-package inspired plugin manager for Neovim. Uses native packages, supports Luarocks dependencies, written in Lua, allows for expressive config - GitHub - wbthomason/packer.nvim: A use-package...
+-- GitHub - wbthomason/packer.nvim: A use-package inspired plugin mana...
+-- krishnakumar — Today at 7:51 PM
+-- I see....But we never use the setup key directly in AstroNvim?
+-- mehalter — Today at 7:52 PM
+-- yeah none of our plugins need a setup function
+-- if your plugin does
+-- then you should put it
+-- this typically comes up with legacy vim plugins that require options to be set before a plugin is loaded
+-- when it doesn't use a like require("plugin").setup() function
+-- krishnakumar — Today at 7:52 PM
+-- ok...So, for example, the mapping to load the plugin, could be in the setup key
+-- mehalter — Today at 7:53 PM
+-- no
+-- the setup key will not be available until the plugin is triggered to load
+-- like if a plugin is lazy loaded on an event
+-- when the event happens
+-- krishnakumar — Today at 7:53 PM
+-- I see...
+-- mehalter — Today at 7:53 PM
+-- THEN the setup key will run
+-- then the plugin loads
+-- then the config key will run
+
+-- return {
+--   plugins = {
+--     init = {
+--       ["some_plugin"] = {
+--         config = function()
+--           require("some_plugin").setup()
+--           astronvim.set_mappings {
+--             n = {
+--               ["<leader>X"] = { function() vim.notify("<leader>X pressed!") end, desc = "test binding" }
+--             }
+--           }
+--         end
+--       }
+--     }
+--   }
+-- }
+
+-- Yeah
+-- you could do this
+-- return {
+--   plugins = {
+--     init = {
+--       ["some_plugin"] = {
+--         config = function()
+--           require("some_plugin").setup()
+--           local map = {}
+--           map.n["<leader>X"] = { function() vim.notify("<leader>X pressed!") end, desc = "test binding" }
+--           map.v["<leader>X"] = map.n["<leader>X"]
+--           astronvim.set_mappings(map)
+--         end
+--       }
+--     }
+--   }
+-- }
+-- but this is ugly and not very nice when you can use the set api to specify both at the same time
+-- krishnakumar — Today at 8:00 PM
+-- yes. Agree
+-- But still useful to know
+
+-- )))
 
 -- https://www.reddit.com/r/neovim/comments/uxwwbw/comment/ia0m8vg/?utm_source=share&utm_medium=web2x&context=3
 -- https://www.reddit.com/r/vim/comments/uy0qnx/how_to_create_syntax_file_that_highlights_the/?utm_source=share&utm_medium=web2x&context=3

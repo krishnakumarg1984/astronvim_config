@@ -22,9 +22,10 @@ if vim.fn.executable "node" == 1 and vim.fn.executable "bash" == 1 then table.in
 if vim.fn.executable "node" == 1 then table.insert(servers, "vimls") end
 if vim.fn.executable "python3" == 1 then table.insert(servers, "pylsp") end
 -- if vim.fn.executable "r" then table.insert(servers, "r_language_server") end
-if vim.fn.executable "rustc" == 1 then
+if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
   table.insert(servers, "rust_analyzer")
   table.insert(servers, "taplo")
+  table.insert(servers, "texlab")
 end
 if vim.fn.executable "tsc" == 1 then table.insert(servers, "yamlls") end
 if vim.fn.executable "tsc" and vim.fn.executable "perl" == 1 then table.insert(servers, "perlnavigator") end
