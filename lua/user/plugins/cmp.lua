@@ -23,8 +23,16 @@ return function(config)
       entries = { name = "custom", selection_order = "near_cursor" },
     },
     window = {
+      documentation = {
+        border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+        winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:BorderBG,Search:None",
+      },
       completion = {
         -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+        -- winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
+        -- winhighlight = "Normal:Normal,FloatBorder:BorderBG,Search:None",
+        border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
+        winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:BorderBG,Search:None",
         col_offset = -3,
         side_padding = 0,
       },
@@ -64,6 +72,7 @@ return function(config)
           vim_item.menu = ({
             buffer = "[Buf]",
             -- cmp_tabnine = "[Tabnine]",
+            calc = "[Calc]",
             dictionary = "[Dictionary]",
             nvim_lsp_signature_help = "[Function Signature]",
             signature_help = "[Function Signature]",
