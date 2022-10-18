@@ -297,8 +297,6 @@ return function()
 
     augroup my_quickfix
     autocmd!
-    " autocmd QuickFixCmdPost [^l]* QFOpen!
-    " autocmd QuickFixCmdPost cexpr QFOpen
     autocmd QuickFixCmdPost cexpr cwindow
     " autocmd QuickFixCmdPost l* nested lopen
     " https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3

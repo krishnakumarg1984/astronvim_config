@@ -97,7 +97,6 @@ return {
   -- ["stevearc/overseer.nvim"] = require "user.plugins.overseer", -- A task runner and job management plugin for Neovim
   -- ["Weissle/persistent-breakpoints.nvim"] = require "user.plugins.persistent-breakpoints",
   ["ahmedkhalf/project.nvim"] = require "user.plugins.project", -- The superior project management solution for nvim
-  -- ["stevearc/qf_helper.nvim"] = require "user.plugins.qf_helper", -- A collection of improvements for quickfix buffer
   ["linty-org/readline.nvim"] = require "user.plugins.readline", -- Readline motions and deletions in Neovim
   ["simrat39/rust-tools.nvim"] = require "user.plugins.rust_tools", -- Tools for better development in rust using neovim's builtin lsp
   -- ["michaelb/sniprun"] = require "user.plugins.sniprun", -- Run lines/blocks of code, supports multiples languages
