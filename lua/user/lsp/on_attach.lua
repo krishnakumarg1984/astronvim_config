@@ -48,8 +48,6 @@ return function(client, bufnr)
     "<cmd>Telescope lsp_references<cr>",
     { desc = "References of current symbol", buffer = bufnr }
   )
-  vim.keymap.set("n", "gl", "gl")
-  vim.keymap.del("n", "gl")
 
   -- 'trouble.nvim' keymaps (((
 

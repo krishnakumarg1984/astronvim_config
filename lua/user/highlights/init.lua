@@ -14,9 +14,11 @@ return function()
     -- TelescopePromptBorder = { fg = bg_alt, bg = bg_alt },
     -- TelescopePromptNormal = { fg = fg, bg = bg_alt },
     -- TelescopePromptPrefix = { fg = red, bg = bg_alt },
-    TelescopePromptTitle = { fg = bg, bg = red },
+    -- TelescopePromptTitle = { fg = bg, bg = red },
+    TelescopePromptTitle = { fg = bg, bg = fg },
     TelescopeResultsBorder = { fg = bg, bg = bg },
     TelescopeResultsNormal = { bg = bg },
+    -- TelescopeResultsTitle = { fg = bg, bg = green },
     TelescopeResultsTitle = { fg = bg, bg = green },
   }
 end

@@ -83,6 +83,44 @@ M.kind_icons = {
   Variable = "",
 }
 
+M.lsp_languages = {
+  "c",
+  "cmake",
+  "cpp",
+  "cuda",
+  "json",
+  "jsonc",
+  "julia",
+  "markdown",
+  "perl",
+  "python",
+  "r",
+  "ruby",
+  -- "ada",
+  -- "arduino",
+  -- "asm",
+  -- "asm68k",
+  -- "awk",
+  -- "clojure",
+  -- "css",
+  -- "cucumber",
+  -- "dockerfile",
+  -- "dot",
+  -- "elixir",
+  -- "elm",
+  -- "erlang",
+  -- "fortran",
+  -- "go",
+  -- "groovy",
+  -- "html",
+  -- "java",
+  -- "ocaml",
+  -- "php",
+  -- "sql",
+  -- "typescript",
+  -- "vue",
+}
+
 -- M.lsp_servers = {
 --   -- "arduino_language_server", -- written in 'go'
 --   -- "asm_lsp", -- written in 'rust'

@@ -1,6 +1,6 @@
 -- easily add or disable built in mappings added during LSP attaching
---[[ return {
+return {
   n = {
-    -- ["<leader>lf"] = false -- disable formatting keymap
+    ["gl"] = false, -- disable formatting keymap
   },
-} ]]
+}

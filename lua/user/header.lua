@@ -1,1 +1,1 @@
-return { " " } -- Startscreen/greeter header for AstroNvim
+return { " " } -- Startscreen/greeter header (for alpha.nvim)
