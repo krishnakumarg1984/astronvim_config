@@ -1,5 +1,5 @@
 local readline = require "readline"
-vim.keymap.set('!', '<C-a>', readline.dwim_beginning_of_line)
+vim.keymap.set("!", "<C-a>", readline.dwim_beginning_of_line)
 vim.keymap.set("!", "<M-f>", readline.forward_word)
 vim.keymap.set("!", "<M-b>", readline.backward_word)
 vim.keymap.set("!", "<C-a>", readline.beginning_of_line)

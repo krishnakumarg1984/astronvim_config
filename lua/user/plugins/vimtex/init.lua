@@ -4,10 +4,10 @@ return {
   let g:vimtex_disable_recursive_main_file_detection = 1
 
   function! Callback(msg)
-    let l:m = matchlist(a:msg, '\vRun number (\d+) of rule ''(.*)''')
-    if !empty(l:m)
-      echomsg l:m[2] . ' (' . l:m[1] . ')'
-    endif
+  let l:m = matchlist(a:msg, '\vRun number (\d+) of rule ''(.*)''')
+  if !empty(l:m)
+  echomsg l:m[2] . ' (' . l:m[1] . ')'
+  endif
   endfunction
 
   let g:vimtex_compiler_latexmk = {
@@ -24,7 +24,7 @@ return {
   " let g:vimtex_compiler_latexmk = {'build_dir': {-> expand("%:t:r")}}
 
   if executable('bibparse')
-      let g:vimtex_parser_bib_backend = 'bibparse'
+  let g:vimtex_parser_bib_backend = 'bibparse'
   endif
 
   let g:vimtex_complete_bib = { 'simple': 1 }
@@ -43,6 +43,15 @@ return {
   let g:vimtex_quickfix_autoclose_after_keystrokes = 2
   let g:vimtex_subfile_start_local = 1
   " let g:vimtex_view_use_temp_files = 1
+
+  let g:vimtex_grammar_vlty = {'lt_directory': '$HOME/bin/languagetool'}
+
+  augroup VimTeXSettings
+    autocmd!
+    autocmd FileType tex setlocal spelllang=en_gb
+  augroup END
+
+  let g:vimtex_view_method = 'sioyek'
 
 ]]
   end,

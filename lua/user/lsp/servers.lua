@@ -1,6 +1,6 @@
 -- The names are based on the completion candidates for ':LspInstall'
 -- Extend LSP configuration
-servers = {
+local servers = {
   -- "arduino_language_server", -- written in 'go'
   -- "asm_lsp", -- written in 'rust'
   -- "ccls",

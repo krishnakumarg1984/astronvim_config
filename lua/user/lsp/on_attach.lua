@@ -1,3 +1,4 @@
+-- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 -- add to the global LSP on_attach function
 return function(client, bufnr)
   -- if vim.tbl_contains({ "ccls", "clangd", "jsonls", "pylsp", "taplo" }, client.name) then
@@ -40,14 +41,32 @@ return function(client, bufnr)
   vim.keymap.set("", "<Leader>ll", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
 
   vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
-  -- vim.keymap.del("n", "gd", { buffer = bufnr })
-  -- vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition(s)", buffer = bufnr })
   vim.keymap.set(
     "n",
-    "gr",
-    "<cmd>Telescope lsp_references<cr>",
-    { desc = "References of current symbol", buffer = bufnr }
+    "<leader>lc",
+    "<cmd>Telescope lsp_outgoing_calls<CR>",
+    { buffer = bufnr, desc = "Outgoing calls" }
   )
+  vim.keymap.set(
+    "n",
+    "<leader>lC",
+    "<cmd>Telescope lsp_incoming_calls<CR>",
+    { buffer = bufnr, desc = "Incoming calls" }
+  )
+  vim.keymap.set(
+    "n",
+    "<leader>lI",
+    "<cmd>Telescope lsp_implementations<CR>",
+    { buffer = bufnr, desc = "Implementations" }
+  )
+  -- vim.keymap.del("n", "gd", { buffer = bufnr })
+  -- vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition(s)", buffer = bufnr })
+  -- vim.keymap.set(
+  --   "n",
+  --   "gr",
+  --   "<cmd>Telescope lsp_references<cr>",
+  --   { desc = "References of current symbol", buffer = bufnr }
+  -- )
 
   -- 'trouble.nvim' keymaps (((
 

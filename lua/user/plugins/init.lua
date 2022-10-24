@@ -49,7 +49,7 @@ return {
 
   ["numtostr/BufOnly.nvim"] = { cmd = { "BufOnly" } }, -- Lua/Neovim port of BufOnly.vim with some changes
   -- ["catppuccin/nvim"] = require "user.plugins.catppuccin_nvim", -- Soothing pastel theme for Neovim
-  ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd_extensions", -- Clangd's off-spec features
+  ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd-extensions", -- Clangd's off-spec features
   ["saecki/crates.nvim"] = require "user.plugins.crates_nvim", -- A neovim plugin that helps managing crates.io dependencies
   -- ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp_buffer", -- nvim-cmp source for buffer words (buggy config. Breaks other cmp lazy loading)
   ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for buffer words
@@ -58,31 +58,31 @@ return {
   ["hrsh7th/cmp-omni"] = require "user.plugins.cmp_omni", -- nvim-cmp source for omnifunc
   ["gpanders/editorconfig.nvim"] = {}, --  EditorConfig plugin for Neovim
   ["MunifTanjim/exrc.nvim"] = require "user.plugins.exrc_nvim", -- Secure Project Local Config for Neovim
-  ["akinsho/git-conflict.nvim"] = require "user.plugins.git-conflict", -- Visualise & resolve merge conflicts
+  ["akinsho/git-conflict.nvim"] = require "user.plugins.git_conflict", -- Visualise & resolve merge conflicts
   ["ellisonleao/glow.nvim"] = { cmd = { "Glow", "GlowInstall" } }, -- A markdown preview directly in your neovim
   -- ["lukas-reineke/headlines.nvim"] = require "user.plugins.headlines", -- Horizontal highlights for text filetypes
   -- ["hkupty/iron.nvim"] = require "user.plugins.iron", -- Interactive Repl Over Neovim
   ["rebelot/kanagawa.nvim"] = {}, -- require "user.plugins.kanagawa", -- Colorscheme inspired by the colors of the famous painting by Katsushika Hokusai
   ["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = require "user.plugins.lsplines_nvim", --renders diagnostics using virtual lines on top of the real line of code
-  ["ray-x/lsp_signature.nvim"] = require "user.plugins.lsp_signature", -- LSP signature hint as you type
+  ["ray-x/lsp_signature.nvim"] = require "user.plugins.lsp_signature_nvim", -- LSP signature hint as you type
   -- ["chentoast/marks.nvim"] = require "user.plugins.marks", -- A better UX for viewing & interacting with Vim marks
   ["echasnovski/mini.nvim"] = require "user.plugins.mini", -- Collection of minimal, independent, & fast Lua modules
   ["jghauser/mkdir.nvim"] = { event = "BufWritePre" }, -- This neovim plugin creates missing folders on save
   ["jbyuki/nabla.nvim"] = require "user.plugins.nabla_nvim", -- Take your scientific notes in Neovim
-  ["danymat/neogen"] = require "user.plugins.neogen", -- Annotation generator (multiple languages & conventions)
-  ["TimUntersberger/neogit"] = require "user.plugins.neogit", -- Magit for neovim
-  ["nvim-neotest/neotest"] = require "user.plugins.neotest", -- An extensible framework for interacting with tests within NeoVim.
+  ["danymat/neogen"] = require "user.plugins.neogen_nvim", -- Annotation generator (multiple languages & conventions)
+  ["TimUntersberger/neogit"] = require "user.plugins.neogit_nvim", -- Magit for neovim
+  ["nvim-neotest/neotest"] = require "user.plugins.nvim_neotest", -- An extensible framework for interacting with tests within NeoVim.
   ["nvim-neotest/neotest-python"] = { ft = "python" }, -- Neotest adapter for python. Supports Pytest and unittest test files.
   ["weilbith/nvim-code-action-menu"] = { cmd = "CodeActionMenu" }, -- Code action pop-up menu (meta-info & diff)
   -- ["Canop/nvim-bacon"] = { ft = "rust" }, -- bacon's companion for neovim
   -- ["andythigpen/nvim-coverage"] = require "user.plugins.nvim-coverage", -- Displays test coverage data in the sign column
   ["mfussenegger/nvim-dap"] = require "user.plugins.nvim-dap", -- Debug Adapter Protocol client implementation
   ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim-dapui", -- A UI for nvim-dap
-  ["theHamsta/nvim-dap-virtual-text"] = require "user.plugins.nvim-dap-virtual-text", -- slow!
+  ["theHamsta/nvim-dap-virtual-text"] = require "user.plugins.nvim_dap_virtual_text", -- slow!
   ["https://gitlab.com/yorickpeterse/nvim-dd"] = require "user.plugins.nvim-dd", -- Deferring of NeoVim diagnostics
   ["kevinhwang91/nvim-hlslens"] = require "user.plugins.nvim-hlslens", -- A hlsearch Lens for Neovim
-  ["ethanholz/nvim-lastplace"] = require "user.plugins.nvim-lastplace", -- A Lua rewrite of vim-lastplace
-  ["kosayoda/nvim-lightbulb"] = require "user.plugins.nvim-lightbulb", -- VSCode bulb for neovim's built-in LSP.
+  ["ethanholz/nvim-lastplace"] = require "user.plugins.nvim_lastplace", -- A Lua rewrite of vim-lastplace
+  ["kosayoda/nvim-lightbulb"] = require "user.plugins.nvim_lightbulb", -- VSCode bulb for neovim's built-in LSP.
   ["mfussenegger/nvim-lint"] = { module = "lint" }, -- An asynchronous linter plugin. Loads through local .vimrc.lua
   ["sitiom/nvim-numbertoggle"] = require "user.plugins.nvim-numbertoggle", -- Auto-toggle b/w rel & abs line nos
   ["https://gitlab.com/yorickpeterse/nvim-pqf"] = require "user.plugins.nvim-pqf", -- Prettier quickfix/location list
@@ -97,15 +97,16 @@ return {
   -- ["stevearc/overseer.nvim"] = require "user.plugins.overseer", -- A task runner and job management plugin for Neovim
   -- ["Weissle/persistent-breakpoints.nvim"] = require "user.plugins.persistent-breakpoints",
   ["ahmedkhalf/project.nvim"] = require "user.plugins.project", -- The superior project management solution for nvim
-  ["linty-org/readline.nvim"] = require "user.plugins.readline", -- Readline motions and deletions in Neovim
+  ["linty-org/readline.nvim"] = require "user.plugins.readline_nvim", -- Readline motions and deletions in Neovim
   ["simrat39/rust-tools.nvim"] = require "user.plugins.rust_tools", -- Tools for better development in rust using neovim's builtin lsp
   -- ["michaelb/sniprun"] = require "user.plugins.sniprun", -- Run lines/blocks of code, supports multiples languages
   -- ["luukvbaal/stabilize.nvim"] = require "user.plugins.stabilize", -- Stabilize window open/close events
   -- ["abecodes/tabout.nvim"] = require "user.plugins.tabout", -- tabout plugin for neovim
   ["nvim-telescope/telescope-dap.nvim"] = require "user.plugins.telescope-dap", -- Dap-Telescope integration
   -- ["benfowler/telescope-luasnip.nvim"] = require "user.plugins.telescope-luasnip", -- Telescope+LuaSnip integration
+  ["nvim-telescope/telescope-symbols.nvim"] = require "user.plugins.telescope_symbols",
   ["johmsalas/text-case.nvim"] = require "user.plugins.text_case", -- An all in one plugin for converting text case
-  ["folke/trouble.nvim"] = require "user.plugins.trouble", -- Helps you solve all the trouble your code is causing
+  ["folke/trouble.nvim"] = require "user.plugins.trouble_nvim", -- Helps you solve all the trouble your code is causing
 
   -- ))) -- end of additional lua plugins
 
