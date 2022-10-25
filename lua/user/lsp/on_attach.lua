@@ -38,8 +38,6 @@ return function(client, bufnr)
     )
   end
 
-  vim.keymap.set("", "<Leader>ll", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
-
   vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
   vim.keymap.set(
     "n",

@@ -219,7 +219,7 @@ return function()
 
     autocmd FileType qf set nobuflisted
 
-    autocmd FileType asciidoc,changelog,context,gitcommit,NeogitCommit,NeogitCommitMessage,lsp_markdown,mail,markdown,rst,rtf,tex,texinfo,text,txt setlocal spell
+    autocmd FileType asciidoc,changelog,context,gitcommit,NeogitCommit,NeogitCommitMessage,lsp_markdown,mail,markdown,rst,rtf,texinfo,text,txt setlocal spell
     autocmd FileType gitcommit,NeogitCommit,NeogitCommitMessage setlocal wrap textwidth=80
 
     autocmd Filetype man setlocal nowrap

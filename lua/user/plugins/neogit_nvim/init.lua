@@ -7,5 +7,5 @@ return {
     },
   },
   cmd = { "Neogit" },
-  config = function() require "user.plugins.neogit.config" end,
+  config = function() require "user.plugins.neogit_nvim.config" end,
 }

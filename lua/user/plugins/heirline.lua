@@ -129,7 +129,7 @@ return function(config)
         -- add some padding for the percentage provider
         percentage = { padding = { left = 1, right = 1 } },
         -- disable all other providers
-        ruler = { pad_ruler = { line = 4, char = 2 } }, -- false,
+        ruler = { pad_ruler = { line = 4, char = 3 } }, -- false,
         scrollbar = false,
         -- define the foreground color
         hl = { fg = "nav_icon_bg" },

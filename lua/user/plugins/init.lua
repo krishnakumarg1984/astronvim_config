@@ -54,7 +54,7 @@ return {
   -- ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp_buffer", -- nvim-cmp source for buffer words (buggy config. Breaks other cmp lazy loading)
   ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for buffer words
   ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp_emoji", -- nvim-cmp source for emoji
-  ["petertriho/cmp-git"] = require "user.plugins.cmp-git", -- Git source for nvim-cmp
+  ["petertriho/cmp-git"] = require "user.plugins.cmp_git", -- Git source for nvim-cmp
   ["hrsh7th/cmp-omni"] = require "user.plugins.cmp_omni", -- nvim-cmp source for omnifunc
   ["gpanders/editorconfig.nvim"] = {}, --  EditorConfig plugin for Neovim
   ["MunifTanjim/exrc.nvim"] = require "user.plugins.exrc_nvim", -- Secure Project Local Config for Neovim
@@ -76,16 +76,16 @@ return {
   ["weilbith/nvim-code-action-menu"] = { cmd = "CodeActionMenu" }, -- Code action pop-up menu (meta-info & diff)
   -- ["Canop/nvim-bacon"] = { ft = "rust" }, -- bacon's companion for neovim
   -- ["andythigpen/nvim-coverage"] = require "user.plugins.nvim-coverage", -- Displays test coverage data in the sign column
-  ["mfussenegger/nvim-dap"] = require "user.plugins.nvim-dap", -- Debug Adapter Protocol client implementation
-  ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim-dapui", -- A UI for nvim-dap
+  ["mfussenegger/nvim-dap"] = require "user.plugins.nvim_dap", -- Debug Adapter Protocol client implementation
+  ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim_dapui", -- A UI for nvim-dap
   ["theHamsta/nvim-dap-virtual-text"] = require "user.plugins.nvim_dap_virtual_text", -- slow!
-  ["https://gitlab.com/yorickpeterse/nvim-dd"] = require "user.plugins.nvim-dd", -- Deferring of NeoVim diagnostics
-  ["kevinhwang91/nvim-hlslens"] = require "user.plugins.nvim-hlslens", -- A hlsearch Lens for Neovim
+  ["https://gitlab.com/yorickpeterse/nvim-dd"] = require "user.plugins.nvim_dd", -- Deferring of NeoVim diagnostics
+  ["kevinhwang91/nvim-hlslens"] = require "user.plugins.nvim_hlslens", -- A hlsearch Lens for Neovim
   ["ethanholz/nvim-lastplace"] = require "user.plugins.nvim_lastplace", -- A Lua rewrite of vim-lastplace
   ["kosayoda/nvim-lightbulb"] = require "user.plugins.nvim_lightbulb", -- VSCode bulb for neovim's built-in LSP.
   ["mfussenegger/nvim-lint"] = { module = "lint" }, -- An asynchronous linter plugin. Loads through local .vimrc.lua
-  ["sitiom/nvim-numbertoggle"] = require "user.plugins.nvim-numbertoggle", -- Auto-toggle b/w rel & abs line nos
-  ["https://gitlab.com/yorickpeterse/nvim-pqf"] = require "user.plugins.nvim-pqf", -- Prettier quickfix/location list
+  ["sitiom/nvim-numbertoggle"] = require "user.plugins.nvim_numbertoggle", -- Auto-toggle b/w rel & abs line nos
+  ["https://gitlab.com/yorickpeterse/nvim-pqf"] = require "user.plugins.nvim_pqf", -- Prettier quickfix/location list
   -- ["romgrk/nvim-treesitter-context"] = require "user.plugins.nvim-treesitter-context", -- Show code context
   -- { "eddiebergman/nvim-treesitter-pyfold", after = { "nvim-treesitter" }, ft = "python" }, -- Sane Python folding
   ["nvim-treesitter/nvim-treesitter-refactor"] = { after = "nvim-treesitter" }, -- Treesitter refactor module
