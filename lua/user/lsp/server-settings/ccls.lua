@@ -2,7 +2,7 @@
 local nilfunc = function(...) return nil end
 
 return {
-  filetypes = { "c", "cpp", "objc", "objcpp", "opencl" },
+  filetypes = { "c", "cpp", "cuda", "objc", "objcpp", "opencl" },
   -- offset_encoding = "utf-8",
   handlers = {
     ["textDocument/publishDiagnostics"] = nilfunc,

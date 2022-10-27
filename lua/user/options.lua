@@ -159,6 +159,7 @@ return function(defaults)
         "*.img",
         "*.ind",
         "*.ini",
+        "*.ipynb",
         "*.ist",
         "*.jpeg",
         "*.JPG",
@@ -390,8 +391,8 @@ return function(defaults)
       matchup_override_vimtex = 1,
       matchup_surround_enabled = true,
       netrw_nogx = 1,
-      python3_host_prog = "python3",
-      python_host_skip_check = 1,
+      -- python3_host_prog = "python3",
+      -- python_host_skip_check = 1,
       skip_loading_mswin = 1,
       tex_comment_nospell = 1,
       tex_conceal = "abdmgs",
@@ -419,3 +420,4 @@ end
 -- g.markdown_fenced_languages = { 'javascript', 'js=javascript', 'json=javascript' }
 -- set path+=$PWD/**
 -- set path+=/usr/local/include
+-- https://discord.com/channels/939594913560031363/942007419050029086/1012745700301353121 (start of AstroNvim 2.0/neovim 0.8 discussion)

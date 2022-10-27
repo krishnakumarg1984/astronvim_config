@@ -4,6 +4,9 @@ return function(client, bufnr)
   -- if vim.tbl_contains({ "ccls", "clangd", "jsonls", "pylsp", "taplo" }, client.name) then
   --   astronvim.lsp.disable_formatting(client)
   -- end
+
+  -- rust plugin mappings (((
+
   if client.name == "rust_analyzer" or client.name == "rust_analyzer-standalone" then
     vim.keymap.set("n", "<leader>ra", "<cmd>RustCodeAction<CR>", { buffer = bufnr, desc = "Rust code actions" })
     vim.keymap.set("n", "<leader>rc", "<cmd>RustOpenCargo<CR>", { buffer = bufnr, desc = "Rust open cargo" })
@@ -37,43 +40,6 @@ return function(client, bufnr)
       { buffer = bufnr, desc = "Rust reload workspace" }
     )
   end
-
-  vim.keymap.set("n", "<leader>la", "<cmd>CodeActionMenu<CR>", { buffer = bufnr, desc = "Code Action" })
-  vim.keymap.set(
-    "n",
-    "<leader>lc",
-    "<cmd>Telescope lsp_outgoing_calls<CR>",
-    { buffer = bufnr, desc = "Outgoing calls" }
-  )
-  vim.keymap.set(
-    "n",
-    "<leader>lC",
-    "<cmd>Telescope lsp_incoming_calls<CR>",
-    { buffer = bufnr, desc = "Incoming calls" }
-  )
-  vim.keymap.set(
-    "n",
-    "<leader>lI",
-    "<cmd>Telescope lsp_implementations<CR>",
-    { buffer = bufnr, desc = "Implementations" }
-  )
-  -- vim.keymap.del("n", "gd", { buffer = bufnr })
-  -- vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", { desc = "Go to definition(s)", buffer = bufnr })
-  -- vim.keymap.set(
-  --   "n",
-  --   "gr",
-  --   "<cmd>Telescope lsp_references<cr>",
-  --   { desc = "References of current symbol", buffer = bufnr }
-  -- )
-
-  -- 'trouble.nvim' keymaps (((
-
-  vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>")
-  vim.keymap.set("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>")
-  vim.keymap.set("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>")
-  vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>")
-  vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>")
-  vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>")
 
   -- )))
 

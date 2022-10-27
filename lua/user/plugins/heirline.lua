@@ -127,7 +127,9 @@ return function(config)
       -- add a navigation component and just display the percentage of progress in the file
       astronvim.status.component.nav {
         -- add some padding for the percentage provider
-        percentage = { padding = { left = 1, right = 1 } },
+        -- percentage = { padding = { left = 1, right = 1 } },
+        -- percentage = { pad_percentage = 3, edge_text = false } ,
+        percentage = { fixed_width = true, padding = { right = 1 } },
         -- disable all other providers
         ruler = { pad_ruler = { line = 4, char = 3 } }, -- false,
         scrollbar = false,
