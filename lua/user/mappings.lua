@@ -202,14 +202,14 @@ return {
     },
     -- )))
 
-    -- 'SnipRun' mappings (((
-
-    ["<leader>r"] = { "<Plug>SnipRunOperator" },
-    ["<leader>rr"] = { "<Plug>SnipRun" },
-    ["<leader>rc"] = { "<Plug>SnipClose" },
-    ["<leader>rI"] = { "<Plug>SnipInfo" },
-
-    -- )))
+    -- -- 'SnipRun' mappings (((
+    --
+    -- ["<leader>r"] = { "<Plug>SnipRunOperator" },
+    -- ["<leader>rr"] = { "<Plug>SnipRun" },
+    -- ["<leader>rc"] = { "<Plug>SnipClose" },
+    -- ["<leader>rI"] = { "<Plug>SnipInfo" },
+    --
+    -- -- )))
 
     --- mg979/tasks.vim keymaps (vimscript-based) (((
 
