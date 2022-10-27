@@ -9,6 +9,10 @@ return {
   --     -- "python",
   --   },
   -- },
+  -- if vim.tbl_contains({ "ccls", "clangd", "jsonls", "pylsp", "taplo" }, client.name) then
+  --   astronvim.lsp.disable_formatting(client)
+  -- end
+
   disabled = { -- disable formatting capabilities for the listed language servers
     "sumneko_lua",
   },

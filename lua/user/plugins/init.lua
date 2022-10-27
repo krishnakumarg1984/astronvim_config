@@ -22,7 +22,7 @@ return {
 
   ["AndrewRadev/bufferize.vim"] = { cmd = { "Bufferize", "BufferizeSystem", "BufferizeTimer" } }, -- Execute a :command and show the output in a temporary buffer
   -- ["tyru/capture.vim"] = { cmd = { "Capture" } }, -- Show Ex command output in buffer
-  ["rust-lang/rust.vim"] = {}, -- Vim configuration for Rust. (must be loaded before 'rust-tools')
+  ["rust-lang/rust.vim"] = require "user.plugins.rust_vim", -- Vim configuration for Rust. (must be loaded before 'rust-tools')
   ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } }, -- An alternative sudo.vim for Vim and Neovim
 
   ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
