@@ -146,7 +146,7 @@ return {
     ["<leader>q"] = false,
     ["<leader>w"] = false,
     ["<F7>"] = false,
-    ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+    ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }, -- Plugin in Base AstroNvim
     ["<S-h>"] = false,
     -- ["<S-j>"] = { "mzJ`zmz" },
     ["<S-j>"] = { "mzJ`z" },
@@ -156,22 +156,6 @@ return {
     ["}"] = false,
     ["n"] = { "nzzzv" },
     ["N"] = { "Nzzzv" },
-
-    -- "text-case" keymaps (((
-
-    ["gaa"] = { "<cmd>lua require('textcase').current_word('to_phrase_case')<CR>", desc = "Convert to phrase_case" },
-    ["gaf"] = { "<cmd>lua require('textcase').current_word('to_path_case')<CR>", desc = "Convert to path_case" },
-    ["gas"] = { "<cmd>lua require('textcase').current_word('to_snake_case')<CR>", desc = "Convert to snake_case" },
-    ["gat"] = { "<cmd>lua require('textcase').current_word('to_title_case')<CR>", desc = "Convert to title_case" },
-    ["gaz"] = { "<cmd>lua require('textcase').current_word('to_dot_case')<CR>", desc = "Convert to dot_case" },
-
-    -- )))
-
-    -- "nabla.nvim" keymaps (((
-
-    ["<leader>N"] = { "<cmd>lua require('nabla').popup()<CR>", desc = "Scientific preview" },
-
-    -- )))
 
     -- "bufferline.nvim" keymaps (((
 
@@ -359,12 +343,6 @@ return {
     -- ["ih"] = { "<Cmd><C-U>Gitsigns select_hunk<CR>" },
     --
     -- -- )))
-
-    -- 'VimTeX' keymaps (((
-
-    ["<leader>vV"] = { "<plug>(vimtex-compile-selected)", desc = "Compile selected" },
-
-    -- )))
   },
 
   -- )))

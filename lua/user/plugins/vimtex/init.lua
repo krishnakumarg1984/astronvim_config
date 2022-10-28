@@ -55,4 +55,5 @@ return {
 
 ]]
   end,
+  vim.keymap.set("x", "<leader>vV", "<plug>(vimtex-compile-selected)", { desc = "Compile selected" }),
 }

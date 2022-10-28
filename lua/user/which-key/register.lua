@@ -226,7 +226,11 @@ return {
   },
   v = {
     ["leader"] = {
-      d = { name = "Debug", e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" } },
+      d = {
+        name = "Debug",
+        e = { "<cmd>lua require'dapui'.eval()<cr>", "Evaluate" },
+      },
+      v = { name = "VimTeX" },
     },
   },
 }
