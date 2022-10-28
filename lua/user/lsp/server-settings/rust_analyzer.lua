@@ -66,11 +66,6 @@ return {
         },
         -- extraArgs = { "--no-deps" },
       },
-      completion = {
-        callable = {
-          snippets = "fill_arguments",
-        },
-      },
       inlayHints = {
         lifetimeElisionHints = {
           enable = true,
@@ -91,3 +86,8 @@ return {
     },
   },
 }
+-- completion = {
+--   callable = {
+--     snippets = "fill_arguments",
+--   },
+-- },
