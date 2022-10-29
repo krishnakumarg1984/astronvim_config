@@ -39,4 +39,7 @@ return {
     "TasksProfile!",
     "TasksProfile",
   },
+  vim.keymap.set("n", "<F2>", "<Plug>(Tasks-Choose)", { desc = "Choose tasks" }),
+  vim.keymap.set("n", "<S-F2>", "<Plug>(Tasks-Choose)!", { desc = "Choose tasks (stay in buffer)" }),
+  vim.keymap.set("n", "<F3>", "<Plug>(Tasks-Profile)", { desc = "Tasks profile" }),
 }
