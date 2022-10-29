@@ -2,11 +2,30 @@
 
 -- Other lua plugins (((
 
--- TODO (((
+-- cmp sources (((
 
--- 1. Unit Testing
--- 2. Debugging
--- 3. Tmux integration
+-- https://github.com/alexander-born/cmp-bazel
+-- https://github.com/JafarAbdi/cmp-conan
+-- https://github.com/davidsierradz/cmp-conventionalcommits
+-- https://github.com/rcarriga/cmp-dap  -- nvim-cmp source for nvim-dap REPL and nvim-dap-ui buffers
+-- https://github.com/uga-rosa/cmp-dictionary
+-- https://github.com/bydlw98/cmp-env
+-- https://github.com/joshzcold/cmp-jenkinsfile
+-- https://github.com/Cassin01/cmp-gitcommit
+-- https://github.com/barklan/cmp-gitlog
+-- https://github.com/octaltree/cmp-look = require "user.plugins.cmp-look",
+-- cmp-latex-symbols
+-- https://github.com/dburian/cmp-markdown-link
+-- https://github.com/hrsh7th/cmp-nvim-lsp-signature-help
+-- https://github.com/aspeddro/cmp-pandoc.nvim
+-- https://github.com/jc-doyle/cmp-pandoc-references
+-- https://github.com/KadoBOT/cmp-plugins
+-- https://github.com/f3fora/cmp-spell
+-- use { "andersevenrud/cmp-tmux" }  -- Tmux completion source for nvim-cmp and nvim-compe
+-- https://github.com/cbarrete/completion-vcard
+-- https://github.com/amarakon/nvim-cmp-buffer-lines
+-- https://github.com/amarakon/nvim-cmp-fonts
+-- https://github.com/kristijanhusak/vim-dadbod-completion
 
 -- )))
 
@@ -15,6 +34,7 @@
 -- https://github.com/nvim-telescope/telescope-bibtex.nvim -- A telescope extension to search & paste bibtex entries -- also refere to mehalter's config here: https://code.mehalter.com/projects/68/files/master/plugins/telescope-bibtex
 -- https://github.com/msprev/fzf-bibtex
 -- https://github.com/rafaqz/citation.vim
+-- https://github.com/tiagovla/zotex.nvim
 
 -- )))
 
@@ -47,11 +67,6 @@
 -- https://github.com/sudormrfbin/cheatsheet.nvim  -- A cheatsheet plugin
 -- use { "kazhala/close-buffers.nvim", cmd = {} }  -- Delete multiple vim buffers based on different conditions
 -- https://github.com/Civitasv/cmake-tools.nvim  --  CMake integration in Neovim
--- https://github.com/rcarriga/cmp-dap  -- nvim-cmp source for nvim-dap REPL and nvim-dap-ui buffers
--- https://github.com/octaltree/cmp-look = require "user.plugins.cmp-look",
--- cmp-latex-symbols
--- cmp-pandoc-references
--- use { "andersevenrud/cmp-tmux" }  -- Tmux completion source for nvim-cmp and nvim-compe
 -- https://github.com/xeluxee/competitest.nvim -- Automate testcases management & checking for Competitive Programming
 -- https://github.com/zbirenbaum/copilot-cmp -- Lua plugin to turn github copilot into a cmp source
 -- https://github.com/p00f/cphelper.nvim -- Neovim helper for competitive programming

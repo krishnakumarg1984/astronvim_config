@@ -51,10 +51,10 @@ return {
   -- ["catppuccin/nvim"] = require "user.plugins.catppuccin_nvim", -- Soothing pastel theme for Neovim
   ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd-extensions", -- Clangd's off-spec features
   ["saecki/crates.nvim"] = require "user.plugins.crates_nvim", -- A neovim plugin that helps managing crates.io dependencies
-  -- ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp_buffer", -- nvim-cmp source for buffer words (buggy config. Breaks other cmp lazy loading)
+  ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp_buffer", -- nvim-cmp source for buffer words (buggy config. Breaks other cmp lazy loading)
   ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for buffer words
   ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp_emoji", -- nvim-cmp source for emoji
-  ["petertriho/cmp-git"] = require "user.plugins.cmp_git", -- Git source for nvim-cmp
+  ["petertriho/cmp-git"] = require "user.plugins.cmp-git", -- Git source for nvim-cmp
   ["hrsh7th/cmp-omni"] = require "user.plugins.cmp_omni", -- nvim-cmp source for omnifunc
   ["gpanders/editorconfig.nvim"] = {}, --  EditorConfig plugin for Neovim
   ["MunifTanjim/exrc.nvim"] = require "user.plugins.exrc_nvim", -- Secure Project Local Config for Neovim
