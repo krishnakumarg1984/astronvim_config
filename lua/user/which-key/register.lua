@@ -111,7 +111,8 @@ return {
       e = { "<cmd>Neotree action=show toggle=true<CR>", "File explorer" },
       f = {
         name = "File/Buffer",
-        ["H"] = { "<cmd>Telescope search_history<CR>", "Search history" },
+        ["H"] = { "<cmd>Telescope search_history<CR>", "Buffer grep history" },
+        ["o"] = { "<cmd>Telescope oldfiles<CR>", "Recent files" },
       },
       g = {
         B = { "<cmd>Gitsigns stage_buffer<CR>", "Stage buffer" },

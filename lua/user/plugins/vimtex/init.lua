@@ -1,25 +1,24 @@
 return {
   config = function()
     vim.cmd [[
-  let g:vimtex_disable_recursive_main_file_detection = 1
 
-  function! Callback(msg)
-  let l:m = matchlist(a:msg, '\vRun number (\d+) of rule ''(.*)''')
-  if !empty(l:m)
-  echomsg l:m[2] . ' (' . l:m[1] . ')'
+  let g:vimtex_disable_recursive_main_file_detection = 1
+  let g:vimtex_syntax_conceal_disable = 1  " This option allows to disable all conceal features at once.
+
+  if executable('pplatex')
+  let g:vimtex_quickfix_method='pplatex'
   endif
+
+  function! MyCallback(msg)
+    let l:m = matchlist(a:msg, '\vRun number (\d+) of rule ''(.*)''')
+    if !empty(l:m)
+    echomsg l:m[2] . ' (' . l:m[1] . ')'
+    endif
   endfunction
 
   let g:vimtex_compiler_latexmk = {
   \ 'build_dir' : 'build',
-  \ 'hooks': [function('Callback')],
-  \ 'options' : [
-  \   '-verbose',
-  \   '-recorder',
-  \   '-file-line-error',
-  \   '-synctex=1',
-  \   '-interaction=nonstopmode',
-  \ ]
+  \ 'hooks': [function('MyCallback')],
   \}
   " let g:vimtex_compiler_latexmk = {'build_dir': {-> expand("%:t:r")}}
 
@@ -41,7 +40,7 @@ return {
 
   let g:vimtex_matchparen_enabled = 0
   let g:vimtex_quickfix_autoclose_after_keystrokes = 2
-  let g:vimtex_subfile_start_local = 1
+  let g:vimtex_subfile_start_local = 1  " This option allows to specify that one should start with the local file for subfile'd documents instead of the main project file.
   " let g:vimtex_view_use_temp_files = 1
 
   let g:vimtex_grammar_vlty = {'lt_directory': '$HOME/bin/languagetool'}
@@ -51,7 +50,17 @@ return {
     autocmd FileType tex setlocal spelllang=en_gb
   augroup END
 
-  let g:vimtex_view_method = 'sioyek'
+  " if executable('sioyek')
+  "   let g:vimtex_view_method = 'sioyek'
+  if executable('zathura')
+    let g:vimtex_view_method = 'zathura'
+  endif
+
+  augroup VimTeXLint
+    autocmd!
+    autocmd QuickFixCmdPost lmake lwindow
+  augroup END
+
 
 ]]
   end,
@@ -76,7 +85,14 @@ return {
   vim.keymap.set("n", "<leader>vl", "<plug>(vimtex-imaps-list)", { desc = "Insert-mode mappings" }),
   vim.keymap.set("n", "<leader>vx", "<plug>(vimtex-reload)", { desc = "Reload" }),
   vim.keymap.set("n", "<leader>vX", "<plug>(vimtex-reload-state)", { desc = "Reload state" }),
-  vim.keymap.set("n", "<leader>vm", "<plug>(vimtex-toggle-main)", { desc = "Toggle main" }),
+  vim.keymap.set("n", "<leader>vm", "<plug>(vimtex-toggle-main)", { desc = "Toggle main tex file" }),
   vim.keymap.set("n", "<leader>va", "<plug>(vimtex-context-menu)", { desc = "Context menu" }),
   vim.keymap.set("n", "<leader>vd", "<plug>(vimtex-doc-package)", { desc = "Doc package" }),
+  vim.keymap.set(
+    "n",
+    "<leader>vb",
+    "mz<cmd>%! blacktex --keep-comments %<CR>`z",
+    { desc = "Blacktex (keep comments)" }
+  ),
+  vim.keymap.set("n", "<leader>vB", "my<cmd>%! blacktex %<CR>`y", { desc = "Blacktex (strip comments)" }),
 }

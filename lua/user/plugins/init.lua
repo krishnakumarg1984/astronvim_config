@@ -90,7 +90,7 @@ return {
   -- { "eddiebergman/nvim-treesitter-pyfold", after = { "nvim-treesitter" }, ft = "python" }, -- Sane Python folding
   ["nvim-treesitter/nvim-treesitter-refactor"] = { after = "nvim-treesitter" }, -- Treesitter refactor module
   ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
-  ["RRethy/nvim-treesitter-textsubjects"] = require "user.plugins.nvim-treesitter-textsubjects", -- DWIM textobjects
+  -- ["RRethy/nvim-treesitter-textsubjects"] = require "user.plugins.nvim-treesitter-textsubjects", -- DWIM textobjects
   -- ["s1n7ax/nvim-window-picker"] = {}, -- Prompts to pick a window & returns its window id
   ["samjwill/nvim-unception"] = {}, -- Open files from within Neovim's terminal emulator without weird behavior
   -- ["jbyuki/one-small-step-for-vimkind"] = {}, -- Debug adapter for Neovim plugins
@@ -115,6 +115,7 @@ return {
   -- Modify AstroNvim default plugins (((
 
   ["windwp/nvim-ts-autotag"] = require "user.plugins.nvim-ts-autotag", -- Autoclose & rename html tags with treesitter
+  -- ["rebelot/heirline.nvim"] = { commit = "19cab76f52710ec67bd8829cbc96d0c322963090" }, -- https://github.com/rebelot/heirline.nvim/issues/79
 
   -- ))) end of modification of default AstroNvim plugins
 }

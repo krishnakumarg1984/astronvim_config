@@ -394,11 +394,14 @@ return function(defaults)
       -- python3_host_prog = "python3",
       -- python_host_skip_check = 1,
       skip_loading_mswin = 1,
-      tex_comment_nospell = 1,
-      tex_conceal = "abdmgs",
-      -- tex_flavor = "latex",  -- vimtex already sets this up
-      tex_isk = "48-57,a-z,A-Z,192-255,:,_",
-      tex_fold_enabled = 1,
+      tex_flavor = "latex", -- vimtex already sets this up
+      tex_comment_nospell = 1, -- spell checking be disabled in comments in LaTeX files
+      tex_conceal = "abdmgs", --  a = accents/ligatures b = bold and italic d = delimiters m = math symbols g = Greek s = superscripts/subscripts
+      tex_fold_enabled = 1, -- will only work if foldmethod=syntax
+      tex_isk = "48-57,a-z,A-Z,192-255,:,_", -- Normally, LaTeX keywords support 0-9, a-z, A-z, and 192-255 only.
+      tex_nospell = 1, -- don't want spell checking anywhere in LaTeX document
+      tex_stylish = 1, -- One may use "\makeatletter" in *.tex files, thereby making the use of "@" in commands available.  However, since the *.tex file doesn't have one of the following suffices: sty cls clo dtx ltx, the syntax highlighting will flag such use of @ as an error. Putting "let g:tex_stylish=1" into your vimrc will make <syntax/tex.vim> always accept such use of @.
+      tex_verbspell = 0, -- Often verbatim regions in a LaTeX doc are used for things like source code; seldom does one want source code spell-checked.
       markdown_enable_folding = 1,
       markdown_folding = 1,
       vimsyn_folding = "af",
