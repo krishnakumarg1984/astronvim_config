@@ -36,7 +36,7 @@ return {
   -- ["ludovicchabant/vim-gutentags"] = require "user.plugins.vim-gutentags", -- A Vim plugin that manages your tag files
   ["andymass/vim-matchup"] = { after = "nvim-treesitter" }, -- Even better '%' navigate & highlight matching words
   ["urbainvaes/vim-ripple"] = require "user.plugins.vim-ripple", -- Minimalist plugin to interact with a REPL
-  ["Konfekt/vim-sentence-chopper"] = { ft = { "tex", "markdown", "text" } }, -- VCS-friendly text formatting
+  ["Konfekt/vim-sentence-chopper"] = require "user.plugins.vim_sentence_chopper", -- VCS-friendly text formatting
   ["tpope/vim-unimpaired"] = require "user.plugins.vim-unimpaired", -- Pairs of handy bracket mappings
   ["lervag/vimtex"] = require "user.plugins.vimtex", --  VimTeX: A modern Vim and neovim filetype plugin for LaTeX files
 

@@ -1,3 +1,4 @@
+-- vim: ft=lua:
 -- The names are based on the completion candidates for ':LspInstall'
 -- Extend LSP configuration
 -- local servers = {

@@ -35,6 +35,48 @@
 -- https://github.com/msprev/fzf-bibtex
 -- https://github.com/rafaqz/citation.vim
 -- https://github.com/tiagovla/zotex.nvim
+-- https://github.com/tdegeus/GooseBib
+-- https://flamingtempura.github.io/bibtex-tidy/
+-- arxivcheck https://github.com/bibcure/arxivcheck
+-- autobib https://github.com/GiuseppeMinardi/AutoBib
+-- autobib https://github.com/jdumas/autobib
+-- betterbib https://github.com/texworld/betterbib
+-- bibchex https://github.com/tinloaf/bibchex
+-- bibcure  https://github.com/bibcure/bibcure
+-- biber (in tool mode)
+-- biblatex-check https://github.com/pezmc/biblatex-check
+-- bibolamazi https://github.com/phfaist/bibolamazi
+-- bibpain https://github.com/peterwittek/bibpain
+-- bibsearch https://github.com/mjpost/bibsearch
+-- bibtex-normalizer https://github.com/hsborges/bibtex-normalizer
+-- bibtex-search https://github.com/ekmartin/bibtex-search
+-- bibtex-tidy https://github.com/FlamingTempura/bibtex-tidy
+-- bibtexnanny https://github.com/marcschulder/BibTexNanny
+-- bibtool
+-- bibviz https://github.com/jphmrst/bibviz
+-- btparse https://metacpan.org/dist/Text-BibTeX/view/btparse/doc/btparse.pod
+-- capbib https://github.com/papachristoumarios/capbib
+-- check-bib-for-predatory https://github.com/CfKu/check-bib-for-predatory
+-- clean_bibliography https://github.com/antoineallard/clean_bibliography
+-- csv2bib https://github.com/jacksonpradolima/csv2bib
+-- csv2bib https://github.com/yannh/csv2bib
+-- doi2bib https://github.com/bibcure/doi2bib
+-- doi2bib https://github.com/mseri/doi2bib
+-- doi2bib https://github.com/schneiderfelipe/doi2bib
+-- fixbibtex https://github.com/jaimergp/fixbibtex
+-- getbibtex https://github.com/goerz/getbibtex
+-- goosebib https://github.com/tdegeus/GooseBib
+-- pdf2bib https://github.com/MicheleCotrufo/pdf2bib
+-- pdf2doi https://github.com/MicheleCotrufo/pdf2doi
+-- prettybib https://github.com/jlibovicky/prettybib
+-- pybibtexttools https://github.com/dineiar/PyBibTextTools
+-- rebiber https://github.com/yuchenlin/rebiber
+-- scholar-bibtex-keys https://github.com/jiamings/scholar-bibtex-keys
+-- scihub2pdf https://github.com/bibcure/scihub2pdf
+-- texcop https://github.com/stefan-kolb/texcop
+-- tidybib https://github.com/MrDongdongLin/tidybib
+-- title2bib https://github.com/bibcure/title2bib
+-- yaml2bib https://github.com/basnijholt/yaml2bib
 
 -- )))
 
@@ -252,7 +294,6 @@
 -- https://github.com/thinca/vim-quickrun
 -- https://github.com/4513ECHO/vim-readme-viewer
 -- use { "urbainvaes/vim-ripple" }  -- REPL
--- use { "Konfekt/vim-sentence-chopper" }
 -- https://github.com/jpalardy/vim-slime
 -- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
 -- https://github.com/marklcrns/vim-smartq
