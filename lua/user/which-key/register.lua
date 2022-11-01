@@ -224,6 +224,9 @@ return {
       v = { name = "VimTeX" },
       x = { name = "Diagnostics" },
     },
+    ["g"] = {
+      a = { name = "Textcase plugin operations" },
+    },
   },
   v = {
     ["leader"] = {
