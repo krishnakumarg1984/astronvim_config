@@ -43,7 +43,7 @@ return {
         p = { "<Cmd>BufferLineTogglePin<CR>", "Pin buffer (toggle)" },
         x = { "<Cmd>BufOnly<CR>", "Only current buffer" },
       },
-      C = { name = "Crates" },
+      C = { name = "Crates (Rust)" },
       D = { "<cmd>windo diffthis<CR>", "diff buffers" },
       d = {
         name = "Debug",
@@ -142,7 +142,7 @@ return {
         U = { function() astronvim.toggle_term_cmd "gitui" end, "GitUI" },
       },
       l = {
-        name = "LSP",
+        name = "Intellisense (LSP)",
         j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
         k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
         -- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
@@ -184,7 +184,7 @@ return {
       p = {
         p = { "<cmd>PackerProfile<CR>", "Profile plugins" },
       },
-      r = { name = "Compile" },
+      r = { name = "Rust/Cargo" },
       s = {
         name = "Search/Set",
         a = { "<cmd>Telescope autocommands<cr>", "Autocommands" },

@@ -171,13 +171,6 @@ return {
     -- https://www.reddit.com/r/neovim/comments/ttwzge/magic_replace_selected_text_mapping_with_repeat/
     ["y"] = { "myy`ymy" },
     ["Y"] = { "myY`ymy" },
-
-    -- "crates.nvim" keymaps (((
-
-    ["<leader>Cu"] = { "<cmd>lua require('crates').update_crate()<CR>", desc = "Update crate" },
-    ["<leader>CU"] = { "<cmd>lua require('crates').upgrade_crates()<CR>", desc = "Upgrade crates" },
-
-    -- )))
   },
 
   -- )))
@@ -187,22 +180,6 @@ return {
   x = {
     ["<"] = { "<gv" }, -- Stay in indent mode in visual-block mode
     [">"] = { ">gv" }, -- Stay in indent mode in visual-block mode
-
-    -- "text-case" keymaps (((
-
-    ["gaa"] = { "<cmd>lua require('textcase').current_word('to_phrase_case')<CR>", desc = "Convert to phrase_case" },
-    ["gaf"] = { "<cmd>lua require('textcase').current_word('to_path_case')<CR>", desc = "Convert to path_case" },
-    ["gas"] = { "<cmd>lua require('textcase').current_word('to_snake_case')<CR>", desc = "Convert to snake_case" },
-    ["gat"] = { "<cmd>lua require('textcase').current_word('to_title_case')<CR>", desc = "Convert to title_case" },
-    ["gaz"] = { "<cmd>lua require('textcase').current_word('to_dot_case')<CR>", desc = "Convert to dot_case" },
-
-    -- )))
-
-    -- -- 'gitsigns' keymaps (((
-    --
-    -- ["ih"] = { "<Cmd><C-U>Gitsigns select_hunk<CR>" },
-    --
-    -- -- )))
   },
 
   -- )))

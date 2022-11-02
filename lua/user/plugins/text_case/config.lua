@@ -1,31 +1,31 @@
 require("textcase").setup {}
 
 vim.keymap.set(
-  { "n", "o", "v" },
+  { "n", "o", "v", "x" },
   "gaa",
   "<cmd>lua require('textcase').current_word('to_phrase_case')<CR>",
   { desc = "Convert to phrase case" }
 )
 vim.keymap.set(
-  { "n", "o", "v" },
+  { "n", "o", "v", "x" },
   "gaf",
   "<cmd>lua require('textcase').current_word('to_path_case')<CR>",
   { desc = "Convert to path case" }
 )
 vim.keymap.set(
-  { "n", "o", "v" },
+  { "n", "o", "v", "x" },
   "gas",
   "<cmd>lua require('textcase').current_word('to_snake_case')<CR>",
   { desc = "Convert to snake case" }
 )
 vim.keymap.set(
-  { "n", "o", "v" },
+  { "n", "o", "v", "x" },
   "gat",
   "<cmd>lua require('textcase').current_word('to_title_case')<CR>",
   { desc = "Convert to title case" }
 )
 vim.keymap.set(
-  { "n", "o", "v" },
+  { "n", "o", "v", "x" },
   "gaz",
   "<cmd>lua require('textcase').current_word('to_dot_case')<CR>",
   { desc = "Convert to dot case" }

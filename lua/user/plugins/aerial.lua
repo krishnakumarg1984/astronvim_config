@@ -1,16 +1,16 @@
 local kind_icons = require("user.global_vars").kind_icons
 -- Jump forwards/backwards with '{' and '}'
-vim.keymap.set("n", "}", "}", { silent = true })
-vim.keymap.del("n", "}")
-vim.keymap.set("n", "<leader>{", "<cmd>AerialPrev<cr>", { desc = "Jump back (outline)" })
-vim.keymap.set("n", "<leader>}", "<cmd>AerialNext<cr>", { desc = "Jump fwd (outline)" })
+-- vim.keymap.set("n", "}", "}", { silent = true })
+-- vim.keymap.del("n", "}")
+-- vim.keymap.set("n", "<leader>{", "<cmd>AerialPrev<cr>", { desc = "Jump back (outline)" })
+-- vim.keymap.set("n", "<leader>}", "<cmd>AerialNext<cr>", { desc = "Jump fwd (outline)" })
 -- Jump up the tree with '[[' or ']]'
 vim.keymap.set("n", "]]", "]]", { silent = true })
 vim.keymap.del("n", "]]")
 vim.keymap.set("n", "[[", "[[", { silent = true })
 vim.keymap.del("n", "[[")
-vim.keymap.set("n", "<leader>[", "<cmd>AerialPrevUp<cr>", { desc = "Jump up+back (outline)" })
-vim.keymap.set("n", "<leader>]", "<cmd>AerialNextUp<cr>", { desc = "Jump up+fwd (outline)" })
+-- vim.keymap.set("n", "<leader>[", "<cmd>AerialPrevUp<cr>", { desc = "Jump up+back (outline)" })
+-- vim.keymap.set("n", "<leader>]", "<cmd>AerialNextUp<cr>", { desc = "Jump up+fwd (outline)" })
 -- vim.keymap.set('n', '<C-w>o', '<C-w>o:AerialClose<CR>') -- https://github.com/stevearc/aerial.nvim/issues/99
 return {
   backends = { "treesitter", "lsp", "markdown" },

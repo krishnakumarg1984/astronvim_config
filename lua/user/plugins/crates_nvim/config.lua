@@ -16,9 +16,15 @@ vim.keymap.set(
   "<cmd>lua require('crates').show_dependencies_popup()<CR>",
   { desc = "Show dependencies" }
 )
-vim.keymap.set("n", "<leader>Cu", "<cmd>lua require('crates').update_crate()<CR>", { desc = "Update crate" })
+vim.keymap.set({ "n", "v" }, "<leader>Cu", "<cmd>lua require('crates').update_crate()<CR>", { desc = "Update crate" })
 vim.keymap.set("n", "<leader>Ca", "<cmd>lua require('crates').update_all_crates()<CR>", { desc = "Update all crates" })
 vim.keymap.set("n", "<leader>CU", "<cmd>lua require('crates').upgrade_crate()<CR>", { desc = "Upgrade crate" })
+vim.keymap.set(
+  "v",
+  "<leader>CU",
+  "<cmd>lua require('crates').upgrade_crates()<CR>",
+  { desc = "Upgrade selected crates" }
+)
 vim.keymap.set(
   "n",
   "<leader>CA",
