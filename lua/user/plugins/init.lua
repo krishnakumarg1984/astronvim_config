@@ -20,7 +20,7 @@ return {
   ["tweekmonster/startuptime.vim"] = { cmd = { "StartupTime" } }, -- Breakdown Vim's '--startuptime' output
   -- ["dstein64/vim-startuptime"] = { cmd = { "StartupTime" } }, -- A Vim plugin for profiling Vim's startup time
 
-  ["AndrewRadev/bufferize.vim"] = { cmd = { "Bufferize", "BufferizeSystem", "BufferizeTimer" } }, -- Execute a :command and show the output in a temporary buffer
+  ["AndrewRadev/bufferize.vim"] = { cmd = { "Bufferize", "BufferizeSystem", "BufferizeTimer", "Capture" } }, -- Execute a :command and show the output in a temporary buffer
   -- ["tyru/capture.vim"] = { cmd = { "Capture" } }, -- Show Ex command output in buffer
   ["rust-lang/rust.vim"] = require "user.plugins.rust_vim", -- Vim configuration for Rust. (must be loaded before 'rust-tools')
   ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } }, -- An alternative sudo.vim for Vim and Neovim
@@ -73,7 +73,7 @@ return {
   ["TimUntersberger/neogit"] = require "user.plugins.neogit_nvim", -- Magit for neovim
   ["nvim-neotest/neotest"] = require "user.plugins.nvim_neotest", -- An extensible framework for interacting with tests within NeoVim.
   ["nvim-neotest/neotest-python"] = { ft = "python" }, -- Neotest adapter for python. Supports Pytest and unittest test files.
-  ["weilbith/nvim-code-action-menu"] = { cmd = "CodeActionMenu" }, -- Code action pop-up menu (meta-info & diff)
+  ["weilbith/nvim-code-action-menu"] = require "user.plugins.nvim_code_action_menu", -- Code action pop-up menu (meta-info & diff)
   -- ["Canop/nvim-bacon"] = { ft = "rust" }, -- bacon's companion for neovim
   -- ["andythigpen/nvim-coverage"] = require "user.plugins.nvim-coverage", -- Displays test coverage data in the sign column
   ["mfussenegger/nvim-dap"] = require "user.plugins.nvim_dap", -- Debug Adapter Protocol client implementation
