@@ -158,7 +158,7 @@
 -- https://github.com/ericpubu/lsp_codelens_extensions.nvim  -- Adds client side code for codelenses commands not in the lsp servers
 -- https://git.sr.ht/~whynothugo/lsp_lines.nvim
 -- https://github.com/aspeddro/lsp_menu.nvim
--- https://github.com/AcksID/messages.nvim = {}, -- Capture and show any messages in a customisable (floating) buffer
+-- https://github.com/AckslD/messages.nvim = {}, -- Capture and show any messages in a customisable (floating) buffer
 -- https://github.com/jubnzv/mdeval.nvim
 -- https://github.com/p00f/mdpreview.nvim
 -- https://github.com/numToStr/Navigator.nvim
