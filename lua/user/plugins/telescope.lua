@@ -1,3 +1,9 @@
+vim.keymap.set("n", "<leader>lc", "<cmd>Telescope lsp_outgoing_calls<CR>", { desc = "Callees list" })
+vim.keymap.set("n", "<leader>lC", "<cmd>Telescope lsp_incoming_calls<CR>", { desc = "Callers list" })
+vim.keymap.set("n", "<leader>lI", "<cmd>Telescope implementations<CR>", { desc = "Implementations" })
+vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>", { desc = "Symbol references (diagnostics window)" })
+-- ["gd"] = { "<cmd>Telescope lsp_definitions<cr>", desc = "Go to definition(s)" },
+-- ["gr"] = { "<cmd>Telescope lsp_references<cr>", desc = "References of current symbol" },
 return {
   -- https://gitlab.com/HiPhish/nvim-config/-/blob/master/plugin/telescope.lua
   defaults = {
