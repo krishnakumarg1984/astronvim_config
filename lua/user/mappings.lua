@@ -10,10 +10,20 @@
 
 -- https://code.mehalter.com/projects/68/files/master/mappings.lua
 local map = vim.keymap.set
-for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "?" } do
+for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
   for _, mode in ipairs { "x", "o" } do
-    map(mode, "i" .. char, (":<C-u>silent! normal! f%sF%slvt%s<CR>"):format(char, char, char))
-    map(mode, "a" .. char, (":<C-u>silent! normal! f%sF%svf%s<CR>"):format(char, char, char))
+    map(
+      mode,
+      "i" .. char,
+      (":<C-u>silent! normal! f%sF%slvt%s<CR>"):format(char, char, char),
+      { desc = "between " .. char }
+    )
+    map(
+      mode,
+      "a" .. char,
+      (":<C-u>silent! normal! f%sF%svf%s<CR>"):format(char, char, char),
+      { desc = "around " .. char }
+    )
   end
 end
 
@@ -99,6 +109,7 @@ return {
     ["<leader>w"] = false,
     ["<S-h>"] = false,
     ["<S-l>"] = false,
+    ["gl"] = false, -- disable AstroNvim's "Hover Diagnostics" keymap
     ["{"] = false,
     ["}"] = false,
 
