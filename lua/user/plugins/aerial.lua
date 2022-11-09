@@ -9,9 +9,34 @@ vim.keymap.set("n", "]]", "]]", { silent = true })
 vim.keymap.del("n", "]]")
 vim.keymap.set("n", "[[", "[[", { silent = true })
 vim.keymap.del("n", "[[")
+-- g = { "<cmd>AerialGo<cr>", "Jump to the Nth symbol" },
+-- u = { "<cmd>AerialPrevUp<cr>", "Prev symbol (up 1 level)" },
 -- vim.keymap.set("n", "<leader>[", "<cmd>AerialPrevUp<cr>", { desc = "Jump up+back (outline)" })
 -- vim.keymap.set("n", "<leader>]", "<cmd>AerialNextUp<cr>", { desc = "Jump up+fwd (outline)" })
 -- vim.keymap.set('n', '<C-w>o', '<C-w>o:AerialClose<CR>') -- https://github.com/stevearc/aerial.nvim/issues/99
+vim.keymap.set("n", "<leader>aa", "<cmd>AerialToggle!<cr>", { desc = "Toggle outline" })
+vim.keymap.set(
+  "n",
+  "<leader>ac",
+  "<cmd>AerialClose<cr> | let g:aerial_open_automatic = 0<cr>",
+  { desc = "Close outline" }
+)
+vim.keymap.set("n", "<leader>aC", "<cmd>AerialTreeCloseAll<cr>", { desc = "Collapse all" })
+vim.keymap.set("n", "<leader>an", "<cmd>AerialNext<cr>", { desc = "Next symbol" })
+vim.keymap.set("n", "<leader>aN", "<cmd>AerialNextUp<cr>", { desc = "Next symbol (up 1 level)" })
+vim.keymap.set(
+  "n",
+  "<leader>ao",
+  "<cmd>AerialOpen!<cr> | let g:aerial_open_automatic = 1<cr>",
+  { desc = "Open outline" }
+)
+vim.keymap.set("n", "<leader>aO", "<cmd>AerialTreeOpenAll<cr>", { desc = "Open all folds" })
+vim.keymap.set("n", "<leader>ap", "<cmd>AerialPrev<cr>", { desc = "Prev symbol" })
+vim.keymap.set("n", "<leader>aP", "<cmd>AerialPrevUp<cr>", { desc = "Prev symbol (up 1 level)" })
+vim.keymap.set("n", "<leader>as", "<cmd>AerialTreeSyncFolds<cr>", { desc = "Sync code folding" })
+vim.keymap.set("n", "<leader>at", "<cmd>AerialToggle<cr>", { desc = "Toggle outline & move cursor" })
+vim.keymap.set("n", "<leader>aT", "<cmd>AerialTreeToggle!<cr>", { desc = "Toggle folds at location" })
+
 return {
   backends = { "treesitter", "lsp", "markdown" },
   -- min_width = 18,

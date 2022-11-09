@@ -143,7 +143,7 @@ return {
 --   "bibtex",
 --   "c",
 --   "cmake",
---   -- "comment", -- difficult to get this working on remote servers?
+--   "comment", -- difficult to get this working on remote servers?
 --   "cpp",
 --   "css",
 --   "cuda",
@@ -157,12 +157,12 @@ return {
 --   "html",
 --   "http",
 --   "java",
---   -- "javascript",
+--   "javascript",
 --   "json",
 --   "json5",
 --   "jsonc",
 --   "julia",
---   -- "latex",
+--   "latex",
 --   "lua", -- problematic on remote servers?
 --   "make",
 --   "markdown",

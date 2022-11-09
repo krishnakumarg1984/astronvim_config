@@ -5,23 +5,7 @@ return {
     -- second key is the prefix, <leader> prefixes
     ["<leader>"] = {
       -- which-key registration table for normal mode, leader prefix
-      a = {
-        name = "Code Outline",
-        a = { "<cmd>AerialToggle!<cr>", "Toggle outline" },
-        C = { "<cmd>AerialTreeCloseAll<cr>", "Collapse all" },
-        c = { "<cmd>AerialClose<cr> | let g:aerial_open_automatic = 0<cr>", "Close outline" },
-        -- g = { "<cmd>AerialGo<cr>", "Jump to the Nth symbol" },
-        N = { "<cmd>AerialNextUp<cr>", "Next symbol (up 1 level)" },
-        n = { "<cmd>AerialNext<cr>", "Next symbol" },
-        O = { "<cmd>AerialTreeOpenAll<cr>", "Open all folds" },
-        o = { "<cmd>AerialOpen!<cr> | let g:aerial_open_automatic = 1<cr>", "Open outline" },
-        P = { "<cmd>AerialPrevUp<cr>", "Prev symbol (up 1 level)" },
-        p = { "<cmd>AerialPrev<cr>", "Prev symbol" },
-        s = { "<cmd>AerialTreeSyncFolds<cr>", "Sync code folding" },
-        T = { "<cmd>AerialTreeToggle!<cr>", "Toggle folds at location" },
-        t = { "<cmd>AerialToggle<cr>", "Toggle outline & move cursor" },
-        -- u = { "<cmd>AerialPrevUp<cr>", "Prev symbol (up 1 level)" },
-      },
+      a = { name = "Code outline" },
       b = {
         name = "Buffers",
         ["1"] = { "<Cmd>BufferLineGoToBuffer 1<CR>", "Buffer 1" },
