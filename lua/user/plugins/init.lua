@@ -47,7 +47,7 @@ return {
 
   -- Additional lua plugins (((
 
-  ["numtostr/BufOnly.nvim"] = { cmd = { "BufOnly" } }, -- Lua/Neovim port of BufOnly.vim with some changes
+  ["numtostr/BufOnly.nvim"] = require "user.plugins.bufonly", -- Lua/Neovim port of BufOnly.vim with some changes
   -- ["catppuccin/nvim"] = require "user.plugins.catppuccin_nvim", -- Soothing pastel theme for Neovim
   ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd-extensions", -- Clangd's off-spec features
   ["saecki/crates.nvim"] = require "user.plugins.crates_nvim", -- A neovim plugin that helps managing crates.io dependencies
