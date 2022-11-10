@@ -5,14 +5,10 @@ return {
   --   allow_filetypes = { -- enable format on save for specified filetypes only
   --     -- "go",
   --   },
-  --   disable_filetypes = { -- disable format on save for specified filetypes
+  --   ignore_filetypes = { -- disable format on save for specified filetypes
   --     -- "python",
   --   },
   -- },
-  -- if vim.tbl_contains({ "ccls", "clangd", "jsonls", "pylsp", "taplo" }, client.name) then
-  --   astronvim.lsp.disable_formatting(client)
-  -- end
-
   disabled = { -- disable formatting capabilities for the listed language servers
     "sumneko_lua",
   },
@@ -41,3 +37,7 @@ return {
 -- https://astronvim.github.io/Recipes/advanced_lsp
 --
 -- it will be here
+
+-- if vim.tbl_contains({ "ccls", "clangd", "jsonls", "pylsp", "taplo" }, client.name) then
+--   astronvim.lsp.disable_formatting(client)
+-- end
