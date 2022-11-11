@@ -494,4 +494,66 @@ https://github.com/stevearc/gkeep.nvim
 
 -- )))
 
+-- https://discord.com/channels/939594913560031363/942007419050029086/1040652313754345562
+-- @krishnakumar you'll be happy to know a push I made this morning to AstroNvim nightly lazy loads git signs on git repo folders only 😂
+-- I think you had wanted that previously
+-- krishnakumar — Today at 3:41 PM
+-- Totally
+-- See mehalter, my suggestions's worth will only reveal themselves over time
+-- They are like platinum
+-- mehalter — Today at 3:42 PM
+-- lmfao
+-- krishnakumar — Today at 3:42 PM
+-- Do I strike you as someone who doesn't like self praise
+-- mehalter — Today at 3:42 PM
+-- the problem is that you have like a 90% miss rate on bug reports hahaha 😂
+-- hahaha nah I can tell you are saying it in jest haha just like my comment above
+-- krishnakumar — Today at 3:42 PM
+-- Doesn't sound like a problem to me
+-- On a serious note, thank you for implementing it
+-- mehalter — Today at 3:43 PM
+-- no problem 🙂
+-- I also added lazy loading of packer itself haha
+-- krishnakumar — Today at 3:43 PM
+-- Can we have git plugins also lazy loaded that way?
+-- mehalter — Today at 3:43 PM
+-- realized there's basically no reason to load a plugin manager until someone is trying to manage plugins 🤔
+-- hm, you could add it yourself. If you want I can make a util function that will make the autocmd but I probably won't advertise it anywhere like in the docs
+-- it's a pretty specific thing, but I could totally make you a function for it haha it will be in the luadoc page I suppose
+-- krishnakumar — Today at 3:44 PM
+-- Ok. The util function sounds good
+-- mehalter — Today at 3:44 PM
+-- ok cool beans
+-- krishnakumar — Today at 3:44 PM
+-- Can you point me to it?
+-- mehalter — Today at 3:52 PM
+-- ok on the latest nightly @krishnakumar you will just want to add this
+-- opt = true,    
+-- setup = function() astronvim.load_plugin_in_git_folder "gitsigns.nvim" end,
+-- 
+-- 
+-- to the plugin table that you want to lazy load
+-- you will need to replace the gitsigns.nvim with the name of the plugin that you want to lazy load
+-- this basically creates an autocmd that will check if it is in a git repo and load the plugin accordingly
+-- if you have a bunch of git plugins then you probably will want to make your own implementation just so you have one autocmd that runs the git command to check and just loads all of your git plugins
+-- honestly that might be a better move for you
+-- just set all the plugins to opt = true and then make your own autocmd in like your polish function that makes a single autocmd and then loads all of your plugins that you want on git folders
+-- this will make one for each plugin @krishnakumar
+-- krishnakumar — Today at 3:57 PM
+-- Thank you! I will study this message and reply to you
+-- mehalter — Today at 3:58 PM
+-- hm
+-- maybe I can make a relatively general approach for this
+-- one second
+-- mehalter — Today at 4:07 PM
+-- oh man @krishnakumar you are gonna like me 😂
+-- with the new changes to nightly you just need to add
+-- 
+-- opt = true,
+-- setup = function() table.insert(astronvim.git_plugins, "gitsigns.nvim") end,
+-- 
+-- 
+-- replacing gitsigns.nvim with the name of the plugin 
+-- @Kabin PackerProfile be looking mighty fine 👀
+
 -- )))
