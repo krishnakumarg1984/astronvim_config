@@ -22,7 +22,7 @@ return {
 
   ["AndrewRadev/bufferize.vim"] = { cmd = { "Bufferize", "BufferizeSystem", "BufferizeTimer", "Capture" } }, -- Execute a :command and show the output in a temporary buffer
   -- ["tyru/capture.vim"] = { cmd = { "Capture" } }, -- Show Ex command output in buffer
-  ["rust-lang/rust.vim"] = require "user.plugins.rust_vim", -- Vim configuration for Rust. (must be loaded before 'rust-tools')
+  ["rust-lang/rust.vim"] = {}, -- Vim configuration for Rust. (must be loaded before 'rust-tools')
   ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } }, -- An alternative sudo.vim for Vim and Neovim
 
   ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
@@ -89,7 +89,7 @@ return {
   -- ["romgrk/nvim-treesitter-context"] = require "user.plugins.nvim-treesitter-context", -- Show code context
   -- { "eddiebergman/nvim-treesitter-pyfold", after = { "nvim-treesitter" }, ft = "python" }, -- Sane Python folding
   ["nvim-treesitter/nvim-treesitter-refactor"] = { after = "nvim-treesitter" }, -- Treesitter refactor module
-  ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
+  -- ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
   -- ["RRethy/nvim-treesitter-textsubjects"] = require "user.plugins.nvim-treesitter-textsubjects", -- DWIM textobjects
   -- ["s1n7ax/nvim-window-picker"] = {}, -- Prompts to pick a window & returns its window id
   ["samjwill/nvim-unception"] = {}, -- Open files from within Neovim's terminal emulator without weird behavior

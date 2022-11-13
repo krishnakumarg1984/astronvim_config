@@ -1,4 +1,5 @@
-vim.keymap.set("n", "<leader>bx", "<Cmd>BufOnly<CR>", { desc = "Only current buffer" })
 return {
+  keys = { "<leader>bx" },
   cmd = { "BufOnly" },
+  config = function() require "user.plugins.bufonly.config" end,
 }
