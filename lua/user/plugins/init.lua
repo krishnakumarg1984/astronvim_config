@@ -77,8 +77,8 @@ return {
   -- ["Canop/nvim-bacon"] = { ft = "rust" }, -- bacon's companion for neovim
   -- ["andythigpen/nvim-coverage"] = require "user.plugins.nvim-coverage", -- Displays test coverage data in the sign column
   -- ["mfussenegger/nvim-dap"] = require "user.plugins.nvim_dap", -- Debug Adapter Protocol client implementation
-  ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim_dapui", -- A UI for nvim-dap
-  ["theHamsta/nvim-dap-virtual-text"] = require "user.plugins.nvim_dap_virtual_text", -- slow!
+  -- ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim_dapui", -- A UI for nvim-dap
+  -- ["theHamsta/nvim-dap-virtual-text"] = require "user.plugins.nvim_dap_virtual_text", -- slow!
   ["https://gitlab.com/yorickpeterse/nvim-dd"] = require "user.plugins.nvim_dd", -- Deferring of NeoVim diagnostics
   ["kevinhwang91/nvim-hlslens"] = require "user.plugins.nvim_hlslens", -- A hlsearch Lens for Neovim
   ["ethanholz/nvim-lastplace"] = require "user.plugins.nvim_lastplace", -- A Lua rewrite of vim-lastplace
@@ -102,7 +102,7 @@ return {
   -- ["michaelb/sniprun"] = require "user.plugins.sniprun", -- Run lines/blocks of code, supports multiples languages
   -- ["luukvbaal/stabilize.nvim"] = require "user.plugins.stabilize", -- Stabilize window open/close events
   -- ["abecodes/tabout.nvim"] = require "user.plugins.tabout", -- tabout plugin for neovim
-  ["nvim-telescope/telescope-dap.nvim"] = require "user.plugins.telescope-dap", -- Dap-Telescope integration
+  -- ["nvim-telescope/telescope-dap.nvim"] = require "user.plugins.telescope-dap", -- Dap-Telescope integration
   -- ["benfowler/telescope-luasnip.nvim"] = require "user.plugins.telescope-luasnip", -- Telescope+LuaSnip integration
   ["nvim-telescope/telescope-symbols.nvim"] = require "user.plugins.telescope_symbols",
   ["johmsalas/text-case.nvim"] = require "user.plugins.text_case", -- An all in one plugin for converting text case

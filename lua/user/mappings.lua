@@ -6,7 +6,7 @@
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
 
--- more in/all objects between 2 characters (((
+-- add more text objects for "in" and "around" (((
 
 -- https://code.mehalter.com/projects/68/files/master/mappings.lua
 local map = vim.keymap.set
@@ -169,7 +169,7 @@ return {
     ["<C-j>"] = false,
     ["<C-k>"] = false,
     ["<C-l>"] = false,
-    ["<c-q>"] = { "<c-\\><c-n>", desc = "Terminal normal mode" },
+    ["<C-q>"] = { "<c-\\><c-n>", desc = "Terminal normal mode" },
   },
 
   -- )))

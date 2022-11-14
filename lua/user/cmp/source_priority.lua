@@ -13,6 +13,7 @@ return {
   pandoc_references = 600,
   -- latex_symbols = 700,
   buffer = 500,
+  calc = 350,
   path = 250,
   emoji = 200,
   dictionary = 150,

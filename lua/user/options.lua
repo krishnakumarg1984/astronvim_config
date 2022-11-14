@@ -296,7 +296,7 @@ return function(defaults)
       wildignorecase = true, -- If supported, make wildmenu completions case-insensitive
       winaltkeys = "no",
       winminheight = 0, -- Default is 1. The minimal height of a window, when it's not the current window.
-      wrap = true,
+      wrap = true, -- soft wrap lines
 
       -- Commented-out settings (((
 

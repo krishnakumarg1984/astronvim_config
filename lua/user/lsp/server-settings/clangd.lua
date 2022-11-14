@@ -5,7 +5,7 @@ return {
     -- offsetEncoding = "utf-32",
     memoryUsageProvider = true,
   },
-  filetypes = { "c", "cpp", "objc", "objcpp", "opencl" },
+  filetypes = { "c", "cpp", "cuda", "objc", "objcpp", "opencl" },
   init_options = {
     clangdFileStatus = true, -- Provides information about activity on clangd’s per-file worker thread
     -- TODO: figure out what is this
