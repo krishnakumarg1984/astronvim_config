@@ -76,7 +76,7 @@ return {
   ["weilbith/nvim-code-action-menu"] = require "user.plugins.nvim_code_action_menu", -- Code action pop-up menu (meta-info & diff)
   -- ["Canop/nvim-bacon"] = { ft = "rust" }, -- bacon's companion for neovim
   -- ["andythigpen/nvim-coverage"] = require "user.plugins.nvim-coverage", -- Displays test coverage data in the sign column
-  ["mfussenegger/nvim-dap"] = require "user.plugins.nvim_dap", -- Debug Adapter Protocol client implementation
+  -- ["mfussenegger/nvim-dap"] = require "user.plugins.nvim_dap", -- Debug Adapter Protocol client implementation
   ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim_dapui", -- A UI for nvim-dap
   ["theHamsta/nvim-dap-virtual-text"] = require "user.plugins.nvim_dap_virtual_text", -- slow!
   ["https://gitlab.com/yorickpeterse/nvim-dd"] = require "user.plugins.nvim_dd", -- Deferring of NeoVim diagnostics

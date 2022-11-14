@@ -284,5 +284,17 @@ vim.keymap.set("n", "<leader>dg", "<Cmd>lua require'dap'.goto_(", { silent = tru
 vim.keymap.set("n", "<F10>", "<Cmd>lua require'dap'.step_over()<CR>", { silent = true })
 vim.keymap.set("n", "<F11>", "<Cmd>lua require'dap'.step_into()<CR>", { silent = true })
 vim.keymap.set("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>", { silent = true })
+-- -- B = { function() require("dap").list_breakpoints() end, "List breakpoints" },
+-- B = { "<cmd>Telescope dap list_breakpoints<cr>", "List breakpoints" },
+-- b = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+-- -- C = { "<cmd>lua require'dap'.set_breakpoint(vim.fn.input '[Condition] > ')<cr>", "Conditional Breakpoint" },
+-- -- C = {
+-- --   function() require("dap").set_breakpoint(vim.fn.input "Breakpoint condition: ") end,
+-- --   "Set conditional breakpoint",
+-- -- },
+-- -- c = { function() require("dap").clear_breakpoints() end, "Clear breakpoints" },
+-- -- c = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+-- -- c = { function() require("dap").continue() end, "Continue", },
+-- d = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
 
 -- )))

@@ -13,5 +13,7 @@ return {
     local opts = { noremap = true, silent = true }
     local keymap = vim.api.nvim_set_keymap
     keymap("n", "<F9>", "<cmd>lua require('persistent-breakpoints.api').toggle_breakpoint()<cr>", opts)
+    -- C = { "<cmd>lua require('persistent-breakpoints.api').set_conditional_breakpoint(vim.fn.input)<cr>", "Set conditional breakpoint", },
+    -- c = { "<cmd>lua require('persistent-breakpoints.api').clear_all_breakpoints()<cr>", "Clear breakpoints", },
   end,
 }
