@@ -127,7 +127,7 @@ return {
       p = {
         p = { "<cmd>PackerProfile<CR>", "Profile plugins" },
       },
-      r = { name = "Rust/Cargo" },
+      r = { name = "Rust/Cargo", b = { name = "build" } },
       s = {
         name = "Search/Set",
         a = { "<cmd>Telescope autocommands<cr>", "Autocommands" },

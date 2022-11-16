@@ -34,6 +34,7 @@ return {
     vim.keymap.set("n", "<leader>re", "<cmd>RustExpand<CR>", { desc = "Rust expand" })
     vim.keymap.set("n", "<leader>rf", "<cmd>RustFmt<CR>", { desc = "Rust format" })
     vim.keymap.set("n", "<leader>rF", "<cmd>RustFmtRange<CR>", { desc = "Rust format range" })
+    vim.keymap.set("n", "<leader>rg", "<cmd>Cargo modules generate tree<CR>", { desc = "Generate module tree" })
     -- vim.keymap.set("n", "<leader>ri", "<cmd>Cinit<CR>", { desc = "Cargo init" })
     vim.keymap.set("n", "<leader>ri", "<cmd>Cinstall<CR>", { desc = "Cargo install" })
     vim.keymap.set("n", "<leader>rk", "<cmd>Cargo check<CR>", { desc = "Cargo check" })
