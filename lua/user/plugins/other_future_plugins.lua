@@ -143,6 +143,7 @@
 -- https://github.com/lewis6991/hover.nvim   -- Hover plugin framework for Neovim
 -- https://github.com/anuvyklack/hydra.nvim  -- Bind a bunch of key bindings together
 -- https://github.com/b0o/incline.nvim
+-- https://github.com/arsham/indent-tools.nvim --  plugin for dealing with indentations
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
 -- https://github.com/hkupty/iron.nvim
 -- https://github.com/JoseConseco/iswap.nvim
@@ -528,10 +529,10 @@ https://github.com/stevearc/gkeep.nvim
 -- Can you point me to it?
 -- mehalter — Today at 3:52 PM
 -- ok on the latest nightly @krishnakumar you will just want to add this
--- opt = true,    
+-- opt = true,
 -- setup = function() astronvim.load_plugin_in_git_folder "gitsigns.nvim" end,
--- 
--- 
+--
+--
 -- to the plugin table that you want to lazy load
 -- you will need to replace the gitsigns.nvim with the name of the plugin that you want to lazy load
 -- this basically creates an autocmd that will check if it is in a git repo and load the plugin accordingly
@@ -548,12 +549,12 @@ https://github.com/stevearc/gkeep.nvim
 -- mehalter — Today at 4:07 PM
 -- oh man @krishnakumar you are gonna like me 😂
 -- with the new changes to nightly you just need to add
--- 
+--
 -- opt = true,
 -- setup = function() table.insert(astronvim.git_plugins, "gitsigns.nvim") end,
--- 
--- 
--- replacing gitsigns.nvim with the name of the plugin 
+--
+--
+-- replacing gitsigns.nvim with the name of the plugin
 -- @Kabin PackerProfile be looking mighty fine 👀
 
 -- )))

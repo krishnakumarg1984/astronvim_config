@@ -10,8 +10,8 @@ return {
 
     " let g:vimtex_indent_bib_enabled = 0 " if using latexindent.pl, can disable vimtex indenting of bibtex files
 
-    let g:matchup_override_vimtex = 1
-    let g:matchup_matchparen_deferred = 1
+    " let g:matchup_override_vimtex = 1 " set in options.lua
+    " let g:matchup_matchparen_deferred = 1  " set in options.lua
 
     " let g:vimtex_mappings_enabled = 0
 
