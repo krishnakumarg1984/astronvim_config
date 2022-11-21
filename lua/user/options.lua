@@ -66,7 +66,7 @@ return function(defaults)
       rtp = vim.opt.rtp + { "$HOME/.config/astronvim/after" },
       scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
       shiftround = true,
-      shortmess = vim.opt.shortmess + { I = true, c = true, x = false }, -- " a) +I => Don't give the intro message when starting Vim |:intro|. b) +c => Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc. c) -x => Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions.
+      -- shortmess = vim.opt.shortmess + { I = true, c = true, x = false }, -- " a) +I => Don't give the intro message when starting Vim |:intro|. b) +c => Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc. c) -x => Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions.
       showbreak = "↪ ",
       showmatch = true,
       sidescrolloff = 8, -- The minimal number of screen columns to keep to the left and to the right of the cursor
