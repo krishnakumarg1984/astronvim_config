@@ -142,7 +142,7 @@ return {
 
     -- )))
 
-    -- 'neotree' keymaps for normal mode (((
+    -- 'nvim-neo-tree/neo-tree.nvim' keymaps for normal mode (((
 
     ["<leader>e"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "File explorer" },
 
@@ -159,7 +159,8 @@ return {
 
     -- 'akinsho/toggleterm.nvim' keymaps for normal mode (((
 
-    ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }, -- Plugin in Base AstroNvim
+    ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+    ["<s-u>"] = { function() astronvim.toggle_term_cmd "gitui" end, "GitUI" },
 
     -- )))
 

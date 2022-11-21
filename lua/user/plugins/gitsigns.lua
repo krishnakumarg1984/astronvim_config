@@ -32,17 +32,19 @@ return {
     end, { expr = true })
 
     -- Actions
-    map("v", "<leader>gh", ":Gitsigns stage_hunk<CR>")
-    map("v", "<leader>gR", ":Gitsigns reset_hunk<CR>")
-    -- map("n", "<leader>hS", gs.stage_buffer)
-    -- map("n", "<leader>hu", gs.undo_stage_hunk)
-    -- map("n", "<leader>hR", gs.reset_buffer)
-    -- map("n", "<leader>hp", gs.preview_hunk)
-    -- map("n", "<leader>hb", function() gs.blame_line { full = true } end)
-    -- map("n", "<leader>tb", gs.toggle_current_line_blame)
-    -- map("n", "<leader>hd", gs.diffthis)
+    map({ "n", "v", "x" }, "<leader>gh", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
+    map(
+      { "n", "v", "x" },
+      "<leader>g<s-l>",
+      "<cmd>Gitsigns toggle_current_line_blame<cr>",
+      { desc = "Toggle current line blame" }
+    )
+    map({ "n", "v", "x" }, "<leader>g<s-r>", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
+
+    map("n", "<leader>g<s-b>", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage buffer" })
+    map("n", "<leader>g<s-t>", "<cmd>Gitsigns toggle_deleted<CR>", { desc = "Toggle deleted" })
+
     -- map("n", "<leader>hD", function() gs.diffthis "~" end)
-    -- map("n", "<leader>td", gs.toggle_deleted)
 
     -- Text object
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")

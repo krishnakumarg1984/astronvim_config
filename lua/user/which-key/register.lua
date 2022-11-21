@@ -9,33 +9,6 @@ return {
       b = { name = "Buffers" },
       C = { name = "Crates (Rust)" },
       f = { name = "File/Buffer" },
-      g = {
-        B = { "<cmd>Gitsigns stage_buffer<CR>", "Stage buffer" },
-        -- b = branches, -- astronvim default
-        C = { "<cmd>Telescope git_bcommits<cr>", "Checkout buffer commits" },
-        -- c = commits, -- astronvim default
-        D = { "<cmd>DiffviewOpen<cr>", "Git Diff (interactive)" },
-        -- d = diffs, -- astronvim default
-        f = { "<cmd>Telescope git_files<cr>", "Open file in repo" },
-        -- g = lazygit, -- astronvim default
-        g = nil, -- disable lazygit
-        h = { "<cmd>Gitsigns stage_hunk<cr>", "Stage hunk" },
-        -- j = next hunk, -- astronvim default
-        -- k = previous hunk, -- astronvim default
-        -- l = blame, -- astronvim default
-        L = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame" },
-        n = { "<cmd>Neogit<cr>", "Neogit" },
-        -- o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-        -- p = preview hunk, -- astronvim default
-        -- R = reset buffer, -- astronvim default
-        R = { "<cmd>Gitsigns reset_hunk<cr>", "Reset hunk" },
-        s = { "<cmd>Telescope git_status<cr>", "Status (Telescope)" },
-        S = { "<cmd>Neotree git_status<cr>", "Status (Neotree)" },
-        t = { "<cmd>Telescope git_stash<cr>", "Stash all changes" },
-        T = { "<cmd>Gitsigns toggle_deleted<CR>", "Toggle deleted" },
-        -- u = Undo stage hunk, -- astronvim default
-        U = { function() astronvim.toggle_term_cmd "gitui" end, "GitUI" },
-      },
       l = {
         name = "Intellisense (LSP)",
         j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
