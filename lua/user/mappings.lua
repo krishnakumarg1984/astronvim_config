@@ -99,7 +99,7 @@ return {
   -- normal mode keymaps (((
 
   n = {
-    -- Disable certain remaps provided in base AstroNvim (((
+    -- disable certain remaps provided in base AstroNvim (((
 
     ["<C-q>"] = false,
     ["<C-s>"] = false,
@@ -133,14 +133,22 @@ return {
 
     -- )))
 
-    -- "bufferline.nvim" keymaps (((
+    -- bundled AstroNvim plugin keymaps for normal mode (((
+
+    -- 'akinsho/bufferline.nvim' keymaps for normal mode (((
 
     ["[b"] = { "<Cmd>BufferLineCyclePrev<CR>", silent = true, desc = "Prev Buffer" },
     ["]b"] = { "<Cmd>BufferLineCycleNext<CR>", silent = true, desc = "Next Buffer" },
 
     -- )))
 
-    -- "smart-splits" keymaps (((
+    -- 'neotree' keymaps for normal mode (((
+
+    ["<leader>e"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "File explorer" },
+
+    -- )))
+
+    -- 'mrjones2014/smart-splits.nvim' keymaps for normal mode (((
 
     ["<A-h>"] = { function() require("smart-splits").resize_left() end },
     ["<A-j>"] = { function() require("smart-splits").resize_down() end },
@@ -149,9 +157,11 @@ return {
 
     -- )))
 
-    -- "ToggleTerm" keymaps (((
+    -- 'akinsho/toggleterm.nvim' keymaps for normal mode (((
 
     ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" }, -- Plugin in Base AstroNvim
+
+    -- )))
 
     -- )))
   },

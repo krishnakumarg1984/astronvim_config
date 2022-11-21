@@ -6,3 +6,4 @@ vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { desc = "Diagnost
 vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { desc = "Diagnostics (quickfix list)" })
 vim.keymap.set("n", "<leader>xw", "<cmd>Trouble workspace_diagnostics<cr>", { desc = "Show workspace diagnostics" })
 vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { desc = "Toggle diagnostics window" })
+vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>", { desc = "Symbol references (diagnostics window)" })

@@ -3,6 +3,8 @@ if vim.fn.executable "blacktex" == 1 then
   vim.keymap.set("n", "<leader>vb", "mz<cmd>%! blacktex --keep-comments %<CR>`z", { desc = "Blacktex (keep comments)" })
 end
 return {
+  opt = true,
+  setup = function() table.insert(astronvim.file_plugins, "vimtex") end,
   config = function()
     vim.cmd [[
 

@@ -22,7 +22,7 @@ return {
 
   ["AndrewRadev/bufferize.vim"] = { cmd = { "Bufferize", "BufferizeSystem", "BufferizeTimer", "Capture" } }, -- Execute a :command and show the output in a temporary buffer
   -- ["tyru/capture.vim"] = { cmd = { "Capture" } }, -- Show Ex command output in buffer
-  ["rust-lang/rust.vim"] = {}, -- Vim configuration for Rust. (must be loaded before 'rust-tools')
+  ["rust-lang/rust.vim"] = require "user.plugins.rust_vim", -- Vim configuration for Rust. (must be loaded before 'rust-tools')
   ["lambdalisue/suda.vim"] = { cmd = { "SudaRead", "SudaWrite" } }, -- An alternative sudo.vim for Vim and Neovim
 
   ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
@@ -54,7 +54,7 @@ return {
   ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp_buffer", -- nvim-cmp source for buffer words (buggy config. Breaks other cmp lazy loading)
   ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for buffer words
   ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp_emoji", -- nvim-cmp source for emoji
-  ["petertriho/cmp-git"] = require "user.plugins.cmp-git", -- Git source for nvim-cmp
+  ["petertriho/cmp-git"] = require "user.plugins.cmp_git", -- Git source for nvim-cmp
   ["hrsh7th/cmp-omni"] = require "user.plugins.cmp_omni", -- nvim-cmp source for omnifunc
   ["gpanders/editorconfig.nvim"] = {}, --  EditorConfig plugin for Neovim
   ["MunifTanjim/exrc.nvim"] = require "user.plugins.exrc_nvim", -- Secure Project Local Config for Neovim
@@ -64,7 +64,7 @@ return {
   -- ["hkupty/iron.nvim"] = require "user.plugins.iron", -- Interactive Repl Over Neovim
   ["rebelot/kanagawa.nvim"] = {}, -- require "user.plugins.kanagawa", -- Colorscheme inspired by the colors of the famous painting by Katsushika Hokusai
   ["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = require "user.plugins.lsplines_nvim", --renders diagnostics using virtual lines on top of the real line of code
-  ["ray-x/lsp_signature.nvim"] = require "user.plugins.lsp_signature_nvim", -- LSP signature hint as you type
+  -- ["ray-x/lsp_signature.nvim"] = require "user.plugins.lsp_signature_nvim", -- LSP signature hint as you type
   -- ["chentoast/marks.nvim"] = require "user.plugins.marks", -- A better UX for viewing & interacting with Vim marks
   ["echasnovski/mini.nvim"] = require "user.plugins.mini", -- Collection of minimal, independent, & fast Lua modules
   ["jghauser/mkdir.nvim"] = { event = "BufWritePre" }, -- This neovim plugin creates missing folders on save
@@ -119,3 +119,7 @@ return {
 
   -- ))) end of modification of default AstroNvim plugins
 }
+
+-- https://discord.com/channels/939594913560031363/942007419050029086/1042829571675934780
+-- opt = true,
+-- setup = function() table.insert(astronvim.file_plugins, "diffview.nvim") end,
