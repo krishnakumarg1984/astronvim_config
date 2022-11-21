@@ -160,7 +160,7 @@ return {
     -- 'akinsho/toggleterm.nvim' keymaps for normal mode (((
 
     ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
-    ["<s-u>"] = { function() astronvim.toggle_term_cmd "gitui" end, "GitUI" },
+    ["<leader>g<s-u>"] = { function() astronvim.toggle_term_cmd "gitui" end, desc = "GitUI" },
 
     -- )))
 
