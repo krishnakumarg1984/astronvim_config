@@ -70,8 +70,8 @@ return {
   ["jbyuki/nabla.nvim"] = require "user.plugins.nabla_nvim", -- Take your scientific notes in Neovim
   ["danymat/neogen"] = require "user.plugins.neogen_nvim", -- Annotation generator (multiple languages & conventions)
   ["TimUntersberger/neogit"] = require "user.plugins.neogit_nvim", -- Magit for neovim
-  ["nvim-neotest/neotest"] = require "user.plugins.nvim_neotest", -- An extensible framework for interacting with tests within NeoVim.
-  ["nvim-neotest/neotest-python"] = { ft = "python" }, -- Neotest adapter for python. Supports Pytest and unittest test files.
+  -- ["nvim-neotest/neotest"] = require "user.plugins.nvim_neotest", -- An extensible framework for interacting with tests within NeoVim.
+  -- ["nvim-neotest/neotest-python"] = { ft = "python" }, -- Neotest adapter for python. Supports Pytest and unittest test files.
   ["weilbith/nvim-code-action-menu"] = require "user.plugins.nvim_code_action_menu", -- Code action pop-up menu (meta-info & diff)
   -- ["Canop/nvim-bacon"] = { ft = "rust" }, -- bacon's companion for neovim
   -- ["andythigpen/nvim-coverage"] = require "user.plugins.nvim-coverage", -- Displays test coverage data in the sign column
