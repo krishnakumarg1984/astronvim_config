@@ -9,17 +9,7 @@ return {
       b = { name = "Buffers" },
       C = { name = "Crates (Rust)" },
       f = { name = "File/Buffer" },
-      l = {
-        name = "Intellisense (LSP)",
-        j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Next Diagnostic" },
-        k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-        -- l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-        -- q = { "<cmd>lua vim.diagnostic.set_loclist()<cr>", "Quickfix" },
-        t = { "<cmd>Telescope lsp_type_definitions<cr>", "Type definitions" },
-        w = { "<cmd>Telescope diagnostics<cr>", "Workspace Diagnostics" },
-        Y = { "<cmd>Telescope lsp_workspace_symbols<cr>", "Workspace symbols" },
-        y = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Dynamic workspace symbols" },
-      },
+      l = { name = "Intellisense (LSP)" },
       -- N = { "<cmd>lua require('nabla').popup()<CR>", "Scientific preview" },
       n = {
         name = "Annotate",

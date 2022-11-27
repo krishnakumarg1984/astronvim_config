@@ -2,6 +2,15 @@
 vim.keymap.set("n", "<leader>lc", "<cmd>Telescope lsp_outgoing_calls<CR>", { desc = "Callees list" })
 vim.keymap.set("n", "<leader>lC", "<cmd>Telescope lsp_incoming_calls<CR>", { desc = "Callers list" })
 vim.keymap.set("n", "<leader>lI", "<cmd>Telescope implementations<CR>", { desc = "Implementations" })
+vim.keymap.set("n", "<leader>lt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Type definitions" })
+vim.keymap.set("n", "<leader>lw", "<cmd>Telescope diagnostics<CR>", { desc = "Workspace diagnostics" })
+vim.keymap.set("n", "<leader>lY", "<cmd>Telescope lsp_workspace_symbols<CR>", { desc = "Workspace symbols" })
+vim.keymap.set(
+  "n",
+  "<leader>ly",
+  "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",
+  { desc = "Dynamic workspace symbols" }
+)
 vim.keymap.set("n", "<leader>f<s-h>", "<cmd>Telescope search_history<cr>", { desc = "Buffer grep history" })
 vim.keymap.set("n", "<leader>g<s-c>", "<cmd>Telescope git_bcommits<cr>", { desc = "Checkout buffer commits" })
 vim.keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<cr>", { desc = "Open a vcs-tracked file" })

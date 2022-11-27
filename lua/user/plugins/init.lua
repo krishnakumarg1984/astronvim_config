@@ -54,7 +54,7 @@ return {
   ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for buffer words
   ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp_emoji", -- nvim-cmp source for emoji
   ["petertriho/cmp-git"] = require "user.plugins.cmp_git", -- Git source for nvim-cmp
-  ["hrsh7th/cmp-omni"] = require "user.plugins.cmp_omni", -- nvim-cmp source for omnifunc
+  -- ["hrsh7th/cmp-omni"] = require "user.plugins.cmp_omni", -- nvim-cmp source for omnifunc
   ["gpanders/editorconfig.nvim"] = {}, --  EditorConfig plugin for Neovim
   ["MunifTanjim/exrc.nvim"] = require "user.plugins.exrc_nvim", -- Secure Project Local Config for Neovim
   ["akinsho/git-conflict.nvim"] = require "user.plugins.git_conflict", -- Visualise & resolve merge conflicts

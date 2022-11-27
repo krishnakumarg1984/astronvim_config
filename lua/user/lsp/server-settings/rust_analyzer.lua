@@ -50,9 +50,13 @@ return {
   end,
   settings = {
     ["rust-analyzer"] = {
+      lens = {
+        enable = true,
+      },
       assist = {
         importEnforceGranularity = true,
         importPrefix = "crate",
+        wrap_return_type_in_result = false,
       },
       cargo = {
         allFeatures = true,
