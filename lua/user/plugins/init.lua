@@ -98,6 +98,7 @@ return {
   ["ahmedkhalf/project.nvim"] = require "user.plugins.project", -- The superior project management solution for nvim
   ["linty-org/readline.nvim"] = require "user.plugins.readline_nvim", -- Readline motions and deletions in Neovim
   ["simrat39/rust-tools.nvim"] = require "user.plugins.rust_tools", -- Tools for better development in rust using neovim's builtin lsp
+  ["simrat39/inlay-hints.nvim"] = require "user.plugins.inlay_hints",
   -- ["michaelb/sniprun"] = require "user.plugins.sniprun", -- Run lines/blocks of code, supports multiples languages
   -- ["luukvbaal/stabilize.nvim"] = require "user.plugins.stabilize", -- Stabilize window open/close events
   -- ["abecodes/tabout.nvim"] = require "user.plugins.tabout", -- tabout plugin for neovim
