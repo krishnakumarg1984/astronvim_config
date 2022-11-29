@@ -98,9 +98,9 @@ return {
           enable = true,
           useParameterNames = true,
         },
-        expressionAdjustmentHints = {
-          enable = true,
-        },
+        -- expressionAdjustmentHints = {
+        --   enable = true,
+        -- },
       },
       procMacro = {
         enable = true,
