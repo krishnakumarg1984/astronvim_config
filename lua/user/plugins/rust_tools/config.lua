@@ -1,7 +1,6 @@
 require("rust-tools").setup {
   tools = {
     on_initialized = function()
-      require("inlay-hints").set_all()
       vim.cmd [[
             autocmd BufEnter,CursorHold,InsertLeave,BufWritePost *.rs silent! lua vim.lsp.codelens.refresh()
           ]]

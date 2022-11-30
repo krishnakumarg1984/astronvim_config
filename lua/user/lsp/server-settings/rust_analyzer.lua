@@ -1,7 +1,6 @@
 -- local rt = require "rust-tools"
 return {
   on_attach = function(_, bufnr)
-    require("inlay-hints").on_attach(_, bufnr)
     -- vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr }) -- Code action groups
     vim.keymap.set("n", "<leader>ra", "<cmd>RustCodeAction<CR>", { buffer = bufnr, desc = "Rust code actions" })
     vim.keymap.set("n", "<leader>rc", "<cmd>RustOpenCargo<CR>", { buffer = bufnr, desc = "Rust open cargo" })
