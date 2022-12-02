@@ -9,6 +9,13 @@ return function()
   vim.o.foldtext =
     [[printf('  %-4d %s', v:foldend - v:foldstart + 1, substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g')) . '  ' . trim(getline(v:foldend))]]
 
+  vim.api.nvim_create_autocmd("TextYankPost", {
+    desc = "Highlight yanked text",
+    group = vim.api.nvim_create_augroup("highlightyank", { clear = true }),
+    pattern = "*",
+    callback = function() vim.highlight.on_yank { higroup = "Search", timeout = 650 } end,
+  })
+
   -- Vimscript-based options (((
 
   vim.cmd [[
@@ -204,9 +211,6 @@ return function()
     autocmd FileType gitcommit,help,NeogitCommit,NeogitCommitMessage setlocal nolist
 
     " )))
-
-    " autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 400})
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank { higroup='Search', timeout=650 }
 
     " autocmd BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
     " autocmd BufWinEnter *.txt set iskeyword+=- iskeyword+=: iskeyword+=.
