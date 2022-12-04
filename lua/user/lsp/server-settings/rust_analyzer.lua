@@ -57,9 +57,16 @@ return {
         importEnforceGranularity = true,
         importPrefix = "crate",
         wrap_return_type_in_result = false,
+        generate_enum_is_method = false,
+      },
+      codeAction = {
+        generate_enum_is_method = false,
       },
       cargo = {
         allFeatures = true,
+        buildScripts = {
+          enable = true,
+        },
         features = "all",
         loadOutDirsFromCheck = true,
       },
@@ -91,6 +98,12 @@ return {
           -- "clippy::restriction",
         },
         -- extraArgs = { "--no-deps" },
+      },
+      imports = {
+        granularity = {
+          group = "module",
+        },
+        prefix = "self",
       },
       inlayHints = {
         lifetimeElisionHints = {
