@@ -1,0 +1,20 @@
+return {
+  ft = { "c", "cmake", "cpp", "cuda", "objc", "objcpp", "CMakePresets.json" },
+  event = { "BufEnter CMakePresets.json", "BufEnter CMakeUserPresets.json" },
+  -- cmd = {
+  --   "CMakeBuild",
+  --   "CMakeClean",
+  --   "CMakeClose",
+  --   "CMakeDebug",
+  --   "CMakeGenerate!",
+  --   "CMakeGenerate",
+  --   "CMakeInstall",
+  --   "CMakeOpen",
+  --   "CMakeRun",
+  --   "CMakeSelectBuildTarget",
+  --   "CMakeSelectBuildType",
+  --   "CMakeSelectLaunchTarget",
+  --   "CMakeStop",
+  -- },
+  config = function() require "user.plugins.cmake_tools.config" end,
+}

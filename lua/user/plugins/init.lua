@@ -50,6 +50,7 @@ return {
   -- ["catppuccin/nvim"] = require "user.plugins.catppuccin_nvim", -- Soothing pastel theme for Neovim
   ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd-extensions", -- Clangd's off-spec features
   ["saecki/crates.nvim"] = require "user.plugins.crates_nvim", -- A neovim plugin that helps managing crates.io dependencies
+  ["Civitasv/cmake-tools.nvim"] = require "user.plugins.cmake_tools", -- CMake integration in Neovim
   ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp_buffer", -- nvim-cmp source for buffer words (buggy config. Breaks other cmp lazy loading)
   ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for buffer words
   ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp_emoji", -- nvim-cmp source for emoji

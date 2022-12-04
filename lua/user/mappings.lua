@@ -105,6 +105,7 @@ return {
     ["<C-s>"] = false,
     ["<F7>"] = false, -- was remapped to toggling floating terminal, which is now set to <M-t>
     ["<leader>/"] = false,
+    ["<leader>c"] = false,
     ["<leader>q"] = false,
     ["<leader>w"] = false,
     ["<S-h>"] = false,
