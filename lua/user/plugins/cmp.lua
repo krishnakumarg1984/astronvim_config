@@ -7,18 +7,15 @@ return function(config)
   -- https://github.com/hrsh7th/nvim-cmp/issues/980
   -- local ELLIPSIS_CHAR = "…"
   local ELLIPSIS_CHAR = astronvim.get_icon "Ellipsis"
-  local MAX_LABEL_WIDTH = 20
-  local MIN_LABEL_WIDTH = 20
+  local MAX_LABEL_WIDTH = 32
+  local MIN_LABEL_WIDTH = 32
   -- https://www.reddit.com/r/neovim/comments/unlj8d/is_there_any_way_to_show_types_in_nvimcmp/?sort=new
-  local MIN_MENU_DETAIL_WIDTH = 15
-  local MAX_MENU_DETAIL_WIDTH = 15
+  local MIN_MENU_DETAIL_WIDTH = 8
+  local MAX_MENU_DETAIL_WIDTH = 8
 
   -- )))
 
   return vim.tbl_deep_extend("force", config, {
-    -- experimental = {
-    --   ghost_text = true,
-    -- },
     view = {
       entries = { name = "custom", selection_order = "near_cursor" },
     },
@@ -33,7 +30,7 @@ return function(config)
         -- winhighlight = "Normal:Normal,FloatBorder:BorderBG,Search:None",
         border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
         winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:BorderBG,Search:None",
-        col_offset = -3,
+        col_offset = -2,
         side_padding = 0,
       },
     },
@@ -89,6 +86,10 @@ return function(config)
             tags = "[Tags]",
             tmux = "[Tmux]",
           })[entry.source.name]
+
+          -- if entry.source.source.client then
+          --   vim_item.menu = ("%s - %s"):format(vim_item.menu, entry.source.source.client.name)
+          -- end
         end
         local my_menu = vim_item.menu
         local truncated_my_menu = vim.fn.strcharpart(my_menu, 0, MAX_MENU_DETAIL_WIDTH)
