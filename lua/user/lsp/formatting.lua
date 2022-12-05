@@ -11,12 +11,14 @@ return {
   -- },
   disabled = { -- disable formatting capabilities for the listed language servers
     "sumneko_lua",
+    -- "cmake",
   },
   -- timeout_ms = 1000, -- default format timeout
   -- filter = function(client) -- fully override the default formatting function
   --   -- only enable null-ls for javascript files
-  --   if vim.bo.filetype == "javascript" then return client.name == "null-ls" end
-  --
+  --   -- if vim.bo.filetype == "javascript" then return client.name == "null-ls" end
+  --   if vim.bo.filetype == "cmake" then return client.name == "null-ls" end
+
   --   -- enable all other clients
   --   return true
   -- end,
