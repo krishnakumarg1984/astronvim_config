@@ -86,12 +86,12 @@ return {
     use_virtual_text = true,
     lint_events = { "BufWrite", "CursorHold" },
   },
-  context_commentstring = {
-    enable = true,
-    config = {
-      vim = '" %s',
-    },
-  },
+  -- context_commentstring = {
+  --   enable = true,
+  --   config = {
+  --     vim = '" %s',
+  --   },
+  -- },
   indent = {
     enable = true,
     disable = { "help", "latex", "python", "yaml", "org" },
