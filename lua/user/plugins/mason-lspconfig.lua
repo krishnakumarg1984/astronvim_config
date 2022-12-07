@@ -15,7 +15,9 @@ local my_ensure_installed = {
 }
 
 if vim.fn.executable "clang" == 1 then table.insert(my_ensure_installed, "clangd") end -- requires a reasonably new version of glibc
-if vim.fn.executable "cmake" == 1 then table.insert(my_ensure_installed, "cmake") end
+if vim.fn.executable "neocmakelsp" ~= 1 and vim.fn.executable "cmake" == 1 then
+  table.insert(my_ensure_installed, "cmake")
+end
 -- if vim.fn.executable "julia" then table.insert(my_ensure_installed, "julials") end
 if vim.fn.executable "node" == 1 and vim.fn.executable "bash" == 1 then table.insert(my_ensure_installed, "bashls") end
 if vim.fn.executable "node" == 1 then table.insert(my_ensure_installed, "vimls") end
