@@ -11,7 +11,6 @@ return {
       C = { name = "Crates (Rust)" },
       f = { name = "File/Buffer" },
       l = { name = "Intellisense (LSP)" },
-      -- N = { "<cmd>lua require('nabla').popup()<CR>", "Scientific preview" },
       n = {
         name = "Annotate",
         c = {
