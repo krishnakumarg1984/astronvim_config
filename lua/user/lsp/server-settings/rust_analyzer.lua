@@ -2,6 +2,7 @@
 return {
   on_attach = function(_, bufnr)
     -- vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr }) -- Code action groups
+    -- vim.keymap.set("n", "<leader>ri", "<cmd>Cinit<CR>", { desc = "Cargo init" })
     vim.keymap.set("n", "<leader>ra", "<cmd>RustCodeAction<CR>", { buffer = bufnr, desc = "Rust code actions" })
     vim.keymap.set("n", "<leader>rc", "<cmd>RustOpenCargo<CR>", { buffer = bufnr, desc = "Rust open cargo" })
     -- vim.keymap.set("n", "<leader>rh", rt.hover_actions.hover_actions, { buffer = bufnr }) -- Hover actions
@@ -35,7 +36,6 @@ return {
     vim.keymap.set("n", "<leader>rf", "<cmd>RustFmt<CR>", { desc = "Rust format" })
     vim.keymap.set("n", "<leader>rF", "<cmd>RustFmtRange<CR>", { desc = "Rust format range" })
     vim.keymap.set("n", "<leader>rg", "<cmd>Cargo modules generate tree<CR>", { desc = "Generate module tree" })
-    -- vim.keymap.set("n", "<leader>ri", "<cmd>Cinit<CR>", { desc = "Cargo init" })
     vim.keymap.set("n", "<leader>ri", "<cmd>Cinstall<CR>", { desc = "Cargo install" })
     vim.keymap.set("n", "<leader>rk", "<cmd>Cargo check<CR>", { desc = "Cargo check" })
     vim.keymap.set("n", "<leader>rl", "<cmd>Cclean<CR>", { desc = "Cargo clean" })

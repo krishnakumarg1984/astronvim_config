@@ -79,7 +79,7 @@ return {
     use_languagetree = true, -- Use this to enable language injection
     disable = { "css", "help", "latex" },
     -- additional_vim_regex_highlighting = false,
-    additional_vim_regex_highlighting = { "bib", "cmakecache", "latex", "tex", "markdown" },
+    additional_vim_regex_highlighting = { "bib", "cmake", "cmakecache", "latex", "tex", "markdown" },
   },
   query_linter = { -- https://github.com/simrat39/dotfiles/blob/master/nvim/.config/nvim/lua/sim_config/tree-sitter.lua
     enable = true, -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/lua/r/settings/treesitter.lua

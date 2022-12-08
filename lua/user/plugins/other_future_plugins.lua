@@ -155,7 +155,7 @@
 -- use { "ldelossa/litee-calltree.nvim", requires = { "ldelossa/litee.nvim" } }
 -- https://github.com/mbpowers/lorem-nvim
 -- https://github.com/lukas-reineke/lsp-format.nvim -- A wrapper around Neovims native LSP formatting
--- use { "onsails/lspkind-nvim" }
+-- ["onsails/lspkind.nvim"] = {}, --  vscode-like pictograms for neovim lsp completion items
 -- https://github.com/ericpubu/lsp_codelens_extensions.nvim  -- Adds client side code for codelenses commands not in the lsp servers
 -- https://git.sr.ht/~whynothugo/lsp_lines.nvim
 -- https://github.com/aspeddro/lsp_menu.nvim
@@ -172,6 +172,7 @@
 -- https://github.com/nacro90/numb.nvim
 -- use { "kevinhwang91/nvim-bqf", ft = "qf", event = { "CursorHold" } }
 -- https://github.com/ojroques/nvim-bufdel
+-- ["NvChad/nvim-colorizer.lua"] = { disable = true }, -- The fastest Neovim colorizer
 -- https://github.com/s1n7ax/nvim-comment-frame  -- Detects the language using treesitter and adds a comment block
 -- https://github.com/haringsrob/nvim_context_vt
 -- https://github.com/yamatsum/nvim-cursorline
@@ -216,6 +217,8 @@
 -- use { "ur4ltz/surround.nvim" }
 -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" }, -- Surf through & move elements with treesitter
 -- https://github.com/GustavoKatel/tasks.nvim  -- Yet another task runner/manager for Neovim
+-- ["nvim-telescope/telescope-dap.nvim"] = require "user.plugins.telescope-dap", -- Dap-Telescope integration
+-- ["benfowler/telescope-luasnip.nvim"] = require "user.plugins.telescope-luasnip", -- Telescope+LuaSnip integration
 -- use { "nvim-telescope/telescope-media-files.nvim" }
 -- use { "nvim-telescope/telescope-packer.nvim" }
 -- use { "cljoly/telescope-repo.nvim" } --Jump into the repositories of your filesystem, without any setup
@@ -254,6 +257,7 @@
 -- https://github.com/hiphish/awk-ward.nvim
 -- https://github.com/AlxHnr/build.vim  -- Vim plugin for building projects
 -- https://github.com/dkarter/bullets.vim
+-- ["tyru/capture.vim"] = { cmd = { "Capture" } }, -- Show Ex command output in buffer
 -- https://github.com/metakirby5/codi.vim
 -- https://github.com/rhysd/conflict-marker.vim
 -- https://github.com/whiteinge/diffconflicts
@@ -278,14 +282,17 @@
 -- https://github.com/markonm/traces.vim
 -- https://github.com/anufrievroman/vim-angry-reviewer
 -- https://github.com/tpope/vim-apathy
+-- ["kenn7/vim-arsync"] = require "user.plugins.vim-arsync", -- Synchronisation of remote & local files using rsync
 -- https://github.com/foosoft/vim-argwrap
 -- use { "wsdjeg/vim-assembly" }
 -- use { "ntpeters/vim-better-whitespace" }
 -- https://github.com/dhruvasagar/vim-buffer-history
 -- https://github.com/JoseConseco/vim-case-change
+-- ["gauteh/vim-cppman"] = { cmd = { "Cppman" } }, -- cppman ("C++ 98/11/14 manual pages for Linux/MacOS" ) from vim
 -- https://github.com/cdelledonne/vim-cmake -- Vim/Neovim plugin for working with CMake projects
 -- https://github.com/jalvesaq/vimcmdline  -- promises matlab support (REPL?)
 -- use { "gauteh/vim-cppman", ft = { "c", "cpp" }, cmd = { "Cppman" } }
+-- ["Konfekt/vim-DetectSpellLang"] = require "user.plugins.vim-detectspelllang", -- Autodetect the spellcheck language
 -- use { "tpope/vim-fugitive", event = "BufWinEnter" }
 -- https://github.com/tenfyzhong/vim-gencode-cpp -- auto generate function definition or declaration
 -- https://github.com/alepez/vim-gtest  -- Quickly select and run GoogleTest asynchronously
@@ -309,7 +316,7 @@
 -- https://github.com/mg979/vim-visual-multi
 -- use { "tweekmonster/wstrip.vim" }
 -- https://github.com/Einenlum/yaml-revealer
--- https://github.com/axvr/zepl.vim  -- (REPL)
+-- ["axvr/zepl.vim"] = {}, -- Simple and minimal REPL integration plugin for Vim and Neovim
 -- https://github.com/jalvesaq/zotcite
 -- https://www.reddit.com/r/vim/comments/dpj0fz/vim_and_matlab/
 
@@ -372,8 +379,9 @@ https://github.com/stevearc/gkeep.nvim
 
 -- Readings and resources (((
 
--- discord discussions on how to set up plugin mappings (((
+-- AstroNvim discord discussions on how to set up plugin mappings (((
 
+-- https://discord.com/channels/939594913560031363/942007419050029086/1042829571675934780
 -- https://discord.com/channels/939594913560031363/942007419050029086/1032003520263622717
 -- return {
 --   plugins = {
