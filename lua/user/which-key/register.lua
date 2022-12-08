@@ -42,7 +42,7 @@ return {
       p = {
         p = { "<cmd>PackerProfile<CR>", "Profile plugins" },
       },
-      q = { name = "Quickfix", b = { name = "Build" } },
+      q = { name = "Quickfix" },
       r = { name = "Rust/Cargo", b = { name = "Build" } },
       s = {
         name = "Search/Set",

@@ -2,6 +2,18 @@
 
 -- This 'polish' function is run last and is a good place to configuring augroups/autocommands and custom filetypes also this just pure lua so anything that doesn't fit in the normal config locations above can go here
 return function()
+  vim.keymap.set("n", "<leader>qq", function()
+    local qf_exists = false
+    for _, win in pairs(vim.fn.getwininfo()) do
+      if win["quickfix"] == 1 then qf_exists = true end
+    end
+    if qf_exists == true then
+      vim.cmd "cclose"
+      return
+    end
+    if not vim.tbl_isempty(vim.fn.getqflist()) then vim.cmd "copen" end
+  end, { desc = "Toggle quickfix" })
+
   vim.api.nvim_set_hl(0, "WinSeparator", { fg = "black", bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
 
   -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
@@ -301,7 +313,8 @@ return function()
 
     augroup my_quickfix
     autocmd!
-    autocmd QuickFixCmdPost cexpr cwindow
+    " autocmd QuickFixCmdPost cexpr cwindow
+    autocmd QuickFixCmdPost [^l]* nested copen
     " autocmd QuickFixCmdPost l* nested lopen
     " https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
     " autocmd QuickFixCmdPost cgetexpr cwindow
