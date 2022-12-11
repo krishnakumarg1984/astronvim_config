@@ -1,6 +1,4 @@
 return {
-  -- vim.keymap.set("n", "<leader>cB", "<cmd>CMakeSelectBuildType<CR>", { desc = "Select build type" }),
-  -- vim.keymap.set("n", "<leader>cs", "<cmd>CMakeSelectTarget<CR>", { desc = "Select target" }),
   require "telescope",
   vim.keymap.set("n", "<leader>cb", "<Plug>(CMakeBuild)", { desc = "Build current project" }),
   vim.keymap.set("n", "<leader>cc", "<Plug>(CMakeCompileSource)", { desc = "Compile buffer source" }),

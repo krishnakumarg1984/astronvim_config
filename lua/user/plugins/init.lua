@@ -40,6 +40,7 @@ return {
 
   ["numtostr/BufOnly.nvim"] = require "user.plugins.bufonly", -- Lua/Neovim port of BufOnly.vim with some changes
   ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd-extensions", -- Clangd's off-spec features
+  -- ["Civitasv/cmake-tools.nvim"] = require "user.plugins.cmake_tools", -- Clangd's off-spec features
   ["saecki/crates.nvim"] = require "user.plugins.crates_nvim", -- A neovim plugin that helps managing crates.io dependencies
   ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp_buffer", -- nvim-cmp source for buffer words (buggy config. Breaks other cmp lazy loading)
   ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for buffer words
