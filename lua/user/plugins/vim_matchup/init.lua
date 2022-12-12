@@ -1,5 +1,5 @@
 return {
-  opt = true,
-  setup = function() table.insert(astronvim.file_plugins, "rust.vim") end,
+  -- opt = true,
+  -- setup = function() table.insert(astronvim.file_plugins, "vim-matchup") end,
   after = "nvim-treesitter",
 }

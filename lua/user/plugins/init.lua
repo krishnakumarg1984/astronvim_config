@@ -90,6 +90,7 @@ return {
   -- ["stevearc/overseer.nvim"] = require "user.plugins.overseer", -- A task runner and job management plugin for Neovim
   -- ["Weissle/persistent-breakpoints.nvim"] = require "user.plugins.persistent-breakpoints",
   ["ahmedkhalf/project.nvim"] = require "user.plugins.project", -- The superior project management solution for nvim
+  -- ["HallerPatrick/py_lsp.nvim"] = require "user.plugins.pylsp_nvim", -- Lsp Plugin for working with Python virtual environments
   ["linty-org/readline.nvim"] = require "user.plugins.readline_nvim", -- Readline motions and deletions in Neovim
   ["simrat39/rust-tools.nvim"] = require "user.plugins.rust_tools", -- Tools for better development in rust using neovim's builtin lsp
   -- ["michaelb/sniprun"] = require "user.plugins.sniprun", -- Run lines/blocks of code, supports multiples languages
