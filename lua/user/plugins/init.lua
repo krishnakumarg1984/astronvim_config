@@ -77,7 +77,7 @@ return {
   ["ethanholz/nvim-lastplace"] = require "user.plugins.nvim_lastplace", -- A Lua rewrite of vim-lastplace
   ["kosayoda/nvim-lightbulb"] = require "user.plugins.nvim_lightbulb", -- VSCode bulb for neovim's built-in LSP.
   ["mfussenegger/nvim-lint"] = { module = "lint" }, -- An asynchronous linter plugin. Loads through local .vimrc.lua
-  ["sitiom/nvim-numbertoggle"] = require "user.plugins.nvim_numbertoggle", -- Auto-toggle b/w rel & abs line nos
+  -- ["sitiom/nvim-numbertoggle"] = require "user.plugins.nvim_numbertoggle", -- Auto-toggle b/w rel & abs line nos
   ["https://gitlab.com/yorickpeterse/nvim-pqf"] = require "user.plugins.nvim_pqf", -- Prettier quickfix/location list
   -- ["romgrk/nvim-treesitter-context"] = require "user.plugins.nvim-treesitter-context", -- Show code context
   -- { "eddiebergman/nvim-treesitter-pyfold", after = { "nvim-treesitter" }, ft = "python" }, -- Sane Python folding
