@@ -136,12 +136,12 @@ return {
 
     -- bundled AstroNvim plugin keymaps for normal mode (((
 
-    -- 'akinsho/bufferline.nvim' keymaps for normal mode (((
-
-    ["[b"] = { "<Cmd>BufferLineCyclePrev<CR>", silent = true, desc = "Prev Buffer" },
-    ["]b"] = { "<Cmd>BufferLineCycleNext<CR>", silent = true, desc = "Next Buffer" },
-
-    -- )))
+    -- -- 'akinsho/bufferline.nvim' keymaps for normal mode (((
+    --
+    -- ["[b"] = { "<Cmd>BufferLineCyclePrev<CR>", silent = true, desc = "Prev Buffer" },
+    -- ["]b"] = { "<Cmd>BufferLineCycleNext<CR>", silent = true, desc = "Next Buffer" },
+    --
+    -- -- )))
 
     -- 'nvim-neo-tree/neo-tree.nvim' keymaps for normal mode (((
 
