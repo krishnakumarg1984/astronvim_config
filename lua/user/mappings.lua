@@ -110,6 +110,7 @@ return {
     ["<leader>w"] = false,
     ["<S-h>"] = false,
     ["<S-l>"] = false,
+    ["\\"] = false,
     ["gl"] = false, -- disable AstroNvim's "Hover Diagnostics" keymap
     ["{"] = false,
     ["}"] = false,
