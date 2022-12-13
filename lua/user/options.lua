@@ -380,6 +380,7 @@ return function(defaults)
       did_install_default_menus = 1,
       did_install_syntax_menu = 1,
       did_load_ftplugin = 1,
+      heirline_bufferline = true,
       loaded_matchparen = 1,
       loaded_node_provider = 0, -- To disable node support
       loaded_perl_provider = 0, -- To disable perl support
