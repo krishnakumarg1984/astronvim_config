@@ -7,7 +7,7 @@ return {
       -- which-key registration table for normal mode, leader prefix
       a = { name = "Code outline" },
       b = { name = "Buffers" },
-      c = { name = "CMake" },
+      c = { name = "CMake", t = { name = "CTest" } },
       C = { name = "Crates (Rust)" },
       f = { name = "File/Buffer" },
       l = { name = "Intellisense (LSP)" },
