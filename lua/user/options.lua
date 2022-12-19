@@ -327,6 +327,7 @@ return function(defaults)
       -- status_diagnostics_enabled = true, -- enable diagnostics in statusline
       -- icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
       -- ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+      heirline_bufferline = true, -- enable new heirline based bufferline (requires :PackerSync after changing)
       detectspelllang_langs = { -- (((
         aspell = { -- (((
           "en_GB",
@@ -380,7 +381,6 @@ return function(defaults)
       did_install_default_menus = 1,
       did_install_syntax_menu = 1,
       did_load_ftplugin = 1,
-      heirline_bufferline = true,
       loaded_matchparen = 1,
       loaded_node_provider = 0, -- To disable node support
       loaded_perl_provider = 0, -- To disable perl support
