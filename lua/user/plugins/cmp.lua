@@ -10,8 +10,8 @@ return function(config)
   local MAX_LABEL_WIDTH = 32
   local MIN_LABEL_WIDTH = 32
   -- https://www.reddit.com/r/neovim/comments/unlj8d/is_there_any_way_to_show_types_in_nvimcmp/?sort=new
-  local MIN_MENU_DETAIL_WIDTH = 8
-  local MAX_MENU_DETAIL_WIDTH = 8
+  local MIN_MENU_DETAIL_WIDTH = 10
+  local MAX_MENU_DETAIL_WIDTH = 10
 
   -- )))
 

@@ -74,7 +74,7 @@ return {
     ["k"] = { "v:count == 0 ? 'gk' : 'k'", expr = true },
     ["<Down>"] = { "v:count == 0 ? 'gj' : 'j'", expr = true },
     ["<Up>"] = { "v:count == 0 ? 'gk' : 'k'", expr = true },
-    ["<Space>"] = false,
+    -- ["<Space>"] = false,
   },
 
   -- )))

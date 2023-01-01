@@ -16,3 +16,8 @@ require("neogen").setup {
     typescriptreact = { template = { annotation_convention = "tsdoc" } },
   },
 }
+vim.keymap.set("n", "<leader>nc", "<cmd>Neogen class<CR>", { desc = "Class annotation" })
+vim.keymap.set("n", "<leader>nf", "<cmd>Neogen func<CR>", { desc = "Func annotation" })
+vim.keymap.set("n", "<leader>ni", "<cmd>Neogen file<CR>", { desc = "File annotation" })
+vim.keymap.set("n", "<leader>nn", "<cmd>Neogen<CR>", { desc = "Generate annotation" })
+vim.keymap.set("n", "<leader>nt", "<cmd>Neogen type<CR>", { desc = "Type annotation" })

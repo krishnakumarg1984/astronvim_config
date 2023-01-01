@@ -50,3 +50,12 @@ return {
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
   end,
 }
+
+-- https://github.com/David-Kunz/vim/blob/master/init.lua
+-- function diffThisBranch()
+--   local branch = vim.fn.input("Branch: ", "")
+--   require"gitsigns".diffthis(branch)
+-- end
+-- vim.keymap.set('n', '<leader>hD', function() require"gitsigns".diffthis("~") end)
+-- vim.keymap.set('n', '<leader>hm', function() require"gitsigns".diffthis("main")end)
+-- vim.keymap.set('n', '<leader>hM', diffThisBranch)

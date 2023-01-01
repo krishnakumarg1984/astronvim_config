@@ -1,5 +1,5 @@
 return {
-  "clangd",
+  -- "clangd",
   "gopls",
   "rust_analyzer",
   "tsserver",

@@ -1,3 +1,22 @@
 return {
-  ft = { "asciidoc", "markdown", "plaintex", "rst", "tex", "text" },
+  ft = {
+    "asciidoc",
+    "changelog",
+    "context",
+    "DiffviewFiles",
+    "gitcommit",
+    "help",
+    "lsp_markdown",
+    "mail",
+    "markdown",
+    "Neogitcommit",
+    "NeogitCommit",
+    "NeogitCommitMessage",
+    "rst",
+    "rtf",
+    "tex",
+    "texinfo",
+    "text",
+    "txt",
+  },
 }

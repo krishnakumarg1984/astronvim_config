@@ -55,7 +55,7 @@ return function(defaults)
       infercase = true, -- Ignore case on insert completion. When doing keyword completion in insert mode |ins-completion|, and 'ignorecase' is also on, the case of the match is adjusted depending on the typed text.
       isfname = vim.opt.isfname - { "," },
       iskeyword = vim.opt.iskeyword + { "-" },
-      lazyredraw = true, -- Don't redraw the screen during batch execution
+      -- lazyredraw = true, -- Don't redraw the screen during batch execution
       linebreak = true, -- Wrap lines at convenient point (only affects the on-screen display, not actual content in file) -- Break lines at word boundaries
       list = true,
       listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
@@ -321,6 +321,7 @@ return function(defaults)
 
     g = {
       -- autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
+      -- lsp_handlers_enabled = true, -- enable or disable default vim.lsp.handlers (hover and signatureHelp)
       -- cmp_enabled = true, -- enable completion at start
       -- autopairs_enabled = true, -- enable autopairs at start
       -- diagnostics_enabled = true, -- enable diagnostics at start
