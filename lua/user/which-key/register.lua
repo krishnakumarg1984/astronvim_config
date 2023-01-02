@@ -9,6 +9,7 @@ return {
       b = { name = "Buffers" },
       c = { name = "CMake", t = { name = "CTest" } },
       C = { name = "Crates (Rust)" },
+      e = { name = "Explorer" },
       f = { name = "File/Buffer" },
       l = { name = "Intellisense (LSP)" },
       n = { name = "Annotate" },

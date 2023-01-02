@@ -1,10 +1,7 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
--- Mapping data with "desc" stored directly by vim.keymap.set().
---
--- Please use this mappings table to set keyboard mapping since this is the
--- lower level configuration and more robust one. (which-key will
--- automatically pick-up stored data by this setting.)
+-- Please use this mappings table to set keyboard mapping since this is the lower level configuration and more robust one.
+-- (which-key will automatically pick-up stored data by this setting.)
 
 -- add more text objects for "in" and "around" (((
 
@@ -66,6 +63,8 @@ xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 
 -- )))
 
+-- the mappings lua table being returned (((
+
 return {
   -- ""-mode mappings (((
 
@@ -106,13 +105,15 @@ return {
     ["<F7>"] = false, -- was remapped to toggling floating terminal, which is now set to <M-t>
     ["<leader>/"] = false,
     ["<leader>c"] = false,
+    ["<leader>e"] = false,
+    ["<leader>o"] = false,
     ["<leader>q"] = false,
     ["<leader>w"] = false,
     ["<S-h>"] = false,
     ["<S-l>"] = false,
     ["\\"] = false,
-    ["gl"] = false, -- disable AstroNvim's "Hover Diagnostics" keymap
     ["{"] = false,
+    ["|"] = false,
     ["}"] = false,
 
     -- )))
@@ -146,7 +147,8 @@ return {
 
     -- 'nvim-neo-tree/neo-tree.nvim' keymaps for normal mode (((
 
-    ["<leader>e"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "File explorer" },
+    ["<leader>ee"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "Toggle explorer" },
+    ["<leader>eo"] = { "<cmd>Neotree action=show focus<CR>", desc = "Focus explorer" },
 
     -- )))
 
@@ -163,6 +165,15 @@ return {
 
     ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
     ["<leader>g<s-u>"] = { function() astronvim.toggle_term_cmd "gitui" end, desc = "GitUI" },
+
+    -- )))
+
+    -- 'rebelot/heirline.nvim' mappings for normal mode (((
+
+    ["<leader>bc"] = { function() astronvim.close_buf(0) end, desc = "Close buffer" },
+    ["<leader>bC"] = { function() astronvim.close_buf(0, true) end, desc = "Force close buffer" },
+    ["[b"] = { function() astronvim.nav_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Prev buffer" },
+    ["]b"] = { function() astronvim.nav_buf(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" },
 
     -- )))
 
@@ -209,6 +220,8 @@ return {
 
   -- )))
 }
+
+-- )))
 
 -- Commented-out mappings (((
 

@@ -4,7 +4,7 @@ vim.keymap.set("n", "<leader>lC", "<cmd>Telescope lsp_incoming_calls<CR>", { des
 -- vim.keymap.set("n", "<leader>lI", "<cmd>Telescope implementations<CR>", { desc = "Implementations" })
 vim.keymap.set("n", "<leader>lt", "<cmd>Telescope lsp_type_definitions<CR>", { desc = "Type definitions" })
 vim.keymap.set("n", "<leader>lw", "<cmd>Telescope diagnostics<CR>", { desc = "Workspace diagnostics" })
-vim.keymap.set("n", "<leader>lY", "<cmd>Telescope lsp_workspace_symbols<CR>", { desc = "Workspace symbols" })
+-- vim.keymap.set("n", "<leader>lY", "<cmd>Telescope lsp_workspace_symbols<CR>", { desc = "Workspace symbols" })
 vim.keymap.set(
   "n",
   "<leader>ly",
@@ -60,9 +60,9 @@ return {
     },
   },
   pickers = {
-    find_files = {
-      hidden = true,
-    },
+    -- find_files = {
+    --   hidden = true,
+    -- },
     diagnostics = { theme = "dropdown" },
     -- diagnostics = { layout = { "vertical" } },
     git_status = { theme = "ivy" },
