@@ -5,7 +5,7 @@ return {
 
   ["goolord/alpha-nvim"] = { disable = true }, -- A lua powered greeter like vim-startify / dashboard-nvim
   ["max397574/better-escape.nvim"] = { disable = true }, -- Escape from insert mode without delay when typing
-  ["jayp0521/mason-null-ls.nvim"] = { disable = true },
+  -- ["jayp0521/mason-null-ls.nvim"] = { disable = true },
   ["rcarriga/nvim-notify"] = { disable = true }, -- A fancy, configurable, notification manager for NeoVim
   ["windwp/nvim-ts-autotag"] = require "user.plugins.nvim-ts-autotag", -- Autoclose & rename html tags with treesitter
   ["p00f/nvim-ts-rainbow"] = { disable = true }, -- Rainbow parentheses for neovim using tree-sitter

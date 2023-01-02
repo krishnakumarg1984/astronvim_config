@@ -1,5 +1,4 @@
 return {
-  automatic_setup = false,
   ensure_installed = {
     "autoflake",
     "beautysh",
@@ -12,4 +11,6 @@ return {
     "yamlfmt",
     -- "buf",
   },
+  automatic_installation = true,
+  automatic_setup = false,
 }
