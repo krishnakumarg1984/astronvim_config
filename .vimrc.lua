@@ -16,6 +16,7 @@ null_ls.register {
   --   extra_args = { "--ignore-words=.dialect.utf-8.add" },
   -- },
   -- diagnostics.cppcheck,
+  -- diagnostics.cspell,
   -- diagnostics.editorconfig_checker,
   -- diagnostics.flake8,
   -- diagnostics.gitlint,
@@ -54,7 +55,6 @@ null_ls.register {
 -- diagnostics.checkmake,
 -- diagnostics.chktex,
 -- diagnostics.codespell,
--- diagnostics.cspell,  -- requires 'npm'
 -- diagnostics.flake8,
 -- diagnostics.gitlint,
 -- diagnostics.hadolint,

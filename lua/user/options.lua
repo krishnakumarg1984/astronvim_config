@@ -19,7 +19,9 @@ return function(defaults)
       complete = vim.opt.complete + { "i" },
       conceallevel = 0,
       confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
+      cpoptions = vim.opt.cpoptions - { "a" }, -- Stop the :read command from annoyingly setting the alternative buffer
       cursorlineopt = "number",
+      fileformats = vim.opt.fileformats + { "mac" }, -- This gives the end-of-line (<EOL>) formats that will be tried when starting to edit a new buffer and when reading a file into an existing buffer
       fillchars = { -- (((
         -- fold = "",
         fold = " ",
@@ -53,17 +55,19 @@ return function(defaults)
       foldopen = vim.opt.foldopen + { "jump" },
       history = 10000,
       infercase = true, -- Ignore case on insert completion. When doing keyword completion in insert mode |ins-completion|, and 'ignorecase' is also on, the case of the match is adjusted depending on the typed text.
-      isfname = vim.opt.isfname - { "," },
+      isfname = vim.opt.isfname - { ",", "=" }, -- When using commands like Ctrl-x Ctrl-f for filename completion, do not read equal signs as part of file names, a common nuisance when working with shell scripts
       iskeyword = vim.opt.iskeyword + { "-" },
       -- lazyredraw = true, -- Don't redraw the screen during batch execution
       linebreak = true, -- Wrap lines at convenient point (only affects the on-screen display, not actual content in file) -- Break lines at word boundaries
       list = true,
       listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
       matchtime = 3, -- Tenths of a second to show the matching paren, when 'showmatch' is set.  Note that this is not in milliseconds, like other options that set a time.
+      -- path+=**    " Search current directory's whole tree
       pumwidth = 35,
       -- relativenumber = false,
       report = 0, -- Threshold for reporting number of lines changed.
       rtp = vim.opt.rtp + { "$HOME/.config/astronvim/after" },
+      -- rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) -- Probably overridden by status-line plugins
       scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
       shiftround = true,
       -- shortmess = vim.opt.shortmess + { I = true, c = true, x = false }, -- " a) +I => Don't give the intro message when starting Vim |:intro|. b) +c => Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc. c) -x => Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions.
@@ -91,6 +95,7 @@ return function(defaults)
       tags = { "$HOME/.cache/nvim/tags" },
       timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds). AstroNvim sets this to 300.
       updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
+      virtualedit = vim.opt.virtualedit + { "block" }, -- Allow movement beyond buffer text only in visual block mode
       whichwrap = { -- (((
         ["<"] = true,
         [">"] = true,

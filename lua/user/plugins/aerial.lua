@@ -1,19 +1,9 @@
 local kind_icons = require("user.global_vars").kind_icons
--- Jump forwards/backwards with '{' and '}'
--- vim.keymap.set("n", "}", "}", { silent = true })
--- vim.keymap.del("n", "}")
--- vim.keymap.set("n", "<leader>{", "<cmd>AerialPrev<cr>", { desc = "Jump back (outline)" })
--- vim.keymap.set("n", "<leader>}", "<cmd>AerialNext<cr>", { desc = "Jump fwd (outline)" })
 -- Jump up the tree with '[[' or ']]'
 vim.keymap.set("n", "]]", "]]", { silent = true })
 vim.keymap.del("n", "]]")
 vim.keymap.set("n", "[[", "[[", { silent = true })
 vim.keymap.del("n", "[[")
--- g = { "<cmd>AerialGo<cr>", "Jump to the Nth symbol" },
--- u = { "<cmd>AerialPrevUp<cr>", "Prev symbol (up 1 level)" },
--- vim.keymap.set("n", "<leader>[", "<cmd>AerialPrevUp<cr>", { desc = "Jump up+back (outline)" })
--- vim.keymap.set("n", "<leader>]", "<cmd>AerialNextUp<cr>", { desc = "Jump up+fwd (outline)" })
--- vim.keymap.set('n', '<C-w>o', '<C-w>o:AerialClose<CR>') -- https://github.com/stevearc/aerial.nvim/issues/99
 vim.keymap.set("n", "<leader>aa", "<cmd>AerialToggle!<cr>", { desc = "Toggle outline" })
 vim.keymap.set(
   "n",
@@ -58,3 +48,9 @@ return {
     if ft == "lua" then require("aerial").tree_set_collapse_level(bufnr, 0) end
   end,
 }
+
+-- g = { "<cmd>AerialGo<cr>", "Jump to the Nth symbol" },
+-- u = { "<cmd>AerialPrevUp<cr>", "Prev symbol (up 1 level)" },
+-- vim.keymap.set("n", "<leader>[", "<cmd>AerialPrevUp<cr>", { desc = "Jump up+back (outline)" })
+-- vim.keymap.set("n", "<leader>]", "<cmd>AerialNextUp<cr>", { desc = "Jump up+fwd (outline)" })
+-- vim.keymap.set('n', '<C-w>o', '<C-w>o:AerialClose<CR>') -- https://github.com/stevearc/aerial.nvim/issues/99

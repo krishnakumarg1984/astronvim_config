@@ -1,1 +1,2 @@
+-- vim: ft=lua:
 return { " " } -- Startscreen/greeter header (for alpha.nvim)

@@ -20,6 +20,7 @@ return {
 
   ["AndrewRadev/bufferize.vim"] = require "user.plugins.bufferize_vim", -- Execute a :command and show the output in a temporary buffer
   ["ilyachur/cmake4vim"] = require "user.plugins.cmake_for_vim", -- Vim plugin for CMake projects
+  -- ["ekalinin/Dockerfile.vim"] = require "user.plugins.dockerfile_vim", -- Vim syntax file & snippets for Docker's Dockerfile
   ["rust-lang/rust.vim"] = require "user.plugins.rust_vim", -- Vim configuration for Rust. (must be loaded before 'rust-tools')
   ["lambdalisue/suda.vim"] = require "user.plugins.suda_vim", -- An alternative sudo.vim for Vim and Neovim
   -- ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks

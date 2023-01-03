@@ -1,6 +1,7 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
--- This 'polish' function is run last and is a good place to configuring augroups/autocommands and custom filetypes also this just pure lua so anything that doesn't fit in the normal config locations above can go here
+-- This 'polish' function is run last and is a good place to configuring augroups/autocommands and custom filetypes.
+-- This is just pure lua, so anything that doesn't fit in the normal config locations above can go here
 return function()
   vim.keymap.set("n", "<leader>qq", function()
     local qf_exists = false
@@ -73,18 +74,6 @@ return function()
 
     " )))
 
-    " " Settings for 'listchars' which define extra list display characters (((
-    "
-    " set listchars=
-    " " set listchars+=tab:▸\     " Tab characters, preserve width
-    " set listchars+=tab:→\     " Tab characters, preserve width
-    " set listchars+=trail:·    " Trailing spaces
-    " set listchars+=extends:>  " Unwrapped text to screen right
-    " set listchars+=precedes:< " Unwrapped text to screen left
-    " set listchars+=nbsp:␣
-    "
-    " " )))
-
     " Title (GUI/terminal) settings (((
 
     set title
@@ -113,18 +102,6 @@ return function()
 
     " )))
 
-    " Other non-conditional settings/declarations (set xxxxxxx) (((
-
-    " set path+=**    " Search current directory's whole tree
-    set cpoptions-=a  " Stop the :read command from annoyingly setting the alternative buffer
-    set fileformats=unix,dos,mac " This gives the end-of-line (<EOL>) formats that will be tried when starting to edit a new buffer and when reading a file into an existing buffer:
-    set isfname-==     " When using commands like Ctrl-x Ctrl-f for filename completion, do not read equal signs as part of file names, a common nuisance when working with shell scripts
-    set isfname-={,}
-    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " Probably overridden by status-line plugins
-    set virtualedit+=block " Allow movement beyond buffer text only in visual block mode
-
-    " )))
-
     " Dictionary settings (((
 
     if has('unix')
@@ -136,7 +113,7 @@ return function()
 
     " )))
 
-  " Commented-out settings (((
+    " Commented-out settings (((
 
   " Custom highlights (((
 

@@ -25,8 +25,8 @@ end
 if vim.fn.executable "node" == 1 then
   table.insert(my_ensure_installed, "vimls")
   table.insert(my_ensure_installed, "yamlls")
-  -- table.insert(my_ensure_installed, "dockerls")
   if vim.fn.executable "bash" == 1 then table.insert(my_ensure_installed, "bashls") end
+  if vim.fn.executable "docker" == 1 then table.insert(my_ensure_installed, "dockerls") end
   if vim.fn.executable "perl" == 1 then table.insert(my_ensure_installed, "perlnavigator") end
 end
 
