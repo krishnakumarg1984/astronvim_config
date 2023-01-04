@@ -22,14 +22,14 @@ return function(config)
     window = {
       documentation = {
         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-        winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:BorderBG,Search:None",
+        -- winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:BorderBG,Search:None",
       },
       completion = {
         -- winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
         -- winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
         -- winhighlight = "Normal:Normal,FloatBorder:BorderBG,Search:None",
         border = { "┌", "─", "┐", "│", "┘", "─", "└", "│" },
-        winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:BorderBG,Search:None",
+        -- winhighlight = "Normal:Normal,NormalFloat:Normal,FloatBorder:BorderBG,Search:None",
         col_offset = -2,
         side_padding = 0,
       },
