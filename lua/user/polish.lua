@@ -326,6 +326,7 @@ return function()
       ["/etc/environment"] = "confini",
       [".dace.conf"] = "yaml",
       ["zuliprc"] = "dosini",
+      ["devcontainer.json"] = "jsonc",
     },
     pattern = {
       ["/tmp/neomutt.*"] = "markdown",

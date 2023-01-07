@@ -23,11 +23,11 @@ if vim.fn.executable "cmake" == 1 then
 end
 
 if vim.fn.executable "node" == 1 then
-  table.insert(my_ensure_installed, "vimls")
-  table.insert(my_ensure_installed, "yamlls")
+  -- table.insert(my_ensure_installed, "vimls")
+  -- table.insert(my_ensure_installed, "yamlls")
   if vim.fn.executable "bash" == 1 then table.insert(my_ensure_installed, "bashls") end
-  if vim.fn.executable "docker" == 1 then table.insert(my_ensure_installed, "dockerls") end
-  if vim.fn.executable "perl" == 1 then table.insert(my_ensure_installed, "perlnavigator") end
+  -- if vim.fn.executable "docker" == 1 then table.insert(my_ensure_installed, "dockerls") end
+  -- if vim.fn.executable "perl" == 1 then table.insert(my_ensure_installed, "perlnavigator") end
 end
 
 if vim.fn.executable "python3" == 1 then table.insert(my_ensure_installed, "pylsp") end
@@ -39,8 +39,8 @@ if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
 end
 
 -- if vim.fn.executable "protoc" == 1 and vim.fn.executable "go" == 1 then table.insert(my_ensure_installed, "bufls") end
--- if vim.fn.executable "r" then table.insert(my_ensure_installed, "r_language_server") end
 -- if vim.fn.executable "julia" then table.insert(my_ensure_installed, "julials") end
+-- if vim.fn.executable "r" then table.insert(my_ensure_installed, "r_language_server") end
 
 return {
   -- automatic_installation = true,
