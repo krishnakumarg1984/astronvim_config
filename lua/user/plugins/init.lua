@@ -18,8 +18,8 @@ return {
 
   -- ["tweekmonster/startuptime.vim"] = require "user.plugins.startuptime_vim", -- Breakdown Vim's '--startuptime' output
 
-  ["AndrewRadev/bufferize.vim"] = require "user.plugins.bufferize_vim", -- Execute a :command and show the output in a temporary buffer
-  ["ilyachur/cmake4vim"] = require "user.plugins.cmake_for_vim", -- Vim plugin for CMake projects
+  -- ["AndrewRadev/bufferize.vim"] = require "user.plugins.bufferize_vim", -- Execute a :command and show the output in a temporary buffer
+  -- ["ilyachur/cmake4vim"] = require "user.plugins.cmake_for_vim", -- Vim plugin for CMake projects
   -- ["ekalinin/Dockerfile.vim"] = require "user.plugins.dockerfile_vim", -- Vim syntax file & snippets for Docker's Dockerfile
   ["rust-lang/rust.vim"] = require "user.plugins.rust_vim", -- Vim configuration for Rust. (must be loaded before 'rust-tools')
   ["lambdalisue/suda.vim"] = require "user.plugins.suda_vim", -- An alternative sudo.vim for Vim and Neovim
@@ -44,7 +44,7 @@ return {
   -- ["Civitasv/cmake-tools.nvim"] = require "user.plugins.cmake_tools", -- CMake integration in Neovim
   ["saecki/crates.nvim"] = require "user.plugins.crates_nvim", -- A neovim plugin that helps managing crates.io dependencies
   ["hrsh7th/cmp-buffer"] = require "user.plugins.cmp_buffer", -- nvim-cmp source for buffer words
-  ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for math calculation
+  -- ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for math calculation
   ["hrsh7th/cmp-emoji"] = require "user.plugins.cmp_emoji", -- nvim-cmp source for emoji
   ["petertriho/cmp-git"] = require "user.plugins.cmp_git_nvim", -- Git source for nvim-cmp
   -- ["hrsh7th/cmp-omni"] = require "user.plugins.cmp_omni", -- nvim-cmp source for omnifunc
@@ -56,7 +56,7 @@ return {
   -- ["hkupty/iron.nvim"] = require "user.plugins.iron", -- Interactive Repl Over Neovim
   ["rebelot/kanagawa.nvim"] = {}, -- require "user.plugins.kanagawa", -- Colorscheme inspired by the colors of the famous painting by Katsushika Hokusai
   ["lvimuser/lsp-inlayhints.nvim"] = require "user.plugins.lsp_inlayhints",
-  ["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = require "user.plugins.lsplines_nvim", -- renders diagnostics using virtual lines on top of the real line of code
+  -- ["https://git.sr.ht/~whynothugo/lsp_lines.nvim"] = require "user.plugins.lsplines_nvim", -- renders diagnostics using virtual lines on top of the real line of code
   ["ray-x/lsp_signature.nvim"] = require "user.plugins.lsp_signature_nvim", -- LSP signature hint as you type
   -- ["chentoast/marks.nvim"] = require "user.plugins.marks", -- A better UX for viewing & interacting with Vim marks
   ["echasnovski/mini.nvim"] = require "user.plugins.mini", -- Collection of minimal, independent, & fast Lua modules
@@ -77,7 +77,7 @@ return {
   ["kevinhwang91/nvim-hlslens"] = require "user.plugins.nvim_hlslens", -- A hlsearch Lens for Neovim
   ["ethanholz/nvim-lastplace"] = require "user.plugins.nvim_lastplace", -- A Lua rewrite of vim-lastplace
   ["kosayoda/nvim-lightbulb"] = require "user.plugins.nvim_lightbulb", -- VSCode bulb for neovim's built-in LSP.
-  ["mfussenegger/nvim-lint"] = { module = "lint" }, -- An asynchronous linter plugin. Loads through local .vimrc.lua
+  -- ["mfussenegger/nvim-lint"] = { module = "lint" }, -- An asynchronous linter plugin. Loads through local .vimrc.lua
   -- ["sitiom/nvim-numbertoggle"] = require "user.plugins.nvim_numbertoggle", -- Auto-toggle b/w rel & abs line nos
   -- ["https://gitlab.com/yorickpeterse/nvim-pqf"] = require "user.plugins.nvim_pqf", -- Prettier quickfix/location list
   -- ["romgrk/nvim-treesitter-context"] = require "user.plugins.nvim-treesitter-context", -- Show code context
@@ -86,18 +86,18 @@ return {
   -- ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
   -- ["RRethy/nvim-treesitter-textsubjects"] = require "user.plugins.nvim-treesitter-textsubjects", -- DWIM textobjects
   -- ["s1n7ax/nvim-window-picker"] = {}, -- Prompts to pick a window & returns its window id
-  ["samjwill/nvim-unception"] = {}, -- Open files from within Neovim's terminal emulator without weird behavior
+  -- ["samjwill/nvim-unception"] = {}, -- Open files from within Neovim's terminal emulator without weird behavior
   -- ["jbyuki/one-small-step-for-vimkind"] = {}, -- Debug adapter for Neovim plugins
   -- ["stevearc/overseer.nvim"] = require "user.plugins.overseer", -- A task runner and job management plugin for Neovim
   -- ["Weissle/persistent-breakpoints.nvim"] = require "user.plugins.persistent-breakpoints",
-  ["ahmedkhalf/project.nvim"] = require "user.plugins.project", -- The superior project management solution for nvim
+  -- ["ahmedkhalf/project.nvim"] = require "user.plugins.project", -- The superior project management solution for nvim
   -- ["HallerPatrick/py_lsp.nvim"] = require "user.plugins.pylsp_nvim", -- Lsp Plugin for working with Python virtual environments
   ["linty-org/readline.nvim"] = require "user.plugins.readline_nvim", -- Readline motions and deletions in Neovim
   ["simrat39/rust-tools.nvim"] = require "user.plugins.rust_tools", -- Tools for better development in rust using neovim's builtin lsp
   -- ["michaelb/sniprun"] = require "user.plugins.sniprun", -- Run lines/blocks of code, supports multiples languages
   -- ["luukvbaal/stabilize.nvim"] = require "user.plugins.stabilize", -- Stabilize window open/close events
   -- ["abecodes/tabout.nvim"] = require "user.plugins.tabout", -- tabout plugin for neovim
-  ["SantinoKeupp/telescope-cmake4vim.nvim"] = require "user.plugins.telescope_cmakeforvim",
+  -- ["SantinoKeupp/telescope-cmake4vim.nvim"] = require "user.plugins.telescope_cmakeforvim",
   -- ["nvim-telescope/telescope-symbols.nvim"] = require "user.plugins.telescope_symbols",
   ["johmsalas/text-case.nvim"] = require "user.plugins.text_case", -- An all in one plugin for converting text case
   -- ["folke/trouble.nvim"] = require "user.plugins.trouble_nvim", -- Helps you solve all the trouble your code is causing

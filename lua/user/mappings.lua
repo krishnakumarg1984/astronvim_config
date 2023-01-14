@@ -1,7 +1,7 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
 -- Please use this mappings table to set keyboard mapping since this is the lower level configuration and more robust one.
--- which-key will automatically pick-up stored data by this setting.
+-- 'which-key' will automatically pick-up stored data by this setting.
 
 -- add more text objects for "in" and "around" (((
 
@@ -137,13 +137,6 @@ return {
     -- )))
 
     -- bundled AstroNvim plugin keymaps for normal mode (((
-
-    -- -- 'akinsho/bufferline.nvim' keymaps for normal mode (((
-    --
-    -- ["[b"] = { "<Cmd>BufferLineCyclePrev<CR>", silent = true, desc = "Prev Buffer" },
-    -- ["]b"] = { "<Cmd>BufferLineCycleNext<CR>", silent = true, desc = "Next Buffer" },
-    --
-    -- -- )))
 
     -- 'nvim-neo-tree/neo-tree.nvim' keymaps for normal mode (((
 

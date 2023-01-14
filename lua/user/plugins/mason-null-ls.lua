@@ -1,11 +1,11 @@
 return {
   ensure_installed = {
     "beautysh",
-    "cbfmt",
+    -- "cbfmt",
     "cspell",
-    "fixjson",
+    -- "fixjson",
     "mdformat",
-    "remark-cli",
+    -- "remark-cli",
     "textlint",
     -- "actionlint",
     -- "alex", -- brew installable
