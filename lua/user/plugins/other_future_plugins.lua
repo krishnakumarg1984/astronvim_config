@@ -95,6 +95,15 @@
 
 -- )))
 
+-- task runners (((
+
+-- https://github.com/desdic/greyjoy.nvim -- Launcher for Neovim
+-- https://github.com/GustavoKatel/tasks.nvim  -- Yet another task runner/manager for Neovim
+-- https://github.com/jedrzejboczar/toggletasks.nvim -- Neovim task runner: JSON/YAML + toggleterm.nvim + telescope.nvim
+-- https://github.com/EthanJWright/vs-tasks.nvim  -- A telescope plugin similar to VS Code's task implementation.
+
+-- )))
+
 -- https://superuser.com/questions/1485332/how-to-clear-neovim-buffer
 -- https://github.com/0styx0/abbreinder.nvim  -- Abbreviation reminder plugin for Neovim 0.5+
 -- https://github.com/emmanueltouzery/agitator.nvim
@@ -216,7 +225,6 @@
 -- https://github.com/gbprod/substitute.nvim
 -- use { "ur4ltz/surround.nvim" }
 -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" }, -- Surf through & move elements with treesitter
--- https://github.com/GustavoKatel/tasks.nvim  -- Yet another task runner/manager for Neovim
 -- ["nvim-telescope/telescope-dap.nvim"] = require "user.plugins.telescope-dap", -- Dap-Telescope integration
 -- ["benfowler/telescope-luasnip.nvim"] = require "user.plugins.telescope-luasnip", -- Telescope+LuaSnip integration
 -- use { "nvim-telescope/telescope-media-files.nvim" }
@@ -228,7 +236,6 @@
 -- https://github.com/aserowy/tmux.nvim
 -- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
 -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim  -- toggle LSP diagnostics
--- https://github.com/jedrzejboczar/toggletasks.nvim
 -- https://github.com/drybalka/tree-climber.nvim -- Plugin for easy navigation around the syntax-tree
 -- https://github.com/David-Kunz/treesitter-unit/
 -- https://github.com/Pocco81/TrueZen.nvim
@@ -241,7 +248,6 @@
 -- https://github.com/lukas-reineke/virt-column.nvim -- Display a character as the colorcolumn
 -- https://github.com/xiyaowong/virtcolumn.nvim  -- Display a line as the colorcolumn
 -- https://github.com/jubnzv/virtual-types.nvim  -- A Neovim plugin that shows type annotations as virtual text
--- https://github.com/EthanJWright/vs-tasks.nvim  -- Telescope plugin similar to VS Code's task implementation
 -- https://github.com/gelguy/wilder.nvim
 -- https://github.com/declancm/windex.nvim
 -- https://github.com/sindrets/winshift.nvim
