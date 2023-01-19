@@ -327,6 +327,8 @@ return function()
       [".dace.conf"] = "yaml",
       ["zuliprc"] = "dosini",
       ["devcontainer.json"] = "jsonc",
+      ["tasks.json"] = "jsonc",
+      ["launch.json"] = "jsonc",
     },
     pattern = {
       ["/tmp/neomutt.*"] = "markdown",

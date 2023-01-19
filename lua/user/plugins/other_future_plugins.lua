@@ -131,7 +131,6 @@
 -- https://github.com/tjdevries/diff-therapy.nvim  -- resolve those conflicts and have a happy relationship with git
 -- https://github.com/elihunter173/dirbuf.nvim
 -- https://github.com/chipsenkbeil/distant.nvim  -- Edit files, run programs, and work with LSP on a remote machine
--- use { "stevearc/dressing.nvim" }
 -- https://github.com/NFrid/due.nvim
 -- use { "j-hui/fidget.nvim" }
 -- https://github.com/Furkanzmc/firvish.nvim

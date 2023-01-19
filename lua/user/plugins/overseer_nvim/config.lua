@@ -1,5 +1,5 @@
 require("overseer").setup {
-  print "hi from overseer setup",
+  -- templates = { "builtin", "user.cpp_build" },
   component_aliases = {
     default = {
       -- These are the default components listed in the README
@@ -12,6 +12,11 @@ require("overseer").setup {
       { "on_result_diagnostics_quickfix", open = true },
       -- This puts the parsed results into neovim's diagnostics
       "on_result_diagnostics",
+    },
+    default_vscode = {
+      "default",
+      -- "on_output_quickfix",
+      { "on_output_quickfix", open = true },
     },
   },
 }
