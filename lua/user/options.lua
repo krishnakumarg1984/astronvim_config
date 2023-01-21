@@ -2,7 +2,7 @@
 -- NOTE: Only my preferred settings that are not set by AstroNvim are here
 
 return function(defaults)
-  defaults.g.loaded_netrwPlugin = nil
+  -- defaults.g.loaded_netrwPlugin = nil
   defaults.g.mapleader = "\\" -- sets vim.g.mapleader
 
   return vim.tbl_deep_extend("force", defaults, {

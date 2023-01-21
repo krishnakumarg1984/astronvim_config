@@ -15,7 +15,7 @@ return {
 
   -- Additional vimscript plugins (((
 
-  -- ["tweekmonster/startuptime.vim"] = require "user.plugins.startuptime_vim", -- Breakdown Vim's '--startuptime' output
+  ["tweekmonster/startuptime.vim"] = require "user.plugins.startuptime_vim", -- Breakdown Vim's '--startuptime' output
 
   ["rust-lang/rust.vim"] = require "user.plugins.rust_vim", -- Vim configuration for Rust. (must be loaded before 'rust-tools')
   ["andymass/vim-matchup"] = require "user.plugins.vim_matchup", -- Even better '%' navigate & highlight matching words
