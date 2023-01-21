@@ -116,6 +116,7 @@
 -- use { "kwkarlwang/bufresize.nvim" }  --  Keep buffer dimensions in proportion when terminal window is resized
 -- https://github.com/saifulapm/chartoggle.nvim  -- Toggle character in Neovim
 -- https://github.com/sudormrfbin/cheatsheet.nvim  -- A cheatsheet plugin
+-- ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd_extensions_nvim", -- Clangd's off-spec features
 -- use { "kazhala/close-buffers.nvim", cmd = {} }  -- Delete multiple vim buffers based on different conditions
 -- https://github.com/Civitasv/cmake-tools.nvim  --  CMake integration in Neovim
 -- https://github.com/xeluxee/competitest.nvim -- Automate testcases management & checking for Competitive Programming
@@ -283,6 +284,7 @@
 -- https://github.com/rhysd/reply.vim -- REPL
 -- https://github.com/kamykn/spelunker.vim
 -- use { "wellle/targets.vim" }
+-- ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
 -- https://github.com/epheien/termdbg -- Terminal debugger for vim
 -- https://github.com/markonm/traces.vim
 -- https://github.com/anufrievroman/vim-angry-reviewer
@@ -298,6 +300,7 @@
 -- https://github.com/jalvesaq/vimcmdline  -- promises matlab support (REPL?)
 -- use { "gauteh/vim-cppman", ft = { "c", "cpp" }, cmd = { "Cppman" } }
 -- ["Konfekt/vim-DetectSpellLang"] = require "user.plugins.vim-detectspelllang", -- Autodetect the spellcheck language
+-- ["dbmrq/vim-dialect"] = require "user.plugins.vim_dialect", -- Project specific spellfiles
 -- use { "tpope/vim-fugitive", event = "BufWinEnter" }
 -- https://github.com/tenfyzhong/vim-gencode-cpp -- auto generate function definition or declaration
 -- https://github.com/alepez/vim-gtest  -- Quickly select and run GoogleTest asynchronously
@@ -307,7 +310,7 @@
 -- https://github.com/ojroques/vim-oscyank
 -- https://github.com/thinca/vim-quickrun
 -- https://github.com/4513ECHO/vim-readme-viewer
--- use { "urbainvaes/vim-ripple" }  -- REPL
+-- ["urbainvaes/vim-ripple"] = require "user.plugins.vim_ripple", -- Minimalist plugin to interact with a REPL
 -- https://github.com/jpalardy/vim-slime
 -- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
 -- https://github.com/marklcrns/vim-smartq
