@@ -22,6 +22,8 @@ if vim.fn.executable "cmake" == 1 then
   end
 end
 
+if vim.fn.executable "dotnet" == 1 then table.insert(my_ensure_installed, "omnisharp") end
+
 -- if vim.fn.executable "node" == 1 then
 --   -- table.insert(my_ensure_installed, "vimls")
 --   -- table.insert(my_ensure_installed, "yamlls")
