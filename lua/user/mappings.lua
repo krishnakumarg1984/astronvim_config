@@ -66,18 +66,6 @@ xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 -- the mappings lua table being returned (((
 
 return {
-  -- ""-mode mappings (((
-
-  [""] = {
-    ["j"] = { "v:count == 0 ? 'gj' : 'j'", expr = true },
-    ["k"] = { "v:count == 0 ? 'gk' : 'k'", expr = true },
-    ["<Down>"] = { "v:count == 0 ? 'gj' : 'j'", expr = true },
-    ["<Up>"] = { "v:count == 0 ? 'gk' : 'k'", expr = true },
-    -- ["<Space>"] = false,
-  },
-
-  -- )))
-
   -- command-line mode keymaps (((
 
   c = {
@@ -103,9 +91,12 @@ return {
     ["<C-q>"] = false,
     ["<C-s>"] = false,
     ["<F7>"] = false, -- was remapped to toggling floating terminal, which is now set to <M-t>
+    ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
     ["<leader>/"] = false,
+    ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
     ["<leader>c"] = false,
     ["<leader>e"] = false,
+    ["<leader>n"] = false,
     ["<leader>o"] = false,
     ["<leader>q"] = false,
     ["<leader>w"] = false,

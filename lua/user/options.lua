@@ -49,8 +49,8 @@ return function(defaults)
       }, -- https://vi.stackexchange.com/questions/21872/change-fold-sign-character -- )))
       -- foldcolumn = "4",
       foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
-      foldlevel = 2, -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
-      foldlevelstart = 2,
+      -- foldlevel = 2, -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
+      -- foldlevelstart = 2,
       foldmethod = "expr",
       foldopen = vim.opt.foldopen + { "jump" },
       history = 10000,
@@ -58,7 +58,7 @@ return function(defaults)
       isfname = vim.opt.isfname - { ",", "=" }, -- When using commands like Ctrl-x Ctrl-f for filename completion, do not read equal signs as part of file names, a common nuisance when working with shell scripts
       iskeyword = vim.opt.iskeyword + { "-" },
       -- lazyredraw = true, -- Don't redraw the screen during batch execution
-      linebreak = true, -- Wrap lines at convenient point (only affects the on-screen display, not actual content in file) -- Break lines at word boundaries
+      linebreak = true, -- Wrap lines at convenient point (only affects the on-screen display, not actual content in file) -- linebreak soft wrap at word boundaries
       list = true,
       listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
       matchtime = 3, -- Tenths of a second to show the matching paren, when 'showmatch' is set.  Note that this is not in milliseconds, like other options that set a time.
@@ -91,6 +91,7 @@ return function(defaults)
         "*/.out",
         "~",
       }, -- This gives files lower priority, instead of outright ignoring them )))
+      swapfile = false,
       synmaxcol = 300,
       tags = { "$HOME/.cache/nvim/tags" },
       timeoutlen = 500, -- time to wait for a mapped sequence to complete (in milliseconds). AstroNvim sets this to 300.
@@ -326,14 +327,12 @@ return function(defaults)
 
     g = {
       -- autoformat_enabled = true, -- enable or disable auto formatting at start (lsp.formatting.format_on_save must be enabled)
-      -- lsp_handlers_enabled = true, -- enable or disable default vim.lsp.handlers (hover and signatureHelp)
       -- cmp_enabled = true, -- enable completion at start
       -- autopairs_enabled = true, -- enable autopairs at start
       -- diagnostics_enabled = true, -- enable diagnostics at start
       -- status_diagnostics_enabled = true, -- enable diagnostics in statusline
       -- icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
       -- ui_notifications_enabled = true, -- disable notifications when toggling UI elements
-      heirline_bufferline = true, -- enable new heirline based bufferline (requires :PackerSync after changing)
       detectspelllang_langs = { -- (((
         aspell = { -- (((
           "en_GB",
