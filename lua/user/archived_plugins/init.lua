@@ -1,28 +1,11 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
 return {
-  -- Modify/Disable a few AstroNvim default plugins (((
-
-  ["goolord/alpha-nvim"] = { disable = true }, -- A lua powered greeter like vim-startify / dashboard-nvim
-  ["max397574/better-escape.nvim"] = { disable = true }, -- Escape from insert mode without delay when typing
-  ["rcarriga/nvim-notify"] = { disable = true }, -- A fancy, configurable, notification manager for NeoVim
-  ["windwp/nvim-ts-autotag"] = require "user.plugins.nvim-ts-autotag", -- Autoclose & rename html tags with treesitter
-  ["p00f/nvim-ts-rainbow"] = { disable = true }, -- Rainbow parentheses for neovim using tree-sitter
-
-  -- )))
 
   -- Install additional plugins (((
 
   -- Additional vimscript plugins (((
 
-  ["tweekmonster/startuptime.vim"] = require "user.plugins.startuptime_vim", -- Breakdown Vim's '--startuptime' output
-
-  ["AndrewRadev/bufferize.vim"] = require "user.plugins.bufferize_vim", -- Execute a :command and show the output in a temporary buffer
-  ["rust-lang/rust.vim"] = require "user.plugins.rust_vim", -- Vim configuration for Rust. (must be loaded before 'rust-tools')
-  ["lambdalisue/suda.vim"] = require "user.plugins.suda_vim", -- An alternative sudo.vim for Vim and Neovim
-  ["andymass/vim-matchup"] = require "user.plugins.vim_matchup", -- Even better '%' navigate & highlight matching words
-  ["romainl/vim-qf"] = require "user.plugins.vim_qf", -- Tame the quickfix window.
-  ["Konfekt/vim-sentence-chopper"] = require "user.plugins.vim_sentence_chopper", -- VCS-friendly text formatting
   ["tpope/vim-unimpaired"] = require "user.plugins.vim_unimpaired", -- Pairs of handy bracket mappings
   ["lervag/vimtex"] = require "user.plugins.vimtex", -- VimTeX: A modern Vim and neovim filetype plugin for LaTeX files
   ["svban/YankAssassin.vim"] = require "user.plugins.yank_assassin", -- Don't let the cursor move while Yanking in Vim/Neovim
@@ -60,3 +43,4 @@ return {
 
   -- ))) -- ends "Install additional plugins"
 }
+-- ["windwp/nvim-ts-autotag"] = require "user.plugins.nvim-ts-autotag", -- Autoclose & rename html tags with treesitter
