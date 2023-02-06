@@ -1,3 +1,9 @@
--- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
--- add to the global LSP on_attach function
-return function(client, bufnr) end
+return function(client, bufnr)
+  if client.server_capabilities.inlayHintProvider then
+    local inlayhints_avail, inlayhints = pcall(require, "lsp-inlayhints")
+    if inlayhints_avail then
+      inlayhints.on_attach(client, bufnr)
+      vim.keymap.set("n", "<leader>uH", function() inlayhints.toggle() end, { desc = "Toggle inlay hints" })
+    end
+  end
+end

@@ -3,6 +3,15 @@
 -- This 'polish' function is run last and is a good place to configuring augroups/autocommands and custom filetypes.
 -- This is just pure lua, so anything that doesn't fit in the normal config locations above can go here
 return function()
+  if vim.fn.executable "blacktex" == 1 then
+    vim.keymap.set("n", "<leader>vB", "my<cmd>%! blacktex %<CR>`y", { desc = "Blacktex (strip comments)" })
+    vim.keymap.set(
+      "n",
+      "<leader>vb",
+      "mz<cmd>%! blacktex --keep-comments %<CR>`z",
+      { desc = "Blacktex (keep comments)" }
+    )
+  end
   vim.api.nvim_set_hl(0, "WinSeparator", { fg = "black", bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
 
   -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
@@ -227,16 +236,16 @@ return function()
 
   " )))
 
-  " Autocommand for disabling undofile in /tmp on non-windows systems (((
-
-  if !has('win32') || !has('win64')
-    augroup disableTempUndo
-    autocmd!
-    autocmd BufWritePre /tmp/* setlocal noundofile
-    augroup END
-  endif
-
-  " )))
+  " " Autocommand for disabling undofile in /tmp on non-windows systems (((
+  "
+  " if !has('win32') || !has('win64')
+  "   augroup disableTempUndo
+  "   autocmd!
+  "   autocmd BufWritePre /tmp/* setlocal noundofile
+  "   augroup END
+  " endif
+  "
+  " " )))
 
   " " Autocommand for remembering cursor position (((
   "
@@ -258,21 +267,23 @@ return function()
 
   " )))
 
-  " Autocommands for LaTeX filetype (((
-
+  " " Autocommands for LaTeX filetype (((
+  "
   " augroup LaTeXSettings
   "   autocmd!
   "   autocmd FileType tex setlocal foldcolumn=auto:7
   "   " autocmd InsertCharPre *.tex set conceallevel=0
   "   " autocmd InsertLeave *.tex set conceallevel=2
   " augroup END
+  "
+  " )))
 
   " augroup FtLuaSettings
   "   autocmd!
   "   autocmd FileType lua setlocal foldcolumn=auto:7
   " augroup END
 
-  " )))
+
 
     " Autocommand for opening the quickfix window (((
 
@@ -292,6 +303,7 @@ return function()
   -- )))
 
   -- Set up custom filetypes (lua-based config) (((
+
   local function yaml_ft(path, bufnr)
     -- get content of buffer as string
     local content = vim.filetype.getlines(bufnr)
@@ -340,13 +352,6 @@ return function()
       -- [vim.env.XDG_CONFIG_HOME .. "/udev/rules.d/.*%.rules"] = "udevrules",
     },
   }
-
-  -- )))
-
-  -- Set up custom commands (lua-based config) (((
-
-  -- https://discord.com/channels/939594913560031363/942007419050029086/1031995818812641320
-  -- vim.api.nvim_buf_create_user_command(0, "Messages", "<cmd>Bufferize messages<CR>", { desc = "Capture messages" })
 
   -- )))
 end

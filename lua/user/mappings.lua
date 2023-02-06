@@ -1,5 +1,6 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
 
+-- Mapping data with "desc" stored directly by vim.keymap.set().
 -- Please use this mappings table to set keyboard mapping since this is the lower level configuration and more robust one.
 -- 'which-key' will automatically pick-up stored data by this setting.
 
@@ -38,7 +39,7 @@ vim.keymap.set({ "n", "x" }, "&", ":&&<CR>") -- Remap normal/visual '&' to prese
 
 vim.cmd [[
 
-" cnoreabbrev mappings (((
+" cnoreabbrev mappings 
 
 " Replace :w with :up
 cnoreabbrev <expr> w getcmdtype() == ":" && getcmdline() == 'w' ? 'up' : 'w'
@@ -49,15 +50,15 @@ cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == 'help' ? 'tab hel
 cnoreabbrev <expr> helpgrep getcmdtype() == ":" && getcmdline() == 'helpgrep' ? 'tab helpgrep' : 'helpgrep'
 cnoreabbrev <expr> Man getcmdtype() == ":" && getcmdline() == 'Man' ? 'tab Man' : 'Man'
 
-" )))
+" 
 
-" Make jump-selections work better in visual block mode (((
+" Make jump-selections work better in visual block mode 
 
 xnoremap <expr>  G   'G' . virtcol('.') . "\|"
 xnoremap <expr>  }   '}' . virtcol('.') . "\|"
 xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 
-" )))
+" 
 
 ]]
 
@@ -66,6 +67,7 @@ xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 -- the mappings lua table being returned (((
 
 return {
+
   -- command-line mode keymaps (((
 
   c = {
@@ -122,8 +124,10 @@ return {
     -- ["<S-j>"] = { "mzJ`zmz" },
     ["<S-j>"] = { "mzJ`z" },
     ["<Space>"] = { "za" },
-    ["n"] = { "nzzzv" },
-    ["N"] = { "Nzzzv" },
+    ["n"] = { require("user.utils").better_search "n", desc = "Next search" }, -- better search
+    ["N"] = { require("user.utils").better_search "N", desc = "Previous search" }, -- better search
+    -- ["n"] = { "nzzzv" },
+    -- ["N"] = { "Nzzzv" },
 
     -- )))
 
@@ -138,10 +142,10 @@ return {
 
     -- 'mrjones2014/smart-splits.nvim' keymaps for normal mode (((
 
-    ["<A-h>"] = { function() require("smart-splits").resize_left() end },
-    ["<A-j>"] = { function() require("smart-splits").resize_down() end },
-    ["<A-k>"] = { function() require("smart-splits").resize_up() end },
-    ["<A-l>"] = { function() require("smart-splits").resize_right() end },
+    ["<A-h>"] = { function() require("smart-splits").resize_left(2) end },
+    ["<A-j>"] = { function() require("smart-splits").resize_down(2) end },
+    ["<A-k>"] = { function() require("smart-splits").resize_up(2) end },
+    ["<A-l>"] = { function() require("smart-splits").resize_right(2) end },
 
     -- )))
 
@@ -178,6 +182,7 @@ return {
     ["<C-k>"] = false,
     ["<C-l>"] = false,
     ["<C-q>"] = { "<c-\\><c-n>", desc = "Terminal normal mode" },
+    ["<esc><esc>"] = { "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
   },
 
   -- )))
@@ -203,6 +208,16 @@ return {
   },
 
   -- )))
+
+  -- operator-pending mode keymaps (((
+
+  o = {
+    -- line text-objects
+    ["il"] = { ":normal vil<cr>", desc = "Inside line text object" },
+    ["al"] = { ":normal val<cr>", desc = "Around line text object" },
+  },
+
+  -- )))
 }
 
 -- )))
@@ -211,7 +226,7 @@ return {
 
 -- Commented-out vimscript mappings (((
 --
--- " nnoremaps (((
+-- " nnoremaps
 --
 -- " https://www.reddit.com/r/vim/comments/oyqkkd/comment/h7x83ce/?utm_source=share&utm_medium=web2x&context=3
 -- " Basically, it makes '0' act like '^' on first press, and then like '0' on " second press.
@@ -225,18 +240,16 @@ return {
 --
 -- " nmap cg* *Ncgn
 --
--- " )))
+-- "
 --
--- " Substitute word under cursor and dot repeat (((
+-- " Substitute word under cursor and dot repeat
 --
 -- " https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
 -- " nnoremap <silent> \\C :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 -- " nnoremap <leader><leader>c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
 -- " xnoremap <silent> \\C "sy:let @/=@s<CR>cgn
 --
--- " )))
 --
-
 -- )))
 
 -- Commented-out lua mappings (((
