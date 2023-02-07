@@ -11,7 +11,6 @@ return {
 
     " let g:vimtex_mappings_enabled = 0
 
-    let g:vimtex_disable_recursive_main_file_detection = 1
     let g:vimtex_syntax_conceal_disable = 1  " This option allows to disable all conceal features at once.
 
     if executable('pplatex')
