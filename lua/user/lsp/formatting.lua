@@ -4,6 +4,7 @@ return {
   -- control auto formatting on save
   -- format_on_save = {
   --   enabled = true, -- enable or disable format on save globally
+  -- If you have allow_filetypes it will take presidence over ignore_filetypes. So please only use one of these options at a time
   --   allow_filetypes = { -- enable format on save for specified filetypes only
   --     -- "go",
   --   },
@@ -11,6 +12,7 @@ return {
   --     -- "python",
   --   },
   -- },
+  -- a client listed in the disabled list will always be disabled and then all other clients will then be passed into the filter function
   disabled = { -- disable formatting capabilities for the listed language servers
     "clangd",
     "cmake",
@@ -20,7 +22,6 @@ return {
     "sumneko_lua",
     "taplo",
   },
-  -- timeout_ms = 1000, -- default format timeout
   -- filter = function(client) -- fully override the default formatting function
   --   -- only enable null-ls for javascript files
   --   -- if vim.bo.filetype == "javascript" then return client.name == "null-ls" end
@@ -29,6 +30,7 @@ return {
   --   -- enable all other clients
   --   return true
   -- end,
+  -- timeout_ms = 1000, -- default format timeout
 }
 
 -- Some notes on project-specific auto formatting (((

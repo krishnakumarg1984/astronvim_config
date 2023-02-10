@@ -16,9 +16,6 @@ return function(config)
   -- )))
 
   return vim.tbl_deep_extend("force", config, {
-    view = {
-      entries = { name = "custom", selection_order = "near_cursor" },
-    },
     window = {
       documentation = {
         border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
