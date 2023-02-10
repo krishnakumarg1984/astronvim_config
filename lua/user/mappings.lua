@@ -39,7 +39,7 @@ vim.keymap.set({ "n", "x" }, "&", ":&&<CR>") -- Remap normal/visual '&' to prese
 
 vim.cmd [[
 
-" cnoreabbrev mappings 
+" cnoreabbrev mappings
 
 " Replace :w with :up
 cnoreabbrev <expr> w getcmdtype() == ":" && getcmdline() == 'w' ? 'up' : 'w'
@@ -50,15 +50,15 @@ cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == 'help' ? 'tab hel
 cnoreabbrev <expr> helpgrep getcmdtype() == ":" && getcmdline() == 'helpgrep' ? 'tab helpgrep' : 'helpgrep'
 cnoreabbrev <expr> Man getcmdtype() == ":" && getcmdline() == 'Man' ? 'tab Man' : 'Man'
 
-" 
+"
 
-" Make jump-selections work better in visual block mode 
+" Make jump-selections work better in visual block mode
 
 xnoremap <expr>  G   'G' . virtcol('.') . "\|"
 xnoremap <expr>  }   '}' . virtcol('.') . "\|"
 xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 
-" 
+"
 
 ]]
 
@@ -66,7 +66,10 @@ xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 
 -- the mappings lua table being returned (((
 
-return {
+local utils = require "user.utils"
+-- local astro_utils = require "core.utils"
+
+local mappings = {
 
   -- command-line mode keymaps (((
 
@@ -124,8 +127,8 @@ return {
     -- ["<S-j>"] = { "mzJ`zmz" },
     ["<S-j>"] = { "mzJ`z" },
     ["<Space>"] = { "za" },
-    ["n"] = { require("user.utils").better_search "n", desc = "Next search" }, -- better search
-    ["N"] = { require("user.utils").better_search "N", desc = "Previous search" }, -- better search
+    ["n"] = { utils.better_search "n", desc = "Next search" }, -- better search
+    ["N"] = { utils.better_search "N", desc = "Previous search" }, -- better search
     -- ["n"] = { "nzzzv" },
     -- ["N"] = { "Nzzzv" },
 
@@ -160,8 +163,14 @@ return {
 
     ["<leader>bc"] = { function() astronvim.close_buf(0) end, desc = "Close buffer" },
     ["<leader>bC"] = { function() astronvim.close_buf(0, true) end, desc = "Force close buffer" },
-    ["[b"] = { function() astronvim.nav_buf(-(vim.v.count > 0 and vim.v.count or 1)) end, desc = "Prev buffer" },
-    ["]b"] = { function() astronvim.nav_buf(vim.v.count > 0 and vim.v.count or 1) end, desc = "Next buffer" },
+    ["[b"] = {
+      function() require("core.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Prev buffer",
+    },
+    ["]b"] = {
+      function() require("core.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },
 
     -- )))
 
@@ -247,6 +256,7 @@ return {
 
   -- )))
 }
+return mappings
 
 -- )))
 

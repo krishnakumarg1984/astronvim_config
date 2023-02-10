@@ -1,10 +1,11 @@
 return function()
   -- get highlights from highlight groups
-  local normal = astronvim.get_hlgroup "Normal"
+  local get_hlgroup = require("core.utils").get_hlgroup
+  local normal = get_hlgroup "Normal"
   local fg, bg = normal.fg, normal.bg
-  local bg_alt = astronvim.get_hlgroup("Visual").bg
-  local green = astronvim.get_hlgroup("String").fg
-  local red = astronvim.get_hlgroup("Error").fg
+  local bg_alt = get_hlgroup("Visual").bg
+  local green = get_hlgroup("String").fg
+  local red = get_hlgroup("Error").fg
   return {
     HighlightURL = { underline = true },
     TelescopeBorder = { fg = bg_alt, bg = bg },
