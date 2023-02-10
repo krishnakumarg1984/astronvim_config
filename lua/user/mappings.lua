@@ -165,6 +165,34 @@ return {
 
     -- )))
 
+    -- 'stevearc/aerial.nvim' mappings for normal mode (((
+
+    ["<leader>a"] = { name = "Symbol tree" },
+    ["<leader>lS"] = false,
+    ["<leader>ln"] = { "<leader>ln", desc = "Toggle inline diagnostics" },
+    ["<leader>aa"] = { "<cmd>AerialToggle!<cr>", desc = "Toggle outline" },
+    ["<leader>aA"] = { "<cmd>AerialToggle<cr>", desc = "Toggle outline (focus)" },
+    ["<leader>ac"] = { "<cmd>AerialClose<cr> | let g:aerial_open_automatic = 0<cr>", desc = "Close outline" },
+    ["<leader>aC"] = { "<cmd>AerialTreeCloseAll<cr>", desc = "Collapse all" },
+    ["<leader>an"] = { "<cmd>AerialNext<cr>", desc = "Next symbol" },
+    ["<leader>aN"] = { "<cmd>AerialNextUp<cr>", desc = "Next symbol (up 1 level)" },
+    ["<leader>ao"] = { "<cmd>AerialOpen!<cr> | let g:aerial_open_automatic = 1<cr>", desc = "Open outline" },
+    ["<leader>aO"] = { "<cmd>AerialTreeOpenAll<cr>", desc = "Open all folds" },
+    ["<leader>ap"] = { "<cmd>AerialPrev<cr>", desc = "Prev symbol" },
+    ["<leader>aP"] = { "<cmd>AerialPrevUp<cr>", desc = "Prev symbol (up 1 level)" },
+    ["<leader>as"] = { "<cmd>AerialTreeSyncFolds<cr>", desc = "Sync code folding" },
+    ["<leader>at"] = { "<cmd>AerialToggle<cr>", desc = "Toggle outline & move cursor" },
+    ["<leader>aT"] = { "<cmd>AerialTreeToggle!<cr>", desc = "Toggle folds at location" },
+
+    -- )))
+
+    -- 'lewis6991/gitsigns.nvim' mappings for normal mode (((
+
+    ["<leader>gs"] = false, -- originally stage_hunk
+    ["<leader>gh"] = false, -- originally reset_hunk
+
+    -- )))
+
     -- )))
   },
 

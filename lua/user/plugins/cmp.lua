@@ -2,7 +2,7 @@ return {
   -- {
   --   "L3MON4D3/LuaSnip",
   --   dependencies = { "rafamadriz/friendly-snippets" },
-  --   config = require "plugins.configs.luasnip",
+  --   require "plugins.configs.luasnip"(plugin, opts) -- include the default astronvim config that calls the setup
   -- },
   {
     "hrsh7th/nvim-cmp",
