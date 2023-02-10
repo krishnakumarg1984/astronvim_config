@@ -16,8 +16,8 @@ return function()
 
   -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
   -- https://www.reddit.com/r/vim/comments/ogqarw/another_take_on_minimal_folds/h4l8j4z/
-  vim.o.foldtext =
-    [[printf('  %-4d %s', v:foldend - v:foldstart + 1, substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g')) . '  ' . trim(getline(v:foldend))]]
+  -- vim.o.foldtext =
+  --   [[printf('  %-4d %s', v:foldend - v:foldstart + 1, substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g')) . '  ' . trim(getline(v:foldend))]]
 
   vim.api.nvim_create_autocmd("TextYankPost", {
     desc = "Highlight yanked text",
