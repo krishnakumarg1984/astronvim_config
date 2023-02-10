@@ -109,4 +109,17 @@ return {
       automatic_setup = false,
     },
   },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = {
+      ensure_installed = {
+        "bash",
+        "codelldb",
+        "python",
+        -- "delve",
+        -- "js",
+        -- "php",
+      },
+    },
+  },
 }
