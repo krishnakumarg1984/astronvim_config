@@ -6,12 +6,25 @@ return {
   -- },
   {
     "p00f/clangd_extensions.nvim",
+    ft = { "c", "cpp", "cuda", "objc", "objcpp" },
     opts = function() return { server = require("core.utils.lsp").config "clangd" } end,
   },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
+      {
+        "kosayoda/nvim-lightbulb", -- VSCode bulb for neovim's built-in LSP.
+        -- event = { "CursorHold", "CursorHoldI" },
+        config = function()
+          require("nvim-lightbulb").setup {
+            sign = { enabled = false },
+            virtual_text = { enabled = true },
+            autocmd = { enabled = true },
+          }
+        end,
+      },
+
     },
   },
   {
