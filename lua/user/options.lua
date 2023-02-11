@@ -73,6 +73,7 @@ return function(defaults)
       -- shortmess = vim.opt.shortmess + { I = true, c = true, x = false }, -- " a) +I => Don't give the intro message when starting Vim |:intro|. b) +c => Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc. c) -x => Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions.
       showbreak = "↪ ",
       showmatch = true,
+      -- showtabline = 0, -- don't show tabline
       sidescrolloff = 8, -- The minimal number of screen columns to keep to the left and to the right of the cursor
       signcolumn = "yes:1",
       softtabstop = 2, -- how many spaces to insert with tab key
