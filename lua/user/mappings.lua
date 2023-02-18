@@ -101,6 +101,7 @@ local mappings = {
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
     ["<leader>c"] = false,
     ["<leader>e"] = false,
+    -- ["<leader>n"] = { name = "Annotate" },
     ["<leader>n"] = false,
     ["<leader>o"] = false,
     ["<leader>q"] = false,

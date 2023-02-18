@@ -206,10 +206,10 @@ vim.cmd [[
     augroup my_quickfix
     autocmd!
     " autocmd QuickFixCmdPost cexpr cwindow
-    autocmd QuickFixCmdPost [^l]* nested copen
+    " autocmd QuickFixCmdPost [^l]* nested copen
     " autocmd QuickFixCmdPost l* nested lopen
     " https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
-    " autocmd QuickFixCmdPost cgetexpr cwindow
+    autocmd QuickFixCmdPost cgetexpr cwindow
     augroup END
 
     " )))

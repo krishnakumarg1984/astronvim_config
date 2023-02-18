@@ -1,6 +1,6 @@
 local my_ensure_installed = {
   "clangd",
-  "sumneko_lua",
+  "lua_ls",
   -- "lemminx", -- XML Language Server written in 'java'
   -- "ltex",
   -- "marksman",
@@ -62,7 +62,6 @@ return {
     --     "jsonls",
     --     "pyright",
     --     "sqls",
-    --     "sumneko_lua",
     --     "taplo",
     --     "texlab",
     --     "tsserver",

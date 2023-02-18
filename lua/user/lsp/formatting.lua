@@ -19,7 +19,7 @@ return {
     "jsonls",
     "neocmakelsp",
     "pylsp",
-    "sumneko_lua",
+    "lua_ls",
     "taplo",
   },
   -- filter = function(client) -- fully override the default formatting function

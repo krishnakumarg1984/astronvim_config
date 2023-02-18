@@ -16,8 +16,8 @@ return {
 -- -- keys for a specific server name will be used for that LSP
 -- tsserver = function(_, opts) require("typescript").setup { server = opts } end,
 -- clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end,
--- sumneko_lua = function(server, opts)
---   -- custom sumneko_lua setup handler
---   require("lspconfig")["sumneko_lua"].setup(opts)
+-- lua_ls = function(server, opts)
+--   -- custom lua_ls setup handler
+--   require("lspconfig")["lua_ls"].setup(opts)
 -- end,
 -- }
