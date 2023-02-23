@@ -93,6 +93,7 @@ local mappings = {
   n = {
     -- disable certain remaps provided in base AstroNvim (((
 
+    -- ["<leader>n"] = { name = "Annotate" },
     ["<C-q>"] = false,
     ["<C-s>"] = false,
     ["<F7>"] = false, -- was remapped to toggling floating terminal, which is now set to <M-t>
@@ -101,7 +102,6 @@ local mappings = {
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
     ["<leader>c"] = false,
     ["<leader>e"] = false,
-    -- ["<leader>n"] = { name = "Annotate" },
     ["<leader>n"] = false,
     ["<leader>o"] = false,
     ["<leader>q"] = false,
@@ -179,7 +179,7 @@ local mappings = {
 
     ["<leader>a"] = { name = "Symbol tree" },
     ["<leader>lS"] = false,
-    ["<leader>ln"] = { "<leader>ln", desc = "Toggle inline diagnostics" },
+    -- ["<leader>ln"] = { "<leader>ln", desc = "Toggle inline diagnostics" },
     ["<leader>aa"] = { "<cmd>AerialToggle!<cr>", desc = "Toggle outline" },
     ["<leader>aA"] = { "<cmd>AerialToggle<cr>", desc = "Toggle outline (focus)" },
     ["<leader>ac"] = { "<cmd>AerialClose<cr> | let g:aerial_open_automatic = 0<cr>", desc = "Close outline" },

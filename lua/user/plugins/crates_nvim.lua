@@ -1,6 +1,7 @@
 return {
   "saecki/crates.nvim", -- A neovim plugin that helps managing crates.io dependencies
   event = { "BufRead Cargo.toml" },
+  -- ft = { "toml" },
   config = function()
     local null_ls = require "null-ls"
     require("crates").setup {
