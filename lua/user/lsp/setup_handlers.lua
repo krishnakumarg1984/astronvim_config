@@ -8,6 +8,17 @@ end
 return {
   tsserver = function(...) lsp_plugin_setup("typescript", ...) end,
   clangd = function(...) lsp_plugin_setup("clangd_extensions", ...) end,
+  -- rust_analyzer = function(_, opts)
+  --   require("rust-tools").setup {
+  --     server = opts,
+  --     tools = {
+  --       inlay_hints = {
+  --         parameter_hints_prefix = "  ",
+  --         other_hints_prefix = "  ",
+  --       },
+  --     },
+  --   }
+  -- end,
 }
 
 -- return {

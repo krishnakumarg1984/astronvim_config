@@ -50,6 +50,7 @@ return {
   end,
   settings = {
     ["rust-analyzer"] = {
+      standalone = true,
       lens = {
         enable = true,
       },
@@ -64,6 +65,7 @@ return {
       },
       cargo = {
         allFeatures = true,
+        autoReload = true,
         buildScripts = {
           enable = true,
         },
