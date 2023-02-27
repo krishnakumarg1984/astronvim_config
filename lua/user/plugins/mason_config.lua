@@ -1,9 +1,9 @@
 local my_ensure_installed = {
   "clangd",
   "lua_ls",
+  "marksman",
   -- "lemminx", -- XML Language Server written in 'java'
   -- "ltex",
-  -- "marksman",
   -- "prosemd_lsp",
   -- "zk",
 }
@@ -46,6 +46,7 @@ end
 -- if vim.fn.executable "r" then table.insert(my_ensure_installed, "r_language_server") end
 
 return {
+  { "williamboman/mason.nvim", opts = { PATH = "append" } },
   {
     "williamboman/mason-lspconfig.nvim",
     opts = {

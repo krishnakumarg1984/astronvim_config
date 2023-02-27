@@ -4,6 +4,15 @@
 -- Please use this mappings table to set keyboard mapping since this is the lower level configuration and more robust one.
 -- 'which-key' will automatically pick-up stored data by this setting.
 
+local wk = require "which-key"
+
+wk.register({
+  e = { name = " Explorer" },
+  n = { name = " Annotate" },
+  o = { name = " Overseer" },
+  q = { name = " Quickfix" },
+}, { mode = "n", prefix = "<leader>" })
+
 -- add more text objects for "in" and "around" (((
 
 -- https://code.mehalter.com/projects/68/files/master/mappings.lua
@@ -106,6 +115,7 @@ local mappings = {
     ["<leader>o"] = false,
     ["<leader>q"] = false,
     ["<leader>w"] = false,
+    ["<leader>x"] = { name = "裂Trouble" },
     ["<S-h>"] = false,
     ["<S-l>"] = false,
     ["\\"] = false,
@@ -162,8 +172,8 @@ local mappings = {
 
     -- 'rebelot/heirline.nvim' mappings for normal mode (((
 
-    ["<leader>bc"] = { function() astronvim.close_buf(0) end, desc = "Close buffer" },
-    ["<leader>bC"] = { function() astronvim.close_buf(0, true) end, desc = "Force close buffer" },
+    -- ["<leader>bc"] = { function() astronvim.close_buf(0) end, desc = "Close buffer" },
+    -- ["<leader>bC"] = { function() astronvim.close_buf(0, true) end, desc = "Force close buffer" },
     ["[b"] = {
       function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Prev buffer",
@@ -177,7 +187,10 @@ local mappings = {
 
     -- 'stevearc/aerial.nvim' mappings for normal mode (((
 
-    ["<leader>a"] = { name = "Symbol tree" },
+    ["<leader>a"] = { name = " Symbol tree" },
+    ["<leader>b"] = { name = " Buffers" },
+    ["<leader>f"] = { name = " Find" },
+    ["<leader>p"] = { name = " Packages" },
     ["<leader>lS"] = false,
     -- ["<leader>ln"] = { "<leader>ln", desc = "Toggle inline diagnostics" },
     ["<leader>aa"] = { "<cmd>AerialToggle!<cr>", desc = "Toggle outline" },

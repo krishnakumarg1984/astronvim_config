@@ -10,31 +10,53 @@ return {
       -- add the vim mode component
       status.component.mode {
         -- enable mode text with padding as well as an icon before it
-        mode_text = { icon = { kind = "VimIcon", padding = { right = 1, left = 1 } } },
+        -- mode_text = { icon = { kind = "VimIcon", padding = { right = 1, left = 1 } } },
+        mode_text = { pad_text = "center" },
         -- surround the component with a separators
         surround = {
-          -- it's a left element, so use the left separator
-          separator = "left",
           -- set the color of the surrounding based on the current mode using astronvim.utils.status module
-          color = function() return { main = status.hl.mode_bg(), right = "blank_bg" } end,
+          -- color = function() return { main = status.hl.mode_bg() } end,
+          color = function(self)
+            return {
+              main = status.hl.mode_bg(),
+              -- set the right separator color based on file modified
+              right = status.condition.file_modified(self.bufnr) and "file_info_modified_bg" or "file_info_bg",
+            }
+          end,
         },
       },
       -- we want an empty space here so we can use the component builder to make a new section with just an empty string
-      status.component.builder {
-        { provider = "" },
-        -- define the surrounding separator and colors to be used inside of the component
-        -- and the color to the right of the separated out section
-        surround = { separator = "left", color = { main = "blank_bg", right = "file_info_bg" } },
-      },
+      -- status.component.builder {
+      --   { provider = "" },
+      --   -- define the surrounding separator and colors to be used inside of the component
+      --   -- and the color to the right of the separated out section
+      --   surround = { separator = "left", color = { main = "blank_bg", right = "file_info_bg" } },
+      -- },
       -- add a section for the currently opened file information
       status.component.file_info {
         -- enable the file_icon and disable the highlighting based on filetype
-        file_icon = { padding = { left = 0 } },
+        -- file_icon = { padding = { left = 0 } },
+        file_icon = { highlight = false, padding = { left = 0 } },
+        file_modified = false,
         filename = { fallback = "Empty" },
         -- add padding
-        padding = { right = 1 },
+        padding = { right = 0 },
+        -- change foreground when modified
+        hl = function(self)
+          return status.condition.file_modified(self.bufnr) and { fg = "file_info_modified_fg" } or nil
+        end,
         -- define the section separator
-        surround = { separator = "left", condition = false },
+        -- surround = { separator = "left", condition = false },
+        surround = {
+          separator = "left",
+          -- change background when modified
+          color = function(self)
+            return {
+              main = status.condition.file_modified(self.bufnr) and "file_info_modified_bg" or "file_info_bg",
+            }
+          end,
+          condition = false,
+        },
       },
       -- add a component for the current git branch if it exists and use no separator for the sections
       status.component.git_branch { surround = { separator = "none" } },
@@ -52,6 +74,9 @@ return {
       status.component.diagnostics { surround = { separator = "right" } },
       -- add a component to display LSP clients, disable showing LSP progress, and use the right separator
       status.component.lsp { lsp_progress = false, surround = { separator = "right" } },
+      status.component.treesitter {
+        surround = {},
+      },
       -- NvChad has some nice icons to go along with information, so we can create a parent component to do this
       -- all of the children of this table will be treated together as a single component
       {
@@ -96,10 +121,14 @@ return {
         -- add a navigation component and just display the percentage of progress in the file
         status.component.nav {
           -- add some padding for the percentage provider
-          percentage = { padding = { right = 1 } },
+          -- percentage = { padding = { right = 1 } },
+          percentage = { fixed_width = true, padding = { right = 1 } },
           -- disable all other providers
-          ruler = false,
+          -- ruler = false,
+          ruler = { pad_ruler = { line = 4, char = 3 } }, -- false,
           scrollbar = false,
+          -- define the foreground color
+          hl = { fg = "nav_icon_bg" },
           -- use no separator and define the background color
           surround = { separator = "none", color = "file_info_bg" },
         },
