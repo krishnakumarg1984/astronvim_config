@@ -1,11 +1,11 @@
 return {
   "rebelot/heirline.nvim",
   opts = function(_, opts)
-    local status = require "core.utils.status"
+    local status = require "astronvim.utils.status"
     opts.statusline = {
       -- default highlight for the entire statusline
       hl = { fg = "fg", bg = "bg" },
-      -- each element following is a component in core.utils.status module
+      -- each element following is a component in astronvim.utils.status module
 
       -- add the vim mode component
       status.component.mode {
@@ -15,7 +15,7 @@ return {
         surround = {
           -- it's a left element, so use the left separator
           separator = "left",
-          -- set the color of the surrounding based on the current mode using core.utils.status module
+          -- set the color of the surrounding based on the current mode using astronvim.utils.status module
           color = function() return { main = status.hl.mode_bg(), right = "blank_bg" } end,
         },
       },
@@ -58,7 +58,7 @@ return {
         -- define a simple component where the provider is just a folder icon
         status.component.builder {
           -- astronvim.get_icon gets the user interface icon for a closed folder with a space after it
-          { provider = require("core.utils").get_icon "FolderClosed" },
+          { provider = require("astronvim.utils").get_icon "FolderClosed" },
           -- add padding after icon
           padding = { right = 1 },
           -- set the foreground color to be used for the icon
@@ -84,7 +84,7 @@ return {
       { -- make nav section with icon border
         -- define a custom component with just a file icon
         status.component.builder {
-          { provider = require("core.utils").get_icon "ScrollText" },
+          { provider = require("astronvim.utils").get_icon "ScrollText" },
           -- add padding after icon
           padding = { right = 1 },
           -- set the icon foreground

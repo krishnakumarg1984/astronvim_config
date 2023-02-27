@@ -1,6 +1,6 @@
 -- add new colors that can be used by heirline
 return function(hl)
-  local get_hlgroup = require("core.utils").get_hlgroup
+  local get_hlgroup = require("astronvim.utils").get_hlgroup
   -- use helper function to get highlight group properties
   local comment_fg = get_hlgroup("Comment").fg
   hl.git_branch_fg = comment_fg

@@ -67,7 +67,7 @@ xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 -- the mappings lua table being returned (((
 
 local utils = require "user.utils"
--- local astro_utils = require "core.utils"
+-- local astro_utils = require "astronvim.utils"
 
 local mappings = {
 
@@ -165,11 +165,11 @@ local mappings = {
     ["<leader>bc"] = { function() astronvim.close_buf(0) end, desc = "Close buffer" },
     ["<leader>bC"] = { function() astronvim.close_buf(0, true) end, desc = "Force close buffer" },
     ["[b"] = {
-      function() require("core.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
       desc = "Prev buffer",
     },
     ["]b"] = {
-      function() require("core.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
       desc = "Next buffer",
     },
 

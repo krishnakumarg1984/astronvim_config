@@ -1,12 +1,13 @@
 return function()
   -- get highlights from highlight groups
-  local get_hlgroup = require("core.utils").get_hlgroup
+  local get_hlgroup = require("astronvim.utils").get_hlgroup
   local normal = get_hlgroup "Normal"
   local fg, bg = normal.fg, normal.bg
   local bg_alt = get_hlgroup("Visual").bg
   local green = get_hlgroup("String").fg
   local red = get_hlgroup("Error").fg
   return {
+    CursorLineFold = { link = "CursorLineNr" },
     HighlightURL = { underline = true },
     TelescopeBorder = { fg = bg_alt, bg = bg },
     TelescopeNormal = { bg = bg },

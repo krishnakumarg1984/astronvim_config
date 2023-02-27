@@ -15,7 +15,7 @@ return {
       dap = {
         adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_executable_path, liblldb_path),
       },
-      server = require("core.utils.lsp").config "rust_analyzer",
+      server = require("astronvim.utils.lsp").config "rust_analyzer",
     }
   end,
   -- config = function()
