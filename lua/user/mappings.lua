@@ -232,7 +232,7 @@ local mappings = {
     ["<C-j>"] = false,
     ["<C-k>"] = false,
     ["<C-l>"] = false,
-    ["<C-q>"] = { "<c-\\><c-n>", desc = "Terminal normal mode" },
+    ["<C-BS>"] = { "<c-\\><c-n>", desc = "Terminal normal mode" },
     ["<esc><esc>"] = { "<C-\\><C-n>:q<cr>", desc = "Terminal quit" },
   },
 

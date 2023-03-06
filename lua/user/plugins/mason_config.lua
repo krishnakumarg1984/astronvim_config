@@ -49,9 +49,7 @@ return {
   { "williamboman/mason.nvim", opts = { PATH = "append" } },
   {
     "williamboman/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = my_ensure_installed,
-    },
+    opts = { ensure_installed = my_ensure_installed },
     -- opts = {
     --   ensure_installed = {
     --     "cssls",
@@ -82,7 +80,6 @@ return {
         "cmake_format",
         "codespell",
         "commitlint",
-        "cppcheck",
         "cpplint",
         "cspell",
         "editorconfig-checker",
@@ -104,6 +101,7 @@ return {
         "write-good",
         "yamllint",
         -- "cbfmt",
+        -- "cppcheck",
         -- "luacheck",
       },
       automatic_setup = false,

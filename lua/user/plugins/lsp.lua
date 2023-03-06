@@ -41,8 +41,7 @@ return {
   },
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim", -- renders diagnostics using virtual lines on top of the real line of code
-    keys = { "<leader>ln" },
-    -- lazy = false,
+    keys = { { "<leader>ln", "<leader>ln", desc = "Toggle inline diag" } },
     config = function()
       local lsp_lines = require "lsp_lines"
       lsp_lines.setup()

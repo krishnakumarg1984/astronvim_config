@@ -5,6 +5,11 @@ return {
   config = function()
     require("trouble").setup {
       mode = "document_diagnostics",
+      use_diagnostic_signs = true,
+      action_keys = {
+        close = { "q", "<esc>" },
+        cancel = "<c-e>",
+      },
     }
     vim.keymap.set("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", { desc = "Show document diagnostics" })
     vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { desc = "Diagnostics (loc list)" })
