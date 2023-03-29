@@ -95,7 +95,6 @@ return {
         "gitlint", -- useful across languages
         "hadolint",
         "jsonlint",
-        "luacheck",
         "markdownlint",
         "misspell",
         "mypy",
