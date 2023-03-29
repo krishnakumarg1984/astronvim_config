@@ -528,7 +528,7 @@ return {
         { name = "nvim_lsp", priority = 1000 },
         { name = "path", priority = 800 },
         { name = "pandoc_references", priority = 700 },
-        { name = "luasnip", priority = 750 },
+        { name = "luasnip", priority = 150 },
         { name = "latex_symbols", priority = 600 },
         {
           name = "buffer",

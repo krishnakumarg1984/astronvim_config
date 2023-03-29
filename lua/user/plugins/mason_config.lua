@@ -29,7 +29,11 @@ if vim.fn.executable "node" == 1 then
 end
 
 if vim.fn.executable "python3" == 1 then
-  table.insert(my_ensure_installed, "pylsp")
+  -- if vim.fn.executable "ruff" == 1 then
+  table.insert(my_ensure_installed, "ruff_lsp")
+  -- else
+  --   table.insert(my_ensure_installed, "pylsp")
+  -- end
   -- if vim.fn.executable "gfortran" == 1 then table.insert(my_ensure_installed, "fortlsp") end
 end
 
@@ -75,34 +79,46 @@ return {
     opts = {
       ensure_installed = {
         "actionlint",
+        "autoflake",
         "black",
         "clang_format",
         "cmake_format",
-        "codespell",
+        "cmakelint",
+        "codespell", -- useful for many languages
         "commitlint",
         "cpplint",
         "cspell",
         "editorconfig-checker",
         "fixjson",
         "flake8",
-        "gitlint",
+        "gersemi",
+        "gitlint", -- useful across languages
         "hadolint",
         "jsonlint",
+        "luacheck",
         "markdownlint",
         "misspell",
         "mypy",
         "proselint",
-        "pylint",
+        "pycodestyle", -- pylama covers this
+        "pydocstyle", -- pylama covers this
+        "pylint", -- pylama covers this
+        "pyre", -- pylama covers this
+        "reorder_python_imports",
+        "ruff", -- covers a superset of pylama
         "shellcheck",
         "shfmt",
         "stylua",
+        "usort",
         "vale",
         "vint",
+        "vulture",
         "write-good",
         "yamllint",
         -- "cbfmt",
         -- "cppcheck",
-        -- "luacheck",
+        -- "pylama",
+        -- "pyproject_flake8",
       },
       automatic_setup = false,
     },
