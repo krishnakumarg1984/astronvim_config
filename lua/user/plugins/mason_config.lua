@@ -53,8 +53,8 @@ end
 -- if vim.fn.executable "r" then table.insert(my_ensure_installed, "r_language_server") end
 
 return {
-  -- { "williamboman/mason.nvim" },
-  { "williamboman/mason.nvim", opts = { PATH = "prepend" } },
+  -- { "williamboman/mason.nvim", opts = { PATH = "append" } },
+  { "williamboman/mason.nvim" },
   {
     "williamboman/mason-lspconfig.nvim",
     opts = { ensure_installed = my_ensure_installed },
@@ -119,6 +119,7 @@ return {
         "vulture",
         "write-good",
         "yamllint",
+        "yamlfmt",
         -- "cbfmt",
         -- "cppcheck",
         -- "pylama",
