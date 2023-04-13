@@ -21,6 +21,7 @@ end
 -- end
 
 if vim.fn.executable "node" == 1 then
+  table.insert(my_ensure_installed, "denols")
   table.insert(my_ensure_installed, "vimls")
   table.insert(my_ensure_installed, "yamlls")
   if vim.fn.executable "bash" == 1 then table.insert(my_ensure_installed, "bashls") end
@@ -29,12 +30,14 @@ if vim.fn.executable "node" == 1 then
 end
 
 if vim.fn.executable "python3" == 1 then
-  -- if vim.fn.executable "ruff" == 1 then
-  table.insert(my_ensure_installed, "ruff_lsp")
-  -- else
-  --   table.insert(my_ensure_installed, "pylsp")
-  -- end
+  table.insert(my_ensure_installed, "pylsp")
+  table.insert(my_ensure_installed, "pyre")
+  -- table.insert(my_ensure_installed, "pyright")
+  -- table.insert(my_ensure_installed, "sourcery")
   -- if vim.fn.executable "gfortran" == 1 then table.insert(my_ensure_installed, "fortlsp") end
+  -- if vim.fn.executable "ruff" == 1 then
+  -- table.insert(my_ensure_installed, "ruff_lsp")
+  -- end
 end
 
 if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
@@ -50,7 +53,8 @@ end
 -- if vim.fn.executable "r" then table.insert(my_ensure_installed, "r_language_server") end
 
 return {
-  { "williamboman/mason.nvim", opts = { PATH = "append" } },
+  -- { "williamboman/mason.nvim" },
+  { "williamboman/mason.nvim", opts = { PATH = "prepend" } },
   {
     "williamboman/mason-lspconfig.nvim",
     opts = { ensure_installed = my_ensure_installed },
@@ -99,12 +103,13 @@ return {
         "misspell",
         "mypy",
         "proselint",
-        "pycodestyle", -- pylama covers this
         "pydocstyle", -- pylama covers this
+        "pylama",
         "pylint", -- pylama covers this
-        "pyre", -- pylama covers this
+        "pyre",
         "reorder_python_imports",
         "ruff", -- covers a superset of pylama
+        "semgrep",
         "shellcheck",
         "shfmt",
         "stylua",
@@ -120,6 +125,9 @@ return {
         -- "pyproject_flake8",
       },
       automatic_setup = false,
+      handlers = {
+        taplo = function() end, -- disable taplo in null-ls, it's taken care of by lspconfig
+      },
     },
   },
   {

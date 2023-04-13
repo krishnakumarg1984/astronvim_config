@@ -71,6 +71,7 @@ return {
     opts = {
       -- signcolumn = false,
       -- numhl = true,
+      current_line_blame_opts = { ignore_whitespace = true },
       signs = {
         add = { hl = "GitSignsAdd", text = "▎", numhl = "GitSignsAddNr", linehl = "GitSignsAddLn" },
         change = { hl = "GitSignsChange", text = "▎", numhl = "GitSignsChangeNr", linehl = "GitSignsChangeLn" },
@@ -88,17 +89,17 @@ return {
         end
 
         -- Navigation
-        map("n", "]c", function()
-          if vim.wo.diff then return "]c" end
-          vim.schedule(function() gs.next_hunk() end)
-          return "<Ignore>"
-        end, { expr = true })
+        -- map("n", "]c", function()
+        --   if vim.wo.diff then return "]c" end
+        --   vim.schedule(function() gs.next_hunk() end)
+        --   return "<Ignore>"
+        -- end, { expr = true })
 
-        map("n", "[c", function()
-          if vim.wo.diff then return "[c" end
-          vim.schedule(function() gs.prev_hunk() end)
-          return "<Ignore>"
-        end, { expr = true })
+        -- map("n", "[c", function()
+        --   if vim.wo.diff then return "[c" end
+        --   vim.schedule(function() gs.prev_hunk() end)
+        --   return "<Ignore>"
+        -- end, { expr = true })
 
         -- Actions
         map({ "n", "v", "x" }, "<leader>gh", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
@@ -299,7 +300,7 @@ return {
       auto_install = vim.fn.executable "tree-sitter" == 1, -- Automatically install missing parsers when entering buffer if treesitter-cli is available in PATH
       context_commentstring = { enable = true, enable_autocmd = false },
       autotag = { enable = true },
-      ensure_installed = { "c", "help", "lua", "vim" }
+      ensure_installed = { "c", "lua", "vim" }
         or (
           vim.fn.executable "tree-sitter" ~= 1
           and {
@@ -381,10 +382,10 @@ return {
         use_virtual_text = true,
         lint_events = { "BufWrite", "CursorHold" },
       },
-      indent = {
-        enable = true,
-        disable = { "help", "latex", "python", "yaml", "org" },
-      },
+      -- indent = {  -- in upstream AstroNvim
+      --   enable = true,
+      --   disable = { "help", "latex", "python", "yaml", "org" },
+      -- },
       matchup = { enable = true }, -- , disable = { "julia" } },
       incremental_selection = {
         enable = true,

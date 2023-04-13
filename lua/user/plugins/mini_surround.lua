@@ -4,7 +4,7 @@ return {
   keys = {
     { "sa", "sa", desc = "Add surrounding" },
     { "sd", "sd", desc = "Delete surrounding" },
-    { "sd", "sd", desc = "Replace surrounding" },
+    { "sr", "sr", desc = "Replace surrounding" },
     { "sf", "sf", desc = "Find surrounding (right)" },
     { "sF", "sF", desc = "Find surrounding (left)" },
     { "sh", "sh", desc = "Highlight surrounding" },

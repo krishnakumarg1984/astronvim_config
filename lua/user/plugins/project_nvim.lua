@@ -17,6 +17,7 @@ return {
       "Makefile",
       "package.json",
     },
+    ignore_lsp = { "lua_ls", "julials" },
     silent_chdir = false,
   },
   config = function(_, opts) require("project_nvim").setup(opts) end,

@@ -14,7 +14,6 @@
 -- ["Civitasv/cmake-tools.nvim"] = require "user.plugins.cmake_tools", -- CMake integration in Neovim
 -- ["hrsh7th/cmp-calc"] = require "user.plugins.cmp_calc", -- nvim-cmp source for math calculation
 -- ["hrsh7th/cmp-omni"] = require "user.plugins.cmp_omni", -- nvim-cmp source for omnifunc
--- ["gpanders/editorconfig.nvim"] = {}, -- EditorConfig plugin for Neovim
 -- ["akinsho/git-conflict.nvim"] = require "user.plugins.git_conflict", -- Visualise & resolve merge conflicts
 -- ["ellisonleao/glow.nvim"] = { cmd = { "Glow", "GlowInstall" } }, -- A markdown preview directly in your neovim
 -- ["lukas-reineke/headlines.nvim"] = require "user.plugins.headlines", -- Horizontal highlights for text filetypes

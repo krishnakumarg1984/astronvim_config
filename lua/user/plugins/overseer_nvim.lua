@@ -1,9 +1,10 @@
 return {
   "stevearc/overseer.nvim", -- A task runner and job management plugin for Neovim
   keys = { "<leader>o" },
+  -- lazy = false,
   config = function()
     require("overseer").setup {
-      -- strategy = "toggleterm",
+      strategy = "toggleterm",
       -- templates = { "builtin", "user.cpp_build" },
       component_aliases = {
         default = {
