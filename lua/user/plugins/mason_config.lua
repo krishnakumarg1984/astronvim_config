@@ -1,5 +1,6 @@
 local my_ensure_installed = {
   "clangd",
+  "jsonls",
   "lua_ls",
   "marksman",
   -- "lemminx", -- XML Language Server written in 'java'
@@ -7,6 +8,7 @@ local my_ensure_installed = {
   -- "prosemd_lsp",
   -- "zk",
 }
+
 if vim.fn.executable "cmake" == 1 then
   if vim.fn.has "macunix" and vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
     table.insert(my_ensure_installed, "neocmake")
@@ -24,6 +26,7 @@ if vim.fn.executable "node" == 1 then
   table.insert(my_ensure_installed, "denols")
   table.insert(my_ensure_installed, "vimls")
   table.insert(my_ensure_installed, "yamlls")
+  table.insert(my_ensure_installed, "spectral")
   if vim.fn.executable "bash" == 1 then table.insert(my_ensure_installed, "bashls") end
   if vim.fn.executable "docker" == 1 then table.insert(my_ensure_installed, "dockerls") end
   if vim.fn.executable "perl" == 1 then table.insert(my_ensure_installed, "perlnavigator") end
@@ -108,12 +111,15 @@ return {
         "pylint", -- pylama covers this
         "pyre",
         "reorder_python_imports",
+        -- "rome",
         "ruff", -- covers a superset of pylama
         "semgrep",
         "shellcheck",
         "shfmt",
         "stylua",
+        "textlint",
         "usort",
+        -- "vacuum",
         "vale",
         "vint",
         "vulture",
@@ -125,9 +131,11 @@ return {
         -- "pylama",
         -- "pyproject_flake8",
       },
+      automatic_installation = false,
       automatic_setup = false,
       handlers = {
-        taplo = function() end, -- disable taplo in null-ls, it's taken care of by lspconfig
+        function() end, -- disables automatic setup of all null-ls sources
+        -- taplo = function() end, -- disable taplo in null-ls, it's taken care of by lspconfig
       },
     },
   },

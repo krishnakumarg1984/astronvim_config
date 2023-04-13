@@ -4,13 +4,14 @@ return {
   -- control auto formatting on save
   format_on_save = {
     -- enabled = true, -- enable or disable format on save globally
-    -- If you have allow_filetypes it will take presidence over ignore_filetypes. So please only use one of these options at a time
+    -- If you have allow_filetypes it will take precedence over ignore_filetypes. So please only use one of these options at a time
     -- allow_filetypes = { -- enable format on save for specified filetypes only
     --   -- "go",
     -- },
     ignore_filetypes = { -- disable format on save for specified filetypes
       -- "python",
       "julia",
+      "text",
     },
   },
   -- a client listed in the disabled list will always be disabled and then all other clients will then be passed into the filter function

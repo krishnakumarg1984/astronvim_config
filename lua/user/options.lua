@@ -21,6 +21,7 @@ return function(defaults)
       confirm = true, -- Give me a prompt instead of just rejecting risky :write, :saveas
       cpoptions = vim.opt.cpoptions - { "a" }, -- Stop the :read command from annoyingly setting the alternative buffer
       cursorlineopt = "number",
+      exrc = true,
       fileformats = vim.opt.fileformats + { "mac" }, -- This gives the end-of-line (<EOL>) formats that will be tried when starting to edit a new buffer and when reading a file into an existing buffer
       fillchars = { -- (((
         -- fold = "",

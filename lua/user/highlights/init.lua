@@ -6,7 +6,7 @@ return function()
   local fg, bg = normal.fg, normal.bg
   local bg_alt = get_hlgroup("Visual").bg
   local green = get_hlgroup("String").fg
-  local red = get_hlgroup("Error").fg
+  -- local red = get_hlgroup("Error").fg
   return {
     CursorLineFold = { link = "CursorLineNr" },
     GitSignsCurrentLineBlame = { fg = nontext.fg, italic = true },
