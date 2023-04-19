@@ -30,5 +30,15 @@ return {
       },
     }
     vim.keymap.set("n", "<leader>or", "<cmd>OverseerRun<CR>", { desc = "OverseerRun" })
+    vim.api.nvim_create_user_command("OverseerRestartLast", function()
+      local overseer = require "overseer"
+      local tasks = overseer.list_tasks { recent_first = true }
+      if vim.tbl_isempty(tasks) then
+        vim.notify("No tasks found", vim.log.levels.WARN)
+      else
+        overseer.run_action(tasks[1], "restart")
+      end
+    end, {})
+    vim.keymap.set("n", "<leader>ol", "<cmd>OverseerRestartLast<CR>", { desc = "Rerun last task" })
   end,
 }

@@ -7,6 +7,7 @@
 local wk = require "which-key"
 
 wk.register({
+  C = { name = "󱣘  Crates" },
   e = { name = " Explorer" },
   n = { name = " Annotate" },
   o = { name = " Overseer" },

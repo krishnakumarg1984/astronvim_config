@@ -100,7 +100,7 @@ return function()
       silent! set dictionary+=/usr/share/dict/words
       silent! set dictionary+=/usr/share/dict/american-english
       silent! set dictionary+=/usr/share/dict/british-english
-      silent! set dictionary+=/usr/share/dict/cracklib-small
+      " silent! set dictionary+=/usr/share/dict/cracklib-small
     endif
 
     " )))
