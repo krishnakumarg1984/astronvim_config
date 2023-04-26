@@ -192,7 +192,7 @@ local mappings = {
     ["<leader>b"] = { name = " Buffers" },
     ["<leader>f"] = { name = " Find" },
     ["<leader>p"] = { name = " Packages" },
-    ["<leader>lS"] = false,
+    -- ["<leader>lS"] = false,
     -- ["<leader>ln"] = { "<leader>ln", desc = "Toggle inline diagnostics" },
     ["<leader>aa"] = { "<cmd>AerialToggle!<cr>", desc = "Toggle outline" },
     ["<leader>aA"] = { "<cmd>AerialToggle<cr>", desc = "Toggle outline (focus)" },
