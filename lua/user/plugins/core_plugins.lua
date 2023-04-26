@@ -245,7 +245,6 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    -- commit = "a9c701fa7e12e9257b3162000e5288a75d280c28", -- https://github.com/hrsh7th/nvim-cmp/issues/1382
     dependencies = {
       -- "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-calc",
@@ -256,7 +255,6 @@ return {
       -- "jc-doyle/cmp-pandoc-references",
       -- "kdheepak/cmp-latex-symbols",
     },
-    -- event = "InsertEnter",
     -- override the options table that is used in the `require("cmp").setup()` call
     opts = function(_, opts)
       -- opts parameter is the default options table
@@ -265,19 +263,19 @@ return {
       -- modify the sources part of the options table
       opts.sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
-        { name = "path", priority = 800 },
-        { name = "pandoc_references", priority = 700 },
-        { name = "luasnip", priority = 150 },
-        { name = "latex_symbols", priority = 600 },
+        { name = "path", priority = 900 },
+        { name = "pandoc_references", priority = 800 },
+        { name = "latex_symbols", priority = 700 },
         {
           name = "buffer",
-          priority = 500,
+          priority = 600,
           option = {
             get_bufnrs = function() return vim.api.nvim_list_bufs() end,
           },
         },
-        { name = "emoji", priority = 300 },
-        { name = "calc", priority = 200 },
+        { name = "emoji", priority = 500 },
+        { name = "calc", priority = 400 },
+        { name = "luasnip", priority = 50 },
       }
 
       -- return the new table to be used
@@ -289,7 +287,7 @@ return {
     opts = {
       -- stages = "fade_in_slide_out",
       stages = "slide",
-      timeout = 100,
+      timeout = 500,
     },
   },
   {
