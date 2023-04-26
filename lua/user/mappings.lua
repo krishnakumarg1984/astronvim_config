@@ -135,7 +135,7 @@ local mappings = {
     ["<C-w>f"] = { "<C-w>vgf", desc = "Open in vertical split" }, -- is a more generic mode remap
     ["<C-w>z"] = { "<C-w>|<C-w>_", desc = "Maximize screen" }, -- zoom full-screen by maximising the screen height and width
     ["<leader>*"] = { ":%s/<<c-r><c-w>>//g<left><left>", desc = "Replace cursor word" },
-    ["<leader>D"] = { "<cmd>windo diffthis<CR>", desc = "Diff buffers" },
+    -- ["<leader>D"] = { "<cmd>windo diffthis<CR>", desc = "Diff buffers" },
     -- ["<S-j>"] = { "mzJ`zmz" },
     ["<S-j>"] = { "mzJ`z" },
     ["<Space>"] = { "za" },
