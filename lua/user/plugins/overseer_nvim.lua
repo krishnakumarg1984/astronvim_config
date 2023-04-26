@@ -1,7 +1,23 @@
 return {
   "stevearc/overseer.nvim", -- A task runner and job management plugin for Neovim
   -- keys = { "<leader>o" },
-  lazy = false,
+  cmd = {
+    "OverSeerBuild",
+    "OverseerClearCache",
+    "OverseerClose",
+    "OverseerDeleteBundle",
+    "OverseerInfo",
+    "OverseerLoadBundle",
+    "OverseerOpen",
+    "OverseerQuickAction",
+    "OverseerRestartLast",
+    "OverseerRun",
+    "OverseerRunCmd",
+    "OverseerRunSaveBundle",
+    "OverseerTaskAction",
+    "OverseerToggle",
+  },
+  -- lazy = false,
   config = function()
     require("overseer").setup {
       strategy = "toggleterm",

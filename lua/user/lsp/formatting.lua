@@ -21,7 +21,7 @@ return {
     "jsonls",
     "neocmakelsp",
     "pylsp",
-    "lua_ls",
+    "lua_ls", -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
     "taplo",
   },
   -- filter = function(client) -- fully override the default formatting function
