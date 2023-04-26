@@ -110,7 +110,7 @@ local mappings = {
     ["<leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
     ["<leader>/"] = false,
     ["<leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
-    ["<leader>c"] = false,
+    -- ["<leader>c"] = false,
     ["<leader>e"] = false,
     ["<leader>n"] = false,
     ["<leader>o"] = false,
