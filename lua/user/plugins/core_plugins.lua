@@ -81,12 +81,12 @@ return {
 
         -- Actions
         map({ "n", "v", "x" }, "<leader>gh", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
-        map(
-          { "n", "v", "x" },
-          "<leader>g<s-l>",
-          "<cmd>Gitsigns toggle_current_line_blame<cr>",
-          { desc = "Toggle current line blame" }
-        )
+        -- map(
+        --   { "n", "v", "x" },
+        --   "<leader>g<s-l>",
+        --   "<cmd>Gitsigns toggle_current_line_blame<cr>",
+        --   { desc = "Toggle current line blame" }
+        -- )
         map({ "n", "v", "x" }, "<leader>g<s-r>", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
 
         map("n", "<leader>g<s-b>", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage buffer" })
