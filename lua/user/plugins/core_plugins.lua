@@ -550,11 +550,14 @@ return {
   },
   {
     "mrjones2014/smart-splits.nvim",
+    opts = function(_, opts) opts.at_edge = require("smart-splits.types").AtEdgeBehavior.stop end,
+  },
+  {
+    "akinsho/toggleterm.nvim",
     opts = {
-      at_edge = "split",
+      terminal_mappings = false,
     },
   },
-  { "akinsho/toggleterm.nvim", opts = { terminal_mappings = false } },
   {
     "folke/which-key.nvim",
     opts = {
