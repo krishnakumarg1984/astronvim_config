@@ -14,11 +14,6 @@ return function()
   end
   vim.api.nvim_set_hl(0, "WinSeparator", { fg = "black", bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
 
-  -- https://www.reddit.com/r/neovim/comments/psl8rq/sexy_folds/
-  -- https://www.reddit.com/r/vim/comments/ogqarw/another_take_on_minimal_folds/h4l8j4z/
-  -- vim.o.foldtext =
-  --   [[printf('  %-4d %s', v:foldend - v:foldstart + 1, substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g')) . '  ' . trim(getline(v:foldend))]]
-
   require "user.autocmds"
 
   -- Vimscript-based options (((
