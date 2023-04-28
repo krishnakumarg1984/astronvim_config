@@ -90,6 +90,8 @@ return {
           "-D",
           "clippy::all",
           "-W",
+          "clippy::style",
+          "-W",
           "clippy::pedantic",
           "-W",
           "clippy::nursery",

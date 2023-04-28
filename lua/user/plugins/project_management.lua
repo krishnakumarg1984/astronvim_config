@@ -1,5 +1,5 @@
 return {
-  "ahmedkhalf/project.nvim",
+  "ahmedkhalf/project.nvim", --  The superior project management solution for neovim.
   -- event = "VeryLazy",
   lazy = false,
   opts = {

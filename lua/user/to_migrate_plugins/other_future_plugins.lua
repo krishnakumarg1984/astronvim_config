@@ -104,12 +104,15 @@
 
 -- )))
 
+-- General (((
+
 -- https://superuser.com/questions/1485332/how-to-clear-neovim-buffer
 -- https://github.com/0styx0/abbreinder.nvim  -- Abbreviation reminder plugin for Neovim 0.5+
 -- https://github.com/emmanueltouzery/agitator.nvim
 -- https://github.com/henriquehbr/ataraxis.lua  -- A simple zen mode for improving code readability on neovim
 -- https://github.com/rmagatti/auto-session  -- A small automated session manager for Neovim
 -- https://github.com/protex/better-digraphs.nvim  -- Better digraphs plugin based on idea from Damian Conway
+-- https://github.com/Wansmer/binary-swap.nvim -- Neovim plugin for swapping operands and operators in binary expressions
 -- https://github.com/jceb/blinds.nvim  -- blinds.nvim emphasizes the current window by shading the non-active windows
 -- https://github.com/MordechaiHadad/bob  -- A version manager for neovim
 -- https://github.com/lalitmee/browse.nvim  -- browse for anything using your choice of method
@@ -155,7 +158,6 @@
 -- https://github.com/arsham/indent-tools.nvim --  plugin for dealing with indentations
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
 -- https://github.com/hkupty/iron.nvim
--- https://github.com/JoseConseco/iswap.nvim
 -- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
 -- https://github.com/matbme/JABS.nvim
 -- https://github.com/frabjous/knap
@@ -166,7 +168,6 @@
 -- https://github.com/lukas-reineke/lsp-format.nvim -- A wrapper around Neovims native LSP formatting
 -- ["onsails/lspkind.nvim"] = {}, --  vscode-like pictograms for neovim lsp completion items
 -- https://github.com/ericpubu/lsp_codelens_extensions.nvim  -- Adds client side code for codelenses commands not in the lsp servers
--- https://git.sr.ht/~whynothugo/lsp_lines.nvim
 -- https://github.com/aspeddro/lsp_menu.nvim
 -- https://github.com/AckslD/messages.nvim = {}, -- Capture and show any messages in a customisable (floating) buffer
 -- https://github.com/jubnzv/mdeval.nvim
@@ -175,7 +176,7 @@
 -- https://github.com/nyngwang/NeoClear.lua
 -- https://github.com/sbdchd/neoformat
 -- https://github.com/nyngwang/NeoNoName.lua
--- https://github.com/nvim-neotest/neotest  -- An extensible framework for interacting with tests within NeoVim https://gitlab.com/HiPhish/nvim-config/-/blob/master/plugin/neotest.lua
+-- https://github.com/nvim-neotest/neotest  -- An extensible framework for interacting with tests within NeoVim
 -- use { "nyngwang/NeoZoom.lua" }
 -- https://github.com/miversen33/netman.nvim -- Neovim (Lua powered) Network File Manager
 -- https://github.com/nacro90/numb.nvim
@@ -213,11 +214,12 @@
 -- https://github.com/anuvyklack/pretty-fold.nvim
 -- https://github.com/sheodox/projectlaunch.nvim
 -- https://github.com/VonHeikemen/project-settings.nvim -- https://www.reddit.com/r/neovim/comments/tydpmy/using_projectsettingsnvim_to_call_language_servers/?sort=new
+-- https://github.com/ThePrimeagen/refactoring.nvim --  The Refactoring library based off the Refactoring book by Martin Fowler
 -- https://github.com/filipdutescu/renamer.nvim
--- https://github.com/simrat39/rust-tools.nvim  -- Tools for better development in rust using neovim's builtin lsp
 -- https://github.com/xuyuanp/scrollbar.nvim
 -- https://github.com/rmagatti/session-lens
 -- https://github.com/sunjon/Shade.nvim
+-- https://github.com/Wansmer/sibling-swap.nvim --  Neovim plugin for swaps closest siblings with Tree-Sitter
 -- https://github.com/michaelb/sniprun
 -- https://github.com/sQVe/sort.nvim
 -- https://github.com/stsewd/sphinx.nvim
@@ -244,7 +246,6 @@
 -- https://github.com/axieax/urlview.nvim
 -- https://github.com/psliwka/vim-dirtytalk
 -- https://github.com/RRethy/vim-illuminate
--- https://github.com/rcarriga/vim-ultest
 -- https://github.com/lukas-reineke/virt-column.nvim -- Display a character as the colorcolumn
 -- https://github.com/xiyaowong/virtcolumn.nvim  -- Display a line as the colorcolumn
 -- https://github.com/jubnzv/virtual-types.nvim  -- A Neovim plugin that shows type annotations as virtual text
@@ -255,6 +256,8 @@
 -- https://github.com/cuducos/yaml.nvim  -- YAML toolkit for Neovim users
 -- https://github.com/hoschi/yode-nvim
 -- use { "folke/zen-mode.nvim", cmd = "ZenMode" }
+
+-- )))
 
 -- ))) end of 'other lua plugins' fold
 
