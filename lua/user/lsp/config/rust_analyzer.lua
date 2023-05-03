@@ -38,7 +38,7 @@ return {
     vim.keymap.set(
       "n",
       "<leader>rg",
-      "<cmd>Cargo modules generate tree --with-fns<CR>",
+      "<cmd>Cargo modules generate tree --types --fns --tests<CR>",
       { desc = "Generate module tree" }
     )
     vim.keymap.set("n", "<leader>ri", "<cmd>Cinstall<CR>", { desc = "Cargo install" })
