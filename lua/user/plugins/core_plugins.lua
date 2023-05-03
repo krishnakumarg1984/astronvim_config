@@ -244,6 +244,12 @@ return {
     },
   },
   {
+    "folke/neodev.nvim",
+    opts = {
+      library = { plugins = { "neotest" }, types = true },
+    },
+  },
+  {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
