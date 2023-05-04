@@ -7,11 +7,12 @@
 local wk = require "which-key"
 
 wk.register({
-  C = { name = "󱣘  Crates" },
+  C = { name = "󱣘 Crates" },
   e = { name = " Explorer" },
   n = { name = " Annotate" },
   o = { name = " Overseer" },
   q = { name = " Quickfix" },
+  z = { name = "󰙨Testing" },
 }, { mode = "n", prefix = "<leader>" })
 
 -- add more text objects for "in" and "around" (((
