@@ -5,3 +5,4 @@
 **/dap_old/
 !setup.lua.bak
 !car.jpg
+plugins_to_debug/
