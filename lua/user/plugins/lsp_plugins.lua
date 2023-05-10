@@ -101,6 +101,7 @@ return {
   },
   {
     "simrat39/rust-tools.nvim", -- Tools for better development in rust using neovim's builtin lsp
+    init = function() table.insert(astronvim.lsp.skip_setup, "rust_analyzer") end,
     ft = { "rust" },
     opts = function()
       local codelldb_dir = require("mason-registry").get_package("codelldb"):get_install_path() .. "/extension/"
