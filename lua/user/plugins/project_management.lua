@@ -13,7 +13,7 @@ return {
       ".svn",
       "_darcs",
       "Cargo.lock",
-      "Cargo.toml",
+      -- "Cargo.toml",
       "Makefile",
       "package.json",
     },
