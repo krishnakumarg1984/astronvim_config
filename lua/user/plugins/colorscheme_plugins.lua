@@ -1,7 +1,8 @@
 return {
   {
     "rebelot/kanagawa.nvim", -- Colorscheme inspired by the colors of the famous painting by Katsushika Hokusai
-    lazy = false,
+    -- lazy = false,
+    -- event = "VeryLazy",
     config = function()
       require("kanagawa").setup {
         compile = true,
