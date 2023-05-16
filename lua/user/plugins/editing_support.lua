@@ -2,7 +2,13 @@ return {
   {
     "danymat/neogen", -- A better annotation generator. Supports multiple languages and annotation conventions.
     cmd = { "Neogen", "Neogen func", "Neogen class", "Neogen file", "Neogen type" },
+    -- cmd = { "Neogen" },
     keys = {
+      -- { "<leader>nn", function() require("neogen").generate { type = "current" } end, desc = "Generate annotation" },
+      -- { "<leader>nc", function() require("neogen").generate { type = "class" } end, desc = "Class annotation" },
+      -- { "<leader>nf", function() require("neogen").generate { type = "func" } end, desc = "Function annotation" },
+      -- { "<leader>ni", function() require("neogen").generate { type = "file" } end, desc = "File annotation" },
+      -- { "<leader>nt", function() require("neogen").generate { type = "type" } end, desc = "Type annotation" },
       { "<leader>nc", "<cmd>Neogen class<CR>", desc = "Class annotation" },
       { "<leader>nf", "<cmd>Neogen func<CR>", desc = "Func annotation" },
       { "<leader>ni", "<cmd>Neogen file<CR>", desc = "File annotation" },

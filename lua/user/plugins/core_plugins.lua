@@ -329,7 +329,7 @@ return {
       auto_install = vim.fn.executable "tree-sitter" == 1, -- Automatically install missing parsers when entering buffer if treesitter-cli is available in PATH
       -- context_commentstring = { enable = true, enable_autocmd = false },
       -- autotag = { enable = true },
-      ensure_installed = { "c", "lua", "vim", "vimdoc", "query" }
+      ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown_inline" }
         or (
           vim.fn.executable "tree-sitter" ~= 1
           and {

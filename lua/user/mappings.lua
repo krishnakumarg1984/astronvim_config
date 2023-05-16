@@ -12,6 +12,7 @@ wk.register({
   n = { name = " Annotate" },
   o = { name = " Overseer" },
   q = { name = " Quickfix" },
+  x = { name = "裂Diagnostics" },
   z = { name = "󰙨Testing" },
 }, { mode = "n", prefix = "<leader>" })
 
@@ -117,7 +118,6 @@ local mappings = {
     ["<leader>o"] = false,
     ["<leader>q"] = false,
     ["<leader>w"] = false,
-    ["<leader>x"] = { name = "裂Trouble" },
     ["<S-h>"] = false,
     ["<S-l>"] = false,
     ["\\"] = false,

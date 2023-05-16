@@ -99,28 +99,28 @@ return {
     --   return opts
     -- end,
   },
-  {
-    "simrat39/rust-tools.nvim", -- Tools for better development in rust using neovim's builtin lsp
-    init = function() table.insert(astronvim.lsp.skip_setup, "rust_analyzer") end,
-    ft = { "rust" },
-    opts = function()
-      local codelldb_dir = require("mason-registry").get_package("codelldb"):get_install_path() .. "/extension/"
-      local codelldb_executable_path = codelldb_dir .. "adapter/codelldb"
-      local liblldb_path = codelldb_dir .. "lldb/lib/liblldb.so"
-      return {
-        -- tools = {
-        --   inlay_hints = {
-        --     parameter_hints_prefix = "  ",
-        --     other_hints_prefix = "  ",
-        --   },
-        -- },
-        dap = {
-          adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_executable_path, liblldb_path),
-        },
-        server = require("astronvim.utils.lsp").config "rust_analyzer",
-      }
-    end,
-  },
+  -- {
+  --   "simrat39/rust-tools.nvim", -- Tools for better development in rust using neovim's builtin lsp
+  --   init = function() table.insert(astronvim.lsp.skip_setup, "rust_analyzer") end,
+  --   ft = { "rust" },
+  --   opts = function()
+  --     local codelldb_dir = require("mason-registry").get_package("codelldb"):get_install_path() .. "/extension/"
+  --     local codelldb_executable_path = codelldb_dir .. "adapter/codelldb"
+  --     local liblldb_path = codelldb_dir .. "lldb/lib/liblldb.so"
+  --     return {
+  --       -- tools = {
+  --       --   inlay_hints = {
+  --       --     parameter_hints_prefix = "  ",
+  --       --     other_hints_prefix = "  ",
+  --       --   },
+  --       -- },
+  --       dap = {
+  --         adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_executable_path, liblldb_path),
+  --       },
+  --       server = require("astronvim.utils.lsp").config "rust_analyzer",
+  --     }
+  --   end,
+  -- },
   -- {
   --   init = function() table.insert(astronvim.lsp.skip_setup, "rust_analyzer") end,
   --   -- config = function()
@@ -137,30 +137,30 @@ return {
   --   --   }
   --   -- end,
   -- },
-  {
-    "folke/trouble.nvim", -- Helps you solve all the trouble your code is causing
-    keys = { { "<leader>x", "<leader>x", desc = "Trouble help" } },
-    cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
-    config = function()
-      require("trouble").setup {
-        mode = "document_diagnostics",
-        use_diagnostic_signs = true,
-        action_keys = {
-          close = { "q", "<esc>" },
-          cancel = "<c-e>",
-        },
-      }
-      vim.keymap.set("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", { desc = "Show document diagnostics" })
-      vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { desc = "Diagnostics (loc list)" })
-      vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { desc = "Diagnostics (quickfix list)" })
-      vim.keymap.set(
-        "n",
-        "<leader>xw",
-        "<cmd>Trouble workspace_diagnostics<cr>",
-        { desc = "Show workspace diagnostics" }
-      )
-      vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { desc = "Toggle diagnostics window" })
-      vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>", { desc = "Symbol references (diagnostics window)" })
-    end,
-  },
+  -- {
+  --   "folke/trouble.nvim", -- Helps you solve all the trouble your code is causing
+  --   keys = { { "<leader>x", "<leader>x", desc = "Trouble help" } },
+  --   cmd = { "Trouble", "TroubleClose", "TroubleToggle", "TroubleRefresh" },
+  --   config = function()
+  --     require("trouble").setup {
+  --       mode = "document_diagnostics",
+  --       use_diagnostic_signs = true,
+  --       action_keys = {
+  --         close = { "q", "<esc>" },
+  --         cancel = "<c-e>",
+  --       },
+  --     }
+  --     vim.keymap.set("n", "<leader>xd", "<cmd>Trouble document_diagnostics<cr>", { desc = "Show document diagnostics" })
+  --     vim.keymap.set("n", "<leader>xl", "<cmd>Trouble loclist<cr>", { desc = "Diagnostics (loc list)" })
+  --     vim.keymap.set("n", "<leader>xq", "<cmd>Trouble quickfix<cr>", { desc = "Diagnostics (quickfix list)" })
+  --     vim.keymap.set(
+  --       "n",
+  --       "<leader>xw",
+  --       "<cmd>Trouble workspace_diagnostics<cr>",
+  --       { desc = "Show workspace diagnostics" }
+  --     )
+  --     vim.keymap.set("n", "<leader>xx", "<cmd>TroubleToggle<cr>", { desc = "Toggle diagnostics window" })
+  --     vim.keymap.set("n", "gR", "<cmd>Trouble lsp_references<cr>", { desc = "Symbol references (diagnostics window)" })
+  --   end,
+  -- },
 }

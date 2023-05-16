@@ -1,77 +1,44 @@
+-- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:
+
+local utils = require "astronvim.utils"
+
+-- lsps_to_install (((
+
 local lsps_to_install = {
   "clangd",
-  "jsonls",
   "lua_ls",
-  "marksman",
+  "marksman", -- written in F#
+  -- "cssls",
+  -- "html",
+  -- "intelephense",
   -- "lemminx", -- XML Language Server written in 'java'
   -- "ltex",
+  -- "marksman",
   -- "prosemd_lsp",
+  -- "sqls",
+  -- "texlab",
+  -- "tsserver",
+  -- "yamlls",
   -- "zk",
 }
 
-if vim.fn.executable "cmake" == 1 then
-  if vim.fn.has "macunix" and vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
-    table.insert(lsps_to_install, "neocmake")
-  else
-    table.insert(lsps_to_install, "cmake")
-  end
-end
+-- )))
 
--- if vim.fn.executable "go" == 1 then
---   -- table.insert(my_ensure_installed, "gopls")
---   -- table.insert(my_ensure_installed, "arduino_language_server")
--- end
+-- linters_formatters_to_install (((
 
-if vim.fn.executable "node" == 1 then
-  table.insert(lsps_to_install, "denols")
-  table.insert(lsps_to_install, "vimls")
-  table.insert(lsps_to_install, "yamlls")
-  table.insert(lsps_to_install, "spectral")
-  if vim.fn.executable "bash" == 1 then table.insert(lsps_to_install, "bashls") end
-  if vim.fn.executable "docker" == 1 then table.insert(lsps_to_install, "dockerls") end
-  if vim.fn.executable "perl" == 1 then table.insert(lsps_to_install, "perlnavigator") end
-end
-
-if vim.fn.executable "python3" == 1 then
-  table.insert(lsps_to_install, "pylsp")
-  table.insert(lsps_to_install, "pyre")
-  -- table.insert(my_ensure_installed, "pyright")
-  -- table.insert(my_ensure_installed, "sourcery")
-  -- if vim.fn.executable "gfortran" == 1 then table.insert(my_ensure_installed, "fortlsp") end
-  -- if vim.fn.executable "ruff" == 1 then
-  -- table.insert(my_ensure_installed, "ruff_lsp")
-  -- end
-end
-
-if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
-  table.insert(lsps_to_install, "rust_analyzer")
-  table.insert(lsps_to_install, "taplo")
-  table.insert(lsps_to_install, "texlab")
-  -- table.insert(my_ensure_installed, "asm_lsp")
-end
-
--- if vim.fn.executable "dotnet" == 1 then table.insert(my_ensure_installed, "omnisharp") end
--- if vim.fn.executable "julia" then table.insert(my_ensure_installed, "julials") end
--- if vim.fn.executable "protoc" == 1 and vim.fn.executable "go" == 1 then table.insert(my_ensure_installed, "bufls") end
--- if vim.fn.executable "r" then table.insert(my_ensure_installed, "r_language_server") end
-
-local mason_tools_to_install = {
+local linters_formatters_to_install = {
   "actionlint",
   "autoflake",
   "black",
   "clang_format",
-  "cmake_format",
-  "cmakelint",
   "codespell", -- useful for many languages
   "commitlint",
   "cpplint",
   "cspell",
   "fixjson",
   "flake8",
-  "gersemi",
   "gitlint", -- useful across languages
-  "hadolint",
-  "jsonlint",
+  "hadolint", -- written in haskell
   "markdownlint",
   "misspell",
   "mypy",
@@ -82,11 +49,7 @@ local mason_tools_to_install = {
   "pyre",
   "reorder_python_imports",
   "ruff", -- covers a superset of pylama
-  "selene",
   "semgrep",
-  "shellcheck",
-  "shfmt",
-  "stylua",
   "textlint",
   "usort",
   "vale",
@@ -104,7 +67,70 @@ local mason_tools_to_install = {
   -- "vacuum",
 }
 
-if vim.fn.executable "luarocks" == 1 then table.insert(mason_tools_to_install, "luacheck") end
+-- )))
+
+-- daps_to_install (((
+
+local daps_to_install = {
+  "codelldb",
+  "python",
+  -- "delve",
+  -- "js",
+  -- "php",
+}
+
+-- )))
+
+if vim.fn.executable "cmake" == 1 then
+  if vim.fn.has "macunix" and vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
+    utils.list_insert_unique(lsps_to_install, "neocmake")
+  else
+    utils.list_insert_unique(lsps_to_install, "cmake")
+  end
+  utils.list_insert_unique(linters_formatters_to_install, { "cmake_format", "cmakelint", "gersemi" })
+end
+
+if vim.fn.executable "node" == 1 then
+  utils.list_insert_unique(lsps_to_install, "denols")
+  utils.list_insert_unique(lsps_to_install, "jsonls") -- written in typescript
+  utils.list_insert_unique(lsps_to_install, "spectral")
+  utils.list_insert_unique(lsps_to_install, "vimls")
+  utils.list_insert_unique(lsps_to_install, "yamlls")
+  if vim.fn.executable "bash" == 1 or vim.fn.executable "sh" == 1 then
+    utils.list_insert_unique(lsps_to_install, "bashls")
+  end
+  if vim.fn.executable "docker" == 1 then
+    utils.list_insert_unique(lsps_to_install, { "dockerls", "docker_compose_language_service" })
+  end -- written in typescript
+  if vim.fn.executable "perl" == 1 then utils.list_insert_unique(lsps_to_install, "perlnavigator") end
+
+  utils.list_insert_unique(linters_formatters_to_install, "jsonlint")
+end
+
+if vim.fn.executable "python3" == 1 then
+  -- utils.list_insert_unique(lsps_to_install, "pylsp")
+  utils.list_insert_unique(lsps_to_install, "pyre")
+  utils.list_insert_unique(lsps_to_install, "pyright")
+  -- utils.list_insert_unique(my_ensure_installed, "sourcery")
+  -- if vim.fn.executable "gfortran" == 1 then utils.list_insert_unique(my_ensure_installed, "fortlsp") end
+  utils.list_insert_unique(lsps_to_install, "ruff_lsp")
+end
+
+if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
+  utils.list_insert_unique(lsps_to_install, "taplo")
+  utils.list_insert_unique(lsps_to_install, "texlab")
+  utils.list_insert_unique(linters_formatters_to_install, { "selene", "stylua" })
+  -- utils.list_insert_unique(my_ensure_installed, "asm_lsp")
+  -- utils.list_insert_unique(lsps_to_install, "rust_analyzer") -- installed by community 'rust' pack
+end
+
+-- if vim.fn.executable "dotnet" == 1 then utils.list_insert_unique(my_ensure_installed, "omnisharp") end
+-- if vim.fn.executable "r" then utils.list_insert_unique(my_ensure_installed, "r_language_server") end
+if vim.fn.executable "luarocks" == 1 then utils.list_insert_unique(linters_formatters_to_install, "luacheck") end
+if vim.fn.executable "bash" == 1 or vim.fn.executable "sh" == 1 then
+  utils.list_insert_unique(linters_formatters_to_install, { "shellcheck", "shfmt" })
+  utils.list_insert_unique(daps_to_install, { "bash" })
+end
 
 return {
   -- { "williamboman/mason.nvim", opts = { PATH = "append" } },
@@ -112,30 +138,13 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     opts = { ensure_installed = lsps_to_install },
-    -- opts = {
-    --   ensure_installed = {
-    --     "cssls",
-    --     "gopls",
-    --     "html",
-    --     "intelephense",
-    --     "marksman",
-    --     "neocmake",
-    --     "jsonls",
-    --     "pyright",
-    --     "sqls",
-    --     "taplo",
-    --     "texlab",
-    --     "tsserver",
-    --     "yamlls",
-    --   },
-    -- },
   },
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources
   {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
     opts = {
-      ensure_installed = mason_tools_to_install,
+      ensure_installed = linters_formatters_to_install,
       automatic_installation = false,
       automatic_setup = false,
       handlers = {
@@ -146,15 +155,6 @@ return {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "codelldb",
-        "python",
-        -- "delve",
-        -- "js",
-        -- "php",
-      },
-    },
+    opts = { ensure_installed = daps_to_install },
   },
 }
