@@ -1,6 +1,6 @@
 return {
   "stevearc/overseer.nvim", -- A task runner and job management plugin for Neovim
-  -- keys = { "<leader>o" },
+  keys = { "<leader>o" },
   cmd = {
     "OverSeerBuild",
     "OverseerClearCache",

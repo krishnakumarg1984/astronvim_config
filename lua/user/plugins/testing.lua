@@ -1,8 +1,7 @@
 return {
   {
     "nvim-neotest/neotest", --  An extensible framework for interacting with tests within NeoVim.
-    lazy = false,
-    ft = { "go", "rust", "python" },
+    -- lazy = false,
     config = function()
       -- get neotest namespace (api call creates or returns namespace)
       local neotest_ns = vim.api.nvim_create_namespace "neotest"
@@ -23,6 +22,7 @@ return {
         },
       }
     end,
+    ft = { "go", "python", "rust" },
     dependencies = {
       {
         "rouge8/neotest-rust", --  Neotest adapter for Rust, using cargo-nextest.

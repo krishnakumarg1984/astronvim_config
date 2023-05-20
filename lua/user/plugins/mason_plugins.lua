@@ -121,7 +121,7 @@ if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
   utils.list_insert_unique(lsps_to_install, "texlab")
   utils.list_insert_unique(linters_formatters_to_install, { "selene", "stylua" })
   -- utils.list_insert_unique(my_ensure_installed, "asm_lsp")
-  -- utils.list_insert_unique(lsps_to_install, "rust_analyzer") -- installed by community 'rust' pack
+  utils.list_insert_unique(lsps_to_install, "rust_analyzer") -- installed by community 'rust' pack
 end
 
 -- if vim.fn.executable "dotnet" == 1 then utils.list_insert_unique(my_ensure_installed, "omnisharp") end

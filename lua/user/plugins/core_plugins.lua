@@ -329,7 +329,7 @@ return {
       auto_install = vim.fn.executable "tree-sitter" == 1, -- Automatically install missing parsers when entering buffer if treesitter-cli is available in PATH
       -- context_commentstring = { enable = true, enable_autocmd = false },
       -- autotag = { enable = true },
-      ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown_inline" }
+      ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown_inline", "jsonc", "cpp" }
         or (
           vim.fn.executable "tree-sitter" ~= 1
           and {
@@ -355,7 +355,6 @@ return {
             "gitattributes",
             "glsl",
             "go",
-            "help",
             "html",
             "http",
             "java",
@@ -379,6 +378,7 @@ return {
             "perl",
             "php",
             "python",
+            "query",
             "r",
             "regex",
             "ruby",
@@ -391,6 +391,7 @@ return {
             "typescript",
             "verilog",
             "vim", -- problematic on remote servers?
+            "vimdoc",
             "yaml",
             -- "fortran",
             -- "gitignore", -- needs treesitter-cli since it needs to be generated from grammar
