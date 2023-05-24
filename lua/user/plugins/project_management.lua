@@ -13,7 +13,7 @@ return {
         ".root",
         ".svn",
         "_darcs",
-        "Cargo.lock",
+        -- "Cargo.lock",
         -- "Cargo.toml",
         "Makefile",
         "package.json",

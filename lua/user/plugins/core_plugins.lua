@@ -107,7 +107,8 @@ return {
       filetype_exclude = {
         "aerial",
         "alpha",
-        -- "cpp",
+        -- "c",
+        "cpp",
         "dashboard",
         "help",
         "lazy",

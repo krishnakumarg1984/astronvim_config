@@ -28,6 +28,7 @@ local lsps_to_install = {
 
 local linters_formatters_to_install = {
   "actionlint",
+  -- "astyle",
   "autoflake",
   "black",
   "clang_format",

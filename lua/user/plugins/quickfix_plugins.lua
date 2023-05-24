@@ -1,7 +1,8 @@
 return {
   "yorickpeterse/nvim-pqf", -- Prettier quickfix/location list for Neovim
-  event = { "QuickFixCmdPre", "QuickFixCmdPost" },
+  -- event = { "QuickFixCmdPre", "QuickFixCmdPost" },
   -- lazy = false,
+  event = { "VeryLazy" },
   config = function()
     require("pqf").setup {
       signs = {
