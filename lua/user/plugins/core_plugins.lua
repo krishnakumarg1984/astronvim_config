@@ -1,4 +1,42 @@
 return {
+  -- { "AstroNvim/astrotheme", version = "^1.1", enabled = false },
+  -- {
+  --   "JoosepAlviste/nvim-ts-context-commentstring",
+  --   commit = "0bf8fbc2ca8f8cdb6efbd0a9e32740d7a991e4c3",
+  --   enabled = false,
+  -- },
+  -- { "L3MON4D3/LuaSnip", version = "^1", enabled = false },
+  -- { "MunifTanjim/nui.nvim", commit = "698e75814cd7c56b0dd8af4936bcef2d13807f3c", enabled = false },
+  -- { "NMAC427/guess-indent.nvim", commit = "b8ae749fce17aa4c267eec80a6984130b94f80b2", enabled = false },
+  -- { "NvChad/nvim-colorizer.lua", commit = "dde3084106a70b9a79d48f426f6d6fec6fd203f7", enabled = false },
+  -- { "Shatur/neovim-session-manager", commit = "fd92e73506601a48adb843cdc0a15f2e63513754", enabled = false },
+  -- { "b0o/SchemaStore.nvim", commit = "15f37630d3abfb98607dd8e4625b731a8558b96d", enabled = false },
+  -- { "famiu/bufdelete.nvim", commit = "8933abc09df6c381d47dc271b1ee5d266541448e", enabled = false },
+  -- { "hrsh7th/cmp-buffer", commit = "3022dbc9166796b644a841a02de8dd1cc1d311fa", enabled = false },
+  -- { "hrsh7th/cmp-nvim-lsp", commit = "0e6b2ed705ddcff9738ec4ea838141654f12eeef", enabled = false },
+  -- { "hrsh7th/cmp-path", commit = "91ff86cd9c29299a64f968ebb45846c485725f23", enabled = false },
+  -- { "jay-babu/mason-null-ls.nvim", version = "^2", enabled = false },
+  -- { "jay-babu/mason-nvim-dap.nvim", version = "^2", enabled = false },
+  -- { "jose-elias-alvarez/null-ls.nvim", commit = "77e53bc3bac34cc273be8ed9eb9ab78bcf67fa48", enabled = false },
+  -- { "kevinhwang91/nvim-ufo", version = "^1", enabled = false },
+  -- { "kevinhwang91/promise-async", version = "^1", enabled = false },
+  -- { "mfussenegger/nvim-dap", version = "^0.6", enabled = false },
+  -- { "numToStr/Comment.nvim", version = "^0.8", enabled = false },
+  -- { "nvim-lua/plenary.nvim", version = "^0.1", enabled = false },
+  -- { "nvim-telescope/telescope-fzf-native.nvim", commit = "580b6c48651cabb63455e97d7e131ed557b8c7e2", enabled = false },
+  -- { "nvim-telescope/telescope.nvim", version = "^0.1", enabled = false }, -- the commit at HEAD had broken vscode/tasks.json with overseer in May 2023
+  -- { "nvim-telescope/telescope.nvim", commit = "066bda8ea44fd981bc15b86730cc36ebc92d9788", enabled = false }, -- last working commit that works with vscode/tasks.json (overseer.nvim)
+  -- { "nvim-tree/nvim-web-devicons", commit = "e283ab937e0197b37ec5d8013e49495193407324", enabled = false },
+  -- { "rafamadriz/friendly-snippets", commit = "ef6547d2f586e08e071efeebac835e545f3015cc", enabled = false },
+  -- { "rcarriga/nvim-dap-ui", version = "^3", enabled = false },
+  -- { "rebelot/heirline.nvim", commit = "2a151df2dc870e79b138a59ebaaaddf3d1b0d703", enabled = false },
+  -- { "s1n7ax/nvim-window-picker", version = "^1", enabled = false },
+  -- { "saadparwaiz1/cmp_luasnip", commit = "18095520391186d634a0045dacaa346291096566", enabled = false },
+  -- { "stevearc/dressing.nvim", commit = "2f17eee4d7709dacfad2a28f35e2acfe9a6cb09d", enabled = false },
+  -- { "williamboman/mason-lspconfig.nvim", version = "^1.1", enabled = false },
+  -- { "williamboman/mason.nvim", version = "^1", enabled = false },
+  -- { "windwp/nvim-autopairs", commit = "7747bbae60074acf0b9e3a4c13950be7a2dff444", enabled = false },
+  -- { "windwp/nvim-ts-autotag", commit = "40615e96075c743ef47aaf9de966dc348bec6459", enabled = false },
   {
     "stevearc/aerial.nvim",
     -- init = function() table.insert(astronvim.file_plugins, "aerial.nvim") end,
@@ -107,7 +145,7 @@ return {
       filetype_exclude = {
         "aerial",
         "alpha",
-        -- "c",
+        "c",
         "cpp",
         "dashboard",
         "help",
@@ -401,13 +439,22 @@ return {
             -- "rst",
           }
         ),
-      -- highlight = {
-      --   enable = true,
-      --   use_languagetree = true, -- Use this to enable language injection
-      --   disable = { "css", "help", "latex" },
-      --   -- additional_vim_regex_highlighting = false,
-      --   additional_vim_regex_highlighting = { "bib", "cmake", "cmakecache", "latex", "tex", "markdown" },
-      -- },
+      highlight = {
+        enable = true,
+        use_languagetree = true, -- Use this to enable language injection
+        disable = { "css", "help", "latex" },
+        -- additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = {
+          "sh",
+          "bash",
+          "bib",
+          "cmake",
+          "cmakecache",
+          "latex",
+          "tex",
+          "markdown",
+        },
+      },
       query_linter = { -- https://github.com/simrat39/dotfiles/blob/master/nvim/.config/nvim/lua/sim_config/tree-sitter.lua
         enable = true, -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/lua/r/settings/treesitter.lua
         use_virtual_text = true,
@@ -593,3 +640,20 @@ return {
     },
   },
 }
+
+-- { "stevearc/aerial.nvim", commit = "189bf4cce7f029ca8b3684441dd9d8ca5e6925a4" },
+-- { "goolord/alpha-nvim", commit = "1838ae926e8d49fe5330d1498ee8289ae2c340bc" },
+-- { "max397574/better-escape.nvim", commit = "7031dc734add47bb71c010e0551829fa5799375f" },
+-- { "lewis6991/gitsigns.nvim", version = "^0.6" },
+-- { "lukas-reineke/indent-blankline.nvim", version = "^2" },
+-- { "folke/lazy.nvim", version = "^9" },
+-- { "onsails/lspkind.nvim", commit = "57610d5ab560c073c465d6faf0c19f200cb67e6e" },
+-- { "folke/neodev.nvim", version = "^2" },
+-- { "nvim-neo-tree/neo-tree.nvim", version = "^2" },
+-- { "hrsh7th/nvim-cmp", commit = "a9c701fa7e12e9257b3162000e5288a75d280c28" },
+-- { "rcarriga/nvim-notify", version = "^3" },
+-- { "nvim-treesitter/nvim-treesitter", commit = "f2778bd1a28b74adf5b1aa51aa57da85adfa3d16" },
+-- { "mrjones2014/smart-splits.nvim", version = "^1" },
+-- { "akinsho/toggleterm.nvim", version = "^2" },
+-- { "folke/which-key.nvim", version = "^1" },
+-- { "neovim/nvim-lspconfig", commit = "1c13e529bd5683b54a39b633a560d2f00fcb25af", enabled = false },
