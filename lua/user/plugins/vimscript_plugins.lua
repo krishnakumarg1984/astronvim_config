@@ -5,6 +5,16 @@ return {
     "AndrewRadev/bufferize.vim", -- Execute a :command and show the output in a temporary buffer
     cmd = { "Bufferize", "BufferizeSystem", "BufferizeTimer" },
   },
+  -- {
+  --   "gauteh/vim-cppman", --  Plugin for use of cppman ("C++ 98/11/14 manual pages for Linux/MacOS" ) from within Vim
+  --   -- cmd = { "Cppman" },
+  --   ft = { "cpp" },
+  --   config = function()
+  --     vim.cmd [[
+  --   cnoreabbrev <expr> Cppman getcmdtype() == ":" && getcmdline() == 'Cppman' ? 'tab Cppman' : 'Cppman'
+  --   ]]
+  --   end,
+  -- },
   {
     "rust-lang/rust.vim", -- Vim configuration for Rust. (must be loaded before 'rust-tools')
     event = { "BufRead Cargo.toml" },
@@ -35,26 +45,27 @@ return {
   },
   {
     "Konfekt/vim-sentence-chopper", -- VCS-friendly text formatting
-    ft = {
-      "asciidoc",
-      "changelog",
-      "context",
-      "DiffviewFiles",
-      "gitcommit",
-      "help",
-      "lsp_markdown",
-      "mail",
-      "markdown",
-      "Neogitcommit",
-      "NeogitCommit",
-      "NeogitCommitMessage",
-      "rst",
-      "rtf",
-      "tex",
-      "texinfo",
-      "text",
-      "txt",
-    },
+    cmd = { "SentenceChopper" },
+    -- ft = {
+    --   "asciidoc",
+    --   "changelog",
+    --   "context",
+    --   "DiffviewFiles",
+    --   "gitcommit",
+    --   "help",
+    --   "lsp_markdown",
+    --   "mail",
+    --   "markdown",
+    --   "Neogitcommit",
+    --   "NeogitCommit",
+    --   "NeogitCommitMessage",
+    --   "rst",
+    --   "rtf",
+    --   "tex",
+    --   "texinfo",
+    --   "text",
+    --   "txt",
+    -- },
   },
   {
     -- "tweekmonster/startuptime.vim",  -- Breakdown Vim's --startuptime output

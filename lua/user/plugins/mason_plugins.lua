@@ -92,7 +92,7 @@ if vim.fn.executable "cmake" == 1 then
 end
 
 if vim.fn.executable "node" == 1 then
-  utils.list_insert_unique(lsps_to_install, "denols")
+  -- utils.list_insert_unique(lsps_to_install, "denols")
   utils.list_insert_unique(lsps_to_install, "jsonls") -- written in typescript
   utils.list_insert_unique(lsps_to_install, "spectral")
   utils.list_insert_unique(lsps_to_install, "vimls")
