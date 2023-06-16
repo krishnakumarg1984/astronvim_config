@@ -7,19 +7,13 @@ local utils = require "astronvim.utils"
 local lsps_to_install = {
   "clangd",
   "lua_ls",
-  "marksman", -- written in F#
-  -- "cssls",
-  -- "html",
-  -- "intelephense",
-  -- "lemminx", -- XML Language Server written in 'java'
-  -- "ltex",
-  -- "marksman",
-  -- "prosemd_lsp",
-  -- "sqls",
-  -- "texlab",
-  -- "tsserver",
-  -- "yamlls",
-  -- "zk",
+  -- "marksman", -- written in F#  -- can be installed without any dependency troubles
+  -- "lemminx", -- XML Language Server written in 'java' (can be installed without dependency troubles)
+  -- "ltex",  -- can be installed without dependency troubles
+  -- "marksman", -- can be installed without dependency troubles
+  -- "prosemd_lsp", -- can be installed without dependency troubles
+  -- "texlab", -- can be installed without dependency troubles
+  -- "zk", -- can be installed without any dependency troubles
 }
 
 -- )))
@@ -28,37 +22,12 @@ local lsps_to_install = {
 
 local linters_formatters_to_install = {
   "actionlint",
-  -- "astyle",
-  "autoflake",
-  "black",
-  "clang_format",
-  "codespell", -- useful for many languages
-  "commitlint",
-  "cpplint",
-  "cspell",
-  "fixjson",
-  "flake8",
-  "gitlint", -- useful across languages
   "hadolint", -- written in haskell
-  "markdownlint",
-  "misspell",
-  "mypy",
-  "proselint",
-  "pydocstyle", -- pylama covers this
-  "pylama",
-  "pylint", -- pylama covers this
-  "pyre",
-  "reorder_python_imports",
-  "ruff", -- covers a superset of pylama
-  "semgrep",
-  "textlint",
-  "usort",
+  "selene",
+  "stylua",
   "vale",
-  "vint",
-  "vulture",
-  "write-good",
   "yamlfmt",
-  "yamllint",
+  -- "astyle",
   -- "cbfmt",
   -- "cppcheck",
   -- "editorconfig-checker",
@@ -74,7 +43,7 @@ local linters_formatters_to_install = {
 
 local daps_to_install = {
   "codelldb",
-  "python",
+  -- "python",
   -- "delve",
   -- "js",
   -- "php",
@@ -82,45 +51,79 @@ local daps_to_install = {
 
 -- )))
 
-if vim.fn.executable "cmake" == 1 then
-  if vim.fn.has "macunix" and vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
-    utils.list_insert_unique(lsps_to_install, "neocmake")
-  else
-    utils.list_insert_unique(lsps_to_install, "cmake")
-  end
-  utils.list_insert_unique(linters_formatters_to_install, { "cmake_format", "cmakelint", "gersemi" })
-end
+-- if vim.fn.executable "go" == 1 then
+--   -- utils.list_insert_unique(linters_formatters_to_install, "misspell")
+--   -- utils.list_insert_unique(lsps_to_install, "sqls")
+-- end
 
-if vim.fn.executable "node" == 1 then
+if vim.fn.executable "npm" == 1 then
+  -- utils.list_insert_unique(lsps_to_install, "cssls")
   -- utils.list_insert_unique(lsps_to_install, "denols")
-  utils.list_insert_unique(lsps_to_install, "jsonls") -- written in typescript
-  utils.list_insert_unique(lsps_to_install, "spectral")
-  utils.list_insert_unique(lsps_to_install, "vimls")
-  utils.list_insert_unique(lsps_to_install, "yamlls")
+  -- utils.list_insert_unique(lsps_to_install, "html")
+  -- utils.list_insert_unique(lsps_to_install, "intelephense")
+  -- utils.list_insert_unique(lsps_to_install, "tsserver")
+  -- utils.list_insert_unique(lsps_to_install, "yamlls")
+  utils.list_insert_unique(lsps_to_install, { "jsonls", "spectral", "vimls", "yamlls" })
   if vim.fn.executable "bash" == 1 or vim.fn.executable "sh" == 1 then
     utils.list_insert_unique(lsps_to_install, "bashls")
   end
   if vim.fn.executable "docker" == 1 then
     utils.list_insert_unique(lsps_to_install, { "dockerls", "docker_compose_language_service" })
-  end -- written in typescript
+  end
   if vim.fn.executable "perl" == 1 then utils.list_insert_unique(lsps_to_install, "perlnavigator") end
 
   utils.list_insert_unique(linters_formatters_to_install, "jsonlint")
+  utils.list_insert_unique(
+    linters_formatters_to_install,
+    { "commitlint", "cspell", "fixjson", "markdownlint", "textlint", "write-good" }
+  )
 end
 
 if vim.fn.executable "python3" == 1 then
   -- utils.list_insert_unique(lsps_to_install, "pylsp")
-  utils.list_insert_unique(lsps_to_install, "pyre")
-  utils.list_insert_unique(lsps_to_install, "pyright")
+  if vim.fn.executable "npm" == 1 then utils.list_insert_unique(lsps_to_install, "pyright") end
+
+  if vim.fn.executable "pip3" == 1 or vim.fn.executable "conda" == 1 or vim.fn.executable "mamba" == 1 then
+    utils.list_insert_unique(daps_to_install, "debugpy")
+    utils.list_insert_unique(lsps_to_install, { "pyre", "ruff_lsp" })
+    utils.list_insert_unique(linters_formatters_to_install, {
+      "autoflake",
+      "black",
+      "clang_format",
+      "codespell",
+      "cpplint",
+      "flake8",
+      "gitlint",
+      "mypy",
+      "proselint",
+      "pydocstyle",
+      "pylama",
+      "pylint",
+      "reorder_python_imports",
+      "ruff",
+      "semgrep",
+      "usort",
+      "vint",
+      "vulture",
+      "yamllint",
+    })
+    if vim.fn.executable "cmake" == 1 then
+      utils.list_insert_unique(linters_formatters_to_install, { "cmake_format", "cmakelint", "gersemi" })
+      if vim.fn.has "macunix" and vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
+        utils.list_insert_unique(lsps_to_install, "neocmake")
+      else
+        utils.list_insert_unique(lsps_to_install, "cmake")
+      end
+    end
+  end
+
   -- utils.list_insert_unique(my_ensure_installed, "sourcery")
   -- if vim.fn.executable "gfortran" == 1 then utils.list_insert_unique(my_ensure_installed, "fortlsp") end
-  utils.list_insert_unique(lsps_to_install, "ruff_lsp")
 end
 
 if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
   utils.list_insert_unique(lsps_to_install, "taplo")
   utils.list_insert_unique(lsps_to_install, "texlab")
-  utils.list_insert_unique(linters_formatters_to_install, { "selene", "stylua" })
   -- utils.list_insert_unique(my_ensure_installed, "asm_lsp")
   utils.list_insert_unique(lsps_to_install, "rust_analyzer") -- installed by community 'rust' pack
 end

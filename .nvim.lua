@@ -7,31 +7,32 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
--- list of globally installed sources in $PATH
+local utils = require "astronvim.utils"
+
 null_ls.register {
-  code_actions.cspell,
+  -- code_actions.cspell,
   -- diagnostics.actionlint,
   -- diagnostics.codespell.with {
   --   extra_args = { "--ignore-words=.dialect.utf-8.add" },
   -- },
   -- diagnostics.cppcheck,
-  diagnostics.cspell,
-  diagnostics.ltrs,
+  -- diagnostics.cspell,
+  -- diagnostics.ltrs,
   -- diagnostics.editorconfig_checker,
   -- diagnostics.flake8,
   -- diagnostics.gitlint,
   -- diagnostics.hadolint,
-  diagnostics.jsonlint,
+  -- diagnostics.jsonlint,
   -- diagnostics.luacheck,
   -- diagnostics.misspell,
   -- diagnostics.mypy,
   -- diagnostics.proselint,
   -- diagnostics.pylint,
   -- diagnostics.shellcheck,
-  diagnostics.textlint,
+  -- diagnostics.textlint,
   -- diagnostics.vale,
   -- diagnostics.vacuum, -- problematic
-  diagnostics.vint,
+  -- diagnostics.vint,
   -- diagnostics.vulture,
   -- diagnostics.yamllint,
   -- formatting.black,
@@ -39,18 +40,22 @@ null_ls.register {
   -- formatting.clang_format,
   -- formatting.cmake_format,
   -- formatting.codespell,
-  formatting.fixjson,
+  -- formatting.fixjson,
   -- formatting.rome, -- uses tabs by default
   -- formatting.shfmt,
   formatting.stylua.with {
     condition = function(utils) return utils.root_has_file { "stylua.toml", ".stylua.toml" } end,
   },
-  formatting.yamlfmt,
+  -- formatting.yamlfmt,
   -- null_ls.builtins.code_actions.gitrebase,
   -- null_ls.builtins.code_actions.shellcheck,
   -- null_ls.builtins.hover.dictionary,
 }
--- null_ls.enable {}
+-- local diagcspell = ""
+if vim.fn.executable "cspell" == 1 then
+  -- diagcspell = diagnostics.cspell
+  utils.list_insert_unique(null_ls.register, "diagnostics.cspell")
+end
 
 -- Other project-specific 'diagnostic-linters' and 'formatters' to consider {{{
 -- diagnostics.actionlint,
