@@ -5,10 +5,12 @@ if not status_ok then return end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
-local code_actions = null_ls.builtins.code_actions
+-- local code_actions = null_ls.builtins.code_actions
 
 local utils = require "astronvim.utils"
 
+-- local diagcspell = false
+-- if vim.fn.executable "cspell" == 1 then diagcspell = diagnostics.cspell end
 null_ls.register {
   -- code_actions.cspell,
   -- diagnostics.actionlint,
@@ -51,11 +53,6 @@ null_ls.register {
   -- null_ls.builtins.code_actions.shellcheck,
   -- null_ls.builtins.hover.dictionary,
 }
--- local diagcspell = ""
-if vim.fn.executable "cspell" == 1 then
-  -- diagcspell = diagnostics.cspell
-  utils.list_insert_unique(null_ls.register, "diagnostics.cspell")
-end
 
 -- Other project-specific 'diagnostic-linters' and 'formatters' to consider {{{
 -- diagnostics.actionlint,
