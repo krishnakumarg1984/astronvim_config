@@ -7,11 +7,14 @@ local utils = require "astronvim.utils"
 local lsps_to_install = {
   "clangd",
   "lua_ls",
-  -- "marksman", -- written in F#  -- can be installed without any dependency troubles
+  "taplo",
+  -- "denols",
   -- "lemminx", -- XML Language Server written in 'java' (can be installed without dependency troubles)
   -- "ltex",  -- can be installed without dependency troubles
   -- "marksman", -- can be installed without dependency troubles
+  -- "marksman", -- written in F#  -- can be installed without any dependency troubles
   -- "prosemd_lsp", -- can be installed without dependency troubles
+  -- "rust_analyzer",
   -- "texlab", -- can be installed without dependency troubles
   -- "zk", -- can be installed without any dependency troubles
 }
@@ -52,17 +55,15 @@ local daps_to_install = {
 -- )))
 
 -- if vim.fn.executable "go" == 1 then
---   -- utils.list_insert_unique(linters_formatters_to_install, "misspell")
---   -- utils.list_insert_unique(lsps_to_install, "sqls")
+--   utils.list_insert_unique(linters_formatters_to_install, "misspell")
+--   utils.list_insert_unique(lsps_to_install, "sqls")
 -- end
 
 if vim.fn.executable "npm" == 1 then
   -- utils.list_insert_unique(lsps_to_install, "cssls")
-  -- utils.list_insert_unique(lsps_to_install, "denols")
   -- utils.list_insert_unique(lsps_to_install, "html")
   -- utils.list_insert_unique(lsps_to_install, "intelephense")
   -- utils.list_insert_unique(lsps_to_install, "tsserver")
-  -- utils.list_insert_unique(lsps_to_install, "yamlls")
   utils.list_insert_unique(lsps_to_install, { "jsonls", "spectral", "vimls", "yamlls" })
   if vim.fn.executable "bash" == 1 or vim.fn.executable "sh" == 1 then
     utils.list_insert_unique(lsps_to_install, "bashls")
@@ -115,27 +116,24 @@ if vim.fn.executable "python3" == 1 then
         utils.list_insert_unique(lsps_to_install, "cmake")
       end
     end
+    -- if vim.fn.executable "gfortran" == 1 then utils.list_insert_unique(lsps_to_install, "fortls") end
+    -- utils.list_insert_unique(lsps_to_install, "sourcery")
   end
-
-  -- utils.list_insert_unique(my_ensure_installed, "sourcery")
-  -- if vim.fn.executable "gfortran" == 1 then utils.list_insert_unique(my_ensure_installed, "fortlsp") end
 end
 
-if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
-  utils.list_insert_unique(lsps_to_install, "taplo")
-  utils.list_insert_unique(lsps_to_install, "texlab")
-  -- utils.list_insert_unique(my_ensure_installed, "asm_lsp")
-  utils.list_insert_unique(lsps_to_install, "rust_analyzer") -- installed by community 'rust' pack
-end
-
--- if vim.fn.executable "dotnet" == 1 then utils.list_insert_unique(my_ensure_installed, "omnisharp") end
--- if vim.fn.executable "r" then utils.list_insert_unique(my_ensure_installed, "r_language_server") end
 if vim.fn.executable "luarocks" == 1 then utils.list_insert_unique(linters_formatters_to_install, "luacheck") end
 if vim.fn.executable "bash" == 1 or vim.fn.executable "sh" == 1 then
   utils.list_insert_unique(linters_formatters_to_install, { "shellcheck", "shfmt" })
   utils.list_insert_unique(daps_to_install, { "bash" })
 end
 
+-- if vim.fn.executable "dotnet" == 1 then utils.list_insert_unique(my_ensure_installed, "omnisharp") end
+-- if vim.fn.executable "r" then utils.list_insert_unique(my_ensure_installed, "r_language_server") end
+-- if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
+--   utils.list_insert_unique(lsps_to_install, "asm_lsp")
+-- end
+
+-- (((
 return {
   -- { "williamboman/mason.nvim", opts = { PATH = "append" } },
   { "williamboman/mason.nvim" },
@@ -162,3 +160,4 @@ return {
     opts = { ensure_installed = daps_to_install },
   },
 }
+-- )))
