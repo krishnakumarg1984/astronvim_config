@@ -12,6 +12,7 @@ return {
       -- "python",
       "julia",
       "text",
+      -- "cmake",
     },
   },
   -- a client listed in the disabled list will always be disabled and then all other clients will then be passed into the filter function
@@ -20,6 +21,7 @@ return {
     "cmake",
     "jsonls",
     "neocmakelsp",
+    "neocmake",
     "pylsp",
     "lua_ls", -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
     "taplo",
