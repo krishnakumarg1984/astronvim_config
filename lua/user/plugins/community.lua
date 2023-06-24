@@ -8,11 +8,11 @@ return {
   { import = "astrocommunity.diagnostics.trouble-nvim" }, -- Helps you solve all the trouble your code is causing
   { import = "astrocommunity.editing-support.dial-nvim" }, -- Enhanced increment/decrement plugin for Neovim.
   { import = "astrocommunity.editing-support.todo-comments-nvim" }, -- Highlight, list and search todo comments in your projects
-  { import = "astrocommunity.editing-support.treej" }, -- Neovim plugin for splitting/joining blocks of code
-  { -- further customize the options set by the community
-    "treesj",
-    opts = { use_default_keymaps = true },
-  },
+  -- { import = "astrocommunity.editing-support.treej" }, -- Neovim plugin for splitting/joining blocks of code
+  -- { -- further customize the options set by the community
+  --   "treesj",
+  --   opts = { use_default_keymaps = true },
+  -- },
   { import = "astrocommunity.git.neogit" }, -- magit for neovim
   { import = "astrocommunity.markdown-and-latex.glow-nvim" }, -- A markdown preview directly in your neovim.
   -- { import = "astrocommunity.lsp.inc-rename" }, --  Incremental LSP renaming based on Neovim's command-preview feature.
