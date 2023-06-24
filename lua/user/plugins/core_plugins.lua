@@ -199,22 +199,21 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    event = "InsertEnter",
     dependencies = {
-      -- "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-emoji",
-      -- "saadparwaiz1/cmp_luasnip",
-      -- "hrsh7th/cmp-nvim-lsp",
-      -- "hrsh7th/cmp-path",
       -- "jc-doyle/cmp-pandoc-references",
       -- "kdheepak/cmp-latex-symbols",
+      -- "saadparwaiz1/cmp_luasnip",
     },
     -- override the options table that is used in the `require("cmp").setup()` call
     opts = function(_, opts)
       -- opts parameter is the default options table
       -- the function is lazy loaded so cmp is able to be required
       local cmp = require "cmp"
+      local lspkind_status_ok, lspkind = pcall(require, "lspkind")
+      local utils = require "astronvim.utils"
+
       -- modify the sources part of the options table
       opts.sources = cmp.config.sources {
         { name = "nvim_lsp", priority = 1000 },
@@ -225,12 +224,108 @@ return {
           name = "buffer",
           priority = 600,
           option = {
-            get_bufnrs = function() return vim.api.nvim_list_bufs() end,
+            get_bufnrs = function()
+              return vim.api.nvim_list_bufs()
+            end,
           },
         },
         { name = "emoji", priority = 500 },
         { name = "calc", priority = 400 },
         { name = "luasnip", priority = 50 },
+      }
+      -- modify the view part of the options table
+      opts.view = {
+        -- when in cmdline mode, or when the cursor is near the bottom of the screen, and the menu opens above the cursor, it sometimes can be preferable if the menu used a bottom down approach.
+        entries = { name = "custom", selection_order = "near_cursor" },
+      }
+
+      local border_opts = {
+        border = "single",
+        winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+        col_offset = -3,
+      }
+
+      opts.window = {
+        completion = cmp.config.window.bordered(border_opts),
+      }
+
+      local function mycmpfmt(myopts)
+        if myopts == nil then
+          myopts = {}
+        end
+        if myopts.preset or myopts.symbol_map then
+          lspkind.init(myopts)
+        end
+
+        return function(entry, vim_item)
+          -- https://github.com/hrsh7th/nvim-cmp/issues/980
+          local ELLIPSIS_CHAR = "…"
+          local MAX_LABEL_WIDTH = 32
+          local MIN_LABEL_WIDTH = 32
+          -- https://www.reddit.com/r/neovim/comments/unlj8d/is_there_any_way_to_show_types_in_nvimcmp/?sort=new
+          local MIN_MENU_DETAIL_WIDTH = 10
+          local MAX_MENU_DETAIL_WIDTH = 10
+
+          if myopts.before then
+            vim_item = myopts.before(entry, vim_item)
+          end
+
+          vim_item.kind = lspkind.symbolic(vim_item.kind, myopts)
+
+          -- https://github.com/hrsh7th/nvim-cmp/discussions/609#discussioncomment-1844480
+          local item = entry:get_completion_item() -- Source
+          if item.detail then
+            vim_item.menu = item.detail
+          elseif myopts.menu ~= nil then
+            vim_item.menu = ({
+              buffer = "[Buf]",
+              calc = "[Calc]",
+              dictionary = "[Dictionary]",
+              nvim_lsp_signature_help = "[Function Signature]",
+              signature_help = "[Function Signature]",
+              emoji = "[Emoji]",
+              latex_symbols = "[LaTeX]",
+              look = "[Dict]",
+              git = "[Git]",
+              luasnip = "[Snippet]",
+              omni = "[Omni]",
+              nvim_lsp = "[LSP]",
+              nvim_lua = "[Nvim_Lua]",
+              path = "[Path]",
+              spell = "[Spell]",
+              tags = "[Tags]",
+              tmux = "[Tmux]",
+            })[entry.source.name]
+            -- })[entry.source.name]
+          end
+          local my_menu = vim_item.menu
+          local truncated_my_menu = vim.fn.strcharpart(my_menu, 0, MAX_MENU_DETAIL_WIDTH)
+          if truncated_my_menu ~= my_menu then
+            -- vim_item.menu = truncated_my_menu .. myopts.ellipsis_char
+            vim_item.menu = truncated_my_menu .. ELLIPSIS_CHAR
+          elseif string.len(my_menu) < MIN_MENU_DETAIL_WIDTH then
+            local menu_padding = string.rep(" ", MIN_MENU_DETAIL_WIDTH - string.len(my_menu))
+            vim_item.menu = my_menu .. menu_padding
+          end
+
+          local label = vim_item.abbr
+          -- local truncated_label = vim.fn.strcharpart(label, 0, myopts.maxwidth)
+          local truncated_label = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+          if truncated_label ~= label then
+            -- vim_item.abbr = truncated_label .. myopts.ellipsis_char
+            vim_item.abbr = truncated_label .. ELLIPSIS_CHAR
+          elseif string.len(label) < MIN_LABEL_WIDTH then
+            local padding = string.rep(" ", MIN_LABEL_WIDTH - string.len(label))
+            vim_item.abbr = label .. padding
+          end
+          return vim_item
+        end
+      end
+      -- end
+
+      opts.formatting = {
+        fields = { "kind", "abbr", "menu" },
+        format = lspkind_status_ok and mycmpfmt(utils.plugin_opts "lspkind.nvim") or nil,
       }
 
       -- return the new table to be used
@@ -520,7 +615,9 @@ return {
   },
   {
     "mrjones2014/smart-splits.nvim",
-    opts = function(_, opts) opts.at_edge = require("smart-splits.types").AtEdgeBehavior.stop end,
+    opts = function(_, opts)
+      opts.at_edge = require("smart-splits.types").AtEdgeBehavior.stop
+    end,
   },
   {
     "akinsho/toggleterm.nvim",
