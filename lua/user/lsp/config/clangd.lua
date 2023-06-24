@@ -2,7 +2,6 @@
 return {
   capabilities = {
     offsetEncoding = "utf-8",
-    -- offsetEncoding = "utf-32",
     memoryUsageProvider = true,
   },
   filetypes = { "c", "cpp", "cuda", "objc", "objcpp", "opencl" },
@@ -24,10 +23,9 @@ return {
     "--clang-tidy",
     -- "--completion-style=bundled",
     "--completion-style=detailed",
-    "--cross-file-rename",
+    -- "--cross-file-rename", -- obsolete
     "--fallback-style=webkit",
     "--header-insertion=iwyu",
-    "--suggest-missing-includes",
-    -- "--offset-encoding=utf-8",
+    -- "--suggest-missing-includes", -- obsolete
   },
 }
