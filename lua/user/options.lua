@@ -268,6 +268,7 @@ return {
       "*/.toc",
       "*/.vim$",
       "*/__pycache__/*",
+      "*/build/*",
       "*/builds/*",
       "*/dist*/*",
       "*/node_modules/*",
