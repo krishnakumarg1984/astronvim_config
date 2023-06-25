@@ -242,7 +242,7 @@ return {
       local border_opts = {
         border = "single",
         winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
-        col_offset = -3,
+        col_offset = -4,
       }
 
       opts.window = {
