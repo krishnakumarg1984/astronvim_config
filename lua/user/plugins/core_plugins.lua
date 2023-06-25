@@ -260,11 +260,11 @@ return {
         return function(entry, vim_item)
           -- https://github.com/hrsh7th/nvim-cmp/issues/980
           local ELLIPSIS_CHAR = "…"
-          local MAX_LABEL_WIDTH = 42
-          local MIN_LABEL_WIDTH = 42
+          local MAX_LABEL_WIDTH = 32
+          local MIN_LABEL_WIDTH = 32
           -- https://www.reddit.com/r/neovim/comments/unlj8d/is_there_any_way_to_show_types_in_nvimcmp/?sort=new
-          local MIN_MENU_DETAIL_WIDTH = 0
-          local MAX_MENU_DETAIL_WIDTH = 0
+          local MIN_MENU_DETAIL_WIDTH = 10
+          local MAX_MENU_DETAIL_WIDTH = 10
 
           if myopts.before then
             vim_item = myopts.before(entry, vim_item)
@@ -324,8 +324,7 @@ return {
       -- end
 
       opts.formatting = {
-        -- fields = { "kind", "abbr", "menu" },
-        fields = { "kind", "abbr" },
+        fields = { "kind", "abbr", "menu" },
         format = lspkind_status_ok and mycmpfmt(utils.plugin_opts "lspkind.nvim") or nil,
       }
 
