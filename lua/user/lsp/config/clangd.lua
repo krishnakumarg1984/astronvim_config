@@ -23,9 +23,13 @@ return {
     "--clang-tidy",
     -- "--completion-style=bundled",
     "--completion-style=detailed",
+    "--enable-config",
     -- "--cross-file-rename", -- obsolete
-    "--fallback-style=webkit",
+    -- "--fallback-style=webkit",
+    "--function-arg-placeholders",
     "--header-insertion=iwyu",
+    "--header-insertion-decorators",
+    "--malloc-trim",
     -- "--suggest-missing-includes", -- obsolete
   },
 }
