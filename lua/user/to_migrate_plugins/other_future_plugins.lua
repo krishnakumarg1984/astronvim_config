@@ -104,6 +104,12 @@
 
 -- )))
 
+-- Lua REPLs (((
+-- https://github.com/hkupty/iron.nvim -- Interactive Repl Over Neovim
+-- https://github.com/geg2102/nvim-python-repl -- A simple neovim plugin that leverages treesitter for interacting with a python/scala/lua REPL.
+-- https://github.com/milanglacier/yarepl.nvim  -- Yet Another REPL, flexible, supporting multiple paradigms to interact with REPLs, project-level configs, working with tmux, telescope integration, and native dot repeat.
+-- )))
+
 -- General (((
 
 -- https://superuser.com/questions/1485332/how-to-clear-neovim-buffer
@@ -150,6 +156,7 @@
 -- https://github.com/p00f/godbolt.nvim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/NMAC427/guess-indent.nvim
+-- https://github.com/lukas-reineke/headlines.nvim
 -- https://github.com/Pocco81/HighStr.nvim
 -- https://github.com/m-demare/hlargs.nvim
 -- https://github.com/lewis6991/hover.nvim   -- Hover plugin framework for Neovim
@@ -157,7 +164,6 @@
 -- https://github.com/b0o/incline.nvim
 -- https://github.com/arsham/indent-tools.nvim --  plugin for dealing with indentations
 -- https://github.com/jbyuki/instant.nvim  -- collaborative editing in Neovim using built-in capabilities
--- https://github.com/hkupty/iron.nvim
 -- use { "mizlan/iswap.nvim", requires = { { "nvim-treesitter" } } }
 -- https://github.com/matbme/JABS.nvim
 -- https://github.com/frabjous/knap
@@ -194,12 +200,12 @@
 -- https://github.com/esensar/nvim-dev-container -- Neovim dev container support
 -- https://github.com/AllenDang/nvim-expand-expr
 -- https://github.com/sakhnik/nvim-gdb -- Neovim thin wrapper for GDB, LLDB, PDB/PDB++ and BashDB
+-- https://github.com/subnut/nvim-ghost.nvim -- GhostText plugin for Neovim with zero dependencies
 -- https://github.com/booperlv/nvim-gomove
 -- https://github.com/SmiteshP/nvim-gps
 -- https://github.com/gennaro-tedesco/nvim-jqx
 -- https://github.com/nanotee/nvim-lua-guide -- A guide to using Lua in Neovim
 -- "kevinhwang91/nvim-ufo" -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/lua/plugins.lua
--- https://github.com/geg2102/nvim-python-repl
 -- https://github.com/bennypowers/nvim-regexplainer
 -- use { "petertriho/nvim-scrollbar" }
 -- https://github.com/dstein64/nvim-scrollview
@@ -278,13 +284,12 @@
 -- https://github.com/goerz/jupytext.vim
 -- https://github.com/iamcco/markdown-preview.nvim
 -- https://github.com/Sangdol/mintabline.vim
--- https://github.com/kassio/neoterm   -- promises matlab REPL support
 -- https://github.com/svban/PasteSorcerer.vim
 -- use { "weirongxu/plantuml-previewer.vim", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
 -- https://github.com/stefandtw/quickfix-reflector.vim
--- https://github.com/aiya000/vim-quickrepl  -- REPL
--- https://gitlab.com/HiPhish/repl.nvim -- REPL
--- https://github.com/rhysd/reply.vim -- REPL
+-- https://github.com/aiya000/vim-quickrepl  -- REPL (last commit in Dec 2019 as of July 2023)
+-- https://gitlab.com/HiPhish/repl.nvim -- REPL (last commit in Feb 2022 as of July 2023)
+-- https://github.com/rhysd/reply.vim -- REPL (last commit in Jan 2020 as of July 2023)
 -- https://github.com/kamykn/spelunker.vim
 -- use { "wellle/targets.vim" }
 -- ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
@@ -313,7 +318,8 @@
 -- https://github.com/ojroques/vim-oscyank
 -- https://github.com/thinca/vim-quickrun
 -- https://github.com/4513ECHO/vim-readme-viewer
--- ["urbainvaes/vim-ripple"] = require "user.plugins.vim_ripple", -- Minimalist plugin to interact with a REPL
+-- https://github.com/sillybun/vim-repl -- (vimscript + python). "Best REPL environment for Vim"
+-- https://github.com/urbainvaes/vim-ripple -- Minimalist plugin to interact with a REPL
 -- https://github.com/jpalardy/vim-slime
 -- use { "scrooloose/vim-slumlord", requires = { { "aklt/plantuml-syntax" }, { "tyru/open-browser.vim" } } }
 -- https://github.com/marklcrns/vim-smartq
@@ -327,25 +333,28 @@
 -- https://github.com/mg979/vim-visual-multi
 -- use { "tweekmonster/wstrip.vim" }
 -- https://github.com/Einenlum/yaml-revealer
--- ["axvr/zepl.vim"] = {}, -- Simple and minimal REPL integration plugin for Vim and Neovim
+-- https://github.com/axvr/zepl.vim -- Simple and minimal REPL integration plugin for Vim and Neovim
 -- https://github.com/jalvesaq/zotcite
 -- https://www.reddit.com/r/vim/comments/dpj0fz/vim_and_matlab/
 
 -- ))) end of 'other vimscript plugins'
 
--- ipython/jupyter vim plugins (((
+-- ipython/jupyter neovim/vim plugins (((
 
+-- https://github.com/GCBallesteros/NotebookNavigator.nvim -- A neovim plugin to navigate and execute code cells
+-- https://github.com/kiyoon/jupynium.nvim -- Selenium-automated Jupyter Notebook that is synchronised with NeoVim in real-time.
+-- https://github.com/lkhphuc/jupyter-kernel.nvim -- Get (IPython) Jupyter kernel completion suggestions and object inspection into Neovim.
+-- https://github.com/quarto-dev/quarto-nvim -- Quarto mode for Neovim
 -- https://euporie.readthedocs.io/en/latest/
 -- https://github.com/tbung/cell-textobjects.nvim
 -- https://alpha2phi.medium.com/jupyter-notebook-vim-neovim-c2d67d56d563
--- https://github.com/luk400/vim-jukit   -- (vimscript + python)
--- https://github.com/sillybun/vim-repl -- (vimscript + python). Good generic REPL
+-- https://github.com/luk400/vim-jukit  -- (vimscript + python) Jupyter-Notebook inspired Neovim/Vim Plugin
 -- { "hanschen/vim-ipython-cell", requires = { "jpalardy/vim-slime" } } -- (python + vimscript)
 -- https://www.maxwellrules.com/misc/nvim_jupyter.html
 -- "jupyter-vim/jupyter-vim"  (python + vimscript)
--- "untitled-ai/jupyter_ascending"
--- "goerz/jupytext.vim"  -- (pure vimscript)
--- { 'dccsillag/magma-nvim', run = ':UpdateRemotePlugins' } -- need to set up mappings (python + vimscript)
+-- https://github.com/untitled-ai/jupyter_ascending.vim -- Vim plugin to interact with jupyter_ascending
+-- https://github.com/goerz/jupytext.vim -- vimscript. Vim plugin for editing Jupyter ipynb files via jupytext
+-- https://github.com/dccsillag/magma-nvim -- need to set up mappings (python + vimscript). Interact with Jupyter from NeoVim.
 -- "bfredl/nvim-ipy"  -- (python plugin)
 -- https://github.com/ahmedkhalf/jupyter-nvim
 -- https://github.com/jupyterlab-contrib/jupyterlab-vim (browser-based)
