@@ -5,11 +5,15 @@ return {
 
     opts.winbar = { -- create custom winbar
       -- store the current buffer number
-      init = function(self) self.bufnr = vim.api.nvim_get_current_buf() end,
+      init = function(self)
+        self.bufnr = vim.api.nvim_get_current_buf()
+      end,
       fallthrough = false, -- pick the correct winbar based on condition
       -- inactive winbar
       {
-        condition = function() return not status.condition.is_active() end,
+        condition = function()
+          return not status.condition.is_active()
+        end,
         -- show the path to the file relative to the working directory
         status.component.separated_path { path_func = status.provider.filename { modify = ":.:h" } },
         -- add the file name and icon
@@ -139,7 +143,12 @@ return {
         status.component.file_info {
           -- we only want filename to be used and we can change the fname
           -- function to get the current working directory name
-          filename = { fname = function(nr) return vim.fn.getcwd(nr) end, padding = { left = 1 } },
+          filename = {
+            fname = function(nr)
+              return vim.fn.getcwd(nr)
+            end,
+            padding = { left = 1 },
+          },
           -- disable all other elements of the file_info component
           file_icon = false,
           file_modified = false,
@@ -178,6 +187,43 @@ return {
         },
       },
     }
+    -- Numbered buffers in tabline https://github.com/AstroNvim/AstroNvim/issues/2112#issuecomment-1631109200
+    -- opts.tabline[2] = status.heirline.make_buflist {
+    --   {
+    --     provider = function(self)
+    --       return self.bufnr .. "."
+    --     end,
+    --   },
+    --   status.component.tabline_file_info(), -- component for each buffer tab
+    -- }
+    -- local buffers = require "astronvim.utils.buffer"
+    -- vim.keymap.set("n", "<leader>b1", function()
+    --   require("astronvim.utils.buffer").nav_to(1)
+    -- end, { desc = "Go to buffer 1" })
+    -- vim.keymap.set("n", "<leader>b2", function()
+    --   require("astronvim.utils.buffer").nav_to(1)
+    -- end, { desc = "Go to buffer 2" })
+    -- vim.keymap.set("n", "<leader>b3", function()
+    --   require("astronvim.utils.buffer").nav_to(1)
+    -- end, { desc = "Go to buffer 3" })
+    -- vim.keymap.set("n", "<leader>b4", function()
+    --   require("astronvim.utils.buffer").nav_to(1)
+    -- end, { desc = "Go to buffer 4" })
+    -- vim.keymap.set("n", "<leader>b5", function()
+    --   require("astronvim.utils.buffer").nav_to(1)
+    -- end, { desc = "Go to buffer 5" })
+    -- vim.keymap.set("n", "<leader>b6", function()
+    --   require("astronvim.utils.buffer").nav_to(1)
+    -- end, { desc = "Go to buffer 6" })
+    -- vim.keymap.set("n", "<leader>b7", function()
+    --   require("astronvim.utils.buffer").nav_to(1)
+    -- end, { desc = "Go to buffer 7" })
+    -- vim.keymap.set("n", "<leader>b8", function()
+    --   require("astronvim.utils.buffer").nav_to(1)
+    -- end, { desc = "Go to buffer 8" })
+    -- vim.keymap.set("n", "<leader>b9", function()
+    --   require("astronvim.utils.buffer").nav_to(1)
+    -- end, { desc = "Go to buffer 9" })
 
     -- return the final options table
     return opts
