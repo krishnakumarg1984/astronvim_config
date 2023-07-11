@@ -1,9 +1,13 @@
 return {
   {
     "p00f/clangd_extensions.nvim", --  Clangd's off-spec features for neovim's LSP client. Use https://sr.ht/~p00f/clangd_extensions.nvim instead
-    init = function() table.insert(astronvim.lsp.skip_setup, "clangd") end,
+    init = function()
+      table.insert(astronvim.lsp.skip_setup, "clangd")
+    end,
     ft = { "c", "cpp", "cuda", "objc", "objcpp", "proto" },
-    opts = function() return { server = require("astronvim.utils.lsp").config "clangd" } end,
+    opts = function()
+      return { server = require("astronvim.utils.lsp").config "clangd" }
+    end,
   },
   {
     "onsails/lspkind.nvim", --  vscode-like pictograms for neovim lsp completion items
@@ -67,26 +71,37 @@ return {
     vim.keymap.set("n", "<leader>lc", "<cmd>CodeActionMenu<CR>", { desc = "Code action(s)" }),
   },
   {
-    "neovim/nvim-lspconfig", --  Quickstart configs for Nvim LSP
-    dependencies = {
-      {
-        "folke/neoconf.nvim", -- Neovim plugin to manage global and project-local settings
-        cmd = "Neoconf",
-        config = true,
-      },
-      {
-        "kosayoda/nvim-lightbulb", -- VSCode bulb for neovim's built-in LSP.
-        -- event = { "CursorHold", "CursorHoldI" },
-        config = function()
-          require("nvim-lightbulb").setup {
-            sign = { enabled = false },
-            virtual_text = { enabled = true },
-            autocmd = { enabled = true },
-          }
-        end,
-      },
-    },
+    "kosayoda/nvim-lightbulb", -- VSCode bulb for neovim's built-in LSP.
+    -- event = { "CursorHold", "CursorHoldI" },
+    config = function()
+      require("nvim-lightbulb").setup {
+        sign = { enabled = false },
+        virtual_text = { enabled = true },
+        autocmd = { enabled = true },
+      }
+    end,
   },
+  -- {
+  --   "neovim/nvim-lspconfig", --  Quickstart configs for Nvim LSP
+  --   dependencies = {
+  --     {
+  --       "folke/neoconf.nvim", -- Neovim plugin to manage global and project-local settings
+  --       cmd = "Neoconf",
+  --       config = true,
+  --     },
+  --     -- {
+  --     --   "kosayoda/nvim-lightbulb", -- VSCode bulb for neovim's built-in LSP.
+  --     --   -- event = { "CursorHold", "CursorHoldI" },
+  --     --   config = function()
+  --     --     require("nvim-lightbulb").setup {
+  --     --       sign = { enabled = false },
+  --     --       virtual_text = { enabled = true },
+  --     --       autocmd = { enabled = true },
+  --     --     }
+  --     --   end,
+  --     -- },
+  --   },
+  -- },
   {
     "jose-elias-alvarez/null-ls.nvim", --  Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
     opts = {

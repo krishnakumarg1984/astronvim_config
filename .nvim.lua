@@ -1,24 +1,26 @@
 -- vim: foldmethod=marker:foldlevel=0:
 
 local status_ok, null_ls = pcall(require, "null-ls")
-if not status_ok then return end
+if not status_ok then
+  return
+end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
--- local code_actions = null_ls.builtins.code_actions
+local code_actions = null_ls.builtins.code_actions
 
 local utils = require "astronvim.utils"
 
 -- local diagcspell = false
 -- if vim.fn.executable "cspell" == 1 then diagcspell = diagnostics.cspell end
 null_ls.register {
-  -- code_actions.cspell,
+  -- code_actions.cspell, -- https://github.com/davidmh/cspell.nvim
   -- diagnostics.actionlint,
   -- diagnostics.codespell.with {
   --   extra_args = { "--ignore-words=.dialect.utf-8.add" },
   -- },
   -- diagnostics.cppcheck,
-  -- diagnostics.cspell,
+  -- diagnostics.cspell, -- https://github.com/davidmh/cspell.nvim
   -- diagnostics.ltrs,
   -- diagnostics.editorconfig_checker,
   -- diagnostics.flake8,
@@ -46,7 +48,9 @@ null_ls.register {
   -- formatting.rome, -- uses tabs by default
   -- formatting.shfmt,
   formatting.stylua.with {
-    condition = function(utils) return utils.root_has_file { "stylua.toml", ".stylua.toml" } end,
+    condition = function(utils)
+      return utils.root_has_file { "stylua.toml", ".stylua.toml" }
+    end,
   },
   -- formatting.yamlfmt,
   -- null_ls.builtins.code_actions.gitrebase,

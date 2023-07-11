@@ -20,5 +20,11 @@
       "language": "en-GB",
       "filename": "**/*.lua"
     }
+  ],
+  "languageSettings": [
+    {
+      "languageId": "markdown",
+      "caseSensitive": true
+    }
   ]
 }

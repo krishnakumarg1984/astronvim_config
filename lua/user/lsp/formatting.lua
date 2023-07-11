@@ -6,13 +6,13 @@ return {
     -- enabled = true, -- enable or disable format on save globally
     -- If you have allow_filetypes it will take precedence over ignore_filetypes. So please only use one of these options at a time
     -- allow_filetypes = { -- enable format on save for specified filetypes only
-    --   -- "go",
+    -- "go",
     -- },
     ignore_filetypes = { -- disable format on save for specified filetypes
-      -- "python",
       "julia",
       "text",
       -- "cmake",
+      -- "python",
     },
   },
   -- a client listed in the disabled list will always be disabled and then all other clients will then be passed into the filter function
@@ -23,7 +23,7 @@ return {
     "neocmakelsp",
     "neocmake",
     "pylsp",
-    "lua_ls", -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
+    -- "lua_ls", -- disable lua_ls formatting capability if you want to use stylua to format your lua code
     "taplo",
   },
   -- filter = function(client) -- fully override the default formatting function

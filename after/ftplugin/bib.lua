@@ -1,4 +1,5 @@
 vim.cmd [[
+
   command! -buffer -bang Lint compiler bibertool | lmake<bang>
   " command! -buffer -bang Lint compiler bibertool | LMake<bang>
   command! -buffer -range=% -bar AddMissingCommas keeppatterns

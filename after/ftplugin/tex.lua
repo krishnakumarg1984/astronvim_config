@@ -1,4 +1,5 @@
 vim.cmd [[
+
   command! -buffer -bang Lachecklint compiler lacheck | lmake<bang>
   command! -buffer -bang Chktexlint compiler chktex | lmake<bang>
   " command! -buffer -bang Lint compiler lacheck | LMake<bang>
