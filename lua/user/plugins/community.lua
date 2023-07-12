@@ -17,8 +17,8 @@ return {
   { import = "astrocommunity.markdown-and-latex.glow-nvim" }, -- A markdown preview directly in your neovim.
   -- { import = "astrocommunity.lsp.inc-rename" }, --  Incremental LSP renaming based on Neovim's command-preview feature.
   -- { import = "astrocommunity.pack.julia" },
-  { import = "astrocommunity.pack.rust" },
-  { import = "astrocommunity.test.nvim-coverage" }, --  Displays test coverage data in the sign column
+  -- { import = "astrocommunity.pack.rust" },
+  -- { import = "astrocommunity.test.nvim-coverage" }, --  Displays test coverage data in the sign column
   -- { import = "astrocommunity.utility.neodim" }, -- Neovim plugin for dimming the highlights of unused functions, variables, parameters, and more
   -- { import = "astrocommunity.utility.noice-nvim" }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 }

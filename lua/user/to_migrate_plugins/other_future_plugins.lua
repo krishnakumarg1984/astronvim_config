@@ -175,6 +175,7 @@
 -- ["onsails/lspkind.nvim"] = {}, --  vscode-like pictograms for neovim lsp completion items
 -- https://github.com/ericpubu/lsp_codelens_extensions.nvim  -- Adds client side code for codelenses commands not in the lsp servers
 -- https://github.com/aspeddro/lsp_menu.nvim
+-- ["chentoast/marks.nvim"] = require "user.plugins.marks", -- A better UX for viewing & interacting with Vim marks
 -- https://github.com/AckslD/messages.nvim = {}, -- Capture and show any messages in a customisable (floating) buffer
 -- https://github.com/jubnzv/mdeval.nvim
 -- https://github.com/p00f/mdpreview.nvim
@@ -190,7 +191,7 @@
 -- https://github.com/ojroques/nvim-bufdel
 -- ["NvChad/nvim-colorizer.lua"] = { disable = true }, -- The fastest Neovim colorizer
 -- https://github.com/s1n7ax/nvim-comment-frame  -- Detects the language using treesitter and adds a comment block
--- https://github.com/haringsrob/nvim_context_vt
+-- https://github.com/haringsrob/nvim_context_vt  --  Virtual text context for neovim treesitter
 -- https://github.com/yamatsum/nvim-cursorline
 -- https://github.com/xiyaowong/nvim-cursorword
 -- https://github.com/leoluz/nvim-dap-go  -- configs for launching go debugger (delve) and debugging individual tests
@@ -210,6 +211,7 @@
 -- use { "petertriho/nvim-scrollbar" }
 -- https://github.com/dstein64/nvim-scrollview
 -- https://github.com/Badhi/nvim-treesitter-cpp-tools -- C++ Helper Snippets Using Treesitter
+-- ["RRethy/nvim-treesitter-textsubjects"] = require "user.plugins.nvim-treesitter-textsubjects", -- DWIM textobjects
 -- https://github.com/AckslD/nvim-trevJ.lua
 -- https://github.com/yioneko/nvim-yati -- Yet another tree-sitter powered indent plugin
 -- https://gitlab.com/yorickpeterse/nvim-window
@@ -220,6 +222,7 @@
 -- https://github.com/anuvyklack/pretty-fold.nvim
 -- https://github.com/sheodox/projectlaunch.nvim
 -- https://github.com/VonHeikemen/project-settings.nvim -- https://www.reddit.com/r/neovim/comments/tydpmy/using_projectsettingsnvim_to_call_language_servers/?sort=new
+-- ["HallerPatrick/py_lsp.nvim"] = require "user.plugins.pylsp_nvim", -- Lsp Plugin for working with Python virtual environments
 -- https://github.com/ThePrimeagen/refactoring.nvim --  The Refactoring library based off the Refactoring book by Martin Fowler
 -- https://github.com/filipdutescu/renamer.nvim
 -- https://github.com/xuyuanp/scrollbar.nvim
@@ -244,6 +247,7 @@
 -- https://github.com/aserowy/tmux.nvim
 -- use { "folke/todo-comments.nvim" } -- :ToDoQuickFix, :ToDoTrouble, :ToDoTelescope,
 -- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim  -- toggle LSP diagnostics
+-- https://github.com/LeonHeidelbach/trailblazer.nvim -- TrailBlazer enables you to seemlessly move through important project marks as quickly and efficiently as possible to make your workflow blazingly fast.
 -- https://github.com/drybalka/tree-climber.nvim -- Plugin for easy navigation around the syntax-tree
 -- https://github.com/David-Kunz/treesitter-unit/
 -- https://github.com/Pocco81/TrueZen.nvim
