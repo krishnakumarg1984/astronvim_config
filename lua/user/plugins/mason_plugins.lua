@@ -54,10 +54,12 @@ local daps_to_install = {
 
 -- )))
 
--- if vim.fn.executable "go" == 1 then
---   utils.list_insert_unique(linters_formatters_to_install, "misspell")
---   utils.list_insert_unique(lsps_to_install, "sqls")
--- end
+if vim.fn.executable "go" == 1 then
+  -- utils.list_insert_unique(linters_formatters_to_install, "misspell")
+  -- utils.list_insert_unique(lsps_to_install, "sqls")
+  utils.list_insert_unique(lsps_to_install, { "bufls" })
+  utils.list_insert_unique(linters_formatters_to_install, { "buf", "protolint" })
+end
 
 if vim.fn.executable "npm" == 1 then
   -- utils.list_insert_unique(lsps_to_install, "cssls")
@@ -71,7 +73,9 @@ if vim.fn.executable "npm" == 1 then
   if vim.fn.executable "docker" == 1 then
     utils.list_insert_unique(lsps_to_install, { "dockerls", "docker_compose_language_service" })
   end
-  if vim.fn.executable "perl" == 1 then utils.list_insert_unique(lsps_to_install, "perlnavigator") end
+  if vim.fn.executable "perl" == 1 then
+    utils.list_insert_unique(lsps_to_install, "perlnavigator")
+  end
 
   utils.list_insert_unique(linters_formatters_to_install, "jsonlint")
   utils.list_insert_unique(
@@ -82,7 +86,9 @@ end
 
 if vim.fn.executable "python3" == 1 then
   -- utils.list_insert_unique(lsps_to_install, "pylsp")
-  if vim.fn.executable "npm" == 1 then utils.list_insert_unique(lsps_to_install, "pyright") end
+  if vim.fn.executable "npm" == 1 then
+    utils.list_insert_unique(lsps_to_install, "pyright")
+  end
 
   if vim.fn.executable "pip3" == 1 or vim.fn.executable "conda" == 1 or vim.fn.executable "mamba" == 1 then
     utils.list_insert_unique(daps_to_install, "debugpy")
@@ -121,7 +127,9 @@ if vim.fn.executable "python3" == 1 then
   end
 end
 
-if vim.fn.executable "luarocks" == 1 then utils.list_insert_unique(linters_formatters_to_install, "luacheck") end
+if vim.fn.executable "luarocks" == 1 then
+  utils.list_insert_unique(linters_formatters_to_install, "luacheck")
+end
 if vim.fn.executable "bash" == 1 or vim.fn.executable "sh" == 1 then
   utils.list_insert_unique(linters_formatters_to_install, { "shellcheck", "shfmt" })
   utils.list_insert_unique(daps_to_install, { "bash" })

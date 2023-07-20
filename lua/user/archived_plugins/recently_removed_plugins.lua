@@ -1,1 +1,0 @@
--- ["samjwill/nvim-unception"] = {}, -- Open files from within Neovim's terminal emulator without weird behavior

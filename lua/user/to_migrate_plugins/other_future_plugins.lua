@@ -123,11 +123,12 @@
 -- https://github.com/MordechaiHadad/bob  -- A version manager for neovim
 -- https://github.com/lalitmee/browse.nvim  -- browse for anything using your choice of method
 -- use { "kwkarlwang/bufresize.nvim" }  --  Keep buffer dimensions in proportion when terminal window is resized
+-- https://github.com/ranjithshegde/ccls.nvim --  Neovim plugin for ccls language server. Leverages off-spec extensions to LSP client with AST browser
 -- https://github.com/saifulapm/chartoggle.nvim  -- Toggle character in Neovim
 -- https://github.com/sudormrfbin/cheatsheet.nvim  -- A cheatsheet plugin
 -- ["p00f/clangd_extensions.nvim"] = require "user.plugins.clangd_extensions_nvim", -- Clangd's off-spec features
 -- use { "kazhala/close-buffers.nvim", cmd = {} }  -- Delete multiple vim buffers based on different conditions
--- https://github.com/Civitasv/cmake-tools.nvim  --  CMake integration in Neovim
+-- https://github.com/Civitasv/cmake-tools.nvim  -- CMake integration in Neovim
 -- https://github.com/xeluxee/competitest.nvim -- Automate testcases management & checking for Competitive Programming
 -- https://github.com/zbirenbaum/copilot-cmp -- Lua plugin to turn github copilot into a cmp source
 -- https://github.com/p00f/cphelper.nvim -- Neovim helper for competitive programming
@@ -225,17 +226,19 @@
 -- ["HallerPatrick/py_lsp.nvim"] = require "user.plugins.pylsp_nvim", -- Lsp Plugin for working with Python virtual environments
 -- https://github.com/ThePrimeagen/refactoring.nvim --  The Refactoring library based off the Refactoring book by Martin Fowler
 -- https://github.com/filipdutescu/renamer.nvim
+-- https://github.com/OscarCreator/rsync.nvim -- neovim plugin which synchronises project with rsync on save.
 -- https://github.com/xuyuanp/scrollbar.nvim
 -- https://github.com/rmagatti/session-lens
 -- https://github.com/sunjon/Shade.nvim
 -- https://github.com/Wansmer/sibling-swap.nvim --  Neovim plugin for swaps closest siblings with Tree-Sitter
--- https://github.com/michaelb/sniprun
+-- https://github.com/michaelb/sniprun -- A neovim plugin to run lines/blocs of code (independently of the rest of the file), supporting multiples languages
 -- https://github.com/sQVe/sort.nvim
 -- https://github.com/stsewd/sphinx.nvim
 -- https://github.com/nanotee/sqls.nvim -- Neovim plugin for sqls that leverages the built-in LSP client
 -- https://github.com/gbprod/substitute.nvim
 -- use { "ur4ltz/surround.nvim" }
 -- { "ziontee113/syntax-tree-surfer", module = "syntax-tree-surfer" }, -- Surf through & move elements with treesitter
+-- https://github.com/abecodes/tabout.nvim -- tabout plugin for neovim
 -- ["nvim-telescope/telescope-dap.nvim"] = require "user.plugins.telescope-dap", -- Dap-Telescope integration
 -- ["benfowler/telescope-luasnip.nvim"] = require "user.plugins.telescope-luasnip", -- Telescope+LuaSnip integration
 -- use { "nvim-telescope/telescope-media-files.nvim" }
@@ -296,17 +299,18 @@
 -- https://github.com/rhysd/reply.vim -- REPL (last commit in Jan 2020 as of July 2023)
 -- https://github.com/kamykn/spelunker.vim
 -- use { "wellle/targets.vim" }
--- ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks
+-- ["mg979/tasks.vim"] = require "user.plugins.tasks_mg979", -- Async jobs and tasks (last updated Aug 2022 checked on July 2023)
 -- https://github.com/epheien/termdbg -- Terminal debugger for vim
 -- https://github.com/markonm/traces.vim
 -- https://github.com/anufrievroman/vim-angry-reviewer
 -- https://github.com/tpope/vim-apathy
--- ["kenn7/vim-arsync"] = require "user.plugins.vim-arsync", -- Synchronisation of remote & local files using rsync
+-- ["kenn7/vim-arsync"] = require "user.plugins.vim-arsync", -- vim plugin for async synchronisation of remote files and local files using rsync
 -- https://github.com/foosoft/vim-argwrap
 -- use { "wsdjeg/vim-assembly" }
 -- use { "ntpeters/vim-better-whitespace" }
 -- https://github.com/dhruvasagar/vim-buffer-history
 -- https://github.com/JoseConseco/vim-case-change
+-- https://github.com/m-pilia/vim-ccls -- Vim plugin for the ccls language server
 -- ["gauteh/vim-cppman"] = { cmd = { "Cppman" } }, -- cppman ("C++ 98/11/14 manual pages for Linux/MacOS" ) from vim
 -- https://github.com/cdelledonne/vim-cmake -- Vim/Neovim plugin for working with CMake projects
 -- https://github.com/jalvesaq/vimcmdline  -- promises matlab support (REPL?)
