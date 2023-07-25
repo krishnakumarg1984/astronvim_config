@@ -12,7 +12,7 @@ wk.register({
   n = { name = " Annotate" },
   o = { name = " Overseer" },
   q = { name = " Quickfix" },
-  x = { name = "裂Diagnostics" },
+  x = { name = "󰒡 Diagnostics" },
   z = { name = "󰙨Testing" },
 }, { mode = "n", prefix = "<leader>" })
 
