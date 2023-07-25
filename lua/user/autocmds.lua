@@ -57,6 +57,20 @@ aucmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
 
 -- )))
 
+-- Autocommand to stop insert when focus is lost (((
+
+-- https://github.com/airblade/dotvim/blob/master/vimrc
+-- Save all buffers when focus lost, ignoring warnings, and return to normal mode.
+aucmd("FocusLost", {
+  group = augroup("FocusLostStuff", { clear = true }),
+  callback = function(ev)
+    vim.cmd.stopinsert()
+    vim.cmd.wall { mods = { silent = true } }
+  end,
+})
+
+-- )))
+
 -- )))
 
 -- Autogroups & Autocommands (vimscript-based) (((
@@ -119,29 +133,6 @@ vim.cmd [[
     " Helps if you have to use another editor on the same file https://vimhelp.org/vim_faq.txt.html
     autocmd!
     autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-  augroup END
-
-  " )))
-
-  " Autocommand to stop insert when focus is lost (((
-
-  augroup FocusLostAucmd
-    autocmd!
-    " autocmd FocusLost * stopinsert
-    " https://github.com/airblade/dotvim/blob/master/vimrc
-    " Save all buffers when focus lost, ignoring warnings,
-    " and return to normal mode.
-    "
-    " Ideally we'd have:
-    "
-    "   autocmd FocusLost * silent! wa stopinsert
-    "
-    " but stopinsert doesn't seem to work inside a FocusLost autocommand.
-    " So we use a long-winded approach instead.
-    "
-    " https://groups.google.com/g/vim_use/c/K-xK6SKIDrM/m/uBbVEJCVjyQJ
-    autocmd FocusLost * nested silent! wa
-    autocmd FocusLost * if mode()[0] =~ 'i\|R' | call feedkeys("\<Esc>") | endif
   augroup END
 
   " )))
