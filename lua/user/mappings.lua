@@ -57,9 +57,9 @@ vim.cmd [[
 cnoreabbrev <expr> w getcmdtype() == ":" && getcmdline() == 'w' ? 'up' : 'w'
 
 " https://stackoverflow.com/questions/3131393/remapping-help-in-vim-to-open-in-a-new-tab
-cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
-cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == 'help' ? 'tab help' : 'help'
-cnoreabbrev <expr> helpgrep getcmdtype() == ":" && getcmdline() == 'helpgrep' ? 'tab helpgrep' : 'helpgrep'
+" cnoreabbrev <expr> h getcmdtype() == ":" && getcmdline() == 'h' ? 'tab help' : 'h'
+" cnoreabbrev <expr> help getcmdtype() == ":" && getcmdline() == 'help' ? 'tab help' : 'help'
+" cnoreabbrev <expr> helpgrep getcmdtype() == ":" && getcmdline() == 'helpgrep' ? 'tab helpgrep' : 'helpgrep'
 cnoreabbrev <expr> Man getcmdtype() == ":" && getcmdline() == 'Man' ? 'tab Man' : 'Man'
 
 "
@@ -158,17 +158,38 @@ local mappings = {
 
     -- 'mrjones2014/smart-splits.nvim' keymaps for normal mode (((
 
-    ["<A-h>"] = { function() require("smart-splits").resize_left(2) end },
-    ["<A-j>"] = { function() require("smart-splits").resize_down(2) end },
-    ["<A-k>"] = { function() require("smart-splits").resize_up(2) end },
-    ["<A-l>"] = { function() require("smart-splits").resize_right(2) end },
+    ["<A-h>"] = {
+      function()
+        require("smart-splits").resize_left(2)
+      end,
+    },
+    ["<A-j>"] = {
+      function()
+        require("smart-splits").resize_down(2)
+      end,
+    },
+    ["<A-k>"] = {
+      function()
+        require("smart-splits").resize_up(2)
+      end,
+    },
+    ["<A-l>"] = {
+      function()
+        require("smart-splits").resize_right(2)
+      end,
+    },
 
     -- )))
 
     -- 'akinsho/toggleterm.nvim' keymaps for normal mode (((
 
     ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
-    ["<leader>g<s-u>"] = { function() astronvim.toggle_term_cmd "gitui" end, desc = "GitUI" },
+    ["<leader>g<s-u>"] = {
+      function()
+        astronvim.toggle_term_cmd "gitui"
+      end,
+      desc = "GitUI",
+    },
 
     -- )))
 
@@ -177,11 +198,15 @@ local mappings = {
     -- ["<leader>bc"] = { function() astronvim.close_buf(0) end, desc = "Close buffer" },
     -- ["<leader>bC"] = { function() astronvim.close_buf(0, true) end, desc = "Force close buffer" },
     ["[b"] = {
-      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      function()
+        require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1))
+      end,
       desc = "Prev buffer",
     },
     ["]b"] = {
-      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      function()
+        require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1)
+      end,
       desc = "Next buffer",
     },
 

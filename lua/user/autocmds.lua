@@ -2,20 +2,14 @@
 
 -- Autogroups & Autocommands (lua-based) (((
 
--- formatoptions (((
-
----@diagnostic disable: missing-parameter
 -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/lua/settings/autocmds.lua
 local aucmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
--- local auexec = vim.api.nvim_exec_autocmds
--- local exec = vim.api.nvim_command
-local augrp_opts = { clear = true }
 
-augroup("FormatOptions", augrp_opts)
+-- formatoptions (((
 
 aucmd("FileType", {
-  group = "FormatOptions",
+  group = augroup("FormatOptions", { clear = true }),
   callback = function()
     vim.opt.formatoptions = vim.opt.formatoptions
       - "a" -- Dont format pasted code
@@ -36,33 +30,36 @@ aucmd("FileType", {
 
 -- highlightyank (((
 
-vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight yanked text",
-  group = vim.api.nvim_create_augroup("highlightyank", { clear = true }),
+aucmd("TextYankPost", {
+  group = augroup("highlightyank", { clear = true }),
   pattern = "*",
-  callback = function() vim.highlight.on_yank { higroup = "Search", timeout = 650 } end,
+  callback = function()
+    vim.highlight.on_yank { higroup = "Search", timeout = 650 }
+  end,
+  desc = "Highlight yanked text",
 })
 
 -- )))
 
--- Autogroup for Alpha bindings (((
+-- file changed alert (((
 
--- augroup("alpha_bindings", augrp_opts)
--- aucmd("FileType", {
---   desc = "Set alpha bindings",
---   group = "alpha_bindings",
---   pattern = "alpha",
---   callback = function()
---     vim.keymap.set("n", "q", "<cmd>new<cr>", { buffer = 0 })
---     vim.keymap.set("n", "<esc>", "<cmd>new<cr>", { buffer = 0 })
---   end,
--- })
+-- https://vimhelp.org/vim_faq.txt.html
+-- https://neovim.discourse.group/t/a-lua-based-auto-refresh-buffers-when-they-change-on-disk-function/2482
+-- https://unix.stackexchange.com/a/383044
+-- https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+-- https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+aucmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  group = augroup("AutoreadExternalChanges", { clear = true }),
+  pattern = "*",
+  command = "if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif",
+  desc = "Trigger autoread when file changes on disk",
+})
 
 -- )))
 
 -- )))
 
--- Autocommands (vimscript-based) (((
+-- Autogroups & Autocommands (vimscript-based) (((
 
 vim.cmd [[
 
@@ -70,8 +67,6 @@ vim.cmd [[
 
   augroup _general_settings
     autocmd!
-
-    " ft help autocommands (((
 
     autocmd FileType qf,help,man,lspinfo,dap-float,neotest-summary nnoremap <silent> <buffer> q <cmd>close!<CR>
 
@@ -87,16 +82,9 @@ vim.cmd [[
     autocmd FileType help setlocal number relativenumber
     autocmd FileType gitcommit,help,NeogitCommit,NeogitCommitMessage setlocal nolist
 
-    " )))
-
-    " autocmd BufWinEnter *.txt if &ft == 'help' | wincmd L | endif
-    " autocmd BufWinEnter *.txt set iskeyword+=- iskeyword+=: iskeyword+=.
-
-    " autocmd BufWinEnter * set formatoptions-=cro
-
     " https://stackoverflow.com/questions/4687009/opening-help-in-a-full-window
-    " autocmd FileType help :tabnew % | tabprevious | quit | tabnext
-    autocmd FileType help set buflisted
+    autocmd FileType help :tabnew % | tabprevious | quit | tabnext
+    autocmd FileType help set buflisted number relativenumber
 
     autocmd FileType qf set nobuflisted
 
@@ -109,85 +97,54 @@ vim.cmd [[
 
   " )))
 
+  " Resize splits in Vim automatically across tabs (((
+
+  " https://stackoverflow.com/a/70284879
+  function! ResizeWindows()
+      let savetab = tabpagenr()
+      tabdo wincmd =
+      execute 'tabnext' savetab
+  endfunction
   augroup _auto_resize
     autocmd!
-    autocmd VimResized * tabdo wincmd =
+    autocmd VimResized * call ResizeWindows()
   augroup end
-
-  " Autocommand for file changed alert (((
-
-  augroup FileChangedAlert
-    " Helps if you have to use another editor on the same file https://vimhelp.org/vim_faq.txt.html
-    autocmd!
-    autocmd FileChangedShell *
-    \ echohl WarningMsg |
-    \ echo "File has been changed outside of vim." |
-    \ echohl None
-  augroup END
 
   " )))
 
-  " " Autocommand for disabling undofile in /tmp on non-windows systems (((
-  "
-  " if !has('win32') || !has('win64')
-  "   augroup disableTempUndo
-  "   autocmd!
-  "   autocmd BufWritePre /tmp/* setlocal noundofile
-  "   augroup END
-  " endif
-  "
-  " " )))
+  " Autocommand for file changed alert (((
 
-  " " Autocommand for remembering cursor position (((
-  "
-  " " :help restore-cursor
-  " augroup vimrc-remember-cursor-position
-  "   autocmd!
-  "   autocmd BufRead * autocmd FileType <buffer> ++once
-  "   \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
-  " augroup END
-  "
-  " " )))
+  " https://neovim.discourse.group/t/a-lua-based-auto-refresh-buffers-when-they-change-on-disk-function/2482/5
+  augroup FileChangedAlert
+    " Helps if you have to use another editor on the same file https://vimhelp.org/vim_faq.txt.html
+    autocmd!
+    autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+  augroup END
+
+  " )))
 
   " Autocommand to stop insert when focus is lost (((
 
   augroup FocusLostAucmd
     autocmd!
-    autocmd FocusLost * stopinsert
+    " autocmd FocusLost * stopinsert
+    " https://github.com/airblade/dotvim/blob/master/vimrc
+    " Save all buffers when focus lost, ignoring warnings,
+    " and return to normal mode.
+    "
+    " Ideally we'd have:
+    "
+    "   autocmd FocusLost * silent! wa stopinsert
+    "
+    " but stopinsert doesn't seem to work inside a FocusLost autocommand.
+    " So we use a long-winded approach instead.
+    "
+    " https://groups.google.com/g/vim_use/c/K-xK6SKIDrM/m/uBbVEJCVjyQJ
+    autocmd FocusLost * nested silent! wa
+    autocmd FocusLost * if mode()[0] =~ 'i\|R' | call feedkeys("\<Esc>") | endif
   augroup END
 
   " )))
-
-  " " Autocommands for LaTeX filetype (((
-  "
-  " augroup LaTeXSettings
-  "   autocmd!
-  "   autocmd FileType tex setlocal foldcolumn=auto:7
-  "   " autocmd InsertCharPre *.tex set conceallevel=0
-  "   " autocmd InsertLeave *.tex set conceallevel=2
-  " augroup END
-  "
-  " )))
-
-  " augroup FtLuaSettings
-  "   autocmd!
-  "   autocmd FileType lua setlocal foldcolumn=auto:7
-  " augroup END
-
-
-
-    " Autocommand for opening the quickfix window (((
-
-    augroup my_quickfix
-    autocmd!
-    " autocmd QuickFixCmdPost cexpr cwindow
-    " autocmd QuickFixCmdPost [^l]* nested copen
-    " autocmd QuickFixCmdPost l* nested lopen
-    " https://gist.github.com/romainl/56f0c28ef953ffc157f36cc495947ab3
-    autocmd QuickFixCmdPost cgetexpr cwindow
-    augroup END
-
-    " )))
 
   ]]
 
