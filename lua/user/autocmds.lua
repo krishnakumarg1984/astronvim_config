@@ -43,6 +43,17 @@ aucmd("TextYankPost", {
 
 -- file changed alert (((
 
+aucmd({ "FileChangedShellPost" }, {
+  group = augroup("FileChangedAlert", { clear = true }),
+  pattern = "*",
+  command = "echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None",
+  desc = "Warn user about file changed on disk outside of neovim",
+})
+
+-- " )))
+
+-- autoread external changes (((
+
 -- https://vimhelp.org/vim_faq.txt.html
 -- https://neovim.discourse.group/t/a-lua-based-auto-refresh-buffers-when-they-change-on-disk-function/2482
 -- https://unix.stackexchange.com/a/383044
@@ -57,7 +68,7 @@ aucmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
 
 -- )))
 
--- Autocommand to stop insert when focus is lost (((
+-- stop insert when focus is lost (((
 
 -- https://github.com/airblade/dotvim/blob/master/vimrc
 -- Save all buffers when focus lost, ignoring warnings, and return to normal mode.
@@ -82,30 +93,30 @@ vim.cmd [[
   augroup _general_settings
     autocmd!
 
-    autocmd FileType qf,help,man,lspinfo,dap-float,neotest-summary nnoremap <silent> <buffer> q <cmd>close!<CR>
+    " autocmd FileType qf,help,man,lspinfo,dap-float,neotest-summary nnoremap <silent> <buffer> q <cmd>close!<CR>
 
     " Press Enter to follow a help tag
-    autocmd FileType help nnoremap <buffer><CR> <c-]>
+    " autocmd FileType help nnoremap <buffer><CR> <c-]>
 
     " Press Backspace to go back to the location of the previous tag
-    autocmd FileType help nnoremap <buffer><BS> <c-T>
+    " autocmd FileType help nnoremap <buffer><BS> <c-T>
 
     " https://stackoverflow.com/questions/1832085/how-to-jump-to-the-next-tag-in-vim-help-file
     autocmd FileType help nnoremap <buffer> <leader>Tn /\|.\zs\S\{-}\|/<cr>zz
 
-    autocmd FileType help setlocal number relativenumber
-    autocmd FileType gitcommit,help,NeogitCommit,NeogitCommitMessage setlocal nolist
+    " autocmd FileType help setlocal number relativenumber
+    " autocmd FileType gitcommit,help,NeogitCommit,NeogitCommitMessage setlocal nolist
 
     " https://stackoverflow.com/questions/4687009/opening-help-in-a-full-window
     autocmd FileType help :tabnew % | tabprevious | quit | tabnext
     autocmd FileType help set buflisted number relativenumber
 
-    autocmd FileType qf set nobuflisted
+    " autocmd FileType qf set nobuflisted
 
-    autocmd FileType asciidoc,changelog,context,gitcommit,NeogitCommit,NeogitCommitMessage,lsp_markdown,mail,markdown,rst,rtf,texinfo,text,txt setlocal spell
-    autocmd FileType gitcommit,NeogitCommit,NeogitCommitMessage setlocal wrap textwidth=80
+    " autocmd FileType asciidoc,changelog,context,gitcommit,NeogitCommit,NeogitCommitMessage,lsp_markdown,mail,markdown,rst,rtf,texinfo,text,txt setlocal spell
+    " autocmd FileType gitcommit,NeogitCommit,NeogitCommitMessage setlocal wrap textwidth=80
 
-    autocmd Filetype man setlocal nowrap
+    " autocmd Filetype man setlocal nowrap
 
   augroup end
 
@@ -123,17 +134,6 @@ vim.cmd [[
     autocmd!
     autocmd VimResized * call ResizeWindows()
   augroup end
-
-  " )))
-
-  " Autocommand for file changed alert (((
-
-  " https://neovim.discourse.group/t/a-lua-based-auto-refresh-buffers-when-they-change-on-disk-function/2482/5
-  augroup FileChangedAlert
-    " Helps if you have to use another editor on the same file https://vimhelp.org/vim_faq.txt.html
-    autocmd!
-    autocmd FileChangedShellPost * echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-  augroup END
 
   " )))
 
