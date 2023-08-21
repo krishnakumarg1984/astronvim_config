@@ -2,7 +2,6 @@
 -- defaults.g.loaded_netrwPlugin = nil
 
 return {
-
   opt = {
     backupdir = vim.opt.backupdir - { "." },
     backupext = "nvimbackup",
@@ -71,6 +70,7 @@ return {
     -- showtabline = 0, -- don't show tabline
     sidescrolloff = 8, -- The minimal number of screen columns to keep to the left and to the right of the cursor
     signcolumn = "yes:1",
+    splitkeep = "screen",
     softtabstop = 2, -- how many spaces to insert with tab key
     spelloptions = vim.opt.spelloptions + { "camel" },
     suffixes = { -- (((
@@ -313,6 +313,7 @@ return {
     did_install_default_menus = 1,
     did_install_syntax_menu = 1,
     did_load_ftplugin = 1,
+    -- inlay_hints_enabled = true,
     loaded_matchparen = 1,
     loaded_node_provider = 0, -- To disable node support
     loaded_perl_provider = 0, -- To disable perl support

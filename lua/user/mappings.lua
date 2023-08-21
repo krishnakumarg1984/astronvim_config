@@ -17,29 +17,6 @@ wk.register({
   z = { name = "󰙨Testing" },
 }, { mode = "n", prefix = "<leader>" })
 
--- add more text objects for "in" and "around" (((
-
--- https://code.mehalter.com/projects/68/files/master/mappings.lua
-local map = vim.keymap.set
-for _, char in ipairs { "_", ".", ":", ",", ";", "|", "/", "\\", "*", "+", "%", "`", "?" } do
-  for _, mode in ipairs { "x", "o" } do
-    map(
-      mode,
-      "i" .. char,
-      (":<C-u>silent! normal! f%sF%slvt%s<CR>"):format(char, char, char),
-      { desc = "between " .. char }
-    )
-    map(
-      mode,
-      "a" .. char,
-      (":<C-u>silent! normal! f%sF%svf%s<CR>"):format(char, char, char),
-      { desc = "around " .. char }
-    )
-  end
-end
-
--- )))
-
 -- for MULTIPLE vim-modes, disable some unnecessary/confusing neovim-default mappings (((
 
 vim.keymap.set({ "n", "i" }, "<f1>", "<Nop>")

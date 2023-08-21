@@ -22,17 +22,14 @@
 -- ["Canop/nvim-bacon"] = { ft = "rust" }, -- bacon's companion for neovim
 -- ["mfussenegger/nvim-dap"] = require "user.plugins.nvim_dap", -- Debug Adapter Protocol client implementation
 -- ["rcarriga/nvim-dap-ui"] = require "user.plugins.nvim_dapui", -- A UI for nvim-dap
--- ["theHamsta/nvim-dap-virtual-text"] = require "user.plugins.nvim_dap_virtual_text", -- slow!
 -- ["https://gitlab.com/yorickpeterse/nvim-dd"] = require "user.plugins.nvim_dd", -- Deferring of NeoVim diagnostics
 -- ["kevinhwang91/nvim-hlslens"] = require "user.plugins.nvim_hlslens", -- A hlsearch Lens for Neovim
 -- ["sitiom/nvim-numbertoggle"] = require "user.plugins.nvim_numbertoggle", -- Auto-toggle b/w rel & abs line nos
 -- { "eddiebergman/nvim-treesitter-pyfold", after = { "nvim-treesitter" }, ft = "python" }, -- Sane Python folding
 -- ["nvim-treesitter/nvim-treesitter-refactor"] = { after = "nvim-treesitter" }, -- Treesitter refactor module
--- ["nvim-treesitter/nvim-treesitter-textobjects"] = { after = "nvim-treesitter" },
 -- ["s1n7ax/nvim-window-picker"] = {}, -- Prompts to pick a window & returns its window id
 -- ["jbyuki/one-small-step-for-vimkind"] = {}, -- Debug adapter for Neovim plugins
 -- ["Weissle/persistent-breakpoints.nvim"] = require "user.plugins.persistent-breakpoints",
--- ["ahmedkhalf/project.nvim"] = require "user.plugins.project", -- The superior project management solution for nvim
 -- ["SantinoKeupp/telescope-cmake4vim.nvim"] = require "user.plugins.telescope_cmakeforvim",
 -- ["nvim-telescope/telescope-symbols.nvim"] = require "user.plugins.telescope_symbols",
 

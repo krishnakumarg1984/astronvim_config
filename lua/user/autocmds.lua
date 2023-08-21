@@ -82,6 +82,34 @@ aucmd("FocusLost", {
 
 -- )))
 
+-- enable wrap and spell for text like documents (((
+vim.api.nvim_create_autocmd("FileType", {
+  desc = "Enable wrap and spell for text like documents",
+  group = vim.api.nvim_create_augroup("auto_spell", { clear = true }),
+  pattern = {
+    "asciidoc",
+    "changelog",
+    "context",
+    "gitcommit",
+    "NeogitCommit",
+    "NeogitCommitMessage",
+    "lsp_markdown",
+    "mail",
+    "markdown",
+    "rst",
+    "rtf",
+    "texinfo",
+    "text",
+    "txt",
+    "plaintex",
+  },
+  callback = function()
+    vim.opt_local.wrap = true
+    vim.opt_local.spell = true
+  end,
+})
+-- )))
+
 -- )))
 
 -- Autogroups & Autocommands (vimscript-based) (((
@@ -113,7 +141,7 @@ vim.cmd [[
 
     " autocmd FileType qf set nobuflisted
 
-    " autocmd FileType asciidoc,changelog,context,gitcommit,NeogitCommit,NeogitCommitMessage,lsp_markdown,mail,markdown,rst,rtf,texinfo,text,txt setlocal spell
+    " autocmd FileType  setlocal spell
     " autocmd FileType gitcommit,NeogitCommit,NeogitCommitMessage setlocal wrap textwidth=80
 
     " autocmd Filetype man setlocal nowrap

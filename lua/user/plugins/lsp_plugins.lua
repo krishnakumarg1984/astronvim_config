@@ -6,7 +6,10 @@ return {
     end,
     ft = { "c", "cpp", "cuda", "objc", "objcpp", "proto" },
     opts = function()
-      return { server = require("astronvim.utils.lsp").config "clangd" }
+      return {
+        server = require("astronvim.utils.lsp").config "clangd",
+        -- extensions = { autoSetHints = false },
+      }
     end,
   },
   {
@@ -81,27 +84,6 @@ return {
       }
     end,
   },
-  -- {
-  --   "neovim/nvim-lspconfig", --  Quickstart configs for Nvim LSP
-  --   dependencies = {
-  --     {
-  --       "folke/neoconf.nvim", -- Neovim plugin to manage global and project-local settings
-  --       cmd = "Neoconf",
-  --       config = true,
-  --     },
-  --     -- {
-  --     --   "kosayoda/nvim-lightbulb", -- VSCode bulb for neovim's built-in LSP.
-  --     --   -- event = { "CursorHold", "CursorHoldI" },
-  --     --   config = function()
-  --     --     require("nvim-lightbulb").setup {
-  --     --       sign = { enabled = false },
-  --     --       virtual_text = { enabled = true },
-  --     --       autocmd = { enabled = true },
-  --     --     }
-  --     --   end,
-  --     -- },
-  --   },
-  -- },
   {
     "jose-elias-alvarez/null-ls.nvim", --  Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua.
     opts = {
