@@ -165,6 +165,7 @@ return {
   },
   {
     "jay-babu/mason-nvim-dap.nvim",
+    enabled = vim.fn.has "win32" == 0,
     opts = { ensure_installed = daps_to_install },
   },
 }
