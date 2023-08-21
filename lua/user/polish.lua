@@ -142,6 +142,7 @@ return function()
   vim.filetype.add {
     extension = {
       cl = "opencl",
+      dvc = "yaml",
       frag = "glsl",
       fs = "glsl",
       geom = "glsl",
@@ -161,6 +162,8 @@ return function()
       ["/etc/environment"] = "confini",
       ["/etc/mkinitcpio.conf"] = "confini",
       ["devcontainer.json"] = "jsonc",
+      ["dvc.lock"] = "yaml",
+      ["Dvcfile"] = "yaml",
       ["launch.json"] = "jsonc",
       ["spack.lock"] = "json",
       ["tasks.json"] = "jsonc",
