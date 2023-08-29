@@ -10,7 +10,12 @@ return {
       "jay-babu/project.nvim",
       name = "project_nvim",
       event = "VeryLazy",
-      opts = { ignore_lsp = { "lua_ls", "julials" } },
+      opts = {
+        ignore_lsp = { "lua_ls", "julials" },
+        detection_methods = { "pattern", "lsp" },
+        patterns = { ".root", ".git", "_darcs", ".hg", ".bzr", ".svn", "Makefile", "package.json", "pyproject.toml" },
+        exclude_dirs = { "~/.vscode/*" },
+      },
     },
   },
   opts = function(_, opts)

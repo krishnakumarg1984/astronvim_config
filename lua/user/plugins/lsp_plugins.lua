@@ -1,17 +1,30 @@
 return {
   {
     "p00f/clangd_extensions.nvim", --  Clangd's off-spec features for neovim's LSP client. Use https://sr.ht/~p00f/clangd_extensions.nvim instead
-    init = function()
-      table.insert(astronvim.lsp.skip_setup, "clangd")
-    end,
+    -- init = function()
+    --   table.insert(astronvim.lsp.skip_setup, "clangd")
+    -- end,
     ft = { "c", "cpp", "cuda", "objc", "objcpp", "proto" },
     opts = function()
       return {
         server = require("astronvim.utils.lsp").config "clangd",
-        -- extensions = { autoSetHints = false },
+        -- extensions = { autoSetHints = true },
       }
     end,
   },
+  -- {
+  --   "p00f/clangd_extensions.nvim", --  Clangd's off-spec features for neovim's LSP client. Use https://sr.ht/~p00f/clangd_extensions.nvim instead
+  --   init = function()
+  --     table.insert(astronvim.lsp.skip_setup, "clangd")
+  --   end,
+  --   ft = { "c", "cpp", "cuda", "objc", "objcpp", "proto" },
+  --   opts = function()
+  --     return {
+  --       server = require("astronvim.utils.lsp").config "clangd",
+  --       -- extensions = { autoSetHints = false },
+  --     }
+  --   end,
+  -- },
   {
     "onsails/lspkind.nvim", --  vscode-like pictograms for neovim lsp completion items
     opts = {

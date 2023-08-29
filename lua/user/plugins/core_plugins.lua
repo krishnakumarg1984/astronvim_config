@@ -246,6 +246,7 @@ return {
           compare.exact,
           compare.score,
           compare.recently_used,
+          require "clangd_extensions.cmp_scores",
           function(entry1, entry2)
             local _, entry1_under = entry1.completion_item.label:find "^_+"
             local _, entry2_under = entry2.completion_item.label:find "^_+"
