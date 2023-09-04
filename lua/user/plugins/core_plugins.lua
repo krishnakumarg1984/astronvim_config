@@ -22,6 +22,7 @@ return {
       close_automatic_events = { "switch_buffer", "unsupported" },
     },
   },
+  { "windwp/nvim-autopairs", opts = { disable_filetype = { "TelescopePrompt", "spectre_panel", "dap-repl" } } },
   {
     "lewis6991/gitsigns.nvim",
     opts = {
@@ -84,6 +85,7 @@ return {
         "c",
         "cpp",
         "dashboard",
+        "dap-repl",
         "help",
         "lazy",
         "neo-tree",
