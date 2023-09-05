@@ -379,6 +379,49 @@ return {
     },
   },
   {
+    "rcarriga/nvim-dap-ui",
+    opts = {
+      layouts = {
+        {
+          elements = {
+            {
+              id = "scopes",
+              size = 0.46,
+            },
+            {
+              id = "stacks",
+              size = 0.46,
+            },
+            {
+              id = "breakpoints",
+              size = 0.08,
+            },
+            -- {
+            --   id = "watches",
+            --   size = 0.25,
+            -- },
+          },
+          position = "left",
+          size = 34,
+        },
+        {
+          elements = {
+            {
+              id = "repl",
+              size = 0.75,
+            },
+            {
+              id = "console",
+              size = 0.25,
+            },
+          },
+          position = "bottom",
+          size = 5,
+        },
+      },
+    },
+  },
+  {
     "rcarriga/nvim-notify",
     opts = {
       -- stages = "fade_in_slide_out",
@@ -593,39 +636,3 @@ return {
     },
   },
 }
-
--- "AstroNvim/astrotheme"
--- "JoosepAlviste/nvim-ts-context-commentstring"
--- "L3MON4D3/LuaSnip"
--- "MunifTanjim/nui.nvim"
--- "NMAC427/guess-indent.nvim"
--- "NvChad/nvim-colorizer.lua"
--- "Shatur/neovim-session-manager"
--- "b0o/SchemaStore.nvim"
--- "famiu/bufdelete.nvim"
--- "hrsh7th/cmp-buffer"
--- "hrsh7th/cmp-nvim-lsp"
--- "hrsh7th/cmp-path"
--- "jay-babu/mason-null-ls.nvim"
--- "jay-babu/mason-nvim-dap.nvim"
--- "jose-elias-alvarez/null-ls.nvim"
--- "kevinhwang91/nvim-ufo"
--- "kevinhwang91/promise-async"
--- "mfussenegger/nvim-dap"
--- "numToStr/Comment.nvim"
--- "nvim-lua/plenary.nvim"
--- "nvim-telescope/telescope-fzf-native.nvim"
--- "nvim-telescope/telescope.nvim"
--- "nvim-telescope/telescope.nvim"
--- "nvim-tree/nvim-web-devicons"
--- "rafamadriz/friendly-snippets"
--- "rcarriga/nvim-dap-ui"
--- "rebelot/heirline.nvim"
--- "s1n7ax/nvim-window-picker"
--- "saadparwaiz1/cmp_luasnip"
--- "stevearc/dressing.nvim"
--- "williamboman/mason-lspconfig.nvim"
--- "williamboman/mason.nvim"
--- "windwp/nvim-ts-autotag"
--- "folke/lazy.nvim"
--- "neovim/nvim-lspconfig"
