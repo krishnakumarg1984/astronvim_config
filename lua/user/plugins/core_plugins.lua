@@ -158,6 +158,7 @@ return {
         Array = "󰅪",
         Boolean = "",
         Class = "󰠱",
+        Codeium = "",
         Color = "",
         Constant = "󰐀",
         Constructor = "",
@@ -210,6 +211,9 @@ return {
     },
     -- override the options table that is used in the `require("cmp").setup()` call
     opts = function(_, opts)
+      -- enabled = function()
+      --   return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+      -- end
       -- opts parameter is the default options table
       -- the function is lazy loaded so cmp is able to be required
       local cmp = require "cmp"
@@ -225,7 +229,8 @@ return {
 
       -- modify the sources part of the options table
       opts.sources = cmp.config.sources {
-        { name = "nvim_lsp", priority = 1000 },
+        { name = "dap", priority = 1000 },
+        { name = "nvim_lsp", priority = 950 },
         { name = "path", priority = 900 },
         { name = "pandoc_references", priority = 800 },
         { name = "latex_symbols", priority = 700 },
@@ -314,6 +319,7 @@ return {
             vim_item.menu = ({
               buffer = "[Buf]",
               calc = "[Calc]",
+              dap = "[Dap]",
               dictionary = "[Dictionary]",
               nvim_lsp_signature_help = "[Function Signature]",
               signature_help = "[Function Signature]",
