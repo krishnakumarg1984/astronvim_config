@@ -136,9 +136,9 @@ end
 
 -- if vim.fn.executable "dotnet" == 1 then utils.list_insert_unique(my_ensure_installed, "omnisharp") end
 -- if vim.fn.executable "r" then utils.list_insert_unique(my_ensure_installed, "r_language_server") end
--- if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
---   utils.list_insert_unique(lsps_to_install, "asm_lsp")
--- end
+if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
+  utils.list_insert_unique(lsps_to_install, "asm_lsp")
+end
 
 -- (((
 return {
