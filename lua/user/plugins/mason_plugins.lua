@@ -112,6 +112,7 @@ if vim.fn.executable "python3" == 1 then
       "vint",
       "vulture",
       "yamllint",
+      "yamlfix",
     })
     if vim.fn.executable "cmake" == 1 then
       utils.list_insert_unique(linters_formatters_to_install, { "cmake_format", "cmakelint", "gersemi" })
