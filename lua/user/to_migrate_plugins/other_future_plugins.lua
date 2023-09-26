@@ -216,7 +216,6 @@
 -- https://github.com/AckslD/nvim-trevJ.lua
 -- https://github.com/yioneko/nvim-yati -- Yet another tree-sitter powered indent plugin
 -- https://gitlab.com/yorickpeterse/nvim-window
--- https://github.com/pwntester/octo.nvim
 -- https://github.com/rktjmp/paperplanes.nvim
 -- https://github.com/koenverburg/peepsight.nvim -- Focus on one function at a time
 -- https://github.com/rlane/pounce.nvim
@@ -367,6 +366,15 @@
 -- https://github.com/ahmedkhalf/jupyter-nvim
 -- https://github.com/jupyterlab-contrib/jupyterlab-vim (browser-based)
 -- https://github.com/ianhi/jupyterlab-vimrc (browser-based)
+
+-- )))
+
+-- github interaction plugins (((
+
+-- https://github.com/pwntester/octo.nvim -- Edit and review GitHub issues and pull requests from the comfort of your favorite editor
+-- https://github.com/ldelossa/gh.nvim -- A fully featured GitHub integration for performing code reviews in Neovim.
+-- https://github.com/topaxi/gh-actions.nvim -- See status of workflows and dispatch runs directly in neovim
+-- https://github.com/skanehira/denops-gh.vim (vimscript) -- Vim/Neovim plugin for GitHub
 
 -- )))
 

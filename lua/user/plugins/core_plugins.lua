@@ -556,12 +556,12 @@ return {
           clear_on_cursor_move = true, -- Set to false if you have an `updatetime` of ~100.
         },
         -- highlight_current_scope = { enable = true },
-        -- smart_rename = {
-        --   enable = true,
-        --   keymaps = {
-        --     smart_rename = "grr", -- in the absence of LSP , can use treesitter for smart renaming
-        --   },
-        -- },
+        smart_rename = {
+          enable = true,
+          keymaps = {
+            smart_rename = "gnr", -- in the absence of LSP , can use treesitter for smart renaming
+          },
+        },
         navigation = {
           enable = true,
           keymaps = {
