@@ -159,6 +159,7 @@ return function()
     },
     filename = {
       [".dace.conf"] = "yaml",
+      [".envrc"] = "sh",
       ["/etc/environment"] = "confini",
       ["/etc/mkinitcpio.conf"] = "confini",
       ["devcontainer.json"] = "jsonc",

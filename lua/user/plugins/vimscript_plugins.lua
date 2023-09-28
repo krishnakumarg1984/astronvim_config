@@ -25,9 +25,18 @@ return {
     cmd = { "SudaRead", "SudaWrite" },
   },
   {
+    "KenN7/vim-arsync", -- vim plugin for async synchronisation of remote files and local files using rsync
+    lazy = false,
+    dependencies = {
+      { "prabirshrestha/async.vim" },
+    },
+  },
+  {
     "sunaku/vim-dasht", --  (Neo)Vim plugin for dasht integration
     cmd = { "Dasht" },
-    config = function() vim.cmd [[let g:dasht_results_window = 'tabnew']] end,
+    config = function()
+      vim.cmd [[let g:dasht_results_window = 'tabnew']]
+    end,
   },
   {
     "romainl/vim-qf", -- Tame the quickfix window.

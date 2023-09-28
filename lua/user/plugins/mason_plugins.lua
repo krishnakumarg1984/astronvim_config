@@ -96,6 +96,7 @@ if vim.fn.executable "python3" == 1 then
     utils.list_insert_unique(lsps_to_install, { "pyre" })
     utils.list_insert_unique(linters_formatters_to_install, {
       "autoflake",
+      "beautysh",
       "black",
       "clang_format",
       "codespell",
