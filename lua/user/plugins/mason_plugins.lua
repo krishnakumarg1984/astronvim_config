@@ -86,13 +86,14 @@ if vim.fn.executable "python3" == 1 then
   -- if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
   --   utils.list_insert_unique(lsps_to_install, "pylyzer")
   -- end
-  if vim.fn.executable "npm" == 1 then
-    utils.list_insert_unique(lsps_to_install, "pyright")
-  end
+  -- if vim.fn.executable "npm" == 1 then
+  --   utils.list_insert_unique(lsps_to_install, "pyright")
+  -- end
 
   if vim.fn.executable "pip3" == 1 or vim.fn.executable "conda" == 1 or vim.fn.executable "mamba" == 1 then
     utils.list_insert_unique(daps_to_install, "debugpy")
-    utils.list_insert_unique(lsps_to_install, { "pyre" })
+    -- utils.list_insert_unique(lsps_to_install, { "pyre" })
+    utils.list_insert_unique(lsps_to_install, { "pylsp" })
     utils.list_insert_unique(linters_formatters_to_install, {
       "autoflake",
       "beautysh",
