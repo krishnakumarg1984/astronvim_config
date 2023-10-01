@@ -1,7 +1,7 @@
 return {
   "astroNvim/astrocommunity",
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" }, -- A Neovim plugin hiding your colorcolumn when unneeded. problematic with a fresh install of astronvim
-  { import = "astrocommunity.color.headlines-nvim" }, -- This plugin adds horizontal highlights for text filetypes, like markdown, orgmode, and neorg. Problematic with a fresh install of astronvim
+  -- { import = "astrocommunity.color.headlines-nvim" }, -- This plugin adds horizontal highlights for text filetypes, like markdown, orgmode, and neorg. Problematic with a fresh install of astronvim
   -- { import = "astrocommunity.colorscheme.github-nvim-theme" }, -- Github's Neovim themes
   { import = "astrocommunity.completion.codeium-vim" }, -- Free, ultra fast Copilot alternative for Vim and Neovim. Problematic with a fresh install of astronvim
   -- { import = "astrocommunity.debugging.nvim-bqf" }, -- Better quickfix window in Neovim, polish old quickfix window.

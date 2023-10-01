@@ -157,7 +157,6 @@
 -- https://github.com/p00f/godbolt.nvim
 -- https://github.com/brymer-meneses/grammar-guard.nvim
 -- https://github.com/NMAC427/guess-indent.nvim
--- https://github.com/lukas-reineke/headlines.nvim
 -- https://github.com/Pocco81/HighStr.nvim
 -- https://github.com/m-demare/hlargs.nvim
 -- https://github.com/lewis6991/hover.nvim   -- Hover plugin framework for Neovim

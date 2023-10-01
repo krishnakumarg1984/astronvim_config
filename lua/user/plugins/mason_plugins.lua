@@ -7,7 +7,6 @@ local utils = require "astronvim.utils"
 local lsps_to_install = {
   "clangd",
   "lua_ls",
-  "taplo",
   -- "denols",
   -- "lemminx", -- XML Language Server written in 'java' (can be installed without dependency troubles)
   -- "ltex",  -- can be installed without dependency troubles
@@ -141,7 +140,7 @@ end
 -- if vim.fn.executable "dotnet" == 1 then utils.list_insert_unique(my_ensure_installed, "omnisharp") end
 -- if vim.fn.executable "r" then utils.list_insert_unique(my_ensure_installed, "r_language_server") end
 if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
-  utils.list_insert_unique(lsps_to_install, "asm_lsp")
+  utils.list_insert_unique(lsps_to_install, { "asm_lsp", "taplo" })
 end
 
 -- (((
