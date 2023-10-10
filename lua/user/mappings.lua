@@ -161,7 +161,8 @@ local mappings = {
 
     -- 'akinsho/toggleterm.nvim' keymaps for normal mode (((
 
-    ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+    ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal (float)" },
+    ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=7<cr>", desc = "Toggle terminal (horizontal)" },
     ["<leader>g<s-u>"] = {
       function()
         astronvim.toggle_term_cmd "gitui"
@@ -233,6 +234,7 @@ local mappings = {
     -- ["<esc><esc>"] = { "<c-\\><c-n>:q<cr>", desc = "Terminal quit" },
     ["<F7>"] = false,
     ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+    ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=7<cr>", desc = "Toggle terminal (horizontal)" },
     ["<C-h>"] = false,
     ["<C-j>"] = false,
     ["<C-k>"] = false,
