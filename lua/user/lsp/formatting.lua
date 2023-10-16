@@ -23,6 +23,7 @@ return {
     "neocmakelsp",
     "neocmake",
     "pylsp",
+    "python_lsp_server",
     -- "lua_ls", -- disable lua_ls formatting capability if you want to use stylua to format your lua code
     "taplo",
   },
