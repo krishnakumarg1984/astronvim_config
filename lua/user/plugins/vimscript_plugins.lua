@@ -31,13 +31,13 @@ return {
       { "prabirshrestha/async.vim" },
     },
   },
-  {
-    "sunaku/vim-dasht", --  (Neo)Vim plugin for dasht integration
-    cmd = { "Dasht" },
-    config = function()
-      vim.cmd [[let g:dasht_results_window = 'tabnew']]
-    end,
-  },
+  -- {
+  --   "sunaku/vim-dasht", --  (Neo)Vim plugin for dasht integration
+  --   cmd = { "Dasht" },
+  --   config = function()
+  --     vim.cmd [[let g:dasht_results_window = 'tabnew']]
+  --   end,
+  -- },
   {
     "romainl/vim-qf", -- Tame the quickfix window.
     ft = { "qf" },
