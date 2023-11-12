@@ -51,4 +51,8 @@ return {
       ensure_installed = { "bash", "c", "cpp", "cmake-3.26", "python-3.11" }, -- get automatically installed
     },
   },
+  {
+    "sitiom/nvim-numbertoggle", -- Neovim plugin to automatically toggle between relative and absolute line numbers. Written in Lua.
+    event = "User AstroFile",
+  },
 }

@@ -1,6 +1,6 @@
 return {
   {
-    "linty-org/readline.nvim", -- Readline motions and deletions in Neovim
+    "krishnakumarg1984/readline.nvim", -- Readline motions and deletions in Neovim
     event = { "InsertCharPre", "CmdlineEnter" },
     config = function()
       local readline = require "readline"

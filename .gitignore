@@ -78,4 +78,5 @@ tags
 # Persistent undo
 [._]*.un~
 
+!interesting_plugins_configs.txt
 # End of https://www.toptal.com/developers/gitignore/api/vim
