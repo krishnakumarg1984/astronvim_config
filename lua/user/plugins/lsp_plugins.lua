@@ -26,24 +26,6 @@ return {
   --   end,
   -- },
   {
-    "onsails/lspkind.nvim", --  vscode-like pictograms for neovim lsp completion items
-    opts = {
-      -- set some missing symbol types
-      symbol_map = {
-        Array = "",
-        Boolean = "",
-        Key = "",
-        Namespace = "",
-        Null = "",
-        Number = "",
-        Object = "",
-        Package = "",
-        Snippet = "",
-        String = "",
-      },
-    },
-  },
-  {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim", -- renders diagnostics using virtual lines on top of the real line of code
     keys = { { "<leader>ln", "<leader>ln", desc = "Toggle inline diag" } },
     config = function()

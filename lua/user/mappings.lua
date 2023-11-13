@@ -13,8 +13,9 @@ wk.register({
   n = { name = " Annotate" },
   o = { name = " Overseer" },
   q = { name = " Quickfix" },
-  x = { name = "󰒡 Diagnostics" },
-  z = { name = "󰙨Testing" },
+  v = { name = " LaTeX" },
+  x = { name = "󰲉 Diagnostics" },
+  z = { name = " Testing" },
 }, { mode = "n", prefix = "<leader>" })
 
 -- for MULTIPLE vim-modes, disable some unnecessary/confusing neovim-default mappings (((
