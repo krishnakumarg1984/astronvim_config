@@ -57,7 +57,7 @@ xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 
 -- the mappings lua table being returned (((
 
-local utils = require "user.utils"
+-- local utils = require "user.utils"
 -- local astro_utils = require "astronvim.utils"
 
 local mappings = {
