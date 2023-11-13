@@ -119,8 +119,8 @@ local mappings = {
     -- ["<S-j>"] = { "mzJ`zmz" },
     ["<S-j>"] = { "mzJ`z" },
     ["<Space>"] = { "za" },
-    ["n"] = { utils.better_search "n", desc = "Next search" }, -- better search
-    ["N"] = { utils.better_search "N", desc = "Previous search" }, -- better search
+    -- ["n"] = { utils.better_search "n", desc = "Next search" }, -- better search
+    -- ["N"] = { utils.better_search "N", desc = "Previous search" }, -- better search
     -- ["n"] = { "nzzzv" },
     -- ["N"] = { "Nzzzv" },
 
