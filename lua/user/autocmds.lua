@@ -115,7 +115,7 @@ aucmd("FileType", {
 })
 -- )))
 
--- Auto create dir when saving a file where some intermediate directory does not exist (((
+-- auto create dir when saving a file where some intermediate directory does not exist (((
 
 -- https://dev.to/voyeg3r/my-lazy-neovim-config-3h6o
 aucmd("BufWritePre", {
@@ -153,6 +153,19 @@ aucmd("InsertEnter", {
   end,
   desc = "Do not show extra spaces during typing",
 })
+-- )))
+
+-- navigate to next help tag (((
+
+-- https://www.reddit.com/r/neovim/comments/17tpv5r/comment/k971s7r/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+aucmd("FileType", {
+  group = augroup("helpft", opts),
+  pattern = { "help", "vimdoc" },
+  callback = function()
+    vim.keymap.set("n", "<leader>Tn", [[/|.\zs\S\{-}|/<cr>zz]], { buffer = true, noremap = true })
+  end,
+  desc = "Next help tag",
+})
 
 -- )))
 
@@ -168,7 +181,7 @@ vim.cmd [[
     autocmd!
 
     " https://stackoverflow.com/questions/1832085/how-to-jump-to-the-next-tag-in-vim-help-file
-    autocmd FileType help nnoremap <buffer> <leader>Tn /\|.\zs\S\{-}\|/<cr>zz
+    " autocmd FileType help nnoremap <buffer> <leader>Tn /\|.\zs\S\{-}\|/<cr>zz
 
     " https://stackoverflow.com/questions/4687009/opening-help-in-a-full-window
     autocmd FileType help :tabnew % | tabprevious | quit | tabnext

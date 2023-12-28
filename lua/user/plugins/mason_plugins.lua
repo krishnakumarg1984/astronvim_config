@@ -34,7 +34,6 @@ local linters_formatters_to_install = {
   -- "cppcheck",
   -- "editorconfig-checker",
   -- "pylama",
-  -- "pyproject_flake8",
   -- "vacuum",
 }
 
@@ -107,9 +106,9 @@ if vim.fn.executable "python3" == 1 then
       "proselint",
       "pydocstyle",
       "pylama",
+      -- "pyproject_flake8",
       -- "pylint",
       "reorder_python_imports",
-      "ruff",
       "semgrep",
       "usort",
       "vint",
@@ -117,6 +116,9 @@ if vim.fn.executable "python3" == 1 then
       "yamllint",
       "yamlfix",
     })
+    if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" == 1 then
+      utils.list_insert_unique(linters_formatters_to_install, { "ruff" })
+    end
     if vim.fn.executable "cmake" == 1 then
       utils.list_insert_unique(linters_formatters_to_install, { "cmake_format", "cmakelint", "gersemi" })
       if vim.fn.has "macunix" and vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
@@ -136,6 +138,9 @@ end
 if vim.fn.executable "bash" == 1 or vim.fn.executable "sh" == 1 then
   utils.list_insert_unique(linters_formatters_to_install, { "shellcheck", "shfmt" })
   utils.list_insert_unique(daps_to_install, { "bash" })
+  if vim.fn.executable "python3" == 1 and vim.fn.executable "pip3" == 1 then
+    utils.list_insert_unique(linters_formatters_to_install, { "beautysh" })
+  end
 end
 
 -- if vim.fn.executable "dotnet" == 1 then utils.list_insert_unique(my_ensure_installed, "omnisharp") end

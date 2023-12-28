@@ -387,20 +387,20 @@ return {
           elements = {
             {
               id = "scopes",
-              size = 0.46,
+              size = 0.30,
             },
             {
               id = "stacks",
-              size = 0.46,
+              size = 0.40,
             },
             {
               id = "breakpoints",
-              size = 0.08,
+              size = 0.10,
             },
-            -- {
-            --   id = "watches",
-            --   size = 0.25,
-            -- },
+            {
+              id = "watches",
+              size = 0.20,
+            },
           },
           position = "left",
           size = 34,

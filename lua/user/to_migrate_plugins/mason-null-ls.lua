@@ -1,6 +1,5 @@
 return {
   ensure_installed = {
-    "beautysh",
     -- "cbfmt",
     "cspell",
     -- "fixjson",
