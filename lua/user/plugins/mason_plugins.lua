@@ -117,7 +117,7 @@ if vim.fn.executable "python3" == 1 then
       "yamlfix",
     })
     if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" == 1 then
-      utils.list_insert_unique(linters_formatters_to_install, { "ruff" })
+      utils.list_insert_unique(linters_formatters_to_install, { "ruff", "shellharden" })
     end
     if vim.fn.executable "cmake" == 1 then
       utils.list_insert_unique(linters_formatters_to_install, { "cmake_format", "cmakelint", "gersemi" })
