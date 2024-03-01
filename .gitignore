@@ -79,4 +79,6 @@ tags
 [._]*.un~
 
 !interesting_plugins_configs.txt
+!recently_removed_plugins.txt
 # End of https://www.toptal.com/developers/gitignore/api/vim
+lazy-lock.json
