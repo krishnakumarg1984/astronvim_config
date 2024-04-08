@@ -31,7 +31,6 @@ local linters_formatters_to_install = {
   "yamlfmt",
   -- "astyle",
   -- "cbfmt",
-  -- "cppcheck",
   -- "editorconfig-checker",
   -- "vacuum",
 }
@@ -56,7 +55,7 @@ if vim.fn.executable "go" == 1 then
   -- astrocore.list_insert_unique(linters_formatters_to_install, "misspell")
   -- astrocore.list_insert_unique(lsps_to_install, "sqls")
   astrocore.list_insert_unique(lsps_to_install, { "bufls" })
-  astrocore.list_insert_unique(linters_formatters_to_install, { "buf", "protolint" })
+  astrocore.list_insert_unique(linters_formatters_to_install, { "buf", "checkmake", "protolint" })
 end
 
 -- )))
@@ -65,6 +64,14 @@ end
 
 if vim.fn.executable "npm" == 1 then
   astrocore.list_insert_unique(lsps_to_install, { "jsonls", "spectral", "vimls", "yamlls" })
+  astrocore.list_insert_unique(
+    linters_formatters_to_install,
+    { "alex", "commitlint", "cspell", "fixjson", "jsonlint", "markdownlint", "remark-cli", "textlint", "write-good" }
+  )
+  -- astrocore.list_insert_unique(lsps_to_install, {"cssls"})
+  -- astrocore.list_insert_unique(lsps_to_install, {"html"})
+  -- astrocore.list_insert_unique(lsps_to_install, {"intelephense"})
+  -- astrocore.list_insert_unique(lsps_to_install, {"tsserver"})
 
   -- npm + docker tools (((
   if vim.fn.executable "docker" == 1 then
@@ -73,15 +80,6 @@ if vim.fn.executable "npm" == 1 then
   -- )))
 
   if vim.fn.executable "perl" == 1 then astrocore.list_insert_unique(lsps_to_install, { "perlnavigator" }) end
-
-  astrocore.list_insert_unique(
-    linters_formatters_to_install,
-    { "commitlint", "cspell", "fixjson", "jsonlint", "markdownlint", "textlint", "write-good" }
-  )
-  -- astrocore.list_insert_unique(lsps_to_install, {"cssls"})
-  -- astrocore.list_insert_unique(lsps_to_install, {"html"})
-  -- astrocore.list_insert_unique(lsps_to_install, {"intelephense"})
-  -- astrocore.list_insert_unique(lsps_to_install, {"tsserver"})
 end
 
 -- )))
@@ -99,25 +97,25 @@ if vim.fn.executable "python3" == 1 then
     astrocore.list_insert_unique(lsps_to_install, { "pylsp" })
     astrocore.list_insert_unique(linters_formatters_to_install, {
       "autoflake",
-      "black",
       "clang_format",
       "codespell",
       "cpplint",
       "flake8",
       "gitlint",
-      -- "mypy",
+      "mdformat",
       "proselint",
       "pydocstyle",
       "pylama",
-      -- "pyproject_flake8",
-      -- "pylint",
       "reorder_python_imports",
       "semgrep",
       "usort",
       "vint",
       "vulture",
-      "yamllint",
       "yamlfix",
+      "yamllint",
+      -- "mypy",
+      -- "pylint",
+      -- "pyproject_flake8",
     })
 
     --- python + rust/cargo tools (((

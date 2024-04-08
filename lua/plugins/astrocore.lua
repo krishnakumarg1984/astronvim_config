@@ -53,7 +53,7 @@ return { -- (((
         backupext = "nvimbackup",
         breakindentopt = { "shift:2", "sbr", "list:-1" }, -- https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
         clipboard = "",
-        cmdheight = 1, -- until the cmdheight=0 bugs are squashed
+        cmdheight = 0, -- until the cmdheight=0 bugs are squashed
         complete = vim.opt.complete + { "i" },
         cpoptions = vim.opt.cpoptions - { "a" }, -- Stop the :read command from annoyingly setting the alternative buffer
         cursorlineopt = "number",
@@ -373,7 +373,7 @@ return { -- (((
         matchup_matchparen_offscreen = { method = "popup" },
         matchup_override_vimtex = 1,
         matchup_surround_enabled = true,
-        netrw_nogx = 1,
+        -- netrw_nogx = 1,
         tex_comment_nospell = 1, -- spell checking be disabled in comments in LaTeX files
         tex_conceal = "abdmgs", --  a = accents/ligatures b = bold and italic d = delimiters m = math symbols g = Greek s = superscripts/subscripts
         tex_flavor = "latex", -- vimtex already sets this up
@@ -390,10 +390,10 @@ return { -- (((
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = { -- (((
       -- first key is the mode
-      c = { -- (((
-        ["<C-n>"] = { "<Down>" },
-        ["<C-p>"] = { "<Up>" },
-      }, -- )))
+      -- c = { -- (((
+      --   ["<C-n>"] = { "<Down>" },
+      --   ["<C-p>"] = { "<Up>" },
+      -- }, -- )))
       i = { -- (((
         ["<c-c>"] = { "<ESC>" }, -- ctrl-c does not trigger InsertLeave event autocmd. Map to <ESC>
       }, -- )))
@@ -445,6 +445,17 @@ return { -- (((
         -- ["n"] = { utils.better_search "n", desc = "Next search" }, -- better search
         -- )))
         -- bundled AstroNvim plugin keymaps for normal mode (((
+        -- 'stevearc/aerial.nvim' mappings for normal mode (((
+
+        ["<Leader>a"] = { desc = " Symbol tree" },
+        ["<Leader>aa"] = { "<cmd>AerialToggle!<cr>", desc = "Toggle outline" },
+        ["<Leader>aA"] = { "<cmd>AerialToggle<cr>", desc = "Toggle outline (focus)" },
+        ["<Leader>ac"] = { "<cmd>AerialClose<cr> | let g:aerial_open_automatic = 0<cr>", desc = "Close outline" },
+        ["<Leader>an"] = { "<cmd>AerialNext<cr>", desc = "Next symbol" },
+        ["<Leader>ao"] = { "<cmd>AerialOpen!<cr> | let g:aerial_open_automatic = 1<cr>", desc = "Open outline" },
+        ["<Leader>ap"] = { "<cmd>AerialPrev<cr>", desc = "Prev symbol" },
+
+        -- )))
         -- 'nvim-neo-tree/neo-tree.nvim' keymaps for normal mode (((
 
         ["<Leader>ee"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "Toggle explorer" },
@@ -466,15 +477,29 @@ return { -- (((
         ["<Leader>g<s-u>"] = { function() astro.toggle_term_cmd "gitui" end, desc = "GitUI" },
 
         -- )))
-        -- 'stevearc/aerial.nvim' mappings for normal mode (((
+        -- 'nvim-telescope/telescope.nvim' keymaps for normal mode (((
 
-        ["<Leader>a"] = { desc = " Symbol tree" },
-        ["<Leader>aa"] = { "<cmd>AerialToggle!<cr>", desc = "Toggle outline" },
-        ["<Leader>aA"] = { "<cmd>AerialToggle<cr>", desc = "Toggle outline (focus)" },
-        ["<Leader>ac"] = { "<cmd>AerialClose<cr> | let g:aerial_open_automatic = 0<cr>", desc = "Close outline" },
-        ["<Leader>an"] = { "<cmd>AerialNext<cr>", desc = "Next symbol" },
-        ["<Leader>ao"] = { "<cmd>AerialOpen!<cr> | let g:aerial_open_automatic = 1<cr>", desc = "Open outline" },
-        ["<Leader>ap"] = { "<cmd>AerialPrev<cr>", desc = "Prev symbol" },
+        -- ["<leader>lI"] = { "<cmd>Telescope implementations<CR>", desc = "Implementations" },
+        ["<leader>f:"] = { "<cmd>Telescope command_history<CR>", desc = "Command history" },
+        ["<Leader>fA"] = { "<cmd>Telescope autocommands<CR>", desc = "Find autocommands" },
+        ["<Leader>fg"] = { "<cmd>Telescope git_files<CR>", desc = "Find git files" },
+        ["<leader>fH"] = { "<cmd>Telescope search_history<CR>", desc = "Search history" },
+        ["<Leader>fj"] = { "<cmd>Telescope jumplist<CR>", desc = "Find in jumplist" },
+        ["<Leader>fl"] = { "<cmd>Telescope loclist<CR>", desc = "Find in loclist" },
+        ["<Leader>fM"] = { "<cmd>Telescope marks<CR>", desc = "Find marks" },
+        ["<Leader>fq"] = { "<cmd>Telescope quickfix<CR>", desc = "Find in quickfixlist" },
+        ["<Leader>fQ"] = { "<cmd>Telescope quickfixhistory<CR>", desc = "Quickfix history" },
+        ["<Leader>fs"] = { "<cmd>Telescope spell_suggest<CR>", desc = "Spell suggestions" },
+        ["<Leader>fS"] = { "<cmd>Telescope treesitter<CR>", desc = "Treesitter nodes" },
+        ["<Leader>fv"] = { "<cmd>Telescope vim_options<CR>", desc = "Find vim options" },
+        ["<Leader>fy"] = { "<cmd>Telescope filetypes<CR>", desc = "Find filetypes" },
+        ["<Leader>gS"] = { "<cmd>Telescope git_stash<CR>", desc = "Stash" },
+        ["<Leader>lC"] = { "<cmd>Telescope lsp_incoming_calls<CR>", desc = "Callers list" },
+        ["<Leader>lc"] = { "<cmd>Telescope lsp_outgoing_calls<CR>", desc = "Callees list" },
+        ["<Leader>lm"] = { "<cmd>Telescope lsp_implementations<CR>", desc = "Implementations" },
+        ["<leader>lt"] = { "<cmd>Telescope lsp_type_definitions<CR>", desc = "Type definitions" },
+        ["<leader>lw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", desc = "Workspace symbols" },
+        ["<leader>ly"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Dynamic workspace symbols" },
 
         -- )))
         -- )))
@@ -709,5 +734,35 @@ return { -- (((
 -- vim.keymap.set("n", "K", show_documentation, { noremap = true, silent = true })
 
 -- )))
+
+-- )))
+
+-- telescope config to use (((
+-- -- https://gitlab.com/HiPhish/nvim-config/-/blob/master/plugin/telescope.lua
+-- defaults = {
+--   -- winblend = 30,
+--   -- border = true,
+--   file_ignore_patterns = {
+--     "%.zip$",
+--     "%.tar$",
+--     "%.tar.gz$",
+--     "%.so$",
+--     "%.a$",
+--     "%.fasl$",
+--     "%.pyc$",
+--     "%.whl$",
+--     "%.bin$",
+--     "%.db$",
+--     "node_modules",
+--   },
+-- },
+-- pickers = {
+--   -- find_files = {
+--   --   hidden = true,
+--   -- },
+--   diagnostics = { theme = "dropdown" },
+--   -- diagnostics = { layout = { "vertical" } },
+--   git_status = { theme = "ivy" },
+-- },
 
 -- )))
