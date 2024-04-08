@@ -390,6 +390,13 @@ return { -- (((
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
     mappings = { -- (((
       -- first key is the mode
+      c = { -- (((
+        ["<C-n>"] = { "<Down>" },
+        ["<C-p>"] = { "<Up>" },
+      }, -- )))
+      i = { -- (((
+        ["<c-c>"] = { "<ESC>" }, -- ctrl-c does not trigger InsertLeave event autocmd. Map to <ESC>
+      }, -- )))
       n = { -- (((
         -- second key is the lefthand side of the map
 
@@ -406,10 +413,11 @@ return { -- (((
         -- tables with just a `desc` key will be registered with which-key if it's installed. this is useful for naming menus
         -- disable certain remaps provided in base AstroNvim (((
         ["<C-q>"] = false,
-        ["<C-s>"] = false,
-        ["<F7>"] = false, -- was mapped to toggle floating terminal, which is now set to <M-t>
-        ["<Leader>/"] = false, -- was also mapped in visual mode
+        ["<Leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
         ["<Leader>e"] = { false, desc = " Explorer" },
+        ["<leader>gh"] = false, -- originally reset_hunk
+        ["<leader>gs"] = false, -- originally stage_hunk
+        ["<Leader>lS"] = false,
         ["<Leader>n"] = false,
         ["<Leader>o"] = false,
         ["<Leader>q"] = false,
@@ -418,11 +426,6 @@ return { -- (((
         ["|"] = false,
         -- ["{"] = false,
         -- ["}"] = false,
-        -- )))
-        -- change/modify some remaps provided in base AstroNvim (((
-        ["<Leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
-        ["<Leader>lS"] = false,
-        -- ["<Leader><cr>"] = { '<esc>/<++><cr>"_c4l', desc = "Next Template" },
         -- )))
         -- normal mode keymaps for built-in neovim functionality/features (((
         ["'"] = { "`" },
@@ -448,7 +451,6 @@ return { -- (((
         ["<Leader>eo"] = { "<cmd>Neotree action=show focus<CR>", desc = "Focus explorer" },
 
         -- )))
-
         -- 'mrjones2014/smart-splits.nvim' keymaps for normal mode (((
 
         ["<A-h>"] = { function() require("smart-splits").resize_left(2) end },
@@ -461,10 +463,9 @@ return { -- (((
 
         ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal (float)" },
         ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=7<cr>", desc = "Toggle terminal (horizontal)" },
-        -- ["<Leader>g<s-u>"] = { function() astro.toggle_term_cmd "gitui" end, desc = "GitUI" },
+        ["<Leader>g<s-u>"] = { function() astro.toggle_term_cmd "gitui" end, desc = "GitUI" },
 
         -- )))
-
         -- 'stevearc/aerial.nvim' mappings for normal mode (((
 
         ["<Leader>a"] = { desc = " Symbol tree" },
@@ -476,20 +477,37 @@ return { -- (((
         ["<Leader>ap"] = { "<cmd>AerialPrev<cr>", desc = "Prev symbol" },
 
         -- )))
-
         -- )))
       }, -- )))
-      -- t = { -- (((
-      --   -- setting a mapping to false will disable it
-      --   -- ["<esc>"] = false,
-      -- }, -- )))
-      -- c = { -- (((
-      --   ["<C-n>"] = { "<Down>" },
-      --   ["<C-p>"] = { "<Up>" },
-      -- }, -- )))
-      -- i = { -- (((
-      --   ["<c-c>"] = { "<ESC>" }, -- ctrl-c does not trigger InsertLeave event autocmd. Map to <ESC>
-      -- }, -- )))
+      o = { -- (((
+        -- line text-objects
+        ["il"] = { ":normal vil<cr>", desc = "Inside line text object" },
+        ["al"] = { ":normal val<cr>", desc = "Around line text object" },
+      }, -- )))
+      t = { -- (((
+        -- setting a mapping to false will disable it
+        -- ["<esc>"] = false,
+        -- ["<esc><esc>"] = { "<c-\\><c-n>:q<cr>", desc = "Terminal quit" },
+        ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=7<cr>", desc = "Toggle terminal (horizontal)" },
+        ["<C-BS>"] = { "<c-\\><c-n>", desc = "Terminal normal mode" },
+        ["<C-h>"] = false,
+        ["<C-j>"] = false,
+        ["<C-k>"] = false,
+        ["<C-l>"] = false,
+        ["<esc>"] = { "<C-\\><C-n>", silent = true },
+        ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+      }, -- )))
+      v = { -- (((
+        -- ["*"] = { "y/\\V<C-R>=escape(@\",'/')<CR><CR>" },
+        -- ["cg*"] = { "\"ay/\\V<C-R>=escape(@a,'/')<CR><CR>N\"_cgn" },
+        -- https://www.reddit.com/r/neovim/comments/ttwzge/magic_replace_selected_text_mapping_with_repeat/
+        ["y"] = { "myy`ymy" },
+        ["Y"] = { "myY`ymy" },
+      }, -- )))
+      x = { -- (((
+        ["<"] = { "<gv" }, -- Stay in indent mode in visual-block mode
+        [">"] = { ">gv" }, -- Stay in indent mode in visual-block mode
+      }, -- )))
     }, -- )))
     -- easily configure auto commands
     autocmds = { -- (((
@@ -634,3 +652,62 @@ return { -- (((
     }, -- )))
   }, -- )))
 } -- )))
+
+-- C = { name = "󱣘 Crates" },
+-- L = { name = " LC" },
+-- n = { name = " Annotate" },
+-- o = { name = " Overseer" },
+-- q = { name = " Quickfix" },
+-- v = { name = " LaTeX" },
+-- x = { name = "󰲉 Diagnostics" },
+-- z = { name = " Testing" },
+-- Commented-out mappings (((
+
+-- Commented-out vimscript mappings (((
+--
+-- " nnoremaps
+--
+-- " https://www.reddit.com/r/vim/comments/oyqkkd/comment/h7x83ce/?utm_source=share&utm_medium=web2x&context=3
+-- " Basically, it makes '0' act like '^' on first press, and then like '0' on " second press.
+-- " So if I press 0, I go back to indentation. If I press 0 " again, I go to the first column of the line.
+-- " And if I continue pressing " zero, it switches between the first column and the first character.
+-- " nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+--
+-- " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
+-- " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
+-- " nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
+--
+-- " nmap cg* *Ncgn
+--
+-- "
+--
+-- " Substitute word under cursor and dot repeat
+--
+-- " https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
+-- " nnoremap <silent> \\C :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+-- " nnoremap <leader><leader>c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+-- " xnoremap <silent> \\C "sy:let @/=@s<CR>cgn
+--
+--
+-- )))
+
+-- Commented-out lua mappings (((
+
+-- local function show_documentation()
+--   local filetype = vim.bo.filetype
+--   if vim.tbl_contains({ "vim", "help" }, filetype) then
+--     vim.cmd("h " .. vim.fn.expand "<cword>")
+--   elseif vim.tbl_contains({ "man" }, filetype) then
+--     vim.cmd("Man " .. vim.fn.expand "<cword>")
+--   elseif vim.fn.expand "%:t" == "Cargo.toml" and require("crates").popup_available() then
+--     require("crates").show_popup()
+--   else
+--     vim.lsp.buf.hover()
+--   end
+-- end
+--
+-- vim.keymap.set("n", "K", show_documentation, { noremap = true, silent = true })
+
+-- )))
+
+-- )))

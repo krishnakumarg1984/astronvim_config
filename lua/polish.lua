@@ -1,4 +1,4 @@
--- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:foldlevel=0:shiftwidth=2:softtabstop=2:tabstop=2
+-- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:shiftwidth=2:softtabstop=2:tabstop=2
 -- Last full review on: Nov 12, 2023
 
 -- if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
@@ -9,6 +9,9 @@
 -- Mappings for MULTIPLE vim-modes. Disable some unnecessary/confusing neovim-default mappings (((
 
 vim.keymap.set({ "n", "i" }, "<f1>", "<Nop>")
+vim.keymap.set({ "n", "i", "x" }, "<C-s>", "<Nop>")
+vim.keymap.set({ "n", "i" }, "<F7>", "<Nop>")
+vim.keymap.set({ "n", "v" }, "<Leader>/", "<Nop>")
 -- vim.keymap.set({ "n", "x" }, "s", "<Nop>") -- Disable 's' as recommended by sandwich.vim help file
 vim.keymap.set({ "n", "x" }, "&", ":&&<CR>") -- Remap normal/visual '&' to preserve substitution flags
 
