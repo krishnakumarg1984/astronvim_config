@@ -1,4 +1,9 @@
-vim.cmd [[
+if vim.fn.executable "blacktex" == 1 then
+  vim.keymap.set("n", "<leader>vB", "my<cmd>%! blacktex %<CR>`y", { desc = "Blacktex (strip comments)" })
+  vim.keymap.set("n", "<leader>vb", "mz<cmd>%! blacktex --keep-comments %<CR>`z", { desc = "Blacktex (keep comments)" })
+end
+
+endvim.cmd [[
 
   command! -buffer -bang Lachecklint compiler lacheck | lmake<bang>
   command! -buffer -bang Chktexlint compiler chktex | lmake<bang>

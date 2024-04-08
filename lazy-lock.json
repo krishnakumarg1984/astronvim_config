@@ -3,6 +3,7 @@
   "Comment.nvim": { "branch": "master", "commit": "0236521ea582747b58869cb72f70ccfa967d2e89" },
   "LuaSnip": { "branch": "master", "commit": "8ae1dedd988eb56441b7858bd1e8554dfadaa46d" },
   "aerial.nvim": { "branch": "master", "commit": "3748e87a316a68754341cdffcef44fee61dee51c" },
+  "astrocommunity": { "branch": "main", "commit": "1622ae552c54461af4dd86e791a5310f955311ef" },
   "astrocore": { "branch": "main", "commit": "aba541d3605a45f77adbf76ecc37a78d91fde101" },
   "astrolsp": { "branch": "main", "commit": "21629f447c574965399329a8dd925d9eeac82752" },
   "astrotheme": { "branch": "main", "commit": "e056b8216214f7140eda3e0adcfc27efba705231" },

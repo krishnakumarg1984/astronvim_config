@@ -17,11 +17,6 @@ vim.keymap.set({ "n", "x" }, "&", ":&&<CR>") -- Remap normal/visual '&' to prese
 
 -- )))
 
-if vim.fn.executable "blacktex" == 1 then
-  vim.keymap.set("n", "<leader>vB", "my<cmd>%! blacktex %<CR>`y", { desc = "Blacktex (strip comments)" })
-  vim.keymap.set("n", "<leader>vb", "mz<cmd>%! blacktex --keep-comments %<CR>`z", { desc = "Blacktex (keep comments)" })
-end
-
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "black", bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
 
 -- Vimscript-based mappings, user-commands and autocommands (((

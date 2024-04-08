@@ -87,9 +87,10 @@ end
 -- python-based tools (((
 
 if vim.fn.executable "python3" == 1 then
-  -- if vim.fn.executable "npm" == 1 then
-  --   astrocore.list_insert_unique(lsps_to_install, "pyright")
-  -- end
+  if vim.fn.executable "npm" == 0 then
+    --   astrocore.list_insert_unique(lsps_to_install, "pyright")
+    astrocore.list_insert_unique(linters_formatters_to_install, { "basedpyright" })
+  end
 
   if vim.fn.executable "pip3" == 1 or vim.fn.executable "conda" == 1 or vim.fn.executable "mamba" == 1 then
     astrocore.list_insert_unique(daps_to_install, { "debugpy" })
