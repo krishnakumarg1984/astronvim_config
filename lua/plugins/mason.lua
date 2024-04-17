@@ -1,13 +1,15 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:
 
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 -- Customize Mason plugins
 local astrocore = require "astrocore"
 
 -- lsps_to_install (((
 
 local lsps_to_install = {
-  "clangd",
   "lua_ls",
+  -- "clangd", -- installed as an Astrocommunity language pack
   -- "denols",
   -- "lemminx", -- XML Language Server written in 'java' (can be installed without dependency troubles)
   -- "ltex",  -- can be installed without dependency troubles
@@ -25,13 +27,13 @@ local lsps_to_install = {
 local linters_formatters_to_install = {
   "actionlint",
   "hadolint", -- written in haskell
-  "selene",
   "stylua",
   "vale",
   "yamlfmt",
   -- "astyle",
   -- "cbfmt",
   -- "editorconfig-checker",
+  -- "selene", -- added by Astrocommunity lua pack
   -- "vacuum",
 }
 
@@ -79,6 +81,7 @@ if vim.fn.executable "npm" == 1 then
   end
   -- )))
 
+  if vim.fn.executable "bash" == 1 then astrocore.list_insert_unique(lsps_to_install, { "bashls" }) end
   if vim.fn.executable "perl" == 1 then astrocore.list_insert_unique(lsps_to_install, { "perlnavigator" }) end
 end
 
@@ -152,7 +155,6 @@ end
 
 -- bash-based tools (((
 if vim.fn.executable "bash" == 1 or vim.fn.executable "sh" == 1 then
-  astrocore.list_insert_unique(lsps_to_install, { "bashls" })
   astrocore.list_insert_unique(linters_formatters_to_install, { "shellcheck", "shfmt" })
   astrocore.list_insert_unique(daps_to_install, { "bash" })
 

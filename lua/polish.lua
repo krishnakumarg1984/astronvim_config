@@ -96,7 +96,6 @@ xnoremap <expr>  {   '{' . virtcol('.') . "\|"
   set title
   set titleold="Terminal"
 
-  " https://github.com/factorylabs/vimfiles/blob/ad1f9ffcd8c1e620a75a28822aaefc2097640b0d/home/.vimrc#L309
   " Set the title bar to something meaningful
 
   " set titlestring+=\ -\ %{substitute(getcwd(),\ $HOME,\ '~',\ '')} " working directory

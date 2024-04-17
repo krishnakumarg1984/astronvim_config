@@ -1,5 +1,6 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 -- vim: ft=lua:foldmarker=(((,))):shiftwidth=2:softtabstop=2:tabstop=2
+
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
@@ -55,7 +56,7 @@ local opts = { -- (((
       backupext = "nvimbackup",
       breakindentopt = { "shift:2", "sbr", "list:-1" }, -- https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
       clipboard = "",
-      cmdheight = 0, -- until the cmdheight=0 bugs are squashed
+      cmdheight = 1, -- until the cmdheight=0 bugs are squashed
       complete = vim.opt.complete + { "i" },
       conceallevel = 1,
       cpoptions = vim.opt.cpoptions - { "a" }, -- Stop the :read command from annoyingly setting the alternative buffer
@@ -421,11 +422,12 @@ local opts = { -- (((
       ["<leader>gs"] = false, -- originally stage_hunk
       ["<Leader>lS"] = false,
       ["<Leader>n"] = false,
-      ["<Leader>o"] = false,
+      ["<Leader>o"] = { false, desc = "" },
       ["<Leader>q"] = false,
       ["<Leader>w"] = false,
       ["\\"] = false,
       ["|"] = false,
+      -- ["<Leader>o"] = false,
       -- ["{"] = false,
       -- ["}"] = false,
       -- )))
