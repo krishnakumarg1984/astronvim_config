@@ -65,7 +65,7 @@ end
 -- npm-based tools (((
 
 if vim.fn.executable "npm" == 1 then
-  astrocore.list_insert_unique(lsps_to_install, { "jsonls", "spectral", "vimls", "yamlls" })
+  astrocore.list_insert_unique(lsps_to_install, { "jsonls", "vimls", "yamlls" })
   astrocore.list_insert_unique(
     linters_formatters_to_install,
     { "alex", "commitlint", "cspell", "fixjson", "jsonlint", "markdownlint", "remark-cli", "textlint", "write-good" }
