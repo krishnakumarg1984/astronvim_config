@@ -451,13 +451,12 @@ local opts = { -- (((
       -- bundled AstroNvim plugin keymaps for normal mode (((
       -- 'stevearc/aerial.nvim' mappings for normal mode (((
 
-      ["<Leader>a"] = { desc = " Symbol tree" },
-      ["<Leader>aa"] = { "<cmd>AerialToggle!<cr>", desc = "Toggle outline" },
-      ["<Leader>aA"] = { "<cmd>AerialToggle<cr>", desc = "Toggle outline (focus)" },
-      ["<Leader>ac"] = { "<cmd>AerialClose<cr> | let g:aerial_open_automatic = 0<cr>", desc = "Close outline" },
-      ["<Leader>an"] = { "<cmd>AerialNext<cr>", desc = "Next symbol" },
-      ["<Leader>ao"] = { "<cmd>AerialOpen!<cr> | let g:aerial_open_automatic = 1<cr>", desc = "Open outline" },
-      ["<Leader>ap"] = { "<cmd>AerialPrev<cr>", desc = "Prev symbol" },
+      ["<Leader>A"] = { desc = " Symbol tree" },
+      ["<Leader>AA"] = { "<cmd>AerialToggle<cr>", desc = "Toggle outline (focus)" },
+      ["<Leader>Ac"] = { "<cmd>AerialClose<cr> | let g:aerial_open_automatic = 0<cr>", desc = "Close outline" },
+      ["<Leader>An"] = { "<cmd>AerialNext<cr>", desc = "Next symbol" },
+      ["<Leader>Ao"] = { "<cmd>AerialOpen!<cr> | let g:aerial_open_automatic = 1<cr>", desc = "Open outline" },
+      ["<Leader>Ap"] = { "<cmd>AerialPrev<cr>", desc = "Prev symbol" },
 
       -- )))
       -- 'nvim-neo-tree/neo-tree.nvim' keymaps for normal mode (((
@@ -507,7 +506,7 @@ local opts = { -- (((
 
       -- )))
       -- )))
-    }, -- )))
+    },
     o = { -- (((
       -- line text-objects
       ["il"] = { ":normal vil<cr>", desc = "Inside line text object" },

@@ -15,7 +15,6 @@ return {
 
   { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
   { import = "astrocommunity.code-runner.compiler-nvim" },
-  { import = "astrocommunity.color.headlines-nvim" },
   { import = "astrocommunity.color.twilight-nvim" },
   { import = "astrocommunity.completion.codeium-vim" }, -- Free, ultra fast Copilot alternative for Vim and Neovim. Problematic with a fresh install of astronvim
   { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
@@ -47,7 +46,7 @@ return {
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
   { import = "astrocommunity.lsp.lsplinks-nvim" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
-  { import = "astrocommunity.markdown-and-latex.glow-nvim" },
+  { import = "astrocommunity.markdown-and-latex.glow-nvim" }, -- A markdown preview directly in your neovim.
   { import = "astrocommunity.markdown-and-latex.peek-nvim" },
   { import = "astrocommunity.markdown-and-latex.vimtex" },
   { import = "astrocommunity.motion.mini-surround" },
@@ -62,8 +61,6 @@ return {
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
   { import = "astrocommunity.terminal-integration.nvim-unception" },
   { import = "astrocommunity.test.neotest" },
-  { import = "astrocommunity.test.nvim-coverage" },
-  { import = "astrocommunity.utility.neodim" },
   { import = "astrocommunity.workflow.hardtime-nvim" },
 
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" }, -- A Neovim plugin hiding your colorcolumn when unneeded. problematic with a fresh install of astronvim
@@ -79,9 +76,13 @@ return {
   -- { import = "astrocommunity.git.openingh-nvim" },
   -- { import = "astrocommunity.indent.mini-indentscope" },
   -- { import = "astrocommunity.lsp.delimited-nvim" },
-  -- { import = "astrocommunity.lsp.inc-rename-nvim" }, -- requires noice.nvim
+  -- { import = "astrocommunity.lsp.inc-rename-nvim" }, -- Incremental LSP renaming based on Neovim's command-preview feature. Requires noice.nvim
+  -- { import = "astrocommunity.pack.julia" },
+  -- { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.recipes.heirline-vscode-winbar" },
   -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
   -- { import = "astrocommunity.search.nvim-hlslens" },
-  -- { import = "astrocommunity.utility.noice-nvim" },
+  -- { import = "astrocommunity.test.nvim-coverage" }, --  Displays test coverage data in the sign column
+  -- { import = "astrocommunity.utility.neodim" }, -- Neovim plugin for dimming the highlights of unused functions, variables, parameters, and more
+  -- { import = "astrocommunity.utility.noice-nvim" }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
 }
