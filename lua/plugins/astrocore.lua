@@ -45,7 +45,7 @@ local opts = { -- (((
   diagnostics = { -- (((
     underline = false,
     update_in_insert = false,
-    virtual_lines = true,
+    virtual_lines = false,
     virtual_text = false,
   }, -- )))
   -- mappings, autocmds, extra filetypes, vim options and global variables can be configured here

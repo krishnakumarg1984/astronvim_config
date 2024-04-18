@@ -28,7 +28,6 @@ return {
   { import = "astrocommunity.editing-support.neogen" },
   { import = "astrocommunity.editing-support.nvim-context-vt" },
   { import = "astrocommunity.editing-support.nvim-devdocs" },
-  { import = "astrocommunity.editing-support.nvim-treesitter-context" },
   { import = "astrocommunity.editing-support.suda-vim" },
   { import = "astrocommunity.editing-support.text-case-nvim" },
   { import = "astrocommunity.file-explorer.oil-nvim" },
@@ -39,6 +38,7 @@ return {
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.indent.indent-blankline-nvim" },
   { import = "astrocommunity.indent.indent-tools-nvim" },
+  { import = "astrocommunity.lsp.actions-preview-nvim" },
   { import = "astrocommunity.lsp.garbage-day-nvim" },
   { import = "astrocommunity.lsp.lsp-lens-nvim" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
@@ -57,6 +57,7 @@ return {
   { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.programming-language-support.nvim-jqx" },
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
+  { import = "astrocommunity.recipes.vscode" },
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.test.neotest" },
 
@@ -68,12 +69,12 @@ return {
   -- { import = "astrocommunity.completion.cmp-cmdline" },
   -- { import = "astrocommunity.debugging.nvim-bqf" }, -- Better quickfix window in Neovim, polish old quickfix window.
   -- { import = "astrocommunity.editing-support.hypersonic-nvim" },
+  -- { import = "astrocommunity.editing-support.nvim-treesitter-context" }, -- too invasive UI
   -- { import = "astrocommunity.editing-support.treesj" }, -- Neovim plugin for splitting/joining blocks of code
   -- { import = "astrocommunity.editing-support.wildfire-nvim" },
   -- { import = "astrocommunity.git.blame-nvim" },
   -- { import = "astrocommunity.git.openingh-nvim" },
   -- { import = "astrocommunity.indent.mini-indentscope" },
-  -- { import = "astrocommunity.lsp.actions-preview-nvim" },
   -- { import = "astrocommunity.lsp.delimited-nvim" },
   -- { import = "astrocommunity.lsp.inc-rename-nvim" }, -- Incremental LSP renaming based on Neovim's command-preview feature. Requires noice.nvim
   -- { import = "astrocommunity.pack.julia" },

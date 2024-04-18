@@ -1,5 +1,3 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroUI provides the basis for configuring the AstroNvim User Interface
 -- Configuration documentation can be found with `:h astroui`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -23,6 +21,8 @@ return {
     --   },
     -- },
     highlights = {
+      -- set highlights for all themes
+      -- use a function override to let us use lua to retrieve colors from highlight group there is no default table so we don't need to put a parameter for this function
       init = function(colors_name)
         local get_hlgroup = require("astroui").get_hlgroup
 
@@ -35,26 +35,30 @@ return {
           ZenBg = { link = "Normal" }, -- Set zen-mode background to Normal mode
         }
 
-        -- NvChad like Telescope Theme --
-        -- if not colors_name:match "^catppuccin.*" then
-        --   local normal = get_hlgroup "Normal"
-        --   local fg, bg = normal.fg, normal.bg
-        --   local bg_alt = get_hlgroup("Visual").bg
-        --   local green = get_hlgroup("String").fg
-        --   local red = get_hlgroup("Error").fg
-        --   highlights.TelescopeBorder = { fg = bg_alt, bg = bg }
-        --   highlights.TelescopeNormal = { bg = bg }
-        --   highlights.TelescopePreviewBorder = { fg = bg, bg = bg }
-        --   highlights.TelescopePreviewNormal = { bg = bg }
-        --   highlights.TelescopePreviewTitle = { fg = bg, bg = green }
-        --   highlights.TelescopePromptBorder = { fg = bg_alt, bg = bg_alt }
-        --   highlights.TelescopePromptNormal = { fg = fg, bg = bg_alt }
-        --   highlights.TelescopePromptPrefix = { fg = red, bg = bg_alt }
-        --   highlights.TelescopePromptTitle = { fg = bg, bg = red }
-        --   highlights.TelescopeResultsBorder = { fg = bg, bg = bg }
-        --   highlights.TelescopeResultsNormal = { bg = bg }
-        --   highlights.TelescopeResultsTitle = { fg = bg, bg = bg }
-        -- end
+        -- Custom Telescope Theme --
+        if not colors_name:match "^catppuccin.*" then
+          local normal = get_hlgroup "Normal"
+          local fg, bg = normal.fg, normal.bg
+          local bg_alt = get_hlgroup("Visual").bg
+          local green = get_hlgroup("String").fg
+          local red = get_hlgroup("Error").fg
+          -- local red = get_hlgroup("Error").fg
+          -- local nontext = get_hlgroup "NonText"
+          highlights.TelescopeBorder = { fg = bg_alt, bg = bg }
+          highlights.TelescopeNormal = { bg = bg }
+          highlights.TelescopePreviewBorder = { fg = bg, bg = bg }
+          highlights.TelescopePreviewNormal = { bg = bg }
+          highlights.TelescopePreviewTitle = { fg = bg, bg = green }
+          -- highlights.TelescopePromptBorder = { fg = bg_alt, bg = bg_alt }
+          -- highlights.TelescopePromptNormal = { fg = fg, bg = bg_alt }
+          -- highlights.TelescopePromptPrefix = { fg = red, bg = bg_alt }
+          -- highlights.TelescopePromptTitle = { fg = bg, bg = red }
+          highlights.TelescopePromptTitle = { fg = bg, bg = fg }
+          -- highlights.TelescopeResultsBorder = { fg = bg, bg = bg }
+          highlights.TelescopeResultsNormal = { bg = bg }
+          -- highlights.TelescopeResultsTitle = { fg = bg, bg = bg }
+          highlights.TelescopeResultsTitle = { fg = bg, bg = green }
+        end
 
         return highlights
       end,

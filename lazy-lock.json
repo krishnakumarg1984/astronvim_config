@@ -5,6 +5,7 @@
   "LuaSnip": { "branch": "master", "commit": "03c8e67eb7293c404845b3982db895d59c0d1538" },
   "SchemaStore.nvim": { "branch": "main", "commit": "4ace5d886d826452abee415ff92bda986e2c01c6" },
   "YankAssassin.vim": { "branch": "main", "commit": "55ce478a08333c086bcccdf087453085f85854d4" },
+  "actions-preview.nvim": { "branch": "master", "commit": "5072b1b1065a6b22bdd46b5c21780a91d6a08071" },
   "aerial.nvim": { "branch": "master", "commit": "399e276328be8242ccde01d90f6f6c619f7bb24f" },
   "arshlib.nvim": { "branch": "master", "commit": "e76e35c927098d07445c72e9416cce243f6aae59" },
   "astrocommunity": { "branch": "main", "commit": "13b816d7277b36f504afa20f99b83410de33276a" },
