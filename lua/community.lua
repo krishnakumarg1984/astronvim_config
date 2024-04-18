@@ -32,7 +32,6 @@ return {
   { import = "astrocommunity.editing-support.suda-vim" },
   { import = "astrocommunity.editing-support.text-case-nvim" },
   { import = "astrocommunity.file-explorer.oil-nvim" },
-  { import = "astrocommunity.git.blame-nvim" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.gist-nvim" },
   { import = "astrocommunity.git.gitlinker-nvim" },
@@ -59,7 +58,7 @@ return {
   { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.programming-language-support.nvim-jqx" },
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
-  { import = "astrocommunity.terminal-integration.nvim-unception" },
+  { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.test.neotest" },
   { import = "astrocommunity.workflow.hardtime-nvim" },
 
@@ -73,6 +72,7 @@ return {
   -- { import = "astrocommunity.editing-support.hypersonic-nvim" },
   -- { import = "astrocommunity.editing-support.treesj" }, -- Neovim plugin for splitting/joining blocks of code
   -- { import = "astrocommunity.editing-support.wildfire-nvim" },
+  -- { import = "astrocommunity.git.blame-nvim" },
   -- { import = "astrocommunity.git.openingh-nvim" },
   -- { import = "astrocommunity.indent.mini-indentscope" },
   -- { import = "astrocommunity.lsp.delimited-nvim" },
@@ -82,6 +82,7 @@ return {
   -- { import = "astrocommunity.recipes.heirline-vscode-winbar" },
   -- { import = "astrocommunity.scrolling.neoscroll-nvim" },
   -- { import = "astrocommunity.search.nvim-hlslens" },
+  -- { import = "astrocommunity.terminal-integration.nvim-unception" },
   -- { import = "astrocommunity.test.nvim-coverage" }, --  Displays test coverage data in the sign column
   -- { import = "astrocommunity.utility.neodim" }, -- Neovim plugin for dimming the highlights of unused functions, variables, parameters, and more
   -- { import = "astrocommunity.utility.noice-nvim" }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.

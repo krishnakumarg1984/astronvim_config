@@ -27,13 +27,13 @@ local lsps_to_install = {
 local linters_formatters_to_install = {
   "actionlint",
   "hadolint", -- written in haskell
+  "selene", -- added by Astrocommunity lua pack
   "stylua",
   "vale",
   "yamlfmt",
   -- "astyle",
   -- "cbfmt",
   -- "editorconfig-checker",
-  -- "selene", -- added by Astrocommunity lua pack
   -- "vacuum",
 }
 
@@ -43,7 +43,7 @@ local linters_formatters_to_install = {
 
 local daps_to_install = {
   "codelldb",
-  "python",
+  -- "python",
   -- "delve",
   -- "js",
   -- "php",
@@ -171,9 +171,17 @@ end
 -- rust-based tools (((
 
 if vim.fn.has "macunix" and vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
-  astrocore.list_insert_unique(lsps_to_install, { "asm_lsp", "neocmake", "nil_ls", "taplo" })
-else
-  astrocore.list_insert_unique(lsps_to_install, { "cmake" })
+  astrocore.list_insert_unique(lsps_to_install, { "asm_lsp", "nil_ls", "taplo" })
+end
+if vim.fn.executable "cmake" == 1 then
+  if vim.fn.has "macunix" and vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
+    astrocore.list_insert_unique(lsps_to_install, { "neocmake" })
+  else
+    astrocore.list_insert_unique(lsps_to_install, { "cmake" })
+  end
+end
+if vim.fn.executable "nix" and vim.fn.has "macunix" and vim.fn.executable "rustc" and vim.fn.executable "cargo" then
+  astrocore.list_insert_unique(lsps_to_install, { "nil_ls" })
 end
 
 -- )))
