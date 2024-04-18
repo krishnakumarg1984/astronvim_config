@@ -8,8 +8,8 @@ local astrocore = require "astrocore"
 -- lsps_to_install (((
 
 local lsps_to_install = {
+  "clangd",
   "lua_ls",
-  -- "clangd", -- installed as an Astrocommunity language pack
   -- "denols",
   -- "lemminx", -- XML Language Server written in 'java' (can be installed without dependency troubles)
   -- "ltex",  -- can be installed without dependency troubles

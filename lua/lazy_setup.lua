@@ -13,12 +13,11 @@ require("lazy").setup({
   { import = "community" },
   { import = "plugins" },
 } --[[@as LazySpec]], {
+  defaults = { lazy = true },
   -- Configure any other `lazy.nvim` configuration options here
   install = { colorscheme = { "astrodark", "habamax" } },
   ui = { backdrop = 100 },
-  diff = {
-    cmd = "diffview.nvim", -- diff command <d>
-  },
+  diff = { cmd = "diffview.nvim" },
   performance = {
     rtp = {
       -- disable some rtp plugins, add more to your liking

@@ -1,4 +1,5 @@
 return {
+  ---@type LazySpec
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim", -- renders diagnostics using virtual lines on top of the real line of code
     keys = { { "<leader>ln", "<leader>ln", desc = "Toggle inline diag" } },
@@ -12,9 +13,9 @@ return {
     "weilbith/nvim-code-action-menu", -- Pop-up menu for code actions to show meta-information and diff preview
     cmd = "CodeActionMenu",
     -- lazy = false,
-    keys = "{<leader>l}",
-    -- keys = { "<leader>lc", "<cmd>CodeActionMenu<CR>", desc = "Code action(s)" },
-    vim.keymap.set("n", "<leader>lc", "<cmd>CodeActionMenu<CR>", { desc = "Code action(s)" }),
+    -- keys = "{<leader>l}",
+    keys = { "<leader>La", "<cmd>CodeActionMenu<CR>", desc = "Code action(s)" },
+    vim.keymap.set("n", "<leader>La", "<cmd>CodeActionMenu<CR>", { desc = "Code action(s)" }),
   },
   -- {
   --   "ray-x/lsp_signature.nvim", -- LSP signature hint as you type

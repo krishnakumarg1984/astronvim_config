@@ -45,7 +45,7 @@ local opts = { -- (((
   diagnostics = { -- (((
     underline = false,
     update_in_insert = false,
-    virtual_lines = false,
+    virtual_lines = true,
     virtual_text = false,
   }, -- )))
   -- mappings, autocmds, extra filetypes, vim options and global variables can be configured here
@@ -58,7 +58,7 @@ local opts = { -- (((
       clipboard = "",
       cmdheight = 1, -- until the cmdheight=0 bugs are squashed
       complete = vim.opt.complete + { "i" },
-      conceallevel = 1,
+      conceallevel = 1, -- enable conceal
       cpoptions = vim.opt.cpoptions - { "a" }, -- Stop the :read command from annoyingly setting the alternative buffer
       cursorlineopt = "number",
       exrc = true,
@@ -404,7 +404,6 @@ local opts = { -- (((
     }, -- )))
     n = { -- (((
       -- second key is the lefthand side of the map
-
       -- mappings seen under group name "Buffer"
       ["<Leader>bD"] = { -- (((
         function()
@@ -509,8 +508,8 @@ local opts = { -- (((
     },
     o = { -- (((
       -- line text-objects
-      ["il"] = { ":normal vil<cr>", desc = "Inside line text object" },
-      ["al"] = { ":normal val<cr>", desc = "Around line text object" },
+      ["iL"] = { ":<C-u>normal! $v^<CR>", desc = "Inside line text object" },
+      ["aL"] = { ":<C-u>normal! $v0<CR>", desc = "Around line text object" },
     }, -- )))
     t = { -- (((
       -- setting a mapping to false will disable it
@@ -623,17 +622,17 @@ local opts = { -- (((
           "context",
           "gitcommit",
           "help",
-          "NeogitCommit",
-          "NeogitCommitMessage",
           "lsp_markdown",
           "mail",
           "markdown",
+          "NeogitCommit",
+          "NeogitCommitMessage",
+          "plaintex",
           "rst",
           "rtf",
           "texinfo",
           "text",
           "txt",
-          "plaintex",
         },
         callback = function()
           -- vim.opt_local.wrap = true

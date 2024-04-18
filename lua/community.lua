@@ -39,7 +39,6 @@ return {
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.indent.indent-blankline-nvim" },
   { import = "astrocommunity.indent.indent-tools-nvim" },
-  { import = "astrocommunity.lsp.actions-preview-nvim" },
   { import = "astrocommunity.lsp.garbage-day-nvim" },
   { import = "astrocommunity.lsp.lsp-lens-nvim" },
   { import = "astrocommunity.lsp.lsp-signature-nvim" },
@@ -60,7 +59,6 @@ return {
   { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
   { import = "astrocommunity.terminal-integration.flatten-nvim" },
   { import = "astrocommunity.test.neotest" },
-  { import = "astrocommunity.workflow.hardtime-nvim" },
 
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" }, -- A Neovim plugin hiding your colorcolumn when unneeded. problematic with a fresh install of astronvim
   -- { import = "astrocommunity.color.headlines-nvim" }, -- This plugin adds horizontal highlights for text filetypes, like markdown, orgmode, and neorg. Problematic with a fresh install of astronvim
@@ -75,6 +73,7 @@ return {
   -- { import = "astrocommunity.git.blame-nvim" },
   -- { import = "astrocommunity.git.openingh-nvim" },
   -- { import = "astrocommunity.indent.mini-indentscope" },
+  -- { import = "astrocommunity.lsp.actions-preview-nvim" },
   -- { import = "astrocommunity.lsp.delimited-nvim" },
   -- { import = "astrocommunity.lsp.inc-rename-nvim" }, -- Incremental LSP renaming based on Neovim's command-preview feature. Requires noice.nvim
   -- { import = "astrocommunity.pack.julia" },
@@ -86,4 +85,5 @@ return {
   -- { import = "astrocommunity.test.nvim-coverage" }, --  Displays test coverage data in the sign column
   -- { import = "astrocommunity.utility.neodim" }, -- Neovim plugin for dimming the highlights of unused functions, variables, parameters, and more
   -- { import = "astrocommunity.utility.noice-nvim" }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
+  -- { import = "astrocommunity.workflow.hardtime-nvim" }, -- breaks dropbar.nvim
 }
