@@ -48,7 +48,8 @@ return {
           highlights.TelescopeNormal = { bg = bg }
           highlights.TelescopePreviewBorder = { fg = bg, bg = bg }
           highlights.TelescopePreviewNormal = { bg = bg }
-          highlights.TelescopePreviewTitle = { fg = bg, bg = green }
+          -- highlights.TelescopePreviewTitle = { fg = bg, bg = green }
+          highlights.TelescopePreviewTitle = { fg = fg, bg = bg_alt }
           -- highlights.TelescopePromptBorder = { fg = bg_alt, bg = bg_alt }
           -- highlights.TelescopePromptNormal = { fg = fg, bg = bg_alt }
           -- highlights.TelescopePromptPrefix = { fg = red, bg = bg_alt }

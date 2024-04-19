@@ -665,6 +665,7 @@ local opts = { -- (((
       geom = "glsl",
       gs = "glsl",
       jl = "julia",
+      luatodo = "lua",
       mdx = "markdown.mdx",
       pd_lua = "lua",
       pd_luax = "lua",

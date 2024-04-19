@@ -1,0 +1,28 @@
+return {
+  "rebelot/heirline.nvim",
+  opts = function(_, opts)
+    local status = require "astroui.status"
+    opts.statusline = {
+      -- the final component of the NvChad statusline is the navigation section
+
+      -- this is very similar to the previous current working directory section with the icon
+      { -- make nav section with icon border
+        -- add a navigation component and just display the percentage of progress in the file
+        status.component.nav {
+
+          -- add some padding for the percentage provider
+          -- percentage = { padding = { right = 1 } },
+          percentage = { fixed_width = true, padding = { right = 1 } },
+          -- disable all other providers
+          -- ruler = false,
+          ruler = { pad_ruler = { line = 4, char = 3 } }, -- false,
+          scrollbar = false,
+          -- define the foreground color
+          hl = { fg = "nav_icon_bg" },
+          -- use no separator and define the background color
+          surround = { separator = "none", color = "file_info_bg" },
+        },
+      },
+    }
+  end,
+}
