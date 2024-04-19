@@ -45,7 +45,6 @@ return {
   { import = "astrocommunity.lsp.lsplinks-nvim" },
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" },
   { import = "astrocommunity.markdown-and-latex.glow-nvim" }, -- A markdown preview directly in your neovim.
-  { import = "astrocommunity.markdown-and-latex.peek-nvim" },
   { import = "astrocommunity.markdown-and-latex.vimtex" },
   { import = "astrocommunity.motion.mini-surround" },
   { import = "astrocommunity.motion.nvim-spider" },
@@ -75,6 +74,7 @@ return {
   -- { import = "astrocommunity.indent.mini-indentscope" },
   -- { import = "astrocommunity.lsp.delimited-nvim" },
   -- { import = "astrocommunity.lsp.inc-rename-nvim" }, -- Incremental LSP renaming based on Neovim's command-preview feature. Requires noice.nvim
+  -- { import = "astrocommunity.markdown-and-latex.peek-nvim" }, -- figure out how to conditionally install this
   -- { import = "astrocommunity.motion.vim-matchup" }, -- weird behavour by inserting gibberish when using split windows
   -- { import = "astrocommunity.pack.julia" },
   -- { import = "astrocommunity.pack.rust" },
