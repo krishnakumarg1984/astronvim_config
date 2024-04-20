@@ -474,7 +474,7 @@ local opts = { -- (((
       -- )))
       -- 'akinsho/toggleterm.nvim' keymaps for normal mode (((
 
-      ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal (float)" },
+      ["<M-t>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal (float)" },
       ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=7<cr>", desc = "Toggle terminal (horizontal)" },
       ["<Leader>g<s-u>"] = { function() astro.toggle_term_cmd "gitui" end, desc = "GitUI" },
 
