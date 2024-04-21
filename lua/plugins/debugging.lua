@@ -31,8 +31,6 @@ return {
       "GdbStep",
       "GdbUntil",
     },
-    config = function()
-      vim.g.nvimgdb_disable_start_keymaps = true
-    end,
+    config = function() vim.g.nvimgdb_disable_start_keymaps = true end,
   },
 }
