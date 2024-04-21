@@ -75,7 +75,7 @@ return {
   -- { import = "astrocommunity.lsp.delimited-nvim" },
   -- { import = "astrocommunity.lsp.inc-rename-nvim" }, -- Incremental LSP renaming based on Neovim's command-preview feature. Requires noice.nvim
   -- { import = "astrocommunity.markdown-and-latex.peek-nvim" }, -- figure out how to conditionally install this
-  -- { import = "astrocommunity.motion.vim-matchup" }, -- weird behavour by inserting gibberish when using split windows
+  -- { import = "astrocommunity.motion.vim-matchup" }, -- weird behaviour by inserting gibberish when using split windows
   -- { import = "astrocommunity.pack.julia" },
   -- { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
