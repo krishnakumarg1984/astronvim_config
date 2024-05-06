@@ -96,6 +96,7 @@ local opts = { -- (((
       foldmethod = "expr",
       foldopen = vim.opt.foldopen + { "jump" },
       -- formatoptions = vim.opt.formatoptions - { "o" },
+      inccommand = "split",
       isfname = vim.opt.isfname - { ",", "=" }, -- When using commands like Ctrl-x Ctrl-f for filename completion, do not read equal signs as part of file names, a common nuisance when working with shell scripts
       iskeyword = vim.opt.iskeyword + { "-" },
       list = true,
@@ -106,6 +107,7 @@ local opts = { -- (((
       report = 0, -- Threshold for reporting number of lines changed.
       scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
       shiftround = true,
+      shiftwidth = 4,
       showbreak = "↪ ",
       showmatch = true,
       showtabline = (vim.t.bufs and #vim.t.bufs > 1) and 2 or 1,
@@ -132,6 +134,7 @@ local opts = { -- (((
       }, -- This gives files lower priority, instead of outright ignoring them )))
       swapfile = false,
       synmaxcol = 300,
+      tabstop = 4,
       tags = { "$HOME/.cache/nvim/tags" },
       updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
       whichwrap = { -- (((
@@ -666,7 +669,7 @@ local opts = { -- (((
     nexthelptag = { -- (((
       {
         event = { "FileType" },
-        pattern = { "help", "vimdoc" },
+        pattern = { "help", "vim", "vimdoc" },
         callback = function()
           vim.keymap.set("n", "<Leader>Tn", [[/|.\zs\S\{-}|/<cr>zz]], { buffer = true, noremap = true })
           vim.opt_local.list = false
