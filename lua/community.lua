@@ -29,7 +29,6 @@ return {
   { import = "astrocommunity.editing-support.nvim-devdocs" }, -- Neovim DevDocs integration
   { import = "astrocommunity.editing-support.suda-vim" }, -- An alternative sudo.vim for Vim and Neovim, limited support sudo in Windows
   { import = "astrocommunity.editing-support.text-case-nvim" }, -- An all in one plugin for converting text case in Neovim
-  { import = "astrocommunity.file-explorer.oil-nvim" }, -- Neovim file explorer: edit your filesystem like a buffer
   { import = "astrocommunity.git.diffview-nvim" }, -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
   { import = "astrocommunity.git.neogit" }, -- magit for neovim
   { import = "astrocommunity.git.octo-nvim" }, -- Edit and review GitHub issues and pull requests from the comfort of your favorite editor
@@ -49,6 +48,7 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.lua" },
   { import = "astrocommunity.pack.nix" },
+  { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" }, -- This plugin specification configures AstroLSP to disable inlay hints in a buffer when going into insert mode and re-enables them when leaving insert mode.
   { import = "astrocommunity.recipes.vscode" }, -- Some users may be wanting to integrate their Neovim configuration with their VS Code editor. This spec configures AstroNvim to play nicely with the VS Code Extension vscode-neovim.
   { import = "astrocommunity.terminal-integration.flatten-nvim" }, -- Open files and command output from wezterm, kitty, and neovim terminals in your current neovim instance
   { import = "astrocommunity.test.neotest" }, -- An extensible framework for interacting with tests within Neovim.
@@ -65,6 +65,7 @@ return {
   -- { import = "astrocommunity.editing-support.nvim-treesitter-context" }, -- too invasive UI
   -- { import = "astrocommunity.editing-support.treesj" }, -- Neovim plugin for splitting/joining blocks of code
   -- { import = "astrocommunity.editing-support.wildfire-nvim" },
+  -- { import = "astrocommunity.file-explorer.oil-nvim" }, -- Neovim file explorer: edit your filesystem like a buffer
   -- { import = "astrocommunity.git.blame-nvim" },
   -- { import = "astrocommunity.git.gist-nvim" }, -- Neovim plugin that allows you to create a Github Gist from the current file
   -- { import = "astrocommunity.git.gitlinker-nvim" }, -- A lua neovim plugin to generate shareable file permalinks (with line ranges) for several git web frontend hosts. Inspired by tpope/vim-fugitive's :GBrowse

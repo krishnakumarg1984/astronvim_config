@@ -424,7 +424,7 @@ local opts = { -- (((
       ["<leader>gs"] = false, -- originally stage_hunk
       ["<Leader>lS"] = false,
       ["<Leader>n"] = false,
-      ["<Leader>o"] = { false, desc = "" },
+      ["<Leader>o"] = { false, desc = " Overseer" },
       ["<Leader>q"] = false,
       ["<Leader>w"] = false,
       ["\\"] = false,
@@ -466,8 +466,11 @@ local opts = { -- (((
       -- Neovim plugin to manage the file system and other tree like structures.
 
       ["<Leader>ee"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "Toggle explorer" },
-      ["<Leader>eo"] = { "<cmd>Neotree action=show focus<CR>", desc = "Focus explorer" },
+      ["<Leader>ef"] = { "<cmd>Neotree action=show focus<CR>", desc = "Focus explorer" },
 
+      -- )))
+      -- 'stevearc/overseer.nvim' keymaps (partial list) for normal mode (((
+      -- ["<Leader>o"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "Toggle explorer" },
       -- )))
       -- 'mrjones2014/smart-splits.nvim' keymaps for normal mode (((
       -- Smart, seamless, directional navigation and resizing of Neovim + terminal multiplexer splits. Supports tmux, Wezterm, and Kitty. Think about splits in terms of "up/down/left/right".

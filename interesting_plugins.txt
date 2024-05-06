@@ -188,6 +188,7 @@
 -- https://github.com/nvim-neotest/neotest  -- An extensible framework for interacting with tests within NeoVim
 -- use { "nyngwang/NeoZoom.lua" }
 -- https://github.com/miversen33/netman.nvim -- Neovim (Lua powered) Network File Manager
+-- https://github.com/gbprod/none-ls-shellcheck.nvim -- Shellcheck diagnostics and code-actions sources for none-ls.nvim
 -- https://github.com/nacro90/numb.nvim
 -- use { "kevinhwang91/nvim-bqf", ft = "qf", event = { "CursorHold" } }
 -- https://github.com/ojroques/nvim-bufdel
@@ -231,7 +232,7 @@
 -- https://github.com/rmagatti/session-lens
 -- https://github.com/sunjon/Shade.nvim
 -- https://github.com/Wansmer/sibling-swap.nvim --  Neovim plugin for swaps closest siblings with Tree-Sitter
--- https://github.com/michaelb/sniprun -- A neovim plugin to run lines/blocs of code (independently of the rest of the file), supporting multiples languages
+-- https://github.com/michaelb/sniprun -- A neovim plugin to run lines/blocks of code (independently of the rest of the file), supporting multiples languages
 -- https://github.com/sQVe/sort.nvim
 -- https://github.com/stsewd/sphinx.nvim
 -- https://github.com/nanotee/sqls.nvim -- Neovim plugin for sqls that leverages the built-in LSP client
