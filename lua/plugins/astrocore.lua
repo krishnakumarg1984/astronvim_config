@@ -107,7 +107,7 @@ local opts = { -- (((
       report = 0, -- Threshold for reporting number of lines changed.
       scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
       shiftround = true,
-      shiftwidth = 4,
+      shiftwidth = 2,
       showbreak = "↪ ",
       showmatch = true,
       showtabline = (vim.t.bufs and #vim.t.bufs > 1) and 2 or 1,
@@ -134,7 +134,7 @@ local opts = { -- (((
       }, -- This gives files lower priority, instead of outright ignoring them )))
       swapfile = false,
       synmaxcol = 300,
-      tabstop = 4,
+      tabstop = 2,
       tags = { "$HOME/.cache/nvim/tags" },
       updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
       whichwrap = { -- (((
