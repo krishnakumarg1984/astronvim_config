@@ -19,6 +19,17 @@ vim.keymap.set({ "n", "x" }, "&", ":&&<CR>") -- Remap normal/visual '&' to prese
 
 vim.api.nvim_set_hl(0, "WinSeparator", { fg = "black", bold = true }) -- https://www.reddit.com/r/neovim/comments/tpmnlv/psa_make_your_window_separator_highlight_bold_of/ Set `fg` to the color you want your window separators to have
 
+-- https://github.com/neovim/neovim/issues/20672#issuecomment-2096976125
+-- https://github.com/neovim/neovim/issues/21403#issuecomment-1376905921
+local term_clear = function()
+  vim.fn.feedkeys("", "n")
+  local sb = vim.bo.scrollback
+  vim.bo.scrollback = 1
+  vim.bo.scrollback = sb
+end
+
+vim.keymap.set("t", "<C-l>", term_clear)
+
 -- Vimscript-based mappings, user-commands and autocommands (((
 
 vim.cmd [[
@@ -87,7 +98,8 @@ xnoremap <expr>  {   '{' . virtcol('.') . "\|"
 
   set diffopt+=vertical,foldcolumn:0,context:2,iwhiteall,hiddenoff
   " set diffopt+=internal,indent-heuristic,algorithm:histogram
-  set diffopt+=indent-heuristic,algorithm:minimal
+  " set diffopt+=indent-heuristic,algorithm:minimal
+  set diffopt+=indent-heuristic
 
   " )))
 

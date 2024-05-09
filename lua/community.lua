@@ -13,7 +13,7 @@ return {
   "AstroNvim/astrocommunity", -- A community repository of common plugin specifications
   -- import/override with your plugins folder
 
-  { import = "astrocommunity.bars-and-lines.dropbar-nvim" }, -- IDE-like breadcrumbs, out of the box
+  -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" }, -- IDE-like breadcrumbs, out of the box
   { import = "astrocommunity.code-runner.compiler-nvim" }, -- Neovim compiler for building and running your code without having to configure anything
   { import = "astrocommunity.color.headlines-nvim" }, -- This plugin adds horizontal highlights for text filetypes, like markdown, orgmode, and neorg.
   { import = "astrocommunity.debugging.nvim-dap-repl-highlights" }, -- Add syntax highlighting to the nvim-dap REPL buffer using treesitter.

@@ -672,7 +672,10 @@ local opts = { -- (((
         pattern = { "help", "vim", "vimdoc" },
         callback = function()
           vim.keymap.set("n", "<Leader>Tn", [[/|.\zs\S\{-}|/<cr>zz]], { buffer = true, noremap = true })
+          -- vim.opt_local.list = false
           vim.opt_local.list = false
+          -- vim.wo.list = false
+          -- vim.bo.list = false
         end,
         desc = "Next help tag",
       },
