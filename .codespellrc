@@ -1,2 +1,6 @@
+; no trailing slash after directory name
 [codespell]
+; count =
+; quiet-level = 3
 ignore-words = ./styles/config/vocabularies/Base/accept.txt
+skip = ./styles,./typos.toml
