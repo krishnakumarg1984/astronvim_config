@@ -669,12 +669,12 @@ local opts = { -- (((
     nexthelptag = { -- (((
       {
         event = { "FileType" },
-        pattern = { "help", "vim", "vimdoc" },
+        pattern = { "help", "quickfix", "vim", "vimdoc" },
         callback = function()
           vim.keymap.set("n", "<Leader>Tn", [[/|.\zs\S\{-}|/<cr>zz]], { buffer = true, noremap = true })
           -- vim.opt_local.list = false
           vim.opt_local.list = false
-          -- vim.wo.list = false
+          -- vm.wo.list = false
           -- vim.bo.list = false
         end,
         desc = "Next help tag",

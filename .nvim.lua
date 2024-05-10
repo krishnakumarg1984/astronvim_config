@@ -7,105 +7,84 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
 
--- local utils = require "astronvim.utils"
---
--- -- local diagcspell = false
--- -- if vim.fn.executable "cspell" == 1 then diagcspell = diagnostics.cspell end
-null_ls.register {
-  -- code_actions.cspell, -- https://github.com/davidmh/cspell.nvim
-  code_actions.proselint,
-  -- diagnostics.actionlint,
-  diagnostics.alex,
-  diagnostics.codespell,
-  -- diagnostics.codespell.with {
-  --   extra_args = { "--ignore-words=.dialect.utf-8.add" },
-  -- },
-  -- diagnostics.cppcheck,
-  -- diagnostics.cspell, -- https://github.com/davidmh/cspell.nvim
-  -- diagnostics.flake8,
-  -- diagnostics.gitlint,
-  -- diagnostics.hadolint,
-  -- diagnostics.jsonlint,
-  -- diagnostics.editorconfig_checker,
-  -- diagnostics.ltrs,
-  diagnostics.markdownlint_cli2,
-  -- diagnostics.misspell,
-  -- diagnostics.mypy,
-  -- diagnostics.proselint,
-  -- diagnostics.pylint,
-  diagnostics.selene,
-  -- diagnostics.shellcheck,
-  -- diagnostics.textlint,
-  -- diagnostics.vacuum, -- problematic
-  -- diagnostics.vale,
-  -- diagnostics.vint,
-  -- diagnostics.vulture,
-  -- diagnostics.write_good,
-  -- diagnostics.yamllint,
-  formatting.biome,
-  -- formatting.black,
-  -- formatting.cbfmt,
-  -- formatting.clang_format,
-  -- formatting.cmake_format,
-  formatting.codespell,
-  -- formatting.fixjson,
-  -- formatting.markdownlint,
-  formatting.mdformat,
-  -- formatting.rome, -- uses tabs by default
-  -- formatting.shfmt,
-  formatting.stylua.with {
-    condition = function(utils) return utils.root_has_file { "stylua.toml", ".stylua.toml" } end,
-  },
-  formatting.yamlfix,
-  -- null_ls.builtins.code_actions.gitrebase,
-  -- null_ls.builtins.code_actions.shellcheck,
-  -- null_ls.builtins.hover.dictionary,
-}
---
--- -- Other project-specific 'diagnostic-linters' and 'formatters' to consider {{{
--- -- diagnostics.actionlint,
--- -- diagnostics.ansiblelint,
--- -- diagnostics.checkmake,
--- -- diagnostics.chktex,
--- -- diagnostics.codespell,
--- -- diagnostics.flake8,
--- -- diagnostics.gitlint,
--- -- diagnostics.hadolint,
--- -- diagnostics.markdownlint,
--- -- diagnostics.mlint,
--- -- diagnostics.mypy,
--- -- diagnostics.proselint,
--- -- diagnostics.pydocstyle.with { extra_args = { "--config=$ROOT/setup.cfg" } },
--- -- diagnostics.pylama,
--- -- diagnostics.pylint,
--- -- diagnostics.pyproject_flake8,
--- -- diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
--- -- diagnostics.rstcheck,
--- -- diagnostics.selene,
--- -- diagnostics.semgrep,
--- -- diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
--- -- diagnostics.sqlfluff,
--- -- diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
--- -- diagnostics.stylint,
--- -- diagnostics.textlint,
--- -- diagnostics.vint,
--- -- diagnostics.vulture, -- usually not available in path
--- -- diagnostics.yamllint,
--- -- formatting.asmformat,
--- -- formatting.bibclean,
--- -- formatting.brittany,
--- -- formatting.format_r, -- needs the 'R' command to be in $PATH
--- -- formatting.fprettify,
--- -- formatting.goformat,
--- -- formatting.goimports,
--- -- formatting.latexindent,
--- -- formatting.perltidy,
--- -- formatting.reorder_python_imports,
--- -- formatting.rustfmt,
--- -- formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
--- -- formatting.sqlfluff,
--- -- formatting.standardrb,
--- -- formatting.styler, -- needs the 'R' command to be in $PATH
--- -- formatting.taplo,
--- -- formatting.textlint,
--- -- }}}
+local tools_to_run = {}
+local astrocore = require "astrocore"
+if vim.fn.executable "alex" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.alex }) end
+if vim.fn.executable "biome" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.biome }) end
+if vim.fn.executable "codespell" == 1 then
+  astrocore.list_insert_unique(tools_to_run, { diagnostics.codespell, formatting.codespell })
+end
+if vim.fn.executable "gitlint" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.gitlint }) end
+if vim.fn.executable "markdownlint-cli2" == 1 then
+  astrocore.list_insert_unique(tools_to_run, { diagnostics.markdownlint_cli2 })
+end
+if vim.fn.executable "proselint" == 1 then astrocore.list_insert_unique(tools_to_run, { code_actions.proselint }) end
+if vim.fn.executable "selene" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.selene }) end
+if vim.fn.executable "textlint" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.textlint }) end
+if vim.fn.executable "mdformat" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.mdformat }) end
+if vim.fn.executable "stylua" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.stylua }) end
+if vim.fn.executable "yamlfix" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.yamlfix }) end
+
+null_ls.register(tools_to_run)
+
+-- Other project-specific 'diagnostic-linters' and 'formatters' to consider {{{
+-- code_actions.cspell, -- https://github.com/davidmh/cspell.nvim
+-- diagnostics.actionlint,
+-- diagnostics.ansiblelint,
+-- diagnostics.checkmake,
+-- diagnostics.chktex,
+-- diagnostics.cppcheck,
+-- diagnostics.cspell, -- https://github.com/davidmh/cspell.nvim
+-- diagnostics.editorconfig_checker,
+-- diagnostics.flake8,
+-- diagnostics.hadolint,
+-- diagnostics.jsonlint,
+-- diagnostics.ltrs,
+-- diagnostics.markdownlint,
+-- diagnostics.misspell,
+-- diagnostics.mlint,
+-- diagnostics.mypy,
+-- diagnostics.proselint,
+-- diagnostics.pydocstyle.with { extra_args = { "--config=$ROOT/setup.cfg" } },
+-- diagnostics.pylama,
+-- diagnostics.pylint,
+-- diagnostics.pyproject_flake8,
+-- diagnostics.revive.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
+-- diagnostics.rstcheck,
+-- diagnostics.semgrep,
+-- diagnostics.shellcheck.with { diagnostics_format = "[#{c}] #{m} (#{s})" },
+-- diagnostics.sqlfluff,
+-- diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
+-- diagnostics.stylint,
+-- diagnostics.textlint,
+-- diagnostics.vale,
+-- diagnostics.vint,
+-- diagnostics.vulture,
+-- diagnostics.write_good,
+-- diagnostics.yamllint,
+-- formatting.asmformat,
+-- formatting.bibclean,
+-- formatting.brittany,
+-- formatting.cbfmt,
+-- formatting.clang_format,
+-- formatting.cmake_format,
+-- formatting.fixjson,
+-- formatting.format_r, -- needs the 'R' command to be in $PATH
+-- formatting.fprettify,
+-- formatting.goformat,
+-- formatting.goimports,
+-- formatting.latexindent,
+-- formatting.markdownlint,
+-- formatting.perltidy,
+-- formatting.reorder_python_imports,
+-- formatting.rustfmt,
+-- formatting.shfmt.with { extra_args = { "-i", "2", "-ci" } },
+-- formatting.sqlfluff,
+-- formatting.standardrb,
+-- formatting.styler, -- needs the 'R' command to be in $PATH
+-- formatting.taplo,
+-- formatting.textlint,
+-- null_ls.builtins.code_actions.gitrebase,
+-- null_ls.builtins.code_actions.shellcheck,
+-- null_ls.builtins.hover.dictionary,
+-- }}}
