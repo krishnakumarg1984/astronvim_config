@@ -42,6 +42,7 @@ return {
     event = { "QuickFixCmdPost", "QuickFixCmdPre" },
     keys = {
       { "<leader>qq", "<Plug>(qf_qf_toggle)", desc = "Toggle quickfix" },
+      { "<leader>ql", "<Plug>(qf_loc_toggle)", desc = "Toggle loclist" },
       { "<leader>qs", "<Plug>(qf_qf_switch)", desc = "Toggle jump quickfix" },
       { "<leader>qS", "<Plug>(qf_qf_toggle_stay)", desc = "Toggle stay quickfix" },
       { "]q", "<Plug>(qf_qf_next)", desc = "Next quickfix entry" },

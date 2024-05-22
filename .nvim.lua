@@ -56,7 +56,6 @@ null_ls.register(tools_to_run)
 -- diagnostics.sqlfluff,
 -- diagnostics.staticcheck.with { method = null_ls.methods.DIAGNOSTICS_ON_SAVE },
 -- diagnostics.stylint,
--- diagnostics.textlint,
 -- diagnostics.vale,
 -- diagnostics.vint,
 -- diagnostics.vulture,

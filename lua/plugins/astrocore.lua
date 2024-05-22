@@ -610,9 +610,13 @@ local opts = { -- (((
         event = { "FocusLost" },
         callback = function()
           vim.cmd.stopinsert()
-          vim.cmd.wall { mods = { silent = true } }
+          vim.cmd [[
+          bufdo if expand('%')=='' | setlocal buftype=nofile | endif
+          bufdo if exists(":Format") | execute ":Format" | endif | up
+          ]]
+          -- vim.cmd.wall { mods = { silent = true } }
         end,
-        desc = "Stop insert mode when focus is lost ",
+        desc = "Stop insert mode and save all named buffers when focus is lost",
       },
     }, -- )))
     autohide_tabline = { -- (((
@@ -669,11 +673,12 @@ local opts = { -- (((
     nexthelptag = { -- (((
       {
         event = { "FileType" },
-        pattern = { "help", "quickfix", "vim", "vimdoc" },
+        pattern = { "help", "qf", "vim", "vimdoc" },
         callback = function()
           vim.keymap.set("n", "<Leader>Tn", [[/|.\zs\S\{-}|/<cr>zz]], { buffer = true, noremap = true })
           -- vim.opt_local.list = false
           vim.opt_local.list = false
+          vim.opt_local.conceallevel = 3
           -- vm.wo.list = false
           -- vim.bo.list = false
         end,
