@@ -1,3 +1,4 @@
+-- vim: iskeyword-=-
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
@@ -10,6 +11,11 @@ return {
       lsp_lines.setup()
       vim.keymap.set("", "<leader>ln", lsp_lines.toggle, { desc = "Toggle inline diagnostics" })
     end,
+  },
+  {
+    "yorickpeterse/nvim-dd", --  Deferring of NeoVim diagnostics
+    event = { "User AstroLspSetup" },
+    opts = { timeout = 2500 },
   },
   {
     "kosayoda/nvim-lightbulb", -- VSCode bulb for neovim's built-in LSP.

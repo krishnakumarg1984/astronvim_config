@@ -60,7 +60,7 @@ local opts = { -- (((
       backupext = "nvimbackup",
       breakindentopt = { "shift:2", "sbr", "list:-1" }, -- https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
       clipboard = "",
-      cmdheight = 1, -- until the cmdheight=0 bugs are squashed
+      -- cmdheight = 1, -- until the cmdheight=0 bugs are squashed
       complete = vim.opt.complete + { "i" },
       -- conceallevel = 2, -- enable conceal
       cpoptions = vim.opt.cpoptions - { "a" }, -- Stop the :read command from annoyingly setting the alternative buffer
@@ -105,7 +105,7 @@ local opts = { -- (((
       number = true, -- sets vim.opt.number
       pumwidth = 35,
       report = 0, -- Threshold for reporting number of lines changed.
-      scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
+      -- scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
       shiftround = true,
       shiftwidth = 2,
       showbreak = "↪ ",
@@ -362,7 +362,6 @@ local opts = { -- (((
       -- shortmess = vim.opt.shortmess + { I = true, c = true, x = false }, -- " a) +I => Don't give the intro message when starting Vim |:intro|. b) +c => Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc. c) -x => Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions.
       -- showtabline = 0, -- don't show tabline
       -- sidescroll = 3,  -- The minimal number of columns to scroll horizontally
-      -- signcolumn = "auto", -- sets vim.opt.signcolumn to auto
       -- spell = true,
       -- spelllang = "en_gb",
       -- tagcase = "smart",
@@ -411,12 +410,12 @@ local opts = { -- (((
     n = { -- (((
       -- second key is the lefthand side of the map
       -- mappings seen under group name "Buffer"
-      ["<Leader>bD"] = { -- (((
-        function()
-          require("astroui.status.heirline").buffer_picker(function(bufnr) require("astrocore.buffer").close(bufnr) end)
-        end,
-        desc = "Pick to close",
-      }, -- )))
+      -- ["<Leader>bd"] = { -- (((
+      --   function()
+      --     require("astroui.status.heirline").buffer_picker(function(bufnr) require("astrocore.buffer").close(bufnr) end)
+      --   end,
+      --   desc = "Close buffer from tabline",
+      -- }, -- )))
 
       -- tables with just a `desc` key will be registered with which-key if it's installed. this is useful for naming menus
       -- disable certain remaps provided in base AstroNvim (((
@@ -715,7 +714,11 @@ local opts = { -- (((
       [".envrc"] = "sh",
       ["/etc/environment"] = "confini",
       ["/etc/mkinitcpio.conf"] = "confini",
+      ["compose.yml"] = "yaml.docker-compose",
+      ["compose.yaml"] = "yaml.docker-compose",
       ["devcontainer.json"] = "jsonc",
+      ["docker-compose.yml"] = "yaml.docker-compose",
+      ["docker-compose.yaml"] = "yaml.docker-compose",
       ["dvc.lock"] = "yaml",
       ["Dvcfile"] = "yaml",
       ["launch.json"] = "jsonc",
