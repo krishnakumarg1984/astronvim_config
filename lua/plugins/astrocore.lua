@@ -602,22 +602,22 @@ local opts = { -- (((
         desc = "Warn user about file changed on disk outside of neovim",
       },
     }, -- )))
-    winfocuslost = { -- (((
-      {
-        -- https://www.reddit.com/r/neovim/comments/159bib0/comment/jtf40i4/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
-        -- Save all buffers when focus lost, ignoring warnings, and return to normal mode.
-        event = { "FocusLost" },
-        callback = function()
-          vim.cmd.stopinsert()
-          vim.cmd [[
-          bufdo if expand('%')=='' | setlocal buftype=nofile | endif
-          bufdo if exists(":Format") | execute ":Format" | endif | up
-          ]]
-          -- vim.cmd.wall { mods = { silent = true } }
-        end,
-        desc = "Stop insert mode and save all named buffers when focus is lost",
-      },
-    }, -- )))
+    -- winfocuslost = { -- (((
+    --   {
+    --     -- https://www.reddit.com/r/neovim/comments/159bib0/comment/jtf40i4/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
+    --     -- Save all buffers when focus lost, ignoring warnings, and return to normal mode.
+    --     event = { "FocusLost" },
+    --     callback = function()
+    --       vim.cmd.stopinsert()
+    --       vim.cmd [[
+    --       bufdo if expand('%')=='' | setlocal buftype=nofile | endif
+    --       bufdo if exists(":Format") | execute ":Format" | endif | up
+    --       ]]
+    --       -- vim.cmd.wall { mods = { silent = true } }
+    --     end,
+    --     desc = "Stop insert mode and save all named buffers when focus is lost",
+    --   },
+    -- }, -- )))
     autohide_tabline = { -- (((
       {
         event = "User",

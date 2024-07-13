@@ -16,7 +16,7 @@ return {
   -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" }, -- IDE-like breadcrumbs, out of the box
   { import = "astrocommunity.code-runner.compiler-nvim" }, -- Neovim compiler for building and running your code without having to configure anything
   { import = "astrocommunity.color.headlines-nvim" }, -- This plugin adds horizontal highlights for text filetypes, like markdown, orgmode, and neorg.
-  { import = "astrocommunity.debugging.nvim-dap-repl-highlights" }, -- Add syntax highlighting to the nvim-dap REPL buffer using treesitter.
+  --- { import = "astrocommunity.debugging.nvim-dap-repl-highlights" }, -- Add syntax highlighting to the nvim-dap REPL buffer using treesitter.
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" }, -- This plugin adds virtual text support to nvim-dap. nvim-treesitter is used to find variable definitions.
   { import = "astrocommunity.debugging.persistent-breakpoints-nvim" }, -- Neovim plugin for persistent breakpoints.
   { import = "astrocommunity.debugging.telescope-dap-nvim" }, -- Integration for nvim-dap with telescope.nvim.
@@ -41,7 +41,7 @@ return {
   { import = "astrocommunity.lsp.lsplinks-nvim" }, -- LSP textDocument/documentLink support for neovim
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" }, -- Neovim plugin that adds support for file operations using built-in LSP
   { import = "astrocommunity.markdown-and-latex.glow-nvim" }, -- A markdown preview directly in your neovim.
-  { import = "astrocommunity.markdown-and-latex.vimtex" }, -- VimTeX: A modern Vim and neovim filetype plugin for LaTeX files.
+  -- { import = "astrocommunity.markdown-and-latex.vimtex" }, -- VimTeX: A modern Vim and neovim filetype plugin for LaTeX files.
   { import = "astrocommunity.motion.mini-surround" }, -- Neovim Lua plugin with fast and feature-rich surround actions. Part of 'mini.nvim' library.
   { import = "astrocommunity.motion.vim-matchup" }, -- even better %. navigate and highlight matching words. modern matchit and matchparen. Supports both vim and neovim + tree-sitter.
   { import = "astrocommunity.pack.cpp" },
