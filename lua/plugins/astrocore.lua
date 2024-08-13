@@ -487,7 +487,7 @@ local opts = { -- (((
       -- A neovim lua plugin to help easily manage multiple terminal windows
 
       ["<M-t>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal (float)" },
-      ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=7<cr>", desc = "Toggle terminal (horizontal)" },
+      ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=9<cr>", desc = "Toggle terminal (horizontal)" },
       ["<Leader>g<s-u>"] = { function() astro.toggle_term_cmd "gitui" end, desc = "GitUI" },
 
       -- )))
@@ -527,7 +527,7 @@ local opts = { -- (((
       -- setting a mapping to false will disable it
       -- ["<esc>"] = false,
       -- ["<esc><esc>"] = { "<c-\\><c-n>:q<cr>", desc = "Terminal quit" },
-      ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=7<cr>", desc = "Toggle terminal (horizontal)" },
+      ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=9<cr>", desc = "Toggle terminal (horizontal)" },
       ["<C-BS>"] = { "<c-\\><c-n>", desc = "Terminal normal mode" },
       ["<C-h>"] = false,
       ["<C-j>"] = false,
@@ -657,18 +657,18 @@ local opts = { -- (((
     --     desc = "Enable wrap and spell for text like documents",
     --   },
     -- }, -- )))
-    concellevelformarkdownfiles = { -- (((
-      {
-        event = { "FileType" },
-        pattern = {
-          "lsp_markdown",
-          "markdown",
-          "markdown_inline",
-        },
-        callback = function() vim.opt_local.conceallevel = 3 end,
-        desc = "Set conceallevel to 3 for markdown files",
-      },
-    }, -- )))
+    -- concellevelformarkdownfiles = { -- (((
+    --   {
+    --     event = { "FileType" },
+    --     pattern = {
+    --       "lsp_markdown",
+    --       "markdown",
+    --       "markdown_inline",
+    --     },
+    --     callback = function() vim.opt_local.conceallevel = 3 end,
+    --     desc = "Set conceallevel to 3 for markdown files",
+    --   },
+    -- }, -- )))
     nexthelptag = { -- (((
       {
         event = { "FileType" },

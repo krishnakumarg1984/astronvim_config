@@ -113,7 +113,7 @@ if vim.fn.executable "python3" == 1 then
       "pydocstyle",
       "pylama",
       "reorder_python_imports",
-      "semgrep",
+      -- "semgrep",
       "usort",
       "vint",
       "vulture",
