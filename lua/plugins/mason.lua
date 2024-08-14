@@ -127,7 +127,6 @@ if vim.fn.executable "python3" == 1 then
     --- python + rust/cargo tools (((
 
     if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" == 1 then
-      astrocore.list_insert_unique(lsps_to_install, { "ruff_lsp" })
       astrocore.list_insert_unique(linters_formatters_to_install, { "shellharden" })
       --   astrocore.list_insert_unique(lsps_to_install, "pylyzer")
     end
@@ -203,26 +202,22 @@ return {
   {
     "williamboman/mason-lspconfig.nvim", -- Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim.
     -- overrides `require("mason-lspconfig").setup(...)`
-    opts = function(_, opts)
-      -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = lsps_to_install
-    end,
+    opts = {
+      -- add more arguments for adding more language servers
+      ensure_installed = lsps_to_install,
+    },
   },
   -- )))
   -- use mason-null-ls to configure Formatters/Linter installation for null-ls sources(((
   {
     "jay-babu/mason-null-ls.nvim",
     -- overrides `require("mason-null-ls").setup(...)`
-    opts = function(_, opts)
+    opts = {
       -- add more things to the ensure_installed table protecting against community packs modifying it
-      opts.ensure_installed = linters_formatters_to_install
-      opts.automatic_installation = false
-      opts.automatic_setup = false
-      opts.handlers = {
-        function() end, -- disables automatic setup of all null-ls sources
-        -- taplo = function() end, -- disable taplo in null-ls, it's taken care of by lspconfig
-      }
-    end,
+      ensure_installed = linters_formatters_to_install,
+      automatic_installation = false,
+      automatic_setup = false,
+    },
   },
   -- )))
   -- use mason-nvim-dap to configure debuggers (((

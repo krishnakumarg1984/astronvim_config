@@ -9,6 +9,12 @@
 -- │ autocomplete and documentation while editing            │
 -- ╰─────────────────────────────────────────────────────────╯
 
+-- https://code.mehalter.com/AstroNvim_user/~files/master/lua/plugins/astrolsp.lua
+local servers = {} -- only add local servers if their commands are available
+for server, cmd in pairs { julials = "julia" } do
+  if vim.fn.executable(cmd) == 1 then table.insert(servers, server) end
+end
+
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp", -- LSP Configuration Engine built for AstroNvim
@@ -16,10 +22,10 @@ return {
   opts = {
     -- Configuration table of features provided by AstroLSP
     features = {
-      autoformat = true, -- enable or disable auto formatting on start
       codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = false, -- enable/disable inlay hints on start
+      -- inlay_hints = false, -- enable/disable inlay hints on start
       semantic_tokens = true, -- enable/disable semantic token highlighting
+      signature_help = true,
     },
     -- customize lsp formatting options
     formatting = {
@@ -60,12 +66,36 @@ return {
       -- timeout_ms = 1000, -- default format timeout
     },
     -- enable servers that you already have installed without mason
-    servers = {
-      -- "pyright"
-    },
+    servers = servers,
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
     config = {
+      ---@diagnostic disable: missing-fields
+      basedpyright = {
+        before_init = function(_, c)
+          if not c.settings then c.settings = {} end
+          if not c.settings.python then c.settings.python = {} end
+          c.settings.python.pythonPath = vim.fn.exepath "python"
+        end,
+        settings = {
+          basedpyright = {
+            analysis = {
+              typeCheckingMode = "basic",
+              autoImportCompletions = true,
+              stubPath = vim.env.HOME .. "/typings",
+              diagnosticSeverityOverrides = {
+                reportUnusedImport = "information",
+                reportUnusedFunction = "information",
+                reportUnusedVariable = "information",
+                reportGeneralTypeIssues = "none",
+                reportOptionalMemberAccess = "none",
+                reportOptionalSubscript = "none",
+                reportPrivateImportUsage = "none",
+              },
+            },
+          },
+        },
+      },
       clangd = {
         capabilities = { offsetEncoding = "utf-8", memoryUsageProvider = true },
         filetypes = { "c", "cpp", "cuda", "objc", "objcpp", "proto" },
@@ -122,7 +152,25 @@ return {
           },
         },
       },
-      julials = { autostart = false },
+      julials = {
+        on_new_config = function(new_config)
+          -- check for nvim-lspconfig julia sysimage shim
+          local julia = (vim.env.JULIA_DEPOT_PATH or vim.fn.expand "~/.julia")
+            .. "/environments/nvim-lspconfig/bin/julia"
+          if require("lspconfig").util.path.is_file(julia) then
+            new_config.cmd[1] = julia
+          else
+            new_config.autostart = false -- only auto start if sysimage is available
+          end
+        end,
+        settings = {
+          julia = {
+            lint = {
+              missingrefs = "none",
+            },
+          },
+        },
+      },
       lua_ls = { settings = { Lua = { hint = { enable = true, arrayIndex = "Disable" } } } },
       ltex = {
         -- enabled = false,
@@ -130,31 +178,7 @@ return {
         language = "en-GB",
         -- language = "fr",
       },
-      basedpyright = {
-        before_init = function(_, c)
-          if not c.settings then c.settings = {} end
-          if not c.settings.python then c.settings.python = {} end
-          c.settings.python.pythonPath = vim.fn.exepath "python"
-        end,
-        settings = {
-          basedpyright = {
-            analysis = {
-              typeCheckingMode = "basic",
-              autoImportCompletions = true,
-              stubPath = vim.env.HOME .. "/typings",
-              diagnosticSeverityOverrides = {
-                reportUnusedImport = "information",
-                reportUnusedFunction = "information",
-                reportUnusedVariable = "information",
-                reportGeneralTypeIssues = "none",
-                reportOptionalMemberAccess = "none",
-                reportOptionalSubscript = "none",
-                reportPrivateImportUsage = "none",
-              },
-            },
-          },
-        },
-      },
+      markdown_oxide = { capabilities = { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } } },
       pyright = {
         settings = {
           python = {
@@ -174,14 +198,6 @@ return {
         },
       },
       ruff = { on_attach = function(client) client.server_capabilities.hoverProvider = false end },
-      -- ruff_lsp = {
-      --   init_options = {
-      --     settings = {
-      --       -- Any extra CLI arguments for `ruff` go here.
-      --       args = { "--config=$HOME/.config/ruff/ruff.toml" },
-      --     },
-      --   },
-      -- },
       taplo = { evenBetterToml = { schema = { catalogs = { "https://www.schemastore.org/api/json/catalog.json" } } } },
       texlab = {
         settings = {
@@ -230,9 +246,7 @@ return {
           },
         },
       },
-      typos_lsp = {
-        single_file_support = false,
-      },
+      typos_lsp = { single_file_support = false },
       vtsls = {
         settings = {
           typescript = {

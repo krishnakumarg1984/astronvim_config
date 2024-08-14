@@ -16,7 +16,7 @@ require("lazy").setup({
 } --[[@as LazySpec]], {
   defaults = { lazy = true },
   -- Configure any other `lazy.nvim` configuration options here
-  install = { colorscheme = { "astrodark", "habamax" } },
+  install = { colorscheme = { "astrotheme", "habamax" } },
   ui = { backdrop = 100 },
   diff = { cmd = "diffview.nvim" },
   lockfile = vim.fn.stdpath "data" .. "/lazy-lock.json",

@@ -448,9 +448,7 @@ local opts = { -- (((
       -- ["<Leader>D"] = { "<cmd>window diffthis<CR>", desc = "Diff buffers" },
       -- ["<S-j>"] = { "mzJ`zmz" },
       -- ["N"] = { "Nzzzv" },
-      -- ["N"] = { utils.better_search "N", desc = "Previous search" }, -- better search
       -- ["n"] = { "nzzzv" },
-      -- ["n"] = { utils.better_search "n", desc = "Next search" }, -- better search
       -- )))
       -- bundled AstroNvim plugin keymaps for normal mode (((
       -- 'stevearc/aerial.nvim' mappings for normal mode (((
@@ -518,11 +516,11 @@ local opts = { -- (((
       -- )))
       -- )))
     },
-    o = { -- (((
-      -- line text-objects
-      ["iL"] = { ":<C-u>normal! $v^<CR>", desc = "Inside line text object" },
-      ["aL"] = { ":<C-u>normal! $v0<CR>", desc = "Around line text object" },
-    }, -- )))
+    -- o = { -- (((
+    --   -- line text-objects
+    --   ["iL"] = { ":<C-u>normal! $v^<CR>", desc = "Inside line text object" },
+    --   ["aL"] = { ":<C-u>normal! $v0<CR>", desc = "Around line text object" },
+    -- }, -- )))
     t = { -- (((
       -- setting a mapping to false will disable it
       -- ["<esc>"] = false,
@@ -546,11 +544,11 @@ local opts = { -- (((
     x = { -- (((
       ["<"] = { "<gv" }, -- Stay in indent mode in visual-block mode
       [">"] = { ">gv" }, -- Stay in indent mode in visual-block mode
-      -- line text-objects
-      ["iL"] = { ":<C-u>normal! $v^<CR>", desc = "Inside line text object" },
-      ["aL"] = { ":<C-u>normal! $v0<CR>", desc = "Around line text object" },
     }, -- )))
   }, -- )))
+  signs = {
+    BqfSign = { text = " " .. require("astroui").get_icon "Selected", texthl = "BqfSign" },
+  },
   -- easily configure auto commands
   autocmds = { -- (((
     -- list of auto commands to set
@@ -698,6 +696,7 @@ local opts = { -- (((
       geom = "glsl",
       gs = "glsl",
       jl = "julia",
+      luaold = "lua",
       luatodo = "lua",
       mdx = "markdown.mdx",
       pd_lua = "lua",
@@ -727,21 +726,24 @@ local opts = { -- (((
       ["zuliprc"] = "confini",
     }, -- )))
     pattern = { -- (((
+      ["%.env%.[%w_.-]+"] = "sh",
+      [".*%.pkr%.hcl"] = "hcl.packer",
+      [".*/kitty/.+%.conf"] = "bash",
       ["/tmp/neomutt.*"] = "markdown",
       -- [vim.env.XDG_CONFIG_HOME .. "/udev/rules.d/.*%.rules"] = "udevrules",
     }, -- )))
   }, -- )))
 } -- )))
 
-local function better_search(key) -- (((
-  return function()
-    local searched, error =
-      pcall(vim.cmd.normal, { args = { (vim.v.count > 0 and vim.v.count or "") .. key }, bang = true })
-    if not searched and type(error) == "string" then require("astrocore").notify(error, vim.log.levels.ERROR) end
-  end
-end -- )))
-opts.mappings.n.n = { better_search "n", desc = "Next search" }
-opts.mappings.n.N = { better_search "N", desc = "Previous search" }
+-- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+for lhs, rhs in pairs {
+  n = { "'Nn'[v:searchforward]", expr = true, desc = "Next Search Result" },
+  N = { "'nN'[v:searchforward]", expr = true, desc = "Prev Search Result" },
+} do
+  opts.mappings.n[lhs] = rhs
+  opts.mappings.x[lhs] = rhs
+  opts.mappings.o[lhs] = rhs
+end
 
 -- add line text object (((
 for lhs, rhs in pairs {
@@ -767,92 +769,3 @@ end
 
 ---@type LazySpec
 return { "AstroNvim/astrocore", opts = opts } -- Core AstroNvim configuration engine
-
--- C = { name = "󱣘 Crates" },
--- L = { name = " LC" },
--- n = { name = " Annotate" },
--- o = { name = " Overseer" },
--- q = { name = " Quickfix" },
--- v = { name = " LaTeX" },
--- x = { name = "󰲉 Diagnostics" },
--- z = { name = " Testing" },
--- Commented-out mappings (((
-
--- Commented-out vimscript mappings (((
---
--- " nnoremaps
---
--- " https://www.reddit.com/r/vim/comments/oyqkkd/comment/h7x83ce/?utm_source=share&utm_medium=web2x&context=3
--- " Basically, it makes '0' act like '^' on first press, and then like '0' on " second press.
--- " So if I press 0, I go back to indentation. If I press 0 " again, I go to the first column of the line.
--- " And if I continue pressing " zero, it switches between the first column and the first character.
--- " nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
---
--- " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
--- " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
--- " nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
---
--- " nmap cg* *Ncgn
---
--- "
---
--- " Substitute word under cursor and dot repeat
---
--- " https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
--- " nnoremap <silent> \\C :let @/='\<'.expand('<cword>').'\>'<CR>cgn
--- " nnoremap <leader><leader>c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
--- " xnoremap <silent> \\C "sy:let @/=@s<CR>cgn
---
---
--- )))
-
--- Commented-out lua mappings (((
-
--- local function show_documentation()
---   local filetype = vim.bo.filetype
---   if vim.tbl_contains({ "vim", "help" }, filetype) then
---     vim.cmd("h " .. vim.fn.expand "<cword>")
---   elseif vim.tbl_contains({ "man" }, filetype) then
---     vim.cmd("Man " .. vim.fn.expand "<cword>")
---   elseif vim.fn.expand "%:t" == "Cargo.toml" and require("crates").popup_available() then
---     require("crates").show_popup()
---   else
---     vim.lsp.buf.hover()
---   end
--- end
---
--- vim.keymap.set("n", "K", show_documentation, { noremap = true, silent = true })
-
--- )))
-
--- )))
-
--- telescope config to use (((
--- -- https://gitlab.com/HiPhish/nvim-config/-/blob/master/plugin/telescope.lua
--- defaults = {
---   -- winblend = 30,
---   -- border = true,
---   file_ignore_patterns = {
---     "%.zip$",
---     "%.tar$",
---     "%.tar.gz$",
---     "%.so$",
---     "%.a$",
---     "%.fasl$",
---     "%.pyc$",
---     "%.whl$",
---     "%.bin$",
---     "%.db$",
---     "node_modules",
---   },
--- },
--- pickers = {
---   -- find_files = {
---   --   hidden = true,
---   -- },
---   diagnostics = { theme = "dropdown" },
---   -- diagnostics = { layout = { "vertical" } },
---   git_status = { theme = "ivy" },
--- },
-
--- )))
