@@ -14,17 +14,17 @@ return {
   -- import/override with your plugins folder
 
   -- { import = "astrocommunity.editing-support.text-case-nvim" }, -- An all in one plugin for converting text case in Neovim
-  { import = "astrocommunity.code-runner.compiler-nvim" }, -- Neovim compiler for building and running your code without having to configure anything
-  { import = "astrocommunity.debugging.nvim-dap-virtual-text" }, -- This plugin adds virtual text support to nvim-dap. nvim-treesitter is used to find variable definitions.
-  { import = "astrocommunity.debugging.persistent-breakpoints-nvim" }, -- Neovim plugin for persistent breakpoints.
-  { import = "astrocommunity.debugging.telescope-dap-nvim" }, -- Integration for nvim-dap with telescope.nvim.
+  -- { import = "astrocommunity.code-runner.compiler-nvim" }, -- Neovim compiler for building and running your code without having to configure anything
+  -- { import = "astrocommunity.debugging.nvim-dap-virtual-text" }, -- This plugin adds virtual text support to nvim-dap. nvim-treesitter is used to find variable definitions.
+  -- { import = "astrocommunity.debugging.persistent-breakpoints-nvim" }, -- Neovim plugin for persistent breakpoints.
+  -- { import = "astrocommunity.debugging.telescope-dap-nvim" }, -- Integration for nvim-dap with telescope.nvim.
   { import = "astrocommunity.diagnostics.lsp_lines-nvim" }, -- lsp_lines is a simple neovim plugin that renders diagnostics using virtual lines on top of the real line of code.
   { import = "astrocommunity.diagnostics.trouble-nvim" }, -- A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
-  { import = "astrocommunity.editing-support.comment-box-nvim" }, -- Clarify and beautify your comments and plain text files using boxes and lines.
-  { import = "astrocommunity.editing-support.neogen" }, -- A better annotation generator. Supports multiple languages and annotation conventions.
-  { import = "astrocommunity.editing-support.nvim-devdocs" }, -- Neovim DevDocs integration
+  -- { import = "astrocommunity.editing-support.comment-box-nvim" }, -- Clarify and beautify your comments and plain text files using boxes and lines.
+  -- { import = "astrocommunity.editing-support.neogen" }, -- A better annotation generator. Supports multiple languages and annotation conventions.
+  -- { import = "astrocommunity.editing-support.nvim-devdocs" }, -- Neovim DevDocs integration
   { import = "astrocommunity.editing-support.suda-vim" }, -- An alternative sudo.vim for Vim and Neovim, limited support sudo in Windows
-  { import = "astrocommunity.git.diffview-nvim" }, -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
+  -- { import = "astrocommunity.git.diffview-nvim" }, -- Single tabpage interface for easily cycling through diffs for all modified files for any git rev.
   { import = "astrocommunity.git.neogit" }, -- magit for neovim
   { import = "astrocommunity.indent.indent-blankline-nvim" }, -- Indent guides for Neovim
   { import = "astrocommunity.indent.indent-tools-nvim" }, -- Neovim plugin for dealing with indentations
