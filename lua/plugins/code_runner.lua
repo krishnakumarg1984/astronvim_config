@@ -1,3 +1,5 @@
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 return {
   {
     "stevearc/overseer.nvim", -- A task runner and job management plugin for Neovim
