@@ -545,6 +545,7 @@ local opts = { -- (((
       ["<"] = { "<gv" }, -- Stay in indent mode in visual-block mode
       [">"] = { ">gv" }, -- Stay in indent mode in visual-block mode
     }, -- )))
+    o = {},
   }, -- )))
   signs = {
     BqfSign = { text = " " .. require("astroui").get_icon "Selected", texthl = "BqfSign" },

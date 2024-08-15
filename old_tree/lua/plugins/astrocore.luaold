@@ -1,0 +1,90 @@
+-- vim: ft=lua
+-- C = { name = "󱣘 Crates" },
+-- L = { name = " LC" },
+-- n = { name = " Annotate" },
+-- o = { name = " Overseer" },
+-- q = { name = " Quickfix" },
+-- v = { name = " LaTeX" },
+-- x = { name = "󰲉 Diagnostics" },
+-- z = { name = " Testing" },
+-- Commented-out mappings (((
+
+-- Commented-out vimscript mappings (((
+--
+-- " nnoremaps
+--
+-- " https://www.reddit.com/r/vim/comments/oyqkkd/comment/h7x83ce/?utm_source=share&utm_medium=web2x&context=3
+-- " Basically, it makes '0' act like '^' on first press, and then like '0' on " second press.
+-- " So if I press 0, I go back to indentation. If I press 0 " again, I go to the first column of the line.
+-- " And if I continue pressing " zero, it switches between the first column and the first character.
+-- " nnoremap <expr> <silent> 0 col('.') == match(getline('.'),'\S')+1 ? '0' : '^'
+--
+-- " https://www.reddit.com/r/neovim/comments/sf0hmc/im_really_proud_of_this_mapping_i_came_up_with/?sort=old
+-- " nnoremap g. /\V\C<C-r>"<CR>cgn<C-a><Esc>
+-- " nnoremap g. :call setreg('/',substitute(@", '\%x00', '\\n', 'g'))<cr>:exec printf("norm %sgn%s", v:operator, v:operator != 'd' ? '<c-a>':'')<cr>
+--
+-- " nmap cg* *Ncgn
+--
+-- "
+--
+-- " Substitute word under cursor and dot repeat
+--
+-- " https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
+-- " nnoremap <silent> \\C :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+-- " nnoremap <leader><leader>c :let @/='\<'.expand('<cword>').'\>'<CR>cgn
+-- " xnoremap <silent> \\C "sy:let @/=@s<CR>cgn
+--
+--
+-- )))
+
+-- Commented-out lua mappings (((
+
+-- local function show_documentation()
+--   local filetype = vim.bo.filetype
+--   if vim.tbl_contains({ "vim", "help" }, filetype) then
+--     vim.cmd("h " .. vim.fn.expand "<cword>")
+--   elseif vim.tbl_contains({ "man" }, filetype) then
+--     vim.cmd("Man " .. vim.fn.expand "<cword>")
+--   elseif vim.fn.expand "%:t" == "Cargo.toml" and require("crates").popup_available() then
+--     require("crates").show_popup()
+--   else
+--     vim.lsp.buf.hover()
+--   end
+-- end
+--
+-- vim.keymap.set("n", "K", show_documentation, { noremap = true, silent = true })
+
+-- )))
+
+-- )))
+
+-- telescope config to use (((
+-- -- https://gitlab.com/HiPhish/nvim-config/-/blob/master/plugin/telescope.lua
+-- defaults = {
+--   -- winblend = 30,
+--   -- border = true,
+--   file_ignore_patterns = {
+--     "%.zip$",
+--     "%.tar$",
+--     "%.tar.gz$",
+--     "%.so$",
+--     "%.a$",
+--     "%.fasl$",
+--     "%.pyc$",
+--     "%.whl$",
+--     "%.bin$",
+--     "%.db$",
+--     "node_modules",
+--   },
+-- },
+-- pickers = {
+--   -- find_files = {
+--   --   hidden = true,
+--   -- },
+--   diagnostics = { theme = "dropdown" },
+--   -- diagnostics = { layout = { "vertical" } },
+--   git_status = { theme = "ivy" },
+-- },
+
+-- )))
+
