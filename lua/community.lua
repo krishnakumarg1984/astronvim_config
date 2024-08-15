@@ -23,6 +23,7 @@ return {
   { import = "astrocommunity.lsp.garbage-day-nvim" }, -- Garbage collector that stops inactive LSP clients to free RAM
   { import = "astrocommunity.lsp.lsp-lens-nvim" }, -- Neovim plugin for displaying references and definition infos upon functions like JB's IDEA.
   { import = "astrocommunity.lsp.lsplinks-nvim" }, -- LSP textDocument/documentLink support for neovim
+  { import = "astrocommunity.lsp.nvim-lsp-endhints" }, --  Display LSP inlay hints at the end of the line, rather than within the line.
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" }, -- Neovim plugin that adds support for file operations using built-in LSP
   { import = "astrocommunity.markdown-and-latex.glow-nvim" }, -- A markdown preview directly in your neovim.
   { import = "astrocommunity.motion.mini-surround" }, -- Neovim Lua plugin with fast and feature-rich surround actions. Part of 'mini.nvim' library.
