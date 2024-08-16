@@ -30,8 +30,8 @@ return {
   { import = "astrocommunity.motion.vim-matchup" }, -- even better %. navigate and highlight matching words. modern matchit and matchparen. Supports both vim and neovim + tree-sitter.
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.json" },
-  { import = "astrocommunity.pack.lua" },
-  { import = "astrocommunity.pack.nix" },
+  -- { import = "astrocommunity.pack.lua" },
+  -- { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" }, -- This plugin specification configures AstroLSP to disable inlay hints in a buffer when going into insert mode and re-enables them when leaving insert mode.
   { import = "astrocommunity.recipes.vscode" }, -- Some users may be wanting to integrate their Neovim configuration with their VS Code editor. This spec configures AstroNvim to play nicely with the VS Code Extension vscode-neovim.
   { import = "astrocommunity.terminal-integration.flatten-nvim" }, -- Open files and command output from wezterm, kitty, and neovim terminals in your current neovim instance
