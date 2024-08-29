@@ -28,10 +28,6 @@ return {
   { import = "astrocommunity.markdown-and-latex.glow-nvim" }, -- A markdown preview directly in your neovim.
   { import = "astrocommunity.motion.mini-surround" }, -- Neovim Lua plugin with fast and feature-rich surround actions. Part of 'mini.nvim' library.
   { import = "astrocommunity.motion.vim-matchup" }, -- even better %. navigate and highlight matching words. modern matchit and matchparen. Supports both vim and neovim + tree-sitter.
-  { import = "astrocommunity.pack.cpp" },
-  { import = "astrocommunity.pack.json" },
-  -- { import = "astrocommunity.pack.lua" },
-  -- { import = "astrocommunity.pack.nix" },
   { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" }, -- This plugin specification configures AstroLSP to disable inlay hints in a buffer when going into insert mode and re-enables them when leaving insert mode.
   { import = "astrocommunity.recipes.vscode" }, -- Some users may be wanting to integrate their Neovim configuration with their VS Code editor. This spec configures AstroNvim to play nicely with the VS Code Extension vscode-neovim.
   { import = "astrocommunity.terminal-integration.flatten-nvim" }, -- Open files and command output from wezterm, kitty, and neovim terminals in your current neovim instance
@@ -75,7 +71,11 @@ return {
   -- { import = "astrocommunity.markdown-and-latex.vimtex" }, -- VimTeX: A modern Vim and neovim filetype plugin for LaTeX files.
   -- { import = "astrocommunity.motion.nvim-spider" }, -- Use the w, e, b motions like a spider. Move by subwords and skip insignificant punctuation.
   -- { import = "astrocommunity.motion.tabout-nvim" }, -- tabout plugin for neovim
+  -- { import = "astrocommunity.pack.cpp" },
+  -- { import = "astrocommunity.pack.json" },
   -- { import = "astrocommunity.pack.julia" },
+  -- { import = "astrocommunity.pack.lua" },
+  -- { import = "astrocommunity.pack.nix" },
   -- { import = "astrocommunity.pack.rust" },
   -- { import = "astrocommunity.programming-language-support.nvim-jqx" }, -- Populate the quickfix with json entries
   -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },

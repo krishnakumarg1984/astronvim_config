@@ -11,7 +11,14 @@
 
 -- https://code.mehalter.com/AstroNvim_user/~files/master/lua/plugins/astrolsp.lua
 local servers = {} -- only add local servers if their commands are available
-for server, cmd in pairs { julials = "julia" } do
+for server, cmd in pairs {
+  julials = "julia",
+  lua_ls = "lua-language-server",
+  markdown_oxide = "markdown-oxide", -- written in Rust -- can be installed without any dependency troubles
+  marksman = "marksman", -- written in F#  -- can be installed without any dependency troubles
+  typos_lsp = "typos-lsp",
+  vale_ls = "vale-ls",
+} do
   if vim.fn.executable(cmd) == 1 then table.insert(servers, server) end
 end
 
