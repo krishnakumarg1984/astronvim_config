@@ -484,9 +484,10 @@ local opts = { -- (((
       -- 'akinsho/toggleterm.nvim' keymaps for normal mode (((
       -- A neovim lua plugin to help easily manage multiple terminal windows
 
-      ["<M-t>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal (float)" },
       ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=9<cr>", desc = "Toggle terminal (horizontal)" },
       ["<Leader>g<s-u>"] = { function() astro.toggle_term_cmd "gitui" end, desc = "GitUI" },
+      ["<Leader>tu"] = { function() astro.toggle_term_cmd "lua" end, desc = "ToggleTerm Lua" },
+      ["<M-t>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal (float)" },
 
       -- )))
       -- 'nvim-telescope/telescope.nvim' keymaps for normal mode (((

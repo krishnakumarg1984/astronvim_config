@@ -190,9 +190,6 @@ if vim.fn.executable "cmake" == 1 then
     -- astrocore.list_insert_unique(lsps_to_install, { "cmake" })
   end
 end
-if vim.fn.executable "nix" and vim.fn.has "macunix" and vim.fn.executable "rustc" and vim.fn.executable "cargo" then
-  -- astrocore.list_insert_unique(lsps_to_install, { "nil_ls" })
-end
 -- if vim.fn.executable "nix" and vim.fn.has "macunix" and vim.fn.executable "rustc" and vim.fn.executable "cargo" then
 --   astrocore.list_insert_unique(lsps_to_install, { "nil_ls" })
 -- end
