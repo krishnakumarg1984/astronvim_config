@@ -10,15 +10,32 @@
 -- ╰─────────────────────────────────────────────────────────╯
 
 -- https://code.mehalter.com/AstroNvim_user/~files/master/lua/plugins/astrolsp.lua
-local servers = {} -- only add local servers if their commands are available
+-- use the server name in https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
+-- incorporate locallly installed servers if they are available (ok since mason install to path is skipped)
+local servers = {}
 for server, cmd in pairs {
-  harper_ls = "harper-ls",
+  -- ast_grep = "ast-grep", -- to study and look at this tool further
+  -- sonarlint_ls = "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
+  basedpyright = "basedpyright", -- pyright fork with various type checking improvements, improved vscode support and pylance features built into the language server. requires python3 in PATH
+  bashls = "bash-language-server", -- requires npm for installing via mason
+  biome = "biome", -- A toolchain for web projects, aimed to provide functionalities to maintain them. Biome offers formatter and linter, usable via CLI and LSP.
+  docker_compose_language_service = "docker-compose-language-server", -- Language service for Docker Compose documents
+  dockerls = "docker-langserver", -- A language server for Dockerfiles powered by Node.js, TypeScript, and VSCode technologies.
+  fortls = "fortls", -- Fortran Language Server
+  harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust
+  jsonls = "vscode-json-languageserver", -- JSON language service extracted from VSCode to be reused, e.g in the Monaco editor. Not available yet in nixpkgs as of Sep 2024. Hence install via mason
   julials = "julia",
-  lua_ls = "lua-language-server",
-  markdown_oxide = "markdown-oxide", -- written in Rust -- can be installed without any dependency troubles
-  marksman = "marksman", -- written in F#  -- can be installed without any dependency troubles
-  typos_lsp = "typos-lsp",
-  vale_ls = "vale-ls",
+  lua_ls = "lua-language-server", -- Language server that offers lua support. (dependent on lua in PATH?)
+  markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for your favorite text-editor through the LSP, written in Rust
+  marksman = "marksman", -- Write Markdown with code assist and intelligence in the comfort of your favourite editor. Written in F#
+  neocmake = "neocmakelsp", -- have to use the name in https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#neocmake. CMake LSP implementation based on Tower and Tree-sitter. Written in Rust
+  ruff = "ruff", -- An extremely fast Python linter and code formatter, written in Rust.
+  rust_analyzer = "rust-analyzer", -- Modular compiler frontend for the Rust language. Written in Rust
+  taplo = "taplo", -- TOML toolkit written in Rust
+  typos_lsp = "typos-lsp", -- Source code spell checker. Written in Rust
+  vale_ls = "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust
+  vimls = "vim-language-server", -- VImScript language server, LSP for vim script
+  yamlls = "yaml-language-server", -- Language Server for YAML Files
 } do
   if vim.fn.executable(cmd) == 1 then table.insert(servers, server) end
 end
