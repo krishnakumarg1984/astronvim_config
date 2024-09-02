@@ -8,15 +8,18 @@ local astrocore = require "astrocore"
 -- lsps_to_install (((
 
 local lsps_to_install = {
-  "clangd", -- not available via brew or nix
-  "prosemd_lsp", -- can be installed without dependency troubles
+  "clangd", -- not available via brew or nix (as of Sep 2024)
   -- "denols", -- not available in either brew or nixpkgs (as of Aug 2024)
   -- "lemminx", -- XML Language Server written in 'java' (can be installed without dependency troubles). Available in nixpkgs
   -- "ltex", -- slightly harder to configure, but can be installed without dependency troubles. Available in nixpkgs (and in brew, but too many dependencies to build)
+  -- "prosemd_lsp", -- last updated in 2021 (verified Sep 2024) can be installed without dependency troubles
   -- "texlab", -- can be installed without dependency troubles. Available in brew
   -- "zk", -- can be installed without any dependency troubles. Available in nixpkgs (and in brew, but too many dependencies to build)
 }
+
+-- install through mason only if not externally installed already and available in PATH
 for server, cmd in pairs {
+  harper_ls = "harper-ls",
   lua_ls = "lua-language-server",
   markdown_oxide = "markdown-oxide", -- written in Rust -- can be installed without any dependency troubles
   marksman = "marksman", -- written in F#  -- can be installed without any dependency troubles
