@@ -23,7 +23,6 @@ for server, cmd in pairs {
   dockerls = "docker-langserver", -- A language server for Dockerfiles powered by Node.js, TypeScript, and VSCode technologies.
   fortls = "fortls", -- Fortran Language Server
   harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust
-  jsonls = "vscode-json-languageserver", -- JSON language service extracted from VSCode to be reused, e.g in the Monaco editor. Not available yet in nixpkgs as of Sep 2024. Hence install via mason
   julials = "julia",
   lua_ls = "lua-language-server", -- Language server that offers lua support. (dependent on lua in PATH?)
   markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for your favorite text-editor through the LSP, written in Rust

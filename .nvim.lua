@@ -9,8 +9,14 @@ local code_actions = null_ls.builtins.code_actions
 
 local tools_to_run = {}
 local astrocore = require "astrocore"
+-- if vim.fn.executable "beautysh" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.beautysh }) end
+-- if vim.fn.executable "biome" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.biome }) end
+-- if vim.fn.executable "cpplint" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.cpplint }) end
+-- if vim.fn.executable "cspell" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.cspell }) end
+-- if vim.fn.executable "shellcheck" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.shellcheck }) end
+-- if vim.fn.executable "ruff" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.ruff }) end
 if vim.fn.executable "alex" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.alex }) end
-if vim.fn.executable "biome" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.biome }) end
+if vim.fn.executable "checkmake" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.checkmake }) end
 if vim.fn.executable "codespell" == 1 then
   astrocore.list_insert_unique(tools_to_run, { diagnostics.codespell, formatting.codespell })
 end
@@ -18,11 +24,13 @@ if vim.fn.executable "gitlint" == 1 then astrocore.list_insert_unique(tools_to_r
 if vim.fn.executable "markdownlint-cli2" == 1 then
   astrocore.list_insert_unique(tools_to_run, { diagnostics.markdownlint_cli2 })
 end
+if vim.fn.executable "mdformat" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.mdformat }) end
 if vim.fn.executable "proselint" == 1 then astrocore.list_insert_unique(tools_to_run, { code_actions.proselint }) end
 if vim.fn.executable "selene" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.selene }) end
-if vim.fn.executable "textlint" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.textlint }) end
-if vim.fn.executable "mdformat" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.mdformat }) end
+if vim.fn.executable "shellharden" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.shellharden }) end
+if vim.fn.executable "shfmt" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.shfmt }) end
 if vim.fn.executable "stylua" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.stylua }) end
+if vim.fn.executable "textlint" == 1 then astrocore.list_insert_unique(tools_to_run, { diagnostics.textlint }) end
 if vim.fn.executable "yamlfix" == 1 then astrocore.list_insert_unique(tools_to_run, { formatting.yamlfix }) end
 
 null_ls.register(tools_to_run)

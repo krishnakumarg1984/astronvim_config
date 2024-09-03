@@ -2,7 +2,7 @@
 
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
--- Customize Mason plugins (((
+-- Customize Mason-installed tools (((
 local astrocore = require "astrocore"
 
 -- lsps_to_install initial table created here (((
@@ -35,13 +35,17 @@ end
 -- )))
 -- )))
 
--- linters_formatters_to_install (((
-
+-- initial table of easily binary-installable linters and formatters not available elsewhere such as nixpkgs
 local linters_formatters_to_install = {}
 
+-- easily binary-installable linters and formatters available elsewhere but not already in PATH (((
 for linter_formatter, linters_formatter_cmd in pairs {
-  actionlint = "actionlint", -- golang-based, but installs as binary executable without any dependencies
+  actionlint = "actionlint", -- Static checker for GitHub Actions workflow files
+  checkmake = "checkmake", -- experimental linter/analyzer for Makefiles
+  shfmt = "shfmt", -- A shell parser, formatter, and interpreter with bash support; includes shfmt
+  stylua = "stylua",
   -- astgrep = "ast-grep", -- have to learn how to use this
+  -- shellcheck = "shellcheck", -- ShellCheck, a static analysis tool for shell scripts. Deprecated in none-ls
   -- astyle = "astyle",
   -- cbfmt = "cbfmt",
   -- editorconfig_checker = "editorconfig-checker",
@@ -49,7 +53,6 @@ for linter_formatter, linters_formatter_cmd in pairs {
   -- markuplint = "markuplint", -- html linter. not in brew or nixpkgs as of Sep 2024. Install with mason
   -- mdslw = "mdslw", -- markdown formatter. not in brew or nixpkgs as of Sep 2024. Install with mason
   -- selene = "selene",
-  stylua = "stylua",
   -- vacuum = "vacuum",
   -- vale = "vale",
   -- yamlfmt = "yamlfmt",
@@ -80,14 +83,6 @@ local daps_to_install = {
 if vim.fn.executable "bash" == 1 or vim.fn.executable "sh" == 1 then
   -- astrocore.list_insert_unique(linters_formatters_to_install, { "shellcheck", "shfmt" })
   -- astrocore.list_insert_unique(daps_to_install, { "bash" })
-
-  -- tools written in bash meant to help edit python source code  (((
-
-  -- if vim.fn.executable "python3" == 1 and vim.fn.executable "pip3" == 1 then
-  --   -- astrocore.list_insert_unique(linters_formatters_to_install, { "beautysh" })
-  -- end
-
-  -- )))
 end
 -- )))
 
@@ -117,6 +112,7 @@ end
 if vim.fn.executable "npm" == 1 then
   -- install general npm-written LSPs not available in PATH via mason (((
   astrocore.list_insert_unique(lsps_to_install, {
+    "jsonls", -- JSON language service extracted from VSCode to be reused, e.g in the Monaco editor. Not available yet in nixpkgs as of Sep 2024. Hence install via mason
     -- "html"
     -- "intelephense"
     -- "tsserver"
@@ -127,9 +123,9 @@ if vim.fn.executable "npm" == 1 then
 
   -- install general npm-written linters and formatters not available in PATH via mason (((
   astrocore.list_insert_unique(linters_formatters_to_install, {
-    "alex", -- not installable via nixpkgs as of Sep 2024. Hence install via mason
-    -- "commitlint",
-    -- "cspell",
+    "alex", -- Catch insensitive, inconsiderate writing.
+    -- "cpplint", -- Cpplint is a command-line tool to check C/C++ files for style issues following Google's C++ style guide. Problematic nixpkgs build as of Sep 2024. cpplint has been deprecated in none-ls.
+    -- "cspell", -- A Spell Checker for Code! Deprecated in none-ls
     -- "fixjson",
     -- "jsonlint",
     -- "markdownlint_cli2",
@@ -138,16 +134,17 @@ if vim.fn.executable "npm" == 1 then
   })
   -- )))
 
-  -- install npm-written LSPs not available in PATH via mason
+  -- install npm-written LSPs not available in PATH via mason (((
   for server, cmd in pairs {
     biome = "biome", -- A toolchain for web projects, aimed to provide functionalities to maintain them. Biome offers formatter and linter, usable via CLI and LSP. Requires npm to install even if written in Rust
-    jsonls = "vscode-json-languageserver", -- JSON language service extracted from VSCode to be reused, e.g in the Monaco editor. Not available yet in nixpkgs as of Sep 2024. Hence install via mason
     yamlls = "yaml-language-server", -- Language Server for YAML Files
     -- zk = "zk" -- A plain text note-taking assistant.
   } do
     if vim.fn.executable(cmd) == 0 then table.insert(lsps_to_install, server) end
   end
+  -- )))
 
+  -- install other npm-written tools (lsps, linters and formatters) (((
   if vim.fn.executable "awk" == 1 then
     astrocore.list_insert_unique(lsps_to_install, { "awk_ls" }) -- not available in nixpkgs as of Sep 2024, so install with mason
   end
@@ -157,14 +154,6 @@ if vim.fn.executable "npm" == 1 then
     --  astrocore.list_insert_unique(lsps_to_install, { "perlnavigator" }) end
     for server, cmd in pairs {
       bashls = "bash-language-server", -- requires npm for installing via mason
-    } do
-      if vim.fn.executable(cmd) == 0 then table.insert(lsps_to_install, server) end
-    end
-  end
-
-  if vim.fn.executable "vim" == 1 or vim.fn.executable "nvim" == 1 then
-    for server, cmd in pairs {
-      vimls = "vim-language-server", -- VImScript language server, LSP for vim script
     } do
       if vim.fn.executable(cmd) == 0 then table.insert(lsps_to_install, server) end
     end
@@ -183,6 +172,25 @@ if vim.fn.executable "npm" == 1 then
       } do
         if vim.fn.executable(cmd) == 0 then table.insert(lsps_to_install, server) end
       end
+    end
+  end
+  -- )))
+
+  if vim.fn.executable "git" == 1 then
+    for linter_formatter, linters_formatter_cmd in pairs {
+      commitlint = "commitlint", --  Lint commit messages
+    } do
+      if vim.fn.executable(linters_formatter_cmd) == 0 then
+        table.insert(linters_formatters_to_install, linter_formatter)
+      end
+    end
+  end
+
+  if vim.fn.executable "vim" == 1 or vim.fn.executable "nvim" == 1 then
+    for server, cmd in pairs {
+      vimls = "vim-language-server", -- VImScript language server, LSP for vim script
+    } do
+      if vim.fn.executable(cmd) == 0 then table.insert(lsps_to_install, server) end
     end
   end
   -- )))
@@ -227,81 +235,136 @@ end
 
 if vim.fn.executable "python3" == 1 then
   -- install python-written LSPs using mason
-  astrocore.list_insert_unique(lsps_to_install, { "textlsp" }) -- Language server for text spell and grammar check with various tools. Not available in nixpkgs or elsewhere as of Sep 2024
+  astrocore.list_insert_unique(lsps_to_install, {
+    -- "textlsp", -- Language server for text spell and grammar check with various tools. Not available in nixpkgs or elsewhere as of Sep 2024
+  })
 
-  -- install python-written LSPs using mason only if not externally installed already and available in PATH
+  -- install python-written LSPs using mason only if not externally installed already and available in PATH (((
   for server, cmd in pairs {
     basedpyright = "basedpyright", -- pyright fork with various type checking improvements, improved vscode support and pylance features built into the language server. requires python3 in PATH
     ruff = "ruff", -- An extremely fast Python linter and code formatter, written in Rust.
   } do
     if vim.fn.executable(cmd) == 0 then table.insert(lsps_to_install, server) end
   end
+  -- )))
 
-  if vim.fn.executable "pip3" == 1 or vim.fn.executable "conda" == 1 or vim.fn.executable "mamba" == 1 then
-    -- astrocore.list_insert_unique(daps_to_install, { "debugpy" })
-    -- astrocore.list_insert_unique(lsps_to_install, { "pyre" })
-    -- astrocore.list_insert_unique(lsps_to_install, { "pylsp" })
-    -- astrocore.list_insert_unique(linters_formatters_to_install, {
-    --   "autoflake",
-    --   "clang_format",
-    --   "codespell",
-    --   "cpplint",
-    --   "flake8",
-    --   "gitlint",
-    --   "mdformat",
-    --   "proselint",
-    --   "pydocstyle",
-    --   "pylama",
-    --   "reorder_python_imports",
-    --   "usort",
-    --   "vint",
-    --   "vulture",
-    --   "yamlfix",
-    --   "yamllint",
-    --   -- "mypy",
-    --   -- "pylint",
-    --   -- "pyproject_flake8",
-    -- })
+  -- general tools that are written in python (((
+  for linter_formatter, linters_formatter_cmd in pairs {
+    codespell = "codespell", -- check code for common misspellings
+  } do
+    if vim.fn.executable(linters_formatter_cmd) == 0 then
+      table.insert(linters_formatters_to_install, linter_formatter)
+    end
+  end
+  -- )))
 
-    --- python + rust/cargo tools (((
+  -- tools written in python but used for editing bash scripts (((
 
-    -- if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" == 1 then
-    --   -- astrocore.list_insert_unique(linters_formatters_to_install, { "shellharden" })
-    --   --   astrocore.list_insert_unique(lsps_to_install, "pylyzer")
-    -- end
+  -- if vim.fn.executable "sh" == 1 or vim.fn.executable "bash" == 1 then
+  --   for linter_formatter, linters_formatter_cmd in pairs {
+  --     -- beautysh = "beautysh", -- A Bash beautifier for the masses. Deprecated by none-ls. Available in https://github.com/nvimtools/none-ls-extras.nvim
+  --   } do
+  --     if vim.fn.executable(linters_formatter_cmd) == 0 then
+  --       table.insert(linters_formatters_to_install, linter_formatter)
+  --     end
+  --   end
+  -- end
 
-    -- )))
+  -- )))
 
-    -- python + cmake tools (((
+  -- tools written in python but used for editing cmake scripts (((
 
-    -- if vim.fn.executable "cmake" == 1 then
-    --   -- astrocore.list_insert_unique(linters_formatters_to_install, { "cmake_format", "cmakelint", "gersemi" })
-    -- end
-
-    -- )))
-
-    if vim.fn.executable "gfortran" == 1 or vim.fn.executable "lfortran" == 1 then
-      for server, cmd in pairs {
-        fortls = "fortls", -- Fortran Language Server
-      } do
-        if vim.fn.executable(cmd) == 0 then table.insert(lsps_to_install, server) end
+  if vim.fn.executable "cmake" == 1 then
+    for linter_formatter, linters_formatter_cmd in pairs {
+      cmakelint = "cmakelint", -- cmakelint parses CMake files and reports style issues.
+    } do
+      if vim.fn.executable(linters_formatter_cmd) == 0 then
+        table.insert(linters_formatters_to_install, linter_formatter)
       end
     end
-    -- astrocore.list_insert_unique(lsps_to_install, "sourcery")
+    -- astrocore.list_insert_unique(linters_formatters_to_install, { "cmake_format", "cmakelint", "gersemi" })
   end
+
+  -- )))
+
+  -- tools written in python but used for editing fortran source code (((
+
+  if vim.fn.executable "gfortran" == 1 or vim.fn.executable "lfortran" == 1 then
+    for server, cmd in pairs {
+      fortls = "fortls", -- Fortran Language Server
+    } do
+      if vim.fn.executable(cmd) == 0 then table.insert(lsps_to_install, server) end
+    end
+  end
+
+  -- )))
+
+  -- tools written in python but also need cargo/rustc (((
+
+  -- if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" == 1 then
+  --   astrocore.list_insert_unique(linters_formatters_to_install, { "shellharden" })
+  --   astrocore.list_insert_unique(lsps_to_install, "pylyzer")
+  -- end
+
+  -- )))
+
+  -- astrocore.list_insert_unique(lsps_to_install, "sourcery")
+
+  -- tools that also need pip or conda (((
+  -- if vim.fn.executable "pip3" == 1 or vim.fn.executable "conda" == 1 or vim.fn.executable "mamba" == 1 then
+  --   astrocore.list_insert_unique(daps_to_install, { "debugpy" })
+  --   astrocore.list_insert_unique(lsps_to_install, { "pyre" })
+  --   astrocore.list_insert_unique(lsps_to_install, { "pylsp" })
+  --   astrocore.list_insert_unique(linters_formatters_to_install, {
+  --     "autoflake",
+  --     "clang_format",
+  --     "codespell",
+  --     "flake8",
+  --     "gitlint",
+  --     "mdformat",
+  --     "proselint",
+  --     "pydocstyle",
+  --     "pylama",
+  --     "reorder_python_imports",
+  --     "usort",
+  --     "vint",
+  --     "vulture",
+  --     "yamlfix",
+  --     "yamllint",
+  --     -- "mypy",
+  --     -- "pylint",
+  --     -- "pyproject_flake8",
+  --   })
+  -- end
+  -- )))
 end
 
 -- )))
 
 -- tools written in rust and that requires ructc and cargo (((
--- astrocore.list_insert_unique(lsps_to_install, { "asm_lsp", "nil_ls", "taplo" })
 
-if vim.fn.has "macunix" and vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
+-- astrocore.list_insert_unique(lsps_to_install, { "asm_lsp", "nil_ls", "taplo" })
+if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
+  -- tools written in rust that are binary-installable (((
   for server, cmd in pairs {
     rust_analyzer = "rust-analyzer", -- Modular compiler frontend for the Rust language. Written in Rust. But actually has no dependency on rust being available in PATH. It is an easy binary install via mason. Just doing conditional installation because there is no use for rust-analyzer without rustc available in PATH
   } do
     if vim.fn.executable(cmd) == 0 then table.insert(lsps_to_install, server) end
   end
+  -- )))
+
+  -- tools written in rust that requires rustc/cargo and helpful tools for editing bash scripts  (((
+  if vim.fn.executable "sh" == 1 or vim.fn.executable "bash" == 1 then
+    for linter_formatter, linters_formatter_cmd in pairs {
+      shellharden = "shellharden", -- Hardens shell scripts by quoting variables, replacing function_call with $(function_call), and more.
+    } do
+      if vim.fn.executable(linters_formatter_cmd) == 0 then
+        table.insert(linters_formatters_to_install, linter_formatter)
+      end
+    end
+  end
+  -- )))
+
   -- tools written in rust that requires rustc and for editing cmake source code  (((
   if vim.fn.executable "cmake" == 1 then
     for server, cmd in pairs {
@@ -316,11 +379,11 @@ end
 
 -- )))
 
--- )))
 -- if vim.fn.executable "dotnet" == 1 then astrocore.list_insert_unique(lsps_to_install, { "omnisharp" }) end
 -- if vim.fn.executable "r" then astrocore.list_insert_unique(lsps_to_install, { "r_language_server" }) end
 
 -- )))
+
 -- )))
 
 ---@diagnostic disable-next-line: undefined-doc-name
@@ -328,7 +391,7 @@ end
 return {
   {
     "williamboman/mason.nvim", -- Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.
-    opts = { PATH = "skip" },
+    -- opts = { PATH = "skip" },
   },
   -- use mason-lspconfig to configure LSP installations(((
   {
@@ -363,3 +426,6 @@ return {
   },
   -- )))
 }
+
+-- https://github.com/gbprod/none-ls-shellcheck.nvim
+-- https://github.com/nvimtools/none-ls-extras.nvim
