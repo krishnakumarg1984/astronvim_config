@@ -20,12 +20,12 @@ local lsps_to_install = {
 for server, cmd in pairs {
   -- ast_grep = "ast-grep", -- to study and look at this tool further
   -- sonarlint_ls = "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
-  harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust
-  markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for your favorite text-editor through the LSP, written in Rust
-  marksman = "marksman", -- Write Markdown with code assist and intelligence in the comfort of your favourite editor. Written in F#
+  -- harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust. Requires a modern GLIBC
+  -- markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for your favorite text-editor through the LSP, written in Rust, Requires a new-ish glibc
+  -- marksman = "marksman", -- Write Markdown with code assist and intelligence in the comfort of your favourite editor. Written in F#. Too difficult on hpcs
   taplo = "taplo", -- TOML toolkit written in Rust
-  typos_lsp = "typos-lsp", -- Source code spell checker. Written in Rust
-  vale_ls = "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust
+  -- typos_lsp = "typos-lsp", -- Source code spell checker. Written in Rust. Requires a modern GLIBC
+  -- vale_ls = "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust. Requires a modern GLIBC
 } do
   if vim.fn.executable(cmd) == 0 then
     -- vim.print(cmd .. " not available in PATH")
