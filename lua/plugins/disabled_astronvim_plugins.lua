@@ -2,7 +2,6 @@
 
 ---@type LazySpec
 return {
-  -- customize alpha options
   {
     "goolord/alpha-nvim", -- A lua powered greeter like vim-startify / dashboard-nvim
     enabled = false,
@@ -11,8 +10,17 @@ return {
       return opts
     end,
   },
-
-  -- You can disable default plugins as follows:
-  { "max397574/better-escape.nvim", enabled = false }, -- Escape from insert mode without delay when typing
+  {
+    "max397574/better-escape.nvim", -- Map keys without delay when typing
+    enabled = false,
+    opts = {
+      mappings = {
+        i = { j = { k = false, j = false } }, -- disable insert mode escape
+        t = {
+          ["<Esc>"] = { ["<Esc>"] = "<C-\\><C-n>:q<CR>" }, -- add double escape to close
+        },
+      },
+    },
+  },
   { "NvChad/nvim-colorizer.lua", enabled = false }, -- The fastest Neovim colorizer.
 }
