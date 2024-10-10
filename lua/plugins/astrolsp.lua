@@ -1,5 +1,3 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ AstroLSP allows you to customize the features in        │
 -- │ AstroNvim's LSP configuration engine Configuration      │
@@ -9,26 +7,25 @@
 -- │ autocomplete and documentation while editing            │
 -- ╰─────────────────────────────────────────────────────────╯
 
--- https://code.mehalter.com/AstroNvim_user/~files/master/lua/plugins/astrolsp.lua
+-- https://code.mehalter.com/AstroNvim_user/~files/v5/lua/plugins/astrolsp.lua
 -- use the server name in https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
--- incorporate locallly installed servers if they are available (ok since mason install to path is skipped)
-local servers = {}
+local servers = {} -- only add local servers if their commands are available
 for server, cmd in pairs {
   -- ast_grep = "ast-grep", -- to study and look at this tool further
   -- sonarlint_ls = "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
-  basedpyright = "basedpyright", -- pyright fork with various type checking improvements, improved vscode support and pylance features built into the language server. requires python3 in PATH
+  basedpyright = "basedpyright", -- pyright fork with various type improvements. Requires python3 in PATH
   bashls = "bash-language-server", -- requires npm for installing via mason
-  biome = "biome", -- A toolchain for web projects, aimed to provide functionalities to maintain them. Biome offers formatter and linter, usable via CLI and LSP.
-  clangd = "clangd", -- clangd understands your C++ code and adds smart features to your editor: code completion, compile errors, go-to-definition and more.
+  biome = "biome", -- A toolchain for web projects. Biome offers formatter and linter, usable via CLI and LSP.
+  clangd = "clangd", -- clangd understands your C++ code & adds smart features to your editor
   docker_compose_language_service = "docker-compose-language-server", -- Language service for Docker Compose documents
   dockerls = "docker-langserver", -- A language server for Dockerfiles powered by Node.js, TypeScript, and VSCode technologies.
   fortls = "fortls", -- Fortran Language Server
   harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust
-  julials = "julia",
+  julials = "julia", -- The Julia Programming Language language server
   lua_ls = "lua-language-server", -- Language server that offers lua support. (dependent on lua in PATH?)
-  markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for your favorite text-editor through the LSP, written in Rust
-  marksman = "marksman", -- Write Markdown with code assist and intelligence in the comfort of your favourite editor. Written in F#
-  neocmake = "neocmakelsp", -- have to use the name in https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#neocmake. CMake LSP implementation based on Tower and Tree-sitter. Written in Rust
+  markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for your favorite text-editor through the LSP
+  marksman = "marksman", -- Write Markdown with code assist & intelligence. Written in F#
+  neocmake = "neocmakelsp", -- use name in github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#neocmake.
   ruff = "ruff", -- An extremely fast Python linter and code formatter, written in Rust.
   rust_analyzer = "rust-analyzer", -- Modular compiler frontend for the Rust language. Written in Rust
   taplo = "taplo", -- TOML toolkit written in Rust
@@ -52,43 +49,50 @@ return {
       semantic_tokens = true, -- enable/disable semantic token highlighting
       signature_help = true,
     },
-    -- customize lsp formatting options
-    formatting = {
-      -- control auto formatting on save
-      format_on_save = {
-        enabled = true, -- enable or disable format on save globally
-        -- If you have allow_filetypes it will take precedence over ignore_filetypes. So please only use one of these options at a time
-        allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
-        },
-        ignore_filetypes = { -- disable format on save for specified filetypes
-          "julia",
-          "text",
-          -- "cmake",
-          "python",
+    -- Configure buffer local auto commands to add when attaching a language server
+    autocmds = {
+      no_insert_inlay_hints = {
+        cond = vim.lsp.inlay_hint and "textDocument/inlayHint" or false,
+        {
+          event = "InsertEnter",
+          desc = "disable inlay hints on insert",
+          callback = function(args)
+            local filter = { bufnr = args.buf }
+            if vim.lsp.inlay_hint.is_enabled(filter) then
+              vim.lsp.inlay_hint.enable(false, filter)
+              vim.api.nvim_create_autocmd("InsertLeave", {
+                buffer = args.buf,
+                once = true,
+                callback = function() vim.lsp.inlay_hint.enable(true, filter) end,
+              })
+            end
+          end,
         },
       },
-      disabled = { -- disable formatting capabilities for the listed language servers
-        "clangd",
-        "cmake",
-        "jsonls",
-        "neocmakelsp",
-        "neocmake",
-        "pylsp",
-        "python_lsp_server",
-        -- "lua_ls", -- disable lua_ls formatting capability if you want to use stylua to format your lua code
-        "taplo",
-      },
-      timeout_ms = 1000, -- default format timeout
-      -- filter = function(client) -- fully override the default formatting function
-      --   -- only enable null-ls for javascript files
-      --   -- if vim.bo.filetype == "javascript" then return client.name == "null-ls" end
-      --   if vim.bo.filetype == "cmake" then return client.name == "null-ls" end
-
-      --   -- enable all other clients
-      --   return true
-      -- end,
-      -- timeout_ms = 1000, -- default format timeout
+      -- first key is the `augroup` to add the auto commands to (:h augroup)
+      -- lsp_codelens_refresh = {
+      --   -- Optional condition to create/delete auto command group
+      --   -- can either be a string of a client capability or a function of `fun(client, bufnr): boolean`
+      --   -- condition will be resolved for each client on each execution and if it ever fails for all clients,
+      --   -- the auto commands will be deleted for that buffer
+      --   cond = "textDocument/codeLens",
+      --   -- cond = function(client, bufnr) return client.name == "lua_ls" end,
+      --   -- list of auto commands to set
+      --   {
+      --     -- events to trigger
+      --     event = { "InsertLeave", "BufEnter" },
+      --     -- the rest of the autocmd options (:h nvim_create_autocmd)
+      --     desc = "Refresh codelens (buffer)",
+      --     callback = function(args)
+      --       if require("astrolsp").config.features.codelens then vim.lsp.codelens.refresh { bufnr = args.buf } end
+      --     end,
+      --   },
+      --   {
+      --     event = { "CursorMoved", "CursorMovedI", "BufLeave" },
+      --     desc = "Document Highlighting Clear",
+      --     callback = function() vim.lsp.buf.clear_references() end,
+      --   },
+      -- },
     },
     -- enable servers that you already have installed without mason
     servers = servers,
@@ -107,16 +111,6 @@ return {
             analysis = {
               typeCheckingMode = "basic",
               autoImportCompletions = true,
-              stubPath = vim.env.HOME .. "/typings",
-              diagnosticSeverityOverrides = {
-                reportUnusedImport = "information",
-                reportUnusedFunction = "information",
-                reportUnusedVariable = "information",
-                reportGeneralTypeIssues = "none",
-                reportOptionalMemberAccess = "none",
-                reportOptionalSubscript = "none",
-                reportPrivateImportUsage = "none",
-              },
             },
           },
         },
@@ -179,17 +173,33 @@ return {
       },
       julials = {
         on_new_config = function(new_config)
-          -- check for nvim-lspconfig julia sysimage shim
-          local julia = (vim.env.JULIA_DEPOT_PATH or vim.fn.expand "~/.julia")
-            .. "/environments/nvim-lspconfig/bin/julia"
-          if require("lspconfig").util.path.is_file(julia) then
-            new_config.cmd[1] = julia
+          local found_shim
+          for _, depot in
+            ipairs(
+              vim.env.JULIA_DEPOT_PATH and vim.split(vim.env.JULIA_DEPOT_PATH, vim.fn.has "win32" == 1 and ";" or ":")
+                or { vim.fn.expand "~/.julia" }
+            )
+          do
+            local bin = vim.fs.joinpath(depot, "environments", "nvim-lspconfig", "bin", "julia")
+            local file = (vim.uv or vim.loop).fs_stat(bin)
+            if file and file.type == "file" then
+              found_shim = bin
+              break
+            end
+          end
+          if found_shim then
+            new_config.cmd[1] = found_shim
           else
             new_config.autostart = false -- only auto start if sysimage is available
           end
         end,
+        on_attach = function(client)
+          local environment = vim.tbl_get(client, "settings", "julia", "environmentPath")
+          if environment then client.notify("julia/activateenvironment", { envPath = environment }) end
+        end,
         settings = {
           julia = {
+            completionmode = "qualify",
             lint = {
               missingrefs = "none",
             },
@@ -204,6 +214,17 @@ return {
         -- language = "fr",
       },
       markdown_oxide = { capabilities = { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } } },
+      metals = {
+        settings = {
+          inlayHints = {
+            hintsInPatternMatch = { enable = true },
+            implicitArguments = { enable = true },
+            implicitConversions = { enable = true },
+            inferredTypes = { enable = true },
+            typeParameters = { enable = true },
+          },
+        },
+      },
       pyright = {
         settings = {
           python = {
@@ -299,60 +320,71 @@ return {
         },
       },
     },
-    -- customize how language servers are attached
-    handlers = {
-      -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
-      -- function(server, opts) require("lspconfig")[server].setup(opts) end
+    -- customize lsp formatting options
+    formatting = {
+      -- control auto formatting on save
+      format_on_save = {
+        enabled = true, -- enable or disable format on save globally
+        -- If you have allow_filetypes it will take precedence over ignore_filetypes. So please only use one of these options at a time
+        allow_filetypes = { -- enable format on save for specified filetypes only
+          -- "go",
+        },
+        ignore_filetypes = { -- disable format on save for specified filetypes
+          "julia",
+          "text",
+          -- "cmake",
+          "python",
+        },
+      },
+      disabled = { -- disable formatting capabilities for the listed language servers
+        "clangd",
+        "cmake",
+        "jsonls",
+        "neocmakelsp",
+        "neocmake",
+        "pylsp",
+        "python_lsp_server",
+        -- "lua_ls", -- disable lua_ls formatting capability if you want to use stylua to format your lua code
+        "taplo",
+      },
+      timeout_ms = 1000, -- default format timeout
+      -- filter = function(client) -- fully override the default formatting function
+      --   -- only enable null-ls for javascript files
+      --   -- if vim.bo.filetype == "javascript" then return client.name == "null-ls" end
+      --   if vim.bo.filetype == "cmake" then return client.name == "null-ls" end
 
-      -- the key is the server that is being setup with `lspconfig`
-      -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
-      -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+      --   -- enable all other clients
+      --   return true
+      -- end,
+      -- timeout_ms = 1000, -- default format timeout
     },
-    -- Configure buffer local auto commands to add when attaching a language server
-    -- autocmds = {
-    --   -- first key is the `augroup` to add the auto commands to (:h augroup)
-    --   -- lsp_codelens_refresh = {
-    --   --   -- Optional condition to create/delete auto command group
-    --   --   -- can either be a string of a client capability or a function of `fun(client, bufnr): boolean`
-    --   --   -- condition will be resolved for each client on each execution and if it ever fails for all clients,
-    --   --   -- the auto commands will be deleted for that buffer
-    --   --   cond = "textDocument/codeLens",
-    --   --   -- cond = function(client, bufnr) return client.name == "lua_ls" end,
-    --   --   -- list of auto commands to set
-    --   --   {
-    --   --     -- events to trigger
-    --   --     event = { "InsertLeave", "BufEnter" },
-    --   --     -- the rest of the autocmd options (:h nvim_create_autocmd)
-    --   --     desc = "Refresh codelens (buffer)",
-    --   --     callback = function(args)
-    --   --       if require("astrolsp").config.features.codelens then vim.lsp.codelens.refresh { bufnr = args.buf } end
-    --   --     end,
-    --   --   },
-    --   --   {
-    --   --     event = { "CursorMoved", "CursorMovedI", "BufLeave" },
-    --   --     desc = "Document Highlighting Clear",
-    --   --     callback = function() vim.lsp.buf.clear_references() end,
+    -- customize how language servers are attached
+    -- handlers = {
+    --   -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
+    --   -- function(server, opts) require("lspconfig")[server].setup(opts) end
+    --
+    --   -- the key is the server that is being setup with `lspconfig`
+    --   -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
+    --   -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+    -- },
+    -- mappings to be set up on attaching of a language server
+    -- mappings = {
+    --   -- n = {
+    --   --   -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
+    --   --   -- ["<Leader>uY"] = {
+    --   --   --   function() require("astrolsp.toggles").buffer_semantic_tokens() end,
+    --   --   --   desc = "Toggle LSP semantic highlight (buffer)",
+    --   --   --   cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
+    --   --   -- },
+    --   -- },
+    --   -- i = {
+    --   --   ["<C-l>"] = {
+    --   --     function() vim.lsp.buf.signature_help() end,
+    --   --     desc = "Signature help",
+    --   --     cond = "textDocument/signatureHelp",
     --   --   },
     --   -- },
     -- },
-    -- mappings to be set up on attaching of a language server
-    mappings = {
-      -- n = {
-      --   -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
-      --   -- ["<Leader>uY"] = {
-      --   --   function() require("astrolsp.toggles").buffer_semantic_tokens() end,
-      --   --   desc = "Toggle LSP semantic highlight (buffer)",
-      --   --   cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
-      --   -- },
-      -- },
-      -- i = {
-      --   ["<C-l>"] = {
-      --     function() vim.lsp.buf.signature_help() end,
-      --     desc = "Signature help",
-      --     cond = "textDocument/signatureHelp",
-      --   },
-      -- },
-    },
     -- A custom `on_attach` function to be run after the default `on_attach` function
     -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
     -- on_attach = function(client, bufnr)
@@ -361,16 +393,3 @@ return {
     -- end,
   },
 }
-
--- Some notes on project-specific auto formatting (((
-
--- https://discord.com/channels/939594913560031363/939857762043695165/1030514633775255683
--- like you want to disable a specific project from auto formatting?
--- in your vimrc.lua file that gets loaded you just need to set vim.g.autoformat_enabled = false
--- that will stop the auto formatter from running on start up
--- But to  note, lsp.formatting.format_on_save needs to be enabled for this variable to do anything (this is described in the docs and in the user_example)
--- or you can just disable it all together
--- but if you do vim.g.autoformat_enabled = false you still have the option once you are running AstroNvim to do <leader>uf to toggle the auto formatting on and then back off
--- autoformat_enabled variable just controls the toggling startup value when the auto formatter is enabled
-
--- )))
