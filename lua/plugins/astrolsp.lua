@@ -320,76 +320,67 @@ return {
         },
       },
     },
-    -- customize lsp formatting options
-    formatting = {
-      -- control auto formatting on save
+    formatting = { -- control auto formatting on save (customize lsp formatting options)
       format_on_save = {
         enabled = true, -- enable or disable format on save globally
-        -- If you have allow_filetypes it will take precedence over ignore_filetypes. So please only use one of these options at a time
-        allow_filetypes = { -- enable format on save for specified filetypes only
-          -- "go",
-        },
+        -- allow_filetypes will take precedence over ignore_filetypes. So please only use one of these options at a time
+        -- allow_filetypes = { -- enable format on save for specified filetypes only
+        --   "go",
+        -- },
         ignore_filetypes = { -- disable format on save for specified filetypes
           "julia",
+          "python",
           "text",
           -- "cmake",
-          "python",
         },
       },
       disabled = { -- disable formatting capabilities for the listed language servers
         "clangd",
         "cmake",
         "jsonls",
-        "neocmakelsp",
         "neocmake",
+        "neocmakelsp",
         "pylsp",
         "python_lsp_server",
-        -- "lua_ls", -- disable lua_ls formatting capability if you want to use stylua to format your lua code
         "taplo",
+        -- "lua_ls", -- disable lua_ls formatting capability if you want to use stylua to format your lua code
       },
       timeout_ms = 1000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
       --   -- only enable null-ls for javascript files
       --   -- if vim.bo.filetype == "javascript" then return client.name == "null-ls" end
       --   if vim.bo.filetype == "cmake" then return client.name == "null-ls" end
-
-      --   -- enable all other clients
-      --   return true
+      --   return true -- enable all other clients
       -- end,
-      -- timeout_ms = 1000, -- default format timeout
     },
-    -- customize how language servers are attached
-    -- handlers = {
+    -- handlers = { -- customize how language servers are attached
     --   -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
-    --   -- function(server, opts) require("lspconfig")[server].setup(opts) end
+    --   function(server, opts) require("lspconfig")[server].setup(opts) end
     --
     --   -- the key is the server that is being setup with `lspconfig`
-    --   -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
-    --   -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end -- or a custom handler function can be passed
+    --   rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
+    --   pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end, -- or a custom handler function can be passed
     -- },
-    -- mappings to be set up on attaching of a language server
-    -- mappings = {
-    --   -- n = {
-    --   --   -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
-    --   --   -- ["<Leader>uY"] = {
-    --   --   --   function() require("astrolsp.toggles").buffer_semantic_tokens() end,
-    --   --   --   desc = "Toggle LSP semantic highlight (buffer)",
-    --   --   --   cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
-    --   --   -- },
-    --   -- },
-    --   -- i = {
-    --   --   ["<C-l>"] = {
-    --   --     function() vim.lsp.buf.signature_help() end,
-    --   --     desc = "Signature help",
-    --   --     cond = "textDocument/signatureHelp",
-    --   --   },
-    --   -- },
+    -- mappings = { -- mappings to be set up on attaching of a language server
+    --   n = {
+    --     -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
+    --     ["<Leader>uY"] = {
+    --       function() require("astrolsp.toggles").buffer_semantic_tokens() end,
+    --       desc = "Toggle LSP semantic highlight (buffer)",
+    --       cond = function(client) return client.server_capabilities.semanticTokensProvider and vim.lsp.semantic_tokens end,
+    --     },
+    --   },
+    --   i = {
+    --     ["<C-l>"] = {
+    --       function() vim.lsp.buf.signature_help() end,
+    --       desc = "Signature help",
+    --       cond = "textDocument/signatureHelp",
+    --     },
+    --   },
     -- },
-    -- A custom `on_attach` function to be run after the default `on_attach` function
-    -- takes two parameters `client` and `bufnr`  (`:h lspconfig-setup`)
+    -- custom `on_attach` to run after default `on_attach`. Takes two parameters `client` & `bufnr`  (`:h lspconfig-setup`)
     -- on_attach = function(client, bufnr)
-    --   -- this would disable semanticTokensProvider for all clients
-    --   -- client.server_capabilities.semanticTokensProvider = nil
+    --   client.server_capabilities.semanticTokensProvider = nil -- disable semanticTokensProvider for all clients
     -- end,
   },
 }
