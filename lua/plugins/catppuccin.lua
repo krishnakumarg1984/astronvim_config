@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   "catppuccin/nvim", -- 🍨 Soothing pastel theme for (Neo)vim name = "catppuccin",
+  enabled = false,
   ---@type CatppuccinOptions
   opts = {
     dim_inactive = { enabled = true, percentage = 0.25 },
@@ -53,4 +54,12 @@ return {
       ["@tag.attribute.tsx"] = { style = {} },
     },
   },
+  {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      -- signcolumn = false,
+      numhl = true,
+      current_line_blame_opts = { ignore_whitespace = true },
+    },
+  }
 }

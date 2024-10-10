@@ -22,5 +22,7 @@ return {
       },
     },
   },
+  { "lukas-reineke/indent-blankline.nvim", enabled = false },
+  { "jay-babu/mason-null-ls.nvim", enabled = false },
   { "NvChad/nvim-colorizer.lua", enabled = false }, -- The fastest Neovim colorizer.
 }
