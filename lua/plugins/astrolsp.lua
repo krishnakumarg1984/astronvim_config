@@ -19,6 +19,7 @@ for server, cmd in pairs {
   basedpyright = "basedpyright", -- pyright fork with various type checking improvements, improved vscode support and pylance features built into the language server. requires python3 in PATH
   bashls = "bash-language-server", -- requires npm for installing via mason
   biome = "biome", -- A toolchain for web projects, aimed to provide functionalities to maintain them. Biome offers formatter and linter, usable via CLI and LSP.
+  clangd = "clangd", -- clangd understands your C++ code and adds smart features to your editor: code completion, compile errors, go-to-definition and more.
   docker_compose_language_service = "docker-compose-language-server", -- Language service for Docker Compose documents
   dockerls = "docker-langserver", -- A language server for Dockerfiles powered by Node.js, TypeScript, and VSCode technologies.
   fortls = "fortls", -- Fortran Language Server

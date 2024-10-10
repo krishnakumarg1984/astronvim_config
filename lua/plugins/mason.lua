@@ -87,9 +87,9 @@ end
 -- )))
 
 -- tools written in c/c++ (((
-if vim.fn.executable "clang" or vim.fn.executable "g++" == 1 then
+if vim.fn.executable "clang++" or vim.fn.executable "g++" == 1 then
   for server, cmd in pairs {
-    clangd = "clangd", -- not available via brew or nix (as of Sep 2024). So install with mason
+    clangd = "clangd", -- not available via brew (as of Sep 2024). clangd understands your C++ code and adds smart features to your editor: code completion, compile errors, go-to-definition and more.
   } do
     if vim.fn.executable(cmd) == 0 then table.insert(lsps_to_install, server) end
   end
