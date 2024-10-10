@@ -594,7 +594,7 @@ return {
           ["<Leader>w"] = false,
           ["\\"] = false,
           ["|"] = false,
-          -- ["{"] = false,
+          -- ['"'] = false,
           -- ["}"] = false,
 
           -- normal mode keymaps for built-in neovim functionality/features
