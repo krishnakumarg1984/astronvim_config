@@ -2,7 +2,7 @@
 -- │ AstroCore provides a central place to modify mappings,  │
 -- │ vim options, autocommands, and more! Configuration      │
 -- │ documentation can be found with `:h astrocore`          │
--- │ NOTE: We highly recommend setting up the Lua Language   │
+-- │ NOTE: Highly recommended to set up the Lua Language     │
 -- │ Server (`:LspInstall lua_ls`) as this provides          │
 -- │ autocomplete and documentation while editing            │
 -- ╰─────────────────────────────────────────────────────────╯
@@ -351,7 +351,7 @@ return {
           -- tildeop = yes, -- when on: The tilde command "~" behaves like an operator
         },
         -- vim global variables can be configured here
-        g = { -- vim.g.<key> (((
+        g = { -- vim.g.<key>
           -- configure global vim variables (vim.g)
           -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
           -- This can be found in the `lua/lazy_setup.lua` file
@@ -377,7 +377,7 @@ return {
           tex_verbspell = 0, -- Often verbatim regions in a LaTeX doc are used for things like source code; seldom does one want source code spell-checked.
           vimsyn_folding = "af",
           rust_fold = 1,
-        }, -- )))
+        },
       },
       signs = {
         BqfSign = { text = " " .. require("astroui").get_icon "Selected", texthl = "BqfSign" },
@@ -406,8 +406,8 @@ return {
         -- },
         autospellfortextfiles = {
           {
-            desc = "Enable wrap and spell for text like documents",
             event = { "FileType" },
+            desc = "Enable wrap and spell for text like documents",
             pattern = {
               "asciidoc",
               "changelog",
@@ -537,6 +537,7 @@ return {
           luaold = "lua",
           luatodo = "lua",
           mdx = "markdown.mdx",
+          nf = "nextflow",
           pd_lua = "lua",
           pd_luax = "lua",
           qmd = "markdown",
@@ -571,13 +572,14 @@ return {
           -- [vim.env.XDG_CONFIG_HOME .. "/udev/rules.d/.*%.rules"] = "udevrules",
         },
       },
-      mappings = { -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
-        -- c = {
-        --   ["<C-n>"] = { "<Down>" },
-        --   ["<C-p>"] = { "<Up>" },
-        -- },
+      mappings = { -- NOTE: keycodes follow the casing in vimdocs. For example, `<Leader>` must be capitalized
+        --[[ c = {
+          ["<C-n>"] = { "<Down>" },
+          ["<C-p>"] = { "<Up>" },
+        }, ]]
         i = {
           ["<C-C>"] = { "<ESC>" }, -- ctrl-c does not trigger the InsertLeave event autocmd. Map to <ESC>.
+          ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
         },
         n = { -- tables with just a `desc` key will be registered with which-key. this is useful for naming menus
           -- disable certain remaps provided in base AstroNvim
@@ -613,10 +615,8 @@ return {
           -- ["n"] = { "nzzzv" },
 
           -- better buffer navigation
-          ["]b"] = false,
-          ["[b"] = false,
-          ["L"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-          ["H"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
+          ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
+          ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
           -- 'stevearc/aerial.nvim' mappings for normal mode
           -- ["<Leader>A"] = { desc = " Symbol tree" },
@@ -640,12 +640,12 @@ return {
           -- ["<A-l>"] = { function() require("smart-splits").resize_right(2) end },
 
           -- 'akinsho/toggleterm.nvim' keymaps for normal mode
-          -- ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=9<cr>", desc = "Toggle terminal (horizontal)" },
+          ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=9<cr>", desc = "Toggle terminal (horizontal)" },
           -- ["<Leader>g<s-u>"] = { function() astro.toggle_term_cmd "gitui" end, desc = "GitUI" },
           -- ["<Leader>tu"] = { function() astro.toggle_term_cmd "lua" end, desc = "ToggleTerm Lua" },
           -- ["<M-t>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal (float)" },
 
-          -- 'nvim-telescope/telescope.nvim' keymaps for normal mode (((
+          -- 'nvim-telescope/telescope.nvim' keymaps for normal mode
           -- ["<leader>lI"] = { "<cmd>Telescope implementations<CR>", desc = "Implementations" },
           -- ["<leader>f:"] = { "<cmd>Telescope command_history<CR>", desc = "Command history" },
           -- ["<Leader>fA"] = { "<cmd>Telescope autocommands<CR>", desc = "Find autocommands" },
@@ -668,23 +668,23 @@ return {
           -- ["<leader>lw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", desc = "Workspace symbols" },
           -- ["<leader>ly"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Dynamic workspace symbols" },
         },
-        -- o = {
-        --   -- line text-objects
-        --   ["iL"] = { ":<C-u>normal! $v^<CR>", desc = "Inside line text object" },
-        --   ["aL"] = { ":<C-u>normal! $v0<CR>", desc = "Around line text object" },
-        -- },
+        --[[ o = {
+          -- line text-objects
+          ["iL"] = { ":<C-u>normal! $v^<CR>", desc = "Inside line text object" },
+          ["aL"] = { ":<C-u>normal! $v0<CR>", desc = "Around line text object" },
+        }, ]]
         t = {
           -- setting a mapping to false will disable it
-          -- ["<esc>"] = false,
+          -- ["<C-BS>"] = { "<c-\\><c-n>", desc = "Terminal normal mode" },
+          -- ["<Esc>"] = false,
           -- ["<esc><esc>"] = { "<c-\\><c-n>:q<cr>", desc = "Terminal quit" },
-          ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=9<cr>", desc = "Toggle terminal (horizontal)" },
-          ["<C-BS>"] = { "<c-\\><c-n>", desc = "Terminal normal mode" },
+          -- ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+          ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=9<cr>", desc = "Toggle terminal (horizontal)" }, -- Why is this not working?
           ["<C-h>"] = false,
           ["<C-j>"] = false,
           ["<C-k>"] = false,
           ["<C-l>"] = false,
-          ["<esc>"] = { "<C-\\><C-n>", silent = true, desc = "Terminal normal mode" },
-          ["<M-t>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle terminal" },
+          ["<Esc>"] = { "<C-\\><C-n>", silent = true, desc = "Terminal normal mode" },
         },
         v = {
           -- ["*"] = { "y/\\V<C-R>=escape(@\",'/')<CR><CR>" },
@@ -694,6 +694,7 @@ return {
           ["Y"] = { "myY`ymy" },
         },
         x = {
+          ["<C-S>"] = false,
           ["<"] = { "<gv" }, -- Stay in indent mode in visual-block mode
           [">"] = { ">gv" }, -- Stay in indent mode in visual-block mode
         },
@@ -734,13 +735,3 @@ return {
     return opts
   end,
 }
-
--- -- Configure core features of AstroNvim
--- features = {
---   large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
---   autopairs = true, -- enable autopairs at start
---   cmp = true, -- enable completion at start
---   diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
---   highlighturl = true, -- highlight URLs at start
---   notifications = true, -- enable notifications at start
--- },
