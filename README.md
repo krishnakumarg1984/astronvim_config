@@ -5,7 +5,7 @@ My personal user config for AstroVim
 ## Installation
 
 ```sh
-git clone https://code.mehalter.com/AstroNvim_user ~/.config/nvim
+git clone https://github.com:krishnakumarg1984/astronvim_config ~/.config/nvim
 ```
 
 - Initialize AstroVim
