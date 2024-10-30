@@ -127,17 +127,11 @@ if vim.fn.executable "npm" == 1 then
 
   -- tools written in npm for assisting with docker (((
   if vim.fn.executable "docker" == 1 then
-    for _, server_cmd in ipairs {
-      "docker-langserver", -- A language server for Dockerfiles powered by Node.js, TypeScript, and VSCode technologies.
-    } do
-      if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
-    end
+    if vim.fn.executable "docker-langserver" == 0 then table.insert(mason_tools_to_install, "docker_langserver") end
     if vim.fn.executable "docker-compose" == 1 then
-      for _, server_cmd in ipairs {
-        "docker-compose-language-server", -- Language service for Docker Compose documents
-      } do
-        if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
-      end
+      if vim.fn.executable "docker-compose-language-service" == 0 then
+        table.insert(mason_tools_to_install, "docker-compose-language-service")
+      end -- Language service for Docker Compose documents
     end
   end
   -- )))
