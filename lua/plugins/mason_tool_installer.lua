@@ -7,7 +7,7 @@ for _, server_cmd in ipairs {
   "taplo", -- TOML toolkit written in Rust
   -- "ast-grep", -- to study and look at this tool further
   -- "harper-ls", -- The Grammar Checker for Developers. Written in Rust. Requires a modern GLIBC
-  -- "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for your favorite text-editor through the LSP, written in Rust, Requires a new-ish glibc
+  -- "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for text-editor through the LSP, written in Rust, Requires a new-ish glibc
   -- "marksman", -- Write Markdown with code assist and intelligence in the comfort of your favourite editor. Written in F#. Too difficult on hpcs
   -- "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
   -- "typos-lsp", -- Source code spell checker. Written in Rust. Requires a modern GLIBC
@@ -78,7 +78,6 @@ end
 if vim.fn.executable "npm" == 1 then
   -- install general npm-written LSPs not available in PATH via mason (((
   astrocore.list_insert_unique(mason_tools_to_install, {
-    "json-lsp", -- JSON language service. Not available yet in nixpkgs as of Sep 2024. Hence install via mason
     -- "html"
     -- "intelephense"
     -- "tsserver"
@@ -103,6 +102,7 @@ if vim.fn.executable "npm" == 1 then
   -- install npm-written LSPs not available in PATH via mason (((
   for _, server_cmd in ipairs {
     "biome", -- A toolchain for web projects, aimed to provide functionalities to maintain them. Biome offers formatter and linter, usable via CLI and LSP. Requires npm to install even if written in Rust
+    "json-lsp", -- JSON language service. Not available yet in nixpkgs as of Sep 2024. Hence install via mason
     "yaml-language-server", -- Language Server for YAML Files
     -- "zk" -- A plain text note-taking assistant.
   } do

@@ -12,18 +12,18 @@
 local servers = {} -- only add local servers if their commands are available
 for server, cmd in pairs {
   -- ast_grep = "ast-grep", -- to study and look at this tool further
-  -- sonarlint_ls = "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
+  -- sonarlint_ls = "sonarlint-ls", -- nvim_lsp server config not available Sep 2024
   basedpyright = "basedpyright", -- pyright fork with various type improvements. Requires python3 in PATH
   bashls = "bash-language-server", -- requires npm for installing via mason
   biome = "biome", -- A toolchain for web projects. Biome offers formatter and linter, usable via CLI and LSP.
   clangd = "clangd", -- clangd understands your C++ code & adds smart features to your editor
-  docker_compose_language_service = "docker-compose-language-server", -- Language service for Docker Compose documents
-  dockerls = "docker-langserver", -- A language server for Dockerfiles powered by Node.js, TypeScript, and VSCode technologies.
+  docker_compose_language_service = "docker-compose-langserver", -- LSP for Docker Compose documents
+  dockerls = "docker-langserver", -- LSP for Dockerfiles
   fortls = "fortls", -- Fortran Language Server
   harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust
   julials = "julia", -- The Julia Programming Language language server
   lua_ls = "lua-language-server", -- Language server that offers lua support. (dependent on lua in PATH?)
-  markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for your favorite text-editor through the LSP
+  markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for text-editor through the LSP
   marksman = "marksman", -- Write Markdown with code assist & intelligence. Written in F#
   neocmake = "neocmakelsp", -- use name in github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#neocmake.
   ruff = "ruff", -- An extremely fast Python linter and code formatter, written in Rust.
@@ -200,9 +200,7 @@ return {
         settings = {
           julia = {
             completionmode = "qualify",
-            lint = {
-              missingrefs = "none",
-            },
+            lint = { missingrefs = "none" },
           },
         },
       },
