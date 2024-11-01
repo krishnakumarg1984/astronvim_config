@@ -3,15 +3,15 @@
 
 ---@type LazySpec
 return {
-  {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim", -- lsp_lines is a simple neovim plugin that renders diagnostics using virtual lines on top of the real line of code.
-    keys = { { "<leader>ln", "<leader>ln", desc = "Toggle inline diag" } },
-    config = function()
-      local lsp_lines = require "lsp_lines"
-      lsp_lines.setup()
-      vim.keymap.set("", "<leader>ln", lsp_lines.toggle, { desc = "Toggle inline diagnostics" })
-    end,
-  },
+  -- {
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim", -- lsp_lines is a simple neovim plugin that renders diagnostics using virtual lines on top of the real line of code.
+  --   keys = { { "<leader>ln", "<leader>ln", desc = "Toggle inline diag" } },
+  --   config = function()
+  --     local lsp_lines = require "lsp_lines"
+  --     lsp_lines.setup()
+  --     vim.keymap.set("", "<leader>ln", lsp_lines.toggle, { desc = "Toggle inline diagnostics" })
+  --   end,
+  -- },
   {
     "yorickpeterse/nvim-dd", --  Deferring of NeoVim diagnostics
     event = { "User AstroLspSetup" },

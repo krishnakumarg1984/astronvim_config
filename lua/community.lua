@@ -13,7 +13,7 @@ return {
   "AstroNvim/astrocommunity", -- A community repository of common plugin specifications
   -- import/override with your plugins folder
 
-  { import = "astrocommunity.diagnostics.lsp_lines-nvim" }, -- lsp_lines is a simple neovim plugin that renders diagnostics using virtual lines on top of the real line of code.
+  -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" }, -- lsp_lines is a simple neovim plugin that renders diagnostics using virtual lines on top of the real line of code.
   { import = "astrocommunity.diagnostics.trouble-nvim" }, -- A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
   { import = "astrocommunity.editing-support.suda-vim" }, -- An alternative sudo.vim for Vim and Neovim, limited support sudo in Windows
   { import = "astrocommunity.git.neogit" }, -- magit for neovim
