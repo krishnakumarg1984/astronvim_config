@@ -1,4 +1,4 @@
--- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:shiftwidth=2:softtabstop=2:tabstop=2
+-- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:
 -- Last full review on: Nov 12, 2023
 
 -- if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
