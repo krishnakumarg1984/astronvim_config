@@ -5,10 +5,10 @@
 ---@type LazySpec
 return {
   "nvim-treesitter/nvim-treesitter", -- Nvim Treesitter configurations and abstraction layer
+  dependencies = { { "nvim-treesitter/nvim-treesitter-textobjects", lazy = true } },
   opts = function(_, opts)
     -- add more things to the ensure_installed table protecting against community packs modifying it
     -- opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, {
-    --   "lua",
     --   "vim",
     --   -- add more arguments for adding more treesitter parsers
     -- })
@@ -61,64 +61,64 @@ return {
       -- ["]c"] = { query = "@class.outer", desc = "Next class start" },
       ["]e"] = { query = "@comment.outer", desc = "Next comment start" },
       ["]?"] = { query = "@conditional.outer", desc = "Next conditional start" },
-      ["]f"] = { query = "@function.outer", desc = "Next function start" },
+      -- ["]f"] = { query = "@function.outer", desc = "Next function start" },
       ["]o"] = { query = "@loop.outer", desc = "Next loop start" },
-      ["]a"] = { query = "@parameter.inner", desc = "Next argument start" },
+      -- ["]a"] = { query = "@parameter.inner", desc = "Next argument start" },
     }
     opts.textobjects.move.goto_next_end = {
       ["]N"] = { query = "@assignment.outer", desc = "Next assignment end" },
       ["]U"] = { query = "@attribute.outer", desc = "Next attribute end" },
-      ["]K"] = { query = "@block.outer", desc = "Next block end" },
+      -- ["]K"] = { query = "@block.outer", desc = "Next block end" },
       -- ["]C"] = { query = "@class.outer", desc = "Next class end" },
       ["]E"] = { query = "@comment.outer", desc = "Next comment end" },
       -- ["]?"] = { query = "@conditional.outer", desc = "Next conditional end" },
-      ["]F"] = { query = "@function.outer", desc = "Next function end" },
+      -- ["]F"] = { query = "@function.outer", desc = "Next function end" },
       ["]O"] = { query = "@loop.outer", desc = "Next loop end" },
-      ["]A"] = { query = "@parameter.inner", desc = "Next argument end" },
+      -- ["]A"] = { query = "@parameter.inner", desc = "Next argument end" },
     }
     opts.textobjects.move.goto_previous_start = {
       ["[n"] = { query = "@assignment.outer", desc = "Previous assignment start" },
       ["[u"] = { query = "@attribute.outer", desc = "Previous attribute start" },
-      ["[k"] = { query = "@block.outer", desc = "Previous block start" },
+      -- ["[k"] = { query = "@block.outer", desc = "Previous block start" },
       -- ["[c"] = { query = "@class.outer", desc = "Previous class start" },
       ["[e"] = { query = "@comment.outer", desc = "Previous comment start" },
       ["[?"] = { query = "@conditional.outer", desc = "Previous conditional start" },
-      ["[f"] = { query = "@function.outer", desc = "Previous function start" },
+      -- ["[f"] = { query = "@function.outer", desc = "Previous function start" },
       ["[o"] = { query = "@loop.outer", desc = "Previous loop start" },
-      ["[a"] = { query = "@parameter.inner", desc = "Previous argument start" },
+      -- ["[a"] = { query = "@parameter.inner", desc = "Previous argument start" },
     }
     opts.textobjects.move.goto_previous_end = {
       ["[N"] = { query = "@assignment.outer", desc = "Previous assignment end" },
       ["[U"] = { query = "@attribute.outer", desc = "Previous attribute end" },
-      ["[K"] = { query = "@block.outer", desc = "Previous block end" },
+      -- ["[K"] = { query = "@block.outer", desc = "Previous block end" },
       -- ["[C"] = { query = "@class.outer", desc = "Previous class end" },
       ["[E"] = { query = "@comment.outer", desc = "Previous comment end" },
       -- ["[?"] = { query = "@conditional.outer", desc = "Previous conditional end" },
-      ["[F"] = { query = "@function.outer", desc = "Previous function end" },
+      -- ["[F"] = { query = "@function.outer", desc = "Previous function end" },
       ["[O"] = { query = "@loop.outer", desc = "Previous loop end" },
-      ["[A"] = { query = "@parameter.inner", desc = "Previous argument end" },
+      -- ["[A"] = { query = "@parameter.inner", desc = "Previous argument end" },
     }
     opts.textobjects.swap.swap_next = {
       [">N"] = { query = "@assignment.outer", desc = "Swap next assignment" },
       [">U"] = { query = "@attribute.outer", desc = "Swap next attribute" },
-      [">K"] = { query = "@block.outer", desc = "Swap next block" },
+      -- [">K"] = { query = "@block.outer", desc = "Swap next block" },
       -- [">C"] = { query = "@class.outer", desc = "Swap next class" },
       [">E"] = { query = "@comment.outer", desc = "Swap next comment" },
       [">?"] = { query = "@conditional.outer", desc = "Swap next conditional" },
-      [">F"] = { query = "@function.outer", desc = "Swap next function" },
+      -- [">F"] = { query = "@function.outer", desc = "Swap next function" },
       [">O"] = { query = "@loop.outer", desc = "Swap next loop" },
-      [">A"] = { query = "@parameter.inner", desc = "Swap next argument" },
+      -- [">A"] = { query = "@parameter.inner", desc = "Swap next argument" },
     }
     opts.textobjects.swap.swap_previous = {
       ["<N"] = { query = "@assignment.outer", desc = "Swap previous assignment" },
       ["<U"] = { query = "@attribute.outer", desc = "Swap previous attribute" },
-      ["<K"] = { query = "@block.outer", desc = "Swap previous block" },
+      -- ["<K"] = { query = "@block.outer", desc = "Swap previous block" },
       -- ["<C"] = { query = "@class.outer", desc = "Swap previous class" },
       ["<E"] = { query = "@comment.outer", desc = "Swap previous comment" },
       ["<?"] = { query = "@conditional.outer", desc = "Swap previous conditional" },
-      ["<F"] = { query = "@function.outer", desc = "Swap previous function" },
+      -- ["<F"] = { query = "@function.outer", desc = "Swap previous function" },
       ["<O"] = { query = "@loop.outer", desc = "Swap previous loop" },
-      ["<A"] = { query = "@parameter.inner", desc = "Swap previous argument" },
+      -- ["<A"] = { query = "@parameter.inner", desc = "Swap previous argument" },
     }
     -- opts.refactor = {
     --   highlight_definitions = {

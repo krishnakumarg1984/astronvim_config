@@ -339,14 +339,11 @@ end
 ---@type LazySpec
 return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
+  dependencies = { "williamboman/mason.nvim" },
   -- lazy = false,
   opts = {
     -- add more things to the ensure_installed table protecting against community packs modifying it
     ensure_installed = mason_tools_to_install,
-    integrations = {
-      ["mason-lspconfig"] = false,
-      ["mason-nvim-dap"] = false,
-    },
   },
 }
 
@@ -382,4 +379,3 @@ return {
 --
 -- -- Other Tools
 -- "tree-sitter-cli",
---

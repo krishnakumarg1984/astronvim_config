@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   "jay-babu/mason-nvim-dap.nvim",
+  dependencies = { "williamboman/mason.nvim" },
   opts = {
     handlers = {
       js = function()

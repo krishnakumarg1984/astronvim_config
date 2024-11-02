@@ -61,5 +61,5 @@ return {
       numhl = true,
       current_line_blame_opts = { ignore_whitespace = true },
     },
-  }
+  },
 }

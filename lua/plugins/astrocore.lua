@@ -696,13 +696,13 @@ return {
           ["<C-l>"] = false,
           ["<Esc>"] = { "<C-\\><C-n>", silent = true, desc = "Terminal normal mode" },
         },
-        v = {
-          -- ["*"] = { "y/\\V<C-R>=escape(@\",'/')<CR><CR>" },
-          -- ["cg*"] = { "\"ay/\\V<C-R>=escape(@a,'/')<CR><CR>N\"_cgn" },
-          -- https://www.reddit.com/r/neovim/comments/ttwzge/magic_replace_selected_text_mapping_with_repeat/
-          ["y"] = { "myy`ymy" },
-          ["Y"] = { "myY`ymy" },
-        },
+        -- v = {
+        --   -- ["*"] = { "y/\\V<C-R>=escape(@\",'/')<CR><CR>" },
+        --   -- ["cg*"] = { "\"ay/\\V<C-R>=escape(@a,'/')<CR><CR>N\"_cgn" },
+        --   -- https://www.reddit.com/r/neovim/comments/ttwzge/magic_replace_selected_text_mapping_with_repeat/
+        --   ["y"] = { "myy`ymy" },
+        --   ["Y"] = { "myY`ymy" },
+        -- },
         x = {
           ["<C-S>"] = false,
           ["<"] = { "<gv" }, -- Stay in indent mode in visual-block mode
