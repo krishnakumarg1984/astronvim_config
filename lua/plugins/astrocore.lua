@@ -587,9 +587,9 @@ return {
           ["<C-S>"] = false,
           ["<Leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
           ["<Leader>e"] = { false, desc = " Explorer" },
-          ["<leader>gh"] = false, -- originally reset_hunk
-          ["<leader>gs"] = false, -- originally stage_hunk
-          ["<Leader>lS"] = false,
+          -- ["<leader>gh"] = false, -- originally reset_hunk
+          -- ["<leader>gs"] = false, -- originally stage_hunk
+          -- ["<Leader>lS"] = false, -- Symbols outline
           ["<Leader>n"] = false,
           ["<Leader>o"] = { false, desc = " Overseer" },
           ["<Leader>q"] = false,
@@ -627,8 +627,18 @@ return {
           -- ["<Leader>Ap"] = { "<cmd>AerialPrev<cr>", desc = "Prev symbol" },
 
           -- -- 'nvim-neo-tree/neo-tree.nvim' keymaps for normal mode
-          -- ["<Leader>ee"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "Toggle explorer" },
+          ["<Leader>ee"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "Toggle explorer" },
           -- ["<Leader>ef"] = { "<cmd>Neotree action=show focus<CR>", desc = "Focus explorer" },
+          ["<Leader>ef"] = {
+            function()
+              if vim.bo.filetype == "neo-tree" then
+                vim.cmd.wincmd "p"
+              else
+                vim.cmd.Neotree "focus"
+              end
+            end,
+            desc = "Toggle Explorer Focus",
+          },
 
           -- 'stevearc/overseer.nvim' keymaps (partial list) for normal mode
           -- ["<Leader>o"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "Toggle explorer" },

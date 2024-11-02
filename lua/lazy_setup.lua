@@ -20,6 +20,7 @@ require("lazy").setup({
   -- diff = { cmd = "diffview.nvim" },
   install = { colorscheme = { "catppuccin", "astrodark", "habamax", "kanagawa" } },
   -- install = { colorscheme = { "astrotheme", "habamax" } },
+  ui = { backdrop = 100 },
   lockfile = vim.fn.stdpath "data" .. "/lazy-lock.json",
   performance = {
     rtp = {
@@ -36,5 +37,4 @@ require("lazy").setup({
       },
     },
   },
-  ui = { backdrop = 100 },
 } --[[@as LazyConfig]])
