@@ -644,10 +644,10 @@ return {
           -- ["<Leader>o"] = { "<cmd>Neotree action=show toggle=true<CR>", desc = "Toggle explorer" },
 
           -- -- 'mrjones2014/smart-splits.nvim' keymaps for normal mode
-          -- ["<A-h>"] = { function() require("smart-splits").resize_left(2) end },
-          -- ["<A-j>"] = { function() require("smart-splits").resize_down(2) end },
-          -- ["<A-k>"] = { function() require("smart-splits").resize_up(2) end },
-          -- ["<A-l>"] = { function() require("smart-splits").resize_right(2) end },
+          ["<A-h>"] = { function() require("smart-splits").resize_left(2) end },
+          ["<A-j>"] = { function() require("smart-splits").resize_down(2) end },
+          ["<A-k>"] = { function() require("smart-splits").resize_up(2) end },
+          ["<A-l>"] = { function() require("smart-splits").resize_right(2) end },
 
           -- 'akinsho/toggleterm.nvim' keymaps for normal mode
           ["<C-`>"] = { "<cmd>ToggleTerm direction=horizontal size=9<cr>", desc = "Toggle terminal (horizontal)" },
