@@ -1,7 +1,7 @@
 -- plugins table and opts table are the two arguments in the below lazy setup call
 require("lazy").setup({
-  -- { import = "community" },
   { import = "base" },
+  { import = "community" },
   { import = "plugins" },
 } --[[@as LazySpec]], {
   dev = {

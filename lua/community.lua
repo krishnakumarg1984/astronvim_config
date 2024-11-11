@@ -16,9 +16,8 @@ return {
   -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" }, -- lsp_lines is a simple neovim plugin that renders diagnostics using virtual lines on top of the real line of code.
   { import = "astrocommunity.diagnostics.trouble-nvim" }, -- A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.
   { import = "astrocommunity.editing-support.suda-vim" }, -- An alternative sudo.vim for Vim and Neovim, limited support sudo in Windows
-  { import = "astrocommunity.git.neogit" }, -- magit for neovim
-  { import = "astrocommunity.indent.indent-blankline-nvim" }, -- Indent guides for Neovim
-  { import = "astrocommunity.indent.indent-tools-nvim" }, -- Neovim plugin for dealing with indentations
+  -- { import = "astrocommunity.git.neogit" }, -- magit for neovim
+  -- { import = "astrocommunity.indent.indent-blankline-nvim" }, -- Indent guides for Neovim
   { import = "astrocommunity.lsp.actions-preview-nvim" }, -- Fully customizable previewer for LSP code actions.
   { import = "astrocommunity.lsp.garbage-day-nvim" }, -- Garbage collector that stops inactive LSP clients to free RAM
   { import = "astrocommunity.lsp.lsp-lens-nvim" }, -- Neovim plugin for displaying references and definition infos upon functions like JB's IDEA.
@@ -27,7 +26,8 @@ return {
   { import = "astrocommunity.lsp.nvim-lsp-file-operations" }, -- Neovim plugin that adds support for file operations using built-in LSP
   { import = "astrocommunity.markdown-and-latex.glow-nvim" }, -- A markdown preview directly in your neovim.
   { import = "astrocommunity.motion.mini-surround" }, -- Neovim Lua plugin with fast and feature-rich surround actions. Part of 'mini.nvim' library.
-  { import = "astrocommunity.motion.vim-matchup" }, -- even better %. navigate and highlight matching words. modern matchit and matchparen. Supports both vim and neovim + tree-sitter.
+  -- { import = "astrocommunity.motion.vim-matchup" }, -- even better %. navigate and highlight matching words. modern matchit and matchparen. Supports both vim and neovim + tree-sitter.
+  { import = "astrocommunity.pack.typst" }, -- Typst language pack
   { import = "astrocommunity.recipes.astrolsp-no-insert-inlay-hints" }, -- This plugin specification configures AstroLSP to disable inlay hints in a buffer when going into insert mode and re-enables them when leaving insert mode.
   { import = "astrocommunity.recipes.vscode" }, -- Some users may be wanting to integrate their Neovim configuration with their VS Code editor. This spec configures AstroNvim to play nicely with the VS Code Extension vscode-neovim.
   { import = "astrocommunity.terminal-integration.flatten-nvim" }, -- Open files and command output from wezterm, kitty, and neovim terminals in your current neovim instance
