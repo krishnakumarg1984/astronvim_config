@@ -327,6 +327,17 @@ if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
   end
 
   -- )))
+
+  -- tools written in rust that requires rustc and for editing typst source code  (((
+  if vim.fn.executable "typst" == 1 then
+    for _, server_cmd in ipairs {
+      "tinymist", --  Tinymist [ˈtaɪni mɪst] is an integrated language service for Typst [taɪpst].
+    } do
+      if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
+    end
+  end
+
+  -- )))
 end
 
 -- )))

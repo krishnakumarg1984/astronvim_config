@@ -29,6 +29,7 @@ for server, cmd in pairs {
   ruff = "ruff", -- An extremely fast Python linter and code formatter, written in Rust.
   rust_analyzer = "rust-analyzer", -- Modular compiler frontend for the Rust language. Written in Rust
   taplo = "taplo", -- TOML toolkit written in Rust
+  tinymist = "tinymist", -- Tinymist [ˈtaɪni mɪst] is an integrated language service for Typst [taɪpst].
   typos_lsp = "typos-lsp", -- Source code spell checker. Written in Rust
   vale_ls = "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust
   vimls = "vim-language-server", -- VImScript language server, LSP for vim script
