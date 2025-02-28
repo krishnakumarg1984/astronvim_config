@@ -76,7 +76,7 @@ end
 
 -- tools written in javascript & requires npm (((
 if vim.fn.executable "npm" == 1 then
-  -- install general npm-written LSPs not available in PATH via mason (((
+  -- install (via mason) general npm-written LSPs not available in PATH (((
   astrocore.list_insert_unique(mason_tools_to_install, {
     -- "html"
     -- "intelephense"
@@ -85,6 +85,13 @@ if vim.fn.executable "npm" == 1 then
     -- "yamlls"
   })
   -- )))
+
+  -- install (via mason) ansible LSP (written in typescript & requires npm) if it is not available in PATH (((
+  if vim.fn.executable "ansible" == 1 then
+    if vim.fn.executable "ansible-language-server" == 0 then
+      table.insert(mason_tools_to_install, "ansible-language-server")
+    end
+  end
 
   -- install general npm-written linters and formatters not available in PATH via mason (((
   astrocore.list_insert_unique(mason_tools_to_install, {
@@ -127,7 +134,9 @@ if vim.fn.executable "npm" == 1 then
 
   -- tools written in npm for assisting with docker (((
   if vim.fn.executable "docker" == 1 then
-    if vim.fn.executable "docker-langserver" == 0 then table.insert(mason_tools_to_install, "dockerfile-language-server") end
+    if vim.fn.executable "docker-langserver" == 0 then
+      table.insert(mason_tools_to_install, "dockerfile-language-server")
+    end
     if vim.fn.executable "docker-compose" == 1 then
       if vim.fn.executable "docker-compose-language-service" == 0 then
         table.insert(mason_tools_to_install, "docker-compose-language-service")
@@ -187,8 +196,8 @@ end
 
 -- tools that need python3 (((
 
-if vim.fn.executable "python3" == 1 then
-  -- install python-written LSPs using mason
+if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
+  -- install LSPs written in python using mason-tool-installer
   astrocore.list_insert_unique(mason_tools_to_install, {
     -- "textlsp", -- Language server for text spell and grammar check with various tools. Not available in nixpkgs or elsewhere as of Sep 2024
   })
@@ -204,6 +213,7 @@ if vim.fn.executable "python3" == 1 then
 
   -- general tools that are written in python (((
   for _, linter_formatter_cmd in ipairs {
+    "ansible-lint", -- command-line tool for linting playbooks, roles and collections aimed toward any Ansible users.
     "codespell", -- check code for common misspellings
   } do
     if vim.fn.executable(linter_formatter_cmd) == 0 then table.insert(mason_tools_to_install, linter_formatter_cmd) end
@@ -359,7 +369,6 @@ return {
 }
 
 -- -- Language Servers
--- "ansible-language-server",
 -- "astro-language-server",
 -- "css-lsp",
 -- "dockerfile-language-server",
