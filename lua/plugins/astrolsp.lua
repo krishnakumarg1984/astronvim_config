@@ -1,11 +1,9 @@
--- ╭─────────────────────────────────────────────────────────╮
--- │ AstroLSP allows you to customize the features in        │
--- │ AstroNvim's LSP configuration engine Configuration      │
--- │ documentation can be found with `:h astrolsp`           │
--- │ NOTE: We highly recommend setting up the Lua Language   │
--- │ Server (`:LspInstall lua_ls`) as this provides          │
--- │ autocomplete and documentation while editing            │
--- ╰─────────────────────────────────────────────────────────╯
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE-
+-- last FULL reviewed on: Mar 05, 2025
+
+-- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
+-- Configuration documentation can be found with `:h astrolsp`
+-- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`) as this provides autocomplete and documentation while editing
 
 -- https://code.mehalter.com/AstroNvim_user/~files/v5/lua/plugins/astrolsp.lua
 -- use the server name in https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md
@@ -43,13 +41,6 @@ return {
   "AstroNvim/astrolsp", -- LSP Configuration Engine built for AstroNvim
   ---@type AstroLSPOpts
   opts = {
-    -- Configuration table of features provided by AstroLSP
-    features = {
-      codelens = true, -- enable/disable codelens refresh on start
-      inlay_hints = true, -- enable/disable inlay hints on start
-      semantic_tokens = true, -- enable/disable semantic token highlighting
-      signature_help = true,
-    },
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
       no_insert_inlay_hints = {
@@ -95,11 +86,15 @@ return {
       --   },
       -- },
     },
-    -- enable servers that you already have installed without mason
-    servers = servers,
-    -- customize language server configuration options passed to `lspconfig`
+    -- Configuration table of features provided by AstroLSP
+    features = {
+      codelens = true, -- enable/disable codelens refresh on start
+      inlay_hints = true, -- enable/disable inlay hints on start
+      semantic_tokens = true, -- enable/disable semantic token highlighting
+      -- signature_help = true,
+    },
     ---@diagnostic disable: missing-fields
-    config = {
+    config = { -- customize language server configuration options passed to `lspconfig`
       ---@diagnostic disable: missing-fields
       basedpyright = {
         before_init = function(_, c)
@@ -292,8 +287,43 @@ return {
         },
       },
       typos_lsp = { single_file_support = false },
+      volar = { init_options = { vue = { hybridMode = true } } },
       vtsls = {
+        filetypes = {
+          "javascript",
+          "javascriptreact",
+          "javascript.jsx",
+          "typescript",
+          "typescriptreact",
+          "typescript.tsx",
+          "vue",
+        },
+
+        before_init = function(_, config)
+          local registry_ok, registry = pcall(require, "mason-registry")
+          if not registry_ok then return end
+          local vuels = registry.get_package "vue-language-server"
+
+          if vuels:is_installed() then
+            local volar_install_path = vuels:get_install_path() .. "/node_modules/@vue/language-server"
+
+            local vue_plugin_config = {
+              name = "@vue/typescript-plugin",
+              location = volar_install_path,
+              languages = { "vue" },
+              configNamespace = "typescript",
+              enableForWorkspaceTypeScriptVersions = true,
+            }
+
+            require("astrocore").list_insert_unique(config.settings.vtsls.tsserver.globalPlugins, { vue_plugin_config })
+          end
+        end,
         settings = {
+          vtsls = {
+            tsserver = {
+              globalPlugins = {},
+            },
+          },
           typescript = {
             inlayHints = {
               parameterNames = { enabled = "all", suppressWhenArgumentMatchesName = false },
@@ -346,20 +376,29 @@ return {
       },
       timeout_ms = 1000, -- default format timeout
       -- filter = function(client) -- fully override the default formatting function
-      --   -- only enable null-ls for javascript files
-      --   -- if vim.bo.filetype == "javascript" then return client.name == "null-ls" end
-      --   if vim.bo.filetype == "cmake" then return client.name == "null-ls" end
-      --   return true -- enable all other clients
+      --   return true
       -- end,
     },
-    -- handlers = { -- customize how language servers are attached
-    --   -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
-    --   function(server, opts) require("lspconfig")[server].setup(opts) end
-    --
-    --   -- the key is the server that is being setup with `lspconfig`
-    --   rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
-    --   pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end, -- or a custom handler function can be passed
-    -- },
+    mason_lspconfig = {
+      servers = {
+        nextflow_ls = {
+          package = "nextflow-language-server", -- required package name in Mason (string)
+          filetypes = { "nextflow" }, -- required filetypes that apply (string or a list of strings)
+          config = { -- optional default configuration changes (table or a function that returns a table)
+            cmd = { "nextflow-language-server" },
+          },
+        },
+      },
+    },
+    servers = servers, -- enable servers that you already have installed without mason
+    handlers = { -- customize how language servers are attached
+      -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
+      -- function(server, opts) require("lspconfig")[server].setup(opts) end
+
+      -- the key is the server that is being setup with `lspconfig`
+      -- rust_analyzer = false, -- setting a handler to false will disable the set up of that language server
+      -- pyright = function(_, opts) require("lspconfig").pyright.setup(opts) end, -- or a custom handler function can be passed
+    },
     -- mappings = { -- mappings to be set up on attaching of a language server
     --   n = {
     --     -- a `cond` key can provided as the string of a server capability to be required to attach, or a function with `client` and `bufnr` parameters from the `on_attach` that returns a boolean
@@ -377,7 +416,8 @@ return {
     --     },
     --   },
     -- },
-    -- custom `on_attach` to run after default `on_attach`. Takes two parameters `client` & `bufnr`  (`:h lspconfig-setup`)
+    -- A custom `on_attach` to be run after the default `on_attach` function
+    -- Takes two parameters `client` & `bufnr`  (`:h lspconfig-setup`)
     -- on_attach = function(client, bufnr)
     --   client.server_capabilities.semanticTokensProvider = nil -- disable semanticTokensProvider for all clients
     -- end,

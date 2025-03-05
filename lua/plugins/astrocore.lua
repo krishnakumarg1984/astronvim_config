@@ -1,32 +1,15 @@
--- ╭─────────────────────────────────────────────────────────╮
--- │ AstroCore provides a central place to modify mappings,  │
--- │ vim options, autocommands, and more! Configuration      │
--- │ documentation can be found with `:h astrocore`          │
--- │ NOTE: Highly recommended to set up the Lua Language     │
--- │ Server (`:LspInstall lua_ls`) as this provides          │
--- │ autocomplete and documentation while editing            │
--- ╰─────────────────────────────────────────────────────────╯
+-- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
+-- 'astrocore' provides a central place to modify mappings, vim options, autocommands, and more!
+-- Configuration documentation can be found with `:h astrocore`
+-- NOTE: Highly recommended to set up the Lua Language Server (`:LspInstall lua_ls`)
+-- as this provides autocomplete and documentation while editing
 
 ---@type LazySpec
 return {
   "AstroNvim/astrocore", -- Core AstroNvim configuration engine
   ---@param opts AstroCoreOpts
   opts = function(_, opts)
-    -- local function yaml_ft(path, bufnr)
-    --   local buf_text = table.concat(vim.api.nvim_buf_get_lines(bufnr, 0, -1, false), "\n")
-    --   if
-    --     -- check if file is in roles, tasks, or handlers folder
-    --     vim.regex("(tasks\\|roles\\|handlers)/"):match_str(path)
-    --     -- check for known ansible playbook text and if found, return yaml.ansible
-    --     or vim.regex("hosts:\\|tasks:"):match_str(buf_text)
-    --   then
-    --     return "yaml.ansible"
-    --   elseif vim.regex("AWSTemplateFormatVersion:"):match_str(buf_text) then
-    --     return "yaml.cfn"
-    --   else -- return yaml if nothing else
-    --     return "yaml"
-    --   end
-    -- end
     opts = require("astrocore").extend_tbl(opts, {
       rooter = {
         ignore = { servers = { "julials" } },
@@ -40,371 +23,338 @@ return {
           backupext = "nvimbackup",
           breakindentopt = { "shift:2", "sbr", "list:-1" }, -- https://vi.stackexchange.com/questions/9635/what-is-the-best-practice-in-vim8-for-wrapping-with-indentation-aka-breakindent
           clipboard = "",
-          -- cmdheight = 1, -- until the cmdheight=0 bugs are squashed
-          complete = vim.opt.complete + { "i" },
           conceallevel = 1, -- enable conceal
-          cpoptions = vim.opt.cpoptions - { "a" }, -- Stop the :read command from annoyingly setting the alternative buffer
-          cursorlineopt = "number",
-          exrc = true,
-          fileformats = vim.opt.fileformats + { "mac" }, -- This gives the end-of-line (<EOL>) formats that will be tried when starting to edit a new buffer and when reading a file into an existing buffer
+          cpoptions = vim.opt.cpoptions - { "a" }, -- Stop :read from annoyingly setting alternative buffer
+          fileformats = vim.opt.fileformats + { "mac" }, -- end-of-line (<EOL>) formats to be tried when starting to edit a new buffer and when reading a file into an existing buffer
           fillchars = {
             -- fold = "",
-            fold = " ",
+            -- fold = " ",
             -- foldclose = "▸",
             -- foldclose = "",
-            foldclose = "",
+            -- foldclose = "",
             -- foldopen = "▾",
-            foldopen = "",
-            foldsep = "│",
-            horiz = "━",
+            -- foldopen = "",
+            -- foldsep = "│",
+            -- horiz = "━",
             -- horiz = '━',
-            horizdown = "┳",
+            -- horizdown = "┳",
             -- horizdown = '┳',
-            horizup = "┻",
+            -- horizup = "┻",
             -- horizup = '┻',
-            stlnc = "»",
-            vert = "┃",
+            -- stlnc = "»",
+            -- vert = "┃",
             -- vert = '┃',
-            verthoriz = "╋",
+            -- verthoriz = "╋",
             -- verthoriz = '╋',
-            vertleft = "┫",
-            -- vertleft  = '┫',
-            vertright = "┣",
+            -- vertleft = "┫",
+            -- vertleft = '┫',
+            -- vertright = "┣",
             -- vertright = '┣',
           }, -- https://vi.stackexchange.com/questions/21872/change-fold-sign-character
-          foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
-          foldmethod = "expr",
-          foldopen = vim.opt.foldopen + { "jump" },
-          -- formatoptions = vim.opt.formatoptions - { "o" },
           inccommand = "split",
           isfname = vim.opt.isfname - { ",", "=" }, -- When using commands like Ctrl-x Ctrl-f for filename completion, do not read equal signs as part of file names, a common nuisance when working with shell scripts
           iskeyword = vim.opt.iskeyword + { "-" },
           list = true,
-          listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
-          matchtime = 3, -- Tenths of a second to show the matching paren, when 'showmatch' is set.  Note that this is not in milliseconds, like other options that set a time.
-          number = true, -- sets vim.opt.number
-          pumwidth = 35,
-          report = 0, -- Threshold for reporting number of lines changed.
-          -- scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
-          shiftround = true,
-          shiftwidth = 2,
+          listchars = { tab = "→ ", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" }, -- "│→" for tab?
           showbreak = "↪ ",
           showmatch = true,
           showtabline = (vim.t.bufs and #vim.t.bufs > 1) and 2 or 1,
-          sidescrolloff = 8, -- The minimal number of screen columns to keep to the left and to the right of the cursor
           signcolumn = "yes:1",
-          softtabstop = 2, -- how many spaces to insert with tab key
-          spell = false, -- sets vim.opt.spell
-          -- spellfile = vim.fn.expand "~/.config/nvim/spell/en.utf-8.add",
-          spelloptions = vim.opt.spelloptions + { "camel" },
           splitkeep = "screen",
-          suffixes = {
+          suffixes = vim.opt.suffixes + {
             "*.aux",
-            "*.nvimbackup",
-            "*.bak",
             "*.bbl",
             "*.dvi",
-            "*.info",
             "*.log",
+            "*.nvimbackup",
             "*.old",
             "*.out",
-            "*.swp",
             "*/.log",
             "*/.out",
-            "~",
           }, -- This gives files lower priority, instead of outright ignoring them
-          -- swapfile = false,
-          swapfile = true,
-          synmaxcol = 300,
-          tabstop = 2,
           tags = { "$HOME/.cache/nvim/tags" },
-          thesaurus = vim.fn.expand "~/.config/nvim/spell/mthesaur.txt",
-          updatecount = 100, -- After typing these no. of characters, the swap file will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
-          whichwrap = {
+          whichwrap = vim.opt.whichwrap + {
             ["<"] = true,
             [">"] = true,
             ["["] = true,
             ["]"] = true,
-            ["b"] = true,
             ["h"] = true,
             ["l"] = true,
-            ["s"] = true,
           },
-          wildignore = { -- Ignore the following type of files when tab completing. There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
-            "*.4ct",
-            "*.4tc",
-            "*.7z",
-            "*.a",
-            "*.acn",
-            "*.acr",
-            "*.alg",
-            "*.auxlock",
-            "*.backup",
-            "*.bcf",
-            "*.beam",
-            "*.bin",
-            "*.blg",
-            "*.bmp",
-            "*.brf",
-            "*.cb",
-            "*.cb2",
-            "*.class",
-            "*.cpt",
-            "*.cut",
-            "*.dats",
-            "*.db",
-            "*.dll",
-            "*.dmg",
-            "*.docx",
-            "*.dpth",
-            "*.DS_Store",
-            "*.dx64fsl",
-            "*.el",
-            "*.end",
-            "*.ent",
-            "*.eps",
-            "*.exe",
-            "*.fasl",
-            "*.fdb_latexmk",
-            "*.fff",
-            "*.fls",
-            "*.flv",
-            "*.fmt",
-            "*.fot",
-            "*.gaux",
-            "*.gem",
-            "*.gif",
-            "*.git",
-            "*.glg",
-            "*.glo",
-            "*.gls",
-            "*.glsdefs",
-            "*.glstex",
-            "*.gtex",
-            "*.hg",
-            "*.hst",
-            "*.idv",
-            "*.idx",
-            "*.ilg",
-            "*.img",
-            "*.ind",
-            "*.ipynb",
-            "*.ist",
-            "*.jpeg",
-            "*.JPG",
-            "*.la",
-            "*.lb",
-            "*.lg",
-            "*.listing",
-            "*.lnk",
-            "*.loa",
-            "*.load",
-            "*.loe",
-            "*.lof",
-            "*.lol",
-            "*.lot",
-            "*.lox",
-            "*.ltjruby",
-            "*.luac",
-            "*.lx64fsl",
-            "*.maf",
-            "*.manifest",
-            "*.mf",
-            "*.mkv",
-            "*.mlf",
-            "*.mlt",
-            "*.mo",
-            "*.mod",
-            "*.mp",
-            "*.mp4",
-            "*.mw",
-            "*.nav",
-            "*.nlg",
-            "*.nlo",
-            "*.nls",
-            "*.o",
-            "*.obj",
-            "*.orig",
-            "*.pax",
-            "*.pdf",
-            "*.pdfpc",
-            "*.pdfsync",
-            "*.png",
-            "*.pre",
-            "*.ps",
-            "*.psd",
-            "*.pyc",
-            "*.pyg",
-            "*.pyo",
-            "*.pytxcode",
-            "*.rar",
-            "*.rbc",
-            "*.rbo",
-            "*.run.xml",
-            "*.save",
-            "*.snm",
-            "*.so",
-            "*.soc",
-            "*.sout",
-            "*.spl",
-            "*.sqlite",
-            "*.sta",
-            "*.svg",
-            "*.svn",
-            "*.sw?",
-            "*.swp",
-            "*.sympy",
-            "*.synctex",
-            "*.synctex.gz",
-            "*.tar",
-            "*.tar.bz2",
-            "*.tar.gz",
-            "*.tar.xz",
-            "*.tdo",
-            "*.texpadtmp",
-            "*.tfm",
-            "*.thm",
-            "*.tiff",
-            "*.toc",
-            "*.trc",
-            "*.ttt",
-            "*.upa",
-            "*.upb",
-            "*.ver",
-            "*.vrb",
-            "*.wrt",
-            "*.xcp",
-            "*.xdv",
-            "*.xdy",
-            "*.xlsx",
-            "*.xmpi",
-            "*.xpm",
-            "*.xref",
-            "*.xyc",
-            "*.xz",
-            "*.zip",
-            "*/.bundle/*",
-            "*/.cls",
-            "*/.fdb*/",
-            "*/.git/*",
-            "*/.glo",
-            "*/.ist",
-            "*/.sass-cache/*",
-            "*/.svn/*",
-            "*/.toc",
-            "*/.vim$",
-            "*/__pycache__/*",
-            "*/build/*",
-            "*/builds/*",
-            "*/dist*/*",
-            "*/node_modules/*",
-            "*/target/*",
-            "*/tmp/*",
-            "*/vendor/cache/*",
-            "*/vendor/gems/*",
-            "*/venv/*",
-            "*\\tmp\\*",
-            "*~",
-            "./tags",
-            "._*",
-            ".git/",
-            ".git/*",
-            ".idea/",
-            "~$",
-            "_site",
-            "bower_components/*",
-            "CVS",
-            "CVS/*",
-            "media/*",
-            "migrations",
-            "tags",
-            "types_*taghl",
-            "vendor/cache/**",
-            "vendor/rails/**",
+          "*.4ct",
+          "*.4tc",
+          "*.7z",
+          "*.a",
+          "*.acn",
+          "*.acr",
+          "*.alg",
+          "*.auxlock",
+          "*.backup",
+          "*.bcf",
+          "*.beam",
+          "*.bin",
+          "*.blg",
+          "*.bmp",
+          "*.brf",
+          "*.cb",
+          "*.cb2",
+          "*.class",
+          "*.cpt",
+          "*.cut",
+          "*.dats",
+          "*.db",
+          "*.dll",
+          "*.dmg",
+          "*.docx",
+          "*.dpth",
+          "*.DS_Store",
+          "*.dx64fsl",
+          "*.el",
+          "*.end",
+          "*.ent",
+          "*.eps",
+          "*.exe",
+          "*.fasl",
+          "*.fdb_latexmk",
+          "*.fff",
+          "*.fls",
+          "*.flv",
+          "*.fmt",
+          "*.fot",
+          "*.gaux",
+          "*.gem",
+          "*.gif",
+          "*.git",
+          "*.glg",
+          "*.glo",
+          "*.gls",
+          "*.glsdefs",
+          "*.glstex",
+          "*.gtex",
+          "*.hg",
+          "*.hst",
+          "*.idv",
+          "*.idx",
+          "*.ilg",
+          "*.img",
+          "*.ind",
+          "*.ipynb",
+          "*.ist",
+          "*.jpeg",
+          "*.JPG",
+          "*.la",
+          "*.lb",
+          "*.lg",
+          "*.listing",
+          "*.lnk",
+          "*.loa",
+          "*.load",
+          "*.loe",
+          "*.lof",
+          "*.lol",
+          "*.lot",
+          "*.lox",
+          "*.ltjruby",
+          "*.luac",
+          "*.lx64fsl",
+          "*.maf",
+          "*.manifest",
+          "*.mf",
+          "*.mkv",
+          "*.mlf",
+          "*.mlt",
+          "*.mo",
+          "*.mod",
+          "*.mp",
+          "*.mp4",
+          "*.mw",
+          "*.nav",
+          "*.nlg",
+          "*.nlo",
+          "*.nls",
+          "*.o",
+          "*.obj",
+          "*.orig",
+          "*.pax",
+          "*.pdf",
+          "*.pdfpc",
+          "*.pdfsync",
+          "*.png",
+          "*.pre",
+          "*.ps",
+          "*.psd",
+          "*.pyc",
+          "*.pyg",
+          "*.pyo",
+          "*.pytxcode",
+          "*.rar",
+          "*.rbc",
+          "*.rbo",
+          "*.run.xml",
+          "*.save",
+          "*.snm",
+          "*.so",
+          "*.soc",
+          "*.sout",
+          "*.spl",
+          "*.sqlite",
+          "*.sta",
+          "*.svg",
+          "*.svn",
+          "*.sw?",
+          "*.swp",
+          "*.sympy",
+          "*.synctex",
+          "*.synctex.gz",
+          "*.tar",
+          "*.tar.bz2",
+          "*.tar.gz",
+          "*.tar.xz",
+          "*.tdo",
+          "*.texpadtmp",
+          "*.tfm",
+          "*.thm",
+          "*.tiff",
+          "*.toc",
+          "*.trc",
+          "*.ttt",
+          "*.upa",
+          "*.upb",
+          "*.ver",
+          "*.vrb",
+          "*.wrt",
+          "*.xcp",
+          "*.xdv",
+          "*.xdy",
+          "*.xlsx",
+          "*.xmpi",
+          "*.xpm",
+          "*.xref",
+          "*.xyc",
+          "*.xz",
+          "*.zip",
+          "*/.bundle/*",
+          "*/.cls",
+          "*/.fdb*/",
+          "*/.git/*",
+          "*/.glo",
+          "*/.ist",
+          "*/.sass-cache/*",
+          "*/.svn/*",
+          "*/.toc",
+          "*/.vim$",
+          "*/__pycache__/*",
+          "*/build/*",
+          "*/builds/*",
+          "*/dist*/*",
+          "*/node_modules/*",
+          "*/target/*",
+          "*/tmp/*",
+          "*/vendor/cache/*",
+          "*/vendor/gems/*",
+          "*/venv/*",
+          "*\\tmp\\*",
+          "*~",
+          "./tags",
+          "._*",
+          ".git/",
+          ".git/*",
+          ".idea/",
+          "_site",
+          "bower_components/*",
+          "CVS",
+          "CVS/*",
+          "media/*",
+          "migrations",
+          "tags",
+          "types_*taghl",
+          "vendor/cache/**",
+          "vendor/rails/**",
+          "~$",
+          wildignore = vim.opt.wildignore + { -- Ignore the following type of files when tab completing. There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
           },
           wildignorecase = true, -- If supported, make wildmenu completions case-insensitive
           winaltkeys = "no",
           winminheight = 0, -- Default is 1. The minimal height of a window, when it's not the current window.
           wrap = true, -- soft wrap lines
           -- breakat = " \t;:,!?", -- which characters might cause a line break if 'linebreak' is on.
+          -- cmdheight = 1,
+          -- complete = vim.opt.complete + { "i" },
+          -- cursorlineopt = "number",
+          -- exrc = true,
           -- foldcolumn = "4",
+          -- foldexpr = "nvim_treesitter#foldexpr()", -- set Treesitter based folding
           -- foldlevel = 2, -- Sets the fold level. Folds with a higher level will be closed. Setting this option to zero will close all folds.  Higher numbers will close fewer folds. This option is set by commands like |zm|, |zM| and |zR|. See |fold-foldlevel|.
           -- foldlevelstart = 2,
+          -- foldopen = vim.opt.foldopen + { "jump" },
           -- foldopen=all, -- helps to avoid automatic closing of previously open folds when returning to a buffer
+          -- formatoptions = vim.opt.formatoptions - { "o" },
           -- guifont = "monospace:h17", -- the font used in graphical neovim applications
           -- history = 10000,
           -- inccommand = "split",
           -- jumpoptions = "view",
           -- lazyredraw = true, -- Don't redraw the screen during batch execution
           -- listchars = { tab = "▸", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" },
+          -- matchtime = 3, -- Tenths of a second to show the matching paren, when 'showmatch' is set.  Note that this is not in milliseconds, like other options that set a time.
+          -- number = true, -- sets vim.opt.number
           -- path+=$PWD/**
           -- path+=**    " Search current directory's whole tree
           -- path+=/usr/local/include
+          -- pumwidth = 35,
+          -- report = 0, -- Threshold for reporting number of lines changed.
           -- rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) -- Probably overridden by status-line plugins
           -- scrolljump = 3,  -- How many lines to scroll at a time, make scrolling appears faster (i.e. when you move the cursor close to the vertical limits of display, how many more lines to reveal ?)
+          -- scrolloff = 2, -- Minimal number of screen lines to keep above and below the cursor
+          -- shiftround = true,
+          -- shiftwidth = 2,
           -- shortmess = vim.opt.shortmess + { I = true, c = true, x = false }, -- " a) +I => Don't give the intro message when starting Vim |:intro|. b) +c => Don't give |ins-completion-menu| messages.  For example, '-- XXX completion (YYY)', 'match 1 of 2', 'The only match', 'Pattern not found', 'Back at original', etc. c) -x => Uses [unix format], [dos format], [mac format] etc. instead of their shortened versions.
           -- showtabline = 0, -- don't show tabline
           -- sidescroll = 3,  -- The minimal number of columns to scroll horizontally
+          -- sidescrolloff = 8, -- The minimal number of screen columns to keep to the left and to the right of the cursor
+          -- softtabstop = 2, -- how many spaces to insert with tab key
           -- spell = true,
+          -- spellfile = vim.fn.expand "~/.config/nvim/spell/en.utf-8.add",
           -- spelllang = "en_gb",
+          -- spelloptions = vim.opt.spelloptions + { "camel" },
+          -- synmaxcol = 300,
           -- tagcase = "smart",
+          -- thesaurus = vim.fn.expand "~/.config/nvim/spell/mthesaur.txt",
           -- tildeop = yes, -- when on: The tilde command "~" behaves like an operator
+          -- updatecount = 100, -- After typing these no. of characters, the swapfile will be written to disk. When zero, no swap file will be created at all (see chapter on recovery).
         },
         -- vim global variables can be configured here
         g = { -- vim.g.<key>
           -- configure global vim variables (vim.g)
           -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
           -- This can be found in the `lua/lazy_setup.lua` file
-          -- python3_host_prog = "python3",
-          -- python_host_skip_check = 1,
           -- did_install_default_menus = 1, -- useful in guis
           -- did_install_syntax_menu = 1, -- useful in guis
           -- javaScript_fold = 1, -- is this actually useful?
-          loaded_python3_provider = 0,
-          loaded_ruby_provider = 0, -- To disable Ruby support
+          -- loaded_python3_provider = 0,
+          -- loaded_ruby_provider = 0, -- To disable Ruby support
           -- matchup_matchparen_deferred = 1, -- problematic due to upstream bug
-          matchup_matchparen_offscreen = { method = "popup" },
-          matchup_override_vimtex = 1,
-          matchup_surround_enabled = true,
+          -- matchup_matchparen_offscreen = { method = "popup" },
+          -- matchup_override_vimtex = 1,
+          -- matchup_surround_enabled = true,
           -- netrw_nogx = 1,
-          tex_comment_nospell = 1, -- spell checking be disabled in comments in LaTeX files
-          tex_conceal = "abdmgs", --  a = accents/ligatures b = bold and italic d = delimiters m = math symbols g = Greek s = superscripts/subscripts
-          tex_flavor = "latex", -- vimtex already sets this up
-          tex_fold_enabled = 1, -- will only work if foldmethod=syntax
-          tex_isk = "48-57,a-z,A-Z,192-255,:,_", -- Normally, LaTeX keywords support 0-9, a-z, A-z, and 192-255 only.
-          tex_nospell = 1, -- don't want spell checking anywhere in LaTeX document
-          tex_stylish = 1, -- One may use "\makeatletter" in *.tex files, thereby making the use of "@" in commands available.  However, since the *.tex file doesn't have one of the following suffices: sty cls clo dtx ltx, the syntax highlighting will flag such use of @ as an error. Putting "let g:tex_stylish=1" into your vimrc will make <syntax/tex.vim> always accept such use of @.
-          tex_verbspell = 0, -- Often verbatim regions in a LaTeX doc are used for things like source code; seldom does one want source code spell-checked.
-          vimsyn_folding = "af",
-          rust_fold = 1,
+          -- python3_host_prog = "python3",
+          -- python_host_skip_check = 1,
+          -- rust_fold = 1,
+          -- tex_comment_nospell = 1, -- spell checking be disabled in comments in LaTeX files
+          -- tex_conceal = "abdmgs", --  a = accents/ligatures b = bold and italic d = delimiters m = math symbols g = Greek s = superscripts/subscripts
+          -- tex_flavor = "latex", -- vimtex already sets this up
+          -- tex_fold_enabled = 1, -- will only work if foldmethod=syntax
+          -- tex_isk = "48-57,a-z,A-Z,192-255,:,_", -- Normally, LaTeX keywords support 0-9, a-z, A-z, and 192-255 only.
+          -- tex_nospell = 1, -- don't want spell checking anywhere in LaTeX document
+          -- tex_stylish = 1, -- One may use "\makeatletter" in *.tex files, thereby making the use of "@" in commands available.  However, since the *.tex file doesn't have one of the following suffices: sty cls clo dtx ltx, the syntax highlighting will flag such use of @ as an error. Putting "let g:tex_stylish=1" into your vimrc will make <syntax/tex.vim> always accept such use of @.
+          -- tex_verbspell = 0, -- Often verbatim regions in a LaTeX doc are used for things like source code; seldom does one want source code spell-checked.
+          -- vimsyn_folding = "af",
         },
-      },
-      signs = {
-        BqfSign = { text = " " .. require("astroui").get_icon "Selected", texthl = "BqfSign" },
       },
       autocmds = {
         -- list of auto commands to set
         -- first key is the `augroup` (:h augroup)
-        autohide_tabline = {
-          {
-            event = "User",
-            desc = "Auto hide tabline",
-            pattern = "AstroBufsUpdated",
-            callback = function()
-              local new_showtabline = #vim.t.bufs > 1 and 2 or 1
-              if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
-            end,
-          },
-        },
-        -- autoreadexternalchanges = {
-        --   {
-        --     event = { "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" },
-        --     pattern = "*",
-        --     command = "if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif",
-        --     desc = "Trigger autoread when file changes on disk",
-        --   },
-        -- },
-        autospellfortextfiles = {
+        auto_spell = {
           {
             event = { "FileType" },
             desc = "Enable wrap and spell for text like documents",
@@ -432,16 +382,17 @@ return {
             end,
           },
         },
-        -- conceallevelformarkdownfiles = {
-        --   event = { "FileType" },
-        --   pattern = {
-        --     "lsp_markdown",
-        --     "markdown",
-        --     "markdown_inline",
-        --   },
-        --   callback = function() vim.opt_local.conceallevel = 3 end,
-        --   desc = "Set conceallevel to 3 for markdown files",
-        -- },
+        autohide_tabline = {
+          {
+            event = "User",
+            desc = "Auto hide tabline",
+            pattern = "AstroBufsUpdated",
+            callback = function()
+              local new_showtabline = #vim.t.bufs > 1 and 2 or 1
+              if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
+            end,
+          },
+        },
         filechangedalert = {
           {
             event = { "FileChangedShellPost" },
@@ -464,7 +415,6 @@ return {
             pattern = { "help", "qf", "vim", "vimdoc" },
             callback = function()
               vim.keymap.set("n", "<Leader>Tn", [[/|.\zs\S\{-}|/<cr>zz]], { buffer = true, noremap = true })
-              -- vim.opt_local.list = false
               vim.opt_local.list = false
               vim.opt_local.conceallevel = 3
               -- vm.wo.list = false
@@ -496,6 +446,24 @@ return {
             end,
           },
         },
+        -- autoreadexternalchanges = {
+        --   {
+        --     event = { "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" },
+        --     pattern = "*",
+        --     command = "if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif",
+        --     desc = "Trigger autoread when file changes on disk",
+        --   },
+        -- },
+        -- conceallevelformarkdownfiles = {
+        --   event = { "FileType" },
+        --   pattern = {
+        --     "lsp_markdown",
+        --     "markdown",
+        --     "markdown_inline",
+        --   },
+        --   callback = function() vim.opt_local.conceallevel = 3 end,
+        --   desc = "Set conceallevel to 3 for markdown files",
+        -- },
         -- winfocuslost = {
         --   {
         --     -- https://www.reddit.com/r/neovim/comments/159bib0/comment/jtf40i4/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button
@@ -527,6 +495,9 @@ return {
         -- see `:h vim.filetype.add` for usage
         extension = {
           -- make = "make",
+          -- yaml = yaml_ft,
+          -- yml = yaml_ft,
+          ["nf.test"] = "nextflow",
           cl = "opencl",
           dvc = "yaml",
           frag = "glsl",
@@ -543,8 +514,6 @@ return {
           qmd = "markdown",
           vert = "glsl",
           vs = "glsl",
-          -- yaml = yaml_ft,
-          -- yml = yaml_ft,
         },
         filename = {
           [".codespellrc"] = "confini",
@@ -587,17 +556,17 @@ return {
           ["<C-S>"] = false,
           ["<Leader>."] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD" },
           ["<Leader>e"] = { false, desc = " Explorer" },
-          -- ["<leader>gh"] = false, -- originally reset_hunk
-          -- ["<leader>gs"] = false, -- originally stage_hunk
-          -- ["<Leader>lS"] = false, -- Symbols outline
-          ["<Leader>n"] = false,
+          ["<Leader>n"] = { false, desc = "" },
           ["<Leader>o"] = { false, desc = " Overseer" },
           ["<Leader>q"] = false,
           ["<Leader>w"] = false,
           ["\\"] = false,
           ["|"] = false,
-          -- ['"'] = false,
+          -- ["<leader>gh"] = false, -- originally reset_hunk
+          -- ["<leader>gs"] = false, -- originally stage_hunk
+          -- ["<Leader>lS"] = false, -- Symbols outline
           -- ["}"] = false,
+          -- ['"'] = false,
 
           -- normal mode keymaps for built-in neovim functionality/features
           ["'"] = { "`" },
@@ -613,10 +582,6 @@ return {
           -- ["<S-j>"] = { "mzJ`zmz" },
           -- ["N"] = { "Nzzzv" },
           -- ["n"] = { "nzzzv" },
-
-          -- better buffer navigation
-          ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
-          ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
           -- 'stevearc/aerial.nvim' mappings for normal mode
           -- ["<Leader>A"] = { desc = " Symbol tree" },
@@ -654,29 +619,6 @@ return {
           -- ["<Leader>g<s-u>"] = { function() astro.toggle_term_cmd "gitui" end, desc = "GitUI" },
           -- ["<Leader>tu"] = { function() astro.toggle_term_cmd "lua" end, desc = "ToggleTerm Lua" },
           -- ["<M-t>"] = { "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal (float)" },
-
-          -- 'nvim-telescope/telescope.nvim' keymaps for normal mode
-          -- ["<leader>lI"] = { "<cmd>Telescope implementations<CR>", desc = "Implementations" },
-          -- ["<leader>f:"] = { "<cmd>Telescope command_history<CR>", desc = "Command history" },
-          -- ["<Leader>fA"] = { "<cmd>Telescope autocommands<CR>", desc = "Find autocommands" },
-          -- ["<Leader>fg"] = { "<cmd>Telescope git_files<CR>", desc = "Find git files" },
-          -- ["<leader>fH"] = { "<cmd>Telescope search_history<CR>", desc = "Search history" },
-          -- ["<Leader>fj"] = { "<cmd>Telescope jumplist<CR>", desc = "Find in jumplist" },
-          -- ["<Leader>fl"] = { "<cmd>Telescope loclist<CR>", desc = "Find in loclist" },
-          -- ["<Leader>fM"] = { "<cmd>Telescope marks<CR>", desc = "Find marks" },
-          -- ["<Leader>fq"] = { "<cmd>Telescope quickfix<CR>", desc = "Find in quickfixlist" },
-          -- ["<Leader>fQ"] = { "<cmd>Telescope quickfixhistory<CR>", desc = "Quickfix history" },
-          -- ["<Leader>fs"] = { "<cmd>Telescope spell_suggest<CR>", desc = "Spell suggestions" },
-          -- ["<Leader>fS"] = { "<cmd>Telescope treesitter<CR>", desc = "Treesitter nodes" },
-          -- ["<Leader>fv"] = { "<cmd>Telescope vim_options<CR>", desc = "Find vim options" },
-          -- ["<Leader>fy"] = { "<cmd>Telescope filetypes<CR>", desc = "Find filetypes" },
-          -- ["<Leader>gS"] = { "<cmd>Telescope git_stash<CR>", desc = "Stash" },
-          -- ["<Leader>lC"] = { "<cmd>Telescope lsp_incoming_calls<CR>", desc = "Callers list" },
-          -- ["<Leader>lc"] = { "<cmd>Telescope lsp_outgoing_calls<CR>", desc = "Callees list" },
-          -- ["<Leader>lm"] = { "<cmd>Telescope lsp_implementations<CR>", desc = "Implementations" },
-          -- ["<leader>lt"] = { "<cmd>Telescope lsp_type_definitions<CR>", desc = "Type definitions" },
-          -- ["<leader>lw"] = { "<cmd>Telescope lsp_workspace_symbols<CR>", desc = "Workspace symbols" },
-          -- ["<leader>ly"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", desc = "Dynamic workspace symbols" },
         },
         --[[ o = {
           -- line text-objects
@@ -708,6 +650,9 @@ return {
           ["<"] = { "<gv" }, -- Stay in indent mode in visual-block mode
           [">"] = { ">gv" }, -- Stay in indent mode in visual-block mode
         },
+      },
+      signs = {
+        BqfSign = { text = " " .. require("astroui").get_icon "Selected", texthl = "BqfSign" },
       },
     } --[[@as AstroCoreOpts]]) --[[@as AstroCoreOpts]]
 
