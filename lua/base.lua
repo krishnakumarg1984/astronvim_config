@@ -13,6 +13,4 @@ return {
       -- update_notifications = true, -- Enable/disable notification about running `:Lazy update` twice to update pinned plugins
     },
   },
-  -- { "AstroNvim/astrocommunity" },
-  -- { import = "astrocommunity.pack.lua" },
 }
