@@ -9,7 +9,7 @@
 return {
   "AstroNvim/astroui", -- UI Configuration Engine built for AstroNvim
   version = false,
-  branch = "v3"
+  branch = "v3",
   ---@type AstroUIOpts
   opts = {
     -- colorscheme = "astrodark", -- change colorscheme
