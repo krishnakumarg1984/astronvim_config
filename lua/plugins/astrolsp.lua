@@ -39,6 +39,8 @@ end
 ---@type LazySpec
 return {
   "AstroNvim/astrolsp", -- LSP Configuration Engine built for AstroNvim
+  version = false,
+  branch = "v3",
   ---@type AstroLSPOpts
   opts = {
     -- Configure buffer local auto commands to add when attaching a language server
@@ -405,17 +407,17 @@ return {
     --     },
     --   },
     -- },
-    -- mason_lspconfig = {
-    --   servers = {
-    --     nextflow_ls = {
-    --       package = "nextflow-language-server", -- required package name in Mason (string)
-    --       filetypes = { "nextflow" }, -- required filetypes that apply (string or a list of strings)
-    --       config = { -- optional default configuration changes (table or a function that returns a table)
-    --         cmd = { "nextflow-language-server" },
-    --       },
-    --     },
-    --   },
-    -- },
+    mason_lspconfig = {
+      servers = {
+        nextflow_ls = {
+          package = "nextflow-language-server", -- required package name in Mason (string)
+          filetypes = { "nextflow" }, -- required filetypes that apply (string or a list of strings)
+          config = { -- optional default configuration changes (table or a function that returns a table)
+            cmd = { "nextflow-language-server" },
+          },
+        },
+      },
+    },
     -- A custom `on_attach` to be run after the default `on_attach` function
     -- Takes two parameters `client` & `bufnr`  (`:h lspconfig-setup`)
     -- on_attach = function(client, bufnr)

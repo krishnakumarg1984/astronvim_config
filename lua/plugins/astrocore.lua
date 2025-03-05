@@ -10,6 +10,8 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocore", -- Core AstroNvim configuration engine
+  version = false,
+  branch = "v2",
   ---@param opts AstroCoreOpts
   opts = function(_, opts)
     opts = require("astrocore").extend_tbl(opts, {
