@@ -1,6 +1,6 @@
 require("lazy").setup({
   { import = "base" }, -- "${astronvim_user_root}/lua/base.lua" file
-  -- { import = "plugins" },   -- "${astronvim_user_root}/lua/plugins" directory
+  { import = "plugins" },   -- "${astronvim_user_root}/lua/plugins" directory
   -- { import = "community" }, -- "${astronvim_user_root}/lua/community" directory
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
@@ -16,7 +16,7 @@ require("lazy").setup({
   },
   defaults = { lazy = true },
   diff = { cmd = "terminal_git" },
-  install = { colorscheme = { "catppuccin", "astrotheme", "habamax" } },
+  install = { colorscheme = { "catppuccin", "astrotheme", "habamax", "kanagawa", "kanagawa-wave" } },
   lockfile = vim.fn.stdpath "data" .. "/lazy-lock.json",
   performance = {
     rtp = {

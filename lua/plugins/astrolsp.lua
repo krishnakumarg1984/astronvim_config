@@ -379,17 +379,6 @@ return {
       --   return true
       -- end,
     },
-    mason_lspconfig = {
-      servers = {
-        nextflow_ls = {
-          package = "nextflow-language-server", -- required package name in Mason (string)
-          filetypes = { "nextflow" }, -- required filetypes that apply (string or a list of strings)
-          config = { -- optional default configuration changes (table or a function that returns a table)
-            cmd = { "nextflow-language-server" },
-          },
-        },
-      },
-    },
     servers = servers, -- enable servers that you already have installed without mason
     handlers = { -- customize how language servers are attached
       -- a function without a key is simply the default handler, functions take two parameters, the server name and the configured options table for that server
@@ -413,6 +402,17 @@ return {
     --       function() vim.lsp.buf.signature_help() end,
     --       desc = "Signature help",
     --       cond = "textDocument/signatureHelp",
+    --     },
+    --   },
+    -- },
+    -- mason_lspconfig = {
+    --   servers = {
+    --     nextflow_ls = {
+    --       package = "nextflow-language-server", -- required package name in Mason (string)
+    --       filetypes = { "nextflow" }, -- required filetypes that apply (string or a list of strings)
+    --       config = { -- optional default configuration changes (table or a function that returns a table)
+    --         cmd = { "nextflow-language-server" },
+    --       },
     --     },
     --   },
     -- },

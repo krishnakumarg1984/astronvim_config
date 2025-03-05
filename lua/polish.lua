@@ -12,7 +12,6 @@ vim.keymap.set({ "n", "i" }, "<F1>", "<Nop>")
 vim.keymap.set({ "n", "i", "t" }, "<F7>", "<Nop>")
 -- vim.keymap.set({ "n", "i", "x" }, "<C-s>", "<Nop>")
 vim.keymap.set({ "n", "v" }, "<Leader>/", "<Nop>")
--- vim.keymap.set({ "n" }, "\\", "<Nop>")
 vim.keymap.set({ "n", "x" }, "&", ":&&<CR>") -- Remap normal/visual '&' to preserve substitution flags
 -- vim.keymap.set({ "n", "i", "t" }, "<C-'>", "<Nop>")
 -- vim.keymap.set({ "n", "x" }, "s", "<Nop>") -- Disable 's' as recommended by sandwich.vim help file

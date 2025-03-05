@@ -5,6 +5,8 @@
 -- NOTE: Highly recommended to set up the Lua Language Server (`:LspInstall lua_ls`)
 -- as this provides autocomplete and documentation while editing
 
+-- vim.print("hello from astrocore")
+
 ---@type LazySpec
 return {
   "AstroNvim/astrocore", -- Core AstroNvim configuration engine
@@ -27,11 +29,11 @@ return {
           cpoptions = vim.opt.cpoptions - { "a" }, -- Stop :read from annoyingly setting alternative buffer
           fileformats = vim.opt.fileformats + { "mac" }, -- end-of-line (<EOL>) formats to be tried when starting to edit a new buffer and when reading a file into an existing buffer
           fillchars = {
-            -- fold = "",
             -- fold = " ",
+            -- fold = "",
             -- foldclose = "▸",
-            -- foldclose = "",
             -- foldclose = "",
+            -- foldclose = "",
             -- foldopen = "▾",
             -- foldopen = "",
             -- foldsep = "│",
@@ -81,6 +83,7 @@ return {
             ["h"] = true,
             ["l"] = true,
           },
+          wildignore = vim.opt.wildignore + { -- Ignore the following type of files when tab completing. There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
           "*.4ct",
           "*.4tc",
           "*.7z",
@@ -271,7 +274,6 @@ return {
           "vendor/cache/**",
           "vendor/rails/**",
           "~$",
-          wildignore = vim.opt.wildignore + { -- Ignore the following type of files when tab completing. There are certain files that we would never want to edit with Vim. Wildmenu will ignore files with these extensions.
           },
           wildignorecase = true, -- If supported, make wildmenu completions case-insensitive
           winaltkeys = "no",

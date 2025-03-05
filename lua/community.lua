@@ -2,12 +2,6 @@
 
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
---   ╭───────────────────────────────────────────────────────────────────────╮
---   │           AstroCommunity: import any community modules here           │
---   │ We import this file in `lazy_setup.lua` before the `plugins/` folder. │
---   │ This guarantees that the specs are processed before any user plugins. │
---   ╰───────────────────────────────────────────────────────────────────────╯
-
 -- AstroCommunity: import any community modules here
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
 -- This guarantees that the specs are processed before any user plugins.
@@ -92,5 +86,5 @@ return {
   -- { import = "astrocommunity.utility.neodim" }, -- Neovim plugin for dimming the highlights of unused functions, variables, parameters, and more
   -- { import = "astrocommunity.utility.noice-nvim" }, -- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
   -- { import = "astrocommunity.workflow.hardtime-nvim" }, -- breaks dropbar.nvim
-  --- { import = "astrocommunity.debugging.nvim-dap-repl-highlights" }, -- Add syntax highlighting to the nvim-dap REPL buffer using treesitter.
+  -- { import = "astrocommunity.debugging.nvim-dap-repl-highlights" }, -- Add syntax highlighting to the nvim-dap REPL buffer using treesitter.
 }
