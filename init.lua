@@ -16,4 +16,4 @@ if not pcall(require, "lazy") then
 end
 
 require "lazy_setup" -- lua/lazy_setup.lua file for setting up Lazy.nvim, astronvim and other user plugins
-require "polish"  -- lua/polish.lua file for user customisations
+require "polish" -- lua/polish.lua file for user customisations

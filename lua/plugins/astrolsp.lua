@@ -11,6 +11,8 @@ local servers = {} -- only add local servers if their commands are available
 for server, cmd in pairs {
   -- ast_grep = "ast-grep", -- to study and look at this tool further
   -- sonarlint_ls = "sonarlint-ls", -- nvim_lsp server config not available Sep 2024
+  ansiblels = "ansible-language-server", -- Language Server for Ansible Files. Written in Nodejs
+  awk_ls = "awk-language-server", -- AWK Language Server. Written in Nodejs
   basedpyright = "basedpyright", -- pyright fork with various type improvements. Requires python3 in PATH
   bashls = "bash-language-server", -- requires npm for installing via mason
   biome = "biome", -- A toolchain for web projects. Biome offers formatter and linter, usable via CLI and LSP.
@@ -19,8 +21,10 @@ for server, cmd in pairs {
   dockerls = "docker-langserver", -- LSP for Dockerfiles
   fortls = "fortls", -- Fortran Language Server
   harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust
+  jsonls = "vscode-json-language-server", -- JSON LSP extracted from VSCode to be reused. Written in NodeJs
   julials = "julia", -- The Julia Programming Language language server
   lua_ls = "lua-language-server", -- Language server that offers lua support. (dependent on lua in PATH?)
+  ltex = "ltex-ls", -- LSP language server for LanguageTool 🔍✔️ with support for LaTeX 🎓, Markdown 📝, and others. Written in Kotlin
   markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for text-editor through the LSP
   marksman = "marksman", -- Write Markdown with code assist & intelligence. Written in F#
   neocmake = "neocmakelsp", -- use name in github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#neocmake.
@@ -30,8 +34,8 @@ for server, cmd in pairs {
   tinymist = "tinymist", -- Tinymist [ˈtaɪni mɪst] is an integrated language service for Typst [taɪpst].
   typos_lsp = "typos-lsp", -- Source code spell checker. Written in Rust
   vale_ls = "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust
-  vimls = "vim-language-server", -- VImScript language server, LSP for vim script
-  yamlls = "yaml-language-server", -- Language Server for YAML Files
+  vimls = "vim-language-server", -- VimScript language server, LSP for vim script. Written in Nodejs
+  yamlls = "yaml-language-server", -- Language Server for YAML Files. Written in Nodejs
 } do
   if vim.fn.executable(cmd) == 1 then table.insert(servers, server) end
 end
@@ -368,7 +372,7 @@ return {
       disabled = { -- disable formatting capabilities for the listed language servers
         "clangd",
         "cmake",
-        "jsonls",
+        -- "jsonls",
         "neocmake",
         "neocmakelsp",
         "pylsp",

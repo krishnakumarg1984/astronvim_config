@@ -1,14 +1,16 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:
+-- Last FULL review on Mar 6, 2025
 
 local mason_tools_to_install = {}
 
 -- lsp servers for general purpose editing. All these lsps are easy binary-available, but should be installed with mason only if they have not already been installed externally & made available in PATH
 for _, server_cmd in ipairs {
-  "taplo", -- TOML toolkit written in Rust
+  "harper-ls", -- The Grammar Checker for Developers. Written in Rust. Requires a modern GLIBC
+  "ltex-ls", -- LSP language server for LanguageTool 🔍✔️ with support for LaTeX 🎓, Markdown 📝, and others. Written in Kotlin
+  "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for text-editor through the LSP, written in Rust, Requires a new-ish glibc
+  "marksman", -- Write Markdown with code assist and intelligence in the comfort of your favourite editor. Written in F#. Too difficult on hpcs
+  "taplo", -- TOML toolkit written in Rust. Is a direct download. Does not need rustc/cargo
   -- "ast-grep", -- to study and look at this tool further
-  -- "harper-ls", -- The Grammar Checker for Developers. Written in Rust. Requires a modern GLIBC
-  -- "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for text-editor through the LSP, written in Rust, Requires a new-ish glibc
-  -- "marksman", -- Write Markdown with code assist and intelligence in the comfort of your favourite editor. Written in F#. Too difficult on hpcs
   -- "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
   -- "typos-lsp", -- Source code spell checker. Written in Rust. Requires a modern GLIBC
   -- "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust. Requires a modern GLIBC
@@ -18,10 +20,11 @@ end
 
 -- install easily binary-installable linters & formatters that are not already in PATH (((
 for _, linter_formatter_cmd in ipairs {
-  "actionlint", -- Static checker for GitHub Actions workflow files
+  "actionlint", -- Static checker for GitHub Actions workflow files. Written in GoLang
   "checkmake", -- experimental linter/analyzer for Makefiles
   "shfmt", -- A shell parser, formatter, and interpreter with bash support; includes shfmt
   "stylua",
+  "yamlfmt", -- An extensible command line tool or library to format yaml files. Written in GoLang
   -- "ast-grep", -- have to learn how to use this
   -- "shellcheck", -- ShellCheck, a static analysis tool for shell scripts. Deprecated in none-ls
   -- "astyle",
@@ -33,7 +36,6 @@ for _, linter_formatter_cmd in ipairs {
   -- "selene",
   -- "vacuum",
   -- "vale",
-  -- "yamlfmt",
 } do
   if vim.fn.executable(linter_formatter_cmd) == 0 then table.insert(mason_tools_to_install, linter_formatter_cmd) end
 end
@@ -59,9 +61,16 @@ local astrocore = require "astrocore"
 -- end
 
 -- tools written in c/c++ (((
-if vim.fn.executable "clang++" == 1 or vim.fn.executable "g++" == 1 then
+if
+  vim.fn.executable "clang++" == 1
+  or vim.fn.executable "g++" == 1
+  or vim.fn.executable "clang" == 1
+  or vim.fn.executable "gcc" == 1
+  or vim.fn.executable "cc" == 1
+then
   for _, server_cmd in ipairs {
-    "clangd", -- not available via nix or brew (as of Sep 2024).
+    "clangd", -- clangd understands your C++ code & adds smart features to your editor
+    "clang-format", -- formatter for C++ code
   } do
     if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
   end
@@ -81,8 +90,6 @@ if vim.fn.executable "npm" == 1 then
     -- "html"
     -- "intelephense"
     -- "tsserver"
-    -- "vimls",
-    -- "yamlls"
   })
   -- )))
 
@@ -95,11 +102,9 @@ if vim.fn.executable "npm" == 1 then
 
   -- install general npm-written linters and formatters not available in PATH via mason (((
   astrocore.list_insert_unique(mason_tools_to_install, {
-    "alex", -- Catch insensitive, inconsiderate writing.
     -- "cpplint", -- Cpplint is a command-line tool to check C/C++ files for style issues following Google's C++ style guide. Problematic nixpkgs build as of Sep 2024. cpplint has been deprecated in none-ls.
     -- "cspell", -- A Spell Checker for Code! Deprecated in none-ls
     -- "fixjson",
-    -- "jsonlint",
     -- "markdownlint_cli2",
     -- "textlint",
     -- "write-good"
@@ -107,19 +112,26 @@ if vim.fn.executable "npm" == 1 then
   -- )))
 
   -- install npm-written LSPs not available in PATH via mason (((
-  for _, server_cmd in ipairs {
-    "biome", -- A toolchain for web projects, aimed to provide functionalities to maintain them. Biome offers formatter and linter, usable via CLI and LSP. Requires npm to install even if written in Rust
-    "json-lsp", -- JSON language service. Not available yet in nixpkgs as of Sep 2024. Hence install via mason
-    "yaml-language-server", -- Language Server for YAML Files
+  for _, npm_written_lsp_linter_formatter_cmd in ipairs {
+    "alex", -- Catch insensitive, inconsiderate writing (for Markdown files)
+    "biome", -- A toolchain for web projects. formatter and linter, usable via CLI and LSP. Requires npm to install even if written in Rust
+    "doctoc", -- Generates TOC for markdown files of local git repo
+    "json-lsp", -- JSON LSP extracted from VSCode to be reused.
+    "vim-language-server", -- VimScript language server, LSP for vim script.
+    "yaml-language-server", -- Language Server for YAML Files.
     -- "zk" -- A plain text note-taking assistant.
   } do
-    if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
+    if vim.fn.executable(npm_written_lsp_linter_formatter_cmd) == 0 then table.insert(mason_tools_to_install, npm_written_lsp_linter_formatter_cmd) end
   end
   -- )))
 
   -- install other npm-written tools (lsps, linters and formatters) (((
   if vim.fn.executable "awk" == 1 then
-    astrocore.list_insert_unique(mason_tools_to_install, { "awk-language-server" }) -- not available in nixpkgs as of Sep 2024, so install with mason
+    for _, server_cmd in ipairs {
+      "awk-language-server", -- requires npm for installing via mason
+    } do
+      if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
+    end
   end
 
   if vim.fn.executable "bash" == 1 then
@@ -155,13 +167,13 @@ if vim.fn.executable "npm" == 1 then
     end
   end
 
-  if vim.fn.executable "vim" == 1 or vim.fn.executable "nvim" == 1 then
-    for server, cmd in ipairs {
-      vimls = "vim-language-server", -- VImScript language server, LSP for vim script
-    } do
-      if vim.fn.executable(cmd) == 0 then table.insert(mason_tools_to_install, server) end
-    end
+  -- if vim.fn.executable "vim" == 1 or vim.fn.executable "nvim" == 1 then
+  for server, cmd in ipairs {
+    vimls = "", -- VImScript language server, LSP for vim script
+  } do
+    if vim.fn.executable(cmd) == 0 then table.insert(mason_tools_to_install, server) end
   end
+  -- end
   -- )))
 end
 
@@ -202,10 +214,13 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
     -- "textlsp", -- Language server for text spell and grammar check with various tools. Not available in nixpkgs or elsewhere as of Sep 2024
   })
 
-  -- install python-written LSPs using mason only if not externally installed already and available in PATH (((
+  -- install python-written LSPs for editing python (& general) files using mason (but only if not already available in PATH) (((
   for _, server_cmd in ipairs {
-    "basedpyright", -- pyright fork with various type checking improvements, improved vscode support and pylance features built into the language server. requires python3 in PATH
+    "basedpyright", -- pyright fork with various improvements built into the language server.  Written in Python
+    "jupytext", -- Jupyter Notebooks as Markdown Documents, Julia, Python or R scripts. Written in Python
     "ruff", -- An extremely fast Python linter and code formatter, written in Rust.
+    "yamlfix", -- A simple opinionated yaml formatter that keeps your comments! Written in Python
+    "yamllint", -- A linter for YAML files. Written in Python
   } do
     if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
   end
@@ -213,13 +228,25 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
 
   -- general tools that are written in python (((
   for _, linter_formatter_cmd in ipairs {
-    "ansible-lint", -- command-line tool for linting playbooks, roles and collections aimed toward any Ansible users.
     "codespell", -- check code for common misspellings
   } do
     if vim.fn.executable(linter_formatter_cmd) == 0 then table.insert(mason_tools_to_install, linter_formatter_cmd) end
   end
   -- )))
 
+  -- tools written in python but used for editing ansible-related files (((
+
+  if vim.fn.executable "ansible" == 1 then
+    for _, linter_formatter_cmd in ipairs {
+      "ansible-lint", -- command-line tool for linting playbooks, roles and collections aimed toward any Ansible users.
+    } do
+      if vim.fn.executable(linter_formatter_cmd) == 0 then
+        table.insert(mason_tools_to_install, linter_formatter_cmd)
+      end
+    end
+  end
+
+  -- )))
   -- tools written in python but used for editing bash scripts (((
 
   -- if vim.fn.executable "sh" == 1 or vim.fn.executable "bash" == 1 then
@@ -284,18 +311,16 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
   --     "flake8",
   --     "gitlint",
   --     "mdformat",
+  --     "mypy",
   --     "proselint",
   --     "pydocstyle",
   --     "pylama",
+  --     "pylint",
+  --     "pyproject_flake8",
   --     "reorder_python_imports",
   --     "usort",
   --     "vint",
   --     "vulture",
-  --     "yamlfix",
-  --     "yamllint",
-  --     -- "mypy",
-  --     -- "pylint",
-  --     -- "pyproject_flake8",
   --   })
   -- end
   -- )))
@@ -310,12 +335,13 @@ if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
   -- tools written in rust that are binary-installable (((
   for _, server_cmd in ipairs {
     "rust-analyzer", -- Modular compiler frontend for the Rust language. Written in Rust. But actually has no dependency on rust being available in PATH. It is an easy binary install via mason. Just doing conditional installation because there is no use for rust-analyzer without rustc available in PATH
+    -- "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust. Requires a modern GLIBC
   } do
     if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
   end
   -- )))
 
-  -- tools written in rust that requires rustc/cargo and helpful tools for editing bash scripts  (((
+  -- tools written in rust that requires rustc/cargo and for editing bash scripts  (((
   if vim.fn.executable "sh" == 1 or vim.fn.executable "bash" == 1 then
     for _, linter_formatter_cmd in ipairs {
       "shellharden", -- Hardens shell scripts by quoting variables, replacing function_call with $(function_call), and more.
@@ -375,7 +401,6 @@ return {
 -- "gopls",
 -- "haskell-language-server",
 -- "html-lsp",
--- "json-lsp",
 -- "regols",
 -- "svelte-language-server",
 -- "tailwindcss-language-server",
