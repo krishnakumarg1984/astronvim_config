@@ -489,9 +489,20 @@ return {
       diagnostics = {
         underline = false,
         update_in_insert = false,
-        virtual_lines = false,
+        -- virtual_lines = false,
+        virtual_lines = { current_line = true, severity = { min = vim.diagnostic.severity.WARN } },
         virtual_text = false,
         -- virtual_text = { severity = { min = vim.diagnostic.severity.WARN } },
+      },
+      -- Configure core features of AstroNvim
+      features = {
+        diagnostics = { virtual_lines = false },
+        -- large_buf = { size = 1024 * 256, lines = 10000 }, -- global limits for disabling features like treesitter
+        -- autopairs = true, -- enable autopairs at start
+        -- cmp = true, -- enable completion at start
+        -- diagnostics_mode = 3, -- diag mode on start (0 = off, 1 = no signs/virtual text, 2 = no virtual text, 3 = on)
+        -- highlighturl = true, -- highlight URLs at start
+        -- notifications = true, -- enable notifications at start
       },
       -- passed to `vim.filetype.add`
       filetypes = {
