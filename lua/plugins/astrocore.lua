@@ -330,21 +330,19 @@ return {
         g = { -- vim.g.<key>
           -- configure global vim variables (vim.g)
           -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
+
           -- This can be found in the `lua/lazy_setup.lua` file
           -- did_install_default_menus = 1, -- useful in guis
           -- did_install_syntax_menu = 1, -- useful in guis
           -- javaScript_fold = 1, -- is this actually useful?
           -- loaded_python3_provider = 0,
           -- loaded_ruby_provider = 0, -- To disable Ruby support
-          -- matchup_matchparen_deferred = 1, -- problematic due to upstream bug
-          -- matchup_matchparen_offscreen = { method = "popup" },
-          -- matchup_override_vimtex = 1,
-          -- matchup_surround_enabled = true,
           -- netrw_nogx = 1,
           -- python3_host_prog = "python3",
           -- python_host_skip_check = 1,
           -- rust_fold = 1,
           -- tex_comment_nospell = 1, -- spell checking be disabled in comments in LaTeX files
+
           -- tex_conceal = "abdmgs", --  a = accents/ligatures b = bold and italic d = delimiters m = math symbols g = Greek s = superscripts/subscripts
           -- tex_flavor = "latex", -- vimtex already sets this up
           -- tex_fold_enabled = 1, -- will only work if foldmethod=syntax

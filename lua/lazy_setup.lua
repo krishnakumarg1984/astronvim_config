@@ -1,7 +1,7 @@
 require("lazy").setup({
   { import = "base" }, -- "${astronvim_user_root}/lua/base.lua" file
   { import = "plugins" },   -- "${astronvim_user_root}/lua/plugins" directory
-  -- { import = "community" }, -- "${astronvim_user_root}/lua/community" directory
+  { import = "community" }, -- "${astronvim_user_root}/lua/community" directory
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
   dev = {
