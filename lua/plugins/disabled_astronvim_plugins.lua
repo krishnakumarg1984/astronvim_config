@@ -3,14 +3,6 @@
 ---@type LazySpec
 return {
   {
-    "goolord/alpha-nvim", -- A lua powered greeter like vim-startify / dashboard-nvim
-    enabled = false,
-    opts = function(_, opts)
-      opts.section.header.val = { "" } -- customize the dashboard header
-      return opts
-    end,
-  },
-  {
     "max397574/better-escape.nvim", -- Map keys without delay when typing
     enabled = false,
     opts = {
@@ -22,7 +14,5 @@ return {
       },
     },
   },
-  { "lukas-reineke/indent-blankline.nvim", enabled = false },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
-  { "NvChad/nvim-colorizer.lua", enabled = false }, -- The fastest Neovim colorizer.
 }
