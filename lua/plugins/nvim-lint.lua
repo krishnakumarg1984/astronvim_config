@@ -36,7 +36,7 @@ return {
       lua = { "selene" },
       markdown = { "alex", "markdownlint-cli2", "proselint", "pymarkdownlnt", "textlint", "write_good" },
       puppet = { "puppet-lint" },
-      python = { "bandit", "mypy", "pylama", "ruff", "sphinx-lint", "trivy", "vulture" },
+      python = { "bandit", "mypy", "pylama", "ruff", "sphinx-lint", "vulture" },
       rego = { "opa_check" },
       sql = { "sqlfluff" },
       text = { "proselint", "textlint" },

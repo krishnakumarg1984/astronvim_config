@@ -12,11 +12,11 @@ for _, server_cmd in ipairs {
   "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
   "pylyzer", -- A fast, feature-rich static code analyzer & language server for Python. Written in Rust
   "taplo", -- TOML toolkit written in Rust. Is a direct download. Does not need rustc/cargo
-  "trivy", -- Find vulnerabilities, misconfigurations, secrets, SBOM in various places. Written in GoLang
   "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust. Requires a modern GLIBC
   "zk", -- A plain text note-taking assistant. Written in GoLang
   -- "ast-grep", -- to study and look at this tool further
   -- "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
+  -- "trivy", -- Find vulnerabilities, misconfigurations, secrets, SBOM in various places. Written in GoLang
   -- "typos-lsp", -- Source code spell checker. Written in Rust. Requires a modern GLIBC
 } do
   if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
