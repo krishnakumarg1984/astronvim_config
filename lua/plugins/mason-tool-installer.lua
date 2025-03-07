@@ -10,7 +10,9 @@ for _, server_cmd in ipairs {
   "markdown-oxide", -- Robust, Minimalist, Unbundled PKM. Written in Rust. Requires a new-ish glibc
   "marksman", -- code assist & intelligence for markdown/text buffers. Written in F#. Too difficult on hpcs
   "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
+  "pylyzer", -- A fast, feature-rich static code analyzer & language server for Python. Written in Rust
   "taplo", -- TOML toolkit written in Rust. Is a direct download. Does not need rustc/cargo
+  "trivy", -- Find vulnerabilities, misconfigurations, secrets, SBOM in various places. Written in GoLang
   "zk", -- A plain text note-taking assistant. Written in GoLang
   -- "ast-grep", -- to study and look at this tool further
   -- "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
@@ -223,9 +225,21 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
 
   -- install python-written LSPs for editing python (& general) files (but only if not already available in PATH) (((
   for _, python_lsp_linter_formatter_tool_cmd in ipairs {
-    "basedpyright", -- pyright fork with various improvements built into the language server.  Written in Python
+    "autopep8", -- Automatically formats Python code to conform to the PEP 8 style guide. Written in Python
+    "bandit", -- Tool designed to find common security issues in Python code. Written in Python
+    "basedpyright", -- Pyright fork with various improvements built into the lsp. Written in Python
+    "black", -- The uncompromising Python code formatter. Written in Python
+    "blue", -- The slightly less uncompromising Python code formatter. Written in Python
+    "darker", -- Apply black reformatting to Python files only in regions changed since a given commit. Written in Python
+    "docformatter", -- Formats docstrings to follow PEP 257. Written in Python
     "jupytext", -- Jupyter Notebooks as Markdown Documents, Julia, Python or R scripts. Written in Python
+    "mypy", -- Optional static typing for Python. Written in Python
+    "pyink", -- Python formatter, forked from Black with a few different formatting behaviors. Written in Python
+    "pylama", -- Code audit tool for Python and JavaScript. Written in Python
     "ruff", -- An extremely fast Python linter and code formatter, written in Rust.
+    "sphinx-lint", -- Check for stylistic & formal issues in .rst & .py files in documentation. Written in Python
+    "usort", --Safe, minimal import sorting for Python projects. Written in Python
+    "vulture", -- Find dead Python code. Written in Python
     "yamlfix", -- A simple opinionated yaml formatter that keeps your comments! Written in Python
     "yamllint", -- A linter for YAML files. Written in Python
   } do
@@ -252,7 +266,7 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
 
   if vim.fn.executable "ansible" == 1 then
     for _, linter_formatter_cmd in ipairs {
-      "ansible-lint", -- command-line tool for linting playbooks, roles and collections aimed toward any Ansible users.
+      "ansible-lint", -- command-line tool for linting playbooks, roles and collections aimed toward any ansible users.
     } do
       if vim.fn.executable(linter_formatter_cmd) == 0 then
         table.insert(mason_tools_to_install, linter_formatter_cmd)
@@ -421,9 +435,8 @@ return {
 -- "vtsls",
 --
 -- -- Linters
--- "ansible-lint",
 -- "sqlfluff",
---
+
 -- -- Formatters
 -- "prettier",
 --
