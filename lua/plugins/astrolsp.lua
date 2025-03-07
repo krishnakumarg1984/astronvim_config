@@ -23,11 +23,13 @@ for server, cmd in pairs {
   harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust
   jsonls = "vscode-json-language-server", -- JSON LSP extracted from VSCode to be reused. Written in NodeJs
   julials = "julia", -- The Julia Programming Language language server
+  ltex = "ltex-ls", -- LSP for LanguageTool 🔍✔️ with support for LaTeX 🎓, Markdown 📝, and others. Written in Kotlin
   lua_ls = "lua-language-server", -- Language server that offers lua support. (dependent on lua in PATH?)
-  ltex = "ltex-ls", -- LSP language server for LanguageTool 🔍✔️ with support for LaTeX 🎓, Markdown 📝, and others. Written in Kotlin
   markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for text-editor through the LSP
   marksman = "marksman", -- Write Markdown with code assist & intelligence. Written in F#
-  neocmake = "neocmakelsp", -- use name in github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#neocmake.
+  neocmake = "neocmakelsp", -- Another cmake lsp. Written in Rust
+  prosemd_lsp = "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
+  remark_ls = "remark-language-server", -- An LSP to lint and format markdown files with remark. Written in Nodejs
   ruff = "ruff", -- An extremely fast Python linter and code formatter, written in Rust.
   rust_analyzer = "rust-analyzer", -- Modular compiler frontend for the Rust language. Written in Rust
   taplo = "taplo", -- TOML toolkit written in Rust
@@ -36,6 +38,7 @@ for server, cmd in pairs {
   vale_ls = "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust
   vimls = "vim-language-server", -- VimScript language server, LSP for vim script. Written in Nodejs
   yamlls = "yaml-language-server", -- Language Server for YAML Files. Written in Nodejs
+  zk = "zk", -- Plain text note-taking assistant. Written in GoLang
 } do
   if vim.fn.executable(cmd) == 1 then table.insert(servers, server) end
 end

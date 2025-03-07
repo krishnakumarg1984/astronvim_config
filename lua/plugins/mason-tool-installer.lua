@@ -6,10 +6,12 @@ local mason_tools_to_install = {}
 -- lsp servers for general purpose editing. All these lsps are easy binary-available, but should be installed with mason only if they have not already been installed externally & made available in PATH
 for _, server_cmd in ipairs {
   "harper-ls", -- The Grammar Checker for Developers. Written in Rust. Requires a modern GLIBC
-  "ltex-ls", -- LSP language server for LanguageTool 🔍✔️ with support for LaTeX 🎓, Markdown 📝, and others. Written in Kotlin
-  "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for text-editor through the LSP, written in Rust, Requires a new-ish glibc
-  "marksman", -- Write Markdown with code assist and intelligence in the comfort of your favourite editor. Written in F#. Too difficult on hpcs
+  "ltex-ls", -- LSP language server for LanguageTool with support for LaTeX, Markdown, and others. Written in Kotlin
+  "markdown-oxide", -- Robust, Minimalist, Unbundled PKM. Written in Rust. Requires a new-ish glibc
+  "marksman", -- code assist & intelligence for markdown/text buffers. Written in F#. Too difficult on hpcs
+  "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
   "taplo", -- TOML toolkit written in Rust. Is a direct download. Does not need rustc/cargo
+  "zk", -- A plain text note-taking assistant. Written in GoLang
   -- "ast-grep", -- to study and look at this tool further
   -- "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
   -- "typos-lsp", -- Source code spell checker. Written in Rust. Requires a modern GLIBC
@@ -22,18 +24,19 @@ end
 for _, linter_formatter_cmd in ipairs {
   "actionlint", -- Static checker for GitHub Actions workflow files. Written in GoLang
   "checkmake", -- experimental linter/analyzer for Makefiles
+  "mdsf", -- Format markdown code blocks using your favorite tools. Written in Rust
+  "mdslw", -- Prepare your markdown for easy diff'ing!. Written in Rust
   "shfmt", -- A shell parser, formatter, and interpreter with bash support; includes shfmt
   "stylua",
   "yamlfmt", -- An extensible command line tool or library to format yaml files. Written in GoLang
   -- "ast-grep", -- have to learn how to use this
-  -- "shellcheck", -- ShellCheck, a static analysis tool for shell scripts. Deprecated in none-ls
   -- "astyle",
   -- "cbfmt",
   -- "editorconfig-checker",
   -- "hadolint", -- written in haskell
   -- "markuplint", -- html linter. not in brew or nixpkgs as of Sep 2024. Install with mason
-  -- "mdslw", -- markdown formatter. not in brew or nixpkgs as of Sep 2024. Install with mason
   -- "selene",
+  -- "shellcheck", -- ShellCheck, a static analysis tool for shell scripts. Deprecated in none-ls
   -- "vacuum",
   -- "vale",
 } do
@@ -105,23 +108,27 @@ if vim.fn.executable "npm" == 1 then
     -- "cpplint", -- Cpplint is a command-line tool to check C/C++ files for style issues following Google's C++ style guide. Problematic nixpkgs build as of Sep 2024. cpplint has been deprecated in none-ls.
     -- "cspell", -- A Spell Checker for Code! Deprecated in none-ls
     -- "fixjson",
-    -- "markdownlint_cli2",
-    -- "textlint",
-    -- "write-good"
   })
   -- )))
 
   -- install npm-written LSPs not available in PATH via mason (((
   for _, npm_written_lsp_linter_formatter_cmd in ipairs {
     "alex", -- Catch insensitive, inconsiderate writing (for Markdown files)
-    "biome", -- A toolchain for web projects. formatter and linter, usable via CLI and LSP. Requires npm to install even if written in Rust
+    "biome", -- Formatter and linter, usable via CLI and LSP. Requires npm to install even if written in Rust
     "doctoc", -- Generates TOC for markdown files of local git repo
     "json-lsp", -- JSON LSP extracted from VSCode to be reused.
+    "markdown-toc", -- API/CLI for generating a markdown TOC for any markdown file
+    "markdownlint-cli2", -- Fast, flexible, config-based CLI for linting Markdown/CommonMark
+    "prettierd", -- prettier, as a daemon, for improved formatting speed.
+    "remark-language-server", -- An LSP to lint and format markdown files with remark. Written in Nodejs
+    "textlint", -- The pluggable natural language linter for text and markdown
     "vim-language-server", -- VimScript language server, LSP for vim script.
+    "write-good", -- Naive linter for English prose
     "yaml-language-server", -- Language Server for YAML Files.
-    -- "zk" -- A plain text note-taking assistant.
   } do
-    if vim.fn.executable(npm_written_lsp_linter_formatter_cmd) == 0 then table.insert(mason_tools_to_install, npm_written_lsp_linter_formatter_cmd) end
+    if vim.fn.executable(npm_written_lsp_linter_formatter_cmd) == 0 then
+      table.insert(mason_tools_to_install, npm_written_lsp_linter_formatter_cmd)
+    end
   end
   -- )))
 
@@ -214,23 +221,30 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
     -- "textlsp", -- Language server for text spell and grammar check with various tools. Not available in nixpkgs or elsewhere as of Sep 2024
   })
 
-  -- install python-written LSPs for editing python (& general) files using mason (but only if not already available in PATH) (((
-  for _, server_cmd in ipairs {
+  -- install python-written LSPs for editing python (& general) files (but only if not already available in PATH) (((
+  for _, python_lsp_linter_formatter_tool_cmd in ipairs {
     "basedpyright", -- pyright fork with various improvements built into the language server.  Written in Python
     "jupytext", -- Jupyter Notebooks as Markdown Documents, Julia, Python or R scripts. Written in Python
     "ruff", -- An extremely fast Python linter and code formatter, written in Rust.
     "yamlfix", -- A simple opinionated yaml formatter that keeps your comments! Written in Python
     "yamllint", -- A linter for YAML files. Written in Python
   } do
-    if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
+    if vim.fn.executable(python_lsp_linter_formatter_tool_cmd) == 0 then
+      table.insert(mason_tools_to_install, python_lsp_linter_formatter_tool_cmd)
+    end
   end
   -- )))
 
   -- general tools that are written in python (((
-  for _, linter_formatter_cmd in ipairs {
+  for _, python_based_genpurpose_linter_formatter_cmd in ipairs {
     "codespell", -- check code for common misspellings
+    "mdformat", -- CommonMark compliant Markdown formatter
+    "proselint", -- A linter for prose
+    "pymarkdownlnt", -- A GitHub Flavored Markdown compliant Markdown linter.
   } do
-    if vim.fn.executable(linter_formatter_cmd) == 0 then table.insert(mason_tools_to_install, linter_formatter_cmd) end
+    if vim.fn.executable(python_based_genpurpose_linter_formatter_cmd) == 0 then
+      table.insert(mason_tools_to_install, python_based_genpurpose_linter_formatter_cmd)
+    end
   end
   -- )))
 
