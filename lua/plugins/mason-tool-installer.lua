@@ -13,11 +13,11 @@ for _, server_cmd in ipairs {
   "pylyzer", -- A fast, feature-rich static code analyzer & language server for Python. Written in Rust
   "taplo", -- TOML toolkit written in Rust. Is a direct download. Does not need rustc/cargo
   "trivy", -- Find vulnerabilities, misconfigurations, secrets, SBOM in various places. Written in GoLang
+  "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust. Requires a modern GLIBC
   "zk", -- A plain text note-taking assistant. Written in GoLang
   -- "ast-grep", -- to study and look at this tool further
   -- "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
   -- "typos-lsp", -- Source code spell checker. Written in Rust. Requires a modern GLIBC
-  -- "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust. Requires a modern GLIBC
 } do
   if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
 end
@@ -28,16 +28,15 @@ for _, linter_formatter_cmd in ipairs {
   "checkmake", -- experimental linter/analyzer for Makefiles
   "mdsf", -- Format markdown code blocks using your favorite tools. Written in Rust
   "mdslw", -- Prepare your markdown for easy diff'ing!. Written in Rust
+  "selene", -- A blazing-fast modern Lua linter written in Rust
   "shfmt", -- A shell parser, formatter, and interpreter with bash support; includes shfmt
   "stylua",
   "yamlfmt", -- An extensible command line tool or library to format yaml files. Written in GoLang
-  -- "ast-grep", -- have to learn how to use this
   -- "astyle",
   -- "cbfmt",
   -- "editorconfig-checker",
   -- "hadolint", -- written in haskell
   -- "markuplint", -- html linter. not in brew or nixpkgs as of Sep 2024. Install with mason
-  -- "selene",
   -- "shellcheck", -- ShellCheck, a static analysis tool for shell scripts. Deprecated in none-ls
   -- "vacuum",
   -- "vale",
@@ -61,10 +60,6 @@ end
 -- various conditional tool installations (((
 local astrocore = require "astrocore"
 
--- if vim.fn.executable "bash" == 1 or vim.fn.executable "sh" == 1 then
---   astrocore.list_insert_unique(mason_tools_to_install, { "bash" })
--- end
-
 -- tools written in c/c++ (((
 if
   vim.fn.executable "clang++" == 1
@@ -75,7 +70,6 @@ if
 then
   for _, server_cmd in ipairs {
     "clangd", -- clangd understands your C++ code & adds smart features to your editor
-    "clang-format", -- formatter for C++ code
   } do
     if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
   end
@@ -84,7 +78,7 @@ end
 
 -- tools written in go-language (((
 -- if vim.fn.executable "go" == 1 then
---   astrocore.list_insert_unique(mason_tools_to_install, { "buf", "bufls", "checkmake", "misspell", "protolint", "sqls" })
+--   astrocore.list_insert_unique(mason_tools_to_install, { "buf", "bufls", "misspell", "protolint", "sqls" })
 -- end
 -- )))
 
@@ -144,7 +138,6 @@ if vim.fn.executable "npm" == 1 then
   end
 
   if vim.fn.executable "bash" == 1 then
-    --  astrocore.list_insert_unique(mason_tools_to_install, { "bashls" }) end
     --  astrocore.list_insert_unique(mason_tools_to_install, { "perlnavigator" }) end
     for _, server_cmd in ipairs {
       "bash-language-server", -- requires npm for installing via mason
@@ -217,7 +210,7 @@ end
 
 -- tools that need python3 (((
 
-if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
+if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" == 1 then
   -- install LSPs written in python using mason-tool-installer
   astrocore.list_insert_unique(mason_tools_to_install, {
     -- "textlsp", -- Language server for text spell and grammar check with various tools. Not available in nixpkgs or elsewhere as of Sep 2024
@@ -275,6 +268,7 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
   end
 
   -- )))
+
   -- tools written in python but used for editing bash scripts (((
 
   -- if vim.fn.executable "sh" == 1 or vim.fn.executable "bash" == 1 then
@@ -289,6 +283,22 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
 
   -- )))
 
+  -- tools written in python for editing c/c++ code (((
+  if
+    vim.fn.executable "clang++" == 1
+    or vim.fn.executable "g++" == 1
+    or vim.fn.executable "clang" == 1
+    or vim.fn.executable "gcc" == 1
+    or vim.fn.executable "cc" == 1
+  then
+    for _, formatter_cmd in ipairs {
+      "clang-format", -- Formatter for C/C++ code. Written in Python
+    } do
+      if vim.fn.executable(formatter_cmd) == 0 then table.insert(mason_tools_to_install, formatter_cmd) end
+    end
+  end
+  -- )))
+
   -- tools written in python but used for editing cmake scripts (((
 
   if vim.fn.executable "cmake" == 1 then
@@ -299,7 +309,7 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
         table.insert(mason_tools_to_install, linter_formatter_cmd)
       end
     end
-    -- astrocore.list_insert_unique(mason_tools_to_install, { "cmake_format", "cmakelint", "gersemi" })
+    -- astrocore.list_insert_unique(mason_tools_to_install, { "cmake_format", "gersemi" })
   end
 
   -- )))
@@ -315,43 +325,6 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" then
   end
 
   -- )))
-
-  -- tools written in python but also need cargo/rustc (((
-
-  -- if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" == 1 then
-  --   astrocore.list_insert_unique(mason_tools_to_install, { "shellharden" })
-  --   astrocore.list_insert_unique(mason_tools_to_install, "pylyzer")
-  -- end
-
-  -- )))
-
-  -- astrocore.list_insert_unique(mason_tools_to_install, "sourcery")
-
-  -- tools that also need pip or conda (((
-  -- if vim.fn.executable "pip3" == 1 or vim.fn.executable "conda" == 1 or vim.fn.executable "mamba" == 1 then
-  --   astrocore.list_insert_unique(daps_to_install, { "debugpy" })
-  --   astrocore.list_insert_unique(mason_tools_to_install, { "pyre" })
-  --   astrocore.list_insert_unique(mason_tools_to_install, { "pylsp" })
-  --   astrocore.list_insert_unique(mason_tools_to_install, {
-  --     "autoflake",
-  --     "clang_format",
-  --     "codespell",
-  --     "flake8",
-  --     "gitlint",
-  --     "mdformat",
-  --     "mypy",
-  --     "proselint",
-  --     "pydocstyle",
-  --     "pylama",
-  --     "pylint",
-  --     "pyproject_flake8",
-  --     "reorder_python_imports",
-  --     "usort",
-  --     "vint",
-  --     "vulture",
-  --   })
-  -- end
-  -- )))
 end
 
 -- )))
@@ -363,7 +336,6 @@ if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
   -- tools written in rust that are binary-installable (((
   for _, server_cmd in ipairs {
     "rust-analyzer", -- Modular compiler frontend for the Rust language. Written in Rust. But actually has no dependency on rust being available in PATH. It is an easy binary install via mason. Just doing conditional installation because there is no use for rust-analyzer without rustc available in PATH
-    -- "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust. Requires a modern GLIBC
   } do
     if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
   end
@@ -372,7 +344,7 @@ if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
   -- tools written in rust that requires rustc/cargo and for editing bash scripts  (((
   if vim.fn.executable "sh" == 1 or vim.fn.executable "bash" == 1 then
     for _, linter_formatter_cmd in ipairs {
-      "shellharden", -- Hardens shell scripts by quoting variables, replacing function_call with $(function_call), and more.
+      "shellharden", -- Hardens shell scripts by quoting variables, replacing function_call with $(function_call), etc
     } do
       if vim.fn.executable(linter_formatter_cmd) == 0 then
         table.insert(mason_tools_to_install, linter_formatter_cmd)
@@ -422,32 +394,28 @@ return {
   },
 }
 
--- -- Language Servers
 -- "astro-language-server",
--- "css-lsp",
--- "dockerfile-language-server",
--- "gopls",
--- "haskell-language-server",
--- "html-lsp",
--- "regols",
--- "svelte-language-server",
--- "tailwindcss-language-server",
--- "vtsls",
---
--- -- Linters
--- "sqlfluff",
-
--- -- Formatters
--- "prettier",
---
--- -- Debuggers
+-- "autoflake",
 -- "bash-debug-adapter",
 -- "cpptools",
+-- "css-lsp",
 -- "debugpy",
--- "delve",
+-- "flake8",
+-- "gitlint",
+-- "gopls",
 -- "haskell-debug-adapter",
+-- "haskell-language-server",
+-- "html-lsp",
 -- "js-debug-adapter",
 -- "php-debug-adapter",
---
--- -- Other Tools
--- "tree-sitter-cli",
+-- "pydocstyle",
+-- "pylint",
+-- "pyproject_flake8",
+-- "regols",
+-- "reorder_python_imports",
+-- "sourcery"
+-- "sqlfluff",
+-- "svelte-language-server",
+-- "tailwindcss-language-server",
+-- "vint",
+-- "vtsls",
