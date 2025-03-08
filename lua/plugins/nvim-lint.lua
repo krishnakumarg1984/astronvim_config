@@ -32,12 +32,17 @@ return {
   opts = {
     linters_by_ft = {
       ansible = { "ansible_lint" },
+      bash = { "shellcheck", "shellharden" },
       cfn = { "cfn_lint" },
+      json = { "biome", "jsonlint" },
+      jsonc = { "biome" },
+      ksh = { "shellcheck", "shellharden" },
       lua = { "selene" },
       markdown = { "alex", "markdownlint-cli2", "proselint", "pymarkdownlnt", "textlint", "write_good" },
       puppet = { "puppet-lint" },
       python = { "bandit", "mypy", "pylama", "ruff", "sphinx-lint", "vulture" },
       rego = { "opa_check" },
+      sh = { "shellcheck", "shellharden" },
       sql = { "sqlfluff" },
       text = { "proselint", "textlint" },
       yaml = { "actionlint", "yamllint" },

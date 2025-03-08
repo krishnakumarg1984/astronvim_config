@@ -1,7 +1,8 @@
 ---@type LazySpec
 return {
-  "catppuccin/nvim", -- 🍨 Soothing pastel theme for (Neo)vim name = "catppuccin",
-  enabled = false,
+  "catppuccin/nvim",
+  -- enabled = false,
+  name = "catppuccin",
   ---@type CatppuccinOptions
   opts = {
     dim_inactive = { enabled = true, percentage = 0.25 },

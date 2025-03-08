@@ -11,7 +11,10 @@ for _, server_cmd in ipairs {
   "marksman", -- code assist & intelligence for markdown/text buffers. Written in F#. Too difficult on hpcs
   "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
   "pylyzer", -- A fast, feature-rich static code analyzer & language server for Python. Written in Rust
+  "shellharden", -- Bash syntax highlighter that encourages/fixes variables quoting. Written in Rust
+  "shfmt", -- A shell parser, formatter, and interpreter with bash support; Written in GoLang
   "taplo", -- TOML toolkit written in Rust. Is a direct download. Does not need rustc/cargo
+  "tex-fmt", -- An extremely fast LaTeX formatter. Written in Rust
   "vale-ls", -- LSP implementation for the Vale command-line tool. Written in Rust. Requires a modern GLIBC
   "zk", -- A plain text note-taking assistant. Written in GoLang
   -- "ast-grep", -- to study and look at this tool further
@@ -29,6 +32,7 @@ for _, linter_formatter_cmd in ipairs {
   "mdsf", -- Format markdown code blocks using your favorite tools. Written in Rust
   "mdslw", -- Prepare your markdown for easy diff'ing!. Written in Rust
   "selene", -- A blazing-fast modern Lua linter written in Rust
+  "shellcheck", -- ShellCheck, a static analysis tool for shell scripts. Deprecated in none-ls
   "shfmt", -- A shell parser, formatter, and interpreter with bash support; includes shfmt
   "stylua",
   "yamlfmt", -- An extensible command line tool or library to format yaml files. Written in GoLang
@@ -37,7 +41,6 @@ for _, linter_formatter_cmd in ipairs {
   -- "editorconfig-checker",
   -- "hadolint", -- written in haskell
   -- "markuplint", -- html linter. not in brew or nixpkgs as of Sep 2024. Install with mason
-  -- "shellcheck", -- ShellCheck, a static analysis tool for shell scripts. Deprecated in none-ls
   -- "vacuum",
   -- "vale",
 } do
@@ -72,6 +75,18 @@ then
     "clangd", -- clangd understands your C++ code & adds smart features to your editor
   } do
     if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
+  end
+end
+-- )))
+
+-- tools written in perl (((
+if vim.fn.executable "perl" == 1 then
+  for _, perl_written_lsp_linter_formatter_cmd in ipairs {
+    "latexindent", --latexindent.pl is a perl script to beautify/tidy/format/indent (add horizontal leading space to) code within environments, commands, after headings and within special code blocks. Written in Perl
+  } do
+    if vim.fn.executable(perl_written_lsp_linter_formatter_cmd) == 0 then
+      table.insert(mason_tools_to_install, perl_written_lsp_linter_formatter_cmd)
+    end
   end
 end
 -- )))
@@ -112,11 +127,13 @@ if vim.fn.executable "npm" == 1 then
     "alex", -- Catch insensitive, inconsiderate writing (for Markdown files)
     "biome", -- Formatter and linter, usable via CLI and LSP. Requires npm to install even if written in Rust
     "doctoc", -- Generates TOC for markdown files of local git repo
+    "fixjson", -- JSON Fixer for Humans using (relaxed) JSON5.
     "json-lsp", -- JSON LSP extracted from VSCode to be reused.
+    "jsonlint", --  A JSON parser and validator with a CLI.
     "markdown-toc", -- API/CLI for generating a markdown TOC for any markdown file
     "markdownlint-cli2", -- Fast, flexible, config-based CLI for linting Markdown/CommonMark
     "prettierd", -- prettier, as a daemon, for improved formatting speed.
-    "remark-language-server", -- An LSP to lint and format markdown files with remark. Written in Nodejs
+    "remark-language-server", -- An LSP to lint and format markdown files with remark.
     "textlint", -- The pluggable natural language linter for text and markdown
     "vim-language-server", -- VimScript language server, LSP for vim script.
     "write-good", -- Naive linter for English prose
@@ -137,10 +154,18 @@ if vim.fn.executable "npm" == 1 then
     end
   end
 
+  --  astrocore.list_insert_unique(mason_tools_to_install, { "perlnavigator" }) end
   if vim.fn.executable "bash" == 1 then
-    --  astrocore.list_insert_unique(mason_tools_to_install, { "perlnavigator" }) end
     for _, server_cmd in ipairs {
       "bash-language-server", -- requires npm for installing via mason
+    } do
+      if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
+    end
+  end
+
+  if vim.fn.executable "bibtex" == 1 or vim.fn.executable "biblatex" == 1 then
+    for _, server_cmd in ipairs {
+      "bibtex-tidy", -- Cleaner and Formatter for BibTeX files. requires npm for installing via mason
     } do
       if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
     end
@@ -271,15 +296,15 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" == 1 then
 
   -- tools written in python but used for editing bash scripts (((
 
-  -- if vim.fn.executable "sh" == 1 or vim.fn.executable "bash" == 1 then
-  --   for _, linters_formatter_cmd in ipairs {
-  --     -- beautysh = "beautysh", -- A Bash beautifier for the masses. Deprecated by none-ls. Available in https://github.com/nvimtools/none-ls-extras.nvim
-  --   } do
-  --     if vim.fn.executable(linters_formatter_cmd) == 0 then
-  --       table.insert(mason_tools_to_install, linter_formatter)
-  --     end
-  --   end
-  -- end
+  if vim.fn.executable "bash" == 1 then
+    for _, linter_formatter_cmd in ipairs {
+      "beautysh", -- A Bash beautifier for the masses. Written in Python
+    } do
+      if vim.fn.executable(linter_formatter_cmd) == 0 then
+        table.insert(mason_tools_to_install, linter_formatter_cmd)
+      end
+    end
+  end
 
   -- )))
 
