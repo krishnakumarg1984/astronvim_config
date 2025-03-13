@@ -38,6 +38,7 @@ return {
   --   end,
   -- },
   { "pearofducks/ansible-vim", ft = "yaml.ansible" },
+  { "mfussenegger/nvim-ansible", ft = { "yaml", "yaml.ansible" } },
   -- {
   --   "stevearc/conform.nvim",
   --   optional = true,

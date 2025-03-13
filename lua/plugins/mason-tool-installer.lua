@@ -20,7 +20,7 @@ for _, server_cmd in ipairs {
   -- "ast-grep", -- to study and look at this tool further
   -- "sonarlint-ls", -- nvim_lsp server config not available Sep 2024 (check whether easily binary-installable)
   -- "trivy", -- Find vulnerabilities, misconfigurations, secrets, SBOM in various places. Written in GoLang
-  -- "typos-lsp", -- Source code spell checker. Written in Rust. Requires a modern GLIBC
+  "typos-lsp", -- Source code spell checker. Written in Rust. Requires a modern GLIBC
 } do
   if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
 end
@@ -408,6 +408,18 @@ end
 
 -- )))
 
+-- tools that make sense to install only if the 'terraform' executable is found in PATH (((
+if vim.fn.executable "terraform" == 1 then
+  for _, terraform_lsps_linters_to_install in ipairs {
+    "terraform-ls", -- Terraform Language Server. Written in GoLang
+    "tflint", -- Linter for Terraform files. Written in GoLang
+  } do
+    if vim.fn.executable(terraform_lsps_linters_to_install) == 0 then
+      table.insert(mason_tools_to_install, terraform_lsps_linters_to_install)
+    end
+  end
+end
+-- )))
 ---@type LazySpec
 return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",

@@ -1,5 +1,6 @@
 return {
   "bydlw98/blink-cmp-env",
+  enabled = false,
   lazy = true,
   specs = {
     {
