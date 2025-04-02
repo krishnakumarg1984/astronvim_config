@@ -12,5 +12,5 @@ git clone https://github.com/krishnakumarg1984/astronvim_config ~/.config/astron
 - Initialize AstroVim
 
 ```sh
-nvim --headless -c 'quitall'
+nvim --headless -c 'quitall' && \rm -rfv ~/.cache/astronvim
 ```
