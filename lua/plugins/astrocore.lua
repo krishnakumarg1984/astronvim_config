@@ -10,8 +10,6 @@
 ---@type LazySpec
 return {
   "AstroNvim/astrocore", -- Core AstroNvim configuration engine
-  version = false,
-  branch = "v2",
   ---@param opts AstroCoreOpts
   opts = function(_, opts)
     opts = require("astrocore").extend_tbl(opts, {
@@ -511,12 +509,15 @@ return {
           -- yaml = yaml_ft,
           -- yml = yaml_ft,
           ["nf.test"] = "nextflow",
+          j2 = "jinja",
           cl = "opencl",
           dvc = "yaml",
           frag = "glsl",
           fs = "glsl",
           geom = "glsl",
           gs = "glsl",
+          jinja = "jinja",
+          jinja2 = "jinja",
           jl = "julia",
           luaold = "lua",
           luatodo = "lua",
@@ -548,7 +549,7 @@ return {
         },
         pattern = {
           ["%.env%.[%w_.-]+"] = "sh",
-          [".*%.pkr%.hcl"] = "hcl.packer",
+          [".*%.pkr.*%.hcl"] = "hcl.packer",
           [".*/kitty/.+%.conf"] = "bash",
           ["/tmp/neomutt.*"] = "markdown",
           -- [vim.env.XDG_CONFIG_HOME .. "/udev/rules.d/.*%.rules"] = "udevrules",

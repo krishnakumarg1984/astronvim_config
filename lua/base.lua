@@ -2,9 +2,6 @@
 return {
   {
     "AstroNvim/AstroNvim", -- an aesthetic & feature-rich neovim config (extensible & easy to use)
-    -- version = "^4", -- Remove version tracking to elect for nightly AstroNvim
-    branch = "v5",
-    -- branch = "v5_kk",
     import = "astronvim.plugins",
     opts = { -- AstroNvim options must be set here with the `import` key
       mapleader = "\\", -- This ensures the leader key must be configured before Lazy is set up

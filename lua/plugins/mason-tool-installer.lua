@@ -6,6 +6,7 @@ local mason_tools_to_install = {}
 -- lsp servers for general purpose editing. All these lsps are easy binary-available, but should be installed with mason only if they have not already been installed externally & made available in PATH
 for _, server_cmd in ipairs {
   "harper-ls", -- The Grammar Checker for Developers. Written in Rust. Requires a modern GLIBC
+  "jinja-lsp", -- Language Server for jinja. Written in Rust
   "ltex-ls", -- LSP language server for LanguageTool with support for LaTeX, Markdown, and others. Written in Kotlin
   "markdown-oxide", -- Robust, Minimalist, Unbundled PKM. Written in Rust. Requires a new-ish glibc
   "marksman", -- code assist & intelligence for markdown/text buffers. Written in F#. Too difficult on hpcs
