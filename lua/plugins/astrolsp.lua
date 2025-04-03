@@ -21,7 +21,7 @@ for server, cmd in pairs {
   dockerls = "docker-langserver", -- LSP for Dockerfiles
   fortls = "fortls", -- Fortran Language Server
   harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust
-  jinjals = "jinja-lsp", -- Language Server for jinja. Written in Rust
+  jinja_lsp = "jinja-lsp", -- Language Server for jinja. Written in Rust
   jsonls = "vscode-json-language-server", -- JSON LSP extracted from VSCode to be reused. Written in NodeJs
   julials = "julia", -- The Julia Programming Language language server
   ltex = "ltex-ls", -- LSP for LanguageTool 🔍✔️ with support for LaTeX 🎓, Markdown 📝, and others. Written in Kotlin
