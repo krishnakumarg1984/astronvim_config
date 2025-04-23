@@ -647,10 +647,10 @@ return {
           ["aL"] = { ":<C-u>normal! $v0<CR>", desc = "Around line text object" },
         }, ]]
         t = {
-          ["<M-m>"] = {
-            "<cmd>tab split<cr>",
-            desc = "Maximize terminal in a new tab",
-          },
+          -- ["<M-m>"] = {
+          --   "<cmd>tab split<cr>",
+          --   desc = "Maximize terminal in a new tab",
+          -- },
           ["<C-`>"] = {
             "<cmd>ToggleTerm dir=git_dir direction=horizontal size=9<cr>",
             desc = "Toggle terminal (horizontal)",
