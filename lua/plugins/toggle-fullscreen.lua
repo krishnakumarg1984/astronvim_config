@@ -1,6 +1,6 @@
 return {
   "propet/toggle-fullscreen.nvim",
-  event = { "TermOpen", "TermEnter" },
+  -- event = { "TermOpen", "TermEnter" },
   keys = {
     {
       "<M-m>",
