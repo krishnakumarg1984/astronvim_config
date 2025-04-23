@@ -50,28 +50,6 @@ return {
       end,
     }
 
-    -- prettier filetypes
-    -- vim.tbl_map(function(ft) opts.formatters_by_ft[ft] = { "prettier" } end, {
-    --   "javascript",
-    --   "javascriptreact",
-    --   "typescript",
-    --   "typescriptreact",
-    --   "vue",
-    --   "css",
-    --   "scss",
-    --   "less",
-    --   "html",
-    --   "json",
-    --   "jsonc",
-    --   "yaml",
-    --   "yaml.ansible",
-    --   "yaml.cfn",
-    --   "markdown",
-    --   "markdown.mdx",
-    --   "graphql",
-    --   "handlebars",
-    -- })
-
     opts.formatters = {
       prettier = {
         options = {
@@ -139,3 +117,25 @@ return {
     },
   },
 }
+
+-- prettier filetypes
+-- vim.tbl_map(function(ft) opts.formatters_by_ft[ft] = { "prettier" } end, {
+--   "javascript",
+--   "javascriptreact",
+--   "typescript",
+--   "typescriptreact",
+--   "vue",
+--   "css",
+--   "scss",
+--   "less",
+--   "html",
+--   "json",
+--   "jsonc",
+--   "yaml",
+--   "yaml.ansible",
+--   "yaml.cfn",
+--   "markdown",
+--   "markdown.mdx",
+--   "graphql",
+--   "handlebars",
+-- })
