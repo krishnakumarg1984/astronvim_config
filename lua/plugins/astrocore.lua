@@ -543,8 +543,13 @@ return {
           ["dvc.lock"] = "yaml",
           ["Dvcfile"] = "yaml",
           ["launch.json"] = "jsonc",
+          ["meta-data"] = "yaml",
           ["spack.lock"] = "json",
           ["tasks.json"] = "jsonc",
+          ["terraform.tfstate"] = "json",
+          ["terraform.tfstate.backup"] = "json",
+          ["user-data"] = "yaml",
+          ["vendor-data"] = "yaml",
           ["zuliprc"] = "confini",
         },
         pattern = {

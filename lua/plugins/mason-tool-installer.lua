@@ -6,7 +6,6 @@ local mason_tools_to_install = {}
 -- lsp servers for general purpose editing. All these lsps are easy binary-available, but should be installed with mason only if they have not already been installed externally & made available in PATH
 for _, server_cmd in ipairs {
   "harper-ls", -- The Grammar Checker for Developers. Written in Rust. Requires a modern GLIBC
-  "jinja-lsp", -- Language Server for jinja. Written in Rust
   "ltex-ls", -- LSP language server for LanguageTool with support for LaTeX, Markdown, and others. Written in Kotlin
   "markdown-oxide", -- Robust, Minimalist, Unbundled PKM. Written in Rust. Requires a new-ish glibc
   "marksman", -- code assist & intelligence for markdown/text buffers. Written in F#. Too difficult on hpcs
@@ -134,7 +133,7 @@ if vim.fn.executable "npm" == 1 then
     "markdown-toc", -- API/CLI for generating a markdown TOC for any markdown file
     "markdownlint-cli2", -- Fast, flexible, config-based CLI for linting Markdown/CommonMark
     "prettierd", -- prettier, as a daemon, for improved formatting speed.
-    "remark-language-server", -- An LSP to lint and format markdown files with remark.
+    -- "remark-language-server", -- An LSP to lint and format markdown files with remark.
     "textlint", -- The pluggable natural language linter for text and markdown
     "vim-language-server", -- VimScript language server, LSP for vim script.
     "write-good", -- Naive linter for English prose
@@ -361,6 +360,7 @@ end
 if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
   -- tools written in rust that are binary-installable (((
   for _, server_cmd in ipairs {
+    "jinja-lsp", -- Language Server for jinja. Written in Rust
     "rust-analyzer", -- Modular compiler frontend for the Rust language. Written in Rust. But actually has no dependency on rust being available in PATH. It is an easy binary install via mason. Just doing conditional installation because there is no use for rust-analyzer without rustc available in PATH
   } do
     if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
@@ -421,6 +421,7 @@ if vim.fn.executable "terraform" == 1 then
   end
 end
 -- )))
+
 ---@type LazySpec
 return {
   "WhoIsSethDaniel/mason-tool-installer.nvim",
