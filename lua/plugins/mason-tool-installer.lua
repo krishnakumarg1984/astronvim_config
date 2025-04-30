@@ -132,7 +132,7 @@ if vim.fn.executable "npm" == 1 then
     "jsonlint", --  A JSON parser and validator with a CLI.
     "markdown-toc", -- API/CLI for generating a markdown TOC for any markdown file
     "markdownlint-cli2", -- Fast, flexible, config-based CLI for linting Markdown/CommonMark
-    "prettierd", -- prettier, as a daemon, for improved formatting speed.
+    -- "prettierd", -- prettier, as a daemon, for improved formatting speed.
     -- "remark-language-server", -- An LSP to lint and format markdown files with remark.
     "textlint", -- The pluggable natural language linter for text and markdown
     "vim-language-server", -- VimScript language server, LSP for vim script.

@@ -446,6 +446,14 @@ return {
             end,
           },
         },
+        -- fixgitconfigcommentstring = {
+        --   {
+        --     event = "BufWinEnter",
+        --     pattern = "gitconfig",
+        --     callback = function(ev) vim.bo[ev.buf].commentstring = "# %s" end,
+        --     desc = "CommentString for Gitconfig files",
+        --   },
+        -- },
         -- autoreadexternalchanges = {
         --   {
         --     event = { "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" },
