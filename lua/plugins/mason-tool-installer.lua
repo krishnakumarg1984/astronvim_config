@@ -128,6 +128,7 @@ if vim.fn.executable "npm" == 1 then
     "biome", -- Formatter and linter, usable via CLI and LSP. Requires npm to install even if written in Rust
     "doctoc", -- Generates TOC for markdown files of local git repo
     "fixjson", -- JSON Fixer for Humans using (relaxed) JSON5.
+    "gh-actions-language-server", -- Github Actions Language Server
     "json-lsp", -- JSON LSP extracted from VSCode to be reused.
     "jsonlint", --  A JSON parser and validator with a CLI.
     "markdown-toc", -- API/CLI for generating a markdown TOC for any markdown file
@@ -250,6 +251,7 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" == 1 then
     "blue", -- The slightly less uncompromising Python code formatter. Written in Python
     "darker", -- Apply black reformatting to Python files only in regions changed since a given commit. Written in Python
     "docformatter", -- Formats docstrings to follow PEP 257. Written in Python
+    "gitlint", -- Linting for your git commit messages
     "jupytext", -- Jupyter Notebooks as Markdown Documents, Julia, Python or R scripts. Written in Python
     "mypy", -- Optional static typing for Python. Written in Python
     "pyink", -- Python formatter, forked from Black with a few different formatting behaviors. Written in Python

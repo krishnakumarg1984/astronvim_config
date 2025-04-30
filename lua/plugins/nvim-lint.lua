@@ -34,6 +34,7 @@ return {
       ansible = { "ansible_lint" },
       bash = { "shellcheck", "shellharden" },
       cfn = { "cfn_lint" },
+      gitcommit = { "gitlint" },
       json = { "biome", "jsonlint" },
       jsonc = { "biome" },
       ksh = { "shellcheck", "shellharden" },

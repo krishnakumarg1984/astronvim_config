@@ -20,6 +20,7 @@ for server, cmd in pairs {
   docker_compose_language_service = "docker-compose-langserver", -- LSP for Docker Compose documents
   dockerls = "docker-langserver", -- LSP for Dockerfiles
   fortls = "fortls", -- Fortran Language Server
+  gh_actions_ls = "gh-actions-language-server", -- Github Actions Language Server
   harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust
   jinja_lsp = "jinja-lsp", -- Language Server for jinja. Written in Rust
   jsonls = "vscode-json-language-server", -- JSON LSP extracted from VSCode to be reused. Written in NodeJs
