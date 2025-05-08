@@ -11,7 +11,7 @@ return {
   "AstroNvim/astrocommunity", -- A community repository of common plugin specifications
 
   -- import/override with your plugins folder
-  { import = "astrocommunity.recipes.vscode" }, -- Some users may be wanting to integrate their Neovim configuration with their VS Code editor. This spec configures AstroNvim to play nicely with the VS Code Extension vscode-neovim.
+  -- { import = "astrocommunity.recipes.vscode" }, -- Some users may be wanting to integrate their Neovim configuration with their VS Code editor. This spec configures AstroNvim to play nicely with the VS Code Extension vscode-neovim.
 
   -- { import = "astrocommunity.diagnostics.lsp_lines-nvim" }, -- lsp_lines is a simple neovim plugin that renders diagnostics using virtual lines on top of the real line of code.
   -- { import = "astrocommunity.diagnostics.trouble-nvim" }, -- A pretty diagnostics, references, telescope results, quickfix and location list to help you solve all the trouble your code is causing.

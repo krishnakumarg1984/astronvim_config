@@ -144,8 +144,36 @@ return {
     },
     {
       "NeogitOrg/neogit",
+      cmd = "Neogit",
       optional = true,
-      opts = { integrations = { diffview = true } },
+      -- opts = { integrations = { diffview = true } },
+      opts = {
+        disable_builtin_notifications = true,
+        disable_signs = true,
+        mappings = {
+          status = {
+            ["<S-Tab>"] = "Close",
+          },
+        },
+        integrations = {
+          diffview = true,
+          snacks = true,
+        },
+      },
+      specs = {
+        {
+          "AstroNvim/astrocore",
+          opts = {
+            mappings = {
+              n = {
+                ["<Leader>gG"] = { function() vim.cmd.Neogit() end, desc = "Neogit" },
+                ["<S-Tab>"] = { function() vim.cmd.Neogit() end, desc = "Neogit" },
+                ["<Leader>gn"] = { function() vim.cmd.Neogit "commit" end, desc = "New Git commit" },
+              },
+            },
+          },
+        },
+      },
     },
   },
 }

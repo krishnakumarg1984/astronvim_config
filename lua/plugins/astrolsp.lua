@@ -52,6 +52,7 @@ return {
   "AstroNvim/astrolsp", -- LSP Configuration Engine built for AstroNvim
   ---@type AstroLSPOpts
   opts = {
+    -- native_lsp_config = true,
     -- Configure buffer local auto commands to add when attaching a language server
     autocmds = {
       no_insert_inlay_hints = {
@@ -179,7 +180,7 @@ return {
         },
       },
       julials = {
-        on_new_config = function(new_config)
+        before_init = function(_, config)
           local found_shim
           for _, depot in
             ipairs(
@@ -195,9 +196,9 @@ return {
             end
           end
           if found_shim then
-            new_config.cmd[1] = found_shim
+            config.cmd[1] = found_shim
           else
-            new_config.autostart = false -- only auto start if sysimage is available
+            config.autostart = false -- only auto start if sysimage is available
           end
         end,
         on_attach = function(client)
@@ -299,7 +300,10 @@ return {
           },
         },
       },
-      typos_lsp = { single_file_support = false },
+      typos_lsp = {
+        single_file_support = false, -- TODO: remove when dropping support for Neovim v0.10
+        workspace_required = true,
+      },
       volar = { init_options = { vue = { hybridMode = true } } },
       vtsls = {
         filetypes = {

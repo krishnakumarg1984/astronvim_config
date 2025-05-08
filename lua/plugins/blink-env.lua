@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   "bydlw98/blink-cmp-env",
   enabled = false,

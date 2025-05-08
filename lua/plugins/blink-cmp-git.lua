@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   "Kaiser-Yang/blink-cmp-git",
   lazy = true,
@@ -8,8 +9,9 @@ return {
       opts = function(_, opts)
         local per_filetype = {}
         for _, filetype in ipairs { "gitcommit", "octo", "NeogitCommitMessage" } do
-          local git_sources = vim.tbl_get(opts, "sources", "per_filetype", filetype) or { "buffer" }
+          local git_sources = vim.tbl_get(opts, "sources", "per_filetype", filetype) or {}
           table.insert(git_sources, "git")
+          git_sources.inherit_defaults = true
           per_filetype[filetype] = git_sources
         end
         return require("astrocore").extend_tbl(opts, {

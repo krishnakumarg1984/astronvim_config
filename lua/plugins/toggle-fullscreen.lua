@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   "propet/toggle-fullscreen.nvim",
   -- event = { "TermOpen", "TermEnter" },

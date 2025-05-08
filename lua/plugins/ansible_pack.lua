@@ -15,6 +15,7 @@ local function yaml_ft(path, bufnr)
   return "yaml"
 end
 
+---@type LazySpec
 return {
   {
     "AstroNvim/astrocore",

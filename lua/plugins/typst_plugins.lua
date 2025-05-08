@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   {
     "kaarmu/typst.vim",

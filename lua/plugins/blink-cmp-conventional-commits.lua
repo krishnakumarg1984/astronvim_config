@@ -1,3 +1,4 @@
+---@type LazySpec
 return {
   "disrupted/blink-cmp-conventional-commits",
   lazy = true,
@@ -7,7 +8,7 @@ return {
       opts = function(_, opts)
         local per_filetype = {}
         for _, filetype in ipairs { "gitcommit", "octo", "NeogitCommitMessage" } do
-          local git_sources = vim.tbl_get(opts, "sources", "per_filetype", filetype) or { "buffer" }
+          local git_sources = vim.tbl_get(opts, "sources", "per_filetype", filetype) or {}
           table.insert(git_sources, "conventional_commits")
           per_filetype[filetype] = git_sources
         end
