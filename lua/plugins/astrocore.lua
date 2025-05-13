@@ -5,8 +5,6 @@
 -- NOTE: Highly recommended to set up the Lua Language Server (`:LspInstall lua_ls`)
 -- as this provides autocomplete and documentation while editing
 
--- vim.print("hello from astrocore")
-
 ---@type LazySpec
 return {
   "AstroNvim/astrocore", -- Core AstroNvim configuration engine
