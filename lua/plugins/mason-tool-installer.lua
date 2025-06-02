@@ -450,7 +450,6 @@ return {
 -- "pydocstyle",
 -- "pylint",
 -- "pyproject_flake8",
--- "regols",
 -- "reorder_python_imports",
 -- "sourcery"
 -- "sqlfluff",

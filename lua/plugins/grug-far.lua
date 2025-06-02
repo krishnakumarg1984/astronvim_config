@@ -1,17 +1,18 @@
 local prefix = "<Leader>s"
-local default_opts = { instanceName = "main" }
-local function grug_far_open(opts, with_visual)
+local default_opts = { instanceName = "main", visualSelectionUsage = "operate-within-range" }
+local function grug_far_open(opts, selection)
   local grug_far = require "grug-far"
   opts = require("astrocore").extend_tbl(default_opts, opts)
   if not grug_far.has_instance(opts.instanceName) then
     grug_far.open(opts)
   else
-    if with_visual then
+    local inst = assert(grug_far.get_instance(opts.instanceName))
+    if selection then
       if not opts.prefills then opts.prefills = {} end
-      opts.prefills.search = grug_far.get_current_visual_selection()
+      opts.prefills.paths = grug_far.get_current_visual_selection_as_range_str()
     end
-    grug_far.open_instance(opts.instanceName)
-    if opts.prefills then grug_far.update_instance_prefills(opts.instanceName, opts.prefills, false) end
+    if opts.prefills then inst:update_input_values(opts.prefills, false) end
+    inst:open()
   end
 end
 
@@ -64,9 +65,35 @@ return {
               end,
               desc = "Replace current word",
             },
+            ["]S"] = {
+              function()
+                local grug_far, name = require "grug-far", "main"
+                if grug_far.has_instance(name) then
+                  local inst = assert(grug_far.get_instance(name))
+                  for _ = 1, vim.v.count1 do
+                    inst:goto_next_match { wrap = true }
+                  end
+                  inst:open_location()
+                end
+              end,
+              desc = "Next grug-far match",
+            },
+            ["[S"] = {
+              function()
+                local grug_far, name = require "grug-far", "main"
+                if grug_far.has_instance(name) then
+                  local inst = assert(grug_far.get_instance(name))
+                  for _ = 1, vim.v.count1 do
+                    inst:goto_prev_match { wrap = true }
+                  end
+                  inst:open_location()
+                end
+              end,
+              desc = "Next grug-far match",
+            },
           },
           x = {
-            [prefix] = { function() grug_far_open(nil, true) end, desc = "Replace selection" },
+            [prefix] = { function() grug_far_open(nil, true) end, desc = "Search/Replace in selection" },
           },
         },
       },
