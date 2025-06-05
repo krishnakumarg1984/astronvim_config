@@ -1,16 +1,20 @@
 local prefix = "<Leader>s"
-local default_opts = { instanceName = "main", visualSelectionUsage = "operate-within-range" }
+local default_opts = { instanceName = "main" }
 local function grug_far_open(opts, selection)
   local grug_far = require "grug-far"
   opts = require("astrocore").extend_tbl(default_opts, opts)
+  if selection then
+    if not opts.prefills then opts.prefills = {} end
+    if selection == "search" then
+      opts.prefills.search = grug_far.get_current_visual_selection(true)
+    elseif selection == "paths" then
+      opts.prefills.paths = grug_far.get_current_visual_selection_as_range_str(true)
+    end
+  end
   if not grug_far.has_instance(opts.instanceName) then
     grug_far.open(opts)
   else
     local inst = assert(grug_far.get_instance(opts.instanceName))
-    if selection then
-      if not opts.prefills then opts.prefills = {} end
-      opts.prefills.paths = grug_far.get_current_visual_selection_as_range_str()
-    end
     if opts.prefills then inst:update_input_values(opts.prefills, false) end
     inst:open()
   end
@@ -93,7 +97,8 @@ return {
             },
           },
           x = {
-            [prefix] = { function() grug_far_open(nil, true) end, desc = "Search/Replace in selection" },
+            [prefix .. "s"] = { function() grug_far_open(nil, "search") end, desc = "Search/Replace selection" },
+            [prefix .. "S"] = { function() grug_far_open(nil, "paths") end, desc = "Search/Replace within selection" },
           },
         },
       },
