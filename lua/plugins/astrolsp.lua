@@ -378,12 +378,19 @@ return {
                   "user-data.yaml",
                 },
               kubernetes = "k8s-*.yaml", -- https://itnext.io/better-kubernetes-yaml-editing-with-neo-vim-af7da9a1b150
+              -- [require("kubernetes").yamlls_schema()] = "*.{yml,yaml}", -- to match all '*.yaml' files
               ["http://json.schemastore.org/github-workflow"] = ".github/workflows/*",
               ["http://json.schemastore.org/github-action"] = ".github/action.{yml,yaml}",
               ["http://json.schemastore.org/ansible-stable-2.9"] = "roles/tasks/**/*.{yml,yaml}",
               ["http://json.schemastore.org/prettierrc"] = ".prettierrc.{yml,yaml}",
               ["http://json.schemastore.org/kustomization"] = "kustomization.{yml,yaml}",
+              ["http://json.schemastore.org/ansible-playbook"] = "*play*.{yml,yaml}", -- https://www.reddit.com/r/neovim/comments/ze9gbe/kubernetes_auto_completion_support_in_neovim/
               ["http://json.schemastore.org/chart"] = "Chart.{yml,yaml}",
+              ["https://json.schemastore.org/dependabot-v2"] = ".github/dependabot.{yml,yaml}",
+              ["https://json.schemastore.org/gitlab-ci"] = "*gitlab-ci*.{yml,yaml}",
+              ["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.1/schema.json"] = "*api*.{yml,yaml}",
+              ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "*docker-compose*.{yml,yaml}",
+              ["https://raw.githubusercontent.com/argoproj/argo-workflows/master/api/jsonschema/schema.json"] = "*flow*.{yml,yaml}",
               ["http://json.schemastore.org/circleciconfig"] = ".circleci/**/*.{yml,yaml}",
             },
           },

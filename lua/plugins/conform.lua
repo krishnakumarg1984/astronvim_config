@@ -20,26 +20,30 @@ return {
       ["*"] = function(bufnr)
         return buf_utils.is_valid(bufnr) and buf_utils.has_filetype(bufnr) and { "injected" } or {}
       end,
-      bash = { "beautysh", "shellharden", "shfmt" },
+      -- bash = { "beautysh", "shellharden", "shfmt" }, -- beautysh raises an import error (June 2025)
+      bash = { "shellharden", "shfmt" },
       bib = { "bibtex-tidy", "tex-fmt" },
       cls = { "tex-fmt" },
-      csh = { "beautysh" },
+      -- csh = { "beautysh" }, -- beautysh raises an import error (June 2025)
       json = { "biome" },
       jsonc = { "biome" },
       json5 = { "fixjson" },
-      ksh = { "beautysh", "shfmt" },
+      -- ksh = { "beautysh", "shfmt" },  -- beautysh raises an import error (June 2025)
+      ksh = { "shfmt" },
       lua = { "stylua" },
       -- packer = { "packer_fmt" },
       -- puppet = { "puppet-lint" },
       python = { "black", "ruff" },
-      sh = { "beautysh", "shellharden", "shfmt" },
+      -- sh = { "beautysh", "shellharden", "shfmt" }, -- beautysh raises an import error (June 2025)
+      sh = { "shellharden", "shfmt" },
       -- sql = { "sqlfluff" },
       sty = { "tex-fmt" },
       tex = { "latexindent", "tex-fmt" },
       toml = { "taplo" },
       -- yaml = { "yamlfix" },
       yaml = { "yamlfix" },
-      zsh = { "beautysh", "shfmt" },
+      -- zsh = { "beautysh", "shfmt" }, -- beautysh raises an import error (June 2025)
+      zsh = { "shfmt" },
       ["_"] = function(bufnr)
         if #vim.lsp.get_clients { bufnr = bufnr, method = "textDocument/formatting" } then
           return { lsp_format = "last" }
