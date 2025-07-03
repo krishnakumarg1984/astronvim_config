@@ -30,7 +30,7 @@ for server, cmd in pairs {
   markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for text-editor through the LSP
   marksman = "marksman", -- Write Markdown with code assist & intelligence. Written in F#
   neocmake = "neocmakelsp", -- Another cmake lsp. Written in Rust
-  prosemd_lsp = "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
+  -- prosemd_lsp = "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
   pylyzer = "pylyzer", -- A fast, feature-rich static code analyzer & language server for Python. Written in Rust
   remark_ls = "remark-language-server", -- An LSP to lint and format markdown files with remark. Written in Nodejs
   ruff = "ruff", -- An extremely fast Python linter and code formatter, written in Rust.

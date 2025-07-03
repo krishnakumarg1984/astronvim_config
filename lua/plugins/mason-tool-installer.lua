@@ -9,7 +9,7 @@ for _, server_cmd in ipairs {
   "ltex-ls", -- LSP language server for LanguageTool with support for LaTeX, Markdown, and others. Written in Kotlin
   "markdown-oxide", -- Robust, Minimalist, Unbundled PKM. Written in Rust. Requires a new-ish glibc
   "marksman", -- code assist & intelligence for markdown/text buffers. Written in F#. Too difficult on hpcs
-  "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
+  -- "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
   "pylyzer", -- A fast, feature-rich static code analyzer & language server for Python. Written in Rust
   "shellharden", -- Bash syntax highlighter that encourages/fixes variables quoting. Written in Rust
   "shfmt", -- A shell parser, formatter, and interpreter with bash support; Written in GoLang
