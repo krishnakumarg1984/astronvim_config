@@ -129,7 +129,7 @@ if vim.fn.executable "npm" == 1 then
     "doctoc", -- Generates TOC for markdown files of local git repo
     "fixjson", -- JSON Fixer for Humans using (relaxed) JSON5.
     "gh-actions-language-server", -- Github Actions Language Server
-    "json-lsp", -- JSON LSP extracted from VSCode to be reused.
+    -- "json-lsp", -- JSON LSP extracted from VSCode to be reused.
     "jsonlint", --  A JSON parser and validator with a CLI.
     "markdown-toc", -- API/CLI for generating a markdown TOC for any markdown file
     "markdownlint-cli2", -- Fast, flexible, config-based CLI for linting Markdown/CommonMark
