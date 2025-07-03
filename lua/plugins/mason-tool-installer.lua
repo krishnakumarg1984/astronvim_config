@@ -79,17 +79,17 @@ then
 end
 -- )))
 
--- tools written in perl (((
-if vim.fn.executable "perl" == 1 then
-  for _, perl_written_lsp_linter_formatter_cmd in ipairs {
-    "latexindent", --latexindent.pl is a perl script to beautify/tidy/format/indent (add horizontal leading space to) code within environments, commands, after headings and within special code blocks. Written in Perl
-  } do
-    if vim.fn.executable(perl_written_lsp_linter_formatter_cmd) == 0 then
-      table.insert(mason_tools_to_install, perl_written_lsp_linter_formatter_cmd)
-    end
-  end
-end
--- )))
+-- -- tools written in perl (((
+-- if vim.fn.executable "perl" == 1 then
+--   for _, perl_written_lsp_linter_formatter_cmd in ipairs {
+--     "latexindent", --latexindent.pl is a perl script to beautify/tidy/format/indent (add horizontal leading space to) code within environments, commands, after headings and within special code blocks. Written in Perl
+--   } do
+--     if vim.fn.executable(perl_written_lsp_linter_formatter_cmd) == 0 then
+--       table.insert(mason_tools_to_install, perl_written_lsp_linter_formatter_cmd)
+--     end
+--   end
+-- end
+-- -- )))
 
 -- tools written in go-language (((
 -- if vim.fn.executable "go" == 1 then
