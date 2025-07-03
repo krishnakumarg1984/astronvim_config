@@ -1,6 +1,7 @@
 ---@type LazySpec
 return {
   "Saghen/blink.cmp",
+  version = "1.*",
   opts = {
     keymap = {
       ["<Tab>"] = { "accept", "snippet_forward", "fallback" },
