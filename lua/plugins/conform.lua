@@ -17,9 +17,9 @@ return {
     end
 
     opts.formatters_by_ft = {
-      ["*"] = function(bufnr)
-        return buf_utils.is_valid(bufnr) and buf_utils.has_filetype(bufnr) and { "injected" } or {}
-      end,
+      -- ["*"] = function(bufnr)
+      --   return buf_utils.is_valid(bufnr) and buf_utils.has_filetype(bufnr) and { "injected" } or {}
+      -- end,
       -- bash = { "beautysh", "shellharden", "shfmt" }, -- beautysh raises an import error (June 2025)
       bash = { "shellharden", "shfmt" },
       bib = { "bibtex-tidy", "tex-fmt" },
