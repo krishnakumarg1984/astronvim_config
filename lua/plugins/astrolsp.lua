@@ -25,7 +25,7 @@ for server, cmd in pairs {
   jinja_lsp = "jinja-lsp", -- Language Server for jinja. Written in Rust
   jsonls = "vscode-json-language-server", -- JSON LSP extracted from VSCode to be reused. Written in NodeJs
   julials = "julia", -- The Julia Programming Language language server
-  ltex = "ltex-ls", -- LSP for LanguageTool 🔍✔️ with support for LaTeX 🎓, Markdown 📝, and others. Written in Kotlin
+  -- ltex = "ltex-ls", -- LSP for LanguageTool 🔍✔️ with support for LaTeX, Markdown, and others. Written in Kotlin
   lua_ls = "lua-language-server", -- Language server that offers lua support. (dependent on lua in PATH?)
   markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for text-editor through the LSP
   marksman = "marksman", -- Write Markdown with code assist & intelligence. Written in F#
