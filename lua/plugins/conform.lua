@@ -31,6 +31,8 @@ return {
       -- ksh = { "beautysh", "shfmt" },  -- beautysh raises an import error (June 2025)
       ksh = { "shfmt" },
       lua = { "stylua" },
+      -- markdown = { "doctoc", "mdformat" }, -- doctoc, mdformat are too invasive in presenterm
+      markdown = { "mdsf", "mdslw" },
       -- packer = { "packer_fmt" },
       -- puppet = { "puppet-lint" },
       python = { "black", "ruff" },
@@ -55,6 +57,7 @@ return {
     }
 
     opts.formatters = {
+      mdslw = { prepend_args = { "--stdin-filepath", "$FILENAME" } },
       prettier = {
         options = {
           ft_parsers = {
