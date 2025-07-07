@@ -32,7 +32,7 @@ return {
       ksh = { "shfmt" },
       lua = { "stylua" },
       -- markdown = { "doctoc", "mdformat" }, -- doctoc, mdformat are too invasive in presenterm
-      markdown = { "mdsf", "mdslw" },
+      markdown = { "mdsf" },
       -- packer = { "packer_fmt" },
       -- puppet = { "puppet-lint" },
       python = { "black", "ruff" },
