@@ -242,6 +242,7 @@ if vim.fn.executable "python3" == 1 and vim.fn.executable "virtualenv" == 1 then
 
   -- install python-written LSPs for editing python (& general) files (but only if not already available in PATH) (((
   for _, python_lsp_linter_formatter_tool_cmd in ipairs {
+    "autotools-language-server", --  🛠️ Autotools language server, support configure.ac, Makefile.am, Makefile. Written in Python
     "autopep8", -- Automatically formats Python code to conform to the PEP 8 style guide. Written in Python
     "bandit", -- Tool designed to find common security issues in Python code. Written in Python
     "basedpyright", -- Pyright fork with various improvements built into the lsp. Written in Python

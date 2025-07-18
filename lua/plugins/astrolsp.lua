@@ -12,6 +12,7 @@ for server, cmd in pairs {
   -- ast_grep = "ast-grep", -- to study and look at this tool further
   -- sonarlint_ls = "sonarlint-ls", -- nvim_lsp server config not available Sep 2024
   ansiblels = "ansible-language-server", -- Language Server for Ansible Files. Written in Nodejs
+  autotools_ls = "autotools-language-server", -- 🛠️ Autotools language server, support configure.ac, Makefile.am, Makefile. Written in Python
   awk_ls = "awk-language-server", -- AWK Language Server. Written in Nodejs
   basedpyright = "basedpyright", -- pyright fork with various type improvements. Requires python3 in PATH
   bashls = "bash-language-server", -- requires npm for installing via mason

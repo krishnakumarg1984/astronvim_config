@@ -39,6 +39,7 @@ return {
       jsonc = { "biome" },
       ksh = { "shellcheck", "shellharden" },
       lua = { "selene" },
+      make = { "checkmake" },
       markdown = { "alex", "markdownlint-cli2", "proselint", "pymarkdownlnt", "textlint", "write_good" },
       puppet = { "puppet-lint" },
       python = { "bandit", "mypy", "pylama", "ruff", "sphinx-lint", "vulture" },
