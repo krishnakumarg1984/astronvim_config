@@ -129,16 +129,16 @@ if vim.fn.executable "npm" == 1 then
     "doctoc", -- Generates TOC for markdown files of local git repo
     "fixjson", -- JSON Fixer for Humans using (relaxed) JSON5.
     "gh-actions-language-server", -- Github Actions Language Server
-    -- "json-lsp", -- JSON LSP extracted from VSCode to be reused.
     "jsonlint", --  A JSON parser and validator with a CLI.
     "markdown-toc", -- API/CLI for generating a markdown TOC for any markdown file
     "markdownlint-cli2", -- Fast, flexible, config-based CLI for linting Markdown/CommonMark
-    -- "prettierd", -- prettier, as a daemon, for improved formatting speed.
-    -- "remark-language-server", -- An LSP to lint and format markdown files with remark.
     "textlint", -- The pluggable natural language linter for text and markdown
     "vim-language-server", -- VimScript language server, LSP for vim script.
     "write-good", -- Naive linter for English prose
     "yaml-language-server", -- Language Server for YAML Files.
+    -- "json-lsp", -- JSON LSP extracted from VSCode to be reused.
+    -- "prettierd", -- prettier, as a daemon, for improved formatting speed.
+    -- "remark-language-server", -- An LSP to lint and format markdown files with remark.
   } do
     if vim.fn.executable(npm_written_lsp_linter_formatter_cmd) == 0 then
       table.insert(mason_tools_to_install, npm_written_lsp_linter_formatter_cmd)
@@ -363,6 +363,7 @@ if vim.fn.executable "rustc" == 1 and vim.fn.executable "cargo" then
   for _, server_cmd in ipairs {
     "jinja-lsp", -- Language Server for jinja. Written in Rust
     "rust-analyzer", -- Modular compiler frontend for the Rust language. Written in Rust. But actually has no dependency on rust being available in PATH. It is an easy binary install via mason. Just doing conditional installation because there is no use for rust-analyzer without rustc available in PATH
+    "tombi", -- TOML Formatter / Linter / Language Server
   } do
     if vim.fn.executable(server_cmd) == 0 then table.insert(mason_tools_to_install, server_cmd) end
   end

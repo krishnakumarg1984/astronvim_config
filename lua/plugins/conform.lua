@@ -41,7 +41,7 @@ return {
       -- sql = { "sqlfluff" },
       sty = { "tex-fmt" },
       tex = { "latexindent", "tex-fmt" },
-      toml = { "taplo" },
+      toml = { "taplo", "tombi" },
       -- yaml = { "yamlfix" },
       yaml = { "yamlfix" },
       -- zsh = { "beautysh", "shfmt" }, -- beautysh raises an import error (June 2025)

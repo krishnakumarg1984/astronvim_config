@@ -47,6 +47,7 @@ return {
       sh = { "shellcheck", "shellharden" },
       sql = { "sqlfluff" },
       text = { "proselint", "textlint" },
+      toml = { "tombi" },
       -- yaml = { "actionlint", "yamllint" },
       yaml = { "yamllint" },
       -- "yaml.ansible" = { "ansible-lint" },
