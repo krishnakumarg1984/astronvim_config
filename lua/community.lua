@@ -1,6 +1,6 @@
 -- vim:isk-=-,isk+=.
 
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 -- AstroCommunity: import any community modules here
 -- We import this file in `lazy_setup.lua` before the `plugins/` folder.
@@ -30,7 +30,7 @@ return {
   -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" }, -- IDE-like breadcrumbs, out of the box
   -- { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" }, -- A Neovim plugin hiding your colorcolumn when unneeded. problematic with a fresh install of astronvim
   -- { import = "astrocommunity.code-runner.compiler-nvim" }, -- Neovim compiler for building and running your code without having to configure anything
-  { import = "astrocommunity.code-runner.overseer-nvim" }, -- A task runner and job management plugin for Neovim
+  -- { import = "astrocommunity.code-runner.overseer-nvim" }, -- A task runner and job management plugin for Neovim
   -- { import = "astrocommunity.color.headlines-nvim" }, -- This plugin adds horizontal highlights for text filetypes, like markdown, orgmode, and neorg.
   -- { import = "astrocommunity.color.modes-nvim" },
   -- { import = "astrocommunity.color.tint-nvim" }, -- messes up neotree and other buffers

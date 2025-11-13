@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "Saghen/blink.cmp",
-  version = "1.*",
+  build = "cargo build --release",
   opts = {
     keymap = {
       ["<Tab>"] = { "accept", "snippet_forward", "fallback" },
@@ -12,5 +12,6 @@ return {
         path = { opts = { trailing_slash = false, show_hidden_files_by_default = true } },
       },
     },
+    signature = { enabled = true },
   },
 }

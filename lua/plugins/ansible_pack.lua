@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 local function yaml_ft(path, bufnr)
   -- get content of buffer as string
   local content = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)

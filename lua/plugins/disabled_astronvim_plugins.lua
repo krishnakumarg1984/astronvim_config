@@ -16,4 +16,5 @@ return {
   },
   { "jay-babu/mason-null-ls.nvim", enabled = false },
   { "nvimtools/none-ls.nvim", enabled = false },
+  { "NMAC427/guess-indent.nvim", enabled = false },
 }

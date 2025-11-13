@@ -10,6 +10,22 @@ return {
   "AstroNvim/astrocore", -- Core AstroNvim configuration engine
   ---@param opts AstroCoreOpts
   opts = function(_, opts)
+    local function yaml_ft(path, bufnr)
+      -- get content of buffer as string
+      local content = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+      if type(content) == "table" then content = table.concat(content, "\n") end
+
+      -- check if file is in roles, tasks, or handlers folder
+      local path_regex = vim.regex "(ansible\\|group_vars\\|handlers\\|host_vars\\|playbooks\\|roles\\|vars\\|tasks)/"
+      if path_regex and path_regex:match_str(path) then return "yaml.ansible" end
+
+      -- check for known ansible playbook text and if found, return yaml.ansible
+      local regex = vim.regex "hosts:\\|tasks:"
+      if regex and regex:match_str(content) then return "yaml.ansible" end
+
+      -- return yaml if nothing else
+      return "yaml"
+    end
     opts = require("astrocore").extend_tbl(opts, {
       rooter = {
         ignore = { servers = { "julials" } },
@@ -354,8 +370,8 @@ return {
         -- first key is the `augroup` (:h augroup)
         auto_spell = {
           {
-            event = { "FileType" },
-            desc = "Enable wrap and spell for text like documents",
+            event = "FileType",
+            desc = "Enable wrap and spell for text-like documents",
             pattern = {
               "asciidoc",
               "changelog",
@@ -393,7 +409,7 @@ return {
         },
         filechangedalert = {
           {
-            event = { "FileChangedShellPost" },
+            event = "FileChangedShellPost",
             pattern = "*",
             command = "echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None",
             desc = "Warn user about file changed on disk outside of neovim",
@@ -401,7 +417,7 @@ return {
         },
         highlightyank = {
           {
-            event = { "TextYankPost" },
+            event = "TextYankPost",
             pattern = "*",
             callback = function() vim.highlight.on_yank { higroup = "IncSearch", timeout = 650 } end,
             desc = "Highlight yanked text",
@@ -424,7 +440,7 @@ return {
         nvimformatoptions = {
           {
             -- events to trigger
-            event = { "FileType" },
+            event = "FileType",
             -- pattern = "*",
             -- the rest of the autocmd options (:h nvim_create_autocmd)
             desc = "Custom formatoptions",
@@ -498,7 +514,7 @@ return {
       },
       -- Configure core features of AstroNvim
       features = {
-        diagnostics = { virtual_lines = false },
+        -- diagnostics = { virtual_lines = false },
         -- large_buf = { size = 1024 * 256, lines = 10000 }, -- global limits for disabling features like treesitter
         -- autopairs = true, -- enable autopairs at start
         -- cmp = true, -- enable completion at start
@@ -511,17 +527,14 @@ return {
         -- https://gitlab.com/ranjithshegde/dotbare/-/blob/master/.config/nvim/filetype.lua
         -- see `:h vim.filetype.add` for usage
         extension = {
-          -- make = "make",
-          -- yaml = yaml_ft,
-          -- yml = yaml_ft,
           ["nf.test"] = "nextflow",
-          j2 = "jinja",
           cl = "opencl",
           dvc = "yaml",
           frag = "glsl",
           fs = "glsl",
           geom = "glsl",
           gs = "glsl",
+          j2 = "jinja",
           jinja = "jinja",
           jinja2 = "jinja",
           jl = "julia",
@@ -534,6 +547,8 @@ return {
           qmd = "markdown",
           vert = "glsl",
           vs = "glsl",
+          yaml = yaml_ft,
+          yml = yaml_ft,
         },
         filename = {
           [".codespellrc"] = "confini",

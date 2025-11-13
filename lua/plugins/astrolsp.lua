@@ -1,4 +1,4 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE-
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE-
 -- last FULL reviewed on: Mar 05, 2025
 
 -- AstroLSP allows you to customize the features in AstroNvim's LSP configuration engine
@@ -16,28 +16,23 @@ for server, cmd in pairs {
   awk_ls = "awk-language-server", -- AWK Language Server. Written in Nodejs
   basedpyright = "basedpyright", -- pyright fork with various type improvements. Requires python3 in PATH
   bashls = "bash-language-server", -- requires npm for installing via mason
+  basics_ls = "basics-language-server", -- Buffer, path, and snippet completions. Written in typescript
   biome = "biome", -- A toolchain for web projects. Biome offers formatter and linter, usable via CLI and LSP.
   clangd = "clangd", -- clangd understands your C++ code & adds smart features to your editor
-  docker_compose_language_service = "docker-compose-langserver", -- LSP for Docker Compose documents
-  dockerls = "docker-langserver", -- LSP for Dockerfiles
+  -- docker_language_server = "docker-language-server", -- Language server for Dockerfiles, Compose files, and Bake files.
   fortls = "fortls", -- Fortran Language Server
   gh_actions_ls = "gh-actions-language-server", -- Github Actions Language Server
   harper_ls = "harper-ls", -- The Grammar Checker for Developers. Written in Rust
   jinja_lsp = "jinja-lsp", -- Language Server for jinja. Written in Rust
   jsonls = "vscode-json-language-server", -- JSON LSP extracted from VSCode to be reused. Written in NodeJs
   julials = "julia", -- The Julia Programming Language language server
-  -- ltex = "ltex-ls", -- LSP for LanguageTool 🔍✔️ with support for LaTeX, Markdown, and others. Written in Kotlin
   lua_ls = "lua-language-server", -- Language server that offers lua support. (dependent on lua in PATH?)
   markdown_oxide = "markdown-oxide", -- Robust, Minimalist, Unbundled PKM for text-editor through the LSP
   marksman = "marksman", -- Write Markdown with code assist & intelligence. Written in F#
   neocmake = "neocmakelsp", -- Another cmake lsp. Written in Rust
-  -- prosemd_lsp = "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
-  pylyzer = "pylyzer", -- A fast, feature-rich static code analyzer & language server for Python. Written in Rust
-  remark_ls = "remark-language-server", -- An LSP to lint and format markdown files with remark. Written in Nodejs
   ruff = "ruff", -- An extremely fast Python linter and code formatter, written in Rust.
   rust_analyzer = "rust-analyzer", -- Modular compiler frontend for the Rust language. Written in Rust
   taplo = "taplo", -- TOML toolkit written in Rust
-  -- tombi = "tombi", -- TOML Formatter / Linter / Language Server
   terraformls = "terraform-ls", -- Terraform Language Server. Written in GoLang
   tinymist = "tinymist", -- Tinymist [ˈtaɪni mɪst] is an integrated language service for Typst [taɪpst].
   typos_lsp = "typos-lsp", -- Source code spell checker. Written in Rust
@@ -45,6 +40,15 @@ for server, cmd in pairs {
   vimls = "vim-language-server", -- VimScript language server, LSP for vim script. Written in Nodejs
   yamlls = "yaml-language-server", -- Language Server for YAML Files. Written in Nodejs
   zk = "zk", -- Plain text note-taking assistant. Written in GoLang
+  -- ltex = "ltex-ls", -- LSP for LanguageTool 🔍✔️ with support for LaTeX, Markdown, and others. Written in Kotlin
+  -- prosemd_lsp = "prosemd-lsp", -- An experimental proofreading & linting LSP for markdown files. Written in Rust
+  -- pyrefly = "pyrefly", -- Pyrefly, a faster Python type checker written in Rust
+  -- remark_ls = "remark-language-server", -- An LSP to lint and format markdown files with remark. Written in Nodejs
+  -- stylua = "stylua", -- An opinionated Lua code formatter. Written in Rust
+  -- textlsp = "textlsp", -- Language server for text spell and grammar check with various tools. Written in python
+  -- tombi = "tombi", -- TOML Formatter / Linter / Language Server
+  -- ty = "ty", -- An extremely fast Python type checker and language server, written in Rust.
+  -- zuban = "zuban", --  Python Type Checker / Language Server. Written in Rust
 } do
   if vim.fn.executable(cmd) == 1 then table.insert(servers, server) end
 end
@@ -55,8 +59,7 @@ return {
   ---@type AstroLSPOpts
   opts = {
     -- native_lsp_config = true,
-    -- Configure buffer local auto commands to add when attaching a language server
-    autocmds = {
+    autocmds = { -- Configure buffer local auto commands to add when attaching a language server
       no_insert_inlay_hints = {
         cond = vim.lsp.inlay_hint and "textDocument/inlayHint" or false,
         {
@@ -215,12 +218,12 @@ return {
         },
       },
       lua_ls = { settings = { Lua = { hint = { enable = true, arrayIndex = "Disable" } } } },
-      ltex = {
-        -- enabled = false,
-        -- enabled = { "bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave" },
-        language = "en-GB",
-        -- language = "fr",
-      },
+      -- ltex = {
+      --   -- enabled = false,
+      --   -- enabled = { "bibtex", "context", "context.tex", "html", "latex", "markdown", "org", "restructuredtext", "rsweave" },
+      --   language = "en-GB",
+      --   -- language = "fr",
+      -- },
       markdown_oxide = { capabilities = { workspace = { didChangeWatchedFiles = { dynamicRegistration = true } } } },
       metals = {
         settings = {
@@ -233,24 +236,24 @@ return {
           },
         },
       },
-      pyright = {
-        settings = {
-          python = {
-            analysis = {
-              typeCheckingMode = "strict",
-            },
-          },
-        },
-      },
-      pylsp = { -- https://gitlab.com/HiPhish/nvim-config/-/blob/master/plugin/lsp.lua
-        plugins = {
-          -- If this plugin does not work try running MyPy from the command line first
-          pylsp_mypy = {
-            enabled = true,
-            live_mode = true,
-          },
-        },
-      },
+      -- pyright = {
+      --   settings = {
+      --     python = {
+      --       analysis = {
+      --         typeCheckingMode = "strict",
+      --       },
+      --     },
+      --   },
+      -- },
+      -- pylsp = { -- https://gitlab.com/HiPhish/nvim-config/-/blob/master/plugin/lsp.lua
+      --   plugins = {
+      --     -- If this plugin does not work try running MyPy from the command line first
+      --     pylsp_mypy = {
+      --       enabled = true,
+      --       live_mode = true,
+      --     },
+      --   },
+      -- },
       ruff = {
         on_attach = function(client) client.server_capabilities.hoverProvider = false end,
       },
