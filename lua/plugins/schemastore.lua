@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 ---@type LazySpec
 return {
   "b0o/SchemaStore.nvim",

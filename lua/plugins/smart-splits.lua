@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 ---@type LazySpec
 return {
   "mrjones2014/smart-splits.nvim",

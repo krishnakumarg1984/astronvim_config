@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 ---@type LazySpec
 return {
   "andymass/vim-matchup", -- even better %. navigate and highlight matching words. modern matchit and matchparen. Supports both vim and neovim + tree-sitter.

@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 -- pick a location to cache colorscheme
 local colorscheme_cache = vim.fs.joinpath(vim.fn.stdpath "state" --[[@as string]], "last_colorscheme")
 

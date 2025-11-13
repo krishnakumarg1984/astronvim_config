@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 if not vim.g.vscode then return {} end
 
 vim.notify = require("vscode-neovim").notify

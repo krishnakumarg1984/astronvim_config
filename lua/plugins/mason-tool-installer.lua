@@ -1,6 +1,8 @@
 -- vim: ft=lua:foldmarker=(((,))):foldmethod=marker:
 -- Last FULL review on Mar 6, 2025
 
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 local mason_tools_to_install = {}
 
 -- lsp servers for general purpose editing. All these lsps are easy binary-available, but should be installed with mason only if they have not already been installed externally & made available in PATH

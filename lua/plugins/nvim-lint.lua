@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 local lint -- cache for the nvim-lint package
 ---@type LazySpec
 return {

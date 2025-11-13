@@ -1,3 +1,5 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+
 local prefix = "<Leader>s"
 local default_opts = { instanceName = "main" }
 local function grug_far_open(opts, selection)
