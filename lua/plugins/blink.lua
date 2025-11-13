@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   "Saghen/blink.cmp",
-  build = "cargo build --release",
+  build = "cargo build --release" if vim.fn.executble "cargo" == 1,
   opts = {
     keymap = {
       ["<Tab>"] = { "accept", "snippet_forward", "fallback" },
