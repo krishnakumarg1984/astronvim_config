@@ -2,15 +2,15 @@
 
 My personal user config for AstroVim
 
-## Installation
+## Installation on *nix systems
 
-### On *nix systems
 ```sh
-git clone https://github.com/krishnakumarg1984/astronvim_config ~/.config/astronvim
+\rm -rfv ~/{.config,.cache,.local/{share,state}}/{$NVIM_APPNAME,nvim}
+git clone https://github.com/krishnakumarg1984/astronvim_config ~/.config/nvim
 ```
 
 - Initialize AstroVim
 
 ```sh
-nvim --headless -c 'quitall' && \rm -rfv ~/.cache/astronvim
+nvim --headless -c 'quitall'
 ```

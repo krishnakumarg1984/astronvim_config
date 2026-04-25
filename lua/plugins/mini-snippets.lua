@@ -1,8 +1,8 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
 return {
-  "echasnovski/mini.snippets",
+  "nvim-mini/mini.snippets",
   dependencies = "rafamadriz/friendly-snippets",
   opts_extend = { "snippets" },
   opts = function(_, opts)
@@ -59,7 +59,7 @@ return {
       end,
     },
     {
-      "Saghen/blink.cmp",
+      "saghen/blink.cmp",
       dependencies = "echasnovski/mini.snippets",
       optional = true,
       opts = { snippets = { preset = "mini_snippets" } },

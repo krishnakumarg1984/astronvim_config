@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
 return {
@@ -13,13 +13,5 @@ return {
     completions = { lsp = { enabled = true } },
     pipe_table = { enabled = false },
     sign = { enabled = false },
-  },
-  specs = {
-    {
-      "catppuccin",
-      optional = true,
-      ---@type CatppuccinOptions
-      opts = { integrations = { render_markdown = true } },
-    },
   },
 }

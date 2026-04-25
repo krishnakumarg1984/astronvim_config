@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
 return {
@@ -6,7 +6,7 @@ return {
   lazy = true,
   specs = {
     {
-      "Saghen/blink.cmp",
+      "saghen/blink.cmp",
       optional = true,
       opts = {
         sources = {

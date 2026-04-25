@@ -6,7 +6,7 @@ return {
   lazy = true,
   specs = {
     {
-      "Saghen/blink.cmp",
+      "saghen/blink.cmp",
       opts = function(_, opts)
         local per_filetype = {}
         for _, filetype in ipairs { "gitcommit", "octo", "NeogitCommitMessage" } do

@@ -1,17 +1,17 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
 return {
   "NeogitOrg/neogit",
   cmd = "Neogit",
   opts = {
-    -- disable_builtin_notifications = true,
-    -- disable_signs = true,
-    -- mappings = {
-    --   status = {
-    --     ["<S-Tab>"] = "Close",
-    --   },
-    -- },
+    disable_builtin_notifications = true,
+    disable_signs = true,
+    mappings = {
+      status = {
+        ["<S-Tab>"] = "Close",
+      },
+    },
     integrations = {
       snacks = true,
     },
@@ -23,17 +23,11 @@ return {
         mappings = {
           n = {
             ["<Leader>gG"] = { function() vim.cmd.Neogit() end, desc = "Neogit" },
-            -- ["<S-Tab>"] = { function() vim.cmd.Neogit() end, desc = "Neogit" },
+            ["<S-Tab>"] = { function() vim.cmd.Neogit() end, desc = "Neogit" },
             ["<Leader>gn"] = { function() vim.cmd.Neogit "commit" end, desc = "New Git commit" },
           },
         },
       },
-    },
-    {
-      "catppuccin",
-      optional = true,
-      ---@type CatppuccinOptions
-      opts = { integrations = { neogit = true } },
     },
   },
 }

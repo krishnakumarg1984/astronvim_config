@@ -1,49 +1,19 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
 return {
   "catppuccin/nvim",
-  -- enabled = false,
   name = "catppuccin",
+  ---@module "catppuccin"
   ---@type CatppuccinOptions
   opts = {
     dim_inactive = { enabled = true, percentage = 0.25 },
+    float = { solid = true, transparent = false },
     default_integrations = false,
+    auto_integrations = true,
     integrations = {
-      aerial = true,
-      blink_cmp = true,
-      dap = true,
-      dap_ui = true,
-      gitsigns = true,
-      illuminate = { enabled = true, lsp = true },
-      indent_blankline = true,
-      markdown = true,
-      mason = true,
-      native_lsp = {
-        enabled = true,
-        virtual_text = {
-          errors = { "italic" },
-          hints = { "italic" },
-          warnings = { "italic" },
-          information = { "italic" },
-        },
-        underlines = {
-          errors = { "underline" },
-          hints = { "underline" },
-          warnings = { "underline" },
-          information = { "underline" },
-        },
-        inlay_hints = { background = false },
-      },
-      neotree = true,
-      notify = true,
-      semantic_tokens = true,
-      symbols_outline = true,
-      telescope = { enabled = true, style = "nvchad" },
-      treesitter = true,
-      ufo = true,
-      which_key = true,
-      window_picker = true,
+      illuminate = { lsp = true },
+      native_lsp = { inlay_hints = { background = false } },
     },
     custom_highlights = {
       -- disable italics  for treesitter highlights
@@ -55,14 +25,6 @@ return {
       ["@text.uri"] = { style = { "underline" } },
       ["@tag.attribute"] = { style = {} },
       ["@tag.attribute.tsx"] = { style = {} },
-    },
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    opts = {
-      -- signcolumn = false,
-      numhl = true,
-      current_line_blame_opts = { ignore_whitespace = true },
     },
   },
 }

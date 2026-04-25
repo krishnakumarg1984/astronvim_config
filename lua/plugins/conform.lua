@@ -1,4 +1,4 @@
--- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+-- if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
 return {
@@ -19,35 +19,17 @@ return {
     end
 
     opts.formatters_by_ft = {
-      -- ["*"] = function(bufnr)
-      --   return buf_utils.is_valid(bufnr) and buf_utils.has_filetype(bufnr) and { "injected" } or {}
-      -- end,
-      -- bash = { "beautysh", "shellharden", "shfmt" }, -- beautysh raises an import error (June 2025)
-      bash = { "shellharden", "shfmt" },
-      bib = { "bibtex-tidy", "tex-fmt" },
-      cls = { "tex-fmt" },
-      -- csh = { "beautysh" }, -- beautysh raises an import error (June 2025)
-      json = { "biome" },
-      jsonc = { "biome" },
-      json5 = { "fixjson" },
-      -- ksh = { "beautysh", "shfmt" },  -- beautysh raises an import error (June 2025)
-      ksh = { "shfmt" },
+      ["*"] = function(bufnr)
+        return buf_utils.is_valid(bufnr) and buf_utils.has_filetype(bufnr) and { "injected" } or {}
+      end,
+      packer = { "packer_fmt" },
+      toml = { "taplo" },
       lua = { "stylua" },
-      -- markdown = { "doctoc", "mdformat" }, -- doctoc, mdformat are too invasive in presenterm
-      markdown = { "mdsf" },
-      -- packer = { "packer_fmt" },
-      -- puppet = { "puppet-lint" },
-      python = { "black", "ruff" },
-      -- sh = { "beautysh", "shellharden", "shfmt" }, -- beautysh raises an import error (June 2025)
-      sh = { "shellharden", "shfmt" },
-      -- sql = { "sqlfluff" },
-      sty = { "tex-fmt" },
-      tex = { "latexindent", "tex-fmt" },
-      toml = { "taplo", "tombi" },
-      -- yaml = { "yamlfix" },
-      yaml = { "yamlfix" },
-      -- zsh = { "beautysh", "shfmt" }, -- beautysh raises an import error (June 2025)
-      zsh = { "shfmt" },
+      puppet = { "puppet-lint" },
+      rego = { "opa_fmt" },
+      sh = { "shfmt" },
+      sql = { "sqlfluff" },
+      python = { "isort", "black" },
       ["_"] = function(bufnr)
         if #vim.lsp.get_clients { bufnr = bufnr, method = "textDocument/formatting" } then
           return { lsp_format = "last" }
@@ -58,8 +40,29 @@ return {
       end,
     }
 
+    -- prettier filetypes
+    vim.tbl_map(function(ft) opts.formatters_by_ft[ft] = { "prettier" } end, {
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact",
+      "vue",
+      "css",
+      "scss",
+      "less",
+      "html",
+      "json",
+      "jsonc",
+      "yaml",
+      "yaml.ansible",
+      "yaml.cfn",
+      "markdown",
+      "markdown.mdx",
+      "graphql",
+      "handlebars",
+    })
+
     opts.formatters = {
-      mdslw = { prepend_args = { "--stdin-filepath", "$FILENAME" } },
       prettier = {
         options = {
           ft_parsers = {
@@ -126,25 +129,3 @@ return {
     },
   },
 }
-
--- prettier filetypes
--- vim.tbl_map(function(ft) opts.formatters_by_ft[ft] = { "prettier" } end, {
---   "javascript",
---   "javascriptreact",
---   "typescript",
---   "typescriptreact",
---   "vue",
---   "css",
---   "scss",
---   "less",
---   "html",
---   "json",
---   "jsonc",
---   "yaml",
---   "yaml.ansible",
---   "yaml.cfn",
---   "markdown",
---   "markdown.mdx",
---   "graphql",
---   "handlebars",
--- })

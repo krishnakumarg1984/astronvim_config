@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
 return {
@@ -6,10 +6,10 @@ return {
   lazy = true,
   specs = {
     {
-      "Saghen/blink.cmp",
+      "saghen/blink.cmp",
       optional = true,
       dependencies = "kdheepak/cmp-latex-symbols",
-      specs = { "Saghen/blink.compat", version = "*", lazy = true, opts = {} },
+      specs = { "saghen/blink.compat", version = "*", lazy = true, opts = {} },
       opts = {
         sources = {
           default = { "latex" },

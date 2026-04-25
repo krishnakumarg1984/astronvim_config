@@ -1,58 +1,19 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
-local lint -- cache for the nvim-lint package
 ---@type LazySpec
 return {
   "mfussenegger/nvim-lint",
   event = "User AstroFile",
   dependencies = { "williamboman/mason.nvim" },
-  specs = {
-    {
-      "AstroNvim/astrocore",
-      ---@param opts AstroCoreOpts
-      opts = function(_, opts)
-        local timer = (vim.uv or vim.loop).new_timer()
-        if not opts.autocmds then opts.autocmds = {} end
-        opts.autocmds.auto_lint = {
-          {
-            event = { "BufWritePost", "BufReadPost", "InsertLeave", "TextChanged" },
-            desc = "Automatically try linting with nvim-lint",
-            callback = function()
-              -- only run autocommand when nvim-lint is loaded
-              if lint then
-                timer:start(100, 0, function()
-                  timer:stop()
-                  vim.schedule(lint.try_lint)
-                end)
-              end
-            end,
-          },
-        }
-      end,
-    },
-  },
   opts = {
     linters_by_ft = {
-      ansible = { "ansible_lint" },
-      bash = { "shellcheck", "shellharden" },
-      cfn = { "cfn_lint" },
-      gitcommit = { "gitlint" },
-      json = { "biome", "jsonlint" },
-      jsonc = { "biome" },
-      ksh = { "shellcheck", "shellharden" },
       lua = { "selene" },
-      make = { "checkmake" },
-      markdown = { "alex", "markdownlint-cli2", "proselint", "pymarkdownlnt", "textlint", "write_good" },
       puppet = { "puppet-lint" },
-      python = { "bandit", "mypy", "pylama", "ruff", "sphinx-lint", "vulture" },
       rego = { "opa_check" },
-      sh = { "shellcheck", "shellharden" },
+      ansible = { "ansible_lint" },
+      cfn = { "cfn_lint" },
+      sh = { "shellcheck" },
       sql = { "sqlfluff" },
-      text = { "proselint", "textlint" },
-      toml = { "tombi" },
-      -- yaml = { "actionlint", "yamllint" },
-      yaml = { "yamllint" },
-      -- "yaml.ansible" = { "ansible-lint" },
     },
     linters = {
       cfn_lint = {
@@ -66,13 +27,12 @@ return {
     },
   },
   config = function(_, opts)
-    local astrocore = require "astrocore"
-    lint = require "lint"
-    lint.linters_by_ft = opts.linters_by_ft or {}
+    local lint, astrocore = require "lint", require "astrocore"
+
+    lint.linters_by_ft = opts.linters_by_ft
     for name, linter in pairs(opts.linters or {}) do
-      local base = lint.linters[name]
-      lint.linters[name] = (type(linter) == "table" and type(base) == "table")
-          and vim.tbl_deep_extend("force", base, linter)
+      lint.linters[name] = (type(linter) == "table" and type(lint.linters[name]) == "table")
+          and vim.tbl_deep_extend("force", lint.linters[name], linter)
         or linter
     end
 
@@ -92,11 +52,22 @@ return {
 
       local linters = valid_linters(ctx, orig(...))
       if not linters[1] then linters = valid_linters(ctx, lint.linters_by_ft["_"]) end -- fallback
-      astrocore.list_insert_unique(linters, valid_linters(ctx, lint.linters_by_ft["*"])) -- global
+      require("astrocore").list_insert_unique(linters, valid_linters(ctx, lint.linters_by_ft["*"])) -- global
 
       return linters
     end)
 
-    lint.try_lint()
+    lint.try_lint() -- start linter immediately
+    local timer = vim.loop.new_timer()
+    vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost", "InsertLeave", "TextChanged" }, {
+      group = vim.api.nvim_create_augroup("auto_lint", { clear = true }),
+      desc = "Automatically try linting",
+      callback = function()
+        timer:start(100, 0, function()
+          timer:stop()
+          vim.schedule(lint.try_lint)
+        end)
+      end,
+    })
   end,
 }

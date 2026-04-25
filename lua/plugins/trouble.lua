@@ -10,9 +10,8 @@ return {
     ---@type trouble.Config
     return {
       keys = {
-        ["<ESC>"] = "close",
-        ["q"] = "close",
-        ["<C-E>"] = "close",
+        ["<Esc>"] = "close",
+        ["<C-E>"] = "cancel",
       },
       icons = {
         indent = {
@@ -25,7 +24,7 @@ return {
     }
   end,
   specs = {
-    { "lewis6991/gitsigns.nvim", optional = true, opts = { trouble = true } },
+    { "lewis6991/gitsigns.nvim", opts = { trouble = true } },
     {
       "AstroNvim/astrocore",
       opts = function(_, opts)
@@ -36,26 +35,12 @@ return {
         maps.n[prefix .. "X"] =
           { "<Cmd>Trouble diagnostics toggle focus=true filter.buf=0<CR>", desc = "Buffer Diagnostics (Trouble)" }
 
-        -- if require("astrocore").is_available "todo-comments.nvim" then
-        --   maps.n[prefix .. "t"] =
-        --     { "<Cmd>Trouble todo toggle focus=true filter.buf=0<CR>", desc = "Todo buffer (Trouble)" }
-        --   maps.n[prefix .. "T"] = { "<Cmd>Trouble todo toggle focus=true<CR>", desc = "Todo (Trouble)" }
-        -- end
+        if require("astrocore").is_available "todo-comments.nvim" then
+          maps.n[prefix .. "t"] =
+            { "<Cmd>Trouble todo toggle focus=true filter.buf=0<CR>", desc = "Todo buffer (Trouble)" }
+          maps.n[prefix .. "T"] = { "<Cmd>Trouble todo toggle focus=true<CR>", desc = "Todo (Trouble)" }
+        end
       end,
-    },
-    {
-      "folke/edgy.nvim",
-      optional = true,
-      opts = function(_, opts)
-        if not opts.bottom then opts.bottom = {} end
-        table.insert(opts.bottom, "Trouble")
-      end,
-    },
-    {
-      "catppuccin",
-      optional = true,
-      ---@type CatppuccinOptions
-      opts = { integrations = { lsp_trouble = true } },
     },
   },
 }

@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 local prefix = "<Leader>s"
 local default_opts = { instanceName = "main" }
@@ -138,6 +138,5 @@ return {
         },
       },
     },
-    { "catppuccin", optional = true, opts = { integrations = { grug_far = true } } },
   },
 }

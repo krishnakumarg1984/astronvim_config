@@ -2,8 +2,10 @@ if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
 return {
-  "andymass/vim-matchup", -- even better %. navigate and highlight matching words. modern matchit and matchparen. Supports both vim and neovim + tree-sitter.
+  "andymass/vim-matchup",
+  event = "User AstroFile",
   dependencies = {
+    { "nvim-treesitter/nvim-treesitter", optional = true },
     {
       "AstroNvim/astrocore",
       opts = {
@@ -12,22 +14,8 @@ return {
             matchup_matchparen_nomode = "i",
             matchup_matchparen_deferred = 1,
             matchup_matchparen_offscreen = {},
-            -- matchup_matchparen_offscreen = { method = "popup", fullwidth = 1, highlight = "WinBar", syntax_hl = 1 },
-            -- matchup_override_vimtex = 1,
-            -- matchup_surround_enabled = true,
           },
         },
-      },
-    },
-  },
-  specs = {
-    {
-      "nvim-treesitter/nvim-treesitter",
-      dependencies = { "andymass/vim-matchup" },
-      ---@type TSConfig
-      ---@diagnostic disable-next-line: missing-fields
-      opts = {
-        matchup = { enable = true },
       },
     },
   },

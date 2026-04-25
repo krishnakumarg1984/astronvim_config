@@ -3,7 +3,6 @@ if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 ---@type LazySpec
 return {
   "linux-cultist/venv-selector.nvim",
-  branch = "regexp",
   cmd = "VenvSelect",
   opts = function()
     local opts = {

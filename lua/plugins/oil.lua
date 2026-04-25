@@ -1,4 +1,4 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
+if true then return end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
 ---@type LazySpec
 return {
@@ -156,7 +156,14 @@ return {
         },
         mappings = {
           n = {
-            ["<Tab>"] = { "<Cmd>Oil<CR>", desc = "Oil Filebrowser" },
+            ["<Tab>"] = {
+              function()
+                local sidekick_avail, sidekick = pcall(require, "sidekick")
+                if sidekick_avail and sidekick.nes_jump_or_apply() then return end
+                vim.cmd.Oil()
+              end,
+              desc = "Oil Filebrowser",
+            },
           },
         },
       },
@@ -172,9 +179,9 @@ return {
             condition = function(self) return status.condition.buffer_matches({ filetype = "^oil$" }, self.bufnr) end,
             status.component.separated_path {
               padding = { left = 2 },
-              max_depth = false,
+              max_depth = -1,
               suffix = false,
-              path_func = function(self) return require("oil").get_current_dir(self.bufnr) end,
+              path_func = function(self) return require("oil").get_current_dir(self.bufnr) or "" end,
             },
           })
         end
